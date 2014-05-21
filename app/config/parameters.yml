@@ -1,0 +1,24 @@
+parameters:
+
+    database_suffix: ''
+
+    database_driver: pdo_mysql
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: store%database_suffix%
+    database_user: root
+    database_password: root
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    locale: es
+    secret: ThisTokenIsNotSoSecretChangeIt
+
+    redis_cache_server:    redis://localhost/3
+    redis_sessions_server: redis://localhost/4
+
+    paymill_public_key:  1234566777
+    paymill_private_key: 1234567888
+
+    param_converters: false

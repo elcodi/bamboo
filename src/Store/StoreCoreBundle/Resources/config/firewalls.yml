@@ -1,0 +1,18 @@
+security:
+    firewalls:
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        user_secured_area:
+            context: user_secured_area
+            pattern: ^/
+            provider: abstract_user
+            anonymous: true
+            security: true
+            form_login:
+                login_path: store_login
+                check_path: store_login_check
+            logout:
+                path:   store_logout
+                target: store_homepage

@@ -1,0 +1,6 @@
+security:
+
+    access_control:
+        public_area:
+            path: /.*
+            roles: IS_AUTHENTICATED_ANONYMOUSLY

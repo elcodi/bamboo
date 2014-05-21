@@ -1,0 +1,15 @@
+store_core:
+    resource: "@StoreCoreBundle/Resources/config/routing.yml"
+
+store_login_check:
+    path:  /login_check
+
+core_referralprogram_bundle:
+    resource: "@ElcodiReferralProgramBundle/Resources/config/routing.yml"
+
+core_media_bundle:
+    resource: "@ElcodiMediaBundle/Resources/config/routing.yml"
+
+freepayment_payment_routes:
+    resource: .
+    type: freepayment

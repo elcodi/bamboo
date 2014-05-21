@@ -1,0 +1,88 @@
+{{ form_start(paymill_form, { attr: { class: "cart", 'id': 'paymill-form'}, action: url('paymill_execute'), method: "post" } ) }}
+<div class="cart-body">
+    {% include "StoreCartBundle:Cart/blocks:cart_steps.html.twig" with { step: 2 } %}
+    <ul class="cart-payment-credit-cards">
+        <li>
+            <i class="icon icon-cc-visa-md"></i>
+        </li>
+        <li>
+            <i class="icon icon-cc-mastercard-md"></i>
+        </li>
+        <li>
+            <i class="icon icon-cc-paypal-md"></i>
+        </li>
+    </ul>
+    <fieldset>
+        <div class="row">
+            <div class="col col-sm-12 col-lg-6">
+                <div class="form-group">
+                    <label class="label-lg label-required" for="card-number">{% trans %}_Card_number{% endtrans %}</label>
+                    <div class="row">
+                        <div class="col col-sm-3 col-lg-3">
+                            {{ form_widget(paymill_form.credit_card_1, { id: "cc-number-1", attr: { class: "form-control input-lg", placeholder: "_placeholder_Credit_card_number_1" } } ) }}
+                        </div>
+                        <div class="col col-sm-3 col-lg-3">
+                            {{ form_widget(paymill_form.credit_card_3, { id: "cc-number-3", attr: { class: "form-control input-lg", placeholder: "_placeholder_Credit_card_number_3" } } ) }}
+                        </div>
+                        <div class="col col-sm-3 col-lg-3">
+                            {{ form_widget(paymill_form.credit_card_2, { id: "cc-number-2", attr: { class: "form-control input-lg", placeholder: "_placeholder_Credit_card_number_2" } } ) }}
+                        </div>
+                        <div class="col col-sm-3 col-lg-3">
+                            {{ form_widget(paymill_form.credit_card_4, { id: "cc-number-4", attr: { class: "form-control input-lg", placeholder: "_placeholder_Credit_card_number_4" } } ) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-sm-12 col-lg-6">
+                <div class="form-group">
+                    <label class="label-lg label-required" for="card-owner">{% trans %}_Holder_name{% endtrans %}</label>
+                    {{ form_widget(paymill_form.credit_card_owner, { id: "cc-owner", attr: { class: "form-control", placeholder: "_placeholder_Full_name" } } ) }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-sm-12 col-lg-6">
+                <div class="form-group">
+                    <label class="label-lg label-required" for="card-expiry-month">{% trans %}_Expiry_date{% endtrans %}</label>
+                    <div class="row">
+                        <div class="col col-sm-6 col-lg-4">
+                            {{ form_widget(paymill_form.credit_card_expiration_month, { id: "cc-expiration-month", attr: { class: "form-control input-lg" } } ) }}
+                        </div>
+                        <div class="col col-sm-6 col-lg-4">
+                            {{ form_widget(paymill_form.credit_card_expiration_year, { id: "cc-expiration-year", attr: { class: "form-control input-lg" } } ) }}
+                        </div>
+                        <span id="card-expiry-error"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-sm-12 col-lg-6">
+                <div class="form-group">
+                    <label class="label-lg label-required" for="card-cvv">{% trans %}_Security_code{% endtrans %}</label>
+                    <div class="row">
+                        <div class="col col-sm-6 col-lg-3">
+                            {{ form_widget(paymill_form.credit_card_security, {  id: "cc-cvv", attr: {class: "form-control input-lg", placeholder: "_placeholder_Credit_card_cvv" } } ) }}
+                        </div>
+                        <div class="col col-sm-6 col-lg-9">
+                            <i class="icon icon-cvv"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{ form_widget(paymill_form.amount, { id: "total-int" } ) }}
+        {{ form_widget(paymill_form.api_token) }}
+        {{ form_widget(paymill_form._token) }}
+    </fieldset>
+    {% include "StoreCoreBundle:blocks:form_actions.html.twig" with
+        {
+            class:           'form-act-hr',
+            btn_quantity:    1,
+            btn_type_1:      1,
+            btn_url_1:       'submit',
+            btn_txt_1:       '_Continue',
+            info:            true
+        }
+    %}
+
+</div>
+{{ form_end(paymill_form, {render_rest : false}) }}

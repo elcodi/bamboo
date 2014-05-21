@@ -1,0 +1,81 @@
+<script type="text/javascript" src="https://bridge.paymill.com"></script>
+
+<script type="text/javascript">
+
+    var PAYMILL_PUBLIC_KEY = '{{ public_key }}';
+
+    /**
+     * Validation for paymill payment
+     */
+    $("#paymill-form").submit(function(){
+
+        $("#paymill_view_submit").attr("disabled", "disabled");
+
+        //join all cc numbers in one
+        var cc = $('#cc-number-1').val() + $('#cc-number-2').val() + $('#cc-number-3').val() + $('#cc-number-4').val();
+        var cardholder = $('#cc-owner').val();
+        var expiry_month = $('#cc-expiration-month').val();
+        var expiry_year = $('#cc-expiration-year').val();
+        var cvv = $('#cc-cvv').val();
+
+        var $paymill_payment_error = $('#paymill_payment_error');
+        $paymill_payment_error.html('');
+
+        var okCardNumber = paymill.validateCardNumber(cc);
+        if (!okCardNumber) {
+
+            $paymill_payment_error.append('<li>{{ '_Card_number_invalid'|trans }}</li>');
+        }
+
+        var okExpiy = paymill.validateExpiry(expiry_month, expiry_year);
+        if (!okExpiy) {
+
+            $paymill_payment_error.append('<li>{{ '_Card_expiry_invalid'|trans }}</li>');
+        }
+
+        var okCvc = paymill.validateCvc(cvv);
+        if (!okCvc) {
+
+            $paymill_payment_error.append('<li>{{ '_Card_cvc_invalid'|trans }}</li>');
+        }
+
+        if (okCardNumber && okExpiy && okCvc) {
+
+            paymill.createToken({
+                number: cc,
+                exp_month: expiry_month,
+                exp_year: expiry_year,
+                cvc: cvv,
+                amount_int: $('#total-int').val(),
+                currency: "{{ currency }}",
+                cardholder: cardholder
+            },  paymillResponseHandler);
+        } else {
+
+            $("#paymill_view_submit").removeAttr("disabled");
+        }
+
+        return false;
+    });
+
+
+    /**
+     * Handler for paymill response
+     */
+    function paymillResponseHandler(error, result) {
+
+        if (error) {
+
+            $('#paymill_payment_error').append('<li>'+error.apierror+'</li>').removeClass('hide');
+            $("#paymill_view_submit").removeAttr("disabled");
+
+
+        } else {
+
+            $('#paymill_payment_error').addClass('hide');
+            $('#paymill_view_api_token').val(result.token);
+            $("#paymill-form").get(0).submit();
+        }
+    }
+
+</script>

@@ -1,0 +1,8 @@
+parameters:
+
+    database_suffix: '_test'
+    database_driver: pdo_sqlite
+    database_name: %kernel.cache_dir%store_elcodi_test.db
+
+    redis_cache_server:    redis://localhost/5
+    redis_sessions_server: redis://localhost/6

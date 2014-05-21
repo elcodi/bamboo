@@ -1,0 +1,14 @@
+services:
+
+    #
+    # Event Listeners
+    #
+    elcodi.store.core.event_listeners.router:
+        class: %store.core.event_listeners.router.class%
+        scope: request
+        arguments:
+            entityManager: @doctrine.orm.entity_manager
+            router: @router
+            request: @request
+        tags:
+            - { name: kernel.event_listener, event: kernel.controller, method: onKernelController, priority: -4 }

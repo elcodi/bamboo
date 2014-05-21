@@ -1,0 +1,58 @@
+imports:
+    - { resource: config.yml }
+    - { resource: parameters_dev.yml }
+
+framework:
+    router:
+        resource: "%kernel.root_dir%/config/routing_dev.yml"
+        strict_requirements: true
+    profiler: { only_exceptions: false }
+
+web_profiler:
+    toolbar: true
+    intercept_redirects: true
+
+monolog:
+    handlers:
+        main:
+            type:   stream
+            path:   "%kernel.logs_dir%/%kernel.environment%.log"
+            level:  debug
+        console:
+            type:   console
+            bubble: false
+        # uncomment to get logging in your browser
+        # you may have to allow bigger header sizes in your Web server configuration
+        firephp:
+            type:   firephp
+            level:  info
+        #chromephp:
+        #    type:   chromephp
+        #    level:  info
+
+assetic:
+    use_controller: true
+
+swiftmailer:
+    disable_delivery: true
+
+doctrine:
+    dbal:
+        default_connection:   default
+        connections:
+            default:
+                driver:   "%database_driver%"
+                host:     "%database_host%"
+                port:     "%database_port%"
+                dbname:   "%database_name%"
+                user:     "%database_user%"
+                password: "%database_password%"
+                charset:  UTF8
+#            ps_migration:
+#                driver:   "%ps_database_driver%"
+#                host:     "%ps_database_host%"
+#                port:     "%ps_database_port%"
+#                dbname:   "%ps_database_name%"
+#                user:     "%ps_database_user%"
+#                password: "%ps_database_password%"
+#                charset:  UTF8
