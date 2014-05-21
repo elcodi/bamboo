@@ -1,0 +1,41 @@
+{% extends 'StoreCoreBundle::base.html.twig' %}
+
+{% block head_style %}
+    {% stylesheets 'bundles/storecore/css/*' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+    <!-- External Font assets -->
+    <link href="http://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet" type="text/css" />
+{% endblock head_style %}
+
+{% block body %}
+    {% block container %}
+    <div class="container">
+        {% block header %}{% endblock header %}
+        {% block content %}{% endblock content %}
+        {%  block footer %}
+            <div class="row footer">
+                <div class="span6">
+
+                    <ul class="footer-nav">
+                        <li><a href=""><img src="assets/flags/gb.png" alt="GBP" /></a> &nbsp; <a href=""><img src="{{ asset('bundles/storecore/flags/us.png') }}" alt="USD" /></a> &nbsp; <a href=""><img src="{{ asset('bundles/storecore/flags/europeanunion.png') }}" alt="Euro" /></a></li>
+                        <li><a href="content.html">Terms &amp; Conditions</a></li>
+                        <li><a href="content.html">Delivery Information</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+
+                </div>
+
+                <div class="span6 footer-right">
+
+                    <p>
+                        &copy; 686 Tees
+                    </p>
+
+                </div>
+            </div>
+        {% endblock footer %}
+    </div>
+    {% endblock container %}
+{% endblock body %}

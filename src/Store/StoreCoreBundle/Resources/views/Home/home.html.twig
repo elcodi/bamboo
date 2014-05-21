@@ -1,33 +1,8 @@
-<!DOCTYPE html>
-<html>
-	<head>
-	
-		<title>686 Tees</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta charset="UTF-8" />
-		
-        {#
-		<!-- Bootstrap -->
-		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
-		
-		<!-- Fonts -->
-		<link href="assets/css/entypo.css" rel="stylesheet" type="text/css" />
-		
-		<!-- Template CSS -->
-		<link href="assets/css/686tees.css" rel="stylesheet" type="text/css" />
-        #}
+{% extends 'StoreCoreBundle::layout.html.twig' %}
 
-        {% stylesheets 'bundles/storecore/css/*' filter='cssrewrite' %}
-            <link rel="stylesheet" href="{{ asset_url }}" />
-        {% endstylesheets %}
+{% block title %}686 Tees{% endblock %}
 
-        <!-- External Font assets -->
-        <link href="http://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet" type="text/css" />
-	</head>
-<body>
-
-<div class="container">
-	
+{% block header %}
 	<!-- Site Top -->
 	
 	<div class="row">
@@ -116,7 +91,8 @@
 		</div>
 		
 	</div>
-
+{% endblock header %}
+{% block content %}
 	<!-- Body -->
 	
 	<div class="row">
@@ -137,7 +113,7 @@
 		
 			<p class="title"><a href="product.html">Ibiza Lips</a></p>
 
-			<a href="product.html"><img class="image" src="{{ asset('bundles/storecore/img/product-1.jpg') }}" alt="Ibiza Lips" /></a>
+			<a href="{{ url('store_product_view', {'slug': 'testproduct', 'productId': 1}) }}"><img class="image" src="{{ asset('bundles/storecore/img/product-1.jpg') }}" alt="Ibiza Lips" /></a>
 			
 			<p class="price">
 				&pound; 9.99
@@ -217,33 +193,11 @@
 		
 	</div>
 	
-	<div class="row footer">
-	
-		<div class="span6">
-		
-			<ul class="footer-nav">
-				<li><a href=""><img src="assets/flags/gb.png" alt="GBP" /></a> &nbsp; <a href=""><img src="{{ asset('bundles/storecore/flags/us.png') }}" alt="USD" /></a> &nbsp; <a href=""><img src="{{ asset('bundles/storecore/flags/europeanunion.png') }}" alt="Euro" /></a></li>
-				<li><a href="content.html">Terms &amp; Conditions</a></li>
-				<li><a href="content.html">Delivery Information</a></li>
-				<li><a href="contact.html">Contact</a></li>
-			</ul>
-		
-		</div>
-	
-		<div class="span6 footer-right">
-		
-			<p>
-				&copy; 686 Tees
-			</p>
-		
-		</div>
-	
-	</div>
-	
-</div>
+{% endblock content %}
 
+{% block foot_script %}
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
+{% endblock foot_script %}
 
-</body>
-</html>
+

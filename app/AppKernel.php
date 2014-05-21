@@ -57,7 +57,8 @@ class AppKernel extends Kernel
             /**
              * Elcodi store bundles
              */
-            new \Store\StoreCoreBundle\StoreCoreBundle()
+            new \Store\StoreCoreBundle\StoreCoreBundle(),
+            new \Store\StoreProductBundle\StoreProductBundle()
 
         );
 

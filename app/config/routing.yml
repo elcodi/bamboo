@@ -1,6 +1,9 @@
 store_core:
     resource: "@StoreCoreBundle/Resources/config/routing.yml"
 
+store_product:
+    resource: "@StoreProductBundle/Resources/config/routing.yml"
+
 store_login_check:
     path:  /login_check
 

@@ -26,7 +26,7 @@
     </head>
     <body {% block body_id %}{% endblock body_id %} {% block body_class %}{% endblock body_class %}>
         <!--[if lt IE 8]>
-            {% include "StoreCoreBundle:blocks:flash_message.html.twig" with { flashMessage: '_You_are_using_an_outdated_browser', class: 'alert-info alert-fixed' } %}
+            {#% include "StoreCoreBundle:blocks:flash_message.html.twig" with { flashMessage: '_You_are_using_an_outdated_browser', class: 'alert-info alert-fixed' } %#}
         <![endif]-->
         {% block body %}{% endblock body %}
         {% block foot_script %}{% endblock foot_script %}
