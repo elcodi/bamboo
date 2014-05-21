@@ -36,18 +36,16 @@ class HomeController extends Controller
      */
     public function homeAction()
     {
-        /* Example of simple home page product listing:
-         *
-         * $productCollectionProvider = $this
-         *   ->container
-         *   ->get('store.product.services.product_collection_provider');
-         *
-         * $products = $productCollectionProvider->getHomeProducts($limit);
-         *
-         * return array(
-         *    'products'   => $products,
-         *);
-         */
+        $productCollectionProvider = $this
+            ->container
+            ->get('store.product.services.product_collection_provider');
+
+        $products = $productCollectionProvider->getHomeProducts();
+
+        return array(
+            'products' => $products,
+        );
+
 
         return [];
     }

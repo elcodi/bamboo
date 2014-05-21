@@ -6,108 +6,34 @@
 	<!-- Body -->
 	
 	<div class="row">
-		
 		<div class="span12">
-		
 			<h1>New Products</h1>
-		
 		</div>
-		
 	</div>
 
 	<!-- Product Listing -->
-	
-	<div class="row">
-		
-		<div class="span4 product-listing">
-		
-			<p class="title"><a href="product.html">Ibiza Lips</a></p>
+    {% for product in products %}
+        {% if loop.index0 % 3 == 0 %}<div class="row">{% endif %}
 
-			<a href="{{ url('store_product_view', {'slug': 'testproduct', 'productId': 1}) }}"><img class="image" src="{{ asset('bundles/storecore/img/product-1.jpg') }}" alt="Ibiza Lips" /></a>
-			
-			<p class="price">
-				&pound; 9.99
-				<a class="btn btn-addcart btn-primary" href="basket.html"><span class="entypo cart"></span></a><a class="btn btn-view btn-grey" href="product.html"><span class="entypo search"></span></a>
-			</p>
-			
-		</div>
-		
-		<div class="span4 product-listing">
-		
-			<p class="title"><a href="product.html">Ibiza Banana</a></p>
-			
-			<a href="product.html"><img class="image" src="{{ asset('bundles/storecore/img/product-2.jpg') }}" alt="Ibiza Banana" /></a>
-			
-			<p class="price">
-				&pound; 9.99
-				<a class="btn btn-addcart btn-primary" href="basket.html"><span class="entypo cart"></span></a><a class="btn btn-view btn-grey" href="product.html"><span class="entypo search"></span></a>
-			</p>
-			
-		</div>
-		
-		<div class="span4 product-listing">
-		
-			<p class="title"><a href="product.html">I Was There</a></p>
-			
-			<a href="product.html"><img class="image" src="{{ asset('bundles/storecore/img/product-3.jpg') }}" alt="I Was There" /></a>
-			
-			<p class="price">
-				&pound; 9.99
-				<a class="btn btn-addcart btn-primary" href="basket.html"><span class="entypo cart"></span></a><a class="btn btn-view btn-grey" href="product.html"><span class="entypo search"></span></a>
-			</p>
-			
-		</div>
-		
-	</div>
+        <div class="span4 product-listing">
+        <p class="title"><a href="{{ url('store_product_view', {'slug': product.slug, 'productId': product.id}) }}">{{ product.name }}</a></p>
 
-	<div class="row">
-		
-		<div class="span4 product-listing">
-		
-			<p class="title"><a href="product.html">A Life Style</a></p>
-			
-			<a href="product.html"><img class="image" src="{{ asset('bundles/storecore/img/product-4.jpg') }}" alt="A Life Style" /></a>
-			
-			<p class="price">
-				&pound; 9.99
-				<a class="btn btn-addcart btn-primary" href="basket.html"><span class="entypo cart"></span></a><a class="btn btn-view btn-grey" href="product.html"><span class="entypo search"></span></a>
-			</p>
-			
-		</div>
-		
-		<div class="span4 product-listing">
-		
-			<p class="title"><a href="product.html">Amnesia Community</a></p>
-			
-			<a href="product.html"><img class="image" src="{{ asset('bundles/storecore/img/product-5.jpg') }}" alt="Amnesia Community" /></a>
-			
-			<p class="price">
-				&pound; 9.99
-				<a class="btn btn-addcart btn-primary" href="basket.html"><span class="entypo cart"></span></a><a class="btn btn-view btn-grey" href="product.html"><span class="entypo search"></span></a>
-			</p>
-			
-		</div>
-		
-		<div class="span4 product-listing">
-		
-			<p class="title"><a href="product.html">Carnal</a></p>
-			
-			<a href="product.html"><img class="image" src="{{ asset('bundles/storecore/img/product-6.jpg') }}" alt="Carnal" /></a>
-			
-			<p class="price">
-				&pound; 9.99
-				<a class="btn btn-addcart btn-primary" href="basket.html"><span class="entypo cart"></span></a><a class="btn btn-view btn-grey" href="product.html"><span class="entypo search"></span></a>
-			</p>
-			
-		</div>
-		
-	</div>
+        <a href="{{ url('store_product_view', {'slug': product.slug, 'productId': product.id}) }}"><img class="image" src="{{ product.principalImage|resize({'width': 372, 'height': 291, 'type': 5}) }}" alt="{{ product.name }}" /></a>
+
+        <p class="price">
+            &pound; {{ product.price }}
+            <a class="btn btn-addcart btn-primary" href="basket.html"><span class="entypo cart"></span></a><a class="btn btn-view btn-grey" href="product.html"><span class="entypo search"></span></a>
+        </p>
+        </div>
+
+        {% if loop.index0 % 3 == 2 or loop.last %}</div>{% endif %}
+    {% endfor %}
 	
 {% endblock content %}
 
 {% block foot_script %}
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
+<script src="{{ asset('bundles/storecore/js/bootstrap.min.js') }}"></script>
 {% endblock foot_script %}
 
 

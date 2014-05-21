@@ -1,7 +1,11 @@
 {% extends 'StoreCoreBundle::base.html.twig' %}
 
 {% block head_style %}
-    {% stylesheets 'bundles/storecore/css/*' filter='cssrewrite' %}
+    {% stylesheets filter='cssrewrite' output="css/*.css"
+       'bundles/storecore/css/bootstrap.css'
+       'bundles/storecore/css/entypo.css'
+       'bundles/storecore/css/686tees.css'
+     %}
         <link rel="stylesheet" href="{{ asset_url }}" />
     {% endstylesheets %}
 
@@ -110,7 +114,7 @@
                 <div class="span6">
 
                     <ul class="footer-nav">
-                        <li><a href=""><img src="assets/flags/gb.png" alt="GBP" /></a> &nbsp; <a href=""><img src="{{ asset('bundles/storecore/flags/us.png') }}" alt="USD" /></a> &nbsp; <a href=""><img src="{{ asset('bundles/storecore/flags/europeanunion.png') }}" alt="Euro" /></a></li>
+                        <li><a href=""><img src="{{ asset('bundles/storecore/flags/gb.png') }}" alt="GBP" /></a> &nbsp; <a href=""><img src="{{ asset('bundles/storecore/flags/us.png') }}" alt="USD" /></a> &nbsp; <a href=""><img src="{{ asset('bundles/storecore/flags/europeanunion.png') }}" alt="Euro" /></a></li>
                         <li><a href="content.html">Terms &amp; Conditions</a></li>
                         <li><a href="content.html">Delivery Information</a></li>
                         <li><a href="contact.html">Contact</a></li>
