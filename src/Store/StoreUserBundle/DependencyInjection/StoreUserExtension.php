@@ -39,6 +39,7 @@ class StoreUserExtension extends AbstractExtension
         return [
             'classes',
             'controllers',
+            'formTypes',
         ];
     }
 }

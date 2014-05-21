@@ -8,24 +8,22 @@
 
             <h2>Login</h2>
 
-            <form action="" method="post">
+            {{ form_start(form) }}
 
                 <p>
-                    <label for="field-email">Email <span class="mand">*</span></label>
-                    <input type="text" id="field-email" name="field-email" />
+                    {{ form_row(form.username) }}
                 </p>
 
                 <p>
-                    <label for="field-password">Password <span class="mand">*</span></label>
-                    <input type="password" id="field-password" name="field-password" />
+                    {{ form_row(form.password) }}
                 </p>
 
                 <p class="buttons">
-                    <button class="btn btn-primary" type="submit">Continue</button>
-                    <a class="btn btn-blank" href="forgot.html">Forgot your password?</a>
+                    {{ form_row(form.send, {attr: {'class': 'btn btn-primary'}}) }}
+                    <a class="btn btn-blank" href="{{ url("store_password_remember") }}">Forgot your password?</a>
                 </p>
 
-            </form>
+            {{ form_end(form) }}
 
         </div>
 

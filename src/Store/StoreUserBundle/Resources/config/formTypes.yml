@@ -1,0 +1,20 @@
+services:
+
+    #
+    # Form Types
+    #
+    store.user.form_types.login:
+        class: %store.user.form_types.login.class%
+        arguments:
+            router: @router
+            customer_namespace: %elcodi.core.user.entity.customer.class%
+        tags:
+            - { name: form.type, alias: store_user_form_types_login }
+
+    store.user.form_types.register:
+        class: %store.user.form_types.register.class%
+        arguments:
+            router: @router
+            customer_namespace: %elcodi.core.user.entity.customer.class%
+        tags:
+            - { name: form.type, alias: store_user_form_types_register }

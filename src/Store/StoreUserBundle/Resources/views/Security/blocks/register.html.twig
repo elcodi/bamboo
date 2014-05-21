@@ -8,28 +8,33 @@
 
             <h2>Register</h2>
 
-            <form action="" method="post">
+            {{ form_start(form) }}
 
                 <p>
-                    <label for="field-email">Email <span class="mand">*</span></label>
-                    <input type="text" id="field-email" name="field-email" />
+                    {{ form_row(form.firstname) }}
                 </p>
 
                 <p>
-                    <label for="field-password">Password <span class="mand">*</span></label>
-                    <input type="password" id="field-password" name="field-password" />
+                    {{ form_row(form.lastname) }}
                 </p>
 
                 <p>
-                    <label for="field-passwordc">Confirm Password <span class="mand">*</span></label>
-                    <input type="password" id="field-passwordc" name="field-passwordc" />
+                    {{ form_row(form.username) }}
+                </p>
+
+                <p>
+                    {{ form_row(form.password.first) }}
+                </p>
+
+                <p>
+                    {{ form_row(form.password.second) }}
                 </p>
 
                 <p class="buttons">
-                    <button class="btn btn-primary" type="submit">Continue</button>
+                    {{ form_row(form.send, {attr: {'class': 'btn btn-primary'}}) }}
                 </p>
 
-            </form>
+            {{ form_end(form) }}
 
         </div>
 

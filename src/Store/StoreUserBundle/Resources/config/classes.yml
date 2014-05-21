@@ -1,1 +1,7 @@
 parameters:
+
+    #
+    # Form Types
+    #
+    store.user.form_types.login.class: Store\StoreUserBundle\Form\Type\LoginType
+    store.user.form_types.register.class: Store\StoreUserBundle\Form\Type\RegisterType
