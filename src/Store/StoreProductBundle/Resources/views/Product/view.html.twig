@@ -1,2 +1,121 @@
 {% extends 'StoreCoreBundle::layout.html.twig' %}
 
+{% block content %}
+
+    <div class="row">
+        <div class="span12">
+            <h1>{{ product.name }}</h1>
+        </div>
+    </div>
+
+    <!-- Product Detail -->
+
+    <div class="row">
+
+        <div class="span8">
+
+            <img class="product-image" src="assets/img/product-large.jpg" alt="Ibiza Lips"/>
+
+            <div class="row">
+
+                <div class="span2">
+                    <a href=""><img class="product-thumb" src="assets/img/product-1.jpg" alt="Ibiza Lips"/></a>
+                </div>
+
+                <div class="span2">
+                    <a href=""><img class="product-thumb" src="assets/img/product-1.jpg" alt="Ibiza Lips"/></a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="span4">
+
+            <div class="add-basket-box clearfix">
+
+                <img src="assets/img/product-1.jpg" alt="Ibiza Lips"/>
+
+                <p>Ibiza Lips<br/><span>&pound;9.99</span></p>
+
+                <a class="btn btn-addcart btn-primary" href="basket.html"><span class="entypo cart"></span></a>
+
+            </div>
+
+            <p>Sed venenatis mauris eros, sit amet dapibus turpis consectetur et. Etiam blandit erat libero. Integer a
+                elit a tortor scelerisque bibendum quis eget tortor. Donec vitae tempor tellus.</p>
+
+            <h3>Stock</h3>
+
+            <p>This item is in stock and ready to ship!</p>
+
+            <h3>Delivery</h3>
+
+            <p>Free Delivery is available on this item.</p>
+
+            <p>Usually dispatched within 24 hours.</p>
+
+        </div>
+
+    </div>
+
+    <!-- Related Products -->
+
+    <div class="row">
+
+        <div class="span12">
+
+            <h2>Related Products</h2>
+
+        </div>
+
+    </div>
+
+    <!-- Product Listing -->
+
+    <div class="row">
+
+        <div class="span4 product-listing">
+
+            <p class="title"><a href="product.html">A Life Style</a></p>
+
+            <a href="product.html"><img class="image" src="assets/img/product-4.jpg" alt="A Life Style"/></a>
+
+            <p class="price">
+                &pound; 9.99
+                <a class="btn btn-addcart btn-primary" href="basket.html"><span class="entypo cart"></span></a><a
+                        class="btn btn-view btn-grey" href="product.html"><span class="entypo search"></span></a>
+            </p>
+
+        </div>
+
+        <div class="span4 product-listing">
+
+            <p class="title"><a href="product.html">Amnesia Community</a></p>
+
+            <a href="product.html"><img class="image" src="assets/img/product-5.jpg" alt="Amnesia Community"/></a>
+
+            <p class="price">
+                &pound; 9.99
+                <a class="btn btn-addcart btn-primary" href="basket.html"><span class="entypo cart"></span></a><a
+                        class="btn btn-view btn-grey" href="product.html"><span class="entypo search"></span></a>
+            </p>
+
+        </div>
+
+        <div class="span4 product-listing">
+
+            <p class="title"><a href="product.html">Carnal</a></p>
+
+            <a href="product.html"><img class="image" src="assets/img/product-6.jpg" alt="Carnal"/></a>
+
+            <p class="price">
+                &pound; 9.99
+                <a class="btn btn-addcart btn-primary" href="basket.html"><span class="entypo cart"></span></a><a
+                        class="btn btn-view btn-grey" href="product.html"><span class="entypo search"></span></a>
+            </p>
+
+        </div>
+
+    </div>
+{% endblock content %}
