@@ -85,9 +85,9 @@
 
                     <ul class="main-nav clearfix">
 
-                        <li class="active"><a href="index.html">New</a></li>
-                        <li><a href="products-men.html">Men's</a></li>
-                        <li><a href="products-women.html">Women's</a></li>
+                        <li class="active"><a href="{{ url('store_homepage') }}">New</a></li>
+                        <li><a href="{{ url('store_category_products_list', {slug: 'men-shirt', categoryId: 70 }) }}">Men's</a></li>
+                        <li><a href="{{ url('store_category_products_list', {slug: 'women-shirt', categoryId: 69 }) }}">Women's</a></li>
 
                     </ul>
 
