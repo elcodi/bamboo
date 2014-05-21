@@ -1,0 +1,5 @@
+StoreUserBundle:
+    resource: "@StoreUserBundle/Controller"
+    type:     annotation
+    defaults:
+        - _controller: store.user.controller.user_controller

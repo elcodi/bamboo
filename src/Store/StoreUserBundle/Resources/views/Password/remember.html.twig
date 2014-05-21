@@ -1,0 +1,38 @@
+{% extends 'StoreCoreBundle::layout.html.twig' %}
+
+{% block title %}{% trans %}_root_title{% endtrans %} - {% trans %}_tagline_title{% endtrans %}{% endblock title %}
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="span6 offset3">
+
+                <div class="member-box">
+
+                    <h2>Reset Password</h2>
+
+                    <form action="" method="post">
+
+                        <p>
+                            <label for="field-email">Email <span class="mand">*</span></label>
+                            <input type="text" id="field-email" name="field-email" />
+                        </p>
+
+                        <p class="buttons">
+                            <button class="btn btn-primary" type="submit">Reset Password</button>
+                        </p>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock content %}

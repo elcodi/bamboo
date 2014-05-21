@@ -58,8 +58,8 @@ class AppKernel extends Kernel
              * Elcodi store bundles
              */
             new \Store\StoreCoreBundle\StoreCoreBundle(),
-            new \Store\StoreProductBundle\StoreProductBundle()
-
+            new \Store\StoreProductBundle\StoreProductBundle(),
+            new \Store\StoreUserBundle\StoreUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
