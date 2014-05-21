@@ -35,7 +35,6 @@ class AppKernel extends Kernel
             new \JMS\SerializerBundle\JMSSerializerBundle(),
             new \JMS\AopBundle\JMSAopBundle(),
             new \JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
-            new \Bc\Bundle\BootstrapBundle\BcBootstrapBundle(),
             new \Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
             new \Mmoreram\ControllerExtraBundle\ControllerExtraBundle(),
             //new \PaymentSuite\PaymentCoreBundle\PaymentCoreBundle(),

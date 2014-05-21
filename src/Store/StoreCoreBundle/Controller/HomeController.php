@@ -34,16 +34,21 @@ class HomeController extends Controller
      * )
      * @Template
      */
-    public function indexAction()
+    public function homeAction()
     {
-        $productCollectionProvider = $this
-            ->container
-            ->get('store.product.services.product_collection_provider');
+        /* Example of simple home page product listing:
+         *
+         * $productCollectionProvider = $this
+         *   ->container
+         *   ->get('store.product.services.product_collection_provider');
+         *
+         * $products = $productCollectionProvider->getHomeProducts($limit);
+         *
+         * return array(
+         *    'products'   => $products,
+         *);
+         */
 
-        $products = $productCollectionProvider->getHomeProducts($limit);
-
-        return array(
-            'products'   => $products,
-        );
+        return [];
     }
 }

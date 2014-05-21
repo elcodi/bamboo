@@ -6,16 +6,23 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta charset="UTF-8" />
 		
+        {#
 		<!-- Bootstrap -->
-		<link href="assets/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
 		
 		<!-- Fonts -->
-		<link href="http://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet" type="text/css" />
 		<link href="assets/css/entypo.css" rel="stylesheet" type="text/css" />
 		
 		<!-- Template CSS -->
 		<link href="assets/css/686tees.css" rel="stylesheet" type="text/css" />
-		
+        #}
+
+        {% stylesheets 'bundles/storecore/css/*' filter='cssrewrite' %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+
+        <!-- External Font assets -->
+        <link href="http://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet" type="text/css" />
 	</head>
 <body>
 
@@ -129,8 +136,8 @@
 		<div class="span4 product-listing">
 		
 			<p class="title"><a href="product.html">Ibiza Lips</a></p>
-			
-			<a href="product.html"><img class="image" src="assets/img/product-1.jpg" alt="Ibiza Lips" /></a>
+
+			<a href="product.html"><img class="image" src="{{ asset('bundles/storecore/img/product-1.jpg') }}" alt="Ibiza Lips" /></a>
 			
 			<p class="price">
 				&pound; 9.99
@@ -143,7 +150,7 @@
 		
 			<p class="title"><a href="product.html">Ibiza Banana</a></p>
 			
-			<a href="product.html"><img class="image" src="assets/img/product-2.jpg" alt="Ibiza Banana" /></a>
+			<a href="product.html"><img class="image" src="{{ asset('bundles/storecore/img/product-2.jpg') }}" alt="Ibiza Banana" /></a>
 			
 			<p class="price">
 				&pound; 9.99
@@ -156,7 +163,7 @@
 		
 			<p class="title"><a href="product.html">I Was There</a></p>
 			
-			<a href="product.html"><img class="image" src="assets/img/product-3.jpg" alt="I Was There" /></a>
+			<a href="product.html"><img class="image" src="{{ asset('bundles/storecore/img/product-3.jpg') }}" alt="I Was There" /></a>
 			
 			<p class="price">
 				&pound; 9.99
@@ -173,7 +180,7 @@
 		
 			<p class="title"><a href="product.html">A Life Style</a></p>
 			
-			<a href="product.html"><img class="image" src="assets/img/product-4.jpg" alt="A Life Style" /></a>
+			<a href="product.html"><img class="image" src="{{ asset('bundles/storecore/img/product-4.jpg') }}" alt="A Life Style" /></a>
 			
 			<p class="price">
 				&pound; 9.99
@@ -186,7 +193,7 @@
 		
 			<p class="title"><a href="product.html">Amnesia Community</a></p>
 			
-			<a href="product.html"><img class="image" src="assets/img/product-5.jpg" alt="Amnesia Community" /></a>
+			<a href="product.html"><img class="image" src="{{ asset('bundles/storecore/img/product-5.jpg') }}" alt="Amnesia Community" /></a>
 			
 			<p class="price">
 				&pound; 9.99
@@ -199,7 +206,7 @@
 		
 			<p class="title"><a href="product.html">Carnal</a></p>
 			
-			<a href="product.html"><img class="image" src="assets/img/product-6.jpg" alt="Carnal" /></a>
+			<a href="product.html"><img class="image" src="{{ asset('bundles/storecore/img/product-6.jpg') }}" alt="Carnal" /></a>
 			
 			<p class="price">
 				&pound; 9.99
@@ -215,7 +222,7 @@
 		<div class="span6">
 		
 			<ul class="footer-nav">
-				<li><a href=""><img src="assets/flags/gb.png" alt="GBP" /></a> &nbsp; <a href=""><img src="assets/flags/us.png" alt="USD" /></a> &nbsp; <a href=""><img src="assets/flags/europeanunion.png" alt="Euro" /></a></li>
+				<li><a href=""><img src="assets/flags/gb.png" alt="GBP" /></a> &nbsp; <a href=""><img src="{{ asset('bundles/storecore/flags/us.png') }}" alt="USD" /></a> &nbsp; <a href=""><img src="{{ asset('bundles/storecore/flags/europeanunion.png') }}" alt="Euro" /></a></li>
 				<li><a href="content.html">Terms &amp; Conditions</a></li>
 				<li><a href="content.html">Delivery Information</a></li>
 				<li><a href="contact.html">Contact</a></li>

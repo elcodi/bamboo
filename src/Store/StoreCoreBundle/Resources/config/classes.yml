@@ -1,7 +1,0 @@
-parameters:
-
-    #
-    # Event Listeners
-    #
-    store.core.event_listeners.router.class: Store\StoreCoreBundle\EventListener\RouterEventListener
-    store.core.event_listeners.email.class: Store\StoreCoreBundle\EventListener\EmailEventListener

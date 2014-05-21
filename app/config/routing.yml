@@ -10,6 +10,6 @@ core_referralprogram_bundle:
 core_media_bundle:
     resource: "@ElcodiMediaBundle/Resources/config/routing.yml"
 
-freepayment_payment_routes:
-    resource: .
-    type: freepayment
+#freepayment_payment_routes:
+#    resource: .
+#    type: freepayment
