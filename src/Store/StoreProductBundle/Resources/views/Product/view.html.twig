@@ -14,19 +14,19 @@
 
         <div class="span8">
 
-            <img class="product-image" src="assets/img/product-large.jpg" alt="Ibiza Lips"/>
+            <img class="product-image" src="{{ product.principalImage|resize({'width': 772, 'height': 604, 'type': 5}) }}" alt="{{ product.name }}"/>
 
-            <div class="row">
+            {% for image in product.images %}
 
-                <div class="span2">
-                    <a href=""><img class="product-thumb" src="assets/img/product-1.jpg" alt="Ibiza Lips"/></a>
-                </div>
+                {% if loop.index0 % 4 == 0 %}<div class="row">{% endif %}
 
                 <div class="span2">
-                    <a href=""><img class="product-thumb" src="assets/img/product-1.jpg" alt="Ibiza Lips"/></a>
+                    <a href=""><img class="product-thumb" src="{{ image|resize({'width': 172, 'height': 135, 'type': 5}) }}" alt="{{ product.name }}"/></a>
                 </div>
 
-            </div>
+                {% if loop.index0 % 4 == 3 or loop.last %}</div>{% endif %}
+
+            {% endfor %}
 
         </div>
 
@@ -34,9 +34,9 @@
 
             <div class="add-basket-box clearfix">
 
-                <img src="assets/img/product-1.jpg" alt="Ibiza Lips"/>
+                <img src="{{ product.principalImage|resize({'width': 60, 'height': 47, 'type': 5}) }}" alt="{{ product.name }}"/>
 
-                <p>Ibiza Lips<br/><span>&pound;9.99</span></p>
+                <p>{{ product.name }}<br/><span>&pound;9.99</span></p>
 
                 <a class="btn btn-addcart btn-primary" href="basket.html"><span class="entypo cart"></span></a>
 
@@ -73,49 +73,30 @@
 
     <!-- Product Listing -->
 
-    <div class="row">
+    {% for related_product in related_products %}
+
+    {% if loop.index0 % 3 == 0 %}<div class="row">{% endif %}
 
         <div class="span4 product-listing">
 
-            <p class="title"><a href="product.html">A Life Style</a></p>
+            <p class="title">
+                <a href="{{ url('store_product_view', {'slug': related_product.slug, 'productId': related_product.id}) }}">{{ related_product.name }}</a>
+            </p>
 
-            <a href="product.html"><img class="image" src="assets/img/product-4.jpg" alt="A Life Style"/></a>
+            <a href="{{ url('store_product_view', {'slug': related_product.slug, 'productId': related_product.id}) }}">
+                <img class="image" src="{{ related_product.principalImage|resize({'width': 372, 'height': 291, 'type': 5}) }}" alt="{{ related_product.name }}"/>
+            </a>
 
             <p class="price">
-                &pound; 9.99
+                &pound; {{ relatred_product.price }}
                 <a class="btn btn-addcart btn-primary" href="basket.html"><span class="entypo cart"></span></a><a
                         class="btn btn-view btn-grey" href="product.html"><span class="entypo search"></span></a>
             </p>
 
         </div>
 
-        <div class="span4 product-listing">
+    {% if loop.index0 % 3 == 2 or loop.last %}</div>{% endif %}
 
-            <p class="title"><a href="product.html">Amnesia Community</a></p>
+    {% endfor %}
 
-            <a href="product.html"><img class="image" src="assets/img/product-5.jpg" alt="Amnesia Community"/></a>
-
-            <p class="price">
-                &pound; 9.99
-                <a class="btn btn-addcart btn-primary" href="basket.html"><span class="entypo cart"></span></a><a
-                        class="btn btn-view btn-grey" href="product.html"><span class="entypo search"></span></a>
-            </p>
-
-        </div>
-
-        <div class="span4 product-listing">
-
-            <p class="title"><a href="product.html">Carnal</a></p>
-
-            <a href="product.html"><img class="image" src="assets/img/product-6.jpg" alt="Carnal"/></a>
-
-            <p class="price">
-                &pound; 9.99
-                <a class="btn btn-addcart btn-primary" href="basket.html"><span class="entypo cart"></span></a><a
-                        class="btn btn-view btn-grey" href="product.html"><span class="entypo search"></span></a>
-            </p>
-
-        </div>
-
-    </div>
 {% endblock content %}

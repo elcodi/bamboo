@@ -12,6 +12,7 @@
 
 namespace Store\StoreProductBundle\Controller;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Elcodi\ProductBundle\Entity\Interfaces\CategoryInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -55,8 +56,6 @@ class ProductController extends Controller
     public function viewAction($productId, $cartLineId = null)
     {
 
-        return [];
-
         $productEntityNamespace = $this
             ->container
             ->getParameter('elcodi.core.product.entity.product.class');
@@ -76,7 +75,9 @@ class ProductController extends Controller
                     'enabled' => true
                 ));
 
-            $relatedProducts = array_slice($relatedProducts, 0, 4);
+            $relatedProducts = new ArrayCollection($relatedProducts);
+
+            $relatedProducts->removeElement($product);
         }
 
         return array(
