@@ -1,0 +1,6 @@
+parameters:
+
+    #
+    # services
+    #
+    store.product.services.product_collection_provider.class: Store\StoreProductBundle\Services\ProductCollectionProvider
