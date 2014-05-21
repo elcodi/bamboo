@@ -47,11 +47,11 @@ class ProductData extends AbstractFixture
         /**
          * Ibiza Lips
          *
-         * @var ProductInterface $ibizaLipsProduct
+         * @var ProductInterface $product
          */
-        $ibizaLipsProduct = $imageFactory->create();
+        $product = $imageFactory->create();
         $womenCategory = $this->getReference('category-women');
-        $ibizaLipsProduct
+        $product
             ->setName('Ibiza Lips')
             ->setSlug('ibiza-lips')
             ->setDescription(
@@ -65,19 +65,19 @@ class ProductData extends AbstractFixture
             ->setPrice(9.99)
             ->setEnabled(true);
 
-        $manager->persist($ibizaLipsProduct);
-        $this->addReference('product-ibiza-lips', $ibizaLipsProduct);
+        $manager->persist($product);
+        $this->addReference('product-ibiza-lips', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystemAdapter, $fileTransformer, $ibizaLipsProduct, 'product-1.jpg');
+        $this->storeImage($manager, $imageManager, $filesystemAdapter, $fileTransformer, $product, 'product-1.jpg');
 
         /**
          * Ibiza Banana
          *
          * @var ProductInterface $ibizaLipsProduct
          */
-        $ibizaLipsProduct = $imageFactory->create();
+        $product = $imageFactory->create();
         $womenCategory = $this->getReference('category-women');
-        $ibizaLipsProduct
+        $product
             ->setName('Ibiza Banana')
             ->setSlug('ibiza-banana')
             ->setDescription(
@@ -91,19 +91,19 @@ class ProductData extends AbstractFixture
             ->setPrice(9.99)
             ->setEnabled(true);
 
-        $manager->persist($ibizaLipsProduct);
-        $this->addReference('product-ibiza-banana', $ibizaLipsProduct);
+        $manager->persist($product);
+        $this->addReference('product-ibiza-banana', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystemAdapter, $fileTransformer, $ibizaLipsProduct, 'product-2.jpg');
+        $this->storeImage($manager, $imageManager, $filesystemAdapter, $fileTransformer, $product, 'product-2.jpg');
 
         /**
          * I Was There
          *
          * @var ProductInterface $ibizaLipsProduct
          */
-        $ibizaLipsProduct = $imageFactory->create();
+        $product = $imageFactory->create();
         $womenCategory = $this->getReference('category-women');
-        $ibizaLipsProduct
+        $product
             ->setName('I Was There')
             ->setSlug('i-was-there')
             ->setDescription(
@@ -117,19 +117,19 @@ class ProductData extends AbstractFixture
             ->setPrice(9.99)
             ->setEnabled(true);
 
-        $manager->persist($ibizaLipsProduct);
-        $this->addReference('product-i-was-there', $ibizaLipsProduct);
+        $manager->persist($product);
+        $this->addReference('product-i-was-there', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystemAdapter, $fileTransformer, $ibizaLipsProduct, 'product-3.jpg');
+        $this->storeImage($manager, $imageManager, $filesystemAdapter, $fileTransformer, $product, 'product-3.jpg');
 
         /**
          * A Life Style
          *
          * @var ProductInterface $ibizaLipsProduct
          */
-        $ibizaLipsProduct = $imageFactory->create();
+        $product = $imageFactory->create();
         $womenCategory = $this->getReference('category-women');
-        $ibizaLipsProduct
+        $product
             ->setName('A Life Style')
             ->setSlug('a-life-style')
             ->setDescription(
@@ -143,19 +143,19 @@ class ProductData extends AbstractFixture
             ->setPrice(9.99)
             ->setEnabled(true);
 
-        $manager->persist($ibizaLipsProduct);
-        $this->addReference('product-a-life-style', $ibizaLipsProduct);
+        $manager->persist($product);
+        $this->addReference('product-a-life-style', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystemAdapter, $fileTransformer, $ibizaLipsProduct, 'product-4.jpg');
+        $this->storeImage($manager, $imageManager, $filesystemAdapter, $fileTransformer, $product, 'product-4.jpg');
 
         /**
          * Amnesia
          *
          * @var ProductInterface $ibizaLipsProduct
          */
-        $ibizaLipsProduct = $imageFactory->create();
+        $product = $imageFactory->create();
         $menCategory = $this->getReference('category-men');
-        $ibizaLipsProduct
+        $product
             ->setName('Amnesia')
             ->setSlug('amnesia')
             ->setDescription(
@@ -169,19 +169,19 @@ class ProductData extends AbstractFixture
             ->setPrice(9.99)
             ->setEnabled(true);
 
-        $manager->persist($ibizaLipsProduct);
-        $this->addReference('product-amnesia', $ibizaLipsProduct);
+        $manager->persist($product);
+        $this->addReference('product-amnesia', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystemAdapter, $fileTransformer, $ibizaLipsProduct, 'product-11.jpg');
+        $this->storeImage($manager, $imageManager, $filesystemAdapter, $fileTransformer, $product, 'product-11.jpg');
 
         /**
          * All night long
          *
          * @var ProductInterface $ibizaLipsProduct
          */
-        $ibizaLipsProduct = $imageFactory->create();
+        $product = $imageFactory->create();
         $menCategory = $this->getReference('category-men');
-        $ibizaLipsProduct
+        $product
             ->setName('All Night Long')
             ->setSlug('all-night-long')
             ->setDescription(
@@ -195,19 +195,19 @@ class ProductData extends AbstractFixture
             ->setPrice(9.99)
             ->setEnabled(true);
 
-        $manager->persist($ibizaLipsProduct);
-        $this->addReference('product-all-night-long', $ibizaLipsProduct);
+        $manager->persist($product);
+        $this->addReference('product-all-night-long', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystemAdapter, $fileTransformer, $ibizaLipsProduct, 'product-14.jpg');
+        $this->storeImage($manager, $imageManager, $filesystemAdapter, $fileTransformer, $product, 'product-14.jpg');
 
         /**
          * High Pyramid
          *
          * @var ProductInterface $ibizaLipsProduct
          */
-        $ibizaLipsProduct = $imageFactory->create();
+        $product = $imageFactory->create();
         $menCategory = $this->getReference('category-men');
-        $ibizaLipsProduct
+        $product
             ->setName('High Pyramid')
             ->setSlug('high-pyramid')
             ->setDescription(
@@ -221,19 +221,45 @@ class ProductData extends AbstractFixture
             ->setPrice(9.99)
             ->setEnabled(true);
 
-        $manager->persist($ibizaLipsProduct);
-        $this->addReference('product-high-pyramid', $ibizaLipsProduct);
+        $manager->persist($product);
+        $this->addReference('product-high-pyramid', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystemAdapter, $fileTransformer, $ibizaLipsProduct, 'product-16.jpg');
+        $this->storeImage($manager, $imageManager, $filesystemAdapter, $fileTransformer, $product, 'product-16.jpg');
+
+        /**
+         * Star Amnesia
+         *
+         * @var ProductInterface $ibizaLipsProduct
+         */
+        $product = $imageFactory->create();
+        $menCategory = $this->getReference('category-men');
+        $product
+            ->setName('Star Amnesia')
+            ->setSlug('star-amnesia')
+            ->setDescription(
+                'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.'
+            )
+            ->addCategory($menCategory)
+            ->setPrincipalCategory($menCategory)
+            ->setStock(30)
+            ->setPrice(9.99)
+            ->setEnabled(true);
+
+        $manager->persist($product);
+        $this->addReference('product-star-amnesia', $product);
+
+        $this->storeImage($manager, $imageManager, $filesystemAdapter, $fileTransformer, $product, 'product-17.jpg');
 
         /**
          * Ibiza 4 Ever
          *
          * @var ProductInterface $ibizaLipsProduct
          */
-        $ibizaLipsProduct = $imageFactory->create();
+        $product = $imageFactory->create();
         $menCategory = $this->getReference('category-men');
-        $ibizaLipsProduct
+        $product
             ->setName('Ibiza 4 Ever')
             ->setSlug('ibiza-4-ever')
             ->setDescription(
@@ -247,10 +273,10 @@ class ProductData extends AbstractFixture
             ->setPrice(9.99)
             ->setEnabled(true);
 
-        $manager->persist($ibizaLipsProduct);
-        $this->addReference('product-ibiza-4-ever', $ibizaLipsProduct);
+        $manager->persist($product);
+        $this->addReference('product-ibiza-4-ever', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystemAdapter, $fileTransformer, $ibizaLipsProduct, 'product-18.jpg');
+        $this->storeImage($manager, $imageManager, $filesystemAdapter, $fileTransformer, $product, 'product-18.jpg');
 
 
 
