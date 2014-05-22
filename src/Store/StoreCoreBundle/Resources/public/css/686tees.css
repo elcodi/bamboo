@@ -87,7 +87,11 @@ a:hover {
 	font-size: 24px;
 }
 
-.logo span {
+.logo a {
+    color: #999;
+}
+
+.logo a .heart {
 	color: #ff884c;
 	font-size: 4.5em;
 	position: relative;

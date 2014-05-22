@@ -1,0 +1,73 @@
+<!-- Site Top -->
+
+{% render url('store_user_top') %}
+
+<!-- Header -->
+
+<div class="row">
+
+    <div class="span4">
+
+        <p class="logo">
+            <a href="{{ url('store_homepage') }}">
+                <span class="entypo heart"></span> Vamboo
+            </a>
+        </p>
+
+    </div>
+
+    <div class="span4">
+
+        <p class="strapline">
+            When excellence meets bauty<br />
+            <span>Becomes something unstoppable</span>
+        </p>
+
+    </div>
+
+    <div class="span4">
+
+        <div class="row">
+
+            <div class="span2 offset2 mini-basket">
+
+                <p class="mini-basket-title"><a href="basket.html"><span class="entypo cart"></span> Basket</a></p>
+
+                <div class="row">
+
+                    <div class="span1">
+                        <p class="mini-basket-summary">
+                            Price<br />
+                            <span>&pound;0.00</span>
+                        </p>
+                    </div>
+
+                    <div class="span1">
+                        <p class="mini-basket-summary">
+                            Items<br />
+                            <span>0</span>
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Menu -->
+
+<div class="row">
+    <div class="span12">
+        <ul class="main-nav clearfix">
+
+            <li class="active"><a href="{{ url('store_homepage') }}">New</a></li>
+            {% render url('store_categories_nav') %}
+
+        </ul>
+    </div>
+</div>
