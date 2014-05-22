@@ -1,13 +1,20 @@
 <?php
 
 /**
- * This file is part of the Controller Extra Bundle
+ * This file is part of the Elcodi package.
  *
- * @author Marc Morera <yuhu@mmoreram.com>
- * @since 2013
+ * Copyright (c) 2014 Elcodi.com
+ *
+ * This distribution is just a basic e-commerce implementation based on
+ * Elcodi project.
+ *
+ * Feel free to edit it, and make your own
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ *
+ * @author ##author_placeholder
+ * @version ##version_placeholder##
  */
 
 namespace Store\StoreProductBundle\Controller;
@@ -17,10 +24,8 @@ use Elcodi\ProductBundle\Entity\Interfaces\CategoryInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 use Elcodi\ProductBundle\Entity\Product;
-use Elcodi\CartBundle\Entity\CartLine;
 
 /**
  * Product related actions
@@ -34,7 +39,7 @@ class ProductController extends Controller
     /**
      * Product view
      *
-     * @param int $productId Product id
+     * @param int  $productId  Product id
      * @param null $cartLineId
      *
      * @return array

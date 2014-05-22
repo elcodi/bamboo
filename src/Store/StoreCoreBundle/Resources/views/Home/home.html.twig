@@ -4,7 +4,7 @@
 
 {% block content %}
 	<!-- Body -->
-	
+
 	<div class="row">
 		<div class="span12">
 			<h1>{% block content_title %}New Products{% endblock %}</h1>
@@ -29,12 +29,10 @@
 
         {% if loop.index0 % 3 == 2 or loop.last %}</div>{% endif %}
     {% endfor %}
-	
+
 {% endblock content %}
 
 {% block foot_script %}
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="{{ asset('bundles/storecore/js/bootstrap.min.js') }}"></script>
 {% endblock foot_script %}
-
-
