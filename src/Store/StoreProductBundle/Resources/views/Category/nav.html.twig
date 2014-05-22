@@ -1,0 +1,3 @@
+{% for category in category_tree %}
+    <li><a href="{{ url('store_category_products_list', {slug: category.entity.slug, categoryId: category.entity.id }) }}">{{ category.entity.name }}</a></li>
+{% endfor %}
