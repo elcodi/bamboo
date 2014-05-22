@@ -1,3 +1,6 @@
-{% for category in category_tree %}
-    <li><a href="{{ url('store_category_products_list', {slug: category.entity.slug, categoryId: category.entity.id }) }}">{{ category.entity.name }}</a></li>
+{# currentCategoryId is a request parameter read from the master request.
+ # If it is set, this subrequest is child of a CategoryController:listAction #}
+<li {% if not currentCategoryId %}class="active"{% endif %}><a href="{{ url('store_homepage') }}">New</a></li>
+{% for category in categoryTree %}
+    <li {% if currentCategoryId == category.entity.id %}class="active"{% endif %}><a href="{{ url('store_category_products_list', {slug: category.entity.slug, categoryId: category.entity.id }) }}">{{ category.entity.name }}</a></li>
 {% endfor %}
