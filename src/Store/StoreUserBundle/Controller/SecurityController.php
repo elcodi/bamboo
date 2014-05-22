@@ -54,7 +54,7 @@ class SecurityController extends Controller
 
         if ($customer instanceof CustomerInterface) {
 
-            $this->redirect('store_home');
+            $this->redirect('store_homepage');
         }
 
         return [
@@ -98,8 +98,6 @@ class SecurityController extends Controller
         $isValid
     )
     {
-        $registerFormView->
-        var_dump($customer);die(var_dump($isValid));
         if ($isValid) {
 
             $this
@@ -111,7 +109,7 @@ class SecurityController extends Controller
                 ->get('elcodi.core.user.services.customer_manager')
                 ->register($customer, 'secured_area');
 
-            $this->redirect('store_home');
+            return $this->redirect('store_homepage');
         }
 
         return [
