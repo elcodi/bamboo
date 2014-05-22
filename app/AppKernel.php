@@ -60,6 +60,7 @@ class AppKernel extends Kernel
             new \Store\StoreCoreBundle\StoreCoreBundle(),
             new \Store\StoreProductBundle\StoreProductBundle(),
             new \Store\StoreUserBundle\StoreUserBundle(),
+            new \Store\StoreCartBundle\StoreCartBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

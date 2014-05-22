@@ -31,24 +31,10 @@
 
             <div class="span2 offset2 mini-basket">
 
-                <p class="mini-basket-title"><a href="basket.html"><span class="entypo cart"></span> Basket</a></p>
+                <p class="mini-basket-title"><a href="{{ url('cart_view') }}"><span class="entypo cart"></span> Basket</a></p>
 
                 <div class="row">
-
-                    <div class="span1">
-                        <p class="mini-basket-summary">
-                            Price<br />
-                            <span>&pound;0.00</span>
-                        </p>
-                    </div>
-
-                    <div class="span1">
-                        <p class="mini-basket-summary">
-                            Items<br />
-                            <span>0</span>
-                        </p>
-                    </div>
-
+                    {% render url('store_cart_nav') %}
                 </div>
 
             </div>

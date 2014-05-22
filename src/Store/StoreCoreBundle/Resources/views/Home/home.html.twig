@@ -22,7 +22,7 @@
 
         <p class="price">
             &pound; {{ product.price }}
-            <a class="btn btn-addcart btn-primary" href="basket.html"><span class="entypo cart"></span></a>
+            <a class="btn btn-addcart btn-primary" href="{{ url('cart_add_product_checkout', { productId: product.id }) }}"><span class="entypo cart"></span></a>
             <a class="btn btn-view btn-grey" href="{{ url('store_product_view', {'slug': product.slug, 'productId': product.id}) }}"><span class="entypo search"></span></a>
         </p>
         </div>

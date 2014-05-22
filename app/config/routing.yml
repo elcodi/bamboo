@@ -7,6 +7,9 @@ store_product:
 store_user:
     resource: "@StoreUserBundle/Resources/config/routing.yml"
 
+store_cart:
+    resource: "@StoreCartBundle/Resources/config/routing.yml"
+
 store_login_check:
     path:  /login_check
 

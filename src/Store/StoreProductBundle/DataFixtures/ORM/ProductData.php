@@ -40,6 +40,18 @@ class ProductData extends AbstractFixture
      */
     public function load(ObjectManager $manager)
     {
+
+        /**
+         * GPB Currency
+         */
+        $currency = $this->container->get('elcodi.core.currency.factory.currency')->create();
+
+        $currency->setSymbol('£');
+        $currency->setIso('GBP');
+        $currency->setEnabled(true);
+
+        $manager->persist($currency);
+
         /**
          * @var ImageManager $imageManager
          * @var Adapter $filesystemAdapter
