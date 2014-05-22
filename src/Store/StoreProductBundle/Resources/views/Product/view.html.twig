@@ -80,9 +80,9 @@
                 <img class="image" src="{{ related_product.principalImage|resize({'width': 372, 'height': 291, 'type': 5}) }}" alt="{{ related_product.name }}"/>
             </a>
             <p class="price">
-                &pound; {{ relatred_product.price }}
+                &pound; {{ related_product.price }}
                 <a class="btn btn-addcart btn-primary" href="basket.html"><span class="entypo cart"></span></a><a
-                        class="btn btn-view btn-grey" href="product.html"><span class="entypo search"></span></a>
+                        class="btn btn-view btn-grey" href="{{ url('store_product_view', {'slug': related_product.slug, 'productId': related_product.id}) }}"><span class="entypo search"></span></a>
             </p>
         </div>
 
