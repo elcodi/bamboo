@@ -3,12 +3,12 @@
     <div class="span12">
 
         <ul class="top-nav">
-            {%  if isCustomer %}
+            {%  if not isCustomer %}
                 <li><a href="{{ url("store_login") }}">Login</a></li>
                 <li><a href="{{ url("store_register") }}">Registration</a></li>
                 <li><a href="{{ url("store_password_remember") }}">Lost your password?</a></li>
             {% else %}
-                <li><a href="">Hello {{ customer.name }}</a></li>
+                <li><a href="">Hello {{ customer.firstname }}</a></li>
                 <li><a href="">Logout</a></li>
             {% endif %}
 

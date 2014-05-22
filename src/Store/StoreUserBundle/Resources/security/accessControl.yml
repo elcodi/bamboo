@@ -1,6 +1,10 @@
 security:
 
     access_control:
+        customer_area:
+            path: /user/.*
+            roles: ROLE_CUSTOMER
+
         public_area:
             path: /.*
             roles: IS_AUTHENTICATED_ANONYMOUSLY

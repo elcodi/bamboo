@@ -40,8 +40,7 @@ class UserController extends Controller
         $customer = $this
             ->get('elcodi.core.user.wrapper.customer_wrapper')
             ->getCustomer();
-
-        $isCustomer = $customer instanceof CustomerInterface;
+        $isCustomer = ($customer instanceof CustomerInterface);
 
         return [
             'customer'  =>  $customer,

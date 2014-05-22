@@ -5,6 +5,6 @@ jms_security_extra:
 imports:
     - { resource: @ElcodiUserBundle/Resources/security/encoders.yml }
     - { resource: @ElcodiUserBundle/Resources/security/providers.yml }
-    - { resource: @StoreCoreBundle/Resources/config/firewalls.yml }
-    - { resource: @StoreCoreBundle/Resources/config/accessControl.yml }
-    - { resource: @StoreCoreBundle/Resources/config/roles.yml }
+    - { resource: @StoreUserBundle/Resources/security/firewalls.yml }
+    - { resource: @StoreUserBundle/Resources/security/accessControl.yml }
+    - { resource: @StoreUserBundle/Resources/security/roles.yml }

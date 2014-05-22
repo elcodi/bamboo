@@ -4,10 +4,10 @@ security:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        user_secured_area:
-            context: user_secured_area
+        customer_secured_area:
+            context: customer_secured_area
             pattern: ^/
-            provider: abstract_user
+            provider: customer
             anonymous: true
             security: true
             form_login:

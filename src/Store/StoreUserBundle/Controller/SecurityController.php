@@ -107,9 +107,9 @@ class SecurityController extends Controller
 
             $this
                 ->get('elcodi.core.user.services.customer_manager')
-                ->register($customer, 'secured_area');
+                ->register($customer, 'customer_secured_area');
 
-            return $this->redirect('store_homepage');
+            return $this->redirect($this->generateUrl('store_homepage'));
         }
 
         return [
