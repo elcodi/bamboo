@@ -95,7 +95,7 @@ class RegisterType extends AbstractType
                 'required' => true,
                 'label' => 'Lastname',
             ))
-            ->add('username', 'email', array(
+            ->add('username', 'text', array(
                 'required' => true,
                 'label' =>  'Username'
             ))
