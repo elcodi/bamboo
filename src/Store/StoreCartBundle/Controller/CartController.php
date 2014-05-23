@@ -162,6 +162,43 @@ class CartController extends Controller
     }
 
     /**
+     * Empty Cart
+     *
+     * @param Request $request Request
+     * @param Boolean  $checkout Go to checkout page
+     *
+     * @return RedirectResponse
+     *
+     * @Route(
+     *      path = "/empty",
+     *      name="cart_empty",
+     *      defaults = {
+     *          "checkout": false
+     *      }
+     * )
+     * @Route(
+     *      path = "/empty/checkout",
+     *      name = "cart_empty_checkout",
+     *      defaults={
+     *          "checkout": true
+     *      }
+     * )
+     */
+    public function emptyCartAction(Request $request, $checkout)
+    {
+        /** @var Cart $cart */
+        $customer = $this->get('elcodi.core.user.wrapper.customer_wrapper')->getCustomer();
+        $cart = $this->get('elcodi.core.cart.services.cart_manager')->loadCustomerCart($customer);
+
+        $this
+            ->get('elcodi.core.cart.services.cart_manager')
+            ->emptyLines($cart);
+
+
+        return $this->doRedirection($checkout, $request);
+    }
+
+    /**
      * Sets CartLine quantity value
      *
      * @param Request  $request
