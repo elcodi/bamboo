@@ -71,13 +71,12 @@ class CartController extends Controller
     public function cartAction()
     {
         /**
-         * @var CustomerInterface $customer
-         * @var CartInterface     $cart
+         * @var CartInterface $cart
          */
-        $customer = $this->get('elcodi.core.user.wrapper.customer_wrapper')->getCustomer();
-        $cart = $this
-            ->get('elcodi.core.cart.services.cart_manager')
-            ->loadCustomerCart($customer);
+        $cartId = $this->get('session')->get($this->container->getParameter('elcodi.core.cart.session_field_name'));
+        $cart = $cartId ?
+            $this->getDoctrine()->getRepository('ElcodiCartBundle:Cart')->find($cartId) :
+            $this->get('elcodi.core.cart.factory.cart')->create();
 
         return [
             'cart'  =>  $cart
@@ -127,8 +126,10 @@ class CartController extends Controller
             $quantity = 1;
         }
 
-        $customer = $this->get('elcodi.core.user.wrapper.customer_wrapper')->getCustomer();
-        $cart = $this->get('elcodi.core.cart.services.cart_manager')->loadCustomerCart($customer);
+        $cartId = $this->get('session')->get($this->container->getParameter('elcodi.core.cart.session_field_name'));
+        $cart = $cartId ?
+            $this->getDoctrine()->getRepository('ElcodiCartBundle:Cart')->find($cartId) :
+            $this->get('elcodi.core.cart.services.cart_manager')->loadCart();
 
         try {
 
@@ -187,8 +188,10 @@ class CartController extends Controller
     public function emptyCartAction(Request $request, $checkout)
     {
         /** @var Cart $cart */
-        $customer = $this->get('elcodi.core.user.wrapper.customer_wrapper')->getCustomer();
-        $cart = $this->get('elcodi.core.cart.services.cart_manager')->loadCustomerCart($customer);
+        $cartId = $this->get('session')->get($this->container->getParameter('elcodi.core.cart.session_field_name'));
+        $cart = $cartId ?
+            $this->getDoctrine()->getRepository('ElcodiCartBundle:Cart')->find($cartId) :
+            $this->get('elcodi.core.cart.factory.cart')->create();
 
         $this
             ->get('elcodi.core.cart.services.cart_manager')
@@ -318,10 +321,13 @@ class CartController extends Controller
      */
     public function navAction()
     {
-        $customer = $this->get('elcodi.core.user.wrapper.customer_wrapper')->getCustomer();
+        $cartId = $this->get('session')->get($this->container->getParameter('elcodi.core.cart.session_field_name'));
+        $cart = $cartId ?
+            $this->getDoctrine()->getRepository('ElcodiCartBundle:Cart')->find($cartId) :
+            $this->get('elcodi.core.cart.factory.cart')->create();
 
         return array(
-            'cart' => $cart = $this->get('elcodi.core.cart.services.cart_manager')->loadCustomerCart($customer),
+            'cart' => $cart
         );
     }
 
