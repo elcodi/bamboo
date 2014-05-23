@@ -3,7 +3,7 @@
     <div class="span12">
 
         <ul class="top-nav">
-            {%  if not isCustomer %}
+            {%  if not isLogged %}
                 <li><a href="{{ url("store_login") }}">Login</a></li>
                 <li><a href="{{ url("store_register") }}">Registration</a></li>
                 <li><a href="{{ url("store_password_remember") }}">Lost your password?</a></li>

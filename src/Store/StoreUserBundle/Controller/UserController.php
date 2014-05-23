@@ -46,11 +46,12 @@ class UserController extends Controller
         $customer = $this
             ->get('elcodi.core.user.wrapper.customer_wrapper')
             ->getCustomer();
-        $isCustomer = ($customer instanceof CustomerInterface);
+
+        $isLogged = $this->get('security.context')->isGranted('ROLE_CUSTOMER');
 
         return [
-            'customer'  =>  $customer,
-            'isCustomer' => $isCustomer
+            'customer' => $customer,
+            'isLogged' => $isLogged
         ];
     }
 }
