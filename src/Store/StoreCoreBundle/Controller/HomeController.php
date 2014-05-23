@@ -52,7 +52,5 @@ class HomeController extends Controller
         return array(
             'products' => $products,
         );
-
-        return [];
     }
 }

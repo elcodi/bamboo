@@ -1,0 +1,101 @@
+{% extends 'StoreCoreBundle::layout.html.twig' %}
+
+{% block title %}{% trans %}_root_title{% endtrans %} - {% trans %}_tagline_title{% endtrans %}{% endblock title %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="span12">
+            {% if cart.totalItemNumber > 0 %}
+                <h1>Your Basket</h1>
+            {% else %}
+                <h1>Your Basket is empty!</h1>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Basket -->
+
+    {% if cart.totalItemNumber > 0%}
+
+        <div class="row">
+            <div class="span12">
+
+                <table class="basket-table">
+                    <thead>
+                    <tr>
+                        <th colspan="2">Item</th>
+                        <th>Qty</th>
+                        <th>Price</th>
+                        <th colspan="2">Total</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for line in cart.cartLines %}
+                    <tr>
+                        <td class="image"><a href="{{ url('store_product_view', { slug: line.product.slug, productId: line.product.id }) }}">
+                                <img src="{{ line.product.principalImage|resize({ width: 80, height: 80, type: 5 }) }}" alt="{{ line.product.name }}" /></a>
+                        </td>
+                        <td class="title"><a href="{{ url('store_product_view', { slug: line.product.slug, productId: line.product.id }) }}">{{ line.product.name }}</a></td>
+                        <td class="qty"><input type="text" name="qty[]" value="{{ line.quantity }}" /></td>
+                        <td class="price">{{ line.amount|print_price('GBP', 'GBP') }}</td>
+                        <td class="total">{{ line.amount|print_price('GBP', 'GBP') }}</td>
+                        <td class="remove"><a href="{{ url('cartline_remove_checkout', { cartLineId: line.id }) }}"><span class="entypo trash"></span></a></td>
+                    </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+
+                <div class="clearfix">
+
+                    <p class="basket-total"><span>Total: </span>{{ cart.amount|print_price('GBP', 'GBP') }}</p>
+
+                </div>
+
+                <p class="actions">
+                    <a class="btn btn-blank" href="index.html">Continue Shopping</a>
+                    <a class="btn btn-blank" href="basket.html">Empty Basket</a>
+                    <a class="btn btn-blank" href="basket.html">Update Basket</a>
+                    <a class="btn btn-primary" href="checkout-1.html">Continue to Checkout</a>
+                </p>
+
+            </div>
+        </div>
+
+        <!-- Related Products -->
+
+        <div class="row">
+            <div class="span12">
+                <h2>You May Also Like...</h2>
+            </div>
+        </div>
+
+        <!-- Product Listing -->
+
+        {% for related_product in related_products %}
+
+            {% if loop.index0 % 3 == 0 %}<div class="row">{% endif %}
+
+            <div class="span4 product-listing">
+                <p class="title">
+                    <a href="{{ url('store_product_view', {'slug': related_product.slug, 'productId': related_product.id}) }}">{{ related_product.name }}</a>
+                </p>
+                <a href="{{ url('store_product_view', {'slug': related_product.slug, 'productId': related_product.id}) }}">
+                    <img class="image" src="{{ related_product.principalImage|resize({'width': 372, 'height': 291, 'type': 5}) }}" alt="{{ related_product.name }}"/>
+                </a>
+                <p class="price">
+                    &pound; {{ related_product.price }}
+                    <a class="btn btn-addcart btn-primary" href="basket.html"><span class="entypo cart"></span></a><a
+                            class="btn btn-view btn-grey" href="{{ url('store_product_view', {'slug': related_product.slug, 'productId': related_product.id}) }}"><span class="entypo search"></span></a>
+                </p>
+            </div>
+
+            {% if loop.index0 % 3 == 2 or loop.last %}</div>{% endif %}
+
+        {% endfor %}
+
+    {% endif %}
+
+{% endblock %}

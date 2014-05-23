@@ -1,0 +1,13 @@
+<div class="span1">
+    <p class="mini-basket-summary">
+        Price<br />
+        <span>{{ cart.amount|print_price('GBP', 'GBP') }}</span>
+    </p>
+</div>
+
+<div class="span1">
+    <p class="mini-basket-summary">
+        Items<br />
+        <span>{{ cart.totalItemNumber }}</span>
+    </p>
+</div>
