@@ -28,7 +28,6 @@ use Swift_Message;
 use Elcodi\UserBundle\Event\PasswordRecoverEvent;
 use Elcodi\UserBundle\Event\PasswordRememberEvent;
 
-
 /**
  * Password event listener
  */
@@ -42,7 +41,6 @@ class PasswordEventListener
      */
     protected $mailer;
 
-
     /**
      * @var EngineInterface
      *
@@ -50,14 +48,12 @@ class PasswordEventListener
      */
     protected $templating;
 
-
     /**
      * @var SecurityContextInterface
      *
      * SecurityContext
      */
     protected $securityContext;
-
 
     /**
      * Build method

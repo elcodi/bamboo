@@ -22,7 +22,6 @@ namespace Store\StoreUserBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * Class ProfileType
@@ -107,4 +106,3 @@ class ProfileType extends AbstractType
         return 'store_user_form_types_profile';
     }
 }
- 

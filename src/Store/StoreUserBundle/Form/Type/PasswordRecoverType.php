@@ -21,7 +21,6 @@ namespace Store\StoreUserBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * Class PasswordRecoverType
@@ -63,4 +62,3 @@ class PasswordRecoverType extends AbstractType
         return 'store_user_form_types_password_recover';
     }
 }
- 

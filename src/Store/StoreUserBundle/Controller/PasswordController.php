@@ -77,7 +77,6 @@ class PasswordController extends Controller
                 );
 
             if ($emailFound) {
-
                 return new RedirectResponse(
                     $this->generateUrl('store_password_recover_sent')
                 );
@@ -88,7 +87,6 @@ class PasswordController extends Controller
             'form' => $passwordRememberForm->createView(),
         ];
     }
-
 
     /**
      * Recover password sent action
@@ -107,7 +105,6 @@ class PasswordController extends Controller
          * If user is already logged, go to redirect url
          */
         if ($this->get('security.context')->isGranted('ROLE_CUSTOMER')) {
-
             return new RedirectResponse($this->generateUrl('store_homepage'));
         }
 

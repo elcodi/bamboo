@@ -28,7 +28,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as AnnotationForm;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity;
 
-
 /**
  * Class UserController
  */

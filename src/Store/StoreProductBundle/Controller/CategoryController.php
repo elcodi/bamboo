@@ -99,5 +99,4 @@ class CategoryController extends Controller
             'category' => $category,
         ];
     }
-
 }

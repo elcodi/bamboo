@@ -20,7 +20,6 @@
 namespace Store\StoreUserBundle\Form\Type;
 
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * Class RegisterType

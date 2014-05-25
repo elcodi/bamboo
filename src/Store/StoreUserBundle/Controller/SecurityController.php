@@ -60,7 +60,6 @@ class SecurityController extends Controller
          * If user is already logged, go to redirect url
          */
         if ($this->get('security.context')->isGranted('ROLE_CUSTOMER')) {
-
             return new RedirectResponse($this->generateUrl('store_homepage'));
         }
 

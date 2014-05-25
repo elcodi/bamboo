@@ -16,12 +16,11 @@
  * @author  ##author_placeholder
  * @version ##version_placeholder##
  */
- 
+
 namespace Store\StoreUserBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * Class PasswordRememberType
@@ -57,4 +56,3 @@ class PasswordRememberType extends AbstractType
         return 'store_user_form_types_password_remember';
     }
 }
- 
