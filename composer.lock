@@ -810,12 +810,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/elcodi/elcodi.git",
-                "reference": "e2713d2cd82e941aef93ba876ace9e295e823126"
+                "reference": "ca6af1228714f06747ede5c6805104755670e02b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elcodi/elcodi/zipball/e2713d2cd82e941aef93ba876ace9e295e823126",
-                "reference": "e2713d2cd82e941aef93ba876ace9e295e823126",
+                "url": "https://api.github.com/repos/elcodi/elcodi/zipball/ca6af1228714f06747ede5c6805104755670e02b",
+                "reference": "ca6af1228714f06747ede5c6805104755670e02b",
                 "shasum": ""
             },
             "require": {
@@ -838,7 +838,8 @@
                 "symfony/process": "~2.4",
                 "symfony/security": "~2.4",
                 "symfony/validator": "~2.4",
-                "symfony/yaml": "~2.4"
+                "symfony/yaml": "~2.4",
+                "twig/twig": "~1"
             },
             "replace": {
                 "elcodi/banner-bundle": "self.version",
@@ -895,7 +896,7 @@
                 "elcodi",
                 "symfony"
             ],
-            "time": "2014-05-21 18:27:32"
+            "time": "2014-05-25 10:11:02"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -1834,12 +1835,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "3030d3da4d3abb18d3c1e3479259af0d88a92488"
+                "reference": "93f8f3271fc20f2e09e79c80ffdc371114ad4f29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/3030d3da4d3abb18d3c1e3479259af0d88a92488",
-                "reference": "3030d3da4d3abb18d3c1e3479259af0d88a92488",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/93f8f3271fc20f2e09e79c80ffdc371114ad4f29",
+                "reference": "93f8f3271fc20f2e09e79c80ffdc371114ad4f29",
                 "shasum": ""
             },
             "require": {
@@ -1894,7 +1895,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-05-19 16:18:53"
+            "time": "2014-05-24 17:56:29"
         },
         {
             "name": "paymentsuite/free-payment-bundle",
@@ -2550,12 +2551,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "54ab31a7fca9b2323cb735c7c7d2347fed8fd79d"
+                "reference": "e705499f3477f5fde4952f467db581f33499b269"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/54ab31a7fca9b2323cb735c7c7d2347fed8fd79d",
-                "reference": "54ab31a7fca9b2323cb735c7c7d2347fed8fd79d",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/e705499f3477f5fde4952f467db581f33499b269",
+                "reference": "e705499f3477f5fde4952f467db581f33499b269",
                 "shasum": ""
             },
             "require": {
@@ -2657,7 +2658,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-05-21 15:50:42"
+            "time": "2014-05-23 14:00:26"
         },
         {
             "name": "twbs/bootstrap",

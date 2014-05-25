@@ -45,7 +45,7 @@ class HomeController extends Controller
     {
         $productCollectionProvider = $this
             ->container
-            ->get('store.product.services.product_collection_provider');
+            ->get('store.product.service.product_collection_provider');
 
         $products = $productCollectionProvider->getHomeProducts();
 

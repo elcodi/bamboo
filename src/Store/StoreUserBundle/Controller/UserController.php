@@ -20,10 +20,14 @@
 namespace Store\StoreUserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Form;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Mmoreram\ControllerExtraBundle\Annotation\Form as AnnotationForm;
+use Mmoreram\ControllerExtraBundle\Annotation\Entity;
 
-use Elcodi\UserBundle\Entity\Interfaces\CustomerInterface;
 
 /**
  * Class UserController
@@ -45,13 +49,75 @@ class UserController extends Controller
     {
         $customer = $this
             ->get('elcodi.core.user.wrapper.customer_wrapper')
-            ->getCustomer();
-
-        $isLogged = $this->get('security.context')->isGranted('ROLE_CUSTOMER');
+            ->loadCustomer();
 
         return [
             'customer' => $customer,
-            'isLogged' => $isLogged
+        ];
+    }
+
+    /**
+     * User page
+     *
+     * @return array
+     *
+     * @Route(
+     *      path = "/user",
+     *      name = "store_user"
+     * )
+     * @Template
+     */
+    public function userAction()
+    {
+        return [];
+    }
+
+    /**
+     * User profile page
+     *
+     * @param Request      $request         Request
+     * @param AbstractType $profileFormType Profile form type
+     *
+     * @return array
+     *
+     * @Route(
+     *      path = "/user/profile",
+     *      name = "store_user_profile"
+     * )
+     * @Template
+     *
+     * @AnnotationForm(
+     *      class         = "store_user_form_types_profile",
+     *      name          = "profileFormType",
+     * )
+     */
+    public function profileAction(Request $request, AbstractType $profileFormType)
+    {
+        $customer = $this
+            ->get('elcodi.core.user.wrapper.customer_wrapper')
+            ->loadCustomer();
+
+        /**
+         * @var Form $form
+         */
+        $form = $this
+            ->get('form.factory')
+            ->create($profileFormType, $customer);
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+
+            $this
+                ->get('elcodi.manager_provider')
+                ->getManagerByEntityParameter('elcodi.core.user.entity.customer.class')
+                ->flush($customer);
+
+            return $this->redirect($this->generateUrl('store_user_profile'));
+        }
+
+        return [
+            'form' => $form->createView(),
         ];
     }
 }

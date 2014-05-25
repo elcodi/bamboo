@@ -19,13 +19,12 @@
 
 namespace Store\StoreProductBundle\Controller;
 
-use Doctrine\ORM\EntityNotFoundException;
-use Elcodi\ProductBundle\Entity\Category;
-use Elcodi\ProductBundle\Entity\Interfaces\CategoryInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Doctrine\ORM\EntityNotFoundException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Symfony\Component\HttpFoundation\Response;
+
+use Elcodi\ProductBundle\Entity\Interfaces\CategoryInterface;
 
 /**
  * Category controller
@@ -51,7 +50,7 @@ class CategoryController extends Controller
     {
         return [
             'currentCategoryId' => $currentCategoryId = $this->get('request_stack')->getMasterRequest()->get('categoryId'),
-            'categoryTree' => $this->get('elcodi.core.product.services.category_manager')->getCategoryTree(),
+            'categoryTree' => $this->get('elcodi.core.product.service.category_manager')->getCategoryTree(),
         ];
     }
 
@@ -63,7 +62,7 @@ class CategoryController extends Controller
      * @return array Response parameters
      *
      * @Route(
-     *      path = "/{slug}/{categoryId}/c",
+     *      path = "category/{slug}/{categoryId}",
      *      name = "store_category_products_list",
      *      requirements = {
      *          "slug" = "[a-zA-Z0-9-]+",

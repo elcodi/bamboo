@@ -6,23 +6,32 @@
 
         <div class="member-box">
 
-            <h2>Login</h2>
+            <h2>Register</h2>
 
             {{ form_start(form) }}
+
+            <p>
+                {{ form_row(form.firstname) }}
+            </p>
+
+            <p>
+                {{ form_row(form.lastname) }}
+            </p>
 
             <p>
                 {{ form_row(form.email) }}
             </p>
 
             <p>
-                {{ form_row(form.password) }}
+                {{ form_row(form.password.first) }}
+            </p>
+
+            <p>
+                {{ form_row(form.password.second) }}
             </p>
 
             <p class="buttons">
                 {{ form_row(form.send, {attr: {'class': 'btn btn-primary' }}) }}
-                <a class="btn btn-blank"
-                   href="{{ url("store_password_remember") }}">Forgot your
-                    password?</a>
             </p>
 
             {{ form_end(form) }}

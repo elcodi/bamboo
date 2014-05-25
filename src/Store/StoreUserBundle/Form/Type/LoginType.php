@@ -13,7 +13,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author ##author_placeholder
+ * @author  ##author_placeholder
  * @version ##version_placeholder##
  */
 
@@ -37,39 +37,13 @@ class LoginType extends AbstractType
     protected $router;
 
     /**
-     * @var string
-     *
-     * Customer namespace
-     */
-    protected $customerNamespace;
-
-    /**
      * Constructor
      *
-     * @param UrlGeneratorInterface $router            Router
-     * @param string                $customerNamespace Customer names
+     * @param UrlGeneratorInterface $router Router
      */
-    public function __construct(
-        UrlGeneratorInterface $router,
-        $customerNamespace
-    )
+    public function __construct(UrlGeneratorInterface $router)
     {
         $this->router = $router;
-        $this->customerNamespace = $customerNamespace;
-    }
-
-    /**
-     * Default form options
-     *
-     * @param OptionsResolverInterface $resolver
-     *
-     * @return array With the options
-     */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        $resolver->setDefaults(array(
-            'data_class' => $this->customerNamespace,
-        ));
     }
 
     /**
@@ -87,13 +61,13 @@ class LoginType extends AbstractType
                     ->generate('store_login_check')
             )
             ->setMethod('POST')
-            ->add('username', 'email', array(
+            ->add('email', 'email', array(
                 'required' => true,
-                'label' =>  'Email'
+                'label'    => 'Email'
             ))
             ->add('password', 'password', array(
                 'required' => true,
-                'label' =>  'Password'
+                'label'    => 'Password'
             ))
             ->add('send', 'submit');
     }

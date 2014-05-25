@@ -16,16 +16,17 @@
  * @author  ##author_placeholder
  * @version ##version_placeholder##
  */
-
+ 
 namespace Store\StoreUserBundle\Form\Type;
 
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
- * Class RegisterType
+ * Class PasswordRememberType
  */
-class RegisterType extends ProfileType
+class PasswordRememberType extends AbstractType
 {
     /**
      * Buildform function
@@ -35,11 +36,14 @@ class RegisterType extends ProfileType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        parent::buildForm($builder, $options);
-
         $builder
+            ->setMethod('POST')
+            ->add('email', 'email', array(
+                'required' => true,
+                'label' =>  'Email'
+            ))
             ->add('send', 'submit', array(
-                'label' => 'Register'
+                'label' =>  'Remember',
             ));
     }
 
@@ -50,6 +54,7 @@ class RegisterType extends ProfileType
      */
     public function getName()
     {
-        return 'store_user_form_types_register';
+        return 'store_user_form_types_password_remember';
     }
 }
+ 

@@ -1,7 +1,7 @@
 services:
 
-    store.product.services.product_collection_provider:
-        class: %store.product.services.product_collection_provider.class%
+    store.product.service.product_collection_provider:
+        class: %store.product.service.product_collection_provider.class%
         arguments:
-            product_repository: @=service("doctrine.orm.entity_manager").getRepository("ElcodiProductBundle:Product")
+            product_repository: @elcodi.repository.product
             locale: %locale%

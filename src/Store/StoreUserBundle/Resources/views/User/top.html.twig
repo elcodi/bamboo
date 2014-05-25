@@ -3,17 +3,18 @@
     <div class="span12">
 
         <ul class="top-nav">
-            {%  if not isLogged %}
+            {% if customer.id %}
+                <li>
+                    <a href="{{ url("store_user") }}">Hello {{ customer.firstname }}</a>
+                </li>
+                <li><a href="{{ url("store_logout") }}">Logout</a></li>
+            {% else %}
                 <li><a href="{{ url("store_login") }}">Login</a></li>
                 <li><a href="{{ url("store_register") }}">Registration</a></li>
-                <li><a href="{{ url("store_password_remember") }}">Lost your password?</a></li>
-            {% else %}
-                <li><a href="">Hello {{ customer.firstname }}</a></li>
-                <li><a href="">Logout</a></li>
+                <li><a href="{{ url("store_password_remember") }}">Lost your
+                        password?</a></li>
             {% endif %}
-
         </ul>
-
     </div>
 
 </div>

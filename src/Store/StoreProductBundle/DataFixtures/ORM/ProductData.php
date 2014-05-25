@@ -57,7 +57,7 @@ class ProductData extends AbstractFixture
          * @var Adapter $filesystemAdapter
          * @var FileTransformer $fileTransformer
          */
-        $imageManager = $this->container->get('elcodi.core.media.services.image_manager');
+        $imageManager = $this->container->get('elcodi.core.media.service.image_manager');
         $imageFactory = $this->container->get('elcodi.core.product.factory.product');
         $filesystemAdapter = $this->container->get('elcodi.core.media.filesystem.default')->getAdapter();
         $fileTransformer = $this->container->get('elcodi.core.media.transformer.file');

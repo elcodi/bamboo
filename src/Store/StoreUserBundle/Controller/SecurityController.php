@@ -19,15 +19,17 @@
 
 namespace Store\StoreUserBundle\Controller;
 
+use Symfony\Component\Form\FormView;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as AnnotationForm;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity;
 
 use Elcodi\UserBundle\Entity\Interfaces\CustomerInterface;
-use Symfony\Component\Form\FormView;
+use Elcodi\CoreBundle\Services\ManagerProvider;
 
 /**
  * Class SecurityController
@@ -54,13 +56,12 @@ class SecurityController extends Controller
      */
     public function loginAction(FormView $loginFormView)
     {
-        $customer = $this
-            ->get('elcodi.core.user.wrapper.customer_wrapper')
-            ->getCustomer();
+        /**
+         * If user is already logged, go to redirect url
+         */
+        if ($this->get('security.context')->isGranted('ROLE_CUSTOMER')) {
 
-        if ($customer instanceof CustomerInterface) {
-
-            $this->redirect('store_homepage');
+            return new RedirectResponse($this->generateUrl('store_homepage'));
         }
 
         return [
@@ -88,7 +89,8 @@ class SecurityController extends Controller
      *      name          = "customer",
      *      factoryClass  = "elcodi.core.user.factory.customer",
      *      factoryMethod = "create",
-     *      factoryStatic = false
+     *      factoryStatic = false,
+     *      persist       = false
      * )
      * @AnnotationForm(
      *      class         = "store_user_form_types_register",
@@ -106,13 +108,16 @@ class SecurityController extends Controller
     {
         if ($isValid) {
 
-            $this
-                ->getDoctrine()
-                ->getManager()
-                ->flush($customer);
+            /**
+             * @var ManagerProvider $managerProvider
+             */
+            $managerProvider = $this->get('elcodi.manager_provider');
+            $customerManager = $managerProvider->getManagerByEntityParameter('elcodi.core.user.entity.customer.class');
+            $customerManager->persist($customer);
+            $customerManager->flush($customer);
 
             $this
-                ->get('elcodi.core.user.services.customer_manager')
+                ->get('elcodi.core.user.service.customer_manager')
                 ->register($customer, 'customer_secured_area');
 
             return $this->redirect($this->generateUrl('store_homepage'));

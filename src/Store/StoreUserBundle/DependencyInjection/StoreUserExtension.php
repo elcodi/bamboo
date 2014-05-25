@@ -47,6 +47,7 @@ class StoreUserExtension extends AbstractExtension
             'classes',
             'controllers',
             'formTypes',
+            'eventListeners',
         ];
     }
 }

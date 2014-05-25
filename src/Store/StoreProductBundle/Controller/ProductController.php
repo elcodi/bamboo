@@ -19,13 +19,12 @@
 
 namespace Store\StoreProductBundle\Controller;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Elcodi\ProductBundle\Entity\Interfaces\CategoryInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Doctrine\Common\Collections\ArrayCollection;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-use Elcodi\ProductBundle\Entity\Product;
+use Elcodi\ProductBundle\Entity\Interfaces\CategoryInterface;
 
 /**
  * Product related actions
@@ -45,16 +44,12 @@ class ProductController extends Controller
      * @return array
      *
      * @Route(
-     *      path = "/{slug}/{productId}/p",
+     *      path = "/product/{slug}/{productId}",
      *      name = "store_product_view",
      *      requirements = {
      *          "slug": "[\w-]+",
      *          "productId": "\d+",
      *      }
-     * )
-     * @Route(
-     *      path = "/{productId}/line/{cartlineId}/p",
-     *      name = "store_product_view_cartline"
      * )
      * @Template
      */

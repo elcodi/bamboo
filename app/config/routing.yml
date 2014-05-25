@@ -13,6 +13,9 @@ store_cart:
 store_login_check:
     path:  /login_check
 
+store_logout:
+    path: /logout
+
 core_referralprogram_bundle:
     resource: "@ElcodiReferralProgramBundle/Resources/config/routing.yml"
 
