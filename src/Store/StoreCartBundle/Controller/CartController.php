@@ -299,7 +299,7 @@ class CartController extends Controller
     /**
      * Get cart from session.
      *
-     * If none is found, load new one
+     * If none is found, create a new one
      *
      * @return CartInterface Cart
      */
@@ -315,14 +315,19 @@ class CartController extends Controller
                     ->getParameter('elcodi.core.cart.session_field_name')
             );
 
-        $cart = $cartId
-            ? $this
+        if ($cartId) {
+
+            $cart = $this
                 ->get('elcodi.repository_provider')
                 ->getRepositoryByEntityParameter('elcodi.core.cart.entity.cart.class')
-                ->find($cartId)
-            : $this
-                ->get('elcodi.core.cart.factory.cart')
-                ->create();
+                ->find($cartId);
+        } else {
+
+            $cart = $this->get('elcodi.core.cart.service.cart_manager')->loadCart(
+                $this->get('elcodi.core.cart.factory.cart')->create()
+            );
+
+        }
 
         return $cart;
     }
