@@ -19,23 +19,12 @@
 
 namespace Store\StoreCartBundle\Controller;
 
-use Elcodi\CartBundle\ElcodiCartEvents;
 use Elcodi\CartBundle\Entity\Cart;
 use Elcodi\CartBundle\Entity\CartLine;
 use Elcodi\CartBundle\Entity\Interfaces\CartInterface;
-use Elcodi\CartBundle\Entity\Order;
 use Elcodi\CartBundle\Exception\CartLineOutOfStockException;
 use Elcodi\CartBundle\Exception\CartLineProductUnavailableException;
-use Elcodi\CartBundle\Services\CartManager;
-use Elcodi\CouponBundle\Entity\Coupon;
-use Elcodi\CouponBundle\Exception\CouponAppliedException;
-use Elcodi\CouponBundle\Exception\CouponBelowMinimumPurchaseException;
-use Elcodi\CouponBundle\Exception\CouponFreeShippingExistsException;
-use Elcodi\CouponBundle\Exception\CouponIncompatibleException;
-use Elcodi\CouponBundle\Exception\CouponNotActiveException;
-use Elcodi\CouponBundle\Exception\CouponNotAvailableException;
 use Elcodi\ProductBundle\Entity\Product;
-use Elcodi\UserBundle\Entity\Interfaces\CustomerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -43,8 +32,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
-use JMS\SecurityExtraBundle\Annotation\Secure;
 
 /**
  * Cart controllers
@@ -129,12 +116,12 @@ class CartController extends Controller
         $cartId = $this->get('session')->get($this->container->getParameter('elcodi.core.cart.session_field_name'));
         $cart = $cartId ?
             $this->getDoctrine()->getRepository('ElcodiCartBundle:Cart')->find($cartId) :
-            $this->get('elcodi.core.cart.services.cart_manager')->loadCart();
+            $this->get('elcodi.core.cart.service.cart_manager')->loadCart();
 
         try {
 
             $this
-                ->get('elcodi.core.cart.services.cart_manager')
+                ->get('elcodi.core.cart.service.cart_manager')
                 ->addProduct($cart, $product, $quantity);
 
         } catch (CartLineProductUnavailableException $e) {
@@ -150,7 +137,7 @@ class CartController extends Controller
                 ->get('session')
                 ->getFlashBag()
                 ->add('error', $trans->trans('_Product_min_quantity_not_reached',
-                    array('%quantity%' => $e->getQuantity())));
+                    array('%quantity%' => $quantity)));
 
         } catch (\Exception $e) {
             $this
@@ -194,7 +181,7 @@ class CartController extends Controller
             $this->get('elcodi.core.cart.factory.cart')->create();
 
         $this
-            ->get('elcodi.core.cart.services.cart_manager')
+            ->get('elcodi.core.cart.service.cart_manager')
             ->emptyLines($cart);
 
 
@@ -246,7 +233,7 @@ class CartController extends Controller
         try {
 
             $this
-                ->get('elcodi.core.cart.services.cart_manager')
+                ->get('elcodi.core.cart.service.cart_manager')
                 ->setCartLineQuantity($cartLine, $quantity);
 
         } catch (\Exception $e) {
@@ -298,10 +285,10 @@ class CartController extends Controller
 
         /** @var Cart $cart */
         $customer = $this->get('elcodi.core.user.wrapper.customer_wrapper')->getCustomer();
-        $cart = $this->get('elcodi.core.cart.services.cart_manager')->loadCustomerCart($customer);
+        $cart = $this->get('elcodi.core.cart.service.cart_manager')->loadCustomerCart($customer);
 
         $this
-            ->get('elcodi.core.cart.services.cart_manager')
+            ->get('elcodi.core.cart.service.cart_manager')
             ->removeLine($cart, $cartLine);
 
         return $this->doRedirection($checkout, $request);
