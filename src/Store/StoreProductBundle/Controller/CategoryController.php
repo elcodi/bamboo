@@ -69,11 +69,11 @@ class CategoryController extends Controller
      *          "categoryId" = "\d+"
      *      }
      * )
+     * @Template
      *
      * @throws EntityNotFoundException Entity not found
-     * @Template
      */
-    public function listAction($categoryId)
+    public function viewAction($categoryId)
     {
         $categoryEntityNamespace = $this
             ->container

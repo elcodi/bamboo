@@ -13,25 +13,26 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author ##author_placeholder
+ * @author  ##author_placeholder
  * @version ##version_placeholder##
  */
 
 namespace Store\StoreCartBundle\Controller;
 
-use Elcodi\CartBundle\Entity\Cart;
-use Elcodi\CartBundle\Entity\CartLine;
-use Elcodi\CartBundle\Entity\Interfaces\CartInterface;
-use Elcodi\CartBundle\Exception\CartLineOutOfStockException;
-use Elcodi\CartBundle\Exception\CartLineProductUnavailableException;
-use Elcodi\ProductBundle\Entity\Product;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Doctrine\ORM\EntityNotFoundException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\RedirectResponse;
+
+use Elcodi\CartBundle\Entity\Cart;
+use Elcodi\CartBundle\Entity\Interfaces\CartInterface;
+use Elcodi\CartBundle\Exception\CartLineOutOfStockException;
+use Elcodi\CartBundle\Exception\CartLineProductUnavailableException;
+use Elcodi\ProductBundle\Entity\Interfaces\ProductInterface;
 
 /**
  * Cart controllers
@@ -42,7 +43,6 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
  */
 class CartController extends Controller
 {
-
     /**
      * Cart view
      *
@@ -57,55 +57,38 @@ class CartController extends Controller
      */
     public function cartAction()
     {
-        /**
-         * @var CartInterface $cart
-         */
-        $cartId = $this->get('session')->get($this->container->getParameter('elcodi.core.cart.session_field_name'));
-        $cart = $cartId ?
-            $this->getDoctrine()->getRepository('ElcodiCartBundle:Cart')->find($cartId) :
-            $this->get('elcodi.core.cart.factory.cart')->create();
-
         return [
-            'cart'  =>  $cart
+            'cart' => $this->loadCart(),
         ];
     }
 
     /**
      * Adds item into cart
      *
-     * @param Request $request  Request object
-     * @param bool    $checkout Go to checkout page
-     * @param int     $productId
+     * @param Request $request   Request object
+     * @param int     $productId Product id
      *
      * @return Response Redirect response
      *
      * @Route(
      *      path = "/product/{productId}/add",
-     *      name = "cart_add_product",
-     *      defaults = {
-     *          "checkout": false
-     *      }
-     * )
-     * @Route(
-     *      path = "/product/{productId}/add/checkout",
-     *      name="cart_add_product_checkout",
-     *      defaults = {
-     *          "checkout": true
-     *      }
+     *      name = "cart_add_product"
      * )
      *
+     * @throws EntityNotFoundException Product not found
      */
-    public function addProductAction(Request $request, $checkout, $productId = null)
+    public function addProductAction(Request $request, $productId)
     {
-        $trans = $this->get('translator');
+        $product = $this
+            ->get('elcodi.repository_provider')
+            ->getRepositoryByEntityParameter('elcodi.core.product.entity.product.class')
+            ->find($productId);
 
-        $product = $this->getDoctrine()->getRepository('ElcodiProductBundle:Product')->find($productId);
+        if (!($product instanceof ProductInterface)) {
 
-        if (is_null($product)) {
-            $this->get('session')->getFlashBag()->add('error', $trans->trans('_Product_add_error'));
-
-            //add an error message and redirect
-            return $this->doRedirection($checkout, $request);
+            throw new EntityNotFoundException($this
+                ->container
+                ->getParameter('elcodi.core.product.entity.product.class'));
         }
 
         $quantity = $request->get('quantity', 1);
@@ -113,10 +96,7 @@ class CartController extends Controller
             $quantity = 1;
         }
 
-        $cartId = $this->get('session')->get($this->container->getParameter('elcodi.core.cart.session_field_name'));
-        $cart = $cartId ?
-            $this->getDoctrine()->getRepository('ElcodiCartBundle:Cart')->find($cartId) :
-            $this->get('elcodi.core.cart.service.cart_manager')->loadCart();
+        $cart = $this->loadCart();
 
         try {
 
@@ -129,31 +109,30 @@ class CartController extends Controller
             $this
                 ->get('session')
                 ->getFlashBag()
-                ->add('error', $trans->trans('_Product_unavailable_error'));
+                ->add('error', 'This product is currently unavailable');
 
         } catch (CartLineOutOfStockException $e) {
 
             $this
                 ->get('session')
                 ->getFlashBag()
-                ->add('error', $trans->trans('_Product_min_quantity_not_reached',
-                    array('%quantity%' => $quantity)));
+                ->add('error', 'This product is out of stock');
 
         } catch (\Exception $e) {
             $this
                 ->get('session')
                 ->getFlashBag()
-                ->add('error', $trans->trans('_Product_add_error'));
+                ->add('error', 'A problem ocurred when adding to cart');
         }
 
-        return $this->doRedirection($checkout, $request);
+        $this->redirect($this->generateUrl('store_cart'));
     }
 
     /**
      * Empty Cart
      *
-     * @param Request $request Request
-     * @param Boolean  $checkout Go to checkout page
+     * @param Request $request  Request
+     * @param Boolean $checkout Go to checkout page
      *
      * @return RedirectResponse
      *
@@ -191,9 +170,9 @@ class CartController extends Controller
     /**
      * Sets CartLine quantity value
      *
-     * @param Request  $request
-     * @param int      $cartLineId CartLine id
-     * @param Boolean  $checkout Go to checkout page
+     * @param Request $request
+     * @param int     $cartLineId CartLine id
+     * @param Boolean $checkout   Go to checkout page
      *
      * @return Response Redirect response
      *
@@ -211,7 +190,6 @@ class CartController extends Controller
      *          "checkout": true
      *      }
      * )
-
      */
     public function setcartLineQuantityAction(Request $request, $checkout, $cartLineId = null)
     {
@@ -250,9 +228,9 @@ class CartController extends Controller
     /**
      * Deletes CartLine
      *
-     * @param Request  $request  Request
-     * @param int      $cartLineId CartLine id
-     * @param Boolean  $checkout Go to checkout page
+     * @param Request $request    Request
+     * @param int     $cartLineId CartLine id
+     * @param Boolean $checkout   Go to checkout page
      *
      * @return RedirectResponse
      *
@@ -319,24 +297,33 @@ class CartController extends Controller
     }
 
     /**
-     * Common redirection
+     * Get cart from session.
      *
-     * @param Boolean $checkout Go to checkout page
-     * @param Request $request  The original request
+     * If none is found, load new one
      *
-     * @return Response Response object
+     * @return CartInterface Cart
      */
-    private function doRedirection($checkout, Request $request = null)
+    public function loadCart()
     {
-        $referer = "";
-        if ($request instanceof Request) {
-            $referer = $request->headers->get('referer');
-        }
+        /**
+         * @var CartInterface $cart
+         */
+        $cartId = $this
+            ->get('session')
+            ->get($this
+                    ->container
+                    ->getParameter('elcodi.core.cart.session_field_name')
+            );
 
-        if ($checkout || empty($referer)) {
-            $referer = $this->generateUrl('cart_view', array('product_added' => 1));
-        }
+        $cart = $cartId
+            ? $this
+                ->get('elcodi.repository_provider')
+                ->getRepositoryByEntityParameter('elcodi.core.cart.entity.cart.class')
+                ->find($cartId)
+            : $this
+                ->get('elcodi.core.cart.factory.cart')
+                ->create();
 
-        return new RedirectResponse($referer);
+        return $cart;
     }
 }

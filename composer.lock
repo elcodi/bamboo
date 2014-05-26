@@ -805,22 +805,121 @@
             "time": "2014-05-21 22:15:22"
         },
         {
+            "name": "egulias/listeners-debug",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/egulias/ListenersDebug.git",
+                "reference": "f2b1f673529e6d86ffac37b64eab5618de9f5690"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/egulias/ListenersDebug/zipball/f2b1f673529e6d86ffac37b64eab5618de9f5690",
+                "reference": "f2b1f673529e6d86ffac37b64eab5618de9f5690",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/dependency-injection": "2.4.*@dev",
+                "symfony/event-dispatcher": "2.4.*@dev"
+            },
+            "require-dev": {
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Egulias\\ListenersDebug\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eduardo Gulias Davis",
+                    "homepage": "http://egulias.com"
+                }
+            ],
+            "description": "Debug library for listeners registered in the Symfony 2 DIC",
+            "homepage": "https://github.com/egulias/ListenersDebug.git",
+            "keywords": [
+                "dependencyinjection",
+                "dic",
+                "events",
+                "listener"
+            ],
+            "time": "2014-05-01 23:38:23"
+        },
+        {
+            "name": "egulias/listeners-debug-command-bundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/egulias/ListenersDebugCommandBundle.git",
+                "reference": "4db12f4212690276cf97a14a8f7f58c4e50972a7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/egulias/ListenersDebugCommandBundle/zipball/4db12f4212690276cf97a14a8f7f58c4e50972a7",
+                "reference": "4db12f4212690276cf97a14a8f7f58c4e50972a7",
+                "shasum": ""
+            },
+            "require": {
+                "egulias/listeners-debug": "1.0.*",
+                "symfony/symfony": ">=2.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.0.*",
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Egulias\\ListenersDebugCommandBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eduardo Gulias Davis",
+                    "homepage": "http://egulias.com"
+                }
+            ],
+            "description": "Symfony 2 console command to debug listeners",
+            "homepage": "https://github.com/egulias/ListenersDebugCommandBundle.git",
+            "keywords": [
+                "events",
+                "listener"
+            ],
+            "time": "2014-05-25 14:35:00"
+        },
+        {
             "name": "elcodi/elcodi",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/elcodi/elcodi.git",
-                "reference": "ca6af1228714f06747ede5c6805104755670e02b"
+                "reference": "b682bc53bf78620357e2c9bf2e53425ffc5cceda"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elcodi/elcodi/zipball/ca6af1228714f06747ede5c6805104755670e02b",
-                "reference": "ca6af1228714f06747ede5c6805104755670e02b",
+                "url": "https://api.github.com/repos/elcodi/elcodi/zipball/b682bc53bf78620357e2c9bf2e53425ffc5cceda",
+                "reference": "b682bc53bf78620357e2c9bf2e53425ffc5cceda",
                 "shasum": ""
             },
             "require": {
                 "doctrine/common": "~2.4",
                 "doctrine/orm": "~2.4",
+                "egulias/listeners-debug-command-bundle": "2.*",
                 "ircmaxell/password-compat": "~1.0",
                 "knplabs/knp-gaufrette-bundle": "v0.1.7",
                 "php": ">=5.4",
@@ -896,7 +995,7 @@
                 "elcodi",
                 "symfony"
             ],
-            "time": "2014-05-25 10:11:02"
+            "time": "2014-05-26 11:43:09"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -2263,12 +2362,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "46d55baab96f943061de6712b38011db354eed78"
+                "reference": "59e424776e352f0adb325daecdb7f136757853fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/46d55baab96f943061de6712b38011db354eed78",
-                "reference": "46d55baab96f943061de6712b38011db354eed78",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/59e424776e352f0adb325daecdb7f136757853fe",
+                "reference": "59e424776e352f0adb325daecdb7f136757853fe",
                 "shasum": ""
             },
             "require": {
@@ -2309,7 +2408,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2014-05-08 08:35:11"
+            "time": "2014-05-25 14:34:15"
         },
         {
             "name": "symfony/assetic-bundle",
@@ -2742,12 +2841,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "c2ae310203e65987a26d57b87a173b15747a3412"
+                "reference": "7c63a7df8a9d38ff9eb9fb982ae8f6a70258c10c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/c2ae310203e65987a26d57b87a173b15747a3412",
-                "reference": "c2ae310203e65987a26d57b87a173b15747a3412",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/7c63a7df8a9d38ff9eb9fb982ae8f6a70258c10c",
+                "reference": "7c63a7df8a9d38ff9eb9fb982ae8f6a70258c10c",
                 "shasum": ""
             },
             "require": {
@@ -2756,7 +2855,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.15-dev"
+                    "dev-master": "1.16-dev"
                 }
             },
             "autoload": {
@@ -2791,7 +2890,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2014-05-21 01:15:25"
+            "time": "2014-05-26 00:34:04"
         }
     ],
     "packages-dev": [

@@ -1,5 +1,7 @@
 {% extends 'StoreCoreBundle::layout.html.twig' %}
 
+{% block content_title %}{{ category.name }}{% endblock %}
+
 {% block content %}
 
 	{% include 'StoreProductBundle:Product:blocks/row.html.twig' with {'products' : products} %}
