@@ -13,7 +13,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author ##author_placeholder
+ * @author  ##author_placeholder
  * @version ##version_placeholder##
  */
 
@@ -34,11 +34,10 @@ use Elcodi\ProductBundle\Services\ProductCollectionProvider as BaseProductCollec
 class ProductCollectionProvider extends BaseProductCollectionProvider
 {
     /**
-     * Given a specific Product, return a simple
-     * collection of related products
+     * Given a specific Product, return a simple collection of related products
      *
-     * @param ProductInterface $product
-     * @param int $limit
+     * @param ProductInterface $product Product
+     * @param int              $limit   Limit
      *
      * @return ArrayCollection
      */
@@ -52,9 +51,11 @@ class ProductCollectionProvider extends BaseProductCollectionProvider
             $relatedProducts = $this
                 ->productRepository
                 ->findBy(array(
-                    'principalCategory' =>  $product->getPrincipalCategory(),
-                    'enabled' => true
+                    'principalCategory' => $product->getPrincipalCategory(),
+                    'enabled'           => true
                 ));
+
+            $relatedProducts = array_slice($relatedProducts, 0, $limit);
 
             $relatedProducts = new ArrayCollection($relatedProducts);
             $relatedProducts->removeElement($product);

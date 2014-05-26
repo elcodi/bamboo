@@ -27,6 +27,7 @@ use Doctrine\ORM\EntityNotFoundException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Exception;
 
 use Elcodi\CartBundle\Entity\Cart;
 use Elcodi\CartBundle\Entity\Interfaces\CartInterface;
@@ -62,12 +63,17 @@ class CartController extends Controller
 
         if ($cart->getCartLines()->count()) {
 
-            $relatedProducts = $this->get('store.product.service.product_collection_provider')
-                ->getRelatedProducts($cart->getCartLines()->first()->getProduct())->toArray();
+            $relatedProducts = $this
+                ->get('store.product.service.product_collection_provider')
+                ->getRelatedProducts($cart
+                        ->getCartLines()
+                        ->first()
+                        ->getProduct()
+                );
         }
 
         return [
-            'cart' => $cart,
+            'cart'            => $cart,
             'relatedProducts' => $relatedProducts
         ];
     }
@@ -114,6 +120,11 @@ class CartController extends Controller
                 ->get('elcodi.core.cart.service.cart_manager')
                 ->addProduct($cart, $product, $quantity);
 
+            $this
+                ->get('elcodi.manager_provider')
+                ->getManagerByEntityParameter('elcodi.core.cart.entity.cart.class')
+                ->flush();
+
         } catch (CartLineProductUnavailableException $e) {
 
             $this
@@ -128,7 +139,8 @@ class CartController extends Controller
                 ->getFlashBag()
                 ->add('error', 'This product is out of stock');
 
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
+
             $this
                 ->get('session')
                 ->getFlashBag()
@@ -325,19 +337,17 @@ class CartController extends Controller
                     ->getParameter('elcodi.core.cart.session_field_name')
             );
 
-        if ($cartId) {
+        $cart = $this
+            ->get('elcodi.repository_provider')
+            ->getRepositoryByEntityParameter('elcodi.core.cart.entity.cart.class')
+            ->find($cartId);
 
-            $cart = $this
-                ->get('elcodi.repository_provider')
-                ->getRepositoryByEntityParameter('elcodi.core.cart.entity.cart.class')
-                ->find($cartId);
-        } else {
+        if (!($cartId instanceof CartInterface)) {
 
-            $cart = $this->get('elcodi.core.cart.service.cart_manager')->loadCart(
-                $this->get('elcodi.core.cart.factory.cart')->create()
-            );
-
+            $cart = $this->get('elcodi.core.cart.factory.cart')->create();
         }
+
+        $this->get('elcodi.core.cart.service.cart_manager')->loadCart($cart);
 
         return $cart;
     }

@@ -1,0 +1,10 @@
+<tr>
+    <td class="image"><a href="{{ url('store_product_view', { slug: line.product.slug, productId: line.product.id }) }}">
+            <img src="{{ line.product.principalImage|resize({ width: 80, height: 80, type: 5 }) }}" alt="{{ line.product.name }}" /></a>
+    </td>
+    <td class="title"><a href="{{ url('store_product_view', { slug: line.product.slug, productId: line.product.id }) }}">{{ line.product.name }}</a></td>
+    <td class="qty"><input type="text" name="qty[]" value="{{ line.quantity }}" /></td>
+    <td class="price">{{ line.amount|print_price('GBP', 'GBP') }}</td>
+    <td class="total">{{ line.amount|print_price('GBP', 'GBP') }}</td>
+    <td class="remove"><a href="{{ url('cartline_remove_checkout', { cartLineId: line.id }) }}"><span class="entypo trash"></span></a></td>
+</tr>

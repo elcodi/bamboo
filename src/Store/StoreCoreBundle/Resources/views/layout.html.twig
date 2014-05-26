@@ -22,6 +22,12 @@
 
         {% endblock header %}
 
+        {% block messages %}
+
+            {% include 'StoreCoreBundle::messages.html.twig' %}
+
+        {% endblock messages %}
+
         <!-- Body -->
 
         <div class="row">
