@@ -50,12 +50,12 @@ class CartController extends Controller
      *
      * @Route(
      *      path = "",
-     *      name = "cart_view"
+     *      name = "store_cart_view"
      * )
      * @Method("GET")
      * @Template
      */
-    public function cartAction()
+    public function viewAction()
     {
         return [
             'cart' => $this->loadCart(),
@@ -125,7 +125,7 @@ class CartController extends Controller
                 ->add('error', 'A problem ocurred when adding to cart');
         }
 
-        $this->redirect($this->generateUrl('store_cart'));
+        return $this->redirect($this->generateUrl('store_cart_view'));
     }
 
     /**
