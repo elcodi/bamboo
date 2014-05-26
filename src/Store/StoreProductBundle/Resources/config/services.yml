@@ -2,6 +2,4 @@ services:
 
     store.product.service.product_collection_provider:
         class: %store.product.service.product_collection_provider.class%
-        arguments:
-            product_repository: @elcodi.repository.product
-            locale: %locale%
+        parent: elcodi.core.product.service.product_collection_provider

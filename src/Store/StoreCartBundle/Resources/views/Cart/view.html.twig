@@ -74,21 +74,21 @@
 
         <!-- Product Listing -->
 
-        {% for related_product in related_products %}
+        {% for relatedProduct in relatedProducts %}
 
             {% if loop.index0 % 3 == 0 %}<div class="row">{% endif %}
 
             <div class="span4 product-listing">
                 <p class="title">
-                    <a href="{{ url('store_product_view', {'slug': related_product.slug, 'productId': related_product.id}) }}">{{ related_product.name }}</a>
+                    <a href="{{ url('store_product_view', {'slug': relatedProduct.slug, 'productId': relatedProduct.id}) }}">{{ relatedProduct.name }}</a>
                 </p>
-                <a href="{{ url('store_product_view', {'slug': related_product.slug, 'productId': related_product.id}) }}">
-                    <img class="image" src="{{ related_product.principalImage|resize({'width': 372, 'height': 291, 'type': 5}) }}" alt="{{ related_product.name }}"/>
+                <a href="{{ url('store_product_view', {'slug': relatedProduct.slug, 'productId': relatedProduct.id}) }}">
+                    <img class="image" src="{{ relatedProduct.principalImage|resize({'width': 372, 'height': 291, 'type': 5}) }}" alt="{{ relatedProduct.name }}"/>
                 </a>
                 <p class="price">
-                    &pound; {{ related_product.price }}
+                    &pound; {{ relatedProduct.price }}
                     <a class="btn btn-addcart btn-primary" href="basket.html"><span class="entypo cart"></span></a><a
-                            class="btn btn-view btn-grey" href="{{ url('store_product_view', {'slug': related_product.slug, 'productId': related_product.id}) }}"><span class="entypo search"></span></a>
+                            class="btn btn-view btn-grey" href="{{ url('store_product_view', {'slug': relatedProduct.slug, 'productId': relatedProduct.id}) }}"><span class="entypo search"></span></a>
                 </p>
             </div>
 

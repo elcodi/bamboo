@@ -64,25 +64,10 @@ class ProductController extends Controller
 
         $product = $this->getDoctrine()->getRepository('ElcodiProductBundle:Product')->find($productId);
 
-        $principalCategory = $product->getPrincipalCategory();
-        if ($principalCategory instanceof CategoryInterface) {
-
-            $relatedProducts = $this
-                ->getDoctrine()
-                ->getRepository($productEntityNamespace)
-                ->findBy(array(
-                    'principalCategory' =>  $principalCategory,
-                    'enabled' => true
-                ));
-
-            $relatedProducts = new ArrayCollection($relatedProducts);
-
-            $relatedProducts->removeElement($product);
-        }
-
         return array(
             'product'          => $product,
-            'related_products' => $relatedProducts
+            'related_products' => $this->get('store.product.service.product_collection_provider')
+               ->getRelatedProducts($product)
         );
     }
 }

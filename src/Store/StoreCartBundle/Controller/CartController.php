@@ -57,8 +57,18 @@ class CartController extends Controller
      */
     public function viewAction()
     {
+        $relatedProducts = [];
+        $cart = $this->loadCart();
+
+        if ($cart->getCartLines()->count()) {
+
+            $relatedProducts = $this->get('store.product.service.product_collection_provider')
+                ->getRelatedProducts($cart->getCartLines()->first()->getProduct())->toArray();
+        }
+
         return [
-            'cart' => $this->loadCart(),
+            'cart' => $cart,
+            'relatedProducts' => $relatedProducts
         ];
     }
 

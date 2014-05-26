@@ -21,7 +21,9 @@ namespace Store\StoreProductBundle\Services;
 
 use Doctrine\Common\Collections\ArrayCollection;
 
-use Elcodi\ProductBundle\Repository\ProductRepository;
+use Elcodi\ProductBundle\Entity\Interfaces\CategoryInterface;
+use Elcodi\ProductBundle\Entity\Interfaces\ProductInterface;
+use Elcodi\ProductBundle\Services\ProductCollectionProvider as BaseProductCollectionProvider;
 
 /**
  * Product Collection provider
@@ -29,85 +31,36 @@ use Elcodi\ProductBundle\Repository\ProductRepository;
  * Locale is injected because we can just query products, loading at the same
  * time the corresponding translations.
  */
-class ProductCollectionProvider
+class ProductCollectionProvider extends BaseProductCollectionProvider
 {
-
     /**
-     * @var ProductRepository
+     * Given a specific Product, return a simple
+     * collection of related products
      *
-     * Product Repository
-     */
-    private $productRepository;
-
-    /**
-     * Construct method
+     * @param ProductInterface $product
+     * @param int $limit
      *
-     * @param ProductRepository $productRepository Product Repository
+     * @return ArrayCollection
      */
-    public function __construct(ProductRepository $productRepository)
+    public function getRelatedProducts(ProductInterface $product, $limit = 0)
     {
-        $this->productRepository = $productRepository;
-    }
+        $relatedProducts = new ArrayCollection();
+        $principalCategory = $product->getPrincipalCategory();
 
-    /**
-     * Get products that can be shown in Home.
-     * All products returned are actived and none deleted
-     *
-     * @param integer $limit Product limit. By default, this value is 0
-     *
-     * @return ArrayCollection Set of products, result of the query
-     */
-    public function getHomeProducts($limit = 0)
-    {
-        $query = $this
-            ->productRepository
-            ->createQueryBuilder('p')
-            ->where('p.enabled = :enabled')
-            ->setParameters([
-                'enabled' => true,
-            ])
-            ->orderBy('p.updatedAt', 'DESC');
+        if ($principalCategory instanceof CategoryInterface) {
 
-        if ($limit > 0) {
+            $relatedProducts = $this
+                ->productRepository
+                ->findBy(array(
+                    'principalCategory' =>  $product->getPrincipalCategory(),
+                    'enabled' => true
+                ));
 
-            $query->setMaxResults($limit);
+            $relatedProducts = new ArrayCollection($relatedProducts);
+            $relatedProducts->removeElement($product);
+
         }
 
-        $results = $query
-            ->getQuery()
-            ->getResult();
-
-        return new ArrayCollection($results);
-    }
-
-    /**
-     * Get products with price reduction.
-     * All products returned are actived and none deleted
-     *
-     * @param integer $limit Product limit. By default, this value is 0
-     *
-     * @return ArrayCollection Set of products, result of the query
-     */
-    public function getOfferProducts($limit = 0)
-    {
-        $query = $this
-            ->productRepository
-            ->createQueryBuilder('p')
-            ->where('p.enabled = :enabled')
-            ->setParameters([
-                'enabled' => true,
-            ])
-            ->orderBy('p.updatedAt', 'DESC');
-
-        if ($limit > 0) {
-
-            $query->setMaxResults($limit);
-        }
-
-        $results = $query
-            ->getQuery()
-            ->getResult();
-
-        return new ArrayCollection($results);
+        return $relatedProducts;
     }
 }
