@@ -92,7 +92,7 @@
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",
         "branch-alias": {
-            "dev-master": "2.4-dev"
+            "dev-master": "0.1-dev"
         }
     }
 }
