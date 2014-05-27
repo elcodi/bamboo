@@ -49,9 +49,6 @@ class StoreCartExtension extends AbstractExtension
      */
     public function getConfigFiles()
     {
-        return [
-            'classes',
-            'eventListeners',
-        ];
+        return [];
     }
 }

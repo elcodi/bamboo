@@ -1,6 +1,0 @@
-parameters:
-
-    #
-    # Event Listeners
-    #
-    store.cart.event_listener.cart_customer.class: Store\StoreCartBundle\EventListener\CartCustomerEventListener
