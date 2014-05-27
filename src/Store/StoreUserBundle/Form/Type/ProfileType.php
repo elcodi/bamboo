@@ -81,6 +81,14 @@ class ProfileType extends AbstractType
                 'required' => true,
                 'label'    => 'Email'
             ))
+            ->add('deliveryAddress', 'store_user_form_type_address', array(
+                'required' => true,
+                'label'    => 'Delivery Address'
+            ))
+            ->add('invoiceAddress', 'store_user_form_type_address', array(
+                'required' => true,
+                'label'    => 'Invoice Address'
+            ))
             ->add('password', 'repeated', array(
                 'type'           => 'password',
                 'first_options'  => array(
@@ -89,7 +97,7 @@ class ProfileType extends AbstractType
                 'second_options' => array(
                     'label' => 'Repeat Password',
                 ),
-                'required'       => true,
+                'required'       => false,
             ))
             ->add('send', 'submit', array(
                 'label' => 'Save',
@@ -103,6 +111,6 @@ class ProfileType extends AbstractType
      */
     public function getName()
     {
-        return 'store_user_form_types_profile';
+        return 'store_user_form_type_profile';
     }
 }

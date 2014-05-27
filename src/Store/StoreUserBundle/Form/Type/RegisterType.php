@@ -37,6 +37,16 @@ class RegisterType extends ProfileType
         parent::buildForm($builder, $options);
 
         $builder
+            ->add('password', 'repeated', array(
+                'type'           => 'password',
+                'first_options'  => array(
+                    'label' => 'Password',
+                ),
+                'second_options' => array(
+                    'label' => 'Repeat Password',
+                ),
+                'required'       => true,
+            ))
             ->add('send', 'submit', array(
                 'label' => 'Register'
             ));
@@ -49,6 +59,6 @@ class RegisterType extends ProfileType
      */
     public function getName()
     {
-        return 'store_user_form_types_register';
+        return 'store_user_form_type_register';
     }
 }

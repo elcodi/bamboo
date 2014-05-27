@@ -1,0 +1,11 @@
+parameters:
+
+    #
+    # Services
+    #
+    store.payment.service.payment_bridge.class: Store\PaymentBridgeBundle\Services\PaymentBridge
+
+    #
+    # Event Listeners
+    #
+    store.payment.event_listener.payment.class: Store\PaymentBridgeBundle\EventListener\PaymentEventListener

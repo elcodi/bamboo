@@ -1,0 +1,3 @@
+freepayment_payment_routes:
+    resource: .
+    type: freepayment

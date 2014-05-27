@@ -86,7 +86,7 @@ class UserController extends Controller
      * @Template
      *
      * @AnnotationForm(
-     *      class         = "store_user_form_types_profile",
+     *      class         = "store_user_form_type_profile",
      *      name          = "profileFormType",
      * )
      */

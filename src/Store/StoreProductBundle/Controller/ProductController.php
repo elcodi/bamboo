@@ -13,18 +13,17 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author ##author_placeholder
+ * @author  ##author_placeholder
  * @version ##version_placeholder##
  */
 
 namespace Store\StoreProductBundle\Controller;
 
+use Doctrine\ORM\EntityNotFoundException;
+use Elcodi\ProductBundle\Entity\Interfaces\ProductInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Doctrine\Common\Collections\ArrayCollection;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-
-use Elcodi\ProductBundle\Entity\Interfaces\CategoryInterface;
 
 /**
  * Product related actions
@@ -38,8 +37,7 @@ class ProductController extends Controller
     /**
      * Product view
      *
-     * @param int  $productId  Product id
-     * @param null $cartLineId
+     * @param int $productId Product id
      *
      * @return array
      *
@@ -52,22 +50,29 @@ class ProductController extends Controller
      *      }
      * )
      * @Template
+     *
+     * @throws EntityNotFoundException Product not found
      */
-    public function viewAction($productId, $cartLineId = null)
+    public function viewAction($productId)
     {
+        $product = $this
+            ->get('elcodi.repository.product')
+            ->find($productId);
 
-        $productEntityNamespace = $this
-            ->container
-            ->getParameter('elcodi.core.product.entity.product.class');
+        if (!($product instanceof ProductInterface)) {
 
-        $relatedProducts = [];
+            throw new EntityNotFoundException($this
+                ->container
+                ->getParameter('elcodi.core.product.entity.product.class'));
+        }
 
-        $product = $this->getDoctrine()->getRepository('ElcodiProductBundle:Product')->find($productId);
+        $relatedProducts = $this
+                ->get('store.product.service.product_collection_provider')
+                ->getRelatedProducts($product, 3);
 
         return array(
             'product'          => $product,
-            'related_products' => $this->get('store.product.service.product_collection_provider')
-               ->getRelatedProducts($product)
+            'related_products' => $relatedProducts
         );
     }
 }

@@ -15,10 +15,4 @@ parameters:
     locale: es
     secret: ThisTokenIsNotSoSecretChangeIt
 
-    redis_cache_server:    redis://localhost/3
-    redis_sessions_server: redis://localhost/4
-
-    paymill_public_key:  1234566777
-    paymill_private_key: 1234567888
-
     param_converters: false

@@ -5,9 +5,9 @@
 {% block content_title %}
 
     {% if cart.totalItemNumber > 0 %}
-        <h1>Your Basket</h1>
+        Your Basket
     {% else %}
-        <h1>Your Basket is empty!</h1>
+        Your Basket is empty!
     {% endif %}
 
 {% endblock content_title %}
@@ -16,7 +16,7 @@
 
     <!-- Basket -->
 
-    {% if cart.totalItemNumber > 0%}
+    {% if cart.totalItemNumber > 0 %}
 
         <div class="row">
             <div class="span12">
@@ -45,7 +45,7 @@
 
                 <div class="clearfix">
 
-                    <p class="basket-total"><span>Total: </span>{{ cart.amount|print_price('GBP', 'GBP') }}</p>
+                    <p class="basket-total"><span>Total: </span>{{ cart.amount|print_price('USD', 'USD') }}</p>
 
                 </div>
 
@@ -53,43 +53,17 @@
                     <a class="btn btn-blank" href="{{ url('store_homepage') }}">Continue Shopping</a>
                     <a class="btn btn-blank" href="{{ url('cart_empty_checkout') }}">Empty Basket</a>
                     <a class="btn btn-blank" href="basket.html">Update Basket</a>
-                    <a class="btn btn-primary" href="checkout-1.html">Continue to Checkout</a>
+                    <a class="btn btn-primary" href="{{ url('store_checkout_payment') }}">Continue to Checkout</a>
                 </p>
 
             </div>
         </div>
 
-        <!-- Related Products -->
+        <!-- Related products -->
 
-        <div class="row">
-            <div class="span12">
-                <h2>You May Also Like...</h2>
-            </div>
-        </div>
-
-        <!-- Product Listing -->
-
-        {% for relatedProduct in relatedProducts %}
-
-            {% if loop.index0 % 3 == 0 %}<div class="row">{% endif %}
-
-            <div class="span4 product-listing">
-                <p class="title">
-                    <a href="{{ url('store_product_view', {'slug': relatedProduct.slug, 'productId': relatedProduct.id}) }}">{{ relatedProduct.name }}</a>
-                </p>
-                <a href="{{ url('store_product_view', {'slug': relatedProduct.slug, 'productId': relatedProduct.id}) }}">
-                    <img class="image" src="{{ relatedProduct.principalImage|resize({'width': 372, 'height': 291, 'type': 5}) }}" alt="{{ relatedProduct.name }}"/>
-                </a>
-                <p class="price">
-                    &pound; {{ relatedProduct.price }}
-                    <a class="btn btn-addcart btn-primary" href="basket.html"><span class="entypo cart"></span></a><a
-                            class="btn btn-view btn-grey" href="{{ url('store_product_view', {'slug': relatedProduct.slug, 'productId': relatedProduct.id}) }}"><span class="entypo search"></span></a>
-                </p>
-            </div>
-
-            {% if loop.index0 % 3 == 2 or loop.last %}</div>{% endif %}
-
-        {% endfor %}
+        {% include "StoreProductBundle:Product:blocks/related.html.twig" with {
+            'products' : related_products
+        } %}
 
     {% endif %}
 

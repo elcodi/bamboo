@@ -13,7 +13,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author ##author_placeholder
+ * @author  ##author_placeholder
  * @version ##version_placeholder##
  */
 
@@ -21,10 +21,13 @@ namespace Store\StoreProductBundle\DataFixtures\ORM;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use Elcodi\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
+use Elcodi\CurrencyBundle\Entity\Interfaces\CurrencyInterface;
 use Elcodi\MediaBundle\Services\ImageManager;
 use Elcodi\MediaBundle\Transformer\FileTransformer;
+use Elcodi\ProductBundle\Entity\Interfaces\CategoryInterface;
 use Elcodi\ProductBundle\Entity\Interfaces\ProductInterface;
 use Gaufrette\Adapter;
+use Gaufrette\Filesystem;
 use Symfony\Component\HttpFoundation\File\File;
 
 /**
@@ -42,25 +45,29 @@ class ProductData extends AbstractFixture
     {
 
         /**
-         * GPB Currency
+         * @var CurrencyInterface $currency
          */
         $currency = $this->container->get('elcodi.core.currency.factory.currency')->create();
 
-        $currency->setSymbol('£');
-        $currency->setIso('GBP');
-        $currency->setEnabled(true);
+        $currency
+            ->setSymbol('$')
+            ->setIso('USD');
 
         $manager->persist($currency);
 
         /**
-         * @var ImageManager $imageManager
-         * @var Adapter $filesystemAdapter
-         * @var FileTransformer $fileTransformer
+         * @var ImageManager      $imageManager
+         * @var Adapter           $filesystemAdapter
+         * @var FileTransformer   $fileTransformer
+         * @var CategoryInterface $menCategory
+         * @var CategoryInterface $wemanCategory
          */
         $imageManager = $this->container->get('elcodi.core.media.service.image_manager');
         $imageFactory = $this->container->get('elcodi.core.product.factory.product');
-        $filesystemAdapter = $this->container->get('elcodi.core.media.filesystem.default')->getAdapter();
+        $filesystem = $this->container->get('elcodi.core.media.filesystem.default');
         $fileTransformer = $this->container->get('elcodi.core.media.transformer.file');
+        $menCategory = $this->getReference('category-men');
+        $womenCategory = $this->getReference('category-women');
 
         /**
          * Ibiza Lips
@@ -68,7 +75,6 @@ class ProductData extends AbstractFixture
          * @var ProductInterface $product
          */
         $product = $imageFactory->create();
-        $womenCategory = $this->getReference('category-women');
         $product
             ->setName('Ibiza Lips')
             ->setSlug('ibiza-lips')
@@ -79,22 +85,21 @@ class ProductData extends AbstractFixture
             )
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
-            ->setStock(30)
-            ->setPrice(9.99)
+            ->setStock(10000)
+            ->setPrice(7.99)
             ->setEnabled(true);
 
         $manager->persist($product);
         $this->addReference('product-ibiza-lips', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystemAdapter, $fileTransformer, $product, 'product-1.jpg');
+        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-1.jpg');
 
         /**
          * Ibiza Banana
          *
-         * @var ProductInterface $ibizaLipsProduct
+         * @var ProductInterface $product
          */
         $product = $imageFactory->create();
-        $womenCategory = $this->getReference('category-women');
         $product
             ->setName('Ibiza Banana')
             ->setSlug('ibiza-banana')
@@ -105,22 +110,21 @@ class ProductData extends AbstractFixture
             )
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
-            ->setStock(30)
-            ->setPrice(9.99)
+            ->setStock(10000)
+            ->setPrice(3.99)
             ->setEnabled(true);
 
         $manager->persist($product);
         $this->addReference('product-ibiza-banana', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystemAdapter, $fileTransformer, $product, 'product-2.jpg');
+        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-2.jpg');
 
         /**
          * I Was There
          *
-         * @var ProductInterface $ibizaLipsProduct
+         * @var ProductInterface $product
          */
         $product = $imageFactory->create();
-        $womenCategory = $this->getReference('category-women');
         $product
             ->setName('I Was There')
             ->setSlug('i-was-there')
@@ -131,22 +135,21 @@ class ProductData extends AbstractFixture
             )
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
-            ->setStock(30)
-            ->setPrice(9.99)
+            ->setStock(10000)
+            ->setPrice(21.05)
             ->setEnabled(true);
 
         $manager->persist($product);
         $this->addReference('product-i-was-there', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystemAdapter, $fileTransformer, $product, 'product-3.jpg');
+        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-3.jpg');
 
         /**
          * A Life Style
          *
-         * @var ProductInterface $ibizaLipsProduct
+         * @var ProductInterface $product
          */
         $product = $imageFactory->create();
-        $womenCategory = $this->getReference('category-women');
         $product
             ->setName('A Life Style')
             ->setSlug('a-life-style')
@@ -157,22 +160,21 @@ class ProductData extends AbstractFixture
             )
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
-            ->setStock(30)
-            ->setPrice(9.99)
+            ->setStock(10000)
+            ->setPrice(12.90)
             ->setEnabled(true);
 
         $manager->persist($product);
         $this->addReference('product-a-life-style', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystemAdapter, $fileTransformer, $product, 'product-4.jpg');
+        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-4.jpg');
 
         /**
          * Amnesia
          *
-         * @var ProductInterface $ibizaLipsProduct
+         * @var ProductInterface $product
          */
         $product = $imageFactory->create();
-        $menCategory = $this->getReference('category-men');
         $product
             ->setName('Amnesia')
             ->setSlug('amnesia')
@@ -183,22 +185,21 @@ class ProductData extends AbstractFixture
             )
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
-            ->setStock(30)
-            ->setPrice(9.99)
+            ->setStock(10000)
+            ->setPrice(18.00)
             ->setEnabled(true);
 
         $manager->persist($product);
         $this->addReference('product-amnesia', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystemAdapter, $fileTransformer, $product, 'product-11.jpg');
+        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-11.jpg');
 
         /**
          * All night long
          *
-         * @var ProductInterface $ibizaLipsProduct
+         * @var ProductInterface $product
          */
         $product = $imageFactory->create();
-        $menCategory = $this->getReference('category-men');
         $product
             ->setName('All Night Long')
             ->setSlug('all-night-long')
@@ -209,19 +210,19 @@ class ProductData extends AbstractFixture
             )
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
-            ->setStock(30)
-            ->setPrice(9.99)
+            ->setStock(10000)
+            ->setPrice(17.10)
             ->setEnabled(true);
 
         $manager->persist($product);
         $this->addReference('product-all-night-long', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystemAdapter, $fileTransformer, $product, 'product-14.jpg');
+        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-14.jpg');
 
         /**
          * High Pyramid
          *
-         * @var ProductInterface $ibizaLipsProduct
+         * @var ProductInterface $product
          */
         $product = $imageFactory->create();
         $menCategory = $this->getReference('category-men');
@@ -235,19 +236,19 @@ class ProductData extends AbstractFixture
             )
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
-            ->setStock(30)
-            ->setPrice(9.99)
+            ->setStock(10000)
+            ->setPrice(20.00)
             ->setEnabled(true);
 
         $manager->persist($product);
         $this->addReference('product-high-pyramid', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystemAdapter, $fileTransformer, $product, 'product-16.jpg');
+        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-16.jpg');
 
         /**
          * Star Amnesia
          *
-         * @var ProductInterface $ibizaLipsProduct
+         * @var ProductInterface $product
          */
         $product = $imageFactory->create();
         $menCategory = $this->getReference('category-men');
@@ -261,22 +262,21 @@ class ProductData extends AbstractFixture
             )
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
-            ->setStock(30)
-            ->setPrice(9.99)
+            ->setStock(10000)
+            ->setPrice(11.45)
             ->setEnabled(true);
 
         $manager->persist($product);
         $this->addReference('product-star-amnesia', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystemAdapter, $fileTransformer, $product, 'product-17.jpg');
+        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-17.jpg');
 
         /**
          * Ibiza 4 Ever
          *
-         * @var ProductInterface $ibizaLipsProduct
+         * @var ProductInterface $product
          */
         $product = $imageFactory->create();
-        $menCategory = $this->getReference('category-men');
         $product
             ->setName('Ibiza 4 Ever')
             ->setSlug('ibiza-4-ever')
@@ -287,14 +287,240 @@ class ProductData extends AbstractFixture
             )
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
-            ->setStock(30)
-            ->setPrice(9.99)
+            ->setStock(10000)
+            ->setPrice(10.20)
             ->setEnabled(true);
 
         $manager->persist($product);
         $this->addReference('product-ibiza-4-ever', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystemAdapter, $fileTransformer, $product, 'product-18.jpg');
+        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-18.jpg');
+
+        /**
+         * Barcelona Sun
+         *
+         * @var ProductInterface $product
+         */
+        $product = $imageFactory->create();
+        $womenCategory = $this->getReference('category-women');
+        $product
+            ->setName('Barcelona Sun')
+            ->setSlug('barcelona-sun')
+            ->setDescription(
+                'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.'
+            )
+            ->addCategory($womenCategory)
+            ->setPrincipalCategory($womenCategory)
+            ->setStock(10000)
+            ->setPrice(12.99)
+            ->setEnabled(true);
+
+        $manager->persist($product);
+        $this->addReference('product-barcelona-sun', $product);
+
+        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-1.jpg');
+
+        /**
+         * Cervera style
+         *
+         * @var ProductInterface $product
+         */
+        $product = $imageFactory->create();
+        $product
+            ->setName('Cervera Style')
+            ->setSlug('cervera-style')
+            ->setDescription(
+                'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.'
+            )
+            ->addCategory($womenCategory)
+            ->setPrincipalCategory($womenCategory)
+            ->setStock(10000)
+            ->setPrice(10.99)
+            ->setEnabled(true);
+
+        $manager->persist($product);
+        $this->addReference('product-cervera-style', $product);
+
+        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-2.jpg');
+
+        /**
+         * Dance me now
+         *
+         * @var ProductInterface $product
+         */
+        $product = $imageFactory->create();
+        $product
+            ->setName('Dance me now')
+            ->setSlug('dance-me-now')
+            ->setDescription(
+                'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.'
+            )
+            ->addCategory($womenCategory)
+            ->setPrincipalCategory($womenCategory)
+            ->setStock(10000)
+            ->setPrice(31.05)
+            ->setEnabled(true);
+
+        $manager->persist($product);
+        $this->addReference('product-dance-me-now', $product);
+
+        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-3.jpg');
+
+        /**
+         * Sigues feliç
+         *
+         * @var ProductInterface $product
+         */
+        $product = $imageFactory->create();
+        $product
+            ->setName('Sigues feliç')
+            ->setSlug('sigues-felic')
+            ->setDescription(
+                'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.'
+            )
+            ->addCategory($womenCategory)
+            ->setPrincipalCategory($womenCategory)
+            ->setStock(10000)
+            ->setPrice(12.90)
+            ->setEnabled(true);
+
+        $manager->persist($product);
+        $this->addReference('product-sigues-feliç', $product);
+
+        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-4.jpg');
+
+        /**
+         * Sempre més
+         *
+         * @var ProductInterface $product
+         */
+        $product = $imageFactory->create();
+        $product
+            ->setName('Sempre més')
+            ->setSlug('sempre-mes')
+            ->setDescription(
+                'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.'
+            )
+            ->addCategory($menCategory)
+            ->setPrincipalCategory($menCategory)
+            ->setStock(10000)
+            ->setPrice(10.00)
+            ->setEnabled(true);
+
+        $manager->persist($product);
+        $this->addReference('product-sempre-mes', $product);
+
+        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-11.jpg');
+
+        /**
+         * Because yes
+         *
+         * @var ProductInterface $product
+         */
+        $product = $imageFactory->create();
+        $product
+            ->setName('Because yes')
+            ->setSlug('because-yes')
+            ->setDescription(
+                'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.'
+            )
+            ->addCategory($menCategory)
+            ->setPrincipalCategory($menCategory)
+            ->setStock(10000)
+            ->setPrice(17.10)
+            ->setEnabled(true);
+
+        $manager->persist($product);
+        $this->addReference('product-because-yes', $product);
+
+        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-14.jpg');
+
+        /**
+         * Parada de xurros
+         *
+         * @var ProductInterface $product
+         */
+        $product = $imageFactory->create();
+        $product
+            ->setName('Parada de xurros')
+            ->setSlug('parada-de-xurros')
+            ->setDescription(
+                'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.'
+            )
+            ->addCategory($menCategory)
+            ->setPrincipalCategory($menCategory)
+            ->setStock(10000)
+            ->setPrice(20.00)
+            ->setEnabled(true);
+
+        $manager->persist($product);
+        $this->addReference('product-parada-de-xurros', $product);
+
+        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-16.jpg');
+
+        /**
+         * Keep calm and engonga
+         *
+         * @var ProductInterface $product
+         */
+        $product = $imageFactory->create();
+        $product
+            ->setName('Keem calm and engonga')
+            ->setSlug('keep-calm-and-engonga')
+            ->setDescription(
+                'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.'
+            )
+            ->addCategory($menCategory)
+            ->setPrincipalCategory($menCategory)
+            ->setStock(10000)
+            ->setPrice(50.00)
+            ->setEnabled(true);
+
+        $manager->persist($product);
+        $this->addReference('product-keep-calm-and-engonga', $product);
+
+        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-17.jpg');
+
+        /**
+         * Equip màgic
+         *
+         * @var ProductInterface $product
+         */
+        $product = $imageFactory->create();
+        $product
+            ->setName('Equip màgic')
+            ->setSlug('equip-magic')
+            ->setDescription(
+                'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.'
+            )
+            ->addCategory($menCategory)
+            ->setPrincipalCategory($menCategory)
+            ->setStock(10000)
+            ->setPrice(10.20)
+            ->setEnabled(true);
+
+        $manager->persist($product);
+        $this->addReference('product-equip-magic', $product);
+
+        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-18.jpg');
 
         $manager->flush();
     }
@@ -312,32 +538,38 @@ class ProductData extends AbstractFixture
     /**
      * Steps necessary to store an image
      *
-     * @param ObjectManager $manager
-     * @param $imageManager
-     * @param $filesystemAdapter
-     * @param $fileTransformer
-     * @param $product
-     * @param $imageName
+     * @param ObjectManager    $manager         Manager
+     * @param ImageManager     $imageManager    ImageManager
+     * @param Filesystem       $filesystem      Filesystem
+     * @param FileTransformer  $fileTransformer FileTransformer
+     * @param ProductInterface $product         Product
+     * @param string           $imageName       Image name
+     *
+     * @return ProductData self Object
      */
-    protected function storeImage(ObjectManager $manager, $imageManager, $filesystemAdapter,
-                                  $fileTransformer, $product, $imageName)
+    protected function storeImage(
+        ObjectManager $manager,
+        ImageManager $imageManager,
+        Filesystem $filesystem,
+        FileTransformer $fileTransformer,
+        ProductInterface $product,
+        $imageName
+    )
     {
-        $imagePath = realpath(dirname(__FILE__) . '/images/' .$imageName);
+        $imagePath = realpath(dirname(__FILE__) . '/images/' . $imageName);
         $image = $imageManager->createImage(new File($imagePath));
         $manager->persist($image);
         $manager->flush($image);
 
-        if ($filesystemAdapter->exists($fileTransformer->transform($image))) {
-
-            $filesystemAdapter->delete($fileTransformer->transform($image));
-        }
-
-        $filesystemAdapter->write(
+        $filesystem->write(
             $fileTransformer->transform($image),
-            file_get_contents($imagePath)
+            file_get_contents($imagePath),
+            true
         );
 
         $product->addImage($image);
         $product->setPrincipalImage($image);
+
+        return $this;
     }
 }

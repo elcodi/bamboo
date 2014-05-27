@@ -1,0 +1,62 @@
+{% extends 'StoreCoreBundle::layout.html.twig' %}
+
+{% block title %}{% trans %}_root_title{% endtrans %} - {% trans %}_tagline_title{% endtrans %}{% endblock title %}
+
+{% block content_title %}
+
+    {% if cart.totalItemNumber > 0 %}
+        <h1>Your Basket</h1>
+    {% else %}
+        <h1>Your Basket is empty!</h1>
+    {% endif %}
+
+{% endblock content_title %}
+
+{% block content %}
+
+    <!-- Basket -->
+
+    <div class="row">
+
+		<div class="span6">
+
+			<div class="checkout-box checkout-box-short">
+
+				<h2>Shipping Method</h2>
+
+                <p class="radios">
+                    <input disabled="disabled" type="radio" id="field-standard" name="field-shipping" checked="checked" /> Standard - FREE<br />
+                    <input disabled="disabled" type="radio" id="field-express" name="field-shipping" /> Express - {{ 4.99|print_price('USD', 'USD') }}<br />
+                </p>
+
+			</div>
+
+		</div>
+
+		<div class="span6">
+
+			<div class="checkout-box checkout-box-short">
+
+				<h2>Payment Method</h2>
+
+				<form action="{{ url("freepayment_execute") }}" method="post">
+
+					<p class="radios">
+						<input disabled="disabled" type="radio" id="field-card" name="field-method" checked="checked" /> Free<br />
+						<input disabled="disabled" type="radio" id="field-card" name="field-method" /> Credit/Debit Card<br />
+						<input disabled="disabled" type="radio" id="field-paypal" name="field-method" /> Paypal<br />
+					</p>
+
+					<p class="buttons">
+						<button class="btn btn-primary" type="submit">Continue</button>
+					</p>
+
+				</form>
+
+			</div>
+
+		</div>
+
+	</div>
+
+{% endblock %}

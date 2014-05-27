@@ -78,6 +78,6 @@ class LoginType extends AbstractType
      */
     public function getName()
     {
-        return 'store_user_form_types_login';
+        return 'store_user_form_type_login';
     }
 }

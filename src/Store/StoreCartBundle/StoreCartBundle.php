@@ -22,7 +22,7 @@ namespace Store\StoreCartBundle;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * Class StoreUserBundle
+ * Class StoreCartBundle
  */
 class StoreCartBundle extends Bundle
 {

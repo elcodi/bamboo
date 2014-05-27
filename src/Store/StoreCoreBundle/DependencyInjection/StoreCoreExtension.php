@@ -43,10 +43,7 @@ class StoreCoreExtension extends AbstractExtension
      */
     public function getConfigFiles()
     {
-        return [
-            'classes',
-            'eventListeners',
-        ];
+        return [];
     }
 
 }

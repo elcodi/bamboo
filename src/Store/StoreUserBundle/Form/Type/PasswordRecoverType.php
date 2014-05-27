@@ -59,6 +59,6 @@ class PasswordRecoverType extends AbstractType
      */
     public function getName()
     {
-        return 'store_user_form_types_password_recover';
+        return 'store_user_form_type_password_recover';
     }
 }

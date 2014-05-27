@@ -21,14 +21,9 @@ monolog:
         console:
             type:   console
             bubble: false
-        # uncomment to get logging in your browser
-        # you may have to allow bigger header sizes in your Web server configuration
         firephp:
             type:   firephp
             level:  info
-        #chromephp:
-        #    type:   chromephp
-        #    level:  info
 
 assetic:
     use_controller: true
@@ -48,11 +43,3 @@ doctrine:
                 user:     "%database_user%"
                 password: "%database_password%"
                 charset:  UTF8
-#            ps_migration:
-#                driver:   "%ps_database_driver%"
-#                host:     "%ps_database_host%"
-#                port:     "%ps_database_port%"
-#                dbname:   "%ps_database_name%"
-#                user:     "%ps_database_user%"
-#                password: "%ps_database_password%"
-#                charset:  UTF8

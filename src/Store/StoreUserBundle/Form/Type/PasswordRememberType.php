@@ -53,6 +53,6 @@ class PasswordRememberType extends AbstractType
      */
     public function getName()
     {
-        return 'store_user_form_types_password_remember';
+        return 'store_user_form_type_password_remember';
     }
 }

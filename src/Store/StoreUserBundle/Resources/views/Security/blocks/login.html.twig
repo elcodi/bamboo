@@ -21,8 +21,13 @@
             <p class="buttons">
                 {{ form_row(form.send, {attr: {'class': 'btn btn-primary' }}) }}
                 <a class="btn btn-blank"
-                   href="{{ url("store_password_remember") }}">Forgot your
-                    password?</a>
+                    href="{{ url("store_password_remember") }}">
+                    Forgot your password?
+                </a> -
+                <a class="btn btn-blank"
+                    href="{{ url("store_register") }}">
+                    Create new account
+                </a>
             </p>
 
             {{ form_end(form) }}

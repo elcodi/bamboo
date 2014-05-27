@@ -1,40 +1,38 @@
 {% extends 'StoreCoreBundle::layout.html.twig' %}
 
-{% block content %}
+{% block title %}Vamboo - Product {{ product.name }}{% endblock title %}
 
-    <div class="row">
-        <div class="span12">
-            <h1>{{ product.name }}</h1>
-        </div>
-    </div>
+{% block content_title %}{{ product.name }}{% endblock content_title %}
+
+{% block content %}
 
     <!-- Product Detail -->
 
     <div class="row">
 
         <div class="span8">
-            <img class="product-image" src="{{ product.principalImage|resize({'width': 772, 'height': 604, 'type': 5}) }}" alt="{{ product.name }}"/>
-
-            {% for image in product.images %}
-
-                {% if loop.index0 % 4 == 0 %}<div class="row">{% endif %}
-
-                <div class="span2">
-                    <a href=""><img class="product-thumb" src="{{ image|resize({'width': 172, 'height': 135, 'type': 5}) }}" alt="{{ product.name }}"/></a>
-                </div>
-
-                {% if loop.index0 % 4 == 3 or loop.last %}</div>{% endif %}
-
-            {% endfor %}
-
+            <img class="product-image" src="{{ product.principalImage|resize({
+                'width': 772,
+                'height': 604,
+                'type': 5
+            }) }}" alt="{{ product.name }}"/>
         </div>
 
         <div class="span4">
             <div class="add-basket-box clearfix">
 
-                <img src="{{ product.principalImage|resize({'width': 60, 'height': 47, 'type': 5}) }}" alt="{{ product.name }}"/>
-                <p>{{ product.name }}<br/><span>&pound;{{ product.price }}</span></p>
-                <a class="btn btn-addcart btn-primary" href="basket.html"><span class="entypo cart"></span></a>
+                <img src="{{ product.principalImage|resize({
+                    'width': 60,
+                    'height': 47,
+                    'type': 5
+                }) }}" alt="{{ product.name }}"/>
+
+                <p>{{ product.name }}<br/>
+                    <span>{{ product.price|print_price('USD', 'USD') }}</span>
+                </p>
+                <a class="btn btn-addcart btn-primary" href="{{ url('cart_add_product', { productId: product.id }) }}">
+                    <span class="entypo cart"></span>
+                </a>
 
             </div>
 
@@ -51,43 +49,16 @@
             <h3>Delivery</h3>
 
             <p>Free Delivery is available on this item.</p>
-
             <p>Usually dispatched within 24 hours.</p>
 
         </div>
 
     </div>
 
-    <!-- Related Products -->
+    <!-- Related products -->
 
-    <div class="row">
-        <div class="span12">
-            <h2>Related Products</h2>
-        </div>
-    </div>
-
-    <!-- Product Listing -->
-
-    {% for related_product in related_products %}
-
-    {% if loop.index0 % 3 == 0 %}<div class="row">{% endif %}
-
-        <div class="span4 product-listing">
-            <p class="title">
-                <a href="{{ url('store_product_view', {'slug': related_product.slug, 'productId': related_product.id}) }}">{{ related_product.name }}</a>
-            </p>
-            <a href="{{ url('store_product_view', {'slug': related_product.slug, 'productId': related_product.id}) }}">
-                <img class="image" src="{{ related_product.principalImage|resize({'width': 372, 'height': 291, 'type': 5}) }}" alt="{{ related_product.name }}"/>
-            </a>
-            <p class="price">
-                &pound; {{ related_product.price }}
-                <a class="btn btn-addcart btn-primary" href="basket.html"><span class="entypo cart"></span></a><a
-                        class="btn btn-view btn-grey" href="{{ url('store_product_view', {'slug': related_product.slug, 'productId': related_product.id}) }}"><span class="entypo search"></span></a>
-            </p>
-        </div>
-
-    {% if loop.index0 % 3 == 2 or loop.last %}</div>{% endif %}
-
-    {% endfor %}
+    {% include "StoreProductBundle:Product:blocks/related.html.twig" with {
+        'products' : related_products
+    } %}
 
 {% endblock content %}

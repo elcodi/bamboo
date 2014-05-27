@@ -1,0 +1,10 @@
+services:
+
+    #
+    # Services
+    #
+    store.payment.service.payment_bridge:
+        class: %store.payment.service.payment_bridge.class%
+
+    payment.bridge:
+        alias: store.payment.service.payment_bridge

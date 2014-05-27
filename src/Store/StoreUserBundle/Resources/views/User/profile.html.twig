@@ -2,6 +2,8 @@
 
 {% form_theme form 'StoreCoreBundle::fields.html.twig' %}
 
+{% block content_title %}{{ app.user.name }}{% endblock content_title %}
+
 {% block content %}
 
     <div class="container">

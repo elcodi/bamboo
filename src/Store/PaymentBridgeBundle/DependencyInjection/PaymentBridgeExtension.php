@@ -17,14 +17,14 @@
  * @version ##version_placeholder##
  */
 
-namespace Store\StoreCartBundle\DependencyInjection;
+namespace Store\PaymentBridgeBundle\DependencyInjection;
 
 use Elcodi\CoreBundle\DependencyInjection\Abstracts\AbstractExtension;
 
 /**
- * Class StoreCartBundle
+ * Class PaymentBridgeExtension
  */
-class StoreCartBundle extends AbstractExtension
+class PaymentBridgeExtension extends AbstractExtension
 {
     /**
      * Get the Config file location
@@ -49,6 +49,10 @@ class StoreCartBundle extends AbstractExtension
      */
     public function getConfigFiles()
     {
-        return [];
+        return [
+            'classes',
+            'services',
+            'eventListeners'
+        ];
     }
 }

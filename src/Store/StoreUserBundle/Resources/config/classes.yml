@@ -13,3 +13,4 @@ parameters:
     store.user.form_type.profile.class: Store\StoreUserBundle\Form\Type\ProfileType
     store.user.form_type.password_remember.class: Store\StoreUserBundle\Form\Type\PasswordRememberType
     store.user.form_type.password_recover.class: Store\StoreUserBundle\Form\Type\PasswordRecoverType
+    store.user.form_type.address.class: Store\StoreUserBundle\Form\Type\AddressType

@@ -50,8 +50,8 @@ class AppKernel extends Kernel
             new \JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new \Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
             new \Mmoreram\ControllerExtraBundle\ControllerExtraBundle(),
-            //new \PaymentSuite\PaymentCoreBundle\PaymentCoreBundle(),
-            //new \PaymentSuite\FreePaymentBundle\FreePaymentBundle(),
+            new \PaymentSuite\PaymentCoreBundle\PaymentCoreBundle(),
+            new \PaymentSuite\FreePaymentBundle\FreePaymentBundle(),
 
             /**
              * Elcodi core bundles
@@ -74,6 +74,7 @@ class AppKernel extends Kernel
             new \Store\StoreProductBundle\StoreProductBundle(),
             new \Store\StoreUserBundle\StoreUserBundle(),
             new \Store\StoreCartBundle\StoreCartBundle(),
+            new \Store\PaymentBridgeBundle\PaymentBridgeBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -5,6 +5,10 @@ security:
             path: /user/.*
             roles: ROLE_CUSTOMER
 
+        checkout_area:
+            path: /checkout/.*
+            roles: ROLE_CUSTOMER
+
         public_area:
             path: /.*
             roles: IS_AUTHENTICATED_ANONYMOUSLY

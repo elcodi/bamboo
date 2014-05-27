@@ -50,7 +50,7 @@ class SecurityController extends Controller
      * @Template
      *
      * @AnnotationForm(
-     *      class = "store_user_form_types_login",
+     *      class = "store_user_form_type_login",
      *      name  = "loginFormView"
      * )
      */
@@ -92,7 +92,7 @@ class SecurityController extends Controller
      *      persist       = false
      * )
      * @AnnotationForm(
-     *      class         = "store_user_form_types_register",
+     *      class         = "store_user_form_type_register",
      *      entity        = "customer",
      *      handleRequest = true,
      *      name          = "registerFormView",

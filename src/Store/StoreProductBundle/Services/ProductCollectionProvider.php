@@ -29,7 +29,6 @@ use Elcodi\ProductBundle\Services\ProductCollectionProvider as BaseProductCollec
  * Product Collection provider
  *
  * Locale is injected because we can just query products, loading at the same
- * time the corresponding translations.
  */
 class ProductCollectionProvider extends BaseProductCollectionProvider
 {
@@ -41,7 +40,7 @@ class ProductCollectionProvider extends BaseProductCollectionProvider
      *
      * @return ArrayCollection
      */
-    public function getRelatedProducts(ProductInterface $product, $limit = 0)
+    public function getRelatedProducts(ProductInterface $product, $limit)
     {
         $relatedProducts = new ArrayCollection();
         $principalCategory = $product->getPrincipalCategory();
@@ -55,11 +54,9 @@ class ProductCollectionProvider extends BaseProductCollectionProvider
                     'enabled'           => true
                 ));
 
-            $relatedProducts = array_slice($relatedProducts, 0, $limit);
-
             $relatedProducts = new ArrayCollection($relatedProducts);
             $relatedProducts->removeElement($product);
-
+            $relatedProducts = $relatedProducts->slice(0, $limit);
         }
 
         return $relatedProducts;

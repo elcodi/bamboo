@@ -53,7 +53,7 @@ class PasswordController extends Controller
      * @Template
      *
      * @AnnotationForm(
-     *      class         = "store_user_form_types_password_remember",
+     *      class         = "store_user_form_type_password_remember",
      *      handleRequest = true,
      *      name          = "passwordRememberForm",
      *      validate      = "isValid"
@@ -130,7 +130,7 @@ class PasswordController extends Controller
      * @Template
      *
      * @AnnotationForm(
-     *      class         = "store_user_form_types_password_recover",
+     *      class         = "store_user_form_type_password_recover",
      *      handleRequest = true,
      *      name          = "passwordRecoverForm",
      *      validate      = "isValid"
