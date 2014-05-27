@@ -59,12 +59,9 @@ class AppKernel extends Kernel
             new \Elcodi\CoreBundle\ElcodiCoreBundle(),
             new \Elcodi\CartBundle\ElcodiCartBundle(),
             new \Elcodi\BannerBundle\ElcodiBannerBundle(),
-            new \Elcodi\CouponBundle\ElcodiCouponBundle(),
             new \Elcodi\CurrencyBundle\ElcodiCurrencyBundle(),
             new \Elcodi\UserBundle\ElcodiUserBundle(),
             new \Elcodi\ProductBundle\ElcodiProductBundle(),
-            new \Elcodi\ReferralProgramBundle\ElcodiReferralProgramBundle(),
-            new \Elcodi\CartCouponBundle\ElcodiCartCouponBundle(),
             new \Elcodi\MediaBundle\ElcodiMediaBundle(),
 
             /**

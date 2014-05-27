@@ -45,9 +45,12 @@
         "paymentsuite/payment-core-bundle": "v1.3",
         "paymentsuite/free-payment-bundle": "~1",
 
-        "elcodi/elcodi": "dev-master"
-    },
-    "require-dev": {
+        "elcodi/banner-bundle": "~0.1",
+        "elcodi/cart-bundle": "~0.1",
+        "elcodi/currency-bundle": "~0.1",
+        "elcodi/media-bundle": "~0.1",
+        "elcodi/product-bundle": "~0.1",
+        "elcodi/user-bundle": "~0.1",
 
         "doctrine/doctrine-fixtures-bundle": "v2.2.0"
     },
