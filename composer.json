@@ -1,12 +1,22 @@
 {
-    "name": "symfony/framework-standard-edition",
+    "name": "elcodi/vamboo-store",
     "license": "MIT",
     "type": "project",
-    "description": "The \"Symfony Standard Edition\" distribution",
-    "autoload": {
-        "psr-0": { "": "src/" },
-        "files": ["app/AppKernel.php"]
-    },
+    "description": "Vamboo Project, an ecommerce built on Elcodi",
+    "authors": [
+        {
+            "name": "Marc Morera",
+            "email": "yuhu@mmoreram.com"
+        },
+        {
+            "name": "Aldo Chiecchia",
+            "email": "aldo.chiecchia@befactory.es"
+        },
+        {
+            "name": "Symfony Community",
+            "homepage": "https://github.com/elcodi/vamboo-store/contributors"
+        }
+    ],
     "repositories": [
         {
             "type": "package",
@@ -67,6 +77,12 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
         ]
+    },
+    "autoload": {
+        "psr-4": {
+            "Store\\": "src/Store"
+        },
+        "files": ["app/AppKernel.php"]
     },
     "config": {
         "bin-dir": "bin"
