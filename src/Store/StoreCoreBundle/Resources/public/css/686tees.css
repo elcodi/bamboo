@@ -577,7 +577,7 @@ h5 {
 	font-size: 18px;
 }
 
-.member-box input {
+.member-box input, .member-box textarea {
 	border-radius: 0;
 	width: 95%;
 }
