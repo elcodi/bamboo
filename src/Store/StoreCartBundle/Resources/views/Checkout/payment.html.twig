@@ -1,17 +1,5 @@
 {% extends 'StoreCoreBundle::layout.html.twig' %}
 
-{% block title %}{% trans %}_root_title{% endtrans %} - {% trans %}_tagline_title{% endtrans %}{% endblock title %}
-
-{% block content_title %}
-
-    {% if cart.totalItemNumber > 0 %}
-        <h1>Your Basket</h1>
-    {% else %}
-        <h1>Your Basket is empty!</h1>
-    {% endif %}
-
-{% endblock content_title %}
-
 {% block content %}
 
     <!-- Basket -->
