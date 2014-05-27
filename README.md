@@ -1,4 +1,12 @@
-# Vamboo Store
+Vamboo Store
+============
+
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/1940740e-9fe0-498e-8962-024b173a29c0/mini.png)](https://insight.sensiolabs.com/projects/1940740e-9fe0-498e-8962-024b173a29c0)
+[![Latest Stable Version](https://poser.pugx.org/elcodi/vamboo-store/v/stable.png)](https://packagist.org/packages/elcodi/vamboo-store)
+[![Total Downloads](https://poser.pugx.org/elcodi/vamboo-store/downloads.png)](https://packagist.org/packages/elcodi/vamboo-store)
+[![Latest Unstable Version](https://poser.pugx.org/elcodi/vamboo-store/v/unstable.png)](https://packagist.org/packages/elcodi/vamboo-store)
+[![License](https://poser.pugx.org/elcodi/elcodi/license.png)](https://packagist.org/packages/elcodi/elcodi)
+[![Powered By Elcodi](http://elcodi.io/static/elcodi.badge.png)](http://github.com/elcodi)
 
 Welcome to the Vamboo Store - a fully-functional Ecommerce project
 application built on Elcodi components.
