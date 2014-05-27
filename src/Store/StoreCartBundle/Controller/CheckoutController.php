@@ -47,7 +47,11 @@ class CheckoutController extends Controller
      */
     public function paymentAction()
     {
-        return [];
+        return [
+            'cart' => $this
+                    ->get('elcodi.cart_wrapper')
+                    ->loadCart()
+        ];
     }
 
     /**
