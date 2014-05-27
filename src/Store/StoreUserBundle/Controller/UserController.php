@@ -26,7 +26,6 @@ use Symfony\Component\Form\Form;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as AnnotationForm;
-use Mmoreram\ControllerExtraBundle\Annotation\Entity;
 
 /**
  * Class UserController

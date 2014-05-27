@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "80f4bac75a4f4e63d9d77eff43da5e16",
+    "hash": "8ad6108255e9eb6c06930fb684c46ebb",
     "packages": [
         {
             "name": "braincrafted/bootstrap-bundle",
@@ -3341,11 +3341,11 @@
 
     ],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "jms/aop-bundle": 20
-    },
+    "stability-flags": [
+
+    ],
     "platform": {
-        "php": ">=5.3.3"
+        "php": ">=5.4"
     },
     "platform-dev": [
 

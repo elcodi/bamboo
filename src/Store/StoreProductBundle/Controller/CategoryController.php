@@ -48,9 +48,18 @@ class CategoryController extends Controller
      */
     public function navAction()
     {
+        $currentCategoryId = $this
+            ->get('request_stack')
+            ->getMasterRequest()
+            ->get('categoryId');
+
+        $categoryTree = $this
+            ->get('elcodi.core.product.service.category_manager')
+            ->getCategoryTree();
+
         return [
-            'currentCategoryId' => $currentCategoryId = $this->get('request_stack')->getMasterRequest()->get('categoryId'),
-            'categoryTree' => $this->get('elcodi.core.product.service.category_manager')->getCategoryTree(),
+            'currentCategoryId' => $currentCategoryId,
+            'categoryTree' => $categoryTree,
         ];
     }
 

@@ -30,7 +30,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Exception;
 
-use Elcodi\CartBundle\Entity\Interfaces\CartInterface;
 use Elcodi\CartBundle\Exception\CartLineOutOfStockException;
 use Elcodi\CartBundle\Exception\CartLineProductUnavailableException;
 use Elcodi\ProductBundle\Entity\Interfaces\ProductInterface;
@@ -59,7 +58,9 @@ class CartController extends Controller
     public function viewAction()
     {
         $relatedProducts = [];
-        $cart = $this->loadCart();
+        $cart = $this
+            ->get('elcodi.cart_wrapper')
+            ->loadCart();
 
         if ($cart->getCartLines()->count()) {
 
@@ -115,7 +116,9 @@ class CartController extends Controller
             $quantity = 1;
         }
 
-        $cart = $this->loadCart();
+        $cart = $this
+            ->get('elcodi.cart_wrapper')
+            ->loadCart();
 
         try {
 
@@ -177,7 +180,10 @@ class CartController extends Controller
     {
         $this
             ->get('elcodi.core.cart.service.cart_manager')
-            ->emptyLines($this->loadCart());
+            ->emptyLines($this
+                ->get('elcodi.cart_wrapper')
+                ->loadCart()
+            );
 
         return $this->redirect($this->generateUrl('store_homepage'));
     }
@@ -211,7 +217,11 @@ class CartController extends Controller
 
         $this
             ->get('elcodi.core.cart.service.cart_manager')
-            ->removeLine($this->loadCart(), $cartLine);
+            ->removeLine($this
+                ->get('elcodi.cart_wrapper')
+                ->loadCart(),
+                $cartLine
+            );
 
         return $this->redirect($this->generateUrl('store_cart_view'));
     }
@@ -231,21 +241,9 @@ class CartController extends Controller
     public function navAction()
     {
         return array(
-            'cart' => $this->loadCart(),
+            'cart' => $this
+                ->get('elcodi.cart_wrapper')
+                ->loadCart(),
         );
-    }
-
-    /**
-     * Get cart from session.
-     *
-     * If none is found, create a new one
-     *
-     * @return CartInterface Cart
-     */
-    public function loadCart()
-    {
-        return $this
-            ->get('elcodi.cart_wrapper')
-            ->loadCart();
     }
 }

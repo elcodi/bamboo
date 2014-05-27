@@ -43,7 +43,7 @@
         "sensio/distribution-bundle": "~2.3",
         "sensio/framework-extra-bundle": "~3.0",
         "jquery/jquery": "1.9.*",
-        "jms/aop-bundle": "dev-master",
+        "jms/aop-bundle": "~1.0",
         "jms/serializer-bundle": "0.13.0",
         "liip/doctrine-cache-bundle": "1.0.3",
         "jms/security-extra-bundle": "1.5.1",

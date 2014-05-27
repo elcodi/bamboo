@@ -2,12 +2,6 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
 
-services:
-    twig.extension.text:
-        class: Twig_Extensions_Extension_Text
-        tags:
-            - { name: twig.extension }
-
 monolog:
     handlers:
         main:
