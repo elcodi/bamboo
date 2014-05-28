@@ -11,9 +11,6 @@ Vamboo Store
 Welcome to the Vamboo Store - a fully-functional Ecommerce project
 application built on Elcodi components.
 
-1) Installing the Vamboo Store
-----------------------------------
-
 As Vamboo Store uses [Composer][2] to manage its dependencies, the recommended
 way to create a new project is to use it.
 
@@ -24,7 +21,17 @@ http://getcomposer.org/ or just run the following command:
     $ curl -s http://getcomposer.org/installer | php
 ```
 
-Then, use the `create-project` command to generate a new Vamboo Store
+Requirements
+------------------
+
+The sample application has a few requirements:
+
+* [Imagemagick](http://www.imagemagick.org/) >= 6.X
+* [SQLite](http://www.sqlite.org/) >= 3.X
+
+1) Install the project using composer
+
+Use the `create-project` command to generate a new Vamboo Store
 application:
 
 ```bash
@@ -34,20 +41,20 @@ $ php composer.phar create-project elcodi/vamboo-store <path/to/install> dev-mas
 Composer will install Vamboo Store and all its dependencies under the
 `path/to/install` directory.
 
-2) Checking your System Configuration
+
+2) Check your System Configuration
 -------------------------------------
 
-Before starting coding, make sure that your local system is properly
-configured for Vamboo Store.
+Make sure that your local system is properly configured for Vamboo Store.
 
-Execute the `check.php` script from the command line:
+Enter the ``path/to/install`` drectory and execute the `check.php` script from the 
+command line:
 
 ```bash
 $ php app/check.php
 ```    
 
-The script returns a status code of `0` if all mandatory requirements are met,
-`1` otherwise.
+The script returns a status code of `0` if requirements are met, `1` otherwise.
 
 3) Load sample data
 -------------------
@@ -66,6 +73,7 @@ $ php app/dev server:run 0.0.0.0:8080
 ```
 
 Point your browser to ``http://localhost:8080`` and you are done!
+
 
 [1]:  http://symfony.com/doc/2.4/book/installation.html
 [2]:  http://getcomposer.org/
