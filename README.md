@@ -30,6 +30,7 @@ The sample application has a few requirements:
 * [SQLite](http://www.sqlite.org/) >= 3.X
 
 1) Install the project using composer
+-------------------------------------
 
 Use the `create-project` command to generate a new Vamboo Store
 application:
