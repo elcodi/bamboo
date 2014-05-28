@@ -25,7 +25,7 @@ http://getcomposer.org/ or just run the following command:
 Then, use the `create-project` command to generate a new Vamboo Store
 application:
 
-    php composer.phar create-project elcodi/vamboo-store path/to/install
+    php composer.phar create-project elcodi/vamboo-store <path/to/install> dev-master
 
 Composer will install Vamboo Store and all its dependencies under the
 `path/to/install` directory.
