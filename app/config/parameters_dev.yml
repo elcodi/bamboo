@@ -1,3 +1,12 @@
 parameters:
 
+    param_converters: false
+
     database_suffix: '_dev'
+
+    # Comment the following lines to load the default
+    # database configuration stored in parameters.yml
+    # using pdo_mysql driver @localhost
+    database_driver: pdo_sqlite
+    database_path: '/tmp/vamboo-store.sqlite'
+

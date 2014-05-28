@@ -34,11 +34,6 @@ framework:
     fragments:       ~
     http_method_override: true
 
-#bc_bootstrap:
-    #less_filter: lessphp
-    #assets_dir: %kernel.root_dir%/../vendor/twbs/bootstrap
-    #jquery_path: %kernel.root_dir%/../vendor/jquery/jquery/jquery-1.9.1.js
-
 # Assetic Configuration
 assetic:
     bundles: ['StoreCoreBundle']

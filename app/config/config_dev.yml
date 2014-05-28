@@ -39,6 +39,7 @@ doctrine:
                 driver:   "%database_driver%"
                 host:     "%database_host%"
                 port:     "%database_port%"
+                path:     "%database_path%"
                 dbname:   "%database_name%"
                 user:     "%database_user%"
                 password: "%database_password%"
