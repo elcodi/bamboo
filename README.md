@@ -59,6 +59,7 @@ $ php app/console doctrine:fixture:load --fixtures=src
 ```
 
 4) Run the application using php's built-in web server
+------------------------------------------------------
 
 ```bash
 $ php app/dev server:run 0.0.0.0:8080
