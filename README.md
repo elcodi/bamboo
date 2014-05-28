@@ -57,10 +57,16 @@ $ php app/check.php
 
 The script returns a status code of `0` if requirements are met, `1` otherwise.
 
-3) Load sample data
+3) Generate schema and load fixtures
 -------------------
 
-You can load the sample data by using the ``doctrine:fixture:load`` command:
+Create the database and the schema
+
+```bash
+$ php app/console doctrine:database:create && php app/console doctrine:schema:create
+```
+
+You can now load the sample data by using the ``doctrine:fixture:load`` command:
 
 ```bash
 $ php app/console doctrine:fixture:load --fixtures=src
