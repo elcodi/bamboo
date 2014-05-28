@@ -3,7 +3,7 @@ parameters:
     #
     # Event Listeners
     #
-    store.user.event_listener.password.class: Store\StoreUserBundle\EventListener\PasswordEventListener
+    store.user.event_listener.remember_password.class: Store\StoreUserBundle\EventListener\RememberPasswordEventListener
 
     #
     # Form Types

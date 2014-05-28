@@ -31,7 +31,7 @@ use Elcodi\UserBundle\Event\PasswordRememberEvent;
 /**
  * Password event listener
  */
-class PasswordEventListener
+class RememberPasswordEventListener
 {
 
     /**

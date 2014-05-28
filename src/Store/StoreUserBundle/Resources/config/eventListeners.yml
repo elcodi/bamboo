@@ -3,8 +3,8 @@ services:
     #
     # Event Listeners
     #
-    store.user.event_listener.password:
-        class: %store.user.event_listener.password.class%
+    store.user.event_listener.remember_password:
+        class: %store.user.event_listener.remember_password.class%
         arguments:
             mailer: @mailer
             templating: @templating
