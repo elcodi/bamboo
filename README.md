@@ -83,7 +83,7 @@ $ php app/console assets:install web && php app/console assetic:dump
 ------------------------------------------------------
 
 ```bash
-$ php app/dev server:run 0.0.0.0:8080
+$ php app/console server:run 0.0.0.0:8080
 ```
 
 Point your browser to ``http://localhost:8080`` and you are done!
