@@ -72,7 +72,13 @@ You can now load the sample data by using the ``doctrine:fixture:load`` command:
 $ php app/console doctrine:fixture:load --fixtures=src
 ```
 
-4) Run the application using php's built-in web server
+4) Install the assets
+
+```bash
+$ php app/console assets:install web && php app/console assetic:dump
+```
+
+5) Run the application using php's built-in web server
 ------------------------------------------------------
 
 ```bash
