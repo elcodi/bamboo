@@ -73,6 +73,7 @@ $ php app/console doctrine:fixture:load --fixtures=src
 ```
 
 4) Install the assets
+---------------------
 
 ```bash
 $ php app/console assets:install web && php app/console assetic:dump
