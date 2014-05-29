@@ -1,29 +1,31 @@
+{% set lineObject = line.vars.data %}
+
 <tr>
     <td class="image">
         <a href="{{ url('store_product_view', {
-            slug: line.product.slug,
-            productId: line.product.id
+            slug: lineObject.product.slug,
+            productId: lineObject.product.id
         }) }}">
-            <img src="{{ line.product.principalImage|resize({
+            <img src="{{ lineObject.product.principalImage|resize({
                 width: 80,
                 height: 80,
                 type: 5 })
-            }}" alt="{{ line.product.name }}" />
+            }}" alt="{{ lineObject.product.name }}" />
         </a>
     </td>
     <td class="title">
         <a href="{{ url('store_product_view', {
-            slug: line.product.slug,
-            productId: line.product.id
-        }) }}">{{ line.product.name }}</a>
+            slug: lineObject.product.slug,
+            productId: lineObject.product.id
+        }) }}">{{ lineObject.product.name }}</a>
     </td>
     <td class="qty">
-        <input type="text" name="qty[]" value="{{ line.quantity }}" />
+        {{ form_row(line.quantity) }}
     </td>
-    <td class="price">{{ line.amount|print_price('USD', 'USD') }}</td>
-    <td class="total">{{ line.amount|print_price('USD', 'USD') }}</td>
+    <td class="price">{{ lineObject.amount|print_price('USD', 'USD') }}</td>
+    <td class="total">{{ lineObject.amount|print_price('USD', 'USD') }}</td>
     <td class="remove">
-        <a href="{{ url('cartline_remove', { cartLineId: line.id }) }}">
+        <a href="{{ url('store_cartline_remove', { cartLineId: lineObject.id }) }}">
             <span class="entypo trash"></span>
         </a>
     </td>

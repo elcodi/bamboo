@@ -1,0 +1,7 @@
+parameters:
+
+    #
+    # Form Types
+    #
+    store.cart.form_type.cart.class: Store\StoreCartBundle\Form\Type\CartType
+    store.cart.form_type.cart_line.class: Store\StoreCartBundle\Form\Type\CartLineType

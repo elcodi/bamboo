@@ -19,40 +19,46 @@
         <div class="row">
             <div class="span12">
 
-                <table class="basket-table">
-                    <thead>
-                    <tr>
-                        <th colspan="2">Item</th>
-                        <th>Qty</th>
-                        <th>Price</th>
-                        <th colspan="2">Total</th>
-                    </tr>
-                    </thead>
-                    <tbody>
+                {{ form_start(form) }}
 
-                    {% for line in cart.cartLines %}
+                    <table class="basket-table">
+                        <thead>
+                        <tr>
+                            <th colspan="2">Item</th>
+                            <th>Qty</th>
+                            <th>Price</th>
+                            <th colspan="2">Total</th>
+                        </tr>
+                        </thead>
+                        <tbody>
 
-                        {% include "StoreCartBundle:Cart:blocks/row.html.twig" with {
-                            "line": line
-                        } %}
+                        {% for line in form.cartLines %}
 
-                    {% endfor %}
+                            {% include "StoreCartBundle:Cart:blocks/row.html.twig" with {
+                                "line": line,
+                            } %}
 
-                    </tbody>
-                </table>
+                        {% endfor %}
 
-                <div class="clearfix">
+                        </tbody>
+                    </table>
 
-                    <p class="basket-total"><span>Total: </span>{{ cart.amount|print_price('USD', 'USD') }}</p>
+                    <div class="clearfix">
 
-                </div>
+                        <p class="basket-total"><span>Total: </span>{{ cart.amount|print_price('USD', 'USD') }}</p>
 
-                <p class="actions">
-                    <a class="btn btn-blank" href="{{ url('store_homepage') }}">Continue Shopping</a>
-                    <a class="btn btn-blank" href="{{ url('cart_empty_checkout') }}">Empty Basket</a>
-                    <a class="btn btn-blank" href="basket.html">Update Basket</a>
-                    <a class="btn btn-primary" href="{{ url('store_checkout_payment') }}">Continue to Checkout</a>
-                </p>
+                    </div>
+
+                    <p class="actions">
+                        <a class="btn btn-blank" href="{{ url('store_homepage') }}">Continue Shopping</a>
+                        <a class="btn btn-blank" href="{{ url('store_cart_empty') }}">Empty Basket</a>
+                        {{ form_widget(form.update, { 'attr': {
+                            'class': "btn btn-blank"
+                        }}) }}
+                        <a class="btn btn-primary" href="{{ url('store_checkout_payment') }}">Continue to Checkout</a>
+                    </p>
+
+                {{ form_end(form) }}
 
             </div>
         </div>

@@ -25,7 +25,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as AnnotationForm;
-use Mmoreram\ControllerExtraBundle\Annotation\Entity;
 
 use Elcodi\UserBundle\Entity\Abstracts\AbstractUser;
 
