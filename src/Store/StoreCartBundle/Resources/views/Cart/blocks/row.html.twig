@@ -22,8 +22,8 @@
     <td class="qty">
         {{ form_row(line.quantity) }}
     </td>
-    <td class="price">{{ lineObject.amount|print_price('USD', 'USD') }}</td>
-    <td class="total">{{ lineObject.amount|print_price('USD', 'USD') }}</td>
+    <td class="price">{{ lineObject.amount|print_money('USD') }}</td>
+    <td class="total">{{ lineObject.amount|print_money('USD') }}</td>
     <td class="remove">
         <a href="{{ url('store_cartline_remove', { cartLineId: lineObject.id }) }}">
             <span class="entypo trash"></span>

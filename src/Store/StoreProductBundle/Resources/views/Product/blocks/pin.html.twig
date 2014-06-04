@@ -15,7 +15,7 @@
     </a>
 
     <p class="price">
-        {{ product.price|print_price('USD', 'USD') }}
+        {{ product.price|print_money('USD') }}
         <a class="btn btn-addcart btn-primary" href="{{ url('store_cart_add_product', { productId: product.id }) }}">
             <span class="entypo cart"></span>
         </a>
