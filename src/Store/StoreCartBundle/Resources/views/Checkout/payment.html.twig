@@ -14,7 +14,7 @@
 
                 <p class="radios">
                     <input disabled="disabled" type="radio" id="field-standard" name="field-shipping" checked="checked" /> Standard - FREE<br />
-                    <input disabled="disabled" type="radio" id="field-express" name="field-shipping" /> Express - {{ 4.99|print_money('USD') }}<br />
+                    <input disabled="disabled" type="radio" id="field-express" name="field-shipping" /> Express - {{ shippingPrice|print_money('USD') }}<br />
                 </p>
 
 			</div>

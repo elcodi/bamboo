@@ -172,7 +172,7 @@ class CartController extends Controller
             $this
                 ->get('session')
                 ->getFlashBag()
-                ->add('error', 'A problem ocurred when adding to cart ' .$e->getMessage());
+                ->add('error', 'A problem occurred when adding to cart');
         }
 
         return $this->redirect($this->generateUrl('store_cart_view'));
