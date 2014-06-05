@@ -19,6 +19,7 @@
 
 namespace Store\StoreCartBundle\Controller;
 
+use Elcodi\CurrencyBundle\Entity\Money;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -47,10 +48,13 @@ class CheckoutController extends Controller
      */
     public function paymentAction()
     {
+        $shippingPrice = new Money(455, $this->get('elcodi.core.currency.factory.currency')->create());
+
         return [
             'cart' => $this
                     ->get('elcodi.cart_wrapper')
-                    ->loadCart()
+                    ->loadCart(),
+            'shippingPrice' => $shippingPrice
         ];
     }
 

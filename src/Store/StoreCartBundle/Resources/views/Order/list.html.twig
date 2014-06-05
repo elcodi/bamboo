@@ -26,7 +26,7 @@
                             }) }}">Order #{{ order.id }}</a>
                         </td>
                         <td class="title">{{ order.createdAt|date('d.m.Y') }}</td>
-                        <td class="total">{{ order.amount|print_price('USD', 'USD') }}</td>
+                        <td class="total">{{ order.amount|print_money('USD') }}</td>
                     </tr>
 
                 {% endfor %}
