@@ -44,24 +44,13 @@ class ProductData extends AbstractFixture
      */
     public function load(ObjectManager $manager)
     {
-
-        /**
-         * @var CurrencyInterface $currency
-         */
-        $currency = $this->container->get('elcodi.core.currency.factory.currency')->create();
-
-        $currency
-            ->setSymbol('$')
-            ->setIso('USD');
-
-        $manager->persist($currency);
-
         /**
          * @var ImageManager      $imageManager
          * @var Adapter           $filesystemAdapter
          * @var FileTransformer   $fileTransformer
          * @var CategoryInterface $menCategory
          * @var CategoryInterface $wemanCategory
+         * @var CurrencyInterface $currency
          */
         $imageManager = $this->container->get('elcodi.core.media.service.image_manager');
         $imageFactory = $this->container->get('elcodi.core.product.factory.product');
@@ -69,6 +58,7 @@ class ProductData extends AbstractFixture
         $fileTransformer = $this->container->get('elcodi.core.media.transformer.file');
         $menCategory = $this->getReference('category-men');
         $womenCategory = $this->getReference('category-women');
+        $currency = $this->getReference('currency-dollar');
 
         /**
          * Ibiza Lips

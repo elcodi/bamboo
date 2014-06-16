@@ -40,6 +40,14 @@
 
                         {% endfor %}
 
+                        {% for cartcoupon in cartcoupon %}
+
+                            {% include "StoreCartCouponBundle:Coupon:blocks/row.html.twig" with {
+                                "coupon": cartcoupon.coupon,
+                            } %}
+
+                        {% endfor %}
+
                         </tbody>
                     </table>
 
@@ -62,6 +70,8 @@
 
             </div>
         </div>
+
+        {{ render(url("store_coupon_view")) }}
 
         <!-- Related products -->
 

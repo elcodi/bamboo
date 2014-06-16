@@ -30,11 +30,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as AnnotationForm;
-use Exception;
 
-use Elcodi\CartBundle\Exception\CartLineOutOfStockException;
-use Elcodi\CartBundle\Exception\CartLineProductUnavailableException;
 use Elcodi\ProductBundle\Entity\Interfaces\ProductInterface;
+use Elcodi\CartBundle\Entity\Interfaces\CartLineInterface;
 use Elcodi\CartBundle\Entity\Interfaces\CartInterface;
 
 /**
@@ -87,6 +85,10 @@ class CartController extends Controller
                     , 3);
         }
 
+        $cartCoupons = $this
+            ->get('elcodi.cart_coupon_manager')
+            ->getCartCoupons($cart);
+
         /**
          * @var Form $form
          */
@@ -96,6 +98,7 @@ class CartController extends Controller
 
         return [
             'cart'             => $cart,
+            'cartcoupon'       => $cartCoupons,
             'form'             => $form->createView(),
             'related_products' => $relatedProducts
         ];
@@ -122,8 +125,7 @@ class CartController extends Controller
     public function addProductAction(Request $request, $productId)
     {
         $product = $this
-            ->get('elcodi.repository_provider')
-            ->getRepositoryByEntityParameter('elcodi.core.product.entity.product.class')
+            ->get('elcodi.repository.product')
             ->find($productId);
 
         if (!($product instanceof ProductInterface)) {
@@ -133,47 +135,17 @@ class CartController extends Controller
                 ->getParameter('elcodi.core.product.entity.product.class'));
         }
 
-        $quantity = $request->get('quantity', 1);
-        if (intval($quantity) < 1) {
-            $quantity = 1;
-        }
-
         $cart = $this
             ->get('elcodi.cart_wrapper')
             ->loadCart();
 
-        try {
-
-            $this
-                ->get('elcodi.core.cart.service.cart_manager')
-                ->addProduct($cart, $product, $quantity);
-
-            $this
-                ->get('elcodi.manager_provider')
-                ->getManagerByEntityParameter('elcodi.core.cart.entity.cart.class')
-                ->flush();
-
-        } catch (CartLineProductUnavailableException $e) {
-
-            $this
-                ->get('session')
-                ->getFlashBag()
-                ->add('error', 'This product is currently unavailable');
-
-        } catch (CartLineOutOfStockException $e) {
-
-            $this
-                ->get('session')
-                ->getFlashBag()
-                ->add('error', 'This product is out of stock');
-
-        } catch (Exception $e) {
-
-            $this
-                ->get('session')
-                ->getFlashBag()
-                ->add('error', 'A problem occurred when adding to cart');
-        }
+        $this
+            ->get('elcodi.cart_manager')
+            ->addProduct(
+                $cart,
+                $product,
+                $request->get('quantity', 1)
+            );
 
         return $this->redirect($this->generateUrl('store_cart_view'));
     }
@@ -190,12 +162,13 @@ class CartController extends Controller
      */
     public function emptyCartAction()
     {
+        $cart = $this
+            ->get('elcodi.cart_wrapper')
+            ->loadCart();
+
         $this
-            ->get('elcodi.core.cart.service.cart_manager')
-            ->emptyLines($this
-                    ->get('elcodi.cart_wrapper')
-                    ->loadCart()
-            );
+            ->get('elcodi.cart_manager')
+            ->emptyLines($cart);
 
         return $this->redirect($this->generateUrl('store_homepage'));
     }
@@ -237,8 +210,7 @@ class CartController extends Controller
         if ($form->isValid()) {
 
             $this
-                ->get('elcodi.manager_provider')
-                ->getManagerByEntityParameter('elcodi.core.cart.entity.cart.class')
+                ->get('elcodi.object_manager.cart')
                 ->flush();
         }
 
@@ -272,11 +244,14 @@ class CartController extends Controller
                 ->getParameter('elcodi.core.cart.entity.cart_line.class'));
         }
 
+        $cart = $this
+            ->get('elcodi.cart_wrapper')
+            ->loadCart();
+
         $this
-            ->get('elcodi.core.cart.service.cart_manager')
-            ->removeLine($this
-                    ->get('elcodi.cart_wrapper')
-                    ->loadCart(),
+            ->get('elcodi.cart_manager')
+            ->removeLine(
+                $cart,
                 $cartLine
             );
 

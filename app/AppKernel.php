@@ -59,6 +59,8 @@ class AppKernel extends Kernel
              */
             new \Elcodi\CoreBundle\ElcodiCoreBundle(),
             new \Elcodi\CartBundle\ElcodiCartBundle(),
+            new \Elcodi\CartCouponBundle\ElcodiCartCouponBundle(),
+            new \Elcodi\CouponBundle\ElcodiCouponBundle(),
             new \Elcodi\BannerBundle\ElcodiBannerBundle(),
             new \Elcodi\CurrencyBundle\ElcodiCurrencyBundle(),
             new \Elcodi\UserBundle\ElcodiUserBundle(),
@@ -72,6 +74,9 @@ class AppKernel extends Kernel
             new \Store\StoreProductBundle\StoreProductBundle(),
             new \Store\StoreUserBundle\StoreUserBundle(),
             new \Store\StoreCartBundle\StoreCartBundle(),
+            new \Store\StoreCurrencyBundle\StoreCurrencyBundle,
+            new \Store\StoreCouponBundle\StoreCouponBundle,
+            new \Store\StoreCartCouponBundle\StoreCartCouponBundle,
             new \Store\PaymentBridgeBundle\PaymentBridgeBundle(),
         );
 

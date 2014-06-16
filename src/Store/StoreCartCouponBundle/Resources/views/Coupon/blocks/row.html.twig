@@ -1,0 +1,15 @@
+<tr>
+    <td class="title" colspan="2">
+        {{ coupon.code }}
+    </td>
+    <td class="qty">
+        1
+    </td>
+    <td class="price">- {{ coupon.value }}</td>
+    <td class="total">- {{ coupon.value }}</td>
+    <td class="remove">
+        <a href="{{ url('store_coupon_remove', { code: coupon.code }) }}">
+            <span class="entypo trash"></span>
+        </a>
+    </td>
+</tr>

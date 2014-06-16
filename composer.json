@@ -61,6 +61,7 @@
         "elcodi/media-bundle": "~0.1",
         "elcodi/product-bundle": "~0.1",
         "elcodi/user-bundle": "~0.1",
+        "elcodi/cart-coupon-bundle": "~0.1",
 
         "doctrine/doctrine-fixtures-bundle": "v2.2.0"
     },

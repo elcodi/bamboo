@@ -1,0 +1,11 @@
+services:
+
+    #
+    # Form Types
+    #
+    store.cart_coupon.form_type.coupon_apply:
+        class: %store.cart_coupon.form_type.coupon_apply.class%
+        arguments:
+            router: @router
+        tags:
+            - { name: form.type, alias: store_cart_coupon_form_type_coupon_apply }
