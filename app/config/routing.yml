@@ -13,6 +13,9 @@ store_cart:
 store_cart_coupon:
     resource: "@StoreCartCouponBundle/Resources/config/routing.yml"
 
+store_currency:
+    resource: "@StoreCurrencyBundle/Resources/config/routing.yml"
+
 payment:
     resource: "@PaymentBridgeBundle/Resources/config/routing.yml"
 

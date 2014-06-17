@@ -1,37 +1,33 @@
-<div class="row">
+<div class="span8">
 
-    <div class="span12">
+    <ul class="top-nav">
+        {% if customer.id %}
 
-        <ul class="top-nav">
-            {% if customer.id %}
+            <li>
+                <a href="{{ url("store_user") }}">
+                    Hello {{ customer.firstname }}
+                </a>
+            </li>
+            <li>
+                <a href="{{ url("store_logout") }}">Logout</a>
+            </li>
 
-                <li>
-                    <a href="{{ url("store_user") }}">
-                        Hello {{ customer.firstname }}
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url("store_logout") }}">Logout</a>
-                </li>
+        {% else %}
 
-            {% else %}
+            <li>
+                <a href="{{ url("store_login") }}">Login</a>
+            </li>
 
-                <li>
-                    <a href="{{ url("store_login") }}">Login</a>
-                </li>
+            <li>
+                <a href="{{ url("store_register") }}">Registration</a>
+            </li>
 
-                <li>
-                    <a href="{{ url("store_register") }}">Registration</a>
-                </li>
+            <li>
+                <a href="{{ url("store_password_remember") }}">
+                    Lost your password?
+                </a>
+            </li>
 
-                <li>
-                    <a href="{{ url("store_password_remember") }}">
-                        Lost your password?
-                    </a>
-                </li>
-
-            {% endif %}
-        </ul>
-    </div>
-
+        {% endif %}
+    </ul>
 </div>

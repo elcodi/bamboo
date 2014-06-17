@@ -32,6 +32,14 @@
 
                 {% endfor %}
 
+                {% for orderCoupon in orderCoupons %}
+
+                    {% include "StoreCartCouponBundle:OrderCoupon:blocks/row.html.twig" with {
+                        "orderCoupon": orderCoupon
+                    } %}
+
+                {% endfor %}
+
                 </tbody>
             </table>
 
@@ -43,7 +51,7 @@
 
             <div class="clearfix">
 
-                <p class="basket-total"><span>Total: </span>{{ order.amount|print_money('USD') }}</p>
+                <p class="basket-total"><span>Total: </span>{{ order.amount|print_convert_money() }}</p>
 
             </div>
 
