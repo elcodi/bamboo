@@ -39,6 +39,7 @@
         "doctrine/orm": "~2.2,>=2.2.3",
         "doctrine/doctrine-bundle": "~1.2",
         "twig/extensions": "~1.0",
+        "doctrine/doctrine-fixtures-bundle": "v2.2.0",
 
         "sensio/distribution-bundle": "~2.3",
         "sensio/framework-extra-bundle": "~3.0",
@@ -55,14 +56,13 @@
         "paymentsuite/payment-core-bundle": "v1.3",
         "paymentsuite/free-payment-bundle": "~1",
 
-        "elcodi/banner-bundle": "~0.1",
-        "elcodi/cart-bundle": "~0.1",
-        "elcodi/currency-bundle": "~0.1",
-        "elcodi/media-bundle": "~0.1",
-        "elcodi/product-bundle": "~0.1",
-        "elcodi/user-bundle": "~0.1",
-
-        "doctrine/doctrine-fixtures-bundle": "v2.2.0"
+        "elcodi/banner-bundle": "0.1.7",
+        "elcodi/cart-bundle": "0.1.7",
+        "elcodi/currency-bundle": "0.1.7",
+        "elcodi/media-bundle": "0.1.7",
+        "elcodi/product-bundle": "0.1.7",
+        "elcodi/user-bundle": "0.1.7",
+        "elcodi/cart-coupon-bundle": "0.1.7"
     },
     "scripts": {
         "post-install-cmd": [

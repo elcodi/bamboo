@@ -8,10 +8,15 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author  * @version  */
+ * Feel free to edit as you please, and have fun.
+ *
+ * @author Marc Morera <yuhu@mmoreram.com>
+ * @author Aldo Chiecchia <zimage@tiscali.it>
+ */
 
 namespace Store\PaymentBridgeBundle\EventListener;
 
+use Elcodi\CartBundle\Transformer\CartOrderTransformer;
 use PaymentSuite\PaymentCoreBundle\Event\PaymentOrderLoadEvent;
 
 use Elcodi\CartBundle\Services\OrderManager;
@@ -34,15 +39,21 @@ class PaymentEventListener
      *
      * OrderManager
      */
-    protected $orderManager;
+    protected $cartOrderTransformer;
 
+    /**
+     * Construct method
+     *
+     * @param CartWrapper          $cartWrapper          Cart Wrapper
+     * @param CartOrderTransformer $cartOrderTransformer Cart Order Transformer
+     */
     public function __construct(
         CartWrapper $cartWrapper,
-        OrderManager $orderManager
+        CartOrderTransformer $cartOrderTransformer
     )
     {
         $this->cartWrapper = $cartWrapper;
-        $this->orderManager = $orderManager;
+        $this->cartOrderTransformer = $cartOrderTransformer;
     }
 
     /**
@@ -57,7 +68,7 @@ class PaymentEventListener
             ->loadCart();
 
         $order = $this
-            ->orderManager
+            ->cartOrderTransformer
             ->createOrderFromCart($cart);
 
         $event

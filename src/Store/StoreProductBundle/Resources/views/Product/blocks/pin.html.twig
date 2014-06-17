@@ -15,7 +15,15 @@
     </a>
 
     <p class="price">
-        {{ product.price|print_money('USD') }}
+
+        {{ product.price|print_convert_money() }}
+
+        {% if product.price.currency != currency_wrapper.loadCurrency %}
+
+            - <span class="original-price">({{ product.price|print_money() }})</span>
+
+        {% endif %}
+
         <a class="btn btn-addcart btn-primary" href="{{ url('store_cart_add_product', { productId: product.id }) }}">
             <span class="entypo cart"></span>
         </a>

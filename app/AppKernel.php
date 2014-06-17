@@ -5,16 +5,13 @@
  *
  * Copyright (c) 2014 Elcodi.com
  *
- * This distribution is just a basic e-commerce implementation based on
- * Elcodi project.
- *
- * Feel free to edit it, and make your own
- *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author ##author_placeholder
- * @version ##version_placeholder##
+ * Feel free to edit as you please, and have fun.
+ *
+ * @author Marc Morera <yuhu@mmoreram.com>
+ * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
 use Symfony\Component\HttpKernel\Kernel;
@@ -59,6 +56,8 @@ class AppKernel extends Kernel
              */
             new \Elcodi\CoreBundle\ElcodiCoreBundle(),
             new \Elcodi\CartBundle\ElcodiCartBundle(),
+            new \Elcodi\CartCouponBundle\ElcodiCartCouponBundle(),
+            new \Elcodi\CouponBundle\ElcodiCouponBundle(),
             new \Elcodi\BannerBundle\ElcodiBannerBundle(),
             new \Elcodi\CurrencyBundle\ElcodiCurrencyBundle(),
             new \Elcodi\UserBundle\ElcodiUserBundle(),
@@ -72,6 +71,9 @@ class AppKernel extends Kernel
             new \Store\StoreProductBundle\StoreProductBundle(),
             new \Store\StoreUserBundle\StoreUserBundle(),
             new \Store\StoreCartBundle\StoreCartBundle(),
+            new \Store\StoreCurrencyBundle\StoreCurrencyBundle,
+            new \Store\StoreCouponBundle\StoreCouponBundle,
+            new \Store\StoreCartCouponBundle\StoreCartCouponBundle,
             new \Store\PaymentBridgeBundle\PaymentBridgeBundle(),
         );
 

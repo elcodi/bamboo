@@ -40,12 +40,20 @@
 
                         {% endfor %}
 
+                        {% for cartcoupon in cartcoupon %}
+
+                            {% include "StoreCartCouponBundle:Coupon:blocks/row.html.twig" with {
+                                "coupon": cartcoupon.coupon,
+                            } %}
+
+                        {% endfor %}
+
                         </tbody>
                     </table>
 
                     <div class="clearfix">
 
-                        <p class="basket-total"><span>Total: </span>{{ cart.amount|print_money('USD') }}</p>
+                        <p class="basket-total"><span>Total: </span>{{ cart.amount|print_convert_money() }}</p>
 
                     </div>
 
@@ -62,6 +70,8 @@
 
             </div>
         </div>
+
+        {{ render(url("store_coupon_view")) }}
 
         <!-- Related products -->
 

@@ -7,6 +7,6 @@ parameters:
     # Comment the following lines to load the default
     # database configuration stored in parameters.yml
     # using pdo_mysql driver @localhost
-    database_driver: pdo_sqlite
-    database_path: '/tmp/vamboo-store.sqlite'
+    # database_driver: pdo_sqlite
+    # database_path: '/tmp/vamboo-store.sqlite'
 

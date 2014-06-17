@@ -18,6 +18,6 @@
         }) }}">{{ line.product.name }}</a>
     </td>
     <td class="qty">{{ line.quantity }}</td>
-    <td class="price">{{ line.amount|print_money('USD') }}</td>
-    <td class="total">{{ line.amount|print_money('USD') }}</td>
+    <td class="price">{{ line.amount|print_convert_money() }}</td>
+    <td class="total">{{ line.amount|print_convert_money() }}</td>
 </tr>

@@ -5,16 +5,13 @@
  *
  * Copyright (c) 2014 Elcodi.com
  *
- * This distribution is just a basic e-commerce implementation based on
- * Elcodi project.
- *
- * Feel free to edit it, and make your own
- *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @author  ##author_placeholder
- * @version ##version_placeholder##
+ * Feel free to edit as you please, and have fun.
+ *
+ * @author Marc Morera <yuhu@mmoreram.com>
+ * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
 namespace Store\StoreProductBundle\DataFixtures\ORM;
@@ -44,24 +41,13 @@ class ProductData extends AbstractFixture
      */
     public function load(ObjectManager $manager)
     {
-
-        /**
-         * @var CurrencyInterface $currency
-         */
-        $currency = $this->container->get('elcodi.core.currency.factory.currency')->create();
-
-        $currency
-            ->setSymbol('$')
-            ->setIso('USD');
-
-        $manager->persist($currency);
-
         /**
          * @var ImageManager      $imageManager
          * @var Adapter           $filesystemAdapter
          * @var FileTransformer   $fileTransformer
          * @var CategoryInterface $menCategory
          * @var CategoryInterface $wemanCategory
+         * @var CurrencyInterface $currency
          */
         $imageManager = $this->container->get('elcodi.core.media.service.image_manager');
         $imageFactory = $this->container->get('elcodi.core.product.factory.product');
@@ -69,6 +55,8 @@ class ProductData extends AbstractFixture
         $fileTransformer = $this->container->get('elcodi.core.media.transformer.file');
         $menCategory = $this->getReference('category-men');
         $womenCategory = $this->getReference('category-women');
+        $currency = $this->getReference('currency-dollar');
+        $currencyEuros = $this->getReference('currency-euro');
 
         /**
          * Ibiza Lips
@@ -112,7 +100,7 @@ class ProductData extends AbstractFixture
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
             ->setStock(10000)
-            ->setPrice(new Money(399, $currency))
+            ->setPrice(new Money(399, $currencyEuros))
             ->setEnabled(true);
 
         $manager->persist($product);
