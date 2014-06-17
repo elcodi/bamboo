@@ -12,6 +12,10 @@ monolog:
             type:  firephp
             level: critical
 
+twig:
+    globals:
+        currency_wrapper: @elcodi.currency_wrapper
+
 framework:
     #esi:             ~
     translator:      { fallback: "%locale%" }
