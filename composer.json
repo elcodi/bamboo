@@ -1,8 +1,8 @@
 {
-    "name": "elcodi/vamboo-store",
+    "name": "elcodi/bamboo-store",
     "license": "MIT",
     "type": "project",
-    "description": "Vamboo Project, an ecommerce built on Elcodi",
+    "description": "Bamboo Project, an ecommerce built on Elcodi",
     "authors": [
         {
             "name": "Marc Morera",
@@ -56,13 +56,13 @@
         "paymentsuite/payment-core-bundle": "v1.3",
         "paymentsuite/free-payment-bundle": "~1",
 
-        "elcodi/banner-bundle": "0.1.7",
-        "elcodi/cart-bundle": "0.1.7",
-        "elcodi/currency-bundle": "0.1.7",
-        "elcodi/media-bundle": "0.1.7",
-        "elcodi/product-bundle": "0.1.7",
-        "elcodi/user-bundle": "0.1.7",
-        "elcodi/cart-coupon-bundle": "0.1.7"
+        "elcodi/banner-bundle": "~0.1",
+        "elcodi/cart-bundle": "~0.1",
+        "elcodi/currency-bundle": "~0.1",
+        "elcodi/media-bundle": "~0.1",
+        "elcodi/product-bundle": "~0.1",
+        "elcodi/user-bundle": "~0.1",
+        "elcodi/cart-coupon-bundle": "~0.1"
     },
     "scripts": {
         "post-install-cmd": [

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ed5d471c6065c3271101daf6d32cdd1e",
+    "hash": "748dacef7c85f2ff50fbefe344233ba9",
     "packages": [
         {
             "name": "braincrafted/bootstrap-bundle",
@@ -105,7 +105,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan Wage",
+                    "name": "Jonathan H. Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/",
                     "role": "Creator"
@@ -180,7 +180,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan Wage",
+                    "name": "Jonathan H. Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/",
                     "role": "Creator"
@@ -219,16 +219,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/collections.git",
-                "reference": "77bc8cc35b33a2bcdaf5bc2c99fdcab8773f02a0"
+                "reference": "bbe35735af4a826c1f86b04f2fd885ff5fc0f82b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/collections/zipball/77bc8cc35b33a2bcdaf5bc2c99fdcab8773f02a0",
-                "reference": "77bc8cc35b33a2bcdaf5bc2c99fdcab8773f02a0",
+                "url": "https://api.github.com/repos/doctrine/collections/zipball/bbe35735af4a826c1f86b04f2fd885ff5fc0f82b",
+                "reference": "bbe35735af4a826c1f86b04f2fd885ff5fc0f82b",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
             },
             "type": "library",
             "extra": {
@@ -279,7 +282,7 @@
                 "collections",
                 "iterator"
             ],
-            "time": "2014-06-05 18:37:07"
+            "time": "2014-06-17 17:31:49"
         },
         {
             "name": "doctrine/common",
@@ -850,12 +853,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "ca37f87c277a0431286f37ac7107d0bf46f34e92"
+                "reference": "f7c5a0684ad0e371c01a847dfa1f0fd2876737e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/ca37f87c277a0431286f37ac7107d0bf46f34e92",
-                "reference": "ca37f87c277a0431286f37ac7107d0bf46f34e92",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/f7c5a0684ad0e371c01a847dfa1f0fd2876737e4",
+                "reference": "f7c5a0684ad0e371c01a847dfa1f0fd2876737e4",
                 "shasum": ""
             },
             "require": {
@@ -919,7 +922,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2014-06-15 10:19:45"
+            "time": "2014-06-17 14:44:16"
         },
         {
             "name": "elcodi/banner-bundle",
@@ -927,12 +930,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/elcodi/BannerBundle.git",
-                "reference": "132c759edc7ae04195d44bbe46caaafb9c2d3af1"
+                "reference": "cd1c1ccd819918547a7f736547e8d5e453b92db9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elcodi/BannerBundle/zipball/132c759edc7ae04195d44bbe46caaafb9c2d3af1",
-                "reference": "132c759edc7ae04195d44bbe46caaafb9c2d3af1",
+                "url": "https://api.github.com/repos/elcodi/BannerBundle/zipball/cd1c1ccd819918547a7f736547e8d5e453b92db9",
+                "reference": "cd1c1ccd819918547a7f736547e8d5e453b92db9",
                 "shasum": ""
             },
             "require": {
@@ -990,7 +993,7 @@
                 "ecommerce",
                 "elcodi"
             ],
-            "time": "2014-06-13 11:33:19"
+            "time": "2014-06-17 15:05:33"
         },
         {
             "name": "elcodi/cart-bundle",
@@ -998,12 +1001,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/elcodi/CartBundle.git",
-                "reference": "030cf3f8d141c058ef5bcd34350a0cf28cd5963b"
+                "reference": "c93e46f9a1c65a9596e259434703787d209b8c5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elcodi/CartBundle/zipball/030cf3f8d141c058ef5bcd34350a0cf28cd5963b",
-                "reference": "030cf3f8d141c058ef5bcd34350a0cf28cd5963b",
+                "url": "https://api.github.com/repos/elcodi/CartBundle/zipball/c93e46f9a1c65a9596e259434703787d209b8c5e",
+                "reference": "c93e46f9a1c65a9596e259434703787d209b8c5e",
                 "shasum": ""
             },
             "require": {
@@ -1064,7 +1067,7 @@
                 "ecommerce",
                 "elcodi"
             ],
-            "time": "2014-06-13 11:33:19"
+            "time": "2014-06-17 15:05:33"
         },
         {
             "name": "elcodi/cart-coupon-bundle",
@@ -1072,12 +1075,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/elcodi/CartCouponBundle.git",
-                "reference": "5046db68c6537a1a7a910ba8eb7c0909dfdf7ba2"
+                "reference": "46175e786c287b15808059b82806bbfc1787b39a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elcodi/CartCouponBundle/zipball/5046db68c6537a1a7a910ba8eb7c0909dfdf7ba2",
-                "reference": "5046db68c6537a1a7a910ba8eb7c0909dfdf7ba2",
+                "url": "https://api.github.com/repos/elcodi/CartCouponBundle/zipball/46175e786c287b15808059b82806bbfc1787b39a",
+                "reference": "46175e786c287b15808059b82806bbfc1787b39a",
                 "shasum": ""
             },
             "require": {
@@ -1134,7 +1137,7 @@
                 "ecommerce",
                 "elcodi"
             ],
-            "time": "2014-06-16 10:07:00"
+            "time": "2014-06-17 15:05:33"
         },
         {
             "name": "elcodi/core-bundle",
@@ -1142,12 +1145,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/elcodi/CoreBundle.git",
-                "reference": "4efaa38e665c5bc41d8cfbf4a830c0acc085fcdf"
+                "reference": "3df66b9eade51f672f5df5df763ec69d6704b42d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elcodi/CoreBundle/zipball/4efaa38e665c5bc41d8cfbf4a830c0acc085fcdf",
-                "reference": "4efaa38e665c5bc41d8cfbf4a830c0acc085fcdf",
+                "url": "https://api.github.com/repos/elcodi/CoreBundle/zipball/3df66b9eade51f672f5df5df763ec69d6704b42d",
+                "reference": "3df66b9eade51f672f5df5df763ec69d6704b42d",
                 "shasum": ""
             },
             "require": {
@@ -1207,7 +1210,7 @@
                 "ecommerce",
                 "elcodi"
             ],
-            "time": "2014-06-13 11:33:19"
+            "time": "2014-06-17 15:05:33"
         },
         {
             "name": "elcodi/coupon-bundle",
@@ -1215,12 +1218,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/elcodi/CouponBundle.git",
-                "reference": "54ace6edfbf69a0dd942f5ea1d22d0784db3c8b7"
+                "reference": "1485714888af708e17385c102dc858eaa9e51fff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elcodi/CouponBundle/zipball/54ace6edfbf69a0dd942f5ea1d22d0784db3c8b7",
-                "reference": "54ace6edfbf69a0dd942f5ea1d22d0784db3c8b7",
+                "url": "https://api.github.com/repos/elcodi/CouponBundle/zipball/1485714888af708e17385c102dc858eaa9e51fff",
+                "reference": "1485714888af708e17385c102dc858eaa9e51fff",
                 "shasum": ""
             },
             "require": {
@@ -1281,7 +1284,7 @@
                 "ecommerce",
                 "elcodi"
             ],
-            "time": "2014-06-13 11:33:19"
+            "time": "2014-06-17 15:05:33"
         },
         {
             "name": "elcodi/currency-bundle",
@@ -1289,18 +1292,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/elcodi/CurrencyBundle.git",
-                "reference": "473b03cf78c26279d89f18c9b2c7fc4ed67a9fd8"
+                "reference": "68324d0da1a68b6f76c1667efb6558153ea86dc4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elcodi/CurrencyBundle/zipball/473b03cf78c26279d89f18c9b2c7fc4ed67a9fd8",
-                "reference": "473b03cf78c26279d89f18c9b2c7fc4ed67a9fd8",
+                "url": "https://api.github.com/repos/elcodi/CurrencyBundle/zipball/68324d0da1a68b6f76c1667efb6558153ea86dc4",
+                "reference": "68324d0da1a68b6f76c1667efb6558153ea86dc4",
                 "shasum": ""
             },
             "require": {
                 "doctrine/orm": "~2.4",
                 "elcodi/core-bundle": "0.1.*@dev",
                 "php": ">=5.4",
+                "sebastian/money": "~1.3",
                 "symfony/config": "~2.4",
                 "symfony/dependency-injection": "~2.4",
                 "symfony/expression-language": "~2.4",
@@ -1316,6 +1320,9 @@
                 "doctrine/data-fixtures": "v1.0.0",
                 "elcodi/elcodi": "0.1.*@dev",
                 "phpunit/phpunit": ">=4.0.0"
+            },
+            "suggest": {
+                "mrzard/open-exchange-rates-bundle": "Bundle to use OpenExchangeRates"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -1358,7 +1365,7 @@
                 "ecommerce",
                 "elcodi"
             ],
-            "time": "2014-06-13 11:33:19"
+            "time": "2014-06-17 15:05:33"
         },
         {
             "name": "elcodi/media-bundle",
@@ -1366,12 +1373,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/elcodi/MediaBundle.git",
-                "reference": "fd7a38a86402d7328f25d23482f06abc2696de37"
+                "reference": "967d1240207cda7aec243ffa301d8d4f681b6b6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elcodi/MediaBundle/zipball/fd7a38a86402d7328f25d23482f06abc2696de37",
-                "reference": "fd7a38a86402d7328f25d23482f06abc2696de37",
+                "url": "https://api.github.com/repos/elcodi/MediaBundle/zipball/967d1240207cda7aec243ffa301d8d4f681b6b6a",
+                "reference": "967d1240207cda7aec243ffa301d8d4f681b6b6a",
                 "shasum": ""
             },
             "require": {
@@ -1430,7 +1437,7 @@
                 "elcodi",
                 "media"
             ],
-            "time": "2014-06-13 11:33:19"
+            "time": "2014-06-17 15:05:33"
         },
         {
             "name": "elcodi/product-bundle",
@@ -1438,12 +1445,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/elcodi/ProductBundle.git",
-                "reference": "5f1a6d60b11aaf63139ecc494d22f3f99b1a260a"
+                "reference": "9694742c89ed413a84f5f75b8ce4acbf75fe30ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elcodi/ProductBundle/zipball/5f1a6d60b11aaf63139ecc494d22f3f99b1a260a",
-                "reference": "5f1a6d60b11aaf63139ecc494d22f3f99b1a260a",
+                "url": "https://api.github.com/repos/elcodi/ProductBundle/zipball/9694742c89ed413a84f5f75b8ce4acbf75fe30ba",
+                "reference": "9694742c89ed413a84f5f75b8ce4acbf75fe30ba",
                 "shasum": ""
             },
             "require": {
@@ -1507,7 +1514,7 @@
                 "elcodi",
                 "product"
             ],
-            "time": "2014-06-13 11:33:19"
+            "time": "2014-06-17 15:05:33"
         },
         {
             "name": "elcodi/user-bundle",
@@ -1515,12 +1522,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/elcodi/UserBundle.git",
-                "reference": "a73d30fe2b1ff8df922e581a68cdd8556291c00c"
+                "reference": "abf1cb672179b3df3597c4072722402163f2fba6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elcodi/UserBundle/zipball/a73d30fe2b1ff8df922e581a68cdd8556291c00c",
-                "reference": "a73d30fe2b1ff8df922e581a68cdd8556291c00c",
+                "url": "https://api.github.com/repos/elcodi/UserBundle/zipball/abf1cb672179b3df3597c4072722402163f2fba6",
+                "reference": "abf1cb672179b3df3597c4072722402163f2fba6",
                 "shasum": ""
             },
             "require": {
@@ -1584,99 +1591,7 @@
                 "elcodi",
                 "user"
             ],
-            "time": "2014-06-13 11:33:19"
-        },
-        {
-            "name": "guzzlehttp/guzzle",
-            "version": "v3.8.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "4de0618a01b34aa1c8c33a3f13f396dcd3882eba"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/4de0618a01b34aa1c8c33a3f13f396dcd3882eba",
-                "reference": "4de0618a01b34aa1c8c33a3f13f396dcd3882eba",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "php": ">=5.3.3",
-                "symfony/event-dispatcher": ">=2.1"
-            },
-            "replace": {
-                "guzzle/batch": "self.version",
-                "guzzle/cache": "self.version",
-                "guzzle/common": "self.version",
-                "guzzle/http": "self.version",
-                "guzzle/inflection": "self.version",
-                "guzzle/iterator": "self.version",
-                "guzzle/log": "self.version",
-                "guzzle/parser": "self.version",
-                "guzzle/plugin": "self.version",
-                "guzzle/plugin-async": "self.version",
-                "guzzle/plugin-backoff": "self.version",
-                "guzzle/plugin-cache": "self.version",
-                "guzzle/plugin-cookie": "self.version",
-                "guzzle/plugin-curlauth": "self.version",
-                "guzzle/plugin-error-response": "self.version",
-                "guzzle/plugin-history": "self.version",
-                "guzzle/plugin-log": "self.version",
-                "guzzle/plugin-md5": "self.version",
-                "guzzle/plugin-mock": "self.version",
-                "guzzle/plugin-oauth": "self.version",
-                "guzzle/service": "self.version",
-                "guzzle/stream": "self.version"
-            },
-            "require-dev": {
-                "doctrine/cache": "*",
-                "monolog/monolog": "1.*",
-                "phpunit/phpunit": "3.7.*",
-                "psr/log": "1.0.*",
-                "symfony/class-loader": "*",
-                "zendframework/zend-cache": "<2.3",
-                "zendframework/zend-log": "<2.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.8-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Guzzle": "src/",
-                    "Guzzle\\Tests": "tests/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
-                },
-                {
-                    "name": "Guzzle Community",
-                    "homepage": "https://github.com/guzzle/guzzle/contributors"
-                }
-            ],
-            "description": "Guzzle is a PHP HTTP client library and framework for building RESTful web service clients",
-            "homepage": "http://guzzlephp.org/",
-            "keywords": [
-                "client",
-                "curl",
-                "framework",
-                "http",
-                "http client",
-                "rest",
-                "web service"
-            ],
-            "time": "2014-01-28 22:29:15"
+            "time": "2014-06-17 15:05:33"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -2679,48 +2594,6 @@
                 "psr-3"
             ],
             "time": "2014-06-04 16:30:04"
-        },
-        {
-            "name": "mrzard/open-exchange-rates-bundle",
-            "version": "v0.1.0",
-            "target-dir": "Mrzard/OpenExchangeRatesBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mrzard/OpenExchangeRatesBundle.git",
-                "reference": "1b0b5637e93fa45031c76ddbd45465b3f759c98f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mrzard/OpenExchangeRatesBundle/zipball/1b0b5637e93fa45031c76ddbd45465b3f759c98f",
-                "reference": "1b0b5637e93fa45031c76ddbd45465b3f759c98f",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "~3.8",
-                "php": ">=5.4.0",
-                "symfony/symfony": ">=2.3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": ">=4.0.0"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-0": {
-                    "Mrzard\\OpenExchangeRatesBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Gonzalo Míguez",
-                    "email": "mrzard@gmail.com"
-                }
-            ],
-            "description": "OpenExchangeRates API exposure for Symfony2",
-            "time": "2014-03-26 06:01:42"
         },
         {
             "name": "paymentsuite/free-payment-bundle",
