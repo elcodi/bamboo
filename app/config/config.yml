@@ -38,6 +38,13 @@ framework:
     fragments:       ~
     http_method_override: true
 
+# Configuration for mmoreram/ControllerExtraBundle
+# See https://github.com/mmoreram/ControllerExtraBundle/blob/feature/Paginator-annotation/README.md
+controller_extra:
+    factory:
+        default_method: create
+        default_static: false
+
 # Assetic Configuration
 assetic:
     bundles: ['StoreCoreBundle']

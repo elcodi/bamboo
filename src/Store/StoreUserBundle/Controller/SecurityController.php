@@ -82,11 +82,11 @@ class SecurityController extends Controller
      * @Template
      *
      * @Entity(
-     *      name          = "customer",
-     *      factoryClass  = "elcodi.core.user.factory.customer",
-     *      factoryMethod = "create",
-     *      factoryStatic = false,
-     *      persist       = false
+     *      name     = "customer",
+     *      class    = {
+     *          "factory"  = "elcodi.core.user.factory.customer"
+     *      },
+     *      persist  = false
      * )
      * @AnnotationForm(
      *      class         = "store_user_form_type_register",
