@@ -10,11 +10,11 @@
                 width: 80,
                 height: 80,
                 type: 5 })
-            }}" alt="{{ line.product.name }}" />
+            }}" alt="{{ line.purchasable|purchasable_name }}" />
         </a>
     </td>
     <td class="title">
-        <a href="{{ productRoute }}">{{ line.product.name }}</a>
+        <a href="{{ productRoute }}">{{ line.purchasable|purchasable_name }}</a>
     </td>
     <td class="qty">{{ line.quantity }}</td>
     <td class="price">{{ line.amount|print_convert_money() }}</td>

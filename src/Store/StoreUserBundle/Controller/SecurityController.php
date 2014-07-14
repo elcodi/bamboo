@@ -27,6 +27,7 @@ use Mmoreram\ControllerExtraBundle\Annotation\Entity;
 
 use Elcodi\UserBundle\Entity\Interfaces\CustomerInterface;
 use Elcodi\CoreBundle\Services\ManagerProvider;
+use Symfony\Component\Security\Core\SecurityContext;
 
 /**
  * Class SecurityController
@@ -58,6 +59,16 @@ class SecurityController extends Controller
          */
         if ($this->get('security.context')->isGranted('ROLE_CUSTOMER')) {
             return new RedirectResponse($this->generateUrl('store_homepage'));
+        }
+
+        /**
+         * Checking for authentication errors in session
+         */
+        if ($this->get('session')->has(SecurityContext::AUTHENTICATION_ERROR)) {
+
+            $this->get('session')
+                ->getFlashBag()
+                ->add('error', 'Wrong Email and password combination.');
         }
 
         return [

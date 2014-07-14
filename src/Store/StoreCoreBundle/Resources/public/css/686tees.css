@@ -19,6 +19,27 @@ a:hover {
 }
 
 /*--------------------------------
+	General
+---------------------------------*/
+
+.add-basket-box p span:first-child {
+    color: #999;
+}
+
+#add-basket-box-variant p:nth-child(3) {
+    margin-top: 12px;
+    float: right;
+}
+
+.w60 {
+    width: 60px;
+}
+
+.pad-top-10 {
+    padding-top: 10px;
+}
+
+/*--------------------------------
 	Buttons
 ---------------------------------*/
 

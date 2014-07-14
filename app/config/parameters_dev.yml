@@ -9,4 +9,3 @@ parameters:
     # using pdo_mysql driver @localhost
     # database_driver: pdo_sqlite
     # database_path: '/tmp/bamboo-store.sqlite'
-
