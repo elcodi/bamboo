@@ -45,7 +45,7 @@ class CheckoutController extends Controller
      */
     public function paymentAction()
     {
-        $shippingPrice = new Money(
+        $shippingPrice = Money::create(
             455,
             $this
                 ->get('elcodi.repository.currency')
