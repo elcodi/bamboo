@@ -75,7 +75,7 @@ class ProductData extends AbstractFixture
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
             ->setStock(10000)
-            ->setPrice(new Money(799, $currency))
+            ->setPrice(Money::create(799, $currency))
             ->setEnabled(true);
 
         $manager->persist($product);
@@ -100,7 +100,7 @@ class ProductData extends AbstractFixture
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
             ->setStock(10000)
-            ->setPrice(new Money(399, $currencyEuros))
+            ->setPrice(Money::create(399, $currencyEuros))
             ->setEnabled(true);
 
         $manager->persist($product);
@@ -125,7 +125,7 @@ class ProductData extends AbstractFixture
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
             ->setStock(10000)
-            ->setPrice(new Money(2105, $currency))
+            ->setPrice(Money::create(2105, $currency))
             ->setEnabled(true);
 
         $manager->persist($product);
@@ -150,7 +150,7 @@ class ProductData extends AbstractFixture
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
             ->setStock(10000)
-            ->setPrice(new Money(1290, $currency))
+            ->setPrice(Money::create(1290, $currency))
             ->setEnabled(true);
 
         $manager->persist($product);
@@ -175,7 +175,7 @@ class ProductData extends AbstractFixture
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
             ->setStock(10000)
-            ->setPrice(new Money(1190, $currency))
+            ->setPrice(Money::create(1190, $currency))
             ->setEnabled(true);
 
         $manager->persist($product);
@@ -200,7 +200,7 @@ class ProductData extends AbstractFixture
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
             ->setStock(10000)
-            ->setPrice(new Money(1390, $currency))
+            ->setPrice(Money::create(1390, $currency))
             ->setEnabled(true);
 
         $manager->persist($product);
@@ -225,7 +225,7 @@ class ProductData extends AbstractFixture
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
             ->setStock(10000)
-            ->setPrice(new Money(1090, $currency))
+            ->setPrice(Money::create(1090, $currency))
             ->setEnabled(true);
 
         $manager->persist($product);
@@ -250,7 +250,7 @@ class ProductData extends AbstractFixture
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
             ->setStock(10000)
-            ->setPrice(new Money(1290, $currency))
+            ->setPrice(Money::create(1290, $currency))
             ->setEnabled(true);
 
         $manager->persist($product);
@@ -275,7 +275,7 @@ class ProductData extends AbstractFixture
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
             ->setStock(10000)
-            ->setPrice(new Money(1190, $currency))
+            ->setPrice(Money::create(1190, $currency))
             ->setEnabled(true);
 
         $manager->persist($product);
@@ -300,7 +300,7 @@ class ProductData extends AbstractFixture
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
             ->setStock(10000)
-            ->setPrice(new Money(1190, $currency))
+            ->setPrice(Money::create(1190, $currency))
             ->setEnabled(true);
 
         $manager->persist($product);
@@ -325,7 +325,7 @@ class ProductData extends AbstractFixture
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
             ->setStock(10000)
-            ->setPrice(new Money(1800, $currency))
+            ->setPrice(Money::create(1800, $currency))
             ->setEnabled(true);
 
         $manager->persist($product);
@@ -350,7 +350,7 @@ class ProductData extends AbstractFixture
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
             ->setStock(10000)
-            ->setPrice(new Money(1650, $currency))
+            ->setPrice(Money::create(1650, $currency))
             ->setEnabled(true);
 
         $manager->persist($product);
@@ -375,7 +375,7 @@ class ProductData extends AbstractFixture
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
             ->setStock(10000)
-            ->setPrice(new Money(1550, $currency))
+            ->setPrice(Money::create(1550, $currency))
             ->setEnabled(true);
 
         $manager->persist($product);
@@ -400,7 +400,7 @@ class ProductData extends AbstractFixture
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
             ->setStock(10000)
-            ->setPrice(new Money(1710, $currency))
+            ->setPrice(Money::create(1710, $currency))
             ->setEnabled(true);
 
         $manager->persist($product);
@@ -426,7 +426,7 @@ class ProductData extends AbstractFixture
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
             ->setStock(10000)
-            ->setPrice(new Money(18000, $currency))
+            ->setPrice(Money::create(18000, $currency))
             ->setEnabled(true);
 
         $manager->persist($product);
@@ -452,7 +452,7 @@ class ProductData extends AbstractFixture
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
             ->setStock(10000)
-            ->setPrice(new Money(2000, $currency))
+            ->setPrice(Money::create(2000, $currency))
             ->setEnabled(true);
 
         $manager->persist($product);
@@ -478,7 +478,7 @@ class ProductData extends AbstractFixture
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
             ->setStock(10000)
-            ->setPrice(new Money(1145, $currency))
+            ->setPrice(Money::create(1145, $currency))
             ->setEnabled(true);
 
         $manager->persist($product);
@@ -503,7 +503,7 @@ class ProductData extends AbstractFixture
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
             ->setStock(10000)
-            ->setPrice(new Money(1020, $currency))
+            ->setPrice(Money::create(1020, $currency))
             ->setEnabled(true);
 
         $manager->persist($product);
