@@ -55,6 +55,7 @@ class AppKernel extends Kernel
              * Elcodi core bundles
              */
             new \Elcodi\CoreBundle\ElcodiCoreBundle(),
+            new \Elcodi\LanguageBundle\ElcodiLanguageBundle(),
             new \Elcodi\CartBundle\ElcodiCartBundle(),
             new \Elcodi\CartCouponBundle\ElcodiCartCouponBundle(),
             new \Elcodi\CouponBundle\ElcodiCouponBundle(),
