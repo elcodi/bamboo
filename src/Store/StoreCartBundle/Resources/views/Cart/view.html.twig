@@ -3,9 +3,9 @@
 {% block content_title %}
 
     {% if cart.totalItemNumber > 0 %}
-        Your Basket
+        {{ 'Your basket'|trans }}
     {% else %}
-        Your Basket is empty!
+        {{ 'Your basket is empty!'|trans }}
     {% endif %}
 
 {% endblock content_title %}
@@ -58,12 +58,12 @@
                     </div>
 
                     <p class="actions">
-                        <a class="btn btn-blank" href="{{ url('store_homepage') }}">Continue Shopping</a>
-                        <a class="btn btn-blank" href="{{ url('store_cart_empty') }}">Empty Basket</a>
+                        <a class="btn btn-blank" href="{{ url('store_homepage') }}">{{ 'Continue shopping'|trans }}</a>
+                        <a class="btn btn-blank" href="{{ url('store_cart_empty') }}">{{ 'Empty basket'|trans }}</a>
                         {{ form_widget(form.update, { 'attr': {
                             'class': "btn btn-blank"
                         }}) }}
-                        <a class="btn btn-primary" href="{{ url('store_checkout_payment') }}">Continue to Checkout</a>
+                        <a class="btn btn-primary" href="{{ url('store_checkout_payment') }}">{{ 'Checkout'|trans }}</a>
                     </p>
 
                 {{ form_end(form) }}

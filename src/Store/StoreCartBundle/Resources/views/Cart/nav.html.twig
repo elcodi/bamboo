@@ -1,13 +1,13 @@
 <div class="span1">
     <p class="mini-basket-summary">
-        Price<br />
+        {{ 'Price'|trans }}<br />
         <span>{{ cart.amount|print_convert_money() }}</span>
     </p>
 </div>
 
 <div class="span1">
     <p class="mini-basket-summary">
-        Items<br />
+        {{ 'Items'|trans }}<br />
         <span>{{ cart.totalItemNumber }}</span>
     </p>
 </div>

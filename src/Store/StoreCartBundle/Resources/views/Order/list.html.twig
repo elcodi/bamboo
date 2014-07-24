@@ -22,7 +22,7 @@
                         </td>
                         <td class="title">
                             <a href="{{ url('store_order_view', {
-                                orderId: order.id
+                                id: order.id
                             }) }}">Order #{{ order.id }}</a>
                         </td>
                         <td class="title">{{ order.createdAt|date('d.m.Y') }}</td>

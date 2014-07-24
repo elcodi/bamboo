@@ -16,11 +16,11 @@
 
 namespace Store\StoreProductBundle\Controller;
 
-use Doctrine\ORM\EntityNotFoundException;
 use Elcodi\ProductBundle\Entity\Interfaces\ProductInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Mmoreram\ControllerExtraBundle\Annotation\Entity as AnnotationEntity;
 
 /**
  * Product related actions
@@ -34,12 +34,12 @@ class ProductController extends Controller
     /**
      * Product view
      *
-     * @param int $productId Product id
+     * @param ProductInterface $product Product
      *
      * @return array
      *
      * @Route(
-     *      path = "/product/{slug}/{productId}",
+     *      path = "/product/{slug}/{id}",
      *      name = "store_product_view",
      *      requirements = {
      *          "slug": "[\w-]+",
@@ -48,28 +48,24 @@ class ProductController extends Controller
      * )
      * @Template
      *
-     * @throws EntityNotFoundException Product not found
+     * @AnnotationEntity(
+     *      class = "elcodi.core.product.entity.product.class",
+     *      name = "product",
+     *      mapping = {
+     *          "id" = "~id~",
+     *          "enabled" = true,
+     *      }
+     * )
      */
-    public function viewAction($productId)
+    public function viewAction(ProductInterface $product)
     {
-        $product = $this
-            ->get('elcodi.repository.product')
-            ->find($productId);
-
-        if (!($product instanceof ProductInterface)) {
-
-            throw new EntityNotFoundException($this
-                ->container
-                ->getParameter('elcodi.core.product.entity.product.class'));
-        }
-
         $relatedProducts = $this
-                ->get('store.product.service.product_collection_provider')
-                ->getRelatedProducts($product, 3);
+            ->get('store.product.service.product_collection_provider')
+            ->getRelatedProducts($product, 3);
 
-        return array(
+        return [
             'product'          => $product,
             'related_products' => $relatedProducts
-        );
+        ];
     }
 }

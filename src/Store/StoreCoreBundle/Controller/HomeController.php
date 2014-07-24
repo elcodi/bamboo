@@ -46,8 +46,8 @@ class HomeController extends Controller
 
         $products = $productCollectionProvider->getHomeProducts();
 
-        return array(
+        return [
             'products' => $products,
-        );
+        ];
     }
 }

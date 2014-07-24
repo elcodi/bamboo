@@ -17,9 +17,9 @@
 namespace Store\StoreCartBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Doctrine\ORM\EntityNotFoundException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Mmoreram\ControllerExtraBundle\Annotation\Entity as AnnotationEntity;
 
 use Elcodi\CartBundle\Entity\Interfaces\OrderInterface;
 
@@ -35,13 +35,13 @@ class OrderController extends Controller
     /**
      * Cart view
      *
-     * @param integer $orderId Order id
-     * @param boolean $thanks  Thanks
+     * @param OrderInterface $order  Order id
+     * @param boolean        $thanks Thanks
      *
      * @return array
      *
      * @Route(
-     *      path = "/{orderId}",
+     *      path = "/{id}",
      *      name = "store_order_view",
      *      requirements = {
      *          "orderId": "\d+"
@@ -51,7 +51,7 @@ class OrderController extends Controller
      *      }
      * )
      * @Route(
-     *      path = "/{orderId}/thanks",
+     *      path = "/{id}/thanks",
      *      name = "store_order_thanks",
      *      requirements = {
      *          "orderId": "\d+"
@@ -62,21 +62,16 @@ class OrderController extends Controller
      * )
      * @Template
      *
-     * @throws EntityNotFoundException
+     * @AnnotationEntity(
+     *      class = "elcodi.core.cart.entity.order.class",
+     *      name = "order",
+     *      mapping = {
+     *          "id" = "~id~",
+     *      }
+     * )
      */
-    public function viewAction($orderId, $thanks)
+    public function viewAction(OrderInterface $order, $thanks)
     {
-        $order = $this
-            ->get('elcodi.repository.order')
-            ->find($orderId);
-
-        if (!($order instanceof OrderInterface)) {
-
-            throw new EntityNotFoundException($this
-                ->container
-                ->getParameter('elcodi.core.cart.entity.order.class'));
-        }
-
         $orderCoupons = $this
             ->get('elcodi.order_coupon_manager')
             ->getOrderCoupons($order);

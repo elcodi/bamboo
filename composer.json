@@ -32,7 +32,7 @@
     ],
     "require": {
         "php": ">=5.4",
-        "symfony/symfony": "~2.4.0",
+        "symfony/symfony": "~2.4",
         "symfony/assetic-bundle": "~2.4",
         "symfony/swiftmailer-bundle": "~2.3",
         "symfony/monolog-bundle": "~2.4",
@@ -56,13 +56,14 @@
         "paymentsuite/payment-core-bundle": "v1.3",
         "paymentsuite/free-payment-bundle": "~1",
 
-        "elcodi/banner-bundle": "~0.1",
-        "elcodi/cart-bundle": "~0.1",
-        "elcodi/currency-bundle": "~0.1",
-        "elcodi/media-bundle": "~0.1",
-        "elcodi/product-bundle": "~0.1",
-        "elcodi/user-bundle": "~0.1",
-        "elcodi/cart-coupon-bundle": "~0.1"
+        "elcodi/banner-bundle": "0.1.11",
+        "elcodi/cart-bundle": "0.1.11",
+        "elcodi/currency-bundle": "0.1.11",
+        "elcodi/media-bundle": "0.1.11",
+        "elcodi/product-bundle": "0.1.11",
+        "elcodi/user-bundle": "0.1.11",
+        "elcodi/cart-coupon-bundle": "0.1.11",
+        "elcodi/geo-bundle": "0.1.11"
     },
     "scripts": {
         "post-install-cmd": [

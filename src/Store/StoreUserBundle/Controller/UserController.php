@@ -108,7 +108,9 @@ class UserController extends Controller
                 ->getManagerByEntityParameter('elcodi.core.user.entity.customer.class')
                 ->flush($customer);
 
-            return $this->redirect($this->generateUrl('store_user_profile'));
+            return $this->redirect(
+                $this->generateUrl('store_user_profile')
+            );
         }
 
         return [

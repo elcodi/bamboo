@@ -8,7 +8,7 @@
     <li{% if currentCategoryId == category.entity.id %} class="active"{% endif %}>
         <a href="{{ url('store_category_products_list', {
             slug: category.entity.slug,
-            categoryId: category.entity.id
+            id: category.entity.id
         }) }}">{{ category.entity.name }}</a>
     </li>
 

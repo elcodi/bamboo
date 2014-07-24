@@ -57,14 +57,14 @@ class LoginType extends AbstractType
                     ->generate('store_login_check')
             )
             ->setMethod('POST')
-            ->add('email', 'email', array(
+            ->add('email', 'email', [
                 'required' => true,
                 'label'    => 'Email'
-            ))
-            ->add('password', 'password', array(
+            ])
+            ->add('password', 'password', [
                 'required' => true,
                 'label'    => 'Password'
-            ))
+            ])
             ->add('send', 'submit');
     }
 

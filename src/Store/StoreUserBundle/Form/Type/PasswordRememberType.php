@@ -34,13 +34,13 @@ class PasswordRememberType extends AbstractType
     {
         $builder
             ->setMethod('POST')
-            ->add('email', 'email', array(
+            ->add('email', 'email', [
                 'required' => true,
                 'label' =>  'Email'
-            ))
-            ->add('send', 'submit', array(
+            ])
+            ->add('send', 'submit', [
                 'label' =>  'Remember',
-            ));
+            ]);
     }
 
     /**

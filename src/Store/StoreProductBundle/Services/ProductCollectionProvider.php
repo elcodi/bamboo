@@ -46,10 +46,10 @@ class ProductCollectionProvider extends BaseProductCollectionProvider
 
             $relatedProducts = $this
                 ->productRepository
-                ->findBy(array(
+                ->findBy([
                     'principalCategory' => $product->getPrincipalCategory(),
                     'enabled'           => true
-                ));
+                ]);
 
             $relatedProducts = new ArrayCollection($relatedProducts);
             $relatedProducts->removeElement($product);
