@@ -52,9 +52,9 @@ class CartLineType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'data_class' => $this->cartLineNamespace,
-        ));
+        ]);
     }
 
     /**
@@ -66,12 +66,12 @@ class CartLineType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('quantity', 'integer', array(
+            ->add('quantity', 'integer', [
                 'precision'     => 0,
                 'rounding_mode' => IntegerToLocalizedStringTransformer::ROUND_FLOOR,
                 'required'      => true,
                 'label'         => false
-            ));
+            ]);
     }
 
     /**

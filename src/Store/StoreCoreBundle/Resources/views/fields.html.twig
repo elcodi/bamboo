@@ -8,11 +8,13 @@
 {% endspaceless %}
 {% endblock form_row %}
 
+
 {% block button_row %}
 {% spaceless %}
     {{ form_widget(form) }}
 {% endspaceless %}
 {% endblock button_row %}
+
 
 {% block form_label %}
 {% spaceless %}
@@ -27,7 +29,7 @@
         {% if label is empty %}
             {% set label = name|humanize %}
         {% endif %}
-        <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>{{ label|trans({}, translation_domain) }}{% if mand %}<span class="mand">*</span>{% endif %}</label>
+        <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>{{ label|trans({}, translation_domain) }}{% if mand %}<span class="mand">&nbsp;*</span>{% endif %}</label>
     {% endif %}
 {% endspaceless %}
 {% endblock form_label %}

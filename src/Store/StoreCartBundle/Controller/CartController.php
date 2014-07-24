@@ -16,17 +16,18 @@
 
 namespace Store\StoreCartBundle\Controller;
 
-use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Form;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Doctrine\ORM\EntityNotFoundException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as AnnotationForm;
+use Mmoreram\ControllerExtraBundle\Annotation\Entity as AnnotationEntity;
 
 use Elcodi\ProductBundle\Entity\Interfaces\ProductInterface;
 use Elcodi\CartBundle\Entity\Interfaces\CartLineInterface;
@@ -44,7 +45,8 @@ class CartController extends Controller
     /**
      * Cart view
      *
-     * @param AbstractType $cartFormType Cart type
+     * @param FormView      $formView Form view
+     * @param CartInterface $cart     Cart
      *
      * @return array
      *
@@ -55,21 +57,26 @@ class CartController extends Controller
      * @Method("GET")
      * @Template
      *
+     * @AnnotationEntity(
+     *      class = {
+     *          "factory" = "elcodi.cart_wrapper",
+     *          "method" = "loadCart",
+     *          "static" = false,
+     *      },
+     *      name = "cart"
+     * )
      * @AnnotationForm(
      *      class = "store_cart_form_type_cart",
-     *      name  = "cartFormType",
+     *      name  = "formView",
+     *      entity = "cart",
      * )
      */
-    public function viewAction(AbstractType $cartFormType)
+    public function viewAction(
+        FormView $formView,
+        CartInterface $cart
+    )
     {
         $relatedProducts = [];
-
-        /**
-         * @var CartInterface $cart
-         */
-        $cart = $this
-            ->get('elcodi.cart_wrapper')
-            ->loadCart();
 
         if ($cart->getCartLines()->count()) {
 
@@ -86,17 +93,10 @@ class CartController extends Controller
             ->get('elcodi.cart_coupon_manager')
             ->getCartCoupons($cart);
 
-        /**
-         * @var Form $form
-         */
-        $form = $this
-            ->get('form.factory')
-            ->create($cartFormType, $cart);
-
         return [
             'cart'             => $cart,
             'cartcoupon'       => $cartCoupons,
-            'form'             => $form->createView(),
+            'form'             => $formView,
             'related_products' => $relatedProducts
         ];
     }
@@ -104,38 +104,43 @@ class CartController extends Controller
     /**
      * Adds item into cart
      *
-     * @param Request $request   Request object
-     * @param int     $productId Product id
+     * @param Request          $request Request object
+     * @param ProductInterface $product Product id
+     * @param CartInterface    $cart    Cart
      *
      * @return Response Redirect response
      *
      * @Route(
-     *      path = "/product/{productId}/add",
+     *      path = "/product/{id}/add",
      *      name = "store_cart_add_product",
      *      requirements = {
      *          "productId": "\d+"
      *      }
      * )
      *
-     * @throws EntityNotFoundException Product not found
+     * @AnnotationEntity(
+     *      class = "elcodi.core.product.entity.product.class",
+     *      name = "product",
+     *      mapping = {
+     *          "id" = "~id~",
+     *          "enabled" = true,
+     *      }
+     * )
+     * @AnnotationEntity(
+     *      class = {
+     *          "factory" = "elcodi.cart_wrapper",
+     *          "method" = "loadCart",
+     *          "static" = false,
+     *      },
+     *      name = "cart"
+     * )
      */
-    public function addProductAction(Request $request, $productId)
+    public function addProductAction(
+        Request $request,
+        ProductInterface $product,
+        CartInterface $cart
+    )
     {
-        $product = $this
-            ->get('elcodi.repository.product')
-            ->find($productId);
-
-        if (!($product instanceof ProductInterface)) {
-
-            throw new EntityNotFoundException($this
-                ->container
-                ->getParameter('elcodi.core.product.entity.product.class'));
-        }
-
-        $cart = $this
-            ->get('elcodi.cart_wrapper')
-            ->loadCart();
-
         $this
             ->get('elcodi.cart_manager')
             ->addProduct(
@@ -144,11 +149,15 @@ class CartController extends Controller
                 $request->get('quantity', 1)
             );
 
-        return $this->redirect($this->generateUrl('store_cart_view'));
+        return $this->redirect(
+            $this->generateUrl('store_cart_view')
+        );
     }
 
     /**
      * Empty Cart
+     *
+     * @param CartInterface $cart Cart
      *
      * @return RedirectResponse
      *
@@ -156,25 +165,33 @@ class CartController extends Controller
      *      path = "/empty",
      *      name="store_cart_empty"
      * )
+     *
+     * @AnnotationEntity(
+     *      class = {
+     *          "factory" = "elcodi.cart_wrapper",
+     *          "method" = "loadCart",
+     *          "static" = false,
+     *      },
+     *      name = "cart"
+     * )
      */
-    public function emptyCartAction()
+    public function emptyCartAction(CartInterface $cart)
     {
-        $cart = $this
-            ->get('elcodi.cart_wrapper')
-            ->loadCart();
-
         $this
             ->get('elcodi.cart_manager')
             ->emptyLines($cart);
 
-        return $this->redirect($this->generateUrl('store_homepage'));
+        return $this->redirect(
+            $this->generateUrl('store_homepage')
+        );
     }
 
     /**
      * Empty Cart
      *
-     * @param Request      $request      Request
-     * @param AbstractType $cartFormType Cart type
+     * @param FormInterface $form    Form
+     * @param CartInterface $cart    Cart
+     * @param boolean       $isValid Form is valid
      *
      * @return RedirectResponse
      *
@@ -184,67 +201,73 @@ class CartController extends Controller
      * )
      * @Method({"POST"})
      *
+     * @AnnotationEntity(
+     *      class = {
+     *          "factory" = "elcodi.cart_wrapper",
+     *          "method" = "loadCart",
+     *          "static" = false,
+     *      },
+     *      name = "cart"
+     * )
      * @AnnotationForm(
      *      class = "store_cart_form_type_cart",
-     *      name  = "cartFormType",
+     *      entity = "cart",
+     *      handleRequest = true,
+     *      validate = "isValid",
      * )
      */
-    public function updateCartAction(Request $request, AbstractType $cartFormType)
+    public function updateCartAction(
+        FormInterface $form,
+        CartInterface $cart,
+        $isValid
+    )
     {
-        $cart = $this
-            ->get('elcodi.cart_wrapper')
-            ->loadCart();
-
-        /**
-         * @var Form $form
-         */
-        $form = $this
-            ->get('form.factory')
-            ->create($cartFormType, $cart);
-
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
+        if ($isValid) {
 
             $this
                 ->get('elcodi.object_manager.cart')
                 ->flush();
         }
 
-        return $this->redirect($this->generateUrl('store_cart_view'));
+        return $this->redirect(
+            $this->generateUrl('store_cart_view')
+        );
     }
 
     /**
      * Deletes CartLine
      *
-     * @param int $cartLineId CartLine id
+     * @param CartInterface     $cart     Cart
+     * @param CartLineInterface $cartLine Cart Line
      *
      * @return RedirectResponse
      *
      * @Route(
-     *      path = "/line/{cartLineId}/delete",
+     *      path = "/line/{id}/delete",
      *      name="store_cartline_remove"
      * )
      *
-     * @throws EntityNotFoundException CartLine not found
+     * @AnnotationEntity(
+     *      class = {
+     *          "factory" = "elcodi.cart_wrapper",
+     *          "method" = "loadCart",
+     *          "static" = false,
+     *      },
+     *      name = "cart"
+     * )
+     * @AnnotationEntity(
+     *      class = "elcodi.core.cart.entity.cart_line.class",
+     *      name = "cartLine",
+     *      mapping = {
+     *          "id" = "~id~",
+     *      }
+     * )
      */
-    public function removeCartLineAction($cartLineId)
+    public function removeCartLineAction(
+        CartInterface $cart,
+        CartLineInterface $cartLine
+    )
     {
-        $cartLine = $this
-            ->get('elcodi.repository.cart_line')
-            ->find($cartLineId);
-
-        if (!($cartLine instanceof CartLineInterface)) {
-
-            throw new EntityNotFoundException($this
-                ->container
-                ->getParameter('elcodi.core.cart.entity.cart_line.class'));
-        }
-
-        $cart = $this
-            ->get('elcodi.cart_wrapper')
-            ->loadCart();
-
         $this
             ->get('elcodi.cart_manager')
             ->removeLine(
@@ -252,11 +275,15 @@ class CartController extends Controller
                 $cartLine
             );
 
-        return $this->redirect($this->generateUrl('store_cart_view'));
+        return $this->redirect(
+            $this->generateUrl('store_cart_view')
+        );
     }
 
     /**
      * reduced version of cart
+     *
+     * @param CartInterface $cart Cart
      *
      * @return array Result
      *
@@ -264,15 +291,21 @@ class CartController extends Controller
      *      path = "/nav",
      *      name = "store_cart_nav"
      * )
-     *
      * @Template
+     *
+     * @AnnotationEntity(
+     *      class = {
+     *          "factory" = "elcodi.cart_wrapper",
+     *          "method" = "loadCart",
+     *          "static" = false,
+     *      },
+     *      name = "cart"
+     * )
      */
-    public function navAction()
+    public function navAction(CartInterface $cart)
     {
-        return array(
-            'cart' => $this
-                    ->get('elcodi.cart_wrapper')
-                    ->loadCart(),
-        );
+        return [
+            'cart' => $cart,
+        ];
     }
 }

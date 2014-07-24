@@ -61,9 +61,9 @@ class CartType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'data_class' => $this->cartNamespace,
-        ));
+        ]);
     }
 
     /**
@@ -81,14 +81,14 @@ class CartType extends AbstractType
                     ->generate('store_cart_update')
             )
             ->setMethod('POST')
-            ->add('cartLines', 'collection', array(
+            ->add('cartLines', 'collection', [
                 'type'     => 'store_cart_form_type_cart_line',
                 'required' => true,
                 'label'    => false
-            ))
-            ->add('update', 'submit', array(
+            ])
+            ->add('update', 'submit', [
                 'label' => 'Update basket',
-            ));
+            ]);
     }
 
     /**

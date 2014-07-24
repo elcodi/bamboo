@@ -1,0 +1,12 @@
+services:
+
+    #
+    # Form Types
+    #
+    store.geo.form_type.address:
+        class: %store.geo.form_type.address.class%
+        arguments:
+            address_factory: @elcodi.factory.address
+            country_namespace: %elcodi.core.geo.entity.country.class%
+        tags:
+            - { name: form.type, alias: store_geo_form_type_address }

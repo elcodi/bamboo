@@ -57,13 +57,13 @@ class CouponApplyType extends AbstractType
                     ->generate('store_coupon_apply')
             )
             ->setMethod('POST')
-            ->add('code', 'text', array(
+            ->add('code', 'text', [
                 'required' => true,
                 'label'    => 'Coupon Code'
-            ))
-            ->add('apply', 'submit', array(
+            ])
+            ->add('apply', 'submit', [
                 'label'    => 'Apply coupon'
-            ));
+            ]);
     }
 
     /**

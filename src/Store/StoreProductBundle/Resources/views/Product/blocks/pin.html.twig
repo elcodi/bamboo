@@ -1,12 +1,15 @@
 <div class="span4 product-listing">
+
+    {% set productRoute = url('store_product_view', {
+        'slug': product.slug,
+        'id': product.id
+    }) %}
+
     <p class="title">
-        <a href="{{ url('store_product_view', {
-            'slug': product.slug,
-            'productId': product.id
-        }) }}">{{ product.name }}</a>
+        <a href="{{ productRoute }}">{{ product.name }}</a>
     </p>
 
-    <a href="{{ url('store_product_view', {'slug': product.slug, 'productId': product.id}) }}">
+    <a href="{{ productRoute }}">
         <img class="image" src="{{ product.principalImage|resize({
             'width': 372,
             'height': 291,
@@ -24,13 +27,10 @@
 
         {% endif %}
 
-        <a class="btn btn-addcart btn-primary" href="{{ url('store_cart_add_product', { productId: product.id }) }}">
+        <a class="btn btn-addcart btn-primary" href="{{ url('store_cart_add_product', { id: product.id }) }}">
             <span class="entypo cart"></span>
         </a>
-        <a class="btn btn-view btn-grey" href="{{ url('store_product_view', {
-            'slug': product.slug,
-            'productId': product.id
-        }) }}">
+        <a class="btn btn-view btn-grey" href="{{ productRoute }}">
             <span class="entypo search"></span>
         </a>
     </p>

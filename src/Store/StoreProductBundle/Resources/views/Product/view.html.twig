@@ -1,13 +1,14 @@
 {% extends 'StoreCoreBundle::layout.html.twig' %}
 
-{% block title %}Bamboo - Product {{ product.name }}{% endblock title %}
+
+{% block title %}Bamboo - {{ 'Product'|trans }} {{ product.name }}{% endblock title %}
+
 
 {% block content_title %}{{ product.name }}{% endblock content_title %}
 
+
 {% block content %}
-
     <!-- Product Detail -->
-
     <div class="row">
 
         <div class="span8">
@@ -30,7 +31,7 @@
                 <p>{{ product.name }}<br/>
                     <span>{{ product.price|print_convert_money() }}</span>
                 </p>
-                <a class="btn btn-addcart btn-primary" href="{{ url('store_cart_add_product', { productId: product.id }) }}">
+                <a class="btn btn-addcart btn-primary" href="{{ url('store_cart_add_product', { id: product.id }) }}">
                     <span class="entypo cart"></span>
                 </a>
 
@@ -38,27 +39,24 @@
 
             <p>{{ product.description }}</p>
 
-            <h3>Stock</h3>
+            <h3>{{ 'Stock'|trans }}</h3>
 
             {% if product.stock %}
-                <p>This item is in stock and ready to ship!</p>
+                <p>{{ 'This item is in stock and ready to ship!'|trans }}</p>
             {% else %}
-                <p>This item is currently not available</p>
+                <p>{{ 'This item is currently not available'|trans }}</p>
             {% endif %}
 
-            <h3>Delivery</h3>
+            <h3>{{ 'Delivery'|trans }}</h3>
 
-            <p>Free Delivery is available on this item.</p>
-            <p>Usually dispatched within 24 hours.</p>
+            <p>{{ 'Free Delivery is available on this item'|trans }}</p>
+            <p>{{ 'Usually dispatched within 24 hours'|trans }}</p>
 
         </div>
-
     </div>
-
     <!-- Related products -->
 
     {% include "StoreProductBundle:Product:blocks/related.html.twig" with {
         'products' : related_products
     } %}
-
 {% endblock content %}

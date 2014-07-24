@@ -64,6 +64,7 @@ class AppKernel extends Kernel
             new \Elcodi\UserBundle\ElcodiUserBundle(),
             new \Elcodi\ProductBundle\ElcodiProductBundle(),
             new \Elcodi\MediaBundle\ElcodiMediaBundle(),
+            new \Elcodi\GeoBundle\ElcodiGeoBundle(),
 
             /**
              * Elcodi store bundles
@@ -71,6 +72,7 @@ class AppKernel extends Kernel
             new \Store\StoreCoreBundle\StoreCoreBundle(),
             new \Store\StoreProductBundle\StoreProductBundle(),
             new \Store\StoreUserBundle\StoreUserBundle(),
+            new \Store\StoreGeoBundle\StoreGeoBundle(),
             new \Store\StoreCartBundle\StoreCartBundle(),
             new \Store\StoreCurrencyBundle\StoreCurrencyBundle,
             new \Store\StoreCouponBundle\StoreCouponBundle,

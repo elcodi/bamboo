@@ -139,9 +139,9 @@ class PasswordController extends Controller
             $customer = $this
                 ->get('elcodi.repository_provider')
                 ->getRepositoryByEntityParameter('elcodi.core.user.entity.customer.class')
-                ->findOneBy(array(
+                ->findOneBy([
                     'recoveryHash' => $hash,
-                ));
+                ]);
 
             if ($customer instanceof AbstractUser) {
 
@@ -155,8 +155,8 @@ class PasswordController extends Controller
             }
         }
 
-        return array(
+        return [
             'form' => $passwordRecoverForm->createView()
-        );
+        ];
     }
 }

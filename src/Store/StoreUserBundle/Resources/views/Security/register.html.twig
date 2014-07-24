@@ -1,13 +1,44 @@
 {% extends 'StoreCoreBundle::layout.html.twig' %}
 
+
 {% form_theme form 'StoreCoreBundle::fields.html.twig' %}
 
+
+{% block content_title %}{% endblock %}
+
+
 {% block content %}
-
     <div class="container">
+        <div class="row">
+            <div class="span6 offset3">
+                <div class="member-box">
 
-        {% include 'StoreUserBundle:User:blocks/profile.html.twig' %}
+                    <h2>{{ "Register"|trans }}</h2>
 
+                    {{ form_start(form) }}
+                    <p>
+                        {{ form_row(form.firstname) }}
+                    </p>
+                    <p>
+                        {{ form_row(form.lastname) }}
+                    </p>
+                    <p>
+                        {{ form_row(form.email) }}
+                    </p>
+                    <p>
+                        {{ form_row(form.password.first) }}
+                    </p>
+                    <p>
+                        {{ form_row(form.password.second) }}
+                    </p>
+                    <p class="buttons">
+                        {{ form_row(form.send, {attr: {'class': 'btn btn-primary' }}) }}
+                    </p>
+
+                    {{ form_end(form) }}
+
+                </div>
+            </div>
+        </div>
     </div>
-
 {% endblock content %}

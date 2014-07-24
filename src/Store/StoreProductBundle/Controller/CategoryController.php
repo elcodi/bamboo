@@ -17,9 +17,9 @@
 namespace Store\StoreProductBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Doctrine\ORM\EntityNotFoundException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Mmoreram\ControllerExtraBundle\Annotation\Entity as AnnotationEntity;
 
 use Elcodi\ProductBundle\Entity\Interfaces\CategoryInterface;
 
@@ -48,11 +48,11 @@ class CategoryController extends Controller
         $currentCategoryId = $this
             ->get('request_stack')
             ->getMasterRequest()
-            ->get('categoryId');
+            ->get('id');
 
         $categoryTree = $this
             ->get('elcodi.core.product.service.category_manager')
-            ->getCategoryTree();
+            ->load();
 
         return [
             'currentCategoryId' => $currentCategoryId,
@@ -63,12 +63,12 @@ class CategoryController extends Controller
     /**
      * Render all category products
      *
-     * @param integer $categoryId Category id
+     * @param CategoryInterface $category Category
      *
      * @return array Response parameters
      *
      * @Route(
-     *      path = "category/{slug}/{categoryId}",
+     *      path = "category/{slug}/{id}",
      *      name = "store_category_products_list",
      *      requirements = {
      *          "slug" = "[a-zA-Z0-9-]+",
@@ -77,27 +77,17 @@ class CategoryController extends Controller
      * )
      * @Template
      *
-     * @throws EntityNotFoundException Entity not found
+     * @AnnotationEntity(
+     *      class = "elcodi.core.product.entity.category.class",
+     *      name = "category",
+     *      mapping = {
+     *          "id" = "~id~",
+     *          "enabled" = true,
+     *      }
+     * )
      */
-    public function viewAction($categoryId)
+    public function viewAction(CategoryInterface $category)
     {
-        $categoryEntityNamespace = $this
-            ->container
-            ->getParameter('elcodi.core.product.entity.category.class');
-
-        $category = $this
-            ->get('doctrine.orm.entity_manager')
-            ->getRepository($categoryEntityNamespace)
-            ->findOneBy(array(
-                'id'    =>  $categoryId,
-                'enabled'   =>  true
-            ));
-
-        if (!($category instanceof CategoryInterface)) {
-
-            throw new EntityNotFoundException($categoryEntityNamespace);
-        }
-
         $products = $category->getProducts();
 
         return [

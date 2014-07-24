@@ -16,12 +16,13 @@
 
 namespace Store\StoreUserBundle\Form\Type;
 
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 /**
  * Class RegisterType
  */
-class RegisterType extends ProfileType
+class RegisterType extends AbstractType
 {
     /**
      * Buildform function
@@ -34,19 +35,32 @@ class RegisterType extends ProfileType
         parent::buildForm($builder, $options);
 
         $builder
-            ->add('password', 'repeated', array(
+            ->setMethod('POST')
+            ->add('firstname', 'text', [
+                'required' => true,
+                'label'    => 'Firstname',
+            ])
+            ->add('lastname', 'text', [
+                'required' => true,
+                'label'    => 'Lastname',
+            ])
+            ->add('email', 'email', [
+                'required' => true,
+                'label'    => 'Email'
+            ])
+            ->add('password', 'repeated', [
                 'type'           => 'password',
-                'first_options'  => array(
+                'first_options'  => [
                     'label' => 'Password',
-                ),
-                'second_options' => array(
+                ],
+                'second_options' => [
                     'label' => 'Repeat Password',
-                ),
-                'required'       => true,
-            ))
-            ->add('send', 'submit', array(
-                'label' => 'Register'
-            ));
+                ],
+                'required'       => false,
+            ])
+            ->add('send', 'submit', [
+                'label' => 'Register',
+            ]);
     }
 
     /**

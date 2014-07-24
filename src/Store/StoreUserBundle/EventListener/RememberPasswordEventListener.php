@@ -30,7 +30,6 @@ use Elcodi\UserBundle\Event\PasswordRememberEvent;
  */
 class RememberPasswordEventListener
 {
-
     /**
      * @var Swift_Mailer
      *
@@ -87,10 +86,10 @@ class RememberPasswordEventListener
             ->setTo($userMail)
             ->setBody($this->templating->render(
                 'StoreUserBundle:Password:email/recover_password.html.twig',
-                array(
+                [
                     'customer'    => $user,
                     'recover_url' => $rememberUrl,
-                )
+                ]
             ))
             ->setContentType('text/html');
 
@@ -110,7 +109,13 @@ class RememberPasswordEventListener
     {
         $user = $event->getUser();
 
-        $token = new UsernamePasswordToken($user, null, 'customer_secured_area', $user->getRoles());
+        $token = new UsernamePasswordToken(
+            $user,
+            null,
+            'customer_secured_area',
+            $user->getRoles()
+        );
+
         $this->securityContext->setToken($token);
     }
 }
