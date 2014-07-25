@@ -65,6 +65,9 @@
         "elcodi/cart-coupon-bundle": "0.1.11",
         "elcodi/geo-bundle": "0.1.11"
     },
+    "require-dev": {
+        "elcodi/elcodi": "0.1.11"
+    },
     "scripts": {
         "post-install-cmd": [
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
