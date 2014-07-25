@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "abfee68be804cc7ec1006a72623a7144",
+    "hash": "b5d26723d9cdb2b82342523cc3b18ecd",
     "packages": [
         {
             "name": "braincrafted/bootstrap-bundle",
@@ -424,12 +424,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "a43e8da1e821de1cc6e636ebc2c44f0d9dae5c9a"
+                "reference": "3065aff5ac1e2230a853c7bfaadd8594845aeb9b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/a43e8da1e821de1cc6e636ebc2c44f0d9dae5c9a",
-                "reference": "a43e8da1e821de1cc6e636ebc2c44f0d9dae5c9a",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/3065aff5ac1e2230a853c7bfaadd8594845aeb9b",
+                "reference": "3065aff5ac1e2230a853c7bfaadd8594845aeb9b",
                 "shasum": ""
             },
             "require": {
@@ -487,7 +487,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2014-07-22 12:18:20"
+            "time": "2014-07-25 01:21:04"
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -845,27 +845,26 @@
         },
         {
             "name": "doctrine/orm",
-            "version": "dev-master",
+            "version": "2.4.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "2b24478f05acb79cebcc5363ee50eca8a275f25f"
+                "reference": "406e1770627cfe0c949f036bd9f49e6e3dde9ad5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/2b24478f05acb79cebcc5363ee50eca8a275f25f",
-                "reference": "2b24478f05acb79cebcc5363ee50eca8a275f25f",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/406e1770627cfe0c949f036bd9f49e6e3dde9ad5",
+                "reference": "406e1770627cfe0c949f036bd9f49e6e3dde9ad5",
                 "shasum": ""
             },
             "require": {
-                "doctrine/collections": "~1.2",
-                "doctrine/dbal": ">=2.5-dev,<2.6-dev",
+                "doctrine/collections": "~1.1",
+                "doctrine/dbal": "~2.4",
                 "ext-pdo": "*",
                 "php": ">=5.3.2",
-                "symfony/console": "2.*"
+                "symfony/console": "~2.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.0",
                 "satooshi/php-coveralls": "dev-master",
                 "symfony/yaml": "~2.1"
             },
@@ -879,7 +878,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.5.x-dev"
+                    "dev-master": "2.4.x-dev"
                 }
             },
             "autoload": {
@@ -893,20 +892,23 @@
             ],
             "authors": [
                 {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com",
+                    "homepage": "http://www.jwage.com/",
+                    "role": "Creator"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com",
+                    "homepage": "http://www.instaclick.com"
+                },
+                {
                     "name": "Roman Borschel",
                     "email": "roman@code-factory.org"
                 },
                 {
                     "name": "Benjamin Eberlei",
                     "email": "kontakt@beberlei.de"
-                },
-                {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com"
-                },
-                {
-                    "name": "Jonathan Wage",
-                    "email": "jonwage@gmail.com"
                 }
             ],
             "description": "Object-Relational-Mapper for PHP",
@@ -915,50 +917,33 @@
                 "database",
                 "orm"
             ],
-            "time": "2014-07-23 22:35:18"
+            "time": "2014-07-11 03:13:19"
         },
         {
-            "name": "elcodi/banner-bundle",
-            "version": "v0.1.11",
+            "name": "egulias/listeners-debug",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/elcodi/BannerBundle.git",
-                "reference": "0f48249563248cccf57b3359395a4e71d8f4295c"
+                "url": "https://github.com/egulias/ListenersDebug.git",
+                "reference": "642b61e269025c25ab965c8b7e96eed2c9c2683c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elcodi/BannerBundle/zipball/0f48249563248cccf57b3359395a4e71d8f4295c",
-                "reference": "0f48249563248cccf57b3359395a4e71d8f4295c",
+                "url": "https://api.github.com/repos/egulias/ListenersDebug/zipball/642b61e269025c25ab965c8b7e96eed2c9c2683c",
+                "reference": "642b61e269025c25ab965c8b7e96eed2c9c2683c",
                 "shasum": ""
             },
             "require": {
-                "doctrine/common": "~2.4",
-                "doctrine/orm": "~2.4",
-                "elcodi/core-bundle": "~0.1",
-                "elcodi/language-bundle": "~0.1",
-                "elcodi/media-bundle": "~0.1",
-                "php": ">=5.4",
-                "symfony/http-kernel": "~2.4"
+                "symfony/dependency-injection": "~2.3",
+                "symfony/event-dispatcher": "~2.3"
             },
             "require-dev": {
-                "doctrine/doctrine-fixtures-bundle": "~2.2",
-                "phpunit/phpunit": ">=4.0",
-                "symfony/browser-kit": "~2.4",
-                "symfony/console": "~2.4",
-                "symfony/finder": "~2.4",
-                "symfony/framework-bundle": "~2.4",
-                "symfony/routing": "~2.4",
-                "symfony/validator": "~2.4"
+                "satooshi/php-coveralls": "dev-master"
             },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.1-dev"
-                }
-            },
+            "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Elcodi\\BannerBundle\\": ""
+                    "Egulias\\ListenersDebug\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -967,602 +952,133 @@
             ],
             "authors": [
                 {
-                    "name": "Marc Morera",
-                    "email": "yuhu@mmoreram.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://github.com/elcodi/BannerBundle/contributors"
-                },
-                {
-                    "name": "Aldo Chiecchia",
-                    "email": "zimage@tiscali.it"
+                    "name": "Eduardo Gulias Davis",
+                    "homepage": "http://egulias.com"
                 }
             ],
-            "description": "Elcodi Banner component",
-            "homepage": "https://github.com/elcodi/BannerBundle",
+            "description": "Debug library for listeners registered in the Symfony 2 DIC",
+            "homepage": "https://github.com/egulias/ListenersDebug.git",
             "keywords": [
-                "banner",
-                "ecommerce",
-                "elcodi"
+                "dependencyinjection",
+                "dic",
+                "events",
+                "listener"
             ],
-            "time": "2014-07-21 11:36:26"
+            "time": "2014-06-08 17:55:29"
         },
         {
-            "name": "elcodi/cart-bundle",
-            "version": "v0.1.11",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/elcodi/CartBundle.git",
-                "reference": "ab002d74a6a69ba2391b02f59bed7fd329fa31d4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/elcodi/CartBundle/zipball/ab002d74a6a69ba2391b02f59bed7fd329fa31d4",
-                "reference": "ab002d74a6a69ba2391b02f59bed7fd329fa31d4",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/common": "~2.4",
-                "doctrine/orm": "~2.4",
-                "elcodi/core-bundle": "~0.1",
-                "elcodi/currency-bundle": "~0.1",
-                "elcodi/product-bundle": "~0.1",
-                "elcodi/user-bundle": "~0.1",
-                "php": ">=5.4",
-                "sebastian/money": "~1.3",
-                "symfony/config": "~2.4",
-                "symfony/dependency-injection": "~2.4",
-                "symfony/event-dispatcher": "~2.4",
-                "symfony/expression-language": "~2.4",
-                "symfony/http-foundation": "~2.4",
-                "symfony/http-kernel": "~2.4"
-            },
-            "require-dev": {
-                "doctrine/doctrine-fixtures-bundle": "~2.2",
-                "phpunit/phpunit": ">=4.0",
-                "symfony/browser-kit": "~2.4",
-                "symfony/console": "~2.4",
-                "symfony/finder": "~2.4",
-                "symfony/framework-bundle": "~2.4",
-                "symfony/routing": "~2.4",
-                "symfony/validator": "~2.4"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Elcodi\\CartBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Marc Morera",
-                    "email": "yuhu@mmoreram.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://github.com/elcodi/CartBundle/contributors"
-                },
-                {
-                    "name": "Aldo Chiecchia",
-                    "email": "zimage@tiscali.it"
-                }
-            ],
-            "description": "Elcodi Cart component",
-            "homepage": "https://github.com/elcodi/CartBundle",
-            "keywords": [
-                "cart",
-                "ecommerce",
-                "elcodi"
-            ],
-            "time": "2014-07-23 09:53:07"
-        },
-        {
-            "name": "elcodi/cart-coupon-bundle",
-            "version": "v0.1.11",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/elcodi/CartCouponBundle.git",
-                "reference": "d3eefc27665da964f5b1b3f4ca710ce2ee0ceb18"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/elcodi/CartCouponBundle/zipball/d3eefc27665da964f5b1b3f4ca710ce2ee0ceb18",
-                "reference": "d3eefc27665da964f5b1b3f4ca710ce2ee0ceb18",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/common": "~2.4",
-                "doctrine/orm": "~2.4",
-                "elcodi/cart-bundle": "~0.1",
-                "elcodi/core-bundle": "~0.1",
-                "elcodi/coupon-bundle": "~0.1",
-                "php": ">=5.4",
-                "symfony/event-dispatcher": "~2.4",
-                "symfony/expression-language": "~2.4",
-                "symfony/http-kernel": "~2.4"
-            },
-            "require-dev": {
-                "doctrine/doctrine-fixtures-bundle": "~2.2",
-                "phpunit/phpunit": ">=4.0",
-                "symfony/browser-kit": "~2.4",
-                "symfony/console": "~2.4",
-                "symfony/finder": "~2.4",
-                "symfony/framework-bundle": "~2.4",
-                "symfony/routing": "~2.4",
-                "symfony/validator": "~2.4"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Elcodi\\CartCouponBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Marc Morera",
-                    "email": "yuhu@mmoreram.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://github.com/elcodi/CartCouponBundle/contributors"
-                },
-                {
-                    "name": "Aldo Chiecchia",
-                    "email": "zimage@tiscali.it"
-                }
-            ],
-            "description": "Elcodi Cart-Coupon bridge component",
-            "homepage": "https://github.com/elcodi/CartCouponBundle",
-            "keywords": [
-                "cart",
-                "coupon",
-                "ecommerce",
-                "elcodi"
-            ],
-            "time": "2014-07-23 09:43:19"
-        },
-        {
-            "name": "elcodi/core-bundle",
+            "name": "egulias/listeners-debug-command-bundle",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/elcodi/CoreBundle.git",
-                "reference": "f3d76d848ae3685cb9d34d2017327c35b135c019"
+                "url": "https://github.com/egulias/ListenersDebugCommandBundle.git",
+                "reference": "4db12f4212690276cf97a14a8f7f58c4e50972a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elcodi/CoreBundle/zipball/f3d76d848ae3685cb9d34d2017327c35b135c019",
-                "reference": "f3d76d848ae3685cb9d34d2017327c35b135c019",
+                "url": "https://api.github.com/repos/egulias/ListenersDebugCommandBundle/zipball/4db12f4212690276cf97a14a8f7f58c4e50972a7",
+                "reference": "4db12f4212690276cf97a14a8f7f58c4e50972a7",
                 "shasum": ""
             },
             "require": {
-                "doctrine/common": "~2.4",
+                "egulias/listeners-debug": "1.0.*",
+                "symfony/symfony": ">=2.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.0.*",
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Egulias\\ListenersDebugCommandBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eduardo Gulias Davis",
+                    "homepage": "http://egulias.com"
+                }
+            ],
+            "description": "Symfony 2 console command to debug listeners",
+            "homepage": "https://github.com/egulias/ListenersDebugCommandBundle.git",
+            "keywords": [
+                "events",
+                "listener"
+            ],
+            "time": "2014-05-25 14:35:00"
+        },
+        {
+            "name": "elcodi/elcodi",
+            "version": "v0.1.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/elcodi/elcodi.git",
+                "reference": "c2da6e6521d4752e05537243ada438d71aef6b12"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/elcodi/elcodi/zipball/c2da6e6521d4752e05537243ada438d71aef6b12",
+                "reference": "c2da6e6521d4752e05537243ada438d71aef6b12",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/common": "~2.4.0",
                 "doctrine/doctrine-cache-bundle": "~1.0",
-                "doctrine/orm": "~2.4",
-                "php": ">=5.4",
-                "symfony/config": "~2.4",
-                "symfony/dependency-injection": "~2.4",
-                "symfony/http-foundation": "~2.4",
-                "symfony/http-kernel": "~2.4",
-                "symfony/options-resolver": "~2.4"
-            },
-            "require-dev": {
-                "doctrine/doctrine-fixtures-bundle": "~2.2",
-                "phpunit/phpunit": ">=4.0",
-                "symfony/browser-kit": "~2.4",
-                "symfony/console": "~2.4",
-                "symfony/finder": "~2.4",
-                "symfony/framework-bundle": "~2.4",
-                "symfony/routing": "~2.4",
-                "symfony/validator": "~2.4"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Elcodi\\CoreBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Marc Morera",
-                    "email": "yuhu@mmoreram.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://github.com/elcodi/CoreBundle/contributors"
-                },
-                {
-                    "name": "Aldo Chiecchia",
-                    "email": "zimage@tiscali.it"
-                }
-            ],
-            "description": "Elcodi Core component",
-            "homepage": "https://github.com/elcodi/CoreBundle",
-            "keywords": [
-                "core",
-                "ecommerce",
-                "elcodi"
-            ],
-            "time": "2014-07-23 09:43:19"
-        },
-        {
-            "name": "elcodi/coupon-bundle",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/elcodi/CouponBundle.git",
-                "reference": "cc2c1feedf77534158d83adeba50b9ff950d32e6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/elcodi/CouponBundle/zipball/cc2c1feedf77534158d83adeba50b9ff950d32e6",
-                "reference": "cc2c1feedf77534158d83adeba50b9ff950d32e6",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/common": "~2.4",
-                "doctrine/orm": "~2.4",
-                "elcodi/core-bundle": "~0.1",
-                "elcodi/currency-bundle": "~0.1",
-                "php": ">=5.4",
-                "sebastian/money": "~1.3",
-                "symfony/config": "~2.4",
-                "symfony/event-dispatcher": "~2.4",
-                "symfony/form": "~2.4",
-                "symfony/http-foundation": "~2.4",
-                "symfony/http-kernel": "~2.4",
-                "symfony/options-resolver": "~2.4",
-                "symfony/routing": "~2.4",
-                "symfony/security": "~2.4",
-                "symfony/validator": "~2.4"
-            },
-            "require-dev": {
-                "doctrine/doctrine-fixtures-bundle": "~2.2",
-                "phpunit/phpunit": ">=4.0",
-                "symfony/browser-kit": "~2.4",
-                "symfony/console": "~2.4",
-                "symfony/finder": "~2.4",
-                "symfony/framework-bundle": "~2.4",
-                "symfony/routing": "~2.4",
-                "symfony/validator": "~2.4"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Elcodi\\CouponBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Marc Morera",
-                    "email": "yuhu@mmoreram.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://github.com/elcodi/CouponBundle/contributors"
-                },
-                {
-                    "name": "Aldo Chiecchia",
-                    "email": "zimage@tiscali.it"
-                }
-            ],
-            "description": "Elcodi Coupon component",
-            "homepage": "https://github.com/elcodi/CouponBundle",
-            "keywords": [
-                "coupon",
-                "ecommerce",
-                "elcodi"
-            ],
-            "time": "2014-07-21 15:33:15"
-        },
-        {
-            "name": "elcodi/currency-bundle",
-            "version": "v0.1.11",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/elcodi/CurrencyBundle.git",
-                "reference": "806aa67de0ee6feed7dffeb4fde6d2146d317154"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/elcodi/CurrencyBundle/zipball/806aa67de0ee6feed7dffeb4fde6d2146d317154",
-                "reference": "806aa67de0ee6feed7dffeb4fde6d2146d317154",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/orm": "~2.4",
-                "elcodi/core-bundle": "~0.1",
-                "elcodi/language-bundle": "~0.1",
-                "php": ">=5.4",
-                "sebastian/money": "~1.3",
-                "symfony/config": "~2.4",
-                "symfony/dependency-injection": "~2.4",
-                "symfony/form": "~2.4",
-                "symfony/framework-bundle": "~2.4",
-                "symfony/http-foundation": "~2.4",
-                "symfony/http-kernel": "~2.4",
-                "symfony/options-resolver": "~2.4",
-                "symfony/routing": "~2.4",
-                "twig/twig": "~1"
-            },
-            "require-dev": {
-                "doctrine/doctrine-fixtures-bundle": "~2.2",
-                "phpunit/phpunit": ">=4.0",
-                "symfony/browser-kit": "~2.4",
-                "symfony/console": "~2.4",
-                "symfony/finder": "~2.4",
-                "symfony/framework-bundle": "~2.4",
-                "symfony/routing": "~2.4",
-                "symfony/validator": "~2.4"
-            },
-            "suggest": {
-                "mrzard/open-exchange-rates-bundle": "Bundle to use OpenExchangeRates"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Elcodi\\CurrencyBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Marc Morera",
-                    "email": "yuhu@mmoreram.com"
-                },
-                {
-                    "name": "Gonzalo Miguez",
-                    "email": "mrzard@gmail.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://github.com/elcodi/CurrencyBundle/contributors"
-                },
-                {
-                    "name": "Aldo Chiecchia",
-                    "email": "zimage@tiscali.it"
-                }
-            ],
-            "description": "Elcodi Currency component",
-            "homepage": "https://github.com/elcodi/CurrencyBundle",
-            "keywords": [
-                "currency",
-                "ecommerce",
-                "elcodi"
-            ],
-            "time": "2014-07-22 19:22:05"
-        },
-        {
-            "name": "elcodi/geo-bundle",
-            "version": "v0.1.11",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/elcodi/GeoBundle.git",
-                "reference": "908f2a8551d60ecffe589e7a83dc81e73bf1c7a9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/elcodi/GeoBundle/zipball/908f2a8551d60ecffe589e7a83dc81e73bf1c7a9",
-                "reference": "908f2a8551d60ecffe589e7a83dc81e73bf1c7a9",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/common": "~2.4",
-                "doctrine/orm": "~2.4",
-                "elcodi/core-bundle": "~0.1",
-                "php": ">=5.4",
-                "symfony/config": "~2.4",
-                "symfony/dependency-injection": "~2.4",
-                "symfony/http-foundation": "~2.4",
-                "symfony/http-kernel": "~2.4",
-                "symfony/options-resolver": "~2.4"
-            },
-            "require-dev": {
-                "doctrine/doctrine-fixtures-bundle": "~2.2",
-                "phpunit/phpunit": ">=4.0",
-                "symfony/browser-kit": "~2.4",
-                "symfony/console": "~2.4",
-                "symfony/finder": "~2.4",
-                "symfony/framework-bundle": "~2.4",
-                "symfony/routing": "~2.4",
-                "symfony/validator": "~2.4"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Elcodi\\GeoBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Marc Morera",
-                    "email": "yuhu@mmoreram.com"
-                },
-                {
-                    "name": "Aldo Chiecchia",
-                    "email": "zimage@tiscali.it"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://github.com/elcodi/GeoBundle/contributors"
-                }
-            ],
-            "description": "Elcodi Geo component",
-            "homepage": "https://github.com/elcodi/GeoBundle",
-            "keywords": [
-                "ecommerce",
-                "elcodi",
-                "geo"
-            ],
-            "time": "2014-07-23 09:43:19"
-        },
-        {
-            "name": "elcodi/language-bundle",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/elcodi/LanguageBundle.git",
-                "reference": "0cc4f895f74d0a06355aae6f91981a0c7b3bc5fa"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/elcodi/LanguageBundle/zipball/0cc4f895f74d0a06355aae6f91981a0c7b3bc5fa",
-                "reference": "0cc4f895f74d0a06355aae6f91981a0c7b3bc5fa",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/common": "~2.4",
-                "doctrine/orm": "~2.4",
-                "elcodi/core-bundle": "~0.1",
-                "php": ">=5.4",
-                "symfony/config": "~2.4",
-                "symfony/dependency-injection": "~2.4",
-                "symfony/http-foundation": "~2.4",
-                "symfony/http-kernel": "~2.4",
-                "symfony/options-resolver": "~2.4"
-            },
-            "require-dev": {
-                "doctrine/doctrine-fixtures-bundle": "~2.2",
-                "phpunit/phpunit": ">=4.0",
-                "symfony/browser-kit": "~2.4",
-                "symfony/console": "~2.4",
-                "symfony/finder": "~2.4",
-                "symfony/framework-bundle": "~2.4",
-                "symfony/routing": "~2.4",
-                "symfony/validator": "~2.4"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Elcodi\\LanguageBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Marc Morera",
-                    "email": "yuhu@mmoreram.com"
-                },
-                {
-                    "name": "Aldo Chiecchia",
-                    "email": "zimage@tiscali.it"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://github.com/elcodi/LanguageBundle/contributors"
-                }
-            ],
-            "description": "Elcodi Language component",
-            "homepage": "https://github.com/elcodi/LanguageBundle",
-            "keywords": [
-                "ecommerce",
-                "elcodi",
-                "language"
-            ],
-            "time": "2014-07-23 09:57:08"
-        },
-        {
-            "name": "elcodi/media-bundle",
-            "version": "v0.1.11",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/elcodi/MediaBundle.git",
-                "reference": "e08f2e28b6a16593bf195cf5f735c25217e225d9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/elcodi/MediaBundle/zipball/e08f2e28b6a16593bf195cf5f735c25217e225d9",
-                "reference": "e08f2e28b6a16593bf195cf5f735c25217e225d9",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/common": "~2.4",
-                "doctrine/orm": "~2.4",
-                "elcodi/core-bundle": "~0.1",
+                "doctrine/orm": "~2.4.0",
+                "egulias/listeners-debug-command-bundle": "2.*",
+                "ircmaxell/password-compat": "~1.0",
                 "knplabs/knp-gaufrette-bundle": "v0.1.7",
                 "php": ">=5.4",
-                "symfony/config": "~2.4",
-                "symfony/dependency-injection": "~2.4",
-                "symfony/framework-bundle": "~2.4",
-                "symfony/http-foundation": "~2.4",
-                "symfony/http-kernel": "~2.4",
-                "symfony/process": "~2.4",
-                "symfony/routing": "~2.4",
+                "sebastian/money": "~1.3",
+                "sensio/distribution-bundle": "~2.3",
+                "symfony/browser-kit": "~2.4.0",
+                "symfony/class-loader": "~2.4.0",
+                "symfony/config": "~2.4.0",
+                "symfony/console": "~2.4.0",
+                "symfony/event-dispatcher": "~2.4.0",
+                "symfony/expression-language": "~2.4.0",
+                "symfony/finder": "~2.4.0",
+                "symfony/form": "~2.4.0",
+                "symfony/framework-bundle": "~2.4.0",
+                "symfony/http-foundation": "~2.4.0",
+                "symfony/http-kernel": "~2.4.0",
+                "symfony/process": "~2.4.0",
+                "symfony/security": "~2.4.0",
+                "symfony/validator": "~2.4.0",
+                "symfony/yaml": "~2.4.0",
                 "twig/twig": "~1.0"
             },
+            "replace": {
+                "elcodi/banner-bundle": "self.version",
+                "elcodi/cart-bundle": "self.version",
+                "elcodi/cart-coupon-bundle": "self.version",
+                "elcodi/core-bundle": "self.version",
+                "elcodi/coupon-bundle": "self.version",
+                "elcodi/currency-bundle": "self.version",
+                "elcodi/geo-bundle": "self.version",
+                "elcodi/language-bundle": "self.version",
+                "elcodi/media-bundle": "self.version",
+                "elcodi/newsletter-bundle": "self.version",
+                "elcodi/product-bundle": "self.version",
+                "elcodi/referral-program-bundle": "self.version",
+                "elcodi/rule-bundle": "self.version",
+                "elcodi/user-bundle": "self.version"
+            },
             "require-dev": {
                 "doctrine/doctrine-fixtures-bundle": "~2.2",
-                "phpunit/phpunit": ">=4.0",
-                "symfony/browser-kit": "~2.4",
-                "symfony/console": "~2.4",
-                "symfony/finder": "~2.4",
-                "symfony/framework-bundle": "~2.4",
-                "symfony/routing": "~2.4",
-                "symfony/validator": "~2.4"
+                "phpunit/phpunit": "~4.0"
             },
-            "type": "symfony-bundle",
+            "type": "library",
             "extra": {
                 "branch-alias": {
                     "dev-master": "0.1-dev"
@@ -1570,7 +1086,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Elcodi\\MediaBundle\\": ""
+                    "Elcodi\\": "src/Elcodi"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1584,187 +1100,21 @@
                 },
                 {
                     "name": "Symfony Community",
-                    "homepage": "https://github.com/elcodi/ProductBundle/contributors"
+                    "homepage": "https://github.com/elcodi/elcodi/contributors"
                 },
                 {
                     "name": "Aldo Chiecchia",
-                    "email": "zimage@tiscali.it"
+                    "email": "aldo.chiecchia@befactory.es"
                 }
             ],
-            "description": "Elcodi Media component",
-            "homepage": "https://github.com/elcodi/MediaBundle",
+            "description": "Barebones Ecommerce functionality for Symfony",
             "keywords": [
+                "bundle",
                 "ecommerce",
                 "elcodi",
-                "media"
+                "symfony"
             ],
-            "time": "2014-07-16 15:32:59"
-        },
-        {
-            "name": "elcodi/product-bundle",
-            "version": "v0.1.11",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/elcodi/ProductBundle.git",
-                "reference": "e848ef010027fc6d90ee953e34adc2c23e365b4f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/elcodi/ProductBundle/zipball/e848ef010027fc6d90ee953e34adc2c23e365b4f",
-                "reference": "e848ef010027fc6d90ee953e34adc2c23e365b4f",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/common": "~2.4",
-                "doctrine/orm": "~2.4",
-                "elcodi/core-bundle": "~0.1",
-                "elcodi/currency-bundle": "~0.1",
-                "elcodi/language-bundle": "~0.1",
-                "elcodi/media-bundle": "~0.1",
-                "php": ">=5.4",
-                "sebastian/money": "~1.3",
-                "symfony/config": "~2.4",
-                "symfony/dependency-injection": "~2.4",
-                "symfony/event-dispatcher": "~2.4",
-                "symfony/expression-language": "~2.4",
-                "symfony/form": "~2.4",
-                "symfony/http-foundation": "~2.4",
-                "symfony/http-kernel": "~2.4",
-                "symfony/options-resolver": "~2.4",
-                "symfony/routing": "~2.4",
-                "symfony/security": "~2.4",
-                "symfony/validator": "~2.4"
-            },
-            "require-dev": {
-                "doctrine/doctrine-fixtures-bundle": "~2.2",
-                "phpunit/phpunit": ">=4.0",
-                "symfony/browser-kit": "~2.4",
-                "symfony/console": "~2.4",
-                "symfony/finder": "~2.4",
-                "symfony/framework-bundle": "~2.4",
-                "symfony/routing": "~2.4",
-                "symfony/validator": "~2.4"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Elcodi\\ProductBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Marc Morera",
-                    "email": "yuhu@mmoreram.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://github.com/elcodi/ProductBundle/contributors"
-                },
-                {
-                    "name": "Aldo Chiecchia",
-                    "email": "zimage@tiscali.it"
-                }
-            ],
-            "description": "Elcodi Product component",
-            "homepage": "https://github.com/elcodi/ProductBundle",
-            "keywords": [
-                "ecommerce",
-                "elcodi",
-                "product"
-            ],
-            "time": "2014-07-23 09:43:19"
-        },
-        {
-            "name": "elcodi/user-bundle",
-            "version": "v0.1.11",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/elcodi/UserBundle.git",
-                "reference": "f952c5a5452c1373ace98b1f252259c87aaaeeff"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/elcodi/UserBundle/zipball/f952c5a5452c1373ace98b1f252259c87aaaeeff",
-                "reference": "f952c5a5452c1373ace98b1f252259c87aaaeeff",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/common": "~2.4",
-                "doctrine/orm": "~2.4",
-                "elcodi/cart-bundle": "~0.1",
-                "elcodi/core-bundle": "~0.1",
-                "elcodi/geo-bundle": "~0.1",
-                "elcodi/language-bundle": "~0.1",
-                "ircmaxell/password-compat": "~1.0",
-                "php": ">=5.4",
-                "symfony/config": "~2.4",
-                "symfony/dependency-injection": "~2.4",
-                "symfony/event-dispatcher": "~2.4",
-                "symfony/expression-language": "~2.4",
-                "symfony/form": "~2.4",
-                "symfony/http-foundation": "~2.4",
-                "symfony/http-kernel": "~2.4",
-                "symfony/options-resolver": "~2.4",
-                "symfony/routing": "~2.4",
-                "symfony/security": "~2.4",
-                "symfony/validator": "~2.4"
-            },
-            "require-dev": {
-                "doctrine/doctrine-fixtures-bundle": "~2.2",
-                "phpunit/phpunit": ">=4.0",
-                "symfony/browser-kit": "~2.4",
-                "symfony/console": "~2.4",
-                "symfony/finder": "~2.4",
-                "symfony/framework-bundle": "~2.4",
-                "symfony/routing": "~2.4",
-                "symfony/validator": "~2.4"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Elcodi\\UserBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Marc Morera",
-                    "email": "yuhu@mmoreram.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://github.com/elcodi/UserBundle/contributors"
-                },
-                {
-                    "name": "Aldo Chiecchia",
-                    "email": "zimage@tiscali.it"
-                }
-            ],
-            "description": "Elcodi User component",
-            "homepage": "https://github.com/elcodi/UserBundle",
-            "keywords": [
-                "ecommerce",
-                "elcodi",
-                "user"
-            ],
-            "time": "2014-07-23 09:43:19"
+            "time": "2014-07-23 09:57:36"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -3126,22 +2476,22 @@
         },
         {
             "name": "sensio/framework-extra-bundle",
-            "version": "dev-master",
+            "version": "v3.0.0",
             "target-dir": "Sensio/Bundle/FrameworkExtraBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioFrameworkExtraBundle.git",
-                "reference": "93c39f8f8dc84604c82799bd09691162f1dd3c6f"
+                "reference": "2016a90bd032248e7d6e9da29def4959821127c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/93c39f8f8dc84604c82799bd09691162f1dd3c6f",
-                "reference": "93c39f8f8dc84604c82799bd09691162f1dd3c6f",
+                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/2016a90bd032248e7d6e9da29def4959821127c8",
+                "reference": "2016a90bd032248e7d6e9da29def4959821127c8",
                 "shasum": ""
             },
             "require": {
                 "doctrine/common": "~2.2",
-                "symfony/framework-bundle": "~2.5"
+                "symfony/framework-bundle": "~2.4"
             },
             "require-dev": {
                 "symfony/expression-language": "~2.4",
@@ -3169,7 +2519,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 }
             ],
             "description": "This bundle provides a way to configure your controllers with annotations",
@@ -3177,7 +2529,7 @@
                 "annotations",
                 "controllers"
             ],
-            "time": "2014-07-22 11:36:49"
+            "time": "2013-12-03 07:53:39"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3301,15 +2653,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Icu.git",
-                "reference": "98e197da54df1f966dd5e8a4992135703569c987"
+                "reference": "d4d85d6055b87f394d941b45ddd3a9173e1e3d2a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Icu/zipball/98e197da54df1f966dd5e8a4992135703569c987",
-                "reference": "98e197da54df1f966dd5e8a4992135703569c987",
+                "url": "https://api.github.com/repos/symfony/Icu/zipball/d4d85d6055b87f394d941b45ddd3a9173e1e3d2a",
+                "reference": "d4d85d6055b87f394d941b45ddd3a9173e1e3d2a",
                 "shasum": ""
             },
             "require": {
+                "ext-intl": "*",
                 "lib-icu": ">=4.4",
                 "php": ">=5.3.3",
                 "symfony/intl": "~2.3"
@@ -3340,7 +2693,7 @@
                 "icu",
                 "intl"
             ],
-            "time": "2013-10-04 10:06:38"
+            "time": "2014-07-25 09:58:17"
         },
         {
             "name": "symfony/monolog-bundle",
@@ -3462,16 +2815,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "dev-master",
+            "version": "2.4.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "b3b41d5d8da37f79d564e4189152cd0fb13568dd"
+                "reference": "dde854d96a30d797bc597641c4bd76b719fa455c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/b3b41d5d8da37f79d564e4189152cd0fb13568dd",
-                "reference": "b3b41d5d8da37f79d564e4189152cd0fb13568dd",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/dde854d96a30d797bc597641c4bd76b719fa455c",
+                "reference": "dde854d96a30d797bc597641c4bd76b719fa455c",
                 "shasum": ""
             },
             "require": {
@@ -3528,9 +2881,7 @@
             "require-dev": {
                 "doctrine/data-fixtures": "1.0.*",
                 "doctrine/dbal": "~2.2",
-                "doctrine/doctrine-bundle": "~1.2",
                 "doctrine/orm": "~2.2,>=2.2.3",
-                "egulias/email-validator": "1.1.0",
                 "ircmaxell/password-compat": "1.0.*",
                 "monolog/monolog": "~1.3",
                 "ocramius/proxy-manager": ">=0.3.1,<0.6-dev",
@@ -3539,7 +2890,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.6-dev"
+                    "dev-master": "2.4-dev"
                 }
             },
             "autoload": {
@@ -3573,7 +2924,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-07-24 05:24:16"
+            "time": "2014-07-25 05:02:35"
         },
         {
             "name": "twbs/bootstrap",
@@ -3608,16 +2959,22 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig-extensions.git",
-                "reference": "b713aaf5c9487244051082430a42fa917431bf66"
+                "reference": "8699f809b53d44c4fda19095b43927c268b7ccd5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig-extensions/zipball/b713aaf5c9487244051082430a42fa917431bf66",
-                "reference": "b713aaf5c9487244051082430a42fa917431bf66",
+                "url": "https://api.github.com/repos/fabpot/Twig-extensions/zipball/8699f809b53d44c4fda19095b43927c268b7ccd5",
+                "reference": "8699f809b53d44c4fda19095b43927c268b7ccd5",
                 "shasum": ""
             },
             "require": {
                 "twig/twig": "~1.12"
+            },
+            "require-dev": {
+                "symfony/translation": "~2.3"
+            },
+            "suggest": {
+                "symfony/translation": "Allow the time_diff output to be translated"
             },
             "type": "library",
             "extra": {
@@ -3637,9 +2994,7 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
+                    "email": "fabien@symfony.com"
                 }
             ],
             "description": "Common additional features for Twig that do not directly belong in core",
@@ -3648,7 +3003,7 @@
                 "i18n",
                 "text"
             ],
-            "time": "2014-07-14 05:04:35"
+            "time": "2014-07-25 08:23:51"
         },
         {
             "name": "twig/twig",
