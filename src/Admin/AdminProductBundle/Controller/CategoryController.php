@@ -59,7 +59,7 @@ class CategoryController
      * @return array Result
      *
      * @Route(
-     *      path = "/categories/{page}/{limit}/{orderByField}/{orderByDirection}",
+     *      path = "/categories/list/{page}/{limit}/{orderByField}/{orderByDirection}",
      *      name = "admin_category_list",
      *      requirements = {
      *          "page" = "\d*",

@@ -39,10 +39,6 @@ use Admin\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
 
 /**
  * Class Controller for Currency
- *
- * @Route(
- *      path = "/currency",
- * )
  */
 class CurrencyController
     extends
@@ -56,7 +52,7 @@ class CurrencyController
      * @return array Result
      *
      * @Route(
-     *      path = "/nav",
+     *      path = "/currency/nav",
      *      name = "admin_currency_nav"
      * )
      * @Method({"GET"})
@@ -82,7 +78,7 @@ class CurrencyController
      * @return array Result
      *
      * @Route(
-     *      path = "/{page}/{limit}/{orderByField}/{orderByDirection}",
+     *      path = "/currencies/list/{page}/{limit}/{orderByField}/{orderByDirection}",
      *      name = "admin_currency_list",
      *      requirements = {
      *          "page" = "\d*",
@@ -114,70 +110,6 @@ class CurrencyController
         ];
     }
 
-    /**
-     * Component for entity list.
-     *
-     * As a component, this action should not return all the html macro, but
-     * only the specific component
-     *
-     * @param Request   $request          Request
-     * @param Paginator $paginator        Paginator instance
-     * @param integer   $page             Page
-     * @param integer   $limit            Limit of items per page
-     * @param string    $orderByField     Field to order by
-     * @param string    $orderByDirection Direction to order by
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "s/list/component/{page}/{limit}/{orderByField}/{orderByDirection}",
-     *      name = "admin_currency_list_component",
-     *      requirements = {
-     *          "page" = "\d*",
-     *          "limit" = "\d*",
-     *      },
-     *      defaults = {
-     *          "page" = "1",
-     *          "limit" = "50",
-     *          "orderByField" = "id",
-     *          "orderByDirection" = "DESC",
-     *      },
-     * )
-     * @Template
-     * @Method({"GET"})
-     *
-     * @PaginatorAnnotation(
-     *      class = "elcodi.core.currency.entity.currency.class",
-     *      page = "~page~",
-     *      limit = "~limit~",
-     *      orderBy = {
-     *          {"x", "~orderByField~", "~orderByDirection~"}
-     *      }
-     * )
-     */
-    public function listComponentAction(
-        Request $request,
-        Paginator $paginator,
-        PaginatorAttributes $paginatorAttributes,
-        $page,
-        $limit,
-        $orderByField,
-        $orderByDirection
-    )
-    {
-        $paginatorFields = $this
-            ->container
-            ->getParameter('elcodi.admin.currency.pagination.currency.fields');
-
-        return [
-            'paginator'        => $paginator,
-            'page'             => $page,
-            'limit'            => $limit,
-            'orderByField'     => $orderByField,
-            'orderByDirection' => $orderByDirection,
-            'paginatorFields'  => $paginatorFields,
-        ];
-    }
 
     /**
      * View element action.
@@ -191,7 +123,7 @@ class CurrencyController
      * @return array Result
      *
      * @Route(
-     *      path = "/{id}",
+     *      path = "/currency/{id}",
      *      name = "admin_currency_view",
      *      requirements = {
      *          "id" = "\d*",
@@ -211,46 +143,6 @@ class CurrencyController
     }
 
     /**
-     * Component for entity view
-     *
-     * As a component, this action should not return all the html macro, but
-     * only the specific component
-     *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to view
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/component/{id}",
-     *      name = "admin_currency_view_component",
-     *      requirements = {
-     *          "id" = "\d*",
-     *      }
-     * )
-     * @Template
-     * @Method({"GET"})
-     *
-     * @EntityAnnotation(
-     *      class = {
-     *          "factory" = "elcodi.core.currency.factory.currency",
-     *      },
-     *      mapping = {
-     *          "id" = "~id~"
-     *      }
-     * )
-     */
-    public function viewComponentAction(
-        Request $request,
-        AbstractEntity $entity
-    )
-    {
-        return [
-            'entity' => $entity,
-        ];
-    }
-
-    /**
      * New element action
      *
      * This action is just a wrapper, so should never get any data,
@@ -259,7 +151,7 @@ class CurrencyController
      * @return array Result
      *
      * @Route(
-     *      path = "/new",
+     *      path = "/currency/new",
      *      name = "admin_currency_new"
      * )
      * @Template
@@ -273,39 +165,28 @@ class CurrencyController
     /**
      * New element action
      *
-     * As a component, this action should not return all the html macro, but
-     * only the specific component
+     * This action is just a wrapper, so should never get any data,
+     * as this is component responsability
      *
-     * @param Request  $request  Request
-     * @param FormView $formView Form view
+     * @param Request $request Request
+     * @param integer $id      Entity id
      *
      * @return array Result
      *
      * @Route(
-     *      path = "/new/component",
-     *      name = "admin_currency_new_component"
+     *      path = "/currency/{id}/edit",
+     *      name = "admin_currency_edit"
      * )
      * @Template
      * @Method({"GET"})
-     *
-     * @EntityAnnotation(
-     *      class = {
-     *          "factory" = "elcodi.core.currency.factory.currency",
-     *      }
-     * )
-     * @FormAnnotation(
-     *      class = "elcodi_admin_currency_form_type_currency",
-     *      name  = "formView",
-     *      entity = "entity"
-     * )
      */
-    public function newComponentAction(
+    public function editAction(
         Request $request,
-        FormView $formView
+        $id
     )
     {
         return [
-            'form' => $formView,
+            'id' => $id,
         ];
     }
 
@@ -322,7 +203,7 @@ class CurrencyController
      * @return RedirectResponse Redirect response
      *
      * @Route(
-     *      path = "/save",
+     *      path = "/currency/save",
      *      name = "admin_currency_save"
      * )
      * @Method({"POST"})
@@ -353,79 +234,8 @@ class CurrencyController
             ->flush($entity);
 
         return $this->redirectRoute("admin_currency_view", [
-            'id'    =>  $entity->getId(),
+            'id' => $entity->getId(),
         ]);
-    }
-
-    /**
-     * New element action
-     *
-     * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
-     *
-     * @param Request $request Request
-     * @param integer $id      Entity id
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/{id}/edit",
-     *      name = "admin_currency_edit"
-     * )
-     * @Template
-     * @Method({"GET"})
-     */
-    public function editAction(
-        Request $request,
-        $id
-    )
-    {
-        return [
-            'id' => $id,
-        ];
-    }
-
-    /**
-     * New element component action
-     *
-     * As a component, this action should not return all the html macro, but
-     * only the specific component
-     *
-     * @param Request        $request  Request
-     * @param AbstractEntity $entity   Entity
-     * @param FormView       $formView Form view
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/{id}/edit/component",
-     *      name = "admin_currency_edit_component"
-     * )
-     * @Template
-     * @Method({"GET"})
-     *
-     * @EntityAnnotation(
-     *      class = "elcodi.core.currency.entity.currency.class",
-     *      mapping = {
-     *          "id": "~id~",
-     *      }
-     * )
-     * @FormAnnotation(
-     *      class = "elcodi_admin_currency_form_type_currency",
-     *      name  = "formView",
-     *      entity = "entity"
-     * )
-     */
-    public function editComponentAction(
-        Request $request,
-        AbstractEntity $entity,
-        FormView $formView
-    )
-    {
-        return [
-            'entity' => $entity,
-            'form' => $formView,
-        ];
     }
 
     /**
@@ -441,7 +251,7 @@ class CurrencyController
      * @return RedirectResponse Redirect response
      *
      * @Route(
-     *      path = "/{id}/update",
+     *      path = "/currency/{id}/update",
      *      name = "admin_currency_update"
      * )
      * @Method({"POST"})
@@ -472,9 +282,10 @@ class CurrencyController
             ->flush($entity);
 
         return $this->redirectRoute("admin_currency_view", [
-            'id'    =>  $entity->getId(),
+            'id' => $entity->getId(),
         ]);
     }
+
 
     /**
      * Enable entity
@@ -485,10 +296,10 @@ class CurrencyController
      * @return array Result
      *
      * @Route(
-     *      path = "/{id}/enable",
+     *      path = "/currency/{id}/enable",
      *      name = "admin_currency_enable"
      * )
-     * @Method({"POST"})
+     * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.currency.entity.currency.class",
@@ -496,26 +307,16 @@ class CurrencyController
      *          "id" = "~id~"
      *      }
      * )
-     * @JsonResponse
      */
     public function enableAction(
         Request $request,
         AbstractEntity $entity
     )
     {
-        try {
-            $this->enableEntity($entity);
-
-            return [
-                'result' => 'ok',
-            ];
-        } catch (Exception $e) {
-            return [
-                'result'  => 'ko',
-                'code'    => $e->getCode(),
-                'message' => $e->getMessage(),
-            ];
-        }
+        return parent::enableAction(
+            $request,
+            $entity
+        );
     }
 
     /**
@@ -527,10 +328,10 @@ class CurrencyController
      * @return array Result
      *
      * @Route(
-     *      path = "/{id}/disable",
+     *      path = "/currency/{id}/disable",
      *      name = "admin_currency_disable"
      * )
-     * @Method({"POST"})
+     * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.currency.entity.currency.class",
@@ -538,69 +339,15 @@ class CurrencyController
      *          "id" = "~id~"
      *      }
      * )
-     * @JsonResponse
      */
     public function disableAction(
         Request $request,
         AbstractEntity $entity
     )
     {
-        try {
-            $this->disableEntity($entity);
-
-            return [
-                'result' => 'ok',
-            ];
-        } catch (Exception $e) {
-            return [
-                'result'  => 'ko',
-                'code'    => $e->getCode(),
-                'message' => $e->getMessage(),
-            ];
-        }
-    }
-
-    /**
-     * Updated edited element action
-     *
-     * @param Request        $request     Request
-     * @param AbstractEntity $entity      Entity to delete
-     * @param string         $redirectUrl Redirect url
-     *
-     * @return RedirectResponse Redirect response
-     *
-     * @Route(
-     *      path = "/{id}/delete",
-     *      name = "admin_currency_delete"
-     * )
-     * @Method({"GET"})
-     *
-     * @EntityAnnotation(
-     *      class = "elcodi.core.currency.entity.currency.class",
-     *      mapping = {
-     *          "id" = "~id~"
-     *      }
-     * )
-     * @JsonResponse
-     */
-    public function deleteAction(
-        Request $request,
-        AbstractEntity $entity,
-        $redirectUrl = null
-    )
-    {
-        try {
-            $this->deleteEntity($entity);
-
-            return [
-                'result' => 'ok',
-            ];
-        } catch (Exception $e) {
-            return [
-                'result'  => 'ko',
-                'code'    => $e->getCode(),
-                'message' => $e->getMessage(),
-            ];
-        }
+        return parent::disableAction(
+            $request,
+            $entity
+        );
     }
 }

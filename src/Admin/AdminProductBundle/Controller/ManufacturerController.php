@@ -59,7 +59,7 @@ class ManufacturerController
      * @return array Result
      *
      * @Route(
-     *      path = "s/{page}/{limit}/{orderByField}/{orderByDirection}",
+     *      path = "s/list/{page}/{limit}/{orderByField}/{orderByDirection}",
      *      name = "admin_manufacturer_list",
      *      requirements = {
      *          "page" = "\d*",

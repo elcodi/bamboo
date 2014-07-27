@@ -2,42 +2,34 @@
 
 
 {% block title %}
-    {{ 'Customer list'|trans }}
+    {{ 'Currency list'|trans }}
 {% endblock title %}
 
 
 {% block table_head %}
     {% include "@AdminCore/Tables/head.html.twig" with {
         rows: {
-            "Id": {width:"25"},
-            "name": {},
-            "username": {},
-            "email": {},
-            "Nb. Orders": {width:"25", sorting_disabled: true},
+            "id": {width:"25"},
+            "iso": {},
+            "symbol": {},
             "enabled": {width:"25"},
         },
-        class: "customer",
+        class: "currency",
     } %}
 {% endblock table_head %}
 
 
 {% block table_body_row %}
     <td>
-        <a href="{{ url("admin_customer_view", {"id": entity.id}) }}">
+        <a href="{{ url("admin_currency_view", {"id": entity.id}) }}">
             {{ entity.id }}
         </a>
     </td>
     <td>
-        {{ entity.fullname }}
+        {{ entity.iso }}
     </td>
     <td>
-        {{ entity.username }}
-    </td>
-    <td>
-        {{ entity.email }}
-    </td>
-    <td>
-        {{ entity.orders|length }}
+        {{ entity.symbol }}
     </td>
     <td>
         {% if entity.enabled %}
@@ -49,17 +41,18 @@
 
     {% include "@AdminCore/Tables/actions.html.twig" with {
         entity: entity,
-        class: "customer",
+        delete: false,
+        class: "currency",
     } %}
 {% endblock table_body_row %}
 
 
 {% block table_paginator_links %}
-    {% set url = 'admin_customer_list' %}
+    {% set url = 'admin_currency_list' %}
     {{ parent() }}
 {% endblock table_paginator_links %}
 
 
 {% block table_buttons %}
-    <a href="{{ url("admin_customer_new") }}"type="button" class="btn btn-success">{{ "New customer"|trans }}</a>
+    <a href="{{ url("admin_currency_new") }}"type="button" class="btn btn-success">{{ "New Currency"|trans }}</a>
 {% endblock table_buttons %}

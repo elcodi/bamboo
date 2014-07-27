@@ -1,29 +1,13 @@
 <td class="center">
-    <div class="btn-group">
-        <button class="btn btn-default btn-xs" type="button">
-            {{ "Actions"|trans }}
-        </button>
-        <button data-toggle="dropdown" class="btn btn-xs btn-primary dropdown-toggle" type="button">
-            <span class="caret"></span>
-            <span class="sr-only">{{ "Toggle Dropdown"|trans }}</span>
-        </button>
-        <ul role="menu" class="dropdown-menu pull-right">
-            <li>
-                <a href="{{ url("admin_" ~ class ~ "_edit", {"id": entity.id}) }}">
-                    {{ "Edit"|trans }}
-                </a>
-            </li>
-            <li>
-                <a href="{{ url("admin_" ~ class ~ "_view", {"id": entity.id}) }}">
-                    {{ "Details"|trans }}
-                </a>
-            </li>
-            <li class="divider"></li>
-            <li>
-                <a href="{{ url("admin_" ~ class ~ "_delete", {"id": entity.id}) }}">
-                    {{ "Remove"|trans }}
-                </a>
-            </li>
-        </ul>
-    </div>
+    <a class="btn btn-default btn-xs" data-original-title="{{ "Show"|trans }}" data-toggle="tooltip" href="{{ url("admin_" ~ class ~ "_edit", {"id": entity.id}) }}">
+        <i class="fa fa-file"></i>
+    </a>
+    <a class="btn btn-primary btn-xs" data-original-title="{{ "Edit"|trans }}" data-toggle="tooltip" href="{{ url("admin_" ~ class ~ "_view", {"id": entity.id}) }}">
+        <i class="fa fa-pencil"></i>
+    </a>
+    {% if delete != false %}
+        <a class="btn btn-danger btn-xs" data-original-title="{{ "Remove"|trans }}" data-toggle="tooltip" href="{{ url("admin_" ~ class ~ "_delete", {"id": entity.id}) }}">
+            <i class="fa fa-times"></i>
+        </a>
+    {% endif %}
 </td>
