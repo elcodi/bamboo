@@ -1,0 +1,14 @@
+services:
+
+    #
+    # Event Listeners
+    #
+    admin.user.event_listener.remember_password:
+        class: %admin.user.event_listener.remember_password.class%
+        arguments:
+            mailer: @mailer
+            templating: @templating
+            security_context: @security.context
+        tags:
+            - { name: kernel.event_listener, event: password.remember, method: onPasswordRemember }
+            - { name: kernel.event_listener, event: password.recover, method: onPasswordRecover }

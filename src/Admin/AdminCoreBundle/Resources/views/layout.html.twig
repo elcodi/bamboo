@@ -1,0 +1,58 @@
+{% extends 'AdminCoreBundle::base.html.twig' %}
+
+{% block head_style %}
+    {% stylesheets filter='cssrewrite' output="css/*.css"
+        'bundles/admincore/js/bootstrap/dist/css/bootstrap.css'
+        'bundles/admincore/js/jquery.gritter/css/jquery.gritter.css'
+        'bundles/admincore/js/jquery.nanoscroller/nanoscroller.css'
+        'bundles/admincore/js/jquery.easypiechart/jquery.easy-pie-chart.css'
+        'bundles/admincore/js/bootstrap.switch/bootstrap-switch.css'
+        'bundles/admincore/js/bootstrap.datetimepicker/css/bootstrap-datetimepicker.min.css'
+        'bundles/admincore/js/jquery.select2/select2.css'
+        'bundles/admincore/js/bootstrap.slider/css/slider.css'
+        'bundles/admincore/js/jquery.datatables/bootstrap-adapter/css/datatables.css'
+        'bundles/admincore/js/bootstrap.multiselect/css/bootstrap-multiselect.css'
+        'bundles/admincore/js/jquery.multiselect/css/multi-select.css'
+        'bundles/admincore/fonts/font-awesome-4/css/font-awesome.min.css'
+        'bundles/admincore/css/style.css'
+        'bundles/admincore/js/prettify/prettify.css'
+        'bundles/admincore/js/jquery.icheck/skins/square/blue.css'
+        'bundles/admincore/js/jquery.magnific-popup/dist/magnific-popup.css'
+     %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+    <!-- External Font assets -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Raleway:300,200,100" rel="stylesheet" type="text/css">
+{% endblock head_style %}
+
+{% block body %}
+
+    {% include 'AdminCoreBundle::Navs/top.html.twig' %}
+
+    <div id="cl-wrapper">
+
+        {% include 'AdminCoreBundle::Navs/side.html.twig' %}
+
+        <div class="container-fluid" id="pcont">
+
+            <div class="page-head">
+                <h2>{% block content_title %}{% endblock content_title %}</h2>
+                {% block breadcrumb %}{% endblock %}
+			</div>
+            <div class="cl-mcont">
+                {% block content %}
+                {% endblock content %}
+            </div>
+
+        </div>
+    </div>
+
+{% endblock body %}
+
+{% block foot_script %}
+
+    {% include 'AdminCoreBundle::footscript.html.twig' %}
+
+{% endblock foot_script %}

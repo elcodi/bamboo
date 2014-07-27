@@ -1,0 +1,6 @@
+parameters:
+
+    #
+    # Form Types
+    #
+    elcodi.admin.menu.form_type.menu.class: Admin\AdminMenuBundle\Form\Type\MenuType

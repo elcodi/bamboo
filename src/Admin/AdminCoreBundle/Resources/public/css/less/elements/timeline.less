@@ -1,0 +1,107 @@
+ul.timeline{
+  position:relative;
+  padding:0 0 1px 0;
+  margin-bottom:40px;
+}
+
+ul.timeline:before{
+  background-color: #E1E1E1;
+  bottom: 0;
+  content: "";
+  left: 31px;
+  margin-left: -10px;
+  position: absolute;
+  top: 2px;
+  width: 2px;
+}
+
+ul.timeline:after{
+  bottom:-9px;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background-color:#E1E1E1;
+  position:absolute;
+  left: 17px;
+  content: "";
+}
+
+ul.timeline li{
+  position:relative;
+  list-style: none;
+  margin-bottom:25px;
+}
+
+ul.timeline li > .fa{
+  left:2px;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+  font-size:14px;
+  color:#FFF;
+  border-radius:50%;
+  background:#52AEFF;
+  padding: 10px;
+  text-align:center;
+  width:40px;
+  height:40px;
+  border:3px solid #FFF;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  position:absolute;
+  z-index:2;
+  top:0;
+}
+
+ul.timeline li .fa.red{background:#EA6153;}
+ul.timeline li .fa.green{background:#19B698;}
+ul.timeline li .fa.purple{background:#A66BBE;}
+
+ul.timeline li .content{
+  position:relative;
+  border-radius:3px;
+  background:#FFF;
+  margin-left:75px;
+  padding:12px 10px;
+  border:1px solid #E8E8E6;
+  line-height:15px;
+}
+
+ul.timeline li .content p{margin:0;}
+ul.timeline li .content .img-thumbnail{border-radius:0;margin:10px 5px 0 0;cursor:pointer;}
+ul.timeline li .content blockquote{margin:10px 0 0 0;}
+ul.timeline li .content blockquote p{margin:0 0 5px 0 !important; font-size:14px;}
+
+ul.timeline li .content:before{
+  background:#FFF;
+  position:absolute;
+  top: 14px;
+  content: "";
+  width: 10px;
+  height: 10px;
+  left:-6px;
+  border-left: 1px solid #E8E8E6;
+  border-bottom: 1px solid #E8E8E6;
+    transform:rotate(45deg);
+  -ms-transform:rotate(45deg); /* IE 9 */
+  -webkit-transform:rotate(45deg); /* Safari and Chrome */
+}
+
+
+ul.timeline li > .date{
+  background:#E8E8E8;
+  position:absolute;
+  top:49px;
+  display:block;
+  width:44px;
+  padding: 0 5px;
+  text-align:center;
+  border:1px solid #E1E1E1;
+  font-size:11px;
+  border-radius:1px;
+  text-shadow: 0 1px 0 #fafafa;
+  color:#7B7B7B;
+  line-height:19px;
+}
+
+@media screen and (min-width: 1500px) {
+  .cbp_tmtimeline > li .cbp_tmtime{ padding-right: 130px;}
+}

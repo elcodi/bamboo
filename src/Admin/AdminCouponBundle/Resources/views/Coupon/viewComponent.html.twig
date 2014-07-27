@@ -1,0 +1,153 @@
+{% extends 'AdminCoreBundle::Common/viewComponent.html.twig' %}
+
+{% block title %}
+    {{ 'Coupon'|trans }} - {{ entity }}
+{% endblock title %}
+
+{% block content %}
+
+
+    <tr>
+        <td>{{ 'code'|trans }}</td>
+        <td>
+            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
+            'entity': entity,
+            'field': 'code',
+            } %}
+        </td>
+    </tr>
+    <tr>
+        <td>{{ 'name'|trans }}</td>
+        <td>
+            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
+            'entity': entity,
+            'field': 'name',
+            } %}
+        </td>
+    </tr>
+    <tr>
+        <td>{{ 'type'|trans }}</td>
+        <td>
+            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
+            'entity': entity,
+            'field': 'type',
+            } %}
+        </td>
+    </tr>
+    <tr>
+        <td>{{ 'priceAmount'|trans }}</td>
+        <td>
+            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
+            'entity': entity,
+            'field': 'priceAmount',
+            } %}
+        </td>
+    </tr>
+    <tr>
+        <td>{{ 'discount'|trans }}</td>
+        <td>
+            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
+            'entity': entity,
+            'field': 'discount',
+            } %}
+        </td>
+    </tr>
+    <tr>
+        <td>{{ 'count'|trans }}</td>
+        <td>
+            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
+            'entity': entity,
+            'field': 'count',
+            } %}
+        </td>
+    </tr>
+    <tr>
+        <td>{{ 'used'|trans }}</td>
+        <td>
+            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
+            'entity': entity,
+            'field': 'used',
+            } %}
+        </td>
+    </tr>
+    <tr>
+        <td>{{ 'priority'|trans }}</td>
+        <td>
+            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
+            'entity': entity,
+            'field': 'priority',
+            } %}
+        </td>
+    </tr>
+    <tr>
+        <td>{{ 'minimumPurchaseAmount'|trans }}</td>
+        <td>
+            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
+            'entity': entity,
+            'field': 'minimumPurchaseAmount',
+            } %}
+        </td>
+    </tr>
+    <tr>
+        <td>{{ 'validFrom'|trans }}</td>
+        <td>
+            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
+            'entity': entity,
+            'field': 'validFrom',
+            } %}
+        </td>
+    </tr>
+    <tr>
+        <td>{{ 'validTo'|trans }}</td>
+        <td>
+            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
+            'entity': entity,
+            'field': 'validTo',
+            } %}
+        </td>
+    </tr>
+    <tr>
+        <td>{{ 'createdAt'|trans }}</td>
+        <td>
+            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
+            'entity': entity,
+            'field': 'createdAt',
+            } %}
+        </td>
+    </tr>
+    <tr>
+        <td>{{ 'updatedAt'|trans }}</td>
+        <td>
+            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
+            'entity': entity,
+            'field': 'updatedAt',
+            } %}
+        </td>
+    </tr>
+    <tr>
+        <td>{{ 'enabled'|trans }}</td>
+        <td>
+            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
+            'entity': entity,
+            'field': 'enabled',
+            } %}
+        </td>
+    </tr>
+    <tr>
+        <td>{{ 'priceCurrency'|trans }}</td>
+        <td>
+            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
+            'entity': entity,
+            'field': 'priceCurrency',
+            } %}
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <a href="{{ url("admin_coupon_edit", {"id": entity.id}) }}" type="button" class="btn btn-primary btn-flat">Edit</a>
+            <a href="{{ url("admin_coupon_delete", {"id": entity.id}) }}" type="button" class="btn btn-danger btn-flat">Delete</a>
+        </td>
+    </tr>
+
+{% endblock content %}

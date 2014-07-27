@@ -1,0 +1,14 @@
+security:
+
+    access_control:
+        login_area:
+            path: ^/login.*
+            roles: IS_AUTHENTICATED_ANONYMOUSLY
+
+        password_area:
+            path: ^/password.*
+            roles: IS_AUTHENTICATED_ANONYMOUSLY
+
+        admin_area:
+            path: ^/
+            roles: ROLE_ADMIN

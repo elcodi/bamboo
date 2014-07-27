@@ -1,0 +1,98 @@
+
+/*Accordion*/
+.accordion{
+	margin-bottom:40px;
+}
+
+.accordion .panel-heading{
+	background: #fff;
+	padding:0;
+}
+
+.accordion .panel-heading a{
+	font-size:15px;
+	padding:17px 16px;
+	display:block;
+	color:#3078EF;
+}
+
+.accordion .panel-heading a .fa{
+	transition:transform 200ms ease-in-out;
+	margin-right:10px;
+	transform: rotate(90deg);
+}
+
+.accordion .panel-heading a.collapsed{
+	color:#555;
+}
+
+.accordion .panel-heading a.collapsed .fa{
+	transform: rotate(0deg);
+}
+
+.accordion  .panel-heading + .panel-collapse .panel-body {
+	border-top:0;
+	padding:3px 20px 20px 34px;
+}
+
+.accordion .panel{
+	border-radius:2px;
+	-webkit-border-radius:2px;
+	border-bottom:0;
+	border-left:1px solid #ECECEC;
+	border-right:1px solid #ECECEC;
+	margin-bottom: 5px;
+	border-top:0;
+	box-shadow:0 1px 0 0 rgba(0, 0, 0, 0.04);
+}
+
+.accordion .panel:first-child{
+	border-top:0;
+}
+
+.accordion .panel:last-child{
+
+}
+
+.accordion.panel-group .panel + .panel {
+    margin-top: 0px;
+}
+
+/*Primary color accordion*/
+.accordion.accordion-color .panel-heading a{
+	background-color: #4D90FD;
+	color:#FFF;
+}
+
+.accordion.accordion-color .panel-heading a.collapsed{
+	background-color: #FFF;
+	color:#555;
+}
+
+.accordion.accordion-color .panel-collapse .panel-body{
+	background-color: #4D90FD;
+	color:#FFF;
+}
+
+/*Semi color accordion*/
+.accordion.accordion-semi .panel-heading a{
+	background-color: #4D90FD;
+	color:#FFF;
+	transition:background-color 200ms ease-in-out;
+	border-bottom:1px solid #2188de;
+}
+
+.accordion.accordion-semi .panel-heading.success a{background-color: #60C060;border-bottom:1px solid #54A754;}
+.accordion.accordion-semi .panel-heading.warning a{background-color: #FC9700;border-bottom:1px solid #D68000;}
+.accordion.accordion-semi .panel-heading.danger a{background-color: #DA4932;border-bottom:1px solid #CA452E;}
+
+
+.accordion.accordion-semi .panel-heading a.collapsed{
+	background-color: #FFF;
+	color:#555;
+	border-bottom:0;
+}
+
+.accordion.accordion-semi .panel-collapse .panel-body{
+	padding:15px 20px 20px 34px;
+}

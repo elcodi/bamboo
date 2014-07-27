@@ -1,0 +1,36 @@
+body { font: 76% Arial, Verdana, sans-serif; color: #333; padding: 10px 20px; }
+h1 { font-size: 250%; color: #f34105; }
+h1 sup { font-size: 50%; }
+h2 { color: #f34105; font-size: 175%; }
+a { color: #005bd8; }
+a:hover { text-decoration: none; }
+.hr hr { display: none; }
+form { margin: 10px 0; }
+table { width: 100%; border-collapse: collapse; margin: 1em 0; }
+thead th { background: #f34105; color: #fff; }
+tbody th { text-align: left; }
+table th, table td { border: 1px solid #ddd; padding: 2px 5px; font-size: 100%; }
+pre { font-size: 130%; background: #f7f7f7; padding: 10px 10px; font-weight: bold; }
+.odd, .r1 { background: #fff; }
+.even, .r2 { background: #eee; }
+.r3 { background: #ebebeb; }
+.search { font-weight:  bold; }
+
+dt { margin-top: 10px; font-weight: bold;  }
+dd { margin: 0;}
+.new { color: #f34105; text-transform: uppercase; font-size: 85%; margin-left: 3px; }
+
+form.quicksearch { padding: 10px; background: #f7f7f7; }
+form.quicksearch input { margin-left: 5px; width: 300px; }
+form.quicksearch img { vertical-align: middle; margin-left: 5px; }
+
+fieldset { border: 1px solid #ccc;}
+form input { font-size: 16px;}
+
+#footer { background: #333; color: #fff; padding: 10px; margin-top: 20px; }
+#footer a { color: #fff; }
+#footer span { margin: 0 2px; color: #666; }
+
+.github { font-size: 150%; font-weight: bold; }
+.github a { background: #fff172; padding: 3px 10px;}
+

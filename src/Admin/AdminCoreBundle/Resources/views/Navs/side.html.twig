@@ -1,0 +1,36 @@
+<div class="cl-sidebar">
+    <div class="cl-toggle"><i class="fa fa-bars"></i></div>
+    <div class="cl-navblock">
+        <div class="menu-space">
+            <div class="content">
+                <div class="side-user">
+                    <div class="avatar">
+                        <img src="{{ gravatar(app.user.email, 50) }}" alt="Avatar">
+                    </div>
+                    <div class="info">
+                        <a href="{{ url("admin_admin_user_view", {id: app.user.id }) }}">{{ app.user.fullname }}</a>
+                        <img src="{{ asset("bundles/admincore/images/state_online.png") }}" alt="Status"> <span>Online</span>
+                    </div>
+                </div>
+                <ul class="cl-vnavigation">
+
+                    {% render url('admin_user_nav') %}
+                    {% render url('admin_product_nav') %}
+                    {% render url('admin_cart_nav') %}
+                    {% render url('admin_menu_nav') %}
+                    {% render url('admin_banner_nav') %}
+                    {% render url('admin_coupon_nav') %}
+                    {% render url('admin_currency_nav') %}
+                    {% render url('admin_rule_nav') %}
+
+                </ul>
+            </div>
+        </div>
+        <div class="text-right collapse-button" style="padding:7px 9px;">
+            <input type="text" class="form-control search" placeholder="Search...">
+            <button id="sidebar-collapse" class="btn btn-default" style="">
+                <i style="color:#fff;" class="fa fa-angle-left"></i>
+            </button>
+        </div>
+    </div>
+</div>

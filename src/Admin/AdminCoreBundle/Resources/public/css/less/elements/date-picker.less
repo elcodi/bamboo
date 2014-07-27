@@ -1,0 +1,88 @@
+/*UI Datepicker*/
+.ui-datepicker{
+  position:relative;
+}
+
+.ui-datepicker .ui-datepicker-header {
+  border-bottom:1px solid rgba(255,255,255,0.6);
+  padding-bottom:5px;
+  margin-bottom:4px;
+}
+
+.ui-datepicker .ui-datepicker-title {
+    cursor:default;
+    line-height: 1.8em;
+    margin: 0 2.3em;
+    text-align: center;
+    font-weight:600;
+    font-size:14px;
+}
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
+    height: 1.8em;
+    position: absolute;
+    top: 2px;
+    width: 1.8em;
+    color:#FFF;
+}
+
+.ui-datepicker .ui-datepicker-prev {
+  left: 2px;
+}
+.ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span{
+  overflow:hidden;
+  display:block;
+  text-indent: -99999px;
+}
+
+.ui-datepicker .ui-datepicker-prev span:after, .ui-datepicker .ui-datepicker-next span:after{
+  cursor:pointer;
+  content:"";
+  font-family: FontAwesome;
+  display:block;
+  position:absolute;
+  width:16px;
+  height:16px;
+  top:0;
+  text-indent: 0;
+}
+
+.ui-datepicker .ui-datepicker-next {
+    right: 2px;
+}
+.ui-datepicker .ui-datepicker-next span:after{
+  content:"";
+  right:0;
+}
+
+.ui-datepicker table th{
+  border:0;
+  padding:3px;
+}
+.ui-datepicker table th span{
+  font-size:14px;
+  color:#FFF;
+}
+
+.ui-datepicker table tr{  background:transparent !important;}
+.ui-datepicker table td{
+  border:0;
+  padding:3px;
+}
+
+.ui-datepicker td span, .ui-datepicker td a {
+    display: block;
+    padding: 0.2em;
+    text-align: right;
+    text-decoration: none;
+    color:#FFF;
+}
+.datetimepicker table tr td.active:active, .datetimepicker table tr td.active:hover:active, .datetimepicker table tr td.active.disabled:active, .datetimepicker table tr td.active.disabled:hover:active, .datetimepicker table tr td.active.active, .datetimepicker table tr td.active.active:hover, .datetimepicker table tr td.active.disabled.active, .datetimepicker table tr td.active.disabled.active:hover{
+    background-color: #4E9DFF;
+}
+
+.datetimepicker table tr td.active, .datetimepicker table tr td.active:hover, .datetimepicker table tr td.active.disabled, .datetimepicker table tr td.active.disabled:hover{
+  background-image:none;
+  background: #4E9DFF;
+}
+
+/*Daterange*/

@@ -1,0 +1,9 @@
+services:
+
+    #
+    # Form Types
+    #
+    elcodi.admin.coupon.form_type.coupon:
+        class: %elcodi.admin.coupon.form_type.coupon.class%
+        tags:
+            - { name: form.type, alias: elcodi_admin_coupon_form_type_coupon }

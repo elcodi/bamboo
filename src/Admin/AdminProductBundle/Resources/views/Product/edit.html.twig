@@ -1,0 +1,34 @@
+{% extends 'AdminCoreBundle::layout.html.twig' %}
+
+{% block content_title %}
+    {{ 'Product Zone'|trans }}
+{% endblock content_title %}
+
+{% block breadcrumb %}
+
+    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
+        breadcrumb: {
+            "edit product": {
+                "active" : true
+            }
+        }
+    } %}
+
+{% endblock breadcrumb %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-6">
+            {{ render(url("admin_product_edit_component", {
+                'id': id
+            })) }}
+        </div>
+        <div class="col-md-6">
+            {{ render(url("admin_product_gallery", {
+                'id': id,
+            })) }}
+        </div>
+    </div>
+
+{% endblock content %}

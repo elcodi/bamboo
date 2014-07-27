@@ -1,0 +1,49 @@
+{#
+    This template needs this formatted data:
+
+    {
+        rows: {
+            "id": {width:"25", sorting_disabled: true},
+            "desc": {},
+            "field": {},
+        },
+        class: "rule",
+    }
+
+    You can override the row name by defining "row" field
+#}
+
+{% for row, info in rows %}
+
+    {% set field = info.row ?: row %}
+    {% set islink = info.sorting_disabled is not defined or info.sorting_disabled is null or info.sorting_disabled == false %}
+    {% if info.sorting_disabled is defined %}
+        {% set directionclass = "sorting_disabled" %}
+    {% elseif orderByField == field and orderByDirection == 'asc' %}
+        {% set direction = "desc" %}
+        {% set directionclass = "sorting_desc" %}
+    {% elseif orderByField == field and orderByDirection == 'desc' %}
+        {% set direction = "asc" %}
+        {% set directionclass = "sorting_asc" %}
+    {% else %}{% set direction = "asc" %}
+        {% set direction = "asc" %}
+        {% set directionclass = "sorting" %}
+    {% endif %}
+
+    <th role="columnheader" tabindex="0" aria-controls="database-icons" class="{{ directionclass }}"
+        {% if info.width is defined %} style="width={{ info.width }}px"{% endif %}
+            >
+            {% if islink %}
+                <a href="{{ url("admin_" ~ class ~ "_list", {
+                    "page": page,
+                    "limit": limit,
+                    "orderByField": field,
+                    "orderByDirection": direction
+                }) }}">{{ row|trans }}</a>
+            {% else %}
+                {{ row|trans }}
+            {% endif %}
+    </th>
+
+{% endfor %}
+<th>{{ "Actions"|trans }}</th>

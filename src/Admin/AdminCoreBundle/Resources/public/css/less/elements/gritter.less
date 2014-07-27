@@ -1,0 +1,215 @@
+/*Gritter Notifications*/
+#gritter-notice-wrapper{width:320px;	top:45px;}
+
+.gritter-item-wrapper{
+	background: url(../js/jquery.gritter/images/gritter-bg.png);
+	box-shadow:0 0px 5px rgba(0, 0, 0, 0.32);
+}
+.gritter-top{background:transparent;}
+.gritter-item{
+	font-family:'Open Sans',sans-serif;
+	background:transparent;
+	color:#FFF;
+	padding:2px 20px 12px;
+	padding-right: 35px;
+	padding-left:10px;
+}
+.gritter-bottom{background:transparent;}
+.gritter-item p{font-size:12px;line-height:19px;}
+.gritter-title{
+	text-shadow: none;
+	font-weight:300;
+	font-size:17px;
+}
+.gritter-close{
+	display:block !important;
+	top:0;
+	right: 0;
+	left:auto;
+	height:30px;
+	width:35px;
+	background: transparent;
+	text-indent: inherit;
+}
+
+.gritter-close:after{
+	content: '×';
+	position: absolute;
+	color:#FFF;
+	left: 10px;
+	font-size:24px;
+	font-weight:bold;
+	text-shadow:1px 1px 0 rgba(0, 0, 0, 0.12);
+}
+.gritter-without-image, .gritter-with-image{padding-left:7px;width:224px;}
+
+.gritter-item-wrapper.clean{
+	background:#FFF;
+}
+.gritter-item-wrapper.clean .gritter-item{
+	color:#555;
+}
+
+.gritter-item-wrapper.clean .gritter-close{
+	display:block !important;
+	top:0;
+	right: 0;
+	left:auto;
+	height:100%;
+	width:35px;
+
+	border-left:1px solid #258fec;
+	border-top: 1px solid #52C0FF;
+	background-image:-moz-linear-gradient(center top , #52AEFF 45%, #2180D3 102%);
+	  background-image: -webkit-gradient(linear, left top, left bottom, from(#52AEFF), to(#2180D3)); /* Chrome, Safari 4+ */
+	background-image: -webkit-linear-gradient(top, #52AEFF, #2180D3); /* Chrome 10-25, iOS 5+, Safari 5.1+ */
+	background-image:      -o-linear-gradient(top, #52AEFF, #2180D3); /* Opera 11.10-12.00 */
+	background-image:         linear-gradient(to bottom, #52AEFF, #2180D3);
+	background-color:#3290E2;
+	text-indent: inherit;
+}
+
+.gritter-item-wrapper.clean .gritter-close:after{
+	content: '×';
+	position: absolute;
+	color:#FFF;
+	top:50%;
+	left: 10px;
+	font-size:24px;
+	font-weight:bold;
+	margin-top: -17px;
+	text-shadow:1px 1px 0 rgba(0, 0, 0, 0.12);
+}
+
+.gritter-image {
+ margin-top: 3px;
+}
+
+/*Facebook Style*/
+.gritter-item-wrapper.facebook{
+	background: @facebook; 
+}
+.gritter-item-wrapper.facebook .gritter-item{
+	color:#FFF;
+}
+
+.gritter-item-wrapper.facebook .gritter-close{
+	background-color: transparent;
+  top: 5px;
+}
+
+/*Twitter Style*/
+.gritter-item-wrapper.twitter{
+	background:@twitter;
+}
+.gritter-item-wrapper.twitter .gritter-item{
+	color:#FFF;
+}
+.gritter-item-wrapper.twitter .gritter-close{
+	background-color: transparent;
+  top: 5px;
+}
+
+/*Google+ */
+.gritter-item-wrapper.google-plus{
+	background:@google;
+}
+.gritter-item-wrapper.google-plus .gritter-item{
+	color:#FFF;
+}
+.gritter-item-wrapper.google-plus .gritter-close{
+	background-color: transparent;
+  top: 5px;
+}
+
+/*Dribbble */
+.gritter-item-wrapper.dribbble{
+	background:@dribbble;
+}
+.gritter-item-wrapper.dribbble .gritter-item{
+	color:#FFF;
+}
+.gritter-item-wrapper.dribbble .gritter-close{
+	background-color: transparent;
+  top: 5px;
+}
+
+/*Flickr */
+.gritter-item-wrapper.flickr{
+	background:@flickr;
+}
+.gritter-item-wrapper.flickr .gritter-item{
+	color:#FFF;
+}
+.gritter-item-wrapper.flickr .gritter-close{
+	background-color: transparent;
+  top: 5px;
+}
+
+/*Linkedin */
+.gritter-item-wrapper.linkedin{
+	background:@linkedin;
+}
+.gritter-item-wrapper.linkedin .gritter-item{
+	color:#FFF;
+}
+.gritter-item-wrapper.linkedin .gritter-close{
+	background-color: transparent;
+  top: 5px;
+}
+
+/*Youtube */
+.gritter-item-wrapper.youtube{
+	background:@youtube;
+}
+.gritter-item-wrapper.youtube .gritter-item{
+	color:#FFF;
+}
+.gritter-item-wrapper.youtube .gritter-close{
+	background-color: transparent;
+  top: 5px;
+}
+
+/*Pinterest */
+.gritter-item-wrapper.pinterest{
+	background:@pinterest;
+}
+.gritter-item-wrapper.pinterest .gritter-item{
+	color:#FFF;
+}
+.gritter-item-wrapper.pinterest .gritter-close{
+	background-color: transparent;
+  top: 5px;
+}
+
+/*Github */
+.gritter-item-wrapper.github{
+	background:@github;
+}
+.gritter-item-wrapper.github .gritter-item{
+	color:#FFF;
+}
+.gritter-item-wrapper.github .gritter-close{
+	background-color: transparent;
+  top: 5px;
+}
+
+/*Tumblr */
+.gritter-item-wrapper.tumblr{
+	background:@tumblr;
+}
+.gritter-item-wrapper.tumblr .gritter-item{
+	color:#FFF;
+}
+.gritter-item-wrapper.tumblr .gritter-close{
+	background-color: transparent;
+  top: 5px;
+}
+ 
+/*Colors */
+.gritter-item-wrapper.primary{background:@primary-color;}
+.gritter-item-wrapper.success{background:@green;}
+.gritter-item-wrapper.info{background:@blue;}
+.gritter-item-wrapper.warning{background:@orange;}
+.gritter-item-wrapper.danger{background:@red;}
+.gritter-item-wrapper.dark{background:@dark;}

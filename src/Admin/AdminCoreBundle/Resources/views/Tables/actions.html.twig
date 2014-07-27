@@ -1,0 +1,29 @@
+<td class="center">
+    <div class="btn-group">
+        <button class="btn btn-default btn-xs" type="button">
+            {{ "Actions"|trans }}
+        </button>
+        <button data-toggle="dropdown" class="btn btn-xs btn-primary dropdown-toggle" type="button">
+            <span class="caret"></span>
+            <span class="sr-only">{{ "Toggle Dropdown"|trans }}</span>
+        </button>
+        <ul role="menu" class="dropdown-menu pull-right">
+            <li>
+                <a href="{{ url("admin_" ~ class ~ "_edit", {"id": entity.id}) }}">
+                    {{ "Edit"|trans }}
+                </a>
+            </li>
+            <li>
+                <a href="{{ url("admin_" ~ class ~ "_view", {"id": entity.id}) }}">
+                    {{ "Details"|trans }}
+                </a>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a href="{{ url("admin_" ~ class ~ "_delete", {"id": entity.id}) }}">
+                    {{ "Remove"|trans }}
+                </a>
+            </li>
+        </ul>
+    </div>
+</td>

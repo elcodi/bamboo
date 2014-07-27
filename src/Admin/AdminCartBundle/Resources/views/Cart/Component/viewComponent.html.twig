@@ -1,0 +1,90 @@
+{% extends 'AdminCoreBundle::Common/viewComponent.html.twig' %}
+
+
+{% block title %}
+    {{ 'Cart'|trans }} - {{ entity }}
+{% endblock title %}
+
+
+{% block view_buttons %}
+    <div class="spacer spacer-bottom">
+        <a href="{{ url("admin_cart_list", {"id": entity.id}) }}" class="btn">{{ 'View all'|trans }}</a>
+        <a href="{{ url("admin_cart_edit", {"id": entity.id}) }}" class="btn btn-primary">{{ 'Edit'|trans }}</a>
+        <a href="{{ url("admin_cart_delete", {"id": entity.id}) }}" class="btn btn-danger">{{ 'Delete'|trans }}</a>
+    </div>
+{% endblock view_buttons %}
+
+
+{% block content %}
+    <tr>
+        {% if entity.order is null %}
+            <div class="alert alert-warning alert-white rounded">
+                <div class="icon"><i class="fa fa-warning"></i></div>
+                <strong>Wait!</strong> Cart not ordered yet!
+            </div>
+        {% elseif entity.ordered == false %}
+            <div class="alert alert-info alert-white rounded">
+                <div class="icon"><i class="fa fa-info-circle"></i></div>
+                <strong>Almost done!</strong> This cart belongs to a non-paid order
+            </div>
+        {% else %}
+            <div class="alert alert-success alert-white rounded">
+                <div class="icon"><i class="fa fa-check"></i></div>
+                <strong>Success!</strong> This cart belongs to a paid order
+            </div>
+        {% endif %}
+    </tr>
+
+    <tr>
+        <td>{{ 'customer'|trans }}</td>
+        <td>
+            <a href="{{ url("admin_customer_view", {id: entity.customer.id}) }}">
+                {{ entity.customer.username }}
+            </a>
+        </td>
+    </tr>
+    {% if entity.order %}
+    <tr>
+        <td>{{ 'order'|trans }}</td>
+        <td>
+            <a href="{{ url("admin_order_view", {id: entity.order.id}) }}">
+                {{ 'Order'|trans }}
+            </a>
+        </td>
+    </tr>
+    {% endif %}
+    <tr>
+        <td>{{ 'cartLines'|trans }}</td>
+        <td>
+            <ul>
+                {% for cartLine in entity.cartLines %}
+                    <li>
+                        <a href="{{ url("admin_product_view", {id: cartLine.product.id}) }}">
+                            {{ cartLine.product.name }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>{{ 'productAmount'|trans }}</td>
+        <td>{{ entity.productAmount|print_money }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'couponAmount'|trans }}</td>
+        <td>{{ entity.productAmount|print_money }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'amount'|trans }}</td>
+        <td>{{ entity.amount|print_money }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'createdAt'|trans }}</td>
+        <td>{{ entity.createdAt|date('Y.m.d - H:i:s') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'updatedAt'|trans }}</td>
+        <td>{{ entity.updatedAt|date('Y.m.d - H:i:s') }}</td>
+    </tr>
+{% endblock content %}

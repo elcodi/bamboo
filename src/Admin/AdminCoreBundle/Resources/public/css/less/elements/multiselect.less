@@ -1,0 +1,34 @@
+/*Multiselect*/
+.multiselect-container > li > label.multiselect-group{
+  font-size: 13px;
+  font-weight: 600;
+}
+.ms-container .ms-list{box-shadow:none;}
+.ms-container .ms-list.ms-focus{
+  border-color: @primary-color;
+  box-shadow: none;
+}
+.ms-container .ms-selectable li.ms-hover, .ms-container .ms-selection li.ms-hover{
+  background: @primary-color;
+}
+
+#ms-custom-headers .custom-header {
+    background: @primary-color;
+    color: #FFFFFF;
+    padding: 7px 10px;
+    font-size: 14px;
+}
+#ms-custom-headers .ms-list {
+  border-radius: 0 0 3px 3px;
+  border-top:none;
+}
+#ms-searchable .ms-list {
+  border-radius: 0 0 3px 3px;
+  border-top:none;
+}
+
+
+/*Input Group Fix*/
+.input-group-addon ~ .btn-group{
+  margin-left: 0;
+}

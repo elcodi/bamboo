@@ -1,0 +1,114 @@
+<script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.nanoscroller/jquery.nanoscroller.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.sparkline/jquery.sparkline.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.easypiechart/jquery.easy-pie-chart.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.ui/jquery-ui.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.nestable/jquery.nestable.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.select2/select2.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.gritter/js/jquery.gritter.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.multiselect/js/jquery.multi-select.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.quicksearch/jquery.quicksearch.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.flot/jquery.flot.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.flot/jquery.flot.pie.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.flot/jquery.flot.resize.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.flot/jquery.flot.labels.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/admincore/js/masonry.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.magnific-popup/dist/jquery.magnific-popup.min.js') }}"></script>
+
+<script type="text/javascript" src="{{ asset('bundles/admincore/js/bootstrap.switch/bootstrap-switch.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/admincore/js/bootstrap.datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/admincore/js/bootstrap.slider/js/bootstrap-slider.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/admincore/js/bootstrap.multiselect/js/bootstrap-multiselect.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/admincore/js/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+
+<script type="text/javascript" src="{{ asset('bundles/admincore/js/behaviour/general.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/admincore/js/behaviour/voice-commands.js') }}"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        App.init();
+
+        //Initialize Mansory
+        var $container = $('.gallery-cont');
+        // initialize
+        $container.masonry({
+            columnWidth: 0,
+            itemSelector: '.item'
+        });
+
+        //Resizes gallery items on sidebar collapse
+        $("#sidebar-collapse").click(function(){
+            $container.masonry();
+        });
+
+        /**
+         * Multiple selector
+         */
+        $('.multiselect').multiSelect({
+            selectableHeader: "<div class='custom-header'>Selectable items</div><input type='text' class='form-control search-input' autocomplete='off' placeholder='Search'>",
+            selectionHeader: "<div class='custom-header'>Selected items</div><input type='text' class='form-control search-input' autocomplete='off' placeholder='Search'>",
+            afterInit: function (ms) {
+                var that = this,
+                        $selectableSearch = that.$selectableUl.prev(),
+                        $selectionSearch = that.$selectionUl.prev(),
+                        selectableSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selectable:not(.ms-selected)',
+                        selectionSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selection.ms-selected';
+
+                that.qs1 = $selectableSearch.quicksearch(selectableSearchString)
+                        .on('keydown', function (e) {
+                            if (e.which === 40) {
+                                that.$selectableUl.focus();
+                                return false;
+                            }
+                        });
+
+                that.qs2 = $selectionSearch.quicksearch(selectionSearchString)
+                        .on('keydown', function (e) {
+                            if (e.which == 40) {
+                                that.$selectionUl.focus();
+                                return false;
+                            }
+                        });
+            },
+            afterSelect: function () {
+                this.qs1.cache();
+                this.qs2.cache();
+            },
+            afterDeselect: function () {
+                this.qs1.cache();
+                this.qs2.cache();
+            }
+        });
+
+        /**
+         * Simple selector
+         */
+        $('.oneselect').multiselect({});
+
+        /**
+         * Image zoom
+         */
+        $('.image-zoom').magnificPopup({
+            type: 'image',
+            mainClass: 'mfp-with-zoom', // this class is for CSS animation below
+            zoom: {
+                enabled: true,
+                duration: 300,
+                easing: 'ease-in-out',
+                opener: function(openerElement) {
+                    // openerElement is the element on which popup was initialized, in this case its <a> tag
+                    // you don't need to add "opener" option if this code matches your needs, it's defailt one.
+                    var parent = $(openerElement).parents("div.img");
+                    return parent;
+                }
+            }
+        });
+
+        //initialize the javascript
+        App.dashBoard();
+
+        introJs().setOption('showBullets', false).start();
+
+    });
+</script>

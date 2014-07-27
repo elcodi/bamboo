@@ -1,0 +1,28 @@
+{% extends 'AdminCoreBundle::Common/formComponent.html.twig' %}
+
+{% form_theme form 'AdminCoreBundle::Common/fields.html.twig' %}
+
+{% block title %}
+    {{ 'New menu'|trans }}
+{% endblock title %}
+
+{% block content %}
+
+    {{ form_start(form, {'action': url('admin_menu_save')}) }}
+
+        {{ form_row(form.code) }}
+        {{ form_row(form.description) }}
+        {{ form_row(form.createdAt) }}
+        {{ form_row(form.updatedAt) }}
+        {{ form_row(form.enabled) }}
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">{{ 'Save'|trans }}</button>
+                <button class="btn btn-default">{{ 'Cancel'|trans }}</button>
+            </div>
+        </div>
+
+    {{ form_end(form) }}
+
+{% endblock content %}

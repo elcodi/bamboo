@@ -1,0 +1,27 @@
+{% extends 'AdminCoreBundle::layout.html.twig' %}
+
+{% block content_title %}
+    {{ 'Category Zone'|trans }}
+{% endblock content_title %}
+
+{% block breadcrumb %}
+
+    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
+        breadcrumb: {
+            "new category": {
+                "active" : true
+            }
+        }
+    } %}
+
+{% endblock breadcrumb %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-12">
+            {{ render(url("admin_category_new_component")) }}
+        </div>
+    </div>
+
+{% endblock content %}

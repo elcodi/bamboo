@@ -1,0 +1,11 @@
+services:
+
+    #
+    # Form Types
+    #
+    elcodi.admin.menu.form_type.menu:
+        class: %elcodi.admin.menu.form_type.menu.class%
+        arguments:
+            menu_namespace: %elcodi.core.menu.entity.menu.class%
+        tags:
+            - { name: form.type, alias: admin_menu_form_type_menu }

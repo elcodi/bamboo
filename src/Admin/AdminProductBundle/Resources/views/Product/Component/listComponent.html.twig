@@ -1,0 +1,79 @@
+{% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
+
+{% block title %}
+    {{ 'Product list'|trans }}
+{% endblock title %}
+
+{% block table_head %}
+
+    {% include "@AdminCore/Tables/head.html.twig" with {
+        rows: {
+            "Id": {width:"25"},
+            "Name": {},
+            "Slug": {},
+            "Show in home": {width:"25"},
+            "Stock": {width:"25"},
+            "Price": {width:"50"},
+            "ReducedPrice": {width:"50"},
+            "Principal category": {sorting_disabled: true},
+            "Enabled": {width:"25"},
+        },
+        class: "product",
+    } %}
+
+{% endblock table_head %}
+
+{% block table_body_row %}
+
+    <td>
+        <a href="{{ url("admin_product_view", {"id": entity.id}) }}">
+            {{ entity.id }}
+        </a>
+    </td>
+    <td>
+        {{ entity.name }}
+    </td>
+    <td>
+        {{ entity.slug }}
+    </td>
+    <td>
+        {% if entity.showInHome %}<span class="label label-success">true</span>{% else %}<span class="label label-danger">false</span>{% endif %}
+    </td>
+    <td>
+        {{ entity.stock }}
+    </td>
+    <td>
+        {{ entity.price|print_money }}
+    </td>
+    <td>
+        {{ entity.reducedPrice|print_money }}
+    </td>
+    <td>
+        {% if entity.principalCategory %}
+        <a href="{{ url("admin_category_view", { id: entity.principalCategory.id }) }}">
+            {{ entity.principalCategory.name }}
+        </a>
+        {% endif %}
+    </td>
+    <td>
+        {% if entity.enabled %}<span class="label label-success">true</span>{% else %}<span class="label label-danger">false</span>{% endif %}
+    </td>
+
+    {% include "@AdminCore/Tables/actions.html.twig" with {
+        entity: entity,
+        class: "product",
+    } %}
+
+{% endblock table_body_row %}
+
+{% block table_paginator_links %}
+
+    {% set url = 'admin_product_list' %}
+    {{ parent() }}
+
+{% endblock table_paginator_links %}
+
+
+{% block table_buttons %}
+    <a href="{{ url("admin_product_new") }}"type="button" class="btn btn-success">{{ "New product"|trans }}</a>
+{% endblock table_buttons %}

@@ -1,0 +1,100 @@
+/*Stats*/
+.stats_bar{
+	text-align:center;
+	margin-top:15px;
+}
+
+.butpro {
+    vertical-align: top;
+}
+
+.butstyle {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #f8f8f8;
+    background-image: -moz-linear-gradient(center top , #FFFFFF 50%, #f8f8f8 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#f8f8f8)); /* Chrome, Safari 4+ */
+	background-image: -webkit-linear-gradient(top, #FFFFFF, #f8f8f8); /* Chrome 10-25, iOS 5+, Safari 5.1+ */
+	background-image:      -o-linear-gradient(top, #FFFFFF, #f8f8f8); /* Opera 11.10-12.00 */
+	background-image:         linear-gradient(to bottom, #FFFFFF 50%, #f8f8f8 100%);
+	
+    border-color: #DEDFE0 #C8C8C8 #C8C8C8;
+    border-image: none;
+    border-right: 1px solid #C8C8C8;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.08);
+    color: #333333;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Open Sans',Verdana,sans-serif;
+    font-size: 11px;
+	margin-right: 1.8%;
+	margin-bottom: 15px;
+	width: 14.2%;
+    padding: 6px 9px 4px;
+    transition: border-color 0.21s ease-out 0s;
+}
+
+.butstyle.flat{
+  background-image: none;
+	background-image: none; /* Chrome, Safari 4+ */
+	background-image: none; /* Chrome 10-25, iOS 5+, Safari 5.1+ */
+	background-image: none; /* Opera 11.10-12.00 */
+	background-image: none;
+  background: #FFF;
+  border:0;
+  color:#777;
+}
+
+.butstyle:first-child{margin-left:0;}
+
+.butstyle:hover {
+    border-color: #4D90FE;
+}
+
+.butpro .sub h2 {
+	margin:0 0 5px 0;
+    font-size: 11px;
+    font-weight: normal;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.butpro .sub span {
+    color: #434D55;
+    display: block;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+	line-height: 26px;
+}
+
+.butpro .stat {
+    padding: 4px 0;
+    text-align: center;
+}
+
+.butpro .stat .equal {
+    background: url("../images/stat-same.png") no-repeat scroll left center transparent;
+    font-size: 12px;
+    padding: 0 0 0 19px;
+}
+
+.butpro .stat .up {
+    background: url("../images/stat-up.png") no-repeat scroll left center transparent;
+    font-size: 12px;
+    padding: 0 0 0 19px;
+}
+
+.butpro .stat .down {
+    background: url("../images/stat-down.png") no-repeat scroll left center transparent;
+    font-size: 12px;
+    padding: 0 0 0 19px;
+}
+
+.butpro .sub {
+    padding-top: 4px;
+}

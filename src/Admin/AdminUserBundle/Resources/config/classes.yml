@@ -1,0 +1,17 @@
+parameters:
+
+    #
+    # Event Listeners
+    #
+    admin.user.event_listener.remember_password.class: Admin\AdminUserBundle\EventListener\RememberPasswordEventListener
+
+    #
+    # Form Types
+    #
+    admin.user.form_type.login.class: Admin\AdminUserBundle\Form\Type\LoginType
+    admin.user.form_type.register.class: Admin\AdminUserBundle\Form\Type\RegisterType
+    admin.user.form_type.profile.class: Admin\AdminUserBundle\Form\Type\ProfileType
+    admin.user.form_type.password_remember.class: Admin\AdminUserBundle\Form\Type\PasswordRememberType
+    admin.user.form_type.password_recover.class: Admin\AdminUserBundle\Form\Type\PasswordRecoverType
+    admin.user.form_type.customer.class: Admin\AdminUserBundle\Form\Type\CustomerType
+    admin.user.form_type.admin_user.class: Admin\AdminUserBundle\Form\Type\AdminUserType

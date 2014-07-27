@@ -1,0 +1,28 @@
+services:
+
+    #
+    # Form Types
+    #
+    elcodi.admin.product.form_type.product:
+        class: %elcodi.admin.product.form_type.product.class%
+        arguments:
+            entity: %elcodi.core.product.entity.product.class%
+            factory: @elcodi.factory.product
+            currency_factory: @elcodi.factory.currency
+        tags:
+            - { name: form.type, alias: elcodi_admin_product_form_type_product }
+
+    elcodi.admin.product.form_type.category:
+        class: %elcodi.admin.product.form_type.category.class%
+        arguments:
+            category_factory: @elcodi.factory.category
+            product_factory: @elcodi.factory.product
+        tags:
+            - { name: form.type, alias: elcodi_admin_product_form_type_category }
+
+    elcodi.admin.product.form_type.manufacturer:
+        class: %elcodi.admin.product.form_type.manufacturer.class%
+        arguments:
+            entity: %elcodi.core.product.entity.manufacturer.class%
+        tags:
+            - { name: form.type, alias: elcodi_admin_product_form_type_manufacturer }

@@ -1,0 +1,38 @@
+{% extends 'AdminCoreBundle::Common/formComponent.html.twig' %}
+
+{% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
+
+{% block title %}
+    {{ 'New Coupon'|trans }}
+{% endblock title %}
+
+{% block content %}
+
+    {{ form_start(form, {'action': url('admin_coupon_save')}) }}
+
+        {{ form_row(form.code) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.type) }}
+        {{ form_row(form.priceAmount) }}
+        {{ form_row(form.discount) }}
+        {{ form_row(form.count) }}
+        {{ form_row(form.used) }}
+        {{ form_row(form.priority) }}
+        {{ form_row(form.minimumPurchaseAmount) }}
+        {{ form_row(form.validFrom) }}
+        {{ form_row(form.validTo) }}
+        {{ form_row(form.createdAt) }}
+        {{ form_row(form.updatedAt) }}
+        {{ form_row(form.enabled) }}
+        {{ form_row(form.priceCurrency) }}
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">{{ 'Save'|trans }}</button>
+                <button class="btn btn-default">{{ 'Cancel'|trans }}</button>
+            </div>
+        </div>
+
+    {{ form_end(form) }}
+
+{% endblock content %}

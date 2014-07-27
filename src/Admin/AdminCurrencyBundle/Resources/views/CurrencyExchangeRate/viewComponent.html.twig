@@ -1,0 +1,45 @@
+{% extends 'AdminCoreBundle::Common/viewComponent.html.twig' %}
+
+{% block title %}
+    {{ 'CurrencyExchangeRate'|trans }} - {{ entity }}
+{% endblock title %}
+
+{% block content %}
+
+
+    <tr>
+        <td>{{ 'exchangeRate'|trans }}</td>
+        <td>
+            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
+            'entity': entity,
+            'field': 'exchangeRate',
+            } %}
+        </td>
+    </tr>
+    <tr>
+        <td>{{ 'targetCurrency'|trans }}</td>
+        <td>
+            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
+            'entity': entity,
+            'field': 'targetCurrency',
+            } %}
+        </td>
+    </tr>
+    <tr>
+        <td>{{ 'sourceCurrency'|trans }}</td>
+        <td>
+            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
+            'entity': entity,
+            'field': 'sourceCurrency',
+            } %}
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <a href="{{ url("admin_currency_exchange_rate_edit", {"id": entity.id}) }}" type="button" class="btn btn-primary btn-flat">Edit</a>
+            <a href="{{ url("admin_currency_exchange_rate_delete", {"id": entity.id}) }}" type="button" class="btn btn-danger btn-flat">Delete</a>
+        </td>
+    </tr>
+
+{% endblock content %}

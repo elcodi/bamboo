@@ -1,0 +1,29 @@
+{% extends 'AdminCoreBundle::Common/formComponent.html.twig' %}
+
+{% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
+
+{% block title %}
+    {{ 'New OrderCoupon'|trans }}
+{% endblock title %}
+
+{% block content %}
+
+    {{ form_start(form, {'action': url('admin_order_coupon_save')}) }}
+
+        {{ form_row(form.amount) }}
+        {{ form_row(form.code) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.order) }}
+        {{ form_row(form.coupon) }}
+        {{ form_row(form.amountCurrency) }}
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">{{ 'Save'|trans }}</button>
+                <button class="btn btn-default">{{ 'Cancel'|trans }}</button>
+            </div>
+        </div>
+
+    {{ form_end(form) }}
+
+{% endblock content %}

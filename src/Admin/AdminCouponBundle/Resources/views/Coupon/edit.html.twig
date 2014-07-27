@@ -1,0 +1,17 @@
+{% extends 'AdminCoreBundle::layout.html.twig' %}
+
+{% block content_title %}
+    {{ 'Coupon Zone'|trans }}
+{% endblock content_title %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-12">
+            {{ render(url("admin_coupon_edit_component", {
+                'id': id
+            })) }}
+        </div>
+    </div>
+
+{% endblock content %}

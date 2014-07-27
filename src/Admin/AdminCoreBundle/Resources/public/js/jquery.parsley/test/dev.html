@@ -1,0 +1,77 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Parsleyjs Developpement Tests</title>
+    <link href="../src/parsley.css" rel="stylesheet">
+    <style type="text/css">
+        span.parsley-required {
+            padding: 5px;
+            color: white;
+            background-color: darkred;
+        }
+        .parsley-required:after {
+            content:" I want to be a span and get cool styling too!"
+        }
+        span.parsley-required:after {
+            content:" Check out my cool styled span!"
+        }
+    </style>
+</head>
+<body>
+<!--     <form id="form" data-parsley-validate data-parsley-trigger="focusout change">
+        <div class="parent">
+            Email: <input id="email" type="email" data-parsley-no-focus data-parsley-length="[5, 20]" data-parsley-trigger="change" required data-parsley-required-message="Super message!" />
+
+            Number: <input id="number" type="text" data-parsley-trigger="keyup" data-parsley-type="number" data-parsley-remote="number" data-parsley-remote-options='{"type": "POST", "data": {"foo": "bar"} }' data-parsley-remote-reverse="true" required />
+
+            Radio:
+            <span>
+                <input type="radio" name="radio" id="radio1" value="yes" required />
+                <input type="radio" name="radio" id="radio2" value="no" />
+            </span>
+
+            Checkboxes:
+            <input type="checkbox" name="ch$ckbox[]" id="checkbox1" value="foo" data-parsley-errors-container="#checkoxErrors" data-parsley-mincheck="2" required />
+            <input type="checkbox" name="ch$ckbox[]" id="checkbox2" value="bar" />
+            <input type="checkbox" name="ch$ckbox[]" id="checkbox3" value="baz" />
+
+            <span id="checkoxErrors"></span>
+
+            FooBar:
+            <input type="text" data-parsley-foobar="baz" required />
+
+            Extra
+            <input type="text" data-parsley-dateiso data-parsley-no-focus required />
+
+            <select id="select" multiple data-parsley-mincheck="1">
+                <option value="0">First</option>
+                <option value="1">Second</option>
+                <option value="2">Third</option>
+            </select>
+
+            <input type="checkbox" id="cbox" checked />
+            <input type="submit" />
+        </div>
+    </form> -->
+
+    <form id="parsleyForm" data-parsley-validate>
+            Checkboxes:
+            <input type="checkbox" name="ch$ckbox[]" id="checkbox1" value="foo" required />
+            <input type="checkbox" name="ch$ckbox[]" id="checkbox2" value="bar" />
+            <input type="checkbox" name="ch$ckbox[]" id="checkbox3" value="baz" data-parsley-mincheck="2" />
+        <input type="submit">
+    </form>
+
+    <!-- <script src="../bower_components/jquery/jquery.js"></script> -->
+    <!-- <script src="../src/parsley.remote.js"></script> -->
+    <!-- <script src="../src/extra/dateiso.js"></script> -->
+    <!-- <script src="../src/i18n/fr.extra.js"></script> -->
+    <!-- <script src="../dist/parsley.js"></script> -->
+    <script src="../bower_components/requirejs/require.js" data-main="../src/main"></script></body>
+    <!-- <script src="../src/i18n/it.js"></script> -->
+    <script type="text/javascript">
+        // $(document).ready(function () {
+
+        // });
+    </script>
+</html>

@@ -1,0 +1,22 @@
+{% extends 'AdminCoreBundle::layout.html.twig' %}
+
+{% block content_title %}
+    {{ 'Cart Zone'|trans }}
+{% endblock content_title %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-6">
+            {{ render(url("admin_cart_view_component", {
+                'id': id,
+            })) }}
+        </div>
+        <div class="col-md-6">
+            {{ render(url("admin_cart_gallery_component", {
+                'id': id,
+            })) }}
+        </div>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,35 @@
+/*Slider*/
+.slider.slider-vertical{
+	margin-right:13px;
+}
+.slider-selection {
+	background: #4D90FD;
+	border:1px solid #437DDC;
+	box-shadow:none;
+}
+
+.slider-handle {
+	opacity: 1;
+	background-color: #FFFFFF;
+    background-image: linear-gradient(to bottom, #FFFFFF, #F9F9F9);
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#F9F9F9)); /* Chrome, Safari 4+ */
+  background-image: -webkit-linear-gradient(top, #FFFFFF, #F9F9F9); /* Chrome 10-25, iOS 5+, Safari 5.1+ */
+  background-image:    -moz-linear-gradient(top, #FFFFFF, #F9F9F9); /* Firefox 3.6-15 */
+  background-image:      -o-linear-gradient(top, #FFFFFF, #F9F9F9); /* Opera 11.10-12.00 */
+  
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.39);
+	height:23px;
+	width:23px;
+	transition:box-shadow 200ms ease-in-out;
+}
+
+.slider-handle:hover{
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.45);
+}
+
+.slider.slider-horizontal .slider-handle {
+    margin-top: -7px;
+}
+.slider.slider-vertical .slider-handle {
+    margin-left: -6px;
+}

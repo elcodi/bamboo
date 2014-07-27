@@ -1,0 +1,37 @@
+.page-aside{
+  background: none repeat scroll 0 0 #FFFFFF;
+  width: 280px;
+  height:100%;
+  position: relative;
+  display:table-cell;
+  border-right: 1px solid #E9E9E9;
+}
+
+.page-aside > div{
+  width: 280px;
+}
+
+.page-aside div.fixed{
+  position:fixed;
+  height:100%;
+}
+
+.page-aside div.content{
+  padding: 20px 20px;
+}
+
+@media (max-width: 767px) {
+  .page-aside{
+    width:100%;
+    display:block;
+    height:auto;
+    position:relative;
+  }
+  
+  .page-aside div.fixed, .page-aside > div{
+    width:100%;
+    display:block;
+    position:relative;
+  }
+
+}

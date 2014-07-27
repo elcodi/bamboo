@@ -1,0 +1,84 @@
+.fc-header{
+  display: block;
+}
+
+.fc-header td {
+    border-bottom: 0;
+    border-left: 0;
+}
+.fc-header td:last-child {
+    border-right: 0;
+}
+.calendar-env .calendar-body .fc-header .fc-header-left{
+  padding: 20px;
+}
+.calendar-env .calendar-body .fc-header .fc-header-right{
+  padding: 20px;
+}
+.fc-header-title{
+  padding: 0 10px;
+}
+
+.fc-header .fc-button{
+  margin: 0;
+  vertical-align: middle;
+}
+.fc-button{
+  padding: 10px;
+  display: inline !important;
+}
+.fc-state-default.fc-corner-left{
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+.fc-state-default.fc-corner-right{
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  border-right: 0px;
+}
+.fc-state-default{
+  background-image: none;
+  box-shadow: none;
+  text-shadow: none;
+  color: #666;
+  border: 0;
+  border-right: 1px solid rgba(0,0,0,0.1);
+}
+.fc-state-active, .fc-state-active .fc-button-inner, .fc-state-active, .fc-button-today .fc-button-inner, .fc-state-hover, .fc-state-hover .fc-button-inner{
+  background: @primary-color + 10%;
+  color: #fff;
+  box-shadow: none;
+  text-shadow: none;
+}
+.fc-event{
+  background: @primary-color;
+  border-color: @primary-color;
+}
+.external-event { /* try to mimick the look of a real event */
+  margin: 2px 0;
+  padding: 2px 4px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background: @primary-color;
+  color: #fff;
+  font-size: .85em;
+  cursor: pointer;
+  display: inline-block;
+  }
+#external-events p{
+  padding-top: 5px;
+  margin-top: 5px;
+}
+
+
+@media (max-width: 767px) {
+  .fc-header .fc-header-left, .fc-header .fc-header-center, .fc-header .fc-header-right{
+    text-align: center;
+    display: block;
+    width: 100%;
+    padding: 20px;
+  }
+  .fc-header .fc-header-center{
+  padding: 0;
+  }
+}

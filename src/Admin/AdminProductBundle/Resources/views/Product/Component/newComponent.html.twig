@@ -1,0 +1,43 @@
+{% extends 'AdminCoreBundle::Common/formComponent.html.twig' %}
+
+{% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
+
+{% block title %}
+    {{ 'New Product'|trans }}
+{% endblock title %}
+
+{% block content %}
+
+    {{ form_start(form, {'action': url('admin_product_save')}) }}
+
+        {{ form_row(form.name) }}
+        {{ form_row(form.slug) }}
+        {{ form_row(form.shortDescription) }}
+        {{ form_row(form.description) }}
+        {{ form_row(form.showInHome) }}
+        {{ form_row(form.dimensions) }}
+        {{ form_row(form.stock) }}
+        {{ form_row(form.price) }}
+        {{ form_row(form.reducedPrice) }}
+        {{ form_row(form.createdAt) }}
+        {{ form_row(form.updatedAt) }}
+        {{ form_row(form.enabled) }}
+        {{ form_row(form.metaTitle) }}
+        {{ form_row(form.metaDescription) }}
+        {{ form_row(form.metaKeywords) }}
+        {{ form_row(form.manufacturer) }}
+        {{ form_row(form.principalCategory) }}
+        {{ form_row(form.principalImage) }}
+        {{ form_row(form.categories) }}
+        {{ form_row(form.images) }}
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">{{ 'Save'|trans }}</button>
+                <button class="btn btn-default">{{ 'Cancel'|trans }}</button>
+            </div>
+        </div>
+
+    {{ form_end(form) }}
+
+{% endblock content %}

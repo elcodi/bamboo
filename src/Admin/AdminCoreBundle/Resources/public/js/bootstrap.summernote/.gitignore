@@ -1,0 +1,5 @@
+# vim editing
+*.swp
+.tern-port
+# node modules
+node_modules

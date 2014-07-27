@@ -1,0 +1,29 @@
+{% extends 'AdminCoreBundle::layout.html.twig' %}
+
+{% block content_title %}
+    {{ 'Customer Zone'|trans }}
+{% endblock content_title %}
+
+{% block breadcrumb %}
+
+    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
+        breadcrumb: {
+            "view customer": {
+                "active" : true
+            }
+        }
+    } %}
+
+{% endblock breadcrumb %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-12">
+            {{ render(url("admin_customer_view_component", {
+                'id': id,
+            })) }}
+        </div>
+    </div>
+
+{% endblock content %}

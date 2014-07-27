@@ -1,0 +1,29 @@
+{% extends 'AdminCoreBundle::layout.html.twig' %}
+
+{% block content_title %}
+    {{ 'Manufacturer Zone'|trans }}
+{% endblock content_title %}
+
+{% block breadcrumb %}
+
+    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
+        breadcrumb: {
+            "edit manufacturer": {
+                "active" : true
+            }
+        }
+    } %}
+
+{% endblock breadcrumb %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-6">
+            {{ render(url("admin_manufacturer_edit_component", {
+                'id': id
+            })) }}
+        </div>
+    </div>
+
+{% endblock content %}

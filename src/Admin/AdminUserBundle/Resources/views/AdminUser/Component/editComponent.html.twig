@@ -1,0 +1,32 @@
+{% extends 'AdminCoreBundle::Common/formComponent.html.twig' %}
+
+{% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
+
+{% block title %}
+    {{ 'Edit menu'|trans }} - {{ entity.id }}
+{% endblock title %}
+
+{% block content %}
+
+    {{ form_start(form, {'action': url('admin_admin_user_update', {
+        'id': entity.id
+    })}) }}
+
+        {{ form_row(form.username) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.firstname) }}
+        {{ form_row(form.lastname) }}
+        {{ form_row(form.gender) }}
+        {{ form_row(form.birthday) }}
+        {{ form_row(form.enabled) }}
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">{{ 'Update'|trans }}</button>
+                <button class="btn btn-default">{{ 'Cancel'|trans }}</button>
+            </div>
+        </div>
+
+    {{ form_end(form) }}
+
+{% endblock content %}

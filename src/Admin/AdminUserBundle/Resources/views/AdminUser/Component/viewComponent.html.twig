@@ -1,0 +1,75 @@
+{% extends 'AdminCoreBundle::Common/viewComponent.html.twig' %}
+
+{% block title %}
+    {{ 'Menu'|trans }} - {{ entity.code }}
+{% endblock title %}
+
+{% block content %}
+
+    <tr>
+        <td>
+            <strong>{{ "Username"|trans }}</strong>
+            <br/>
+            {{ entity.username }}
+        </td>
+        <td class="text-right">
+            <input readonly="true" class="switch" data-size="small" type="checkbox"{% if entity.enabled %} checked{% endif %}>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong>{{ "Email"|trans }}</strong>
+            <br/>
+            {{ entity.email }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong>{{ "Firstname"|trans }}</strong>
+            <br/>
+            {{ entity.firstname }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong>{{ "Lastname"|trans }}</strong>
+            <br/>
+            {{ entity.lastname }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong>{{ "Gender"|trans }}</strong>
+            <br/>
+            {{ entity.gender }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong>{{ "Birthday"|trans }}</strong>
+            <br/>
+            {{ entity.birthday|date("Y-m-d") }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong>{{ "Created at"|trans }}</strong>
+            <br/>
+            {{ entity.createdAt|date("Y-m-d - H:i:s") }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong>{{ "Updated at"|trans }}</strong>
+            <br/>
+            {{ entity.updatedAt|date("Y-m-d - H:i:s") }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="{{ url("admin_admin_user_edit", {"id": entity.id}) }}" type="button" class="btn btn-primary btn-flat">Edit</a>
+            <a href="{{ url("admin_admin_user_delete", {"id": entity.id}) }}" type="button" class="btn btn-danger btn-flat">Delete</a>
+        </td>
+    </tr>
+
+{% endblock content %}

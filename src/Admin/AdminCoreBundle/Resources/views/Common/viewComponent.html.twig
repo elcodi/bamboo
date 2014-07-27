@@ -1,0 +1,28 @@
+{% extends 'AdminCoreBundle::Common/component.html.twig' %}
+
+{% block component %}
+
+    {% block style %}
+    {% endblock style %}
+
+    <div class="block-flat">
+
+        <div class="header">
+            <h3>{% block title %}{% endblock title %}</h3>
+        </div>
+        <div class="content">
+            {%  block view_buttons %}
+            {% endblock %}
+            <table class="no-border">
+                <tbody class="no-border-x no-border-y">
+                {% block content %}
+                {% endblock content %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    {% block script %}
+    {% endblock script %}
+
+{% endblock component %}

@@ -1,0 +1,41 @@
+body {
+  font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.title {
+  font-size: 5em;
+  letter-spacing: -2px;
+}
+
+.page-header {
+  text-align: left;
+}
+
+.header {
+  text-align: center;
+}
+
+#github {
+  display: none;
+  position: fixed;
+  width: 150px;
+  height: 150px;
+  top: 0;
+  right: 0;
+  z-index: 2000;
+}
+
+.footer {
+  border-top: 1px solid #eee;
+  margin-top: 80px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  #github {
+    display: block;
+  }
+}

@@ -1,0 +1,62 @@
+{% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
+
+{% block title %}
+    {{ 'Manufacturer list'|trans }}
+{% endblock title %}
+
+{% block table_head %}
+
+    {% include "@AdminCore/Tables/head.html.twig" with {
+        rows: {
+            "Id": {width:"25"},
+            "Name": {},
+            "Slug": {},
+            "Description": {},
+            "Nb. products": {width:"25", sorting_disabled: true},
+            "Enabled": {width:"25"},
+        },
+        class: "manufacturer",
+    } %}
+
+{% endblock table_head %}
+
+{% block table_body_row %}
+
+    <td>
+        <a href="{{ url("admin_manufacturer_view", {"id": entity.id}) }}">
+            {{ entity.id }}
+        </a>
+    </td>
+    <td>
+        {{ entity.name }}
+    </td>
+    <td>
+        {{ entity.slug }}
+    </td>
+    <td>
+        {{ entity.description }}
+    </td>
+    <td>
+        {{ entity.products|length }}
+    </td>
+    <td>
+        {% if entity.enabled %}<span class="label label-success">true</span>{% else %}<span class="label label-danger">false</span>{% endif %}
+    </td>
+
+    {% include "@AdminCore/Tables/actions.html.twig" with {
+        entity: entity,
+        class: "manufacturer",
+    } %}
+
+{% endblock table_body_row %}
+
+{% block table_paginator_links %}
+
+    {% set url = 'admin_manufacturer_list' %}
+    {{ parent() }}
+
+{% endblock table_paginator_links %}
+
+{% block table_buttons %}
+    <a href="{{ url("admin_manufacturer_new") }}"type="button" class="btn btn-success">{{ "New manufacturer"|trans }}</a>
+{% endblock table_buttons %}

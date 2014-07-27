@@ -1,0 +1,154 @@
+.profile-info{
+  
+}
+
+.profile-info > .row{margin-top:0;}
+
+.profile-info .avatar{
+  padding-top:11px;
+}
+
+.profile-info .avatar img{
+  max-width:130px;
+  max-height:130px;
+  width:100%;
+  height:100%;
+  border-radius:5px; 
+}
+
+.profile-info .personal .btn{  padding-right:12px;  border:0;margin:0;}
+.profile-info .personal .btn .fa{
+  margin-right:5px;
+
+}
+
+.profile-info .skills td{font-size:13px;}
+.profile-info .skills .progress{
+  border-radius: 2px;
+  height: 11px;
+}
+
+.spk-widget{margin-top:15px;}
+
+.side-right{
+  margin-top:39px;
+}
+
+.bars-widget h4{margin-bottom:0;}
+.bars-widget h3{margin:0;}
+
+table.information td{
+  font-size:13px;
+  vertical-align:top;
+  padding: 6px;
+}
+table.information td i{width:15px;font-size:14px;}
+.fa-mobile-phone {font-size: 18px !important;}
+table.information td.category{padding-top: 8px;}
+table.information > tbody > tr  > td{padding-bottom: 30px;}
+
+.friend-widget{ 
+  cursor:default;
+  overflow:hidden;
+  margin-bottom:20px;
+  border-radius:5px;
+  padding: 10px;
+    transition: background-color 300ms ease-in-out;
+  -webkit-transition: background-color 300ms ease-in-out;
+}
+
+
+.friend-widget img{
+  float:left;
+   margin-right:10px;
+  border:3px solid #F2F2F2;
+  max-width: 50px;
+  max-height: 50px;
+  width:100%;
+  border-radius:50%;
+  transition: border-color 300ms ease-in-out;
+  -webkit-transition: border-color 300ms ease-in-out;
+}
+
+.friend-widget:hover{
+  background:#f2f2f2;
+}
+.friend-widget:hover img{
+  border-color:#4D90FD;
+}
+
+.friend-widget h4{
+  font-size:15px;
+  margin: 3px 0 0 0;
+}
+
+.friend-widget p{
+  color:#999;
+  margin:0;
+}
+
+.friends-list > div{
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.widget-title{
+  border-bottom:1px solid #CCCCCC;
+  padding-bottom: 15px;
+}
+
+.avatar-upload{
+  position:relative;
+  display:inline-block;
+  overflow:hidden;
+}
+
+.avatar-upload img{
+  border-radius:0;
+  -webkit-border-radius:0;
+  -moz-border-radius:0;
+}
+
+.avatar-upload input {
+    cursor: pointer;
+    direction: ltr;
+    font-size: 200px;
+    margin: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0; 
+    display: block;
+    width:100%;
+    height:100%;
+    outline:0;
+}
+
+.avatar-upload .overlay {
+  background: #4D90FD;
+  height: 3px;
+  display:none;
+  position: absolute;
+  bottom: 0;
+  left:0;
+  transition: opacity 300ms ease 0s;
+  width: 0%;
+  vertical-align:middle;
+}
+
+.crop-image img{
+  max-width:480px;
+  max-height:380px;
+  box-shadow: 0 0 0 4px #e9e9e9;
+}
+
+.jcrop-holder {display:inline-block; }
+
+@media (max-width: 767px) {
+  table.information .btn span{display:none;}
+  .profile-info .personal, .profile-info .avatar{
+    text-align:center;
+  }
+  
+  .profile-info .avatar{margin-bottom:10px;}
+}

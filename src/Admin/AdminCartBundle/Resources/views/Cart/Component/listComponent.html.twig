@@ -1,0 +1,89 @@
+{% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
+
+{% block title %}
+    {{ 'Cart list'|trans }}
+{% endblock title %}
+
+{% block table_head %}
+
+    {% include "@AdminCore/Tables/head.html.twig" with {
+        rows: {
+            "id": { width:"25" },
+            "customer": {},
+            "order": { sorting_disabled: true },
+            "ordered": {},
+            "Nb. CartLines": { width:"25", sorting_disabled: true },
+            "Nb. Elements": { width:"25", sorting_disabled: true },
+            "productAmount": {sorting_disabled: true },
+            "couponAmount": {sorting_disabled: true },
+            "amount": {sorting_disabled: true },
+            "createdAt": {},
+            "updatedAt": {},
+        },
+        class: "cart",
+    } %}
+
+{% endblock table_head %}
+
+{% block table_body_row %}
+
+    <td>
+        <a href="{{ url("admin_cart_view", {"id": entity.id}) }}">
+            {{ entity.id }}
+        </a>
+    </td>
+    <td>
+        <a href="{{ url("admin_product_view", { id: entity.customer.id }) }}">
+            {{ entity.customer.username }}
+        </a>
+    </td>
+    <td>
+        {% if entity.order %}
+            <a href="{{ url("admin_order_view", { id: entity.order.id }) }}">
+                {{ 'Order'|trans }}
+            </a>
+        {% endif %}
+    </td>
+    <td>
+        {% if entity.ordered %}
+            <span class="label label-success">true</span>
+        {% else %}
+            <span class="label label-danger">false</span>
+        {% endif %}
+    </td>
+    <td>
+        {{ entity.cartLines|length }}
+    </td>
+    <td>
+        {{ entity.quantity }}
+    </td>
+    <td>
+        {{ entity.productAmount|print_money }}
+    </td>
+    <td>
+        {{ entity.couponAmount|print_money }}
+    </td>
+    <td>
+        {{ entity.amount|print_money }}
+    </td>
+    <td>
+        {{ entity.createdAt|date("Y.m.d H:i:s") }}
+    </td>
+    <td>
+        {{ entity.updatedAt|date("Y.m.d H:i:s") }}
+    </td>
+
+    {% include "@AdminCore/Tables/actions.html.twig" with {
+        entity: entity,
+        class: "cart",
+    } %}
+
+{% endblock table_body_row %}
+
+
+{% block table_paginator_links %}
+
+    {% set url = 'admin_cart_list' %}
+    {{ parent() }}
+
+{% endblock table_paginator_links %}

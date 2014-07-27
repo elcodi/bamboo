@@ -1,0 +1,192 @@
+.bootstrap-switch {
+  border:0;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  min-width: 74px;
+  background-clip:padding-box;
+}
+
+.bootstrap-switch.bootstrap-switch-focused{
+  box-shadow:none;
+}
+
+//"ON" bg primary-color
+.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary{
+  background: #4D90FD;
+}
+ 
+//"OFF" default bg color
+.bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-default{
+  background: #E3E3E3;
+}
+
+.bootstrap-switch .bootstrap-switch-container{
+  position:relative;
+  z-index: 1;
+  -webkit-transform: none;
+}
+
+.bootstrap-switch.bootstrap-switch-off .bootstrap-switch-container{
+ background: #4D90FD;  
+}
+
+.bootstrap-switch.bootstrap-switch-on .bootstrap-switch-container{
+ background: #E3E3E3;
+}
+
+//The middle circle
+.bootstrap-switch .bootstrap-switch-label:after{
+  content: " ";
+  display:block;
+  width:29px;
+  height:100%;
+  position:absolute;
+  top:0;
+  right:0;
+  background:#fff;
+  border-radius:50%;
+  border:3px solid #4D90FD;
+}
+
+//LARGE SIZE
+.bootstrap-switch.bootstrap-switch-large{
+  min-width:100px;
+}
+
+.bootstrap-switch.bootstrap-switch-large .bootstrap-switch-label:after{
+  width: 42px;
+  border-width:4px;
+}
+
+.bootstrap-switch.bootstrap-switch-large.bootstrap-switch-on .bootstrap-switch-label:after{
+  border-width:4px;
+}
+
+//SMALL SIZE
+.bootstrap-switch.bootstrap-switch-small{
+  min-width:60px;
+}
+
+.bootstrap-switch.bootstrap-switch-small .bootstrap-switch-label:after{
+  width: 25px;
+}
+
+
+//MINI SIZE
+.bootstrap-switch.bootstrap-switch-mini{
+  min-width:44px;
+}
+
+.bootstrap-switch.bootstrap-switch-mini .bootstrap-switch-label:after{
+  width: 18px;
+}
+
+
+
+//Middle label in "on" state
+.bootstrap-switch.bootstrap-switch-on .bootstrap-switch-label {
+  background: #4D90FD;
+}
+
+//Middle label in "off" state
+.bootstrap-switch.bootstrap-switch-off .bootstrap-switch-label{
+  background: #e3e3e3;
+}
+
+.bootstrap-switch.bootstrap-switch-off .bootstrap-switch-label:after{
+  border-color:#e3e3e3;
+  left:0;
+}
+
+.bootstrap-switch .bootstrap-switch-handle-on{
+  padding-left: 6px;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+}
+.bootstrap-switch .bootstrap-switch-handle-off{
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.bootstrap-switch.bootstrap-switch-on .bootstrap-switch-label {
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.bootstrap-switch.bootstrap-switch-off .bootstrap-switch-label {
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.bootstrap-switch .bootstrap-switch-label{
+  position:relative;
+}
+
+/*ON Colors*/
+//Success
+.bootstrap-switch.bootstrap-switch-onclr-success.bootstrap-switch-on .bootstrap-switch-handle-on{ background: #5CB85C; }
+.bootstrap-switch.bootstrap-switch-onclr-success.bootstrap-switch-on .bootstrap-switch-label{ background: #5CB85C; }
+.bootstrap-switch.bootstrap-switch-onclr-success.bootstrap-switch-on .bootstrap-switch-label:after{ border-color:#5CB85C; }
+.bootstrap-switch.bootstrap-switch-onclr-success.bootstrap-switch-off .bootstrap-switch-container{ background: #5CB85C; }
+
+//Info
+.bootstrap-switch.bootstrap-switch-onclr-info.bootstrap-switch-on .bootstrap-switch-handle-on{ background: @blue; }
+.bootstrap-switch.bootstrap-switch-onclr-info.bootstrap-switch-on .bootstrap-switch-label{ background: @blue; }
+.bootstrap-switch.bootstrap-switch-onclr-info.bootstrap-switch-on .bootstrap-switch-label:after{ border-color: @blue; }
+.bootstrap-switch.bootstrap-switch-onclr-info.bootstrap-switch-off .bootstrap-switch-container{ background: @blue; }
+
+//Warning
+.bootstrap-switch.bootstrap-switch-onclr-warning.bootstrap-switch-on .bootstrap-switch-handle-on{ background: @orange; }
+.bootstrap-switch.bootstrap-switch-onclr-warning.bootstrap-switch-on .bootstrap-switch-label{ background: @orange; }
+.bootstrap-switch.bootstrap-switch-onclr-warning.bootstrap-switch-on .bootstrap-switch-label:after{ border-color: @orange; }
+.bootstrap-switch.bootstrap-switch-onclr-warning.bootstrap-switch-off .bootstrap-switch-container{ background: @orange; }
+
+//Danger
+.bootstrap-switch.bootstrap-switch-onclr-danger.bootstrap-switch-on .bootstrap-switch-handle-on{ background: @red; }
+.bootstrap-switch.bootstrap-switch-onclr-danger.bootstrap-switch-on .bootstrap-switch-label{ background: @red; }
+.bootstrap-switch.bootstrap-switch-onclr-danger.bootstrap-switch-on .bootstrap-switch-label:after{ border-color: @red; }
+.bootstrap-switch.bootstrap-switch-onclr-danger.bootstrap-switch-off .bootstrap-switch-container{ background: @red; }
+
+//Default
+.bootstrap-switch.bootstrap-switch-onclr-default.bootstrap-switch-on .bootstrap-switch-handle-on{ background: #E3E3E3; }
+.bootstrap-switch.bootstrap-switch-onclr-default.bootstrap-switch-on .bootstrap-switch-label{ background: #E3E3E3; }
+.bootstrap-switch.bootstrap-switch-onclr-default.bootstrap-switch-on .bootstrap-switch-label:after{ border-color: #E3E3E3; }
+.bootstrap-switch.bootstrap-switch-onclr-default.bootstrap-switch-off .bootstrap-switch-container{ background: #E3E3E3; }
+
+
+/*Off Colors*/
+//Primary
+.bootstrap-switch.bootstrap-switch-offclr-primary.bootstrap-switch-off .bootstrap-switch-handle-off{ background: #4D90FD; }
+.bootstrap-switch.bootstrap-switch-offclr-primary.bootstrap-switch-off .bootstrap-switch-label{ background: #4D90FD; }
+.bootstrap-switch.bootstrap-switch-offclr-primary.bootstrap-switch-off .bootstrap-switch-label:after{ border-color: #4D90FD; }
+.bootstrap-switch.bootstrap-switch-offclr-primary.bootstrap-switch-on .bootstrap-switch-container{ background: #4D90FD; }
+
+//Info
+.bootstrap-switch.bootstrap-switch-offclr-info.bootstrap-switch-off .bootstrap-switch-handle-off{ background: @blue; }
+.bootstrap-switch.bootstrap-switch-offclr-info.bootstrap-switch-off .bootstrap-switch-label{ background: @blue; }
+.bootstrap-switch.bootstrap-switch-offclr-info.bootstrap-switch-off .bootstrap-switch-label:after{ border-color: @blue; }
+.bootstrap-switch.bootstrap-switch-offclr-info.bootstrap-switch-on .bootstrap-switch-container{ background: @blue; }
+
+//Success
+.bootstrap-switch.bootstrap-switch-offclr-success.bootstrap-switch-off .bootstrap-switch-handle-off{ background: #5CB85C; }
+.bootstrap-switch.bootstrap-switch-offclr-success.bootstrap-switch-off .bootstrap-switch-label{ background: #5CB85C; }
+.bootstrap-switch.bootstrap-switch-offclr-success.bootstrap-switch-off .bootstrap-switch-label:after{ border-color:#5CB85C; }
+.bootstrap-switch.bootstrap-switch-offclr-success.bootstrap-switch-on .bootstrap-switch-container{ background: #5CB85C; }
+
+//Warning
+.bootstrap-switch.bootstrap-switch-offclr-warning.bootstrap-switch-off .bootstrap-switch-handle-off{ background: @orange; }
+.bootstrap-switch.bootstrap-switch-offclr-warning.bootstrap-switch-off .bootstrap-switch-label{ background: @orange; }
+.bootstrap-switch.bootstrap-switch-offclr-warning.bootstrap-switch-off .bootstrap-switch-label:after{ border-color: @orange; }
+.bootstrap-switch.bootstrap-switch-offclr-warning.bootstrap-switch-on .bootstrap-switch-container{ background: @orange; }
+
+//Danger
+.bootstrap-switch.bootstrap-switch-offclr-danger.bootstrap-switch-off .bootstrap-switch-handle-off{ background: @red; }
+.bootstrap-switch.bootstrap-switch-offclr-danger.bootstrap-switch-off .bootstrap-switch-label{ background: @red; }
+.bootstrap-switch.bootstrap-switch-offclr-danger.bootstrap-switch-off .bootstrap-switch-label:after{ border-color: @red; }
+.bootstrap-switch.bootstrap-switch-offclr-danger.bootstrap-switch-on .bootstrap-switch-container{ background: @red; }
+
+//Default
+.bootstrap-switch.bootstrap-switch-offclr-default.bootstrap-switch-off .bootstrap-switch-handle-off{ background: #E3E3E3; }
+.bootstrap-switch.bootstrap-switch-offclr-default.bootstrap-switch-off .bootstrap-switch-label{ background: #E3E3E3; }
+.bootstrap-switch.bootstrap-switch-offclr-default.bootstrap-switch-off .bootstrap-switch-label:after{ border-color: #E3E3E3; }
+.bootstrap-switch.bootstrap-switch-offclr-default.bootstrap-switch-on .bootstrap-switch-container{ background: #E3E3E3; }
