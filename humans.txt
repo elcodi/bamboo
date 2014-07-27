@@ -1,5 +1,5 @@
 /* TEAM */
-	Engonga Evangelist & Efervescencio Master: Marc Morera
+	CTO: Marc Morera
 	Contact: mmoreram at elcodi dot com
 	Twitter: @mmoreram
 	From: Barcelona, Catalonia
