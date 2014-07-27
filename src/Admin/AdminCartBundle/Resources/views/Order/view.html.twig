@@ -13,7 +13,9 @@
             })) }}
         </div>
         <div class="col-md-6">
-            {{ render(url("admin_order_new_component")) }}
+            {{ render(url("admin_order_gallery_component", {
+                'id': id,
+            })) }}
         </div>
     </div>
 

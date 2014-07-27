@@ -54,7 +54,6 @@ class CartComponentController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request             $request             Request
      * @param Paginator           $paginator           Paginator instance
      * @param PaginatorAttributes $paginatorAttributes Paginator attributes
      * @param integer             $page                Page
@@ -98,7 +97,6 @@ class CartComponentController
      * )
      */
     public function listComponentAction(
-        Request $request,
         Paginator $paginator,
         PaginatorAttributes $paginatorAttributes,
         $page,
@@ -134,8 +132,7 @@ class CartComponentController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to view
+     * @param AbstractEntity $entity Entity to view
      *
      * @return array Result
      *
@@ -159,7 +156,6 @@ class CartComponentController
      * )
      */
     public function viewComponentAction(
-        Request $request,
         AbstractEntity $entity
     )
     {
@@ -181,7 +177,6 @@ class CartComponentController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request  $request  Request
      * @param FormView $formView Form view
      *
      * @return array Result
@@ -199,7 +194,6 @@ class CartComponentController
      * )
      */
     public function newComponentAction(
-        Request $request,
         FormView $formView
     )
     {
@@ -214,7 +208,6 @@ class CartComponentController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request        $request  Request
      * @param AbstractEntity $entity   Entity
      * @param FormView       $formView Form view
      *
@@ -240,7 +233,6 @@ class CartComponentController
      * )
      */
     public function editComponentAction(
-        Request $request,
         AbstractEntity $entity,
         FormView $formView
     )
@@ -263,7 +255,7 @@ class CartComponentController
      *      path = "/{id}/gallery/component",
      *      name = "admin_cart_gallery_component"
      * )
-     * @Template("AdminMediaBundle:Gallery:Component/gallery.html.twig")
+     * @Template("AdminMediaBundle:Gallery:Component/view.html.twig")
      * @Method({"GET"})
      *
      * @EntityAnnotation(

@@ -167,7 +167,7 @@ class OrderController
      *      persist = true
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_order_form_type_order",
+     *      class = "elcodi_admin_cart_form_type_order",
      *      name  = "form",
      *      entity = "entity",
      *      handleRequest = true,
@@ -186,7 +186,7 @@ class OrderController
             ->flush($entity);
 
         return $this->redirectRoute("admin_order_view", [
-            'id'    =>  $entity->getId(),
+            'id' => $entity->getId(),
         ]);
     }
 
@@ -243,7 +243,7 @@ class OrderController
      *      }
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_order_form_type_order",
+     *      class = "elcodi_admin_cart_form_type_order",
      *      name  = "form",
      *      entity = "entity",
      *      handleRequest = true,
@@ -262,7 +262,7 @@ class OrderController
             ->flush($entity);
 
         return $this->redirectRoute("admin_order_view", [
-            'id'    =>  $entity->getId(),
+            'id' => $entity->getId(),
         ]);
     }
 
@@ -278,7 +278,7 @@ class OrderController
      *      path = "/{id}/enable",
      *      name = "admin_order_enable"
      * )
-     * @Method({"POST"})
+     * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.cart.entity.order.class",
@@ -310,7 +310,7 @@ class OrderController
      *      path = "/{id}/disable",
      *      name = "admin_order_disable"
      * )
-     * @Method({"POST"})
+     * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.cart.entity.order.class",
@@ -343,7 +343,7 @@ class OrderController
      *      path = "/{id}/delete",
      *      name = "admin_order_delete"
      * )
-     * @Method({"GET"})
+     * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.cart.entity.order.class",

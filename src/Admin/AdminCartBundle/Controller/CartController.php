@@ -17,6 +17,7 @@
 namespace Admin\AdminCartBundle\Controller;
 
 use Admin\AdminCoreBundle\Controller\Interfaces\NavegableControllerInterface;
+use Elcodi\CartBundle\Entity\Interfaces\CartInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -252,6 +253,49 @@ class CartController
             $request,
             $entity,
             $redirectUrl
+        );
+    }
+
+    /**
+     * Convert a Cart into an Order
+     *
+     * @param CartInterface $cart Cart
+     *
+     * @return array Result
+     *
+     * @Route(
+     *      path = "/{id}/to-order",
+     *      name = "admin_cart_to_order",
+     *      requirements = {
+     *          "id" = "\d*",
+     *      }
+     * )
+     * @Method({"GET"})
+     *
+     * @EntityAnnotation(
+     *      name = "cart",
+     *      class = {
+     *          "factory" = "elcodi.core.cart.factory.cart",
+     *      },
+     *      mapping = {
+     *          "id" = "~id~"
+     *      }
+     * )
+     */
+    public function viewComponentAction(CartInterface $cart)
+    {
+        $this
+            ->get('elcodi.cart_event_dispatcher')
+            ->dispatchCartOnLoadEvent($cart);
+
+        $order = $this
+            ->get('elcodi.cart_order_transformer')
+            ->createOrderFromCart($cart);
+
+        return $this->redirect(
+            $this->generateUrl("admin_order_view", [
+                "id" => $order->getId()
+            ])
         );
     }
 }

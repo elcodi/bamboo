@@ -16,23 +16,27 @@
 
 namespace Admin\AdminCartBundle\Controller\Component;
 
-use Symfony\Component\Form\FormInterface;
-use Symfony\Component\HttpFoundation\RedirectResponse;
+use Admin\AdminMediaBundle\Controller\Interfaces\GalleriableComponentControllerInterface;
+use Doctrine\Common\Collections\ArrayCollection;
+use Elcodi\CartBundle\Entity\Interfaces\OrderInterface;
+use Elcodi\CartBundle\Entity\Interfaces\OrderLineInterface;
+use Mmoreram\ControllerExtraBundle\ValueObject\PaginatorAttributes;
+use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
+use Mmoreram\ControllerExtraBundle\Annotation\Paginator as PaginatorAnnotation;
 
 use Elcodi\CoreBundle\Entity\Abstracts\AbstractEntity;
-
-use Admin\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
 use Admin\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
 
 /**
- * Class Controller for Cart
+ * Class Controller for Order
  *
  * @Route(
  *      path = "/order",
@@ -42,25 +46,26 @@ class OrderComponentController
     extends
     AbstractAdminController
     implements
-    EnableableControllerInterface
+    GalleriableComponentControllerInterface
 {
     /**
-     * List elements of certain entity type.
+     * Component for entity list.
      *
-     * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * As a component, this action should not return all the html macro, but
+     * only the specific component
      *
-     * @param Request $request          Request
-     * @param integer $page             Page
-     * @param integer $limit            Limit of items per page
-     * @param string  $orderByField     Field to order by
-     * @param string  $orderByDirection Direction to order by
+     * @param Paginator           $paginator           Paginator instance
+     * @param PaginatorAttributes $paginatorAttributes Paginator attributes
+     * @param integer             $page                Page
+     * @param integer             $limit               Limit of items per page
+     * @param string              $orderByField        Field to order by
+     * @param string              $orderByDirection    Direction to order by
      *
      * @return array Result
      *
      * @Route(
-     *      path = "s/{page}/{limit}/{orderByField}/{orderByDirection}",
-     *      name = "admin_order_list",
+     *      path = "s/list/component/{page}/{limit}/{orderByField}/{orderByDirection}",
+     *      name = "admin_order_list_component",
      *      requirements = {
      *          "page" = "\d*",
      *          "limit" = "\d*",
@@ -72,11 +77,27 @@ class OrderComponentController
      *          "orderByDirection" = "DESC",
      *      },
      * )
-     * @Template
+     * @Template("AdminCartBundle:Order:Component/listComponent.html.twig")
      * @Method({"GET"})
+     *
+     * @PaginatorAnnotation(
+     *      attributes = "paginatorAttributes",
+     *      class = "elcodi.core.cart.entity.order.class",
+     *      page = "~page~",
+     *      limit = "~limit~",
+     *      orderBy = {
+     *          {"x", "~orderByField~", "~orderByDirection~"}
+     *      },
+     *      leftJoins = {
+     *          {"x", "orderLines", "ol", true},
+     *          {"x", "customer", "cu", true},
+     *          {"ol", "product", "p", true},
+     *      }
+     * )
      */
-    public function listAction(
-        Request $request,
+    public function listComponentAction(
+        Paginator $paginator,
+        PaginatorAttributes $paginatorAttributes,
         $page,
         $limit,
         $orderByField,
@@ -84,157 +105,102 @@ class OrderComponentController
     )
     {
         return [
+            'paginator'        => $paginator,
             'page'             => $page,
             'limit'            => $limit,
             'orderByField'     => $orderByField,
             'orderByDirection' => $orderByDirection,
+            'totalPages'       => $paginatorAttributes->getTotalPages(),
+            'totalElements'    => $paginatorAttributes->getTotalElements(),
         ];
     }
 
     /**
-     * View element action.
+     * Component for entity view
      *
-     * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * As a component, this action should not return all the html macro, but
+     * only the specific component
      *
-     * @param Request $request Request
-     * @param integer $id      Entity id
+     * @param AbstractEntity $entity Entity to view
      *
      * @return array Result
      *
      * @Route(
-     *      path = "/{id}",
-     *      name = "admin_order_view",
+     *      path = "/component/{id}",
+     *      name = "admin_order_view_component",
      *      requirements = {
      *          "id" = "\d*",
      *      }
      * )
-     * @Template
+     * @Template("AdminCartBundle:Order:Component/viewComponent.html.twig")
      * @Method({"GET"})
-     */
-    public function viewAction(
-        Request $request,
-        $id
-    )
-    {
-        return [
-            'id' => $id,
-        ];
-    }
-
-    /**
-     * New element action
-     *
-     * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/new",
-     *      name = "admin_order_new"
-     * )
-     * @Template
-     * @Method({"GET"})
-     */
-    public function newAction()
-    {
-        return [];
-    }
-
-    /**
-     * Save new element action
-     *
-     * Should be POST
-     *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to save
-     * @param FormInterface  $form    Form view
-     * @param boolean        $isValid Request handle is valid
-     *
-     * @return RedirectResponse Redirect response
-     *
-     * @Route(
-     *      path = "/save",
-     *      name = "admin_order_save"
-     * )
-     * @Method({"POST"})
      *
      * @EntityAnnotation(
      *      class = {
      *          "factory" = "elcodi.core.cart.factory.order",
      *      },
-     *      persist = true
-     * )
-     * @FormAnnotation(
-     *      class = "elcodi_admin_cart_form_type_order",
-     *      name  = "form",
-     *      entity = "entity",
-     *      handleRequest = true,
-     *      validate = "isValid"
+     *      mapping = {
+     *          "id" = "~id~"
+     *      }
      * )
      */
-    public function saveAction(
-        Request $request,
-        AbstractEntity $entity,
-        FormInterface $form,
-        $isValid
+    public function viewComponentAction(
+        AbstractEntity $entity
     )
     {
-        $this
-            ->getManagerForClass($entity)
-            ->flush($entity);
-
-        return $this->redirectRoute("admin_order_view", [
-            'id' => $entity->getId(),
-        ]);
+        return [
+            'entity' => $entity,
+        ];
     }
 
     /**
      * New element action
      *
-     * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * As a component, this action should not return all the html macro, but
+     * only the specific component
      *
-     * @param Request $request Request
-     * @param integer $id      Entity id
+     * @param FormView $formView Form view
      *
      * @return array Result
      *
      * @Route(
-     *      path = "/{id}/edit",
-     *      name = "admin_order_edit"
+     *      path = "/new/component",
+     *      name = "admin_order_new_component"
      * )
-     * @Template
+     * @Template("AdminCartBundle:Order:Component/newComponent.html.twig")
      * @Method({"GET"})
+     *
+     * @FormAnnotation(
+     *      class = "elcodi_admin_cart_form_type_order",
+     *      name  = "formView"
+     * )
      */
-    public function editAction(
-        Request $request,
-        $id
+    public function newComponentAction(
+        FormView $formView
     )
     {
         return [
-            'id' => $id,
+            'form' => $formView,
         ];
     }
 
     /**
-     * Updated edited element action
+     * New element component action
      *
-     * Should be POST
+     * As a component, this action should not return all the html macro, but
+     * only the specific component
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to update
-     * @param FormInterface  $form    Form view
-     * @param boolean        $isValid Request handle is valid
+     * @param AbstractEntity $entity   Entity
+     * @param FormView       $formView Form view
      *
-     * @return RedirectResponse Redirect response
+     * @return array Result
      *
      * @Route(
-     *      path = "/{id}/update",
-     *      name = "admin_order_update"
+     *      path = "/{id}/edit/component",
+     *      name = "admin_order_edit_component"
      * )
-     * @Method({"POST"})
+     * @Template("AdminCartBundle:Order:Component/editComponent.html.twig")
+     * @Method({"GET"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.cart.entity.order.class",
@@ -244,41 +210,35 @@ class OrderComponentController
      * )
      * @FormAnnotation(
      *      class = "elcodi_admin_cart_form_type_order",
-     *      name  = "form",
-     *      entity = "entity",
-     *      handleRequest = true,
-     *      validate = "isValid"
+     *      name  = "formView",
+     *      entity = "entity"
      * )
      */
-    public function updateAction(
-        Request $request,
+    public function editComponentAction(
         AbstractEntity $entity,
-        FormInterface $form,
-        $isValid
+        FormView $formView
     )
     {
-        $this
-            ->getManagerForClass($entity)
-            ->flush($entity);
-
-        return $this->redirectRoute("admin_order_view", [
-            'id' => $entity->getId(),
-        ]);
+        return [
+            'entity' => $entity,
+            'form'   => $formView,
+        ];
     }
 
     /**
-     * Enable entity
+     * View gallery action
      *
      * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to enable
+     * @param AbstractEntity $entity  Entity
      *
-     * @return array Result
+     * @return array result
      *
      * @Route(
-     *      path = "/{id}/enable",
-     *      name = "admin_order_enable"
+     *      path = "/{id}/gallery/component",
+     *      name = "admin_order_gallery_component"
      * )
-     * @Method({"GET", "POST"})
+     * @Template("AdminMediaBundle:Gallery:Component/view.html.twig")
+     * @Method({"GET"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.cart.entity.order.class",
@@ -287,80 +247,28 @@ class OrderComponentController
      *      }
      * )
      */
-    public function enableAction(
+    public function galleryComponentAction(
         Request $request,
         AbstractEntity $entity
     )
     {
-        return parent::enableAction(
-            $request,
-            $entity
-        );
-    }
+        $images = new ArrayCollection();
 
-    /**
-     * Disable entity
-     *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to disable
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/{id}/disable",
-     *      name = "admin_order_disable"
-     * )
-     * @Method({"GET", "POST"})
-     *
-     * @EntityAnnotation(
-     *      class = "elcodi.core.cart.entity.order.class",
-     *      mapping = {
-     *          "id" = "~id~"
-     *      }
-     * )
-     */
-    public function disableAction(
-        Request $request,
-        AbstractEntity $entity
-    )
-    {
-        return parent::disableAction(
-            $request,
-            $entity
-        );
-    }
+        /**
+         * @var OrderInterface     $entity
+         * @var OrderLineInterface $orderLine
+         */
+        foreach ($entity->getOrderLines() as $orderLine) {
 
-    /**
-     * Updated edited element action
-     *
-     * @param Request        $request     Request
-     * @param AbstractEntity $entity      Entity to delete
-     * @param string         $redirectUrl Redirect url
-     *
-     * @return RedirectResponse Redirect response
-     *
-     * @Route(
-     *      path = "/{id}/delete",
-     *      name = "admin_order_delete"
-     * )
-     * @Method({"GET", "POST"})
-     *
-     * @EntityAnnotation(
-     *      class = "elcodi.core.cart.entity.order.class",
-     *      mapping = {
-     *          "id" = "~id~"
-     *      }
-     * )
-     */
-    public function deleteAction(
-        Request $request,
-        AbstractEntity $entity,
-        $redirectUrl = null
-    )
-    {
-        return parent::deleteAction(
-            $request,
-            $entity
-        );
+            $images = new ArrayCollection(array_merge(
+                $images->toArray(),
+                $orderLine->getProduct()->getImages()->toArray()
+            ));
+        }
+
+        return [
+            'entity' => $entity,
+            'images' => $images,
+        ];
     }
 }

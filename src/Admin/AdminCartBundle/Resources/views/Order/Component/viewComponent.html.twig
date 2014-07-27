@@ -1,126 +1,68 @@
 {% extends 'AdminCoreBundle::Common/viewComponent.html.twig' %}
 
+
 {% block title %}
     {{ 'Order'|trans }} - {{ entity }}
 {% endblock title %}
 
+
+{% block view_buttons %}
+    <div class="spacer spacer-bottom">
+        <a href="{{ url("admin_order_list", {"id": entity.id}) }}" class="btn">{{ 'View all'|trans }}</a>
+        <a href="{{ url("admin_order_edit", {"id": entity.id}) }}" class="btn btn-primary">{{ 'Edit'|trans }}</a>
+        <a href="{{ url("admin_order_delete", {"id": entity.id}) }}" class="btn btn-danger">{{ 'Delete'|trans }}</a>
+    </div>
+{% endblock view_buttons %}
+
+
 {% block content %}
+    <tr>
+        <div class="alert alert-success alert-white rounded">
+            <div class="icon"><i class="fa fa-success"></i></div>
+            Last order history: <strong>{{ entity.orderHistories.last.state }}</strong>
+        </div>
+    </tr>
 
-
-    <tr>
-        <td>{{ 'quantity'|trans }}</td>
-        <td>
-            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
-            'entity': entity,
-            'field': 'quantity',
-            } %}
-        </td>
-    </tr>
-    <tr>
-        <td>{{ 'productAmount'|trans }}</td>
-        <td>
-            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
-            'entity': entity,
-            'field': 'productAmount',
-            } %}
-        </td>
-    </tr>
-    <tr>
-        <td>{{ 'couponAmount'|trans }}</td>
-        <td>
-            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
-            'entity': entity,
-            'field': 'couponAmount',
-            } %}
-        </td>
-    </tr>
-    <tr>
-        <td>{{ 'amount'|trans }}</td>
-        <td>
-            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
-            'entity': entity,
-            'field': 'amount',
-            } %}
-        </td>
-    </tr>
-    <tr>
-        <td>{{ 'createdAt'|trans }}</td>
-        <td>
-            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
-            'entity': entity,
-            'field': 'createdAt',
-            } %}
-        </td>
-    </tr>
-    <tr>
-        <td>{{ 'updatedAt'|trans }}</td>
-        <td>
-            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
-            'entity': entity,
-            'field': 'updatedAt',
-            } %}
-        </td>
-    </tr>
     <tr>
         <td>{{ 'customer'|trans }}</td>
         <td>
-            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
-            'entity': entity,
-            'field': 'customer',
-            } %}
-        </td>
-    </tr>
-    <tr>
-        <td>{{ 'cart'|trans }}</td>
-        <td>
-            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
-            'entity': entity,
-            'field': 'cart',
-            } %}
-        </td>
-    </tr>
-    <tr>
-        <td>{{ 'lastOrderHistory'|trans }}</td>
-        <td>
-            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
-            'entity': entity,
-            'field': 'lastOrderHistory',
-            } %}
+            <a href="{{ url("admin_customer_view", {id: entity.customer.id}) }}">
+                {{ entity.customer.username }}
+            </a>
         </td>
     </tr>
     <tr>
         <td>{{ 'orderLines'|trans }}</td>
         <td>
-            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
-            'entity': entity,
-            'field': 'orderLines',
-            } %}
+            <ul>
+                {% for orderLine in entity.orderLines %}
+                    <li>
+                        <a href="{{ url("admin_product_view", {id: orderLine.product.id}) }}">
+                            {{ orderLine.product.name }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
         </td>
     </tr>
     <tr>
-        <td>{{ 'orderHistories'|trans }}</td>
-        <td>
-            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
-            'entity': entity,
-            'field': 'orderHistories',
-            } %}
-        </td>
+        <td>{{ 'productAmount'|trans }}</td>
+        <td>{{ entity.productAmount|print_money }}</td>
     </tr>
     <tr>
-        <td>{{ 'currency'|trans }}</td>
-        <td>
-            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
-            'entity': entity,
-            'field': 'currency',
-            } %}
-        </td>
+        <td>{{ 'couponAmount'|trans }}</td>
+        <td>{{ entity.productAmount|print_money }}</td>
     </tr>
-
     <tr>
-        <td>
-            <a href="{{ url("admin_order_edit", {"id": entity.id}) }}" type="button" class="btn btn-primary btn-flat">Edit</a>
-            <a href="{{ url("admin_order_delete", {"id": entity.id}) }}" type="button" class="btn btn-danger btn-flat">Delete</a>
-        </td>
+        <td>{{ 'amount'|trans }}</td>
+        <td>{{ entity.amount|print_money }}</td>
     </tr>
-
+    <tr>
+        <td>{{ 'createdAt'|trans }}</td>
+        <td>{{ entity.createdAt|date('Y.m.d - H:i:s') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'updatedAt'|trans }}</td>
+        <td>{{ entity.updatedAt|date('Y.m.d - H:i:s') }}</td>
+    </tr>
 {% endblock content %}

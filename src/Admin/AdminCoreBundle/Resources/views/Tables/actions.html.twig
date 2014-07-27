@@ -5,7 +5,7 @@
     <a class="btn btn-primary btn-xs" data-original-title="{{ "Edit"|trans }}" data-toggle="tooltip" href="{{ url("admin_" ~ class ~ "_view", {"id": entity.id}) }}">
         <i class="fa fa-pencil"></i>
     </a>
-    {% if delete != false %}
+    {% if delete is not defined or delete != false %}
         <a class="btn btn-danger btn-xs" data-original-title="{{ "Remove"|trans }}" data-toggle="tooltip" href="{{ url("admin_" ~ class ~ "_delete", {"id": entity.id}) }}">
             <i class="fa fa-times"></i>
         </a>

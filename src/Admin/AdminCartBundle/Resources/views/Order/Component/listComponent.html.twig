@@ -1,71 +1,74 @@
 {% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
 
+
 {% block title %}
     {{ 'Order list'|trans }}
 {% endblock title %}
 
+
 {% block table_head %}
-    {% for field in paginatorFields %}
-        <th
-            class="sorting_asc"
-            tabindex="0"
-            rowspan="1"
-            colspan="1"
-            aria-controls="datatable"
-            aria-sort="ascending"
-            aria-label="Rendering engine: activate to sort column descending"
-            role="columnheader"
-            style="width: 268px;"
-            >{{ field }}
-        </th>
-    {% endfor %}
-    <th>Actions</th>
+    {% include "@AdminCore/Tables/head.html.twig" with {
+        rows: {
+            "id": { width:"25" },
+            "customer": {},
+            "Nb. OrderLines": { width:"25", sorting_disabled: true },
+            "Nb. OrderHistories": { width:"25", sorting_disabled: true },
+            "productAmount": {sorting_disabled: true },
+            "couponAmount": {sorting_disabled: true },
+            "amount": {sorting_disabled: true },
+            "last Mod.": {sorting_disabled: true },
+            "createdAt": {},
+            "updatedAt": {},
+        },
+        class: "order",
+    } %}
 {% endblock table_head %}
 
-{% block table_body %}
 
-    {% for entity in paginator %}
-        <tr class="gradeA odd">
-            {% for field in paginatorFields %}
+{% block table_body_row %}
+    <td>
+        <a href="{{ url("admin_order_view", {"id": entity.id}) }}">
+            {{ entity.id }}
+        </a>
+    </td>
+    <td>
+        <a href="{{ url("admin_product_view", { id: entity.customer.id }) }}">
+            {{ entity.customer.username }}
+        </a>
+    </td>
+    <td>
+        {{ entity.orderLines|length }}
+    </td>
+    <td>
+        {{ entity.quantity }}
+    </td>
+    <td>
+        {{ entity.productAmount|print_money }}
+    </td>
+    <td>
+        {{ entity.couponAmount|print_money }}
+    </td>
+    <td>
+        {{ entity.amount|print_money }}
+    </td>
+    <td>
+        {{ entity.orderHistories.last.createdAt|date("Y.m.d H:i:s") }}
+    </td>
+    <td>
+        {{ entity.createdAt|date("Y.m.d H:i:s") }}
+    </td>
+    <td>
+        {{ entity.updatedAt|date("Y.m.d H:i:s") }}
+    </td>
 
-                <td>
-                    {% include 'AdminCoreBundle::Common/listField.html.twig' with {
-                    'entity': entity,
-                    'field': field,
-                    } %}
-                </td>
+    {% include "@AdminCore/Tables/actions.html.twig" with {
+        entity: entity,
+        class: "order",
+    } %}
+{% endblock table_body_row %}
 
-            {% endfor %}
-            <td class="center ">
-                <div class="btn-group">
-                    <button class="btn btn-default btn-xs" type="button">
-                        Actions
-                    </button>
-                    <button data-toggle="dropdown" class="btn btn-xs btn-primary dropdown-toggle" type="button">
-                        <span class="caret"></span>
-                        <span class="sr-only">Toggle Dropdown</span>
-                    </button>
-                    <ul role="menu" class="dropdown-menu pull-right">
-                        <li>
-                            <a href="{{ url("admin_order_edit", {"id": entity.id}) }}">
-                                {{ "Edit"|trans }}
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ url("admin_order_view", {"id": entity.id}) }}">
-                                {{ "Details"|trans }}
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="{{ url("admin_order_delete", {"id": entity.id}) }}">
-                                {{ "Remove"|trans }}
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </td>
-        </tr>
-    {% endfor %}
 
-{% endblock table_body %}
+{% block table_paginator_links %}
+    {% set url = 'admin_order_list' %}
+    {{ parent() }}
+{% endblock table_paginator_links %}
