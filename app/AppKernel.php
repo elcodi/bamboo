@@ -46,6 +46,7 @@ class AppKernel extends Kernel
             new \Elcodi\UserBundle\ElcodiUserBundle(),
             new \Elcodi\GeoBundle\ElcodiGeoBundle(),
             new \Elcodi\ProductBundle\ElcodiProductBundle(),
+            new \Elcodi\AttributeBundle\ElcodiAttributeBundle(),
             new \Elcodi\MediaBundle\ElcodiMediaBundle(),
             new \Elcodi\MenuBundle\ElcodiMenuBundle(),
             new \Elcodi\RuleBundle\ElcodiRuleBundle(),
@@ -71,7 +72,6 @@ class AppKernel extends Kernel
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
-            $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
         }
 
         return $bundles;
