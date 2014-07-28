@@ -148,8 +148,13 @@ class OrderComponentController
         AbstractEntity $entity
     )
     {
+        $orderCoupons = $this
+            ->get('elcodi.order_coupon_manager')
+            ->getOrderCoupons($entity);
+
         return [
             'entity' => $entity,
+            'coupons' => $orderCoupons,
         ];
     }
 

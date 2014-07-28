@@ -8,7 +8,7 @@
 
 {% block view_buttons %}
     <div class="spacer spacer-bottom">
-        <a href="{{ url("admin_order_list", {"id": entity.id}) }}" class="btn">{{ 'View all'|trans }}</a>
+        <a href="{{ url("admin_order_list") }}" class="btn">{{ 'View all'|trans }}</a>
         <a href="{{ url("admin_order_edit", {"id": entity.id}) }}" class="btn btn-primary">{{ 'Edit'|trans }}</a>
         <a href="{{ url("admin_order_delete", {"id": entity.id}) }}" class="btn btn-danger">{{ 'Delete'|trans }}</a>
     </div>
@@ -39,6 +39,20 @@
                     <li>
                         <a href="{{ url("admin_product_view", {id: orderLine.product.id}) }}">
                             {{ orderLine.product.name }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>{{ 'coupons'|trans }}</td>
+        <td>
+            <ul>
+                {% for coupon in coupons %}
+                    <li>
+                        <a href="{{ url("admin_coupon_view", {id: coupon.id}) }}">
+                            {{ coupon.code }} - {{ coupon.name }}
                         </a>
                     </li>
                 {% endfor %}

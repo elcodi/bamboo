@@ -166,8 +166,13 @@ class CartComponentController
             ->get('elcodi.cart_event_dispatcher')
             ->dispatchCartOnLoadEvent($entity);
 
+        $coupons = $this
+            ->get('elcodi.cart_coupon_manager')
+            ->getCoupons($entity);
+
         return [
             'entity' => $entity,
+            'coupons' => $coupons,
         ];
     }
 

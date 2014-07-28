@@ -11,6 +11,7 @@
         <a href="{{ url("admin_cart_list", {"id": entity.id}) }}" class="btn">{{ 'View all'|trans }}</a>
         <a href="{{ url("admin_cart_edit", {"id": entity.id}) }}" class="btn btn-primary">{{ 'Edit'|trans }}</a>
         <a href="{{ url("admin_cart_delete", {"id": entity.id}) }}" class="btn btn-danger">{{ 'Delete'|trans }}</a>
+        <a href="{{ url("admin_cart_to_order", {"id": entity.id}) }}" class="btn btn-success">{{ 'To Order'|trans }}</a>
     </div>
 {% endblock view_buttons %}
 
@@ -22,15 +23,10 @@
                 <div class="icon"><i class="fa fa-warning"></i></div>
                 <strong>Wait!</strong> Cart not ordered yet!
             </div>
-        {% elseif entity.ordered == false %}
-            <div class="alert alert-info alert-white rounded">
-                <div class="icon"><i class="fa fa-info-circle"></i></div>
-                <strong>Almost done!</strong> This cart belongs to a non-paid order
-            </div>
         {% else %}
             <div class="alert alert-success alert-white rounded">
                 <div class="icon"><i class="fa fa-check"></i></div>
-                <strong>Success!</strong> This cart belongs to a paid order
+                <strong>Done!</strong> This cart belongs to an order
             </div>
         {% endif %}
     </tr>
@@ -61,6 +57,20 @@
                     <li>
                         <a href="{{ url("admin_product_view", {id: cartLine.product.id}) }}">
                             {{ cartLine.product.name }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>{{ 'coupons'|trans }}</td>
+        <td>
+            <ul>
+                {% for coupon in coupons %}
+                    <li>
+                        <a href="{{ url("admin_coupon_view", {id: coupon.id}) }}">
+                            {{ coupon.code }} - {{ coupon.name }}
                         </a>
                     </li>
                 {% endfor %}
