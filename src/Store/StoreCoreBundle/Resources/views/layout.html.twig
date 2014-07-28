@@ -23,16 +23,18 @@
         {% endblock header %}
 
         {% block messages %}
-
-            {% include 'StoreCoreBundle::messages.html.twig' %}
-
+            <div class="row pad-top-10">
+                <div class="span12">
+                    {% include "StoreCoreBundle::messages.html.twig" %}
+                </div>
+            </div>
         {% endblock messages %}
 
         <!-- Body -->
 
         <div class="row">
             <div class="span12">
-                <h1>{% block content_title %}{% endblock %}</h1>
+                <h1>{% block content_title %}{{ 'What\'s new'|trans() }}{% endblock %}</h1>
             </div>
         </div>
 

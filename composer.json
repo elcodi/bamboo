@@ -56,17 +56,17 @@
         "paymentsuite/payment-core-bundle": "v1.3",
         "paymentsuite/free-payment-bundle": "~1",
 
-        "elcodi/banner-bundle": "0.1.11",
-        "elcodi/cart-bundle": "0.1.11",
-        "elcodi/currency-bundle": "0.1.11",
-        "elcodi/media-bundle": "0.1.11",
-        "elcodi/product-bundle": "0.1.11",
-        "elcodi/user-bundle": "0.1.11",
-        "elcodi/cart-coupon-bundle": "0.1.11",
-        "elcodi/geo-bundle": "0.1.11"
+        "elcodi/banner-bundle": "0.1.12",
+        "elcodi/cart-bundle": "0.1.12",
+        "elcodi/currency-bundle": "0.1.12",
+        "elcodi/media-bundle": "0.1.12",
+        "elcodi/product-bundle": "0.1.12",
+        "elcodi/user-bundle": "0.1.12",
+        "elcodi/cart-coupon-bundle": "0.1.12",
+        "elcodi/geo-bundle": "0.1.12"
     },
     "require-dev": {
-        "elcodi/elcodi": "0.1.11"
+        "elcodi/elcodi": "0.1.12"
     },
     "scripts": {
         "post-install-cmd": [

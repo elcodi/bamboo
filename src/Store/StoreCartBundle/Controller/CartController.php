@@ -16,13 +16,14 @@
 
 namespace Store\StoreCartBundle\Controller;
 
+use Elcodi\ProductBundle\Entity\Interfaces\VariantInterface;
 use Symfony\Component\Form\Form;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -141,12 +142,42 @@ class CartController extends Controller
         CartInterface $cart
     )
     {
+        if ($request->request->get('add-cart-is-variant')) {
+            /**
+             * We are adding a Product with variant,
+             * we should identify the Variant given
+             * the submitted attribute/options
+             */
+            $optionIds = $request->request->get('variant-option-for-attribute');
+
+            $purchasable = $this
+                ->get('elcodi.repository.variant')
+                ->findByOptionIds($product, $optionIds);
+
+            if (!($purchasable instanceof VariantInterface)) {
+
+                throw new EntityNotFoundException($this
+                    ->container
+                    ->getParameter('elcodi.core.product.entity.variant.class'));
+            }
+
+        } else {
+            /**
+             * There is no variant, add the Product as is
+             */
+            $purchasable = $product;
+        }
+
+        $cart = $this
+            ->get('elcodi.cart_wrapper')
+            ->loadCart();
+
         $this
             ->get('elcodi.cart_manager')
             ->addProduct(
                 $cart,
-                $product,
-                $request->get('quantity', 1)
+                $purchasable,
+                (int) $request->request->get('add-cart-quantity', 1)
             );
 
         return $this->redirect(

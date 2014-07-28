@@ -1,3 +1,6 @@
+{#
+ # Base display block for a Product with no variants in listing page.
+ #}
 <div class="span4 product-listing">
 
     {% set productRoute = url('store_product_view', {
@@ -5,10 +8,13 @@
         'id': product.id
     }) %}
 
+    {% block pin_title %}
     <p class="title">
         <a href="{{ productRoute }}">{{ product.name }}</a>
     </p>
+    {% endblock %}
 
+    {% block pin_image %}
     <a href="{{ productRoute }}">
         <img class="image" src="{{ product.principalImage|resize({
             'width': 372,
@@ -16,6 +22,7 @@
             'type': 5
         }) }}" alt="{{ product.name }}" />
     </a>
+    {% endblock %}
 
     <p class="price">
 
@@ -27,11 +34,20 @@
 
         {% endif %}
 
-        <a class="btn btn-addcart btn-primary" href="{{ url('store_cart_add_product', { id: product.id }) }}">
+        {% block pin_button_addcart %}
+        <a class="btn btn-addcart btn-primary"
+           href="{{ url('store_cart_add_product', { id: product.id }) }}"
+           title="Add to cart {{ product.name }}">
             <span class="entypo cart"></span>
         </a>
-        <a class="btn btn-view btn-grey" href="{{ productRoute }}">
+        {% endblock %}
+
+        {% block pin_button_view %}
+        <a class="btn btn-view btn-grey"
+           title="View details for {{ product.name }}"
+           href="{{ productRoute }}">
             <span class="entypo search"></span>
         </a>
+        {% endblock %}
     </p>
 </div>

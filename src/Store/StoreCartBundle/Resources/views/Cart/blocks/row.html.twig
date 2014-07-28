@@ -15,7 +15,7 @@
         </a>
     </td>
     <td class="title">
-        <a href="{{ productRoute }}">{{ lineObject.product.name }}</a>
+        <a href="{{ productRoute }}">{{ lineObject.purchasable|purchasable_name }}</a>
     </td>
     <td class="qty">
         {{ form_row(line.quantity) }}
