@@ -1,13 +1,15 @@
 {% extends 'AdminCoreBundle::Common/formComponent.html.twig' %}
 
+
 {% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
+
 
 {% block title %}
     {{ 'New Manufacturer'|trans }}
 {% endblock title %}
 
-{% block content %}
 
+{% block content %}
     {{ form_start(form, {'action': url('admin_manufacturer_save')}) }}
 
         {{ form_row(form.name) }}
@@ -28,5 +30,4 @@
         </div>
 
     {{ form_end(form) }}
-
 {% endblock content %}

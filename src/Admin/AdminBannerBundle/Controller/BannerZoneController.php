@@ -130,6 +130,7 @@ class BannerZoneController
      * @Method({"GET"})
      *
      * @PaginatorAnnotation(
+     *      attributes = "paginatorAttributes",
      *      class = "elcodi.core.banner.entity.banner_zone.class",
      *      page = "~page~",
      *      limit = "~limit~",
@@ -148,17 +149,14 @@ class BannerZoneController
         $orderByDirection
     )
     {
-        $paginatorFields = $this
-            ->container
-            ->getParameter('elcodi.admin.banner.pagination.banner_zone.fields');
-
         return [
             'paginator'        => $paginator,
             'page'             => $page,
             'limit'            => $limit,
             'orderByField'     => $orderByField,
             'orderByDirection' => $orderByDirection,
-            'paginatorFields'  => $paginatorFields,
+            'totalPages'       => $paginatorAttributes->getTotalPages(),
+            'totalElements'    => $paginatorAttributes->getTotalElements(),
         ];
     }
 
@@ -336,7 +334,7 @@ class BannerZoneController
             ->flush($entity);
 
         return $this->redirectRoute("admin_banner_zone_view", [
-            'id'    =>  $entity->getId(),
+            'id' => $entity->getId(),
         ]);
     }
 
@@ -407,7 +405,7 @@ class BannerZoneController
     {
         return [
             'entity' => $entity,
-            'form' => $formView,
+            'form'   => $formView,
         ];
     }
 
@@ -455,7 +453,7 @@ class BannerZoneController
             ->flush($entity);
 
         return $this->redirectRoute("admin_banner_zone_view", [
-            'id'    =>  $entity->getId(),
+            'id' => $entity->getId(),
         ]);
     }
 

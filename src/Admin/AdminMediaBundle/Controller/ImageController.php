@@ -16,21 +16,18 @@
 
 namespace Admin\AdminMediaBundle\Controller;
 
+use Elcodi\MediaBundle\Entity\Image;
+use Mmoreram\ControllerExtraBundle\Annotation\JsonResponse;
 use Symfony\Component\Form\FormInterface;
-use Symfony\Component\Form\FormView;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Doctrine\ORM\Tools\Pagination\Paginator;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Exception;
 
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
-use Mmoreram\ControllerExtraBundle\Annotation\Paginator as PaginatorAnnotation;
-use Mmoreram\ControllerExtraBundle\ValueObject\PaginatorAttributes;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
-use Mmoreram\ControllerExtraBundle\Annotation\JsonResponse;
 
 use Elcodi\CoreBundle\Entity\Abstracts\AbstractEntity;
 
@@ -41,7 +38,7 @@ use Admin\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
  * Class Controller for Media
  *
  * @Route(
- *      path = "/image",
+ *      path = "/image"
  * )
  */
 class ImageController
@@ -56,7 +53,6 @@ class ImageController
      * This action is just a wrapper, so should never get any data,
      * as this is component responsability
      *
-     * @param Request $request          Request
      * @param integer $page             Page
      * @param integer $limit            Limit of items per page
      * @param string  $orderByField     Field to order by
@@ -82,7 +78,6 @@ class ImageController
      * @Method({"GET"})
      */
     public function listAction(
-        Request $request,
         $page,
         $limit,
         $orderByField,
@@ -94,71 +89,6 @@ class ImageController
             'limit'            => $limit,
             'orderByField'     => $orderByField,
             'orderByDirection' => $orderByDirection,
-        ];
-    }
-
-    /**
-     * Component for entity list.
-     *
-     * As a component, this action should not return all the html macro, but
-     * only the specific component
-     *
-     * @param Request   $request          Request
-     * @param Paginator $paginator        Paginator instance
-     * @param integer   $page             Page
-     * @param integer   $limit            Limit of items per page
-     * @param string    $orderByField     Field to order by
-     * @param string    $orderByDirection Direction to order by
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "s/list/component/{page}/{limit}/{orderByField}/{orderByDirection}",
-     *      name = "admin_image_list_component",
-     *      requirements = {
-     *          "page" = "\d*",
-     *          "limit" = "\d*",
-     *      },
-     *      defaults = {
-     *          "page" = "1",
-     *          "limit" = "50",
-     *          "orderByField" = "id",
-     *          "orderByDirection" = "DESC",
-     *      },
-     * )
-     * @Template
-     * @Method({"GET"})
-     *
-     * @PaginatorAnnotation(
-     *      class = "elcodi.core.media.entity.image.class",
-     *      page = "~page~",
-     *      limit = "~limit~",
-     *      orderBy = {
-     *          {"x", "~orderByField~", "~orderByDirection~"}
-     *      }
-     * )
-     */
-    public function listComponentAction(
-        Request $request,
-        Paginator $paginator,
-        PaginatorAttributes $paginatorAttributes,
-        $page,
-        $limit,
-        $orderByField,
-        $orderByDirection
-    )
-    {
-        $paginatorFields = $this
-            ->container
-            ->getParameter('elcodi.admin.media.pagination.image.fields');
-
-        return [
-            'paginator'        => $paginator,
-            'page'             => $page,
-            'limit'            => $limit,
-            'orderByField'     => $orderByField,
-            'orderByDirection' => $orderByDirection,
-            'paginatorFields'  => $paginatorFields,
         ];
     }
 
@@ -168,8 +98,7 @@ class ImageController
      * This action is just a wrapper, so should never get any data,
      * as this is component responsability
      *
-     * @param Request $request Request
-     * @param integer $id      Entity id
+     * @param integer $id Entity id
      *
      * @return array Result
      *
@@ -183,53 +112,10 @@ class ImageController
      * @Template
      * @Method({"GET"})
      */
-    public function viewAction(
-        Request $request,
-        $id
-    )
+    public function viewAction($id)
     {
         return [
             'id' => $id,
-        ];
-    }
-
-    /**
-     * Component for entity view
-     *
-     * As a component, this action should not return all the html macro, but
-     * only the specific component
-     *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to view
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/component/{id}",
-     *      name = "admin_image_view_component",
-     *      requirements = {
-     *          "id" = "\d*",
-     *      }
-     * )
-     * @Template
-     * @Method({"GET"})
-     *
-     * @EntityAnnotation(
-     *      class = {
-     *          "factory" = "elcodi.core.media.factory.image",
-     *      },
-     *      mapping = {
-     *          "id" = "~id~"
-     *      }
-     * )
-     */
-    public function viewComponentAction(
-        Request $request,
-        AbstractEntity $entity
-    )
-    {
-        return [
-            'entity' => $entity,
         ];
     }
 
@@ -254,50 +140,10 @@ class ImageController
     }
 
     /**
-     * New element action
-     *
-     * As a component, this action should not return all the html macro, but
-     * only the specific component
-     *
-     * @param Request  $request  Request
-     * @param FormView $formView Form view
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/new/component",
-     *      name = "admin_image_new_component"
-     * )
-     * @Template
-     * @Method({"GET"})
-     *
-     * @EntityAnnotation(
-     *      class = {
-     *          "factory" = "elcodi.core.media.factory.image",
-     *      }
-     * )
-     * @FormAnnotation(
-     *      class = "elcodi_admin_image_form_type_image",
-     *      name  = "formView",
-     *      entity = "entity"
-     * )
-     */
-    public function newComponentAction(
-        Request $request,
-        FormView $formView
-    )
-    {
-        return [
-            'form' => $formView,
-        ];
-    }
-
-    /**
      * Save new element action
      *
      * Should be POST
      *
-     * @param Request        $request Request
      * @param AbstractEntity $entity  Entity to save
      * @param FormInterface  $form    Form view
      * @param boolean        $isValid Request handle is valid
@@ -325,18 +171,19 @@ class ImageController
      * )
      */
     public function saveAction(
-        Request $request,
         AbstractEntity $entity,
         FormInterface $form,
         $isValid
     )
     {
-        $this
-            ->getManagerForClass($entity)
-            ->flush($entity);
+        if ($isValid) {
+            $this
+                ->getManagerForClass($entity)
+                ->flush($entity);
+        }
 
         return $this->redirectRoute("admin_image_view", [
-            'id'    =>  $entity->getId(),
+            'id' => $entity->getId(),
         ]);
     }
 
@@ -346,8 +193,7 @@ class ImageController
      * This action is just a wrapper, so should never get any data,
      * as this is component responsability
      *
-     * @param Request $request Request
-     * @param integer $id      Entity id
+     * @param integer $id Entity id
      *
      * @return array Result
      *
@@ -358,56 +204,10 @@ class ImageController
      * @Template
      * @Method({"GET"})
      */
-    public function editAction(
-        Request $request,
-        $id
-    )
+    public function editAction($id)
     {
         return [
             'id' => $id,
-        ];
-    }
-
-    /**
-     * New element component action
-     *
-     * As a component, this action should not return all the html macro, but
-     * only the specific component
-     *
-     * @param Request        $request  Request
-     * @param AbstractEntity $entity   Entity
-     * @param FormView       $formView Form view
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/{id}/edit/component",
-     *      name = "admin_image_edit_component"
-     * )
-     * @Template
-     * @Method({"GET"})
-     *
-     * @EntityAnnotation(
-     *      class = "elcodi.core.image.entity.image.class",
-     *      mapping = {
-     *          "id": "~id~",
-     *      }
-     * )
-     * @FormAnnotation(
-     *      class = "elcodi_admin_image_form_type_image",
-     *      name  = "formView",
-     *      entity = "entity"
-     * )
-     */
-    public function editComponentAction(
-        Request $request,
-        AbstractEntity $entity,
-        FormView $formView
-    )
-    {
-        return [
-            'entity' => $entity,
-            'form' => $formView,
         ];
     }
 
@@ -416,9 +216,7 @@ class ImageController
      *
      * Should be POST
      *
-     * @param Request        $request Request
      * @param AbstractEntity $entity  Entity to update
-     * @param FormInterface  $form    Form view
      * @param boolean        $isValid Request handle is valid
      *
      * @return RedirectResponse Redirect response
@@ -437,25 +235,24 @@ class ImageController
      * )
      * @FormAnnotation(
      *      class = "elcodi_admin_image_form_type_image",
-     *      name  = "form",
      *      entity = "entity",
      *      handleRequest = true,
      *      validate = "isValid"
      * )
      */
     public function updateAction(
-        Request $request,
         AbstractEntity $entity,
-        FormInterface $form,
         $isValid
     )
     {
-        $this
-            ->getManagerForClass($entity)
-            ->flush($entity);
+        if ($isValid) {
+            $this
+                ->getManagerForClass($entity)
+                ->flush($entity);
+        }
 
         return $this->redirectRoute("admin_image_view", [
-            'id'    =>  $entity->getId(),
+            'id' => $entity->getId(),
         ]);
     }
 
@@ -471,7 +268,7 @@ class ImageController
      *      path = "/{id}/enable",
      *      name = "admin_image_enable"
      * )
-     * @Method({"POST"})
+     * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.media.entity.image.class",
@@ -479,26 +276,16 @@ class ImageController
      *          "id" = "~id~"
      *      }
      * )
-     * @JsonResponse
      */
     public function enableAction(
         Request $request,
         AbstractEntity $entity
     )
     {
-        try {
-            $this->enableEntity($entity);
-
-            return [
-                'result' => 'ok',
-            ];
-        } catch (Exception $e) {
-            return [
-                'result'  => 'ko',
-                'code'    => $e->getCode(),
-                'message' => $e->getMessage(),
-            ];
-        }
+        return parent::enableAction(
+            $request,
+            $entity
+        );
     }
 
     /**
@@ -513,7 +300,7 @@ class ImageController
      *      path = "/{id}/disable",
      *      name = "admin_image_disable"
      * )
-     * @Method({"POST"})
+     * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.media.entity.image.class",
@@ -521,26 +308,16 @@ class ImageController
      *          "id" = "~id~"
      *      }
      * )
-     * @JsonResponse
      */
     public function disableAction(
         Request $request,
         AbstractEntity $entity
     )
     {
-        try {
-            $this->disableEntity($entity);
-
-            return [
-                'result' => 'ok',
-            ];
-        } catch (Exception $e) {
-            return [
-                'result'  => 'ko',
-                'code'    => $e->getCode(),
-                'message' => $e->getMessage(),
-            ];
-        }
+        return parent::disableAction(
+            $request,
+            $entity
+        );
     }
 
     /**
@@ -556,7 +333,7 @@ class ImageController
      *      path = "/{id}/delete",
      *      name = "admin_image_delete"
      * )
-     * @Method({"GET"})
+     * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.media.entity.image.class",
@@ -564,7 +341,6 @@ class ImageController
      *          "id" = "~id~"
      *      }
      * )
-     * @JsonResponse
      */
     public function deleteAction(
         Request $request,
@@ -572,18 +348,73 @@ class ImageController
         $redirectUrl = null
     )
     {
-        try {
-            $this->deleteEntity($entity);
+        return parent::deleteAction(
+            $request,
+            $entity
+        );
+    }
 
+    /**
+     * Nav for entity
+     *
+     * @param Request $request Request
+     *
+     * @return array Result
+     *
+     * @Route(
+     *      path = "/upload",
+     *      name = "admin_image_upload"
+     * )
+     * @Method({"POST"})
+     *
+     * @JsonResponse()
+     */
+    public function uploadAction(Request $request)
+    {
+        $file = $request->files->get('file');
+
+        /**
+         * @var $file UploadedFile
+         */
+        $fileMime = $file->getMimeType();
+        if (strpos($fileMime, 'image/') !== 0) {
             return [
-                'result' => 'ok',
-            ];
-        } catch (Exception $e) {
-            return [
-                'result'  => 'ko',
-                'code'    => $e->getCode(),
-                'message' => $e->getMessage(),
+                'status'  => 'ko',
+                'message' => 'Invalid format'
             ];
         }
+
+        if ($file instanceof UploadedFile) {
+
+            $image = $this
+                ->get('elcodi.image_manager')
+                ->createImage($file);
+
+            $imageObjectManager = $this->get('elcodi.object_manager.image');
+            $imageObjectManager->persist($image);
+            $imageObjectManager->flush($image);
+
+            $this
+                ->get('elcodi.file_manager')
+                ->uploadFile($image, $image->getContent(), false);
+
+            $filesystem = $this->container->get('elcodi.core.media.filesystem.default');
+            $fileTransformer = $this->container->get('elcodi.core.media.transformer.file');
+
+            $filesystem->write(
+                $fileTransformer->transform($image),
+                file_get_contents($file->getPathname()),
+                true
+            );
+
+            return [
+                'status' => 'ok'
+            ];
+        }
+
+        return [
+            'status'  => 'ko',
+            'message' => 'Upload error'
+        ];
     }
 }

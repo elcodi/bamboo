@@ -59,23 +59,6 @@ class ProductData extends AbstractFixture
         $currencyEuros = $this->getReference('currency-euro');
 
         /**
-         * @var ImageManager      $imageManager
-         * @var Adapter           $filesystemAdapter
-         * @var FileTransformer   $fileTransformer
-         * @var CategoryInterface $menCategory
-         * @var CategoryInterface $wemanCategory
-         * @var CurrencyInterface $currency
-         */
-        $imageManager = $this->container->get('elcodi.core.media.service.image_manager');
-        $imageFactory = $this->container->get('elcodi.core.product.factory.product');
-        $filesystem = $this->container->get('elcodi.core.media.filesystem.default');
-        $fileTransformer = $this->container->get('elcodi.core.media.transformer.file');
-        $menCategory = $this->getReference('category-men');
-        $womenCategory = $this->getReference('category-women');
-        $currency = $this->getReference('currency-dollar');
-        $currencyEuros = $this->getReference('currency-euro');
-
-        /**
          * Ibiza Lips
          *
          * @var ProductInterface $product

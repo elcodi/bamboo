@@ -5,5 +5,9 @@ services:
     #
     elcodi.admin.coupon.form_type.coupon:
         class: %elcodi.admin.coupon.form_type.coupon.class%
+        arguments:
+            entity: %elcodi.core.coupon.entity.coupon.class%
+            coupon_factory: @elcodi.factory.coupon
+            currency_factory: @elcodi.factory.currency
         tags:
             - { name: form.type, alias: elcodi_admin_coupon_form_type_coupon }

@@ -7,7 +7,7 @@ services:
         class: %elcodi.admin.product.form_type.product.class%
         arguments:
             entity: %elcodi.core.product.entity.product.class%
-            factory: @elcodi.factory.product
+            product_factory: @elcodi.factory.product
             currency_factory: @elcodi.factory.currency
         tags:
             - { name: form.type, alias: elcodi_admin_product_form_type_product }

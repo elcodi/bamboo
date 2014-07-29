@@ -14,8 +14,9 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Admin\AdminCurrencyBundle\Controller\Components;
+namespace Admin\AdminMediaBundle\Controller\Component;
 
+use Admin\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
 use Symfony\Component\Form\FormView;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -29,12 +30,14 @@ use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
 
 use Elcodi\CoreBundle\Entity\Abstracts\AbstractEntity;
 
-use Admin\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-
 /**
- * Class CurrencyComponentController
+ * Class ImageComponentController
+ *
+ * @Route(
+ *      path = "/image"
+ * )
  */
-class CurrencyComponentController extends AbstractAdminController
+class ImageComponentController extends AbstractAdminController
 {
     /**
      * Component for entity list.
@@ -52,8 +55,8 @@ class CurrencyComponentController extends AbstractAdminController
      * @return array Result
      *
      * @Route(
-     *      path = "currencies/list/component/{page}/{limit}/{orderByField}/{orderByDirection}",
-     *      name = "admin_currency_list_component",
+     *      path = "s/list/component/{page}/{limit}/{orderByField}/{orderByDirection}",
+     *      name = "admin_image_list_component",
      *      requirements = {
      *          "page" = "\d*",
      *          "limit" = "\d*",
@@ -63,14 +66,14 @@ class CurrencyComponentController extends AbstractAdminController
      *          "limit" = "50",
      *          "orderByField" = "id",
      *          "orderByDirection" = "DESC",
-     *      },
+     *      }
      * )
-     * @Template("AdminCurrencyBundle:Currency:Component/listComponent.html.twig")
+     * @Template("AdminMediaBundle:Image:Component/listComponent.html.twig")
      * @Method({"GET"})
      *
      * @PaginatorAnnotation(
      *      attributes = "paginatorAttributes",
-     *      class = "elcodi.core.currency.entity.currency.class",
+     *      class = "elcodi.core.media.entity.image.class",
      *      page = "~page~",
      *      limit = "~limit~",
      *      orderBy = {
@@ -109,27 +112,25 @@ class CurrencyComponentController extends AbstractAdminController
      * @return array Result
      *
      * @Route(
-     *      path = "currency/component/{id}",
-     *      name = "admin_currency_view_component",
+     *      path = "/component/{id}",
+     *      name = "admin_image_view_component",
      *      requirements = {
      *          "id" = "\d*",
      *      }
      * )
-     * @Template("AdminCurrencyBundle:Currency:Component/viewComponent.html.twig")
+     * @Template("AdminMediaBundle:Image:Component/viewComponent.html.twig")
      * @Method({"GET"})
      *
      * @EntityAnnotation(
      *      class = {
-     *          "factory" = "elcodi.core.currency.factory.currency",
+     *          "factory" = "elcodi.core.media.factory.image",
      *      },
      *      mapping = {
      *          "id" = "~id~"
      *      }
      * )
      */
-    public function viewComponentAction(
-        AbstractEntity $entity
-    )
+    public function viewComponentAction(AbstractEntity $entity)
     {
         return [
             'entity' => $entity,
@@ -147,26 +148,24 @@ class CurrencyComponentController extends AbstractAdminController
      * @return array Result
      *
      * @Route(
-     *      path = "/currency/new/component",
-     *      name = "admin_currency_new_component"
+     *      path = "/new/component",
+     *      name = "admin_image_new_component"
      * )
-     * @Template("AdminCurrencyBundle:Currency:Component/newComponent.html.twig")
+     * @Template("AdminMediaBundle:Image:Component/newComponent.html.twig")
      * @Method({"GET"})
      *
      * @EntityAnnotation(
      *      class = {
-     *          "factory" = "elcodi.core.currency.factory.currency",
+     *          "factory" = "elcodi.core.media.factory.image",
      *      }
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_currency_form_type_currency",
+     *      class = "elcodi_admin_image_form_type_image",
      *      name  = "formView",
      *      entity = "entity"
      * )
      */
-    public function newComponentAction(
-        FormView $formView
-    )
+    public function newComponentAction(FormView $formView)
     {
         return [
             'form' => $formView,
@@ -185,20 +184,20 @@ class CurrencyComponentController extends AbstractAdminController
      * @return array Result
      *
      * @Route(
-     *      path = "/currency/{id}/edit/component",
-     *      name = "admin_currency_edit_component"
+     *      path = "/{id}/edit/component",
+     *      name = "admin_image_edit_component"
      * )
-     * @Template("AdminCurrencyBundle:Currency:Component/editComponent.html.twig")
+     * @Template("AdminMediaBundle:Image:Component/editComponent.html.twig")
      * @Method({"GET"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.currency.entity.currency.class",
+     *      class = "elcodi.core.image.entity.image.class",
      *      mapping = {
      *          "id": "~id~",
      *      }
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_currency_form_type_currency",
+     *      class = "elcodi_admin_image_form_type_image",
      *      name  = "formView",
      *      entity = "entity"
      * )
@@ -212,5 +211,22 @@ class CurrencyComponentController extends AbstractAdminController
             'entity' => $entity,
             'form'   => $formView,
         ];
+    }
+
+    /**
+     * Dropzone component
+     *
+     * @return array Result
+     *
+     * @Route(
+     *      path = "/dropzone/component",
+     *      name = "admin_image_dropzone_component"
+     * )
+     * @Template("AdminMediaBundle:Image:Component/dropzoneComponent.html.twig")
+     * @Method({"GET"})
+     */
+    public function dropzoneComponentAction()
+    {
+        return [];
     }
 }

@@ -17,54 +17,34 @@
 namespace Admin\AdminMediaBundle\Controller;
 
 use Admin\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\CoreBundle\Entity\Abstracts\AbstractEntity;
-use Elcodi\ProductBundle\Entity\Interfaces\ProductInterface;
+use Admin\AdminCoreBundle\Controller\Interfaces\NavegableControllerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Annotation\Route;
-use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 
 /**
  * Class GalleryController
+ *
+ * @Route(
+ *      path = "/gallery"
+ * )
  */
-class GalleryController extends AbstractAdminController
+class GalleryController extends AbstractAdminController implements NavegableControllerInterface
 {
     /**
-     * View gallery action
+     * Nav for entity
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity
-     *
-     * @return array result
+     * @return array Result
      *
      * @Route(
-     *      path = "/{id}/gallery",
-     *      name = "admin_product_gallery"
+     *      path = "/nav",
+     *      name = "admin_gallery_nav"
      * )
-     * @Template("AdminMediaBundle:Gallery/Component:view.html.twig")
      * @Method({"GET"})
-     *
-     * @EntityAnnotation(
-     *      class = "elcodi.core.product.entity.product.class",
-     *      mapping = {
-     *          "id" = "~id~"
-     *      }
-     * )
+     * @Template
      */
-    public function viewAction(
-        Request $request,
-        AbstractEntity $entity
-    )
+    public function navAction()
     {
-        /**
-         * @var ProductInterface $entity
-         */
-
-        return [
-            'entity' => $entity,
-            'images' => $entity->getImages(),
-        ];
+        return [];
     }
-
 }

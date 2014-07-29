@@ -149,6 +149,7 @@ class BannerController
      * @Method({"GET"})
      *
      * @PaginatorAnnotation(
+     *      attributes = "paginatorAttributes",
      *      class = "elcodi.core.banner.entity.banner.class",
      *      page = "~page~",
      *      limit = "~limit~",
@@ -167,17 +168,14 @@ class BannerController
         $orderByDirection
     )
     {
-        $paginatorFields = $this
-            ->container
-            ->getParameter('elcodi.admin.banner.pagination.banner.fields');
-
         return [
             'paginator'        => $paginator,
             'page'             => $page,
             'limit'            => $limit,
             'orderByField'     => $orderByField,
             'orderByDirection' => $orderByDirection,
-            'paginatorFields'  => $paginatorFields,
+            'totalPages'       => $paginatorAttributes->getTotalPages(),
+            'totalElements'    => $paginatorAttributes->getTotalElements(),
         ];
     }
 

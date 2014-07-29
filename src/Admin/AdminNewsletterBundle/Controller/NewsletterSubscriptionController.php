@@ -103,12 +103,12 @@ class NewsletterSubscriptionController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request   $request          Request
-     * @param Paginator $paginator        Paginator instance
-     * @param integer   $page             Page
-     * @param integer   $limit            Limit of items per page
-     * @param string    $orderByField     Field to order by
-     * @param string    $orderByDirection Direction to order by
+     * @param Paginator           $paginator           Paginator instance
+     * @param PaginatorAttributes $paginatorAttributes Paginator Attributes
+     * @param integer             $page                Page
+     * @param integer             $limit               Limit of items per page
+     * @param string              $orderByField        Field to order by
+     * @param string              $orderByDirection    Direction to order by
      *
      * @return array Result
      *
@@ -139,7 +139,6 @@ class NewsletterSubscriptionController
      * )
      */
     public function listComponentAction(
-        Request $request,
         Paginator $paginator,
         PaginatorAttributes $paginatorAttributes,
         $page,
@@ -148,17 +147,14 @@ class NewsletterSubscriptionController
         $orderByDirection
     )
     {
-        $paginatorFields = $this
-            ->container
-            ->getParameter('elcodi.admin.newsletter.pagination.newsletter_subscription.fields');
-
         return [
             'paginator'        => $paginator,
             'page'             => $page,
             'limit'            => $limit,
             'orderByField'     => $orderByField,
             'orderByDirection' => $orderByDirection,
-            'paginatorFields'  => $paginatorFields,
+            'totalPages'       => $paginatorAttributes->getTotalPages(),
+            'totalElements'    => $paginatorAttributes->getTotalElements(),
         ];
     }
 
@@ -336,7 +332,7 @@ class NewsletterSubscriptionController
             ->flush($entity);
 
         return $this->redirectRoute("admin_newsletter_subscription_view", [
-            'id'    =>  $entity->getId(),
+            'id' => $entity->getId(),
         ]);
     }
 
@@ -407,7 +403,7 @@ class NewsletterSubscriptionController
     {
         return [
             'entity' => $entity,
-            'form' => $formView,
+            'form'   => $formView,
         ];
     }
 
@@ -455,7 +451,7 @@ class NewsletterSubscriptionController
             ->flush($entity);
 
         return $this->redirectRoute("admin_newsletter_subscription_view", [
-            'id'    =>  $entity->getId(),
+            'id' => $entity->getId(),
         ]);
     }
 

@@ -103,12 +103,12 @@ class RuleGroupController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request   $request          Request
-     * @param Paginator $paginator        Paginator instance
-     * @param integer   $page             Page
-     * @param integer   $limit            Limit of items per page
-     * @param string    $orderByField     Field to order by
-     * @param string    $orderByDirection Direction to order by
+     * @param Paginator           $paginator           Paginator instance
+     * @param PaginatorAttributes $paginatorAttributes Paginator Attributes
+     * @param integer             $page                Page
+     * @param integer             $limit               Limit of items per page
+     * @param string              $orderByField        Field to order by
+     * @param string              $orderByDirection    Direction to order by
      *
      * @return array Result
      *
@@ -139,7 +139,6 @@ class RuleGroupController
      * )
      */
     public function listComponentAction(
-        Request $request,
         Paginator $paginator,
         PaginatorAttributes $paginatorAttributes,
         $page,
@@ -154,6 +153,8 @@ class RuleGroupController
             'limit'            => $limit,
             'orderByField'     => $orderByField,
             'orderByDirection' => $orderByDirection,
+            'totalPages'       => $paginatorAttributes->getTotalPages(),
+            'totalElements'    => $paginatorAttributes->getTotalElements(),
         ];
     }
 
@@ -331,7 +332,7 @@ class RuleGroupController
             ->flush($entity);
 
         return $this->redirectRoute("admin_rule_group_view", [
-            'id'    =>  $entity->getId(),
+            'id' => $entity->getId(),
         ]);
     }
 
@@ -402,7 +403,7 @@ class RuleGroupController
     {
         return [
             'entity' => $entity,
-            'form' => $formView,
+            'form'   => $formView,
         ];
     }
 
@@ -450,7 +451,7 @@ class RuleGroupController
             ->flush($entity);
 
         return $this->redirectRoute("admin_rule_group_view", [
-            'id'    =>  $entity->getId(),
+            'id' => $entity->getId(),
         ]);
     }
 

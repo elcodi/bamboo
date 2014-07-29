@@ -16,14 +16,82 @@
 
 namespace Admin\AdminCouponBundle\Form\Type;
 
+use Elcodi\CouponBundle\ElcodiCouponTypes;
+use Elcodi\CouponBundle\Entity\Interfaces\CouponInterface;
+use Elcodi\CouponBundle\Factory\CouponFactory;
+use Elcodi\CurrencyBundle\Entity\Money;
+use Elcodi\CurrencyBundle\Factory\CurrencyFactory;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
  * Class CouponType
  */
 class CouponType extends AbstractType
 {
+    /**
+     * @var string
+     *
+     * Entity namespace
+     */
+    protected $entityNamespace;
+
+    /**
+     * @var CouponFactory
+     *
+     * productFactory
+     */
+    protected $couponFactory;
+
+    /**
+     * @var CurrencyFactory
+     *
+     * currencyFactory
+     */
+    protected $currencyFactory;
+
+    /**
+     * Construct method
+     *
+     * @param string          $entityNamespace Entity namespace
+     * @param CouponFactory   $couponFactory   Coupon Factory
+     * @param CurrencyFactory $currencyFactory Currency factory
+     */
+    public function __construct(
+        $entityNamespace,
+        CouponFactory $couponFactory,
+        CurrencyFactory $currencyFactory
+    )
+    {
+        $this->entityNamespace = $entityNamespace;
+        $this->couponFactory = $couponFactory;
+        $this->currencyFactory = $currencyFactory;
+    }
+
+    /**
+     * Default form options
+     *
+     * @param OptionsResolverInterface $resolver
+     *
+     * @return array With the options
+     */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $money = Money::create(1, $this->currencyFactory->create()->setIso('EUR'));
+
+        /**
+         * @var CouponInterface $coupon
+         */
+        $coupon = $this->couponFactory->create();
+        $coupon->setPrice($money);
+        $coupon->setMinimumPurchase($money);
+
+        $resolver->setDefaults(array(
+            'empty_data' => $coupon
+        ));
+    }
+
     /**
      * Buildform function
      *
@@ -41,11 +109,23 @@ class CouponType extends AbstractType
                 'required' => false,
                 'label'    => 'name',
             ))
-            ->add('type', 'integer', array(
-                'required' => false,
+            ->add('type', 'choice', array(
+                'required' => true,
                 'label'    => 'type',
+                'choices'  => [
+                    ElcodiCouponTypes::TYPE_AMOUNT  => 'Amount',
+                    ElcodiCouponTypes::TYPE_PERCENT => 'Percent',
+                ],
             ))
-            ->add('priceAmount', 'integer', array(
+            ->add('enforcement', 'choice', array(
+                'required' => true,
+                'label'    => 'type',
+                'choices'  => [
+                    ElcodiCouponTypes::ENFORCEMENT_MANUAL    => 'Manual application',
+                    ElcodiCouponTypes::ENFORCEMENT_AUTOMATIC => 'Automatic application',
+                ],
+            ))
+            ->add('price', 'money_object', array(
                 'required' => false,
                 'label'    => 'priceAmount',
             ))
@@ -65,9 +145,9 @@ class CouponType extends AbstractType
                 'required' => false,
                 'label'    => 'priority',
             ))
-            ->add('minimumPurchaseAmount', 'number', array(
+            ->add('minimumPurchase', 'money_object', array(
                 'required' => false,
-                'label'    => 'minimumPurchaseAmount',
+                'label'    => 'Minimum purchase',
             ))
             ->add('validFrom', 'datetime', array(
                 'widget'   => 'single_text',
@@ -96,12 +176,6 @@ class CouponType extends AbstractType
             ->add('enabled', 'checkbox', array(
                 'required' => false,
                 'label'    => 'enabled',
-            ))
-            ->add('priceCurrency', 'entity', array(
-                'class'    => 'Elcodi\CurrencyBundle\Entity\Currency',
-                'required' => false,
-                'label'    => 'priceCurrency',
-                'multiple' => false,
             ));
     }
 

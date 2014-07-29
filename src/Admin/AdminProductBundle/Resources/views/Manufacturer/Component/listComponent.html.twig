@@ -1,11 +1,12 @@
 {% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
 
+
 {% block title %}
     {{ 'Manufacturer list'|trans }}
 {% endblock title %}
 
-{% block table_head %}
 
+{% block table_head %}
     {% include "@AdminCore/Tables/head.html.twig" with {
         rows: {
             "Id": {width:"25"},
@@ -17,11 +18,10 @@
         },
         class: "manufacturer",
     } %}
-
 {% endblock table_head %}
 
-{% block table_body_row %}
 
+{% block table_body_row %}
     <td>
         <a href="{{ url("admin_manufacturer_view", {"id": entity.id}) }}">
             {{ entity.id }}
@@ -47,15 +47,14 @@
         entity: entity,
         class: "manufacturer",
     } %}
-
 {% endblock table_body_row %}
 
-{% block table_paginator_links %}
 
+{% block table_paginator_links %}
     {% set url = 'admin_manufacturer_list' %}
     {{ parent() }}
-
 {% endblock table_paginator_links %}
+
 
 {% block table_buttons %}
     <a href="{{ url("admin_manufacturer_new") }}"type="button" class="btn btn-success">{{ "New manufacturer"|trans }}</a>

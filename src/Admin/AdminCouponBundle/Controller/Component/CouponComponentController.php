@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Admin\AdminCurrencyBundle\Controller\Components;
+namespace Admin\AdminCouponBundle\Controller\Component;
 
 use Symfony\Component\Form\FormView;
 use Doctrine\ORM\Tools\Pagination\Paginator;
@@ -26,15 +26,14 @@ use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Paginator as PaginatorAnnotation;
 use Mmoreram\ControllerExtraBundle\ValueObject\PaginatorAttributes;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
-
 use Elcodi\CoreBundle\Entity\Abstracts\AbstractEntity;
 
 use Admin\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
 
 /**
- * Class CurrencyComponentController
+ * Class CouponComponentController
  */
-class CurrencyComponentController extends AbstractAdminController
+class CouponComponentController extends AbstractAdminController
 {
     /**
      * Component for entity list.
@@ -52,8 +51,8 @@ class CurrencyComponentController extends AbstractAdminController
      * @return array Result
      *
      * @Route(
-     *      path = "currencies/list/component/{page}/{limit}/{orderByField}/{orderByDirection}",
-     *      name = "admin_currency_list_component",
+     *      path = "s/list/component/{page}/{limit}/{orderByField}/{orderByDirection}",
+     *      name = "admin_coupon_list_component",
      *      requirements = {
      *          "page" = "\d*",
      *          "limit" = "\d*",
@@ -65,12 +64,12 @@ class CurrencyComponentController extends AbstractAdminController
      *          "orderByDirection" = "DESC",
      *      },
      * )
-     * @Template("AdminCurrencyBundle:Currency:Component/listComponent.html.twig")
+     * @Template("AdminCouponBundle:Coupon/Component:listComponent.html.twig")
      * @Method({"GET"})
      *
      * @PaginatorAnnotation(
      *      attributes = "paginatorAttributes",
-     *      class = "elcodi.core.currency.entity.currency.class",
+     *      class = "elcodi.core.coupon.entity.coupon.class",
      *      page = "~page~",
      *      limit = "~limit~",
      *      orderBy = {
@@ -109,27 +108,25 @@ class CurrencyComponentController extends AbstractAdminController
      * @return array Result
      *
      * @Route(
-     *      path = "currency/component/{id}",
-     *      name = "admin_currency_view_component",
+     *      path = "/component/{id}",
+     *      name = "admin_coupon_view_component",
      *      requirements = {
      *          "id" = "\d*",
      *      }
      * )
-     * @Template("AdminCurrencyBundle:Currency:Component/viewComponent.html.twig")
+     * @Template("AdminCouponBundle:Coupon/Component:viewComponent.html.twig")
      * @Method({"GET"})
      *
      * @EntityAnnotation(
      *      class = {
-     *          "factory" = "elcodi.core.currency.factory.currency",
+     *          "factory" = "elcodi.core.coupon.factory.coupon",
      *      },
      *      mapping = {
      *          "id" = "~id~"
      *      }
      * )
      */
-    public function viewComponentAction(
-        AbstractEntity $entity
-    )
+    public function viewComponentAction(AbstractEntity $entity)
     {
         return [
             'entity' => $entity,
@@ -147,26 +144,24 @@ class CurrencyComponentController extends AbstractAdminController
      * @return array Result
      *
      * @Route(
-     *      path = "/currency/new/component",
-     *      name = "admin_currency_new_component"
+     *      path = "/new/component",
+     *      name = "admin_coupon_new_component"
      * )
-     * @Template("AdminCurrencyBundle:Currency:Component/newComponent.html.twig")
+     * @Template("AdminCouponBundle:Coupon/Component:newComponent.html.twig")
      * @Method({"GET"})
      *
      * @EntityAnnotation(
      *      class = {
-     *          "factory" = "elcodi.core.currency.factory.currency",
+     *          "factory" = "elcodi.core.coupon.factory.coupon",
      *      }
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_currency_form_type_currency",
+     *      class = "elcodi_admin_coupon_form_type_coupon",
      *      name  = "formView",
      *      entity = "entity"
      * )
      */
-    public function newComponentAction(
-        FormView $formView
-    )
+    public function newComponentAction(FormView $formView)
     {
         return [
             'form' => $formView,
@@ -185,20 +180,20 @@ class CurrencyComponentController extends AbstractAdminController
      * @return array Result
      *
      * @Route(
-     *      path = "/currency/{id}/edit/component",
-     *      name = "admin_currency_edit_component"
+     *      path = "/{id}/edit/component",
+     *      name = "admin_coupon_edit_component"
      * )
-     * @Template("AdminCurrencyBundle:Currency:Component/editComponent.html.twig")
+     * @Template("AdminCouponBundle:Coupon/Component:editComponent.html.twig")
      * @Method({"GET"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.currency.entity.currency.class",
+     *      class = "elcodi.core.coupon.entity.coupon.class",
      *      mapping = {
      *          "id": "~id~",
      *      }
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_currency_form_type_currency",
+     *      class = "elcodi_admin_coupon_form_type_coupon",
      *      name  = "formView",
      *      entity = "entity"
      * )

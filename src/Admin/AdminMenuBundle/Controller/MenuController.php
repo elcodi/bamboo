@@ -122,12 +122,12 @@ class MenuController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request   $request          Request
-     * @param Paginator $paginator        Paginator instance
-     * @param integer   $page             Page
-     * @param integer   $limit            Limit of items per page
-     * @param string    $orderByField     Field to order by
-     * @param string    $orderByDirection Direction to order by
+     * @param Paginator           $paginator           Paginator instance
+     * @param PaginatorAttributes $paginatorAttributes Paginator Attributes
+     * @param integer             $page                Page
+     * @param integer             $limit               Limit of items per page
+     * @param string              $orderByField        Field to order by
+     * @param string              $orderByDirection    Direction to order by
      *
      * @return array Result
      *
@@ -158,7 +158,6 @@ class MenuController
      * )
      */
     public function listComponentAction(
-        Request $request,
         Paginator $paginator,
         PaginatorAttributes $paginatorAttributes,
         $page,
@@ -173,6 +172,8 @@ class MenuController
             'limit'            => $limit,
             'orderByField'     => $orderByField,
             'orderByDirection' => $orderByDirection,
+            'totalPages'       => $paginatorAttributes->getTotalPages(),
+            'totalElements'    => $paginatorAttributes->getTotalElements(),
         ];
     }
 
@@ -350,7 +351,7 @@ class MenuController
             ->flush($entity);
 
         return $this->redirectRoute("admin_menu_view", [
-            'id'    =>  $entity->getId(),
+            'id' => $entity->getId(),
         ]);
     }
 
@@ -421,7 +422,7 @@ class MenuController
     {
         return [
             'entity' => $entity,
-            'form' => $formView,
+            'form'   => $formView,
         ];
     }
 
@@ -469,7 +470,7 @@ class MenuController
             ->flush($entity);
 
         return $this->redirectRoute("admin_menu_view", [
-            'id'    =>  $entity->getId(),
+            'id' => $entity->getId(),
         ]);
     }
 
