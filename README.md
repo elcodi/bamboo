@@ -27,7 +27,7 @@ Use the `git clone` command to generate a new Bamboo Admin
 application:
 
 ```bash
-$ git clone git@github.com:elcodi/bamboo-admin.git <path/to/install>
+$ git clone https://github.com/elcodi/bamboo-admin.git <path/to/install>
 ```
 
 2) Install project dependencies
@@ -73,14 +73,14 @@ You can now load the sample data by using the ``doctrine:fixture:load`` command:
 $ php app/console doctrine:fixture:load --fixtures=src
 ```
 
-4) Install the assets
+5) Install the assets
 ---------------------
 
 ```bash
 $ php app/console assets:install web && php app/console assetic:dump
 ```
 
-5) Run the application using php's built-in web server
+6) Run the application using php's built-in web server
 ------------------------------------------------------
 
 ```bash
