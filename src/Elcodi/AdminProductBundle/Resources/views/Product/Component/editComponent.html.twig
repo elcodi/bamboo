@@ -3,7 +3,7 @@
 {% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
 
 {% block title %}
-    {{ 'Edit Product'|trans }} - {{ entity.id }}
+    {{ 'Edit Product'|trans }} - {{ entity.id }} - {{ entity.name }}
 {% endblock title %}
 
 {% block content %}
@@ -12,15 +12,38 @@
         'id': entity.id
     })}) }}
 
+        {% if entity.hasVariants() %}
+
+            <div class="alert alert-info alert-white rounded">
+                <button data-dismiss="alert" class="close" type="button">×</button>
+                <div class="icon"><i class="icon-info-sign"></i></div>
+
+                <strong>{{ 'This product has variants'|trans }}</strong>
+
+                {{ 'Manage them from the %admin_product_detail% page'|trans({
+                    '%admin_product_detail%':
+                        '<a href="' ~
+                        url('admin_product_view', {id: entity.id}) ~
+                        '" title="' ~
+                        entity.name ~
+                        '">product detail</a>'
+                    })|raw
+                }}
+            </div>
+
+        {% endif %}
+
         {{ form_row(form.name) }}
         {{ form_row(form.slug) }}
         {{ form_row(form.shortDescription) }}
         {{ form_row(form.description) }}
         {{ form_row(form.showInHome) }}
         {{ form_row(form.dimensions) }}
-        {{ form_row(form.stock) }}
-        {{ form_row(form.price) }}
-        {{ form_row(form.reducedPrice) }}
+        {% if not entity.hasVariants() %}
+            {{ form_row(form.stock) }}
+            {{ form_row(form.price) }}
+            {{ form_row(form.reducedPrice) }}
+        {% endif %}
         {{ form_row(form.createdAt) }}
         {{ form_row(form.updatedAt) }}
         {{ form_row(form.enabled) }}
@@ -40,6 +63,6 @@
             </div>
         </div>
 
-    {{ form_end(form) }}
+    {{ form_end(form, {render_rest : false}) }}
 
 {% endblock content %}

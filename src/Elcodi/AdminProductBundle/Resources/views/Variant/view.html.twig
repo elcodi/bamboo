@@ -1,0 +1,37 @@
+{% extends '@AdminProduct/Product/view.html.twig' %}
+
+{% block content_title %}
+    {{ 'Product Variant Zone'|trans }}
+{% endblock content_title %}
+
+{% block breadcrumb %}
+
+    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
+        breadcrumb: {
+            "view product": {
+                "active" : true
+            }
+        }
+    } %}
+
+{% endblock breadcrumb %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-6">
+            {{ render(url("admin_variant_view_component", {
+                'id': id,
+                'variantId': variantId
+            })) }}
+        </div>
+
+        <div class="col-md-6">
+            {{ render(url("admin_product_gallery_component", {
+                'id': variantId
+            })) }}
+        </div>
+
+    </div>
+
+{% endblock content %}

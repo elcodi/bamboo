@@ -1,0 +1,100 @@
+{% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
+
+{% block title %}
+    {{ 'Variants'|trans }}
+{% endblock title %}
+
+{% block table_head %}
+
+    {% include "@AdminProduct/Variant/Tables/head.html.twig" with {
+        rows: {
+            "id": {width:"25"},
+            "stock": {width:"25"},
+            "price": {width:"50"},
+            "reducedPrice": {width:"50"},
+            "enabled": {width:"25"},
+        },
+        class: "variant",
+        id: entity.id
+    } %}
+
+{% endblock table_head %}
+
+{% block table_body_row %}
+
+    <td>
+        <a href="{{ url("admin_product_view", {"id": entity.id}) }}">
+            {{ entity.id }}
+        </a>
+    </td>
+    <td>
+        {{ entity.stock }}
+    </td>
+    <td>
+        {{ entity.price|print_money }}
+    </td>
+    <td>
+        {{ entity.reducedPrice|print_money }}
+    </td>
+    <td>
+        {% if entity.enabled %}<span class="label label-success">true</span>{% else %}<span class="label label-danger">false</span>{% endif %}
+    </td>
+
+    <td class="center">
+        <a class="btn btn-default btn-xs"
+           data-original-title="{{ "Show"|trans }}"
+           data-toggle="tooltip"
+           href="{{
+                    url(
+                        "admin_variant_view", {
+                            "id": entity.product.id,
+                            "variantId": entity.id
+                        }
+                    )
+                 }}">
+            <i class="fa fa-file"></i>
+        </a>
+        <a class="btn btn-primary btn-xs"
+           data-original-title="{{ "Edit"|trans }}"
+           data-toggle="tooltip"
+           href="{{
+                    url(
+                        "admin_variant_edit", {
+                            "id": entity.product.id,
+                            "variantId": entity.id
+                        }
+                    )
+                 }}">
+            <i class="fa fa-pencil"></i>
+        </a>
+        {% if delete is not defined or delete != false %}
+            <a class="btn btn-danger btn-xs"
+               data-original-title="{{ "Remove"|trans }}"
+               data-toggle="tooltip"
+               href="{{
+                        url(
+                            "admin_variant_delete", {
+                                "id": entity.product.id,
+                               "variantId": entity.id
+                            }
+                        )
+                     }}">
+                <i class="fa fa-times"></i>
+            </a>
+        {% endif %}
+    </td>
+
+{% endblock table_body_row %}
+
+{% block table_paginator_links %}
+{% endblock table_paginator_links %}
+
+{#
+ # Twig variable 'productId' is passed directly
+ # from VariantComponentController::listComponentAction
+ # since in this block scope we cannot access entities
+ # being iterated
+ #}
+{% block table_buttons %}
+    <a href="{{ url("admin_variant_new", {id: productId}) }}"type="button" class="btn btn-success">{{ "New Variant"|trans }}</a>
+{% endblock table_buttons %}

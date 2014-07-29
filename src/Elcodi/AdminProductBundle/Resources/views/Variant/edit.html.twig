@@ -1,7 +1,7 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
 {% block content_title %}
-    {{ 'Product Zone'|trans }}
+    {{ 'Variant Product Zone'|trans }}
 {% endblock content_title %}
 
 {% block breadcrumb %}
@@ -22,12 +22,13 @@
 {% block content %}
 
     <div class="row">
-        <div class="col-md-6">
-            {{ render(url('admin_product_edit_component', {
-                'id': id
+        <div class="col-md-8">
+            {{ render(url('admin_variant_edit_component', {
+                'id': id,
+                'variantId': variantId
             })) }}
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             {{ render(url('admin_product_gallery_component', {
                 'id': id,
             })) }}

@@ -30,20 +30,22 @@
         {% set directionclass = "sorting" %}
     {% endif %}
 
-    <th role="columnheader" tabindex="0" aria-controls="database-icons" class="{{ directionclass }}"
-        {% if info.width is defined %} style="width={{ info.width }}px"{% endif %}
-            >
-            {% if islink %}
-                <a href="{{ url("admin_" ~ class ~ "_list", {
-                    "page": page,
-                    "limit": limit,
-                    "orderByField": field,
-                    "orderByDirection": direction
-                }) }}">{{ row|trans }}</a>
-            {% else %}
-                {{ row|trans }}
-            {% endif %}
-    </th>
+    {% block column_header %}
+        <th role="columnheader" tabindex="0" aria-controls="database-icons" class="{{ directionclass }}"
+            {% if info.width is defined %} style="width={{ info.width }}px"{% endif %}
+                >
+                {% if islink %}
+                    <a href="{{ url("admin_" ~ class ~ "_list", {
+                        "page": page,
+                        "limit": limit,
+                        "orderByField": field,
+                        "orderByDirection": direction
+                    }) }}">{{ row|trans }}</a>
+                {% else %}
+                    {{ row|trans }}
+                {% endif %}
+        </th>
+    {% endblock %}
 
 {% endfor %}
 <th>{{ "Actions"|trans }}</th>

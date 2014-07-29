@@ -1,0 +1,43 @@
+{% extends 'AdminCoreBundle::Common/formComponent.html.twig' %}
+
+{% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
+
+{% block title %}
+    {{ 'Edit Variant'|trans }} - {{ entity.id }} - {{ entity|purchasable_name }}
+{% endblock title %}
+
+{% block content %}
+
+    {{ form_start(form, {'action': url('admin_variant_update', {
+        'id': entity.product.id,
+        'variantId': entity.id
+    })}) }}
+
+
+    <div class="alert alert-info alert-white rounded">
+        <button data-dismiss="alert" class="close" type="button">×</button>
+        <div class="icon"><i class="icon-info-sign"></i></div>
+        <strong>This is a product variant</strong> for the product
+        <a href="{{ url('admin_product_view', {id: entity.product.id}) }}"  title="{{ entity.product.name }}">
+            {{ entity.product.name }}
+        </a>
+    </div>
+
+    {{ form_row(form.options) }}
+    {{ form_row(form.stock) }}
+    {{ form_row(form.price) }}
+    {{ form_row(form.reducedPrice) }}
+    {{ form_row(form.createdAt) }}
+    {{ form_row(form.updatedAt) }}
+    {{ form_row(form.enabled) }}
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">{{ 'Update'|trans }}</button>
+            <button class="btn btn-default">{{ 'Cancel'|trans }}</button>
+        </div>
+    </div>
+
+    {{ form_end(form) }}
+
+{% endblock content %}

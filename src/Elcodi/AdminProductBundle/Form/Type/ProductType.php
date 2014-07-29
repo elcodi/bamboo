@@ -16,82 +16,15 @@
 
 namespace Elcodi\AdminProductBundle\Form\Type;
 
-use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-use Elcodi\CurrencyBundle\Entity\Money;
-use Elcodi\CurrencyBundle\Factory\CurrencyFactory;
-use Elcodi\ProductBundle\Entity\Interfaces\ProductInterface;
-use Elcodi\ProductBundle\Factory\ProductFactory;
+use Elcodi\AdminProductBundle\Form\Type\Abstracts\AbstractPurchasableType;
 
 /**
  * Class ProductType
  */
-class ProductType extends AbstractType
+class ProductType extends AbstractPurchasableType
 {
-    /**
-     * @var string
-     *
-     * Entity namespace
-     */
-    protected $entityNamespace;
-
-    /**
-     * @var ProductFactory
-     *
-     * productFactory
-     */
-    protected $productFactory;
-
-    /**
-     * @var CurrencyFactory
-     *
-     * currencyFactory
-     */
-    protected $currencyFactory;
-
-    /**
-     * Construct method
-     *
-     * @param string          $entityNamespace Entity namespace
-     * @param ProductFactory  $productFactory  Product factory
-     * @param CurrencyFactory $currencyFactory Currency factory
-     */
-    public function __construct(
-        $entityNamespace,
-        ProductFactory $productFactory,
-        CurrencyFactory $currencyFactory
-    )
-    {
-        $this->entityNamespace = $entityNamespace;
-        $this->productFactory = $productFactory;
-        $this->currencyFactory = $currencyFactory;
-    }
-
-    /**
-     * Default form options
-     *
-     * @param OptionsResolverInterface $resolver
-     *
-     * @return array With the options
-     */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        $money = Money::create(1, $this->currencyFactory->create()->setIso('EUR'));
-
-        /**
-         * @var ProductInterface $product
-         */
-        $product = $this->productFactory->create();
-        $product->setPrice($money);
-        $product->setReducedPrice($money);
-
-        $resolver->setDefaults(array(
-            'empty_data' => $product,
-        ));
-    }
-
     /**
      * Buildform function
      *
@@ -102,11 +35,11 @@ class ProductType extends AbstractType
     {
         $builder
             ->add('name', 'text', array(
-                'required' => false,
+                'required' => true,
                 'label'    => 'name',
             ))
             ->add('slug', 'text', array(
-                'required' => false,
+                'required' => true,
                 'label'    => 'slug',
             ))
             ->add('shortDescription', 'text', array(
