@@ -17,10 +17,6 @@
 namespace Store\StoreProductBundle\DataFixtures\ORM;
 
 use Doctrine\Common\Persistence\ObjectManager;
-use Gaufrette\Adapter;
-use Gaufrette\Filesystem;
-use Symfony\Component\HttpFoundation\File\File;
-
 use Elcodi\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
 use Elcodi\CurrencyBundle\Entity\Interfaces\CurrencyInterface;
 use Elcodi\CurrencyBundle\Entity\Money;
@@ -28,6 +24,9 @@ use Elcodi\MediaBundle\Services\ImageManager;
 use Elcodi\MediaBundle\Transformer\FileTransformer;
 use Elcodi\ProductBundle\Entity\Interfaces\CategoryInterface;
 use Elcodi\ProductBundle\Entity\Interfaces\ProductInterface;
+use Gaufrette\Adapter;
+use Gaufrette\Filesystem;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * Class ProductData
@@ -51,7 +50,8 @@ class ProductData extends AbstractFixture
          * @var CurrencyInterface $currency
          */
         $imageManager = $this->container->get('elcodi.core.media.service.image_manager');
-        $imageFactory = $this->container->get('elcodi.core.product.factory.product');
+        $productFactory = $this->container->get('elcodi.core.product.factory.product');
+        $variantFactory = $this->container->get('elcodi.core.product.factory.variant');
         $filesystem = $this->container->get('elcodi.core.media.filesystem.default');
         $fileTransformer = $this->container->get('elcodi.core.media.transformer.file');
         $menCategory = $this->getReference('category-men');
@@ -64,7 +64,7 @@ class ProductData extends AbstractFixture
          *
          * @var ProductInterface $product
          */
-        $product = $imageFactory->create();
+        $product = $productFactory->create();
         $product
             ->setName('Ibiza Lips')
             ->setSlug('ibiza-lips')
@@ -73,13 +73,55 @@ class ProductData extends AbstractFixture
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.'
             )
+
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
             ->setStock(10000)
             ->setPrice(Money::create(799, $currency))
             ->setEnabled(true);
 
+        $variantWhiteSmall = $variantFactory->create();
+        $variantWhiteSmall
+            ->setProduct($product)
+            ->setStock(10000)
+            ->setPrice(Money::create(1099, $currency))
+            ->addOption($this->getReference('value-size-small'))
+            ->addOption($this->getReference('value-color-white'))
+            ->setEnabled(true);
+
+        $variantBlackSmall = $variantFactory->create();
+        $variantBlackSmall
+            ->setProduct($product)
+            ->setStock(10000)
+            ->setPrice(Money::create(1199, $currency))
+            ->addOption($this->getReference('value-size-small'))
+            ->addOption($this->getReference('value-color-black'))
+            ->setEnabled(true);
+
+        $variantWhiteMedium = $variantFactory->create();
+        $variantWhiteMedium
+            ->setProduct($product)
+            ->setStock(10000)
+            ->setPrice(Money::create(1299, $currency))
+            ->addOption($this->getReference('value-size-medium'))
+            ->addOption($this->getReference('value-color-white'))
+            ->setEnabled(true);
+
+        $variantBlackMedium = $variantFactory->create();
+        $variantBlackMedium
+            ->setProduct($product)
+            ->setStock(10000)
+            ->setPrice(Money::create(1399, $currency))
+            ->addOption($this->getReference('value-size-medium'))
+            ->addOption($this->getReference('value-color-black'))
+            ->setEnabled(true);
+
         $manager->persist($product);
+        $manager->persist($variantWhiteSmall);
+        $manager->persist($variantWhiteMedium);
+        $manager->persist($variantBlackSmall);
+        $manager->persist($variantBlackMedium);
+
         $this->addReference('product-ibiza-lips', $product);
 
         $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-1.jpg');
@@ -89,7 +131,7 @@ class ProductData extends AbstractFixture
          *
          * @var ProductInterface $product
          */
-        $product = $imageFactory->create();
+        $product = $productFactory->create();
         $product
             ->setName('Ibiza Banana')
             ->setSlug('ibiza-banana')
@@ -114,7 +156,7 @@ class ProductData extends AbstractFixture
          *
          * @var ProductInterface $product
          */
-        $product = $imageFactory->create();
+        $product = $productFactory->create();
         $product
             ->setName('I Was There')
             ->setSlug('i-was-there')
@@ -139,7 +181,7 @@ class ProductData extends AbstractFixture
          *
          * @var ProductInterface $product
          */
-        $product = $imageFactory->create();
+        $product = $productFactory->create();
         $product
             ->setName('A Life Style')
             ->setSlug('a-life-style')
@@ -164,7 +206,7 @@ class ProductData extends AbstractFixture
          *
          * @var ProductInterface $product
          */
-        $product = $imageFactory->create();
+        $product = $productFactory->create();
         $product
             ->setName('A.M. Nesia Ibiza')
             ->setSlug('a-m-nesia-ibiza')
@@ -189,7 +231,7 @@ class ProductData extends AbstractFixture
          *
          * @var ProductInterface $product
          */
-        $product = $imageFactory->create();
+        $product = $productFactory->create();
         $product
             ->setName('Amnesia Poem')
             ->setSlug('amnesia-poem')
@@ -214,7 +256,7 @@ class ProductData extends AbstractFixture
          *
          * @var ProductInterface $product
          */
-        $product = $imageFactory->create();
+        $product = $productFactory->create();
         $product
             ->setName('Pyramid')
             ->setSlug('Pyramid')
@@ -239,7 +281,7 @@ class ProductData extends AbstractFixture
          *
          * @var ProductInterface $product
          */
-        $product = $imageFactory->create();
+        $product = $productFactory->create();
         $product
             ->setName('Amnesia Pink')
             ->setSlug('amnesia-pink')
@@ -264,7 +306,7 @@ class ProductData extends AbstractFixture
          *
          * @var ProductInterface $product
          */
-        $product = $imageFactory->create();
+        $product = $productFactory->create();
         $product
             ->setName('Pinky Fragments')
             ->setSlug('pinky-fragments')
@@ -289,7 +331,7 @@ class ProductData extends AbstractFixture
          *
          * @var ProductInterface $product
          */
-        $product = $imageFactory->create();
+        $product = $productFactory->create();
         $product
             ->setName('I Was There II')
             ->setSlug('i-was-there-ii')
@@ -314,7 +356,7 @@ class ProductData extends AbstractFixture
          *
          * @var ProductInterface $product
          */
-        $product = $imageFactory->create();
+        $product = $productFactory->create();
         $product
             ->setName('Amnesia')
             ->setSlug('amnesia')
@@ -339,7 +381,7 @@ class ProductData extends AbstractFixture
          *
          * @var ProductInterface $product
          */
-        $product = $imageFactory->create();
+        $product = $productFactory->create();
         $product
             ->setName('Amnesia 100%')
             ->setSlug('amnesia-100-percent')
@@ -364,7 +406,7 @@ class ProductData extends AbstractFixture
          *
          * @var ProductInterface $product
          */
-        $product = $imageFactory->create();
+        $product = $productFactory->create();
         $product
             ->setName('A Life Style II')
             ->setSlug('a-life-style-ii')
@@ -389,7 +431,7 @@ class ProductData extends AbstractFixture
          *
          * @var ProductInterface $product
          */
-        $product = $imageFactory->create();
+        $product = $productFactory->create();
         $product
             ->setName('All Night Long')
             ->setSlug('all-night-long')
@@ -414,7 +456,7 @@ class ProductData extends AbstractFixture
          *
          * @var ProductInterface $product
          */
-        $product = $imageFactory->create();
+        $product = $productFactory->create();
         $menCategory = $this->getReference('category-men');
         $product
             ->setName('A.M. Nesia Ibiza II')
@@ -440,7 +482,7 @@ class ProductData extends AbstractFixture
          *
          * @var ProductInterface $product
          */
-        $product = $imageFactory->create();
+        $product = $productFactory->create();
         $menCategory = $this->getReference('category-men');
         $product
             ->setName('High Pyramid')
@@ -466,7 +508,7 @@ class ProductData extends AbstractFixture
          *
          * @var ProductInterface $product
          */
-        $product = $imageFactory->create();
+        $product = $productFactory->create();
         $menCategory = $this->getReference('category-men');
         $product
             ->setName('Star Amnesia')
@@ -492,7 +534,7 @@ class ProductData extends AbstractFixture
          *
          * @var ProductInterface $product
          */
-        $product = $imageFactory->create();
+        $product = $productFactory->create();
         $product
             ->setName('Ibiza 4 Ever')
             ->setSlug('ibiza-4-ever')

@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\Fixtures\DataFixtures\ORM;
+namespace Store\StoreProductBundle\DataFixtures\ORM;
 
 use Doctrine\Common\Persistence\ObjectManager;
 
@@ -38,11 +38,7 @@ class CategoryData extends AbstractFixture
          *
          * @var CategoryInterface $category
          */
-        $womenCategory = $this
-            ->container
-            ->get('elcodi.core.product.factory.category')
-            ->create();
-
+        $womenCategory = $this->container->get('elcodi.core.product.factory.category')->create();
         $womenCategory
             ->setName('Women\'s')
             ->setSlug('women-shirts')
@@ -57,11 +53,7 @@ class CategoryData extends AbstractFixture
          *
          * @var CategoryInterface $menCategory
          */
-        $menCategory = $this
-            ->container
-            ->get('elcodi.core.product.factory.category')
-            ->create();
-
+        $menCategory = $this->container->get('elcodi.core.product.factory.category')->create();
         $menCategory
             ->setName('Men\'s')
             ->setSlug('men-shirts')
