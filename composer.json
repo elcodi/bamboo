@@ -1,0 +1,45 @@
+{
+    "name": "elcodi/bamboo-fixtures",
+    "license": "MIT",
+    "type": "project",
+    "description": "Bamboo Fixtures",
+    "authors": [
+        {
+            "name": "Marc Morera",
+            "email": "yuhu@mmoreram.com"
+        },
+        {
+            "name": "Aldo Chiecchia",
+            "email": "aldo.chiecchia@befactory.es"
+        },
+        {
+            "name": "Symfony Community",
+            "homepage": "https://github.com/elcodi/bamboo-store/contributors"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+    "require-dev": {
+        "doctrine/common": "~2.4",
+        "doctrine/data-fixtures": "1.0.*",
+        "elcodi/coupon-bundle": "0.1.14",
+        "elcodi/core-bundle": "0.1.14",
+        "elcodi/currency-bundle": "0.1.14",
+        "elcodi/product-bundle": "0.1.14",
+        "elcodi/media-bundle": "0.1.14",
+        "elcodi/user-bundle": "0.1.14",
+        "elcodi/geo-bundle": "0.1.14"
+    },
+    "autoload": {
+        "psr-4": {
+            "Elcodi\\Fixtures\\": "src/Fixtures"
+        }
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1-dev"
+        }
+    }
+}
