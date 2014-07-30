@@ -16,10 +16,10 @@
 
 namespace Elcodi\StoreProductBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Mmoreram\ControllerExtraBundle\Annotation\Entity as AnnotationEntity;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Mmoreram\ControllerExtraBundle\Annotation\Entity as AnnotationEntity;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Elcodi\ProductBundle\Entity\Interfaces\CategoryInterface;
 

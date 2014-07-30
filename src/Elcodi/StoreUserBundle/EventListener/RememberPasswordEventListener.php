@@ -16,11 +16,11 @@
 
 namespace Elcodi\StoreUserBundle\EventListener;
 
+use Swift_Mailer;
+use Swift_Message;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Security\Core\SecurityContextInterface;
 use Symfony\Component\Templating\EngineInterface;
-use Swift_Mailer;
-use Swift_Message;
 
 use Elcodi\UserBundle\Event\PasswordRecoverEvent;
 use Elcodi\UserBundle\Event\PasswordRememberEvent;

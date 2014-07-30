@@ -16,10 +16,10 @@
 
 namespace Elcodi\PaymentBridgeBundle\EventListener;
 
-use Elcodi\CartBundle\Transformer\CartOrderTransformer;
 use PaymentSuite\PaymentCoreBundle\Event\PaymentOrderLoadEvent;
 
 use Elcodi\CartBundle\Services\OrderManager;
+use Elcodi\CartBundle\Transformer\CartOrderTransformer;
 use Elcodi\CartBundle\Wrapper\CartWrapper;
 
 /**

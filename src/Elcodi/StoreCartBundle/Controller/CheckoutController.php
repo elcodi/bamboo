@@ -16,11 +16,12 @@
 
 namespace Elcodi\StoreCartBundle\Controller;
 
-use Elcodi\CurrencyBundle\Entity\Money;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+use Elcodi\CurrencyBundle\Entity\Money;
 
 /**
  * Class CheckoutController

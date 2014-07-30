@@ -16,18 +16,18 @@
 
 namespace Elcodi\StoreUserBundle\Controller;
 
-use Symfony\Component\Form\FormView;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Mmoreram\ControllerExtraBundle\Annotation\Entity;
+use Mmoreram\ControllerExtraBundle\Annotation\Form as AnnotationForm;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Mmoreram\ControllerExtraBundle\Annotation\Form as AnnotationForm;
-use Mmoreram\ControllerExtraBundle\Annotation\Entity;
-
-use Elcodi\UserBundle\Entity\Interfaces\CustomerInterface;
-use Elcodi\CoreBundle\Services\ManagerProvider;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\FormView;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Security\Core\SecurityContext;
+
+use Elcodi\CoreBundle\Services\ManagerProvider;
+use Elcodi\UserBundle\Entity\Interfaces\CustomerInterface;
 
 /**
  * Class SecurityController

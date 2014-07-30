@@ -16,13 +16,13 @@
 
 namespace Elcodi\StoreCartCouponBundle\Controller;
 
+use Mmoreram\ControllerExtraBundle\Annotation\Form as AnnotationForm;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Form;
 use Symfony\Component\Form\FormView;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Mmoreram\ControllerExtraBundle\Annotation\Form as AnnotationForm;
 
 use Elcodi\CartBundle\Entity\Interfaces\CartInterface;
 
