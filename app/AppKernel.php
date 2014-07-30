@@ -76,7 +76,6 @@ class AppKernel extends Kernel
             new \Store\StoreGeoBundle\StoreGeoBundle(),
             new \Store\StoreCartBundle\StoreCartBundle(),
             new \Store\StoreCurrencyBundle\StoreCurrencyBundle,
-            new \Store\StoreCouponBundle\StoreCouponBundle,
             new \Store\StoreCartCouponBundle\StoreCartCouponBundle,
             new \Store\PaymentBridgeBundle\PaymentBridgeBundle(),
         );
