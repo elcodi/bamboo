@@ -14,15 +14,15 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Store\StoreCouponBundle\DataFixtures\ORM;
+namespace Elcodi\Fixtures\DataFixtures\ORM;
 
+use DateTime;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use DateTime;
 
 use Elcodi\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
-use Elcodi\CouponBundle\Entity\Interfaces\CouponInterface;
 use Elcodi\CouponBundle\ElcodiCouponTypes;
+use Elcodi\CouponBundle\Entity\Interfaces\CouponInterface;
 use Elcodi\CouponBundle\Factory\CouponFactory;
 use Elcodi\CurrencyBundle\Entity\Interfaces\CurrencyInterface;
 use Elcodi\CurrencyBundle\Entity\Money;

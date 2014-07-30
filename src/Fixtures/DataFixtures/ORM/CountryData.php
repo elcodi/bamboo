@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Store\StoreGeoBundle\DataFixtures\ORM;
+namespace Elcodi\Fixtures\DataFixtures\ORM;
 
 use Doctrine\Common\Persistence\ObjectManager;
 
@@ -282,7 +282,7 @@ class CountryData extends AbstractFixture
             ["ES","Eslovaquia"],
             ["EV","Eslovenia"],
         ];
-        
+
         foreach ($countries as $country) {
 
             /**
