@@ -70,14 +70,14 @@ class AppKernel extends Kernel
             /**
              * Elcodi store bundles
              */
-            new \Store\StoreCoreBundle\StoreCoreBundle(),
-            new \Store\StoreProductBundle\StoreProductBundle(),
-            new \Store\StoreUserBundle\StoreUserBundle(),
-            new \Store\StoreGeoBundle\StoreGeoBundle(),
-            new \Store\StoreCartBundle\StoreCartBundle(),
-            new \Store\StoreCurrencyBundle\StoreCurrencyBundle,
-            new \Store\StoreCartCouponBundle\StoreCartCouponBundle,
-            new \Store\PaymentBridgeBundle\PaymentBridgeBundle(),
+            new \Elcodi\StoreCoreBundle\StoreCoreBundle(),
+            new \Elcodi\StoreProductBundle\StoreProductBundle(),
+            new \Elcodi\StoreUserBundle\StoreUserBundle(),
+            new \Elcodi\StoreGeoBundle\StoreGeoBundle(),
+            new \Elcodi\StoreCartBundle\StoreCartBundle(),
+            new \Elcodi\StoreCurrencyBundle\StoreCurrencyBundle,
+            new \Elcodi\StoreCartCouponBundle\StoreCartCouponBundle,
+            new \Elcodi\PaymentBridgeBundle\PaymentBridgeBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

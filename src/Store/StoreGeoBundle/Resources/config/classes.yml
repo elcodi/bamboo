@@ -1,6 +1,0 @@
-parameters:
-
-    #
-    # Form Types
-    #
-    store.geo.form_type.address.class: Store\StoreGeoBundle\Form\Type\AddressType

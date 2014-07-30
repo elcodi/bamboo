@@ -1,6 +1,0 @@
-parameters:
-
-    #
-    # Form Types
-    #
-    store.cart_coupon.form_type.coupon_apply.class: Store\StoreCartCouponBundle\Form\Type\CouponApplyType

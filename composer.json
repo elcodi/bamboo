@@ -82,7 +82,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Store\\": "src/Store"
+            "Elcodi\\": "src/Elcodi"
         },
         "files": ["app/AppKernel.php"]
     },
