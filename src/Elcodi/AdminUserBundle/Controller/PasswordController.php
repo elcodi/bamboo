@@ -16,12 +16,12 @@
 
 namespace Elcodi\AdminUserBundle\Controller;
 
-use Symfony\Component\Form\Form;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Mmoreram\ControllerExtraBundle\Annotation\Form as AnnotationForm;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Mmoreram\ControllerExtraBundle\Annotation\Form as AnnotationForm;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Form;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 use Elcodi\UserBundle\Entity\Abstracts\AbstractUser;
 

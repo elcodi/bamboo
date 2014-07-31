@@ -16,24 +16,23 @@
 
 namespace Elcodi\AdminCartBundle\Controller\Component;
 
-use Elcodi\AdminMediaBundle\Controller\Interfaces\GalleriableComponentControllerInterface;
 use Doctrine\Common\Collections\ArrayCollection;
-use Elcodi\CartBundle\Entity\Interfaces\OrderInterface;
-use Elcodi\CartBundle\Entity\Interfaces\OrderLineInterface;
-use Mmoreram\ControllerExtraBundle\ValueObject\PaginatorAttributes;
-use Symfony\Component\Form\FormView;
-use Symfony\Component\HttpFoundation\Request;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Doctrine\ORM\Tools\Pagination\Paginator;
-
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Paginator as PaginatorAnnotation;
+use Mmoreram\ControllerExtraBundle\ValueObject\PaginatorAttributes;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\Form\FormView;
+use Symfony\Component\HttpFoundation\Request;
 
-use Elcodi\CoreBundle\Entity\Abstracts\AbstractEntity;
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
+use Elcodi\AdminMediaBundle\Controller\Interfaces\GalleriableComponentControllerInterface;
+use Elcodi\CartBundle\Entity\Interfaces\OrderInterface;
+use Elcodi\CartBundle\Entity\Interfaces\OrderLineInterface;
+use Elcodi\CoreBundle\Entity\Abstracts\AbstractEntity;
 
 /**
  * Class Controller for Order

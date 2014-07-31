@@ -17,6 +17,10 @@
 namespace Elcodi\AdminProductBundle\DataFixtures\ORM;
 
 use Doctrine\Common\Persistence\ObjectManager;
+use Gaufrette\Adapter;
+use Gaufrette\Filesystem;
+use Symfony\Component\HttpFoundation\File\File;
+
 use Elcodi\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
 use Elcodi\CurrencyBundle\Entity\Interfaces\CurrencyInterface;
 use Elcodi\CurrencyBundle\Entity\Money;
@@ -24,9 +28,6 @@ use Elcodi\MediaBundle\Services\ImageManager;
 use Elcodi\MediaBundle\Transformer\FileTransformer;
 use Elcodi\ProductBundle\Entity\Interfaces\CategoryInterface;
 use Elcodi\ProductBundle\Entity\Interfaces\ProductInterface;
-use Gaufrette\Adapter;
-use Gaufrette\Filesystem;
-use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * Class ProductData

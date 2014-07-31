@@ -16,13 +16,13 @@
 
 namespace Elcodi\AdminProductBundle\Controller\Stats;
 
-use Symfony\Component\HttpFoundation\Request;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Request;
 
-use Elcodi\AdminCoreBundle\Controller\Interfaces\StatsControllerInterface;
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractStatsController;
+use Elcodi\AdminCoreBundle\Controller\Interfaces\StatsControllerInterface;
 
 /**
  * Class CategoryStatsController

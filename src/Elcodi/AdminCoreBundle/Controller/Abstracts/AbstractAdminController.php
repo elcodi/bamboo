@@ -16,16 +16,16 @@
 
 namespace Elcodi\AdminCoreBundle\Controller\Abstracts;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Closure;
 use Doctrine\Common\Persistence\ObjectManager;
 use Exception;
-use Closure;
-
-use Elcodi\CoreBundle\Entity\Abstracts\AbstractEntity;
-use Elcodi\CoreBundle\Entity\Interfaces\EnabledInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+
+use Elcodi\CoreBundle\Entity\Abstracts\AbstractEntity;
+use Elcodi\CoreBundle\Entity\Interfaces\EnabledInterface;
 
 /**
  * Class AbstractAdminController

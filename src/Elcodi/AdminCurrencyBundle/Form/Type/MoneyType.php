@@ -19,6 +19,7 @@ namespace Elcodi\AdminCurrencyBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+
 use Elcodi\CurrencyBundle\Entity\Money;
 use Elcodi\CurrencyBundle\Wrapper\CurrencyWrapper;
 

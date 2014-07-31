@@ -16,11 +16,12 @@
 
 namespace Elcodi\AdminUserBundle\Form\Type;
 
-use Elcodi\UserBundle\ElcodiUserProperties;
-use Elcodi\UserBundle\Factory\AdminUserFactory;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+
+use Elcodi\UserBundle\ElcodiUserProperties;
+use Elcodi\UserBundle\Factory\AdminUserFactory;
 
 /**
  * Class AdminUserType

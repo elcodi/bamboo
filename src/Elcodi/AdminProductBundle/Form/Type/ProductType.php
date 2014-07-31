@@ -16,13 +16,14 @@
 
 namespace Elcodi\AdminProductBundle\Form\Type;
 
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+
 use Elcodi\CurrencyBundle\Entity\Money;
 use Elcodi\CurrencyBundle\Factory\CurrencyFactory;
 use Elcodi\ProductBundle\Entity\Interfaces\ProductInterface;
 use Elcodi\ProductBundle\Factory\ProductFactory;
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
  * Class ProductType

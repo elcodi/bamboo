@@ -16,13 +16,13 @@
 
 namespace Elcodi\AdminUserBundle\Form\Type;
 
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 use Elcodi\LanguageBundle\Factory\LanguageFactory;
-use Elcodi\UserBundle\Factory\CustomerFactory;
 use Elcodi\UserBundle\ElcodiUserProperties;
+use Elcodi\UserBundle\Factory\CustomerFactory;
 
 /**
  * Class CustomerType

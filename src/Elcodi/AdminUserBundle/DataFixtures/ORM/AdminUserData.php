@@ -19,8 +19,8 @@ namespace Elcodi\AdminUserBundle\DataFixtures\ORM;
 use Doctrine\Common\Persistence\ObjectManager;
 
 use Elcodi\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
-use Elcodi\UserBundle\Entity\Interfaces\AdminUserInterface;
 use Elcodi\UserBundle\ElcodiUserProperties;
+use Elcodi\UserBundle\Entity\Interfaces\AdminUserInterface;
 
 /**
  * Class AdminUserData

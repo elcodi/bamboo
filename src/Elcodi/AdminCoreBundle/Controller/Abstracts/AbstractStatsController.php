@@ -16,8 +16,8 @@
 
 namespace Elcodi\AdminCoreBundle\Controller\Abstracts;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use DateTime;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
  * Class AbstractStatsController

@@ -32,11 +32,14 @@
     ],
     "require": {
         "php": ">=5.4",
-        "symfony/symfony": "~2.4.0",
+        "symfony/symfony": "~2.4",
         "symfony/assetic-bundle": "~2.4",
         "symfony/swiftmailer-bundle": "~2.3",
         "symfony/monolog-bundle": "~2.4",
-        "doctrine/orm": "~2.2,>=2.2.3",
+
+        "doctrine/common": "~2.4",
+        "doctrine/orm": "~2.4",
+
         "doctrine/doctrine-bundle": "~1.2",
         "twig/extensions": "~1.0",
         "doctrine/doctrine-fixtures-bundle": "v2.2.0",
@@ -71,6 +74,9 @@
         "elcodi/language-bundle": "0.1.13",
         "elcodi/coupon-bundle": "0.1.13",
         "elcodi/core-bundle": "0.1.13"
+    },
+    "require-dev": {
+        "mmoreram/php-formatter": "~1.0"
     },
     "scripts": {
         "post-install-cmd": [
