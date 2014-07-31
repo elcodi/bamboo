@@ -66,6 +66,9 @@
         "elcodi/geo-bundle": "~0.1.14.0",
         "elcodi/bamboo-fixtures": "~0.1.14.0"
     },
+    "require-dev": {
+        "mmoreram/php-formatter": "dev-master"
+    },
     "scripts": {
         "post-install-cmd": [
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
