@@ -23,6 +23,7 @@
     "require-dev": {
         "doctrine/common": "~2.4",
         "doctrine/data-fixtures": "1.0.*",
+        "mmoreram/php-formatter": "~1.0",
 
         "elcodi/coupon-bundle": "~0.1.14.0",
         "elcodi/core-bundle": "~0.1.14.0",
