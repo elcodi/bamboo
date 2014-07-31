@@ -1,13 +1,15 @@
 {% extends 'AdminCoreBundle::Common/formComponent.html.twig' %}
 
+
 {% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
+
 
 {% block title %}
     {{ 'New menu'|trans }}
 {% endblock title %}
 
-{% block content %}
 
+{% block content %}
     {{ form_start(form, {'action': url('admin_admin_user_save')}) }}
 
         {{ form_row(form.username) }}
@@ -26,5 +28,4 @@
         </div>
 
     {{ form_end(form) }}
-
 {% endblock content %}

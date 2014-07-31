@@ -1,26 +1,26 @@
 {% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
 
+
 {% block title %}
     {{ 'Admin Users list'|trans }}
 {% endblock title %}
 
+
 {% block table_head %}
-
     {% include "@AdminCore/Tables/head.html.twig" with {
-    rows: {
-    "Id": {width:"25"},
-    "name": {},
-    "username": {},
-    "email": {},
-    "enabled": {width:"25"},
-    },
-    class: "admin_user",
+        rows: {
+            "Id": {width:"25"},
+            "name": {},
+            "username": {},
+            "email": {},
+            "enabled": {width:"25"},
+        },
+        class: "admin_user",
     } %}
-
 {% endblock table_head %}
 
-{% block table_body_row %}
 
+{% block table_body_row %}
     <td>
         <a href="{{ url("admin_admin_user_view", {"id": entity.id}) }}">
             {{ entity.id }}
@@ -44,18 +44,17 @@
     </td>
 
     {% include "@AdminCore/Tables/actions.html.twig" with {
-    entity: entity,
-    class: "admin_user",
+        entity: entity,
+        class: "admin_user",
     } %}
-
 {% endblock table_body_row %}
 
-{% block table_paginator_links %}
 
+{% block table_paginator_links %}
     {% set url = 'admin_admin_user_list' %}
     {{ parent() }}
-
 {% endblock table_paginator_links %}
+
 
 {% block table_buttons %}
     <a href="{{ url("admin_admin_user_new") }}"type="button" class="btn btn-success">{{ "New admin user"|trans }}</a>

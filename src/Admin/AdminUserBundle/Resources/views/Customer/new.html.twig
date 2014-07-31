@@ -1,11 +1,12 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
+
 {% block content_title %}
     {{ 'Customer Zone'|trans }}
 {% endblock content_title %}
 
-{% block breadcrumb %}
 
+{% block breadcrumb %}
     {% include "@AdminCore/Common/breadcrumb.html.twig" with {
         breadcrumb: {
             "new customer": {
@@ -13,15 +14,13 @@
             }
         }
     } %}
-
 {% endblock breadcrumb %}
 
-{% block content %}
 
+{% block content %}
     <div class="row">
         <div class="col-md-6">
             {{ render(url("admin_customer_new_component")) }}
         </div>
     </div>
-
 {% endblock content %}

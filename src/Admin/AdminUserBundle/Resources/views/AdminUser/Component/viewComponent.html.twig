@@ -1,11 +1,12 @@
 {% extends 'AdminCoreBundle::Common/viewComponent.html.twig' %}
 
+
 {% block title %}
     {{ 'Menu'|trans }} - {{ entity.code }}
 {% endblock title %}
 
-{% block content %}
 
+{% block content %}
     <tr>
         <td>
             <strong>{{ "Username"|trans }}</strong>
@@ -71,5 +72,4 @@
             <a href="{{ url("admin_admin_user_delete", {"id": entity.id}) }}" type="button" class="btn btn-danger btn-flat">Delete</a>
         </td>
     </tr>
-
 {% endblock content %}

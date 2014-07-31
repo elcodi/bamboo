@@ -1,11 +1,12 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
+
 {% block content_title %}
     {{ 'Admin User Zone'|trans }}
 {% endblock content_title %}
 
-{% block breadcrumb %}
 
+{% block breadcrumb %}
     {% include "@AdminCore/Common/breadcrumb.html.twig" with {
         breadcrumb: {
             "view admin user": {
@@ -13,11 +14,10 @@
             }
         }
     } %}
-
 {% endblock breadcrumb %}
 
-{% block content %}
 
+{% block content %}
     <div class="row">
         <div class="col-md-12">
             {{ render(url("admin_admin_user_view_component", {
@@ -25,5 +25,4 @@
             })) }}
         </div>
     </div>
-
 {% endblock content %}

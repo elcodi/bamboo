@@ -56,7 +56,6 @@ class AppKernel extends Kernel
              * Elcodi store bundles
              */
             new \Admin\AdminCoreBundle\AdminCoreBundle(),
-            new \Admin\AdminMenuBundle\AdminMenuBundle(),
             new \Admin\AdminUserBundle\AdminUserBundle(),
             new \Admin\AdminBannerBundle\AdminBannerBundle(),
             new \Admin\AdminCartBundle\AdminCartBundle(),

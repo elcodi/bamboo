@@ -1,11 +1,11 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
+
 {% block body_class %}texture{% endblock body_class %}
 
+
 {% block body %}
-
     <div id="cl-wrapper" class="forgotpassword-container">
-
         <div class="middle">
             <div class="block-flat">
                 <div class="header">
@@ -22,10 +22,10 @@
                         <div class="content">
 
                             <h5 class="title text-center">
-                                <strong>Forgot your password?</strong>
+                                <strong>{{ 'Forgot your password?'|trans }}</strong>
                             </h5>
                             <p class="text-center">
-                                Don't worry, we'll send you an email to reset your password.
+                                {{ "Don't worry, we'll send you an email to reset your password."|trans }}
                             </p>
                             <hr>
 
@@ -53,7 +53,5 @@
                 </div>
             </div>
         </div>
-
     </div>
-
 {% endblock body %}

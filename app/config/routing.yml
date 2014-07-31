@@ -1,9 +1,6 @@
 admin_core:
     resource: "@AdminCoreBundle/Resources/config/routing.yml"
 
-admin_menu:
-    resource: "@AdminMenuBundle/Resources/config/routing.yml"
-
 admin_user:
     resource: "@AdminUserBundle/Resources/config/routing.yml"
 

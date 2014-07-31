@@ -87,7 +87,7 @@ class ProductType extends AbstractType
         $product->setReducedPrice($money);
 
         $resolver->setDefaults(array(
-            'empty_data' => $product
+            'empty_data' => $product,
         ));
     }
 

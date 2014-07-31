@@ -1,13 +1,15 @@
 {% extends 'AdminCoreBundle::Common/formComponent.html.twig' %}
 
+
 {% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
+
 
 {% block title %}
     {{ 'Edit Customer'|trans }} - {{ entity.id }}
 {% endblock title %}
 
-{% block content %}
 
+{% block content %}
     {{ form_start(form, {'action': url('admin_customer_update', {
         'id': entity.id
     })}) }}
@@ -33,5 +35,4 @@
         </div>
 
     {{ form_end(form) }}
-
 {% endblock content %}

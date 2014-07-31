@@ -10,7 +10,6 @@
 
 
 {% block content %}
-
     {{ form_start(form, {'action': url('admin_manufacturer_update', {
         'id': entity.id
     })}) }}
@@ -33,5 +32,4 @@
         </div>
 
     {{ form_end(form) }}
-
 {% endblock content %}
