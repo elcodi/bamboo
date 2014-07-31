@@ -1,8 +1,0 @@
-parameters:
-
-    #
-    # Entity classes
-    #
-    elcodi.admin.product.form_type.product.class: Admin\AdminProductBundle\Form\Type\ProductType
-    elcodi.admin.product.form_type.category.class: Admin\AdminProductBundle\Form\Type\CategoryType
-    elcodi.admin.product.form_type.manufacturer.class: Admin\AdminProductBundle\Form\Type\ManufacturerType

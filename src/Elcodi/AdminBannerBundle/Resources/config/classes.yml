@@ -1,0 +1,7 @@
+parameters:
+
+    #
+    # Entity classes
+    #
+    elcodi.admin.banner.form_type.banner.class: Elcodi\AdminBannerBundle\Form\Type\BannerType
+    elcodi.admin.banner.form_type.banner_zone.class: Elcodi\AdminBannerBundle\Form\Type\BannerZoneType

@@ -1,8 +1,0 @@
-parameters:
-
-    #
-    # Entity classes
-    #
-    elcodi.admin.rule.form_type.rule.class: Admin\AdminRuleBundle\Form\Type\RuleType
-    elcodi.admin.rule.form_type.rule_group.class: Admin\AdminRuleBundle\Form\Type\RuleGroupType
-    elcodi.admin.rule.form_type.expression.class: Admin\AdminRuleBundle\Form\Type\ExpressionType

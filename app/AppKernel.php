@@ -55,17 +55,17 @@ class AppKernel extends Kernel
             /**
              * Elcodi store bundles
              */
-            new \Admin\AdminCoreBundle\AdminCoreBundle(),
-            new \Admin\AdminUserBundle\AdminUserBundle(),
-            new \Admin\AdminBannerBundle\AdminBannerBundle(),
-            new \Admin\AdminCartBundle\AdminCartBundle(),
-            new \Admin\AdminCartCouponBundle\AdminCartCouponBundle(),
-            new \Admin\AdminCouponBundle\AdminCouponBundle(),
-            new \Admin\AdminCurrencyBundle\AdminCurrencyBundle(),
-            new \Admin\AdminMediaBundle\AdminMediaBundle(),
-            new \Admin\AdminNewsletterBundle\AdminNewsletterBundle(),
-            new \Admin\AdminProductBundle\AdminProductBundle(),
-            new \Admin\AdminRuleBundle\AdminRuleBundle(),
+            new \Elcodi\AdminCoreBundle\AdminCoreBundle(),
+            new \Elcodi\AdminUserBundle\AdminUserBundle(),
+            new \Elcodi\AdminBannerBundle\AdminBannerBundle(),
+            new \Elcodi\AdminCartBundle\AdminCartBundle(),
+            new \Elcodi\AdminCartCouponBundle\AdminCartCouponBundle(),
+            new \Elcodi\AdminCouponBundle\AdminCouponBundle(),
+            new \Elcodi\AdminCurrencyBundle\AdminCurrencyBundle(),
+            new \Elcodi\AdminMediaBundle\AdminMediaBundle(),
+            new \Elcodi\AdminNewsletterBundle\AdminNewsletterBundle(),
+            new \Elcodi\AdminProductBundle\AdminProductBundle(),
+            new \Elcodi\AdminRuleBundle\AdminRuleBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
