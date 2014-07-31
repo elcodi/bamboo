@@ -14,7 +14,7 @@ parameters:
 
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
-    
+
     use_assetic_controller: false
     debug_toolbar:     true
     debug_redirects:   false

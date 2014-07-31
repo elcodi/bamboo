@@ -1,5 +1,0 @@
-parameters:
-
-    database_suffix: '_test'
-    database_driver: pdo_sqlite
-    database_name: %kernel.cache_dir%store_elcodi_test.db
