@@ -59,21 +59,21 @@
         "mmoreram/controller-extra-bundle": "~1.0",
         "ornicar/gravatar-bundle" : "1.1.2",
 
-        "elcodi/banner-bundle": "0.1.13",
-        "elcodi/cart-bundle": "0.1.13",
-        "elcodi/currency-bundle": "0.1.13",
-        "elcodi/media-bundle": "0.1.13",
-        "elcodi/product-bundle": "0.1.13",
-        "elcodi/user-bundle": "0.1.13",
-        "elcodi/geo-bundle": "0.1.13",
-        "elcodi/attribute-bundle": "0.1.13",
-        "elcodi/cart-coupon-bundle": "0.1.13",
-        "elcodi/newsletter-bundle": "0.1.13",
-        "elcodi/referral-program-bundle": "0.1.13",
-        "elcodi/rule-bundle": "0.1.13",
-        "elcodi/language-bundle": "0.1.13",
-        "elcodi/coupon-bundle": "0.1.13",
-        "elcodi/core-bundle": "0.1.13"
+        "elcodi/banner-bundle": "~0.2.0",
+        "elcodi/cart-bundle": "~0.2.0",
+        "elcodi/currency-bundle": "~0.2.0",
+        "elcodi/media-bundle": "~0.2.0",
+        "elcodi/product-bundle": "~0.2.0",
+        "elcodi/user-bundle": "~0.2.0",
+        "elcodi/geo-bundle": "~0.2.0",
+        "elcodi/attribute-bundle": "~0.2.0",
+        "elcodi/cart-coupon-bundle": "~0.2.0",
+        "elcodi/newsletter-bundle": "~0.2.0",
+        "elcodi/referral-program-bundle": "~0.2.0",
+        "elcodi/rule-bundle": "~0.2.0",
+        "elcodi/language-bundle": "~0.2.0",
+        "elcodi/coupon-bundle": "~0.2.0",
+        "elcodi/core-bundle": "~0.2.0"
     },
     "require-dev": {
         "mmoreram/php-formatter": "~1.0"
@@ -106,7 +106,7 @@
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",
         "branch-alias": {
-            "dev-master": "0.1-dev"
+            "dev-master": "0.2-dev"
         }
     }
 }
