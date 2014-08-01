@@ -33,13 +33,13 @@ use Elcodi\CoreBundle\Entity\Abstracts\AbstractEntity;
 use Elcodi\ProductBundle\Entity\Interfaces\ProductInterface;
 
 /**
- * Class ProductComponentController
+ * Class VariantComponentController
  *
  * @Route(
- *      path = "product",
+ *      path = "product/{id}/variant",
  * )
  */
-class ProductComponentController
+class VariantComponentController
     extends
     AbstractAdminController
     implements
@@ -54,6 +54,7 @@ class ProductComponentController
      * @param Request             $request             Request
      * @param Paginator           $paginator           Paginator instance
      * @param PaginatorAttributes $paginatorAttributes Paginator attributes
+     * @param integer             $id                  Product id
      * @param integer             $page                Page
      * @param integer             $limit               Limit of items per page
      * @param string              $orderByField        Field to order by
@@ -63,9 +64,9 @@ class ProductComponentController
      *
      * @Route(
      *      path = "s/list/component/{page}/{limit}/{orderByField}/{orderByDirection}",
-     *      name = "admin_product_list_component",
+     *      name = "admin_variant_list_component",
      *      requirements = {
-     *          "page" = "\d*",
+     *          "page"  = "\d*",
      *          "limit" = "\d*",
      *      },
      *      defaults = {
@@ -75,16 +76,17 @@ class ProductComponentController
      *          "orderByDirection" = "DESC",
      *      },
      * )
-     * @Template("AdminProductBundle:Product:Component/listComponent.html.twig")
+     * @Template("AdminProductBundle:Variant:Component/listComponent.html.twig")
      * @Method({"GET"})
      *
      * @PaginatorAnnotation(
      *      attributes = "paginatorAttributes",
-     *      class = "elcodi.core.product.entity.product.class",
-     *      page = "~page~",
-     *      limit = "~limit~",
-     *      orderBy = {
-     *          {"x", "~orderByField~", "~orderByDirection~"}
+     *      class = "elcodi.core.product.entity.variant.class",
+     *      innerJoins = {
+     *          {"x", "product", "p", false}
+     *      },
+     *      wheres = {
+     *          {"p", "id", "=", "~id~"}
      *      }
      * )
      */
@@ -92,6 +94,7 @@ class ProductComponentController
         Request $request,
         Paginator $paginator,
         PaginatorAttributes $paginatorAttributes,
+        $id,
         $page,
         $limit,
         $orderByField,
@@ -106,6 +109,7 @@ class ProductComponentController
             'orderByDirection' => $orderByDirection,
             'totalPages'       => $paginatorAttributes->getTotalPages(),
             'totalElements'    => $paginatorAttributes->getTotalElements(),
+            'productId'        => $id
         ];
     }
 
@@ -121,21 +125,19 @@ class ProductComponentController
      * @return array Result
      *
      * @Route(
-     *      path = "/component/{id}",
-     *      name = "admin_product_view_component",
+     *      path = "/component/{variantId}",
+     *      name = "admin_variant_view_component",
      *      requirements = {
-     *          "id" = "\d*",
+     *          "variantId" = "\d*",
      *      }
      * )
-     * @Template("AdminProductBundle:Product:Component/viewComponent.html.twig")
+     * @Template("AdminProductBundle:Variant:Component/viewComponent.html.twig")
      * @Method({"GET"})
      *
      * @EntityAnnotation(
-     *      class = {
-     *          "factory" = "elcodi.core.product.factory.product",
-     *      },
+     *      class = "elcodi.core.product.entity.variant.class",
      *      mapping = {
-     *          "id" = "~id~"
+     *          "id" = "~variantId~"
      *      }
      * )
      */
@@ -156,44 +158,44 @@ class ProductComponentController
      * only the specific component
      *
      * @param Request  $request  Request
+     * @param integer  $id       Product id
      * @param FormView $formView Form view
      *
      * @return array Result
      *
      * @Route(
      *      path = "/new/component",
-     *      name = "admin_product_new_component"
+     *      name = "admin_variant_new_component"
      * )
-     * @Template("AdminProductBundle:Product:Component/newComponent.html.twig")
+     * @Template("AdminProductBundle:Variant:Component/newComponent.html.twig")
      * @Method({"GET"})
-     *
-     * Will use productfactory and inject it into the form! ProductType::defaultOptions
-     * is NOT factorying the new product instance correctly!
      *
      * @EntityAnnotation(
      *      class = {
-     *          "factory" = "elcodi.core.product.factory.product"
+     *          "factory" = "elcodi.core.product.factory.variant"
      *      },
-     *      name = "entity"
+     *      name = "entity"*
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_product_form_type_product",
+     *      class = "elcodi_admin_product_form_type_variant",
      *      name  = "formView",
      *      entity = "entity"
      * )
      */
     public function newComponentAction(
         Request $request,
+        $id,
         FormView $formView
     )
     {
         return [
+            'id'   => $id,
             'form' => $formView,
         ];
     }
 
     /**
-     * New element component action
+     * Edit element component action
      *
      * As a component, this action should not return all the html macro, but
      * only the specific component
@@ -205,20 +207,20 @@ class ProductComponentController
      * @return array Result
      *
      * @Route(
-     *      path = "/{id}/edit/component",
-     *      name = "admin_product_edit_component"
+     *      path = "/{variantId}/edit/component",
+     *      name = "admin_variant_edit_component"
      * )
-     * @Template("AdminProductBundle:Product:Component/editComponent.html.twig")
+     * @Template("AdminProductBundle:Variant:Component/editComponent.html.twig")
      * @Method({"GET"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.product.entity.product.class",
+     *      class = "elcodi.core.product.entity.variant.class",
      *      mapping = {
-     *          "id": "~id~",
+     *          "id": "~variantId~",
      *      }
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_product_form_type_product",
+     *      class = "elcodi_admin_product_form_type_variant",
      *      name  = "formView",
      *      entity = "entity"
      * )
@@ -234,29 +236,29 @@ class ProductComponentController
             'form'   => $formView,
         ];
     }
-
-    /**
-     * View gallery action
-     *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity
-     *
-     * @return array result
-     *
-     * @Route(
-     *      path = "/{id}/gallery/component",
-     *      name = "admin_product_gallery_component"
-     * )
-     * @Template("AdminMediaBundle:Gallery/Component:view.html.twig")
-     * @Method({"GET"})
-     *
-     * @EntityAnnotation(
-     *      class = "elcodi.core.product.entity.product.class",
-     *      mapping = {
-     *          "id" = "~id~"
-     *      }
-     * )
-     */
+//
+//    /**
+//     * View gallery action
+//     *
+//     * @param Request        $request Request
+//     * @param AbstractEntity $entity  Entity
+//     *
+//     * @return array result
+//     *
+//     * @Route(
+//     *      path = "/{id}/gallery/component",
+//     *      name = "admin_product_gallery_component"
+//     * )
+//     * @Template("AdminMediaBundle:Gallery:Component/gallery.html.twig")
+//     * @Method({"GET"})
+//     *
+//     * @EntityAnnotation(
+//     *      class = "elcodi.core.product.entity.product.class",
+//     *      mapping = {
+//     *          "id" = "~id~"
+//     *      }
+//     * )
+//     */
     public function galleryComponentAction(
         Request $request,
         AbstractEntity $entity

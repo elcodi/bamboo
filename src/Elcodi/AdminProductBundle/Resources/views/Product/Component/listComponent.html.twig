@@ -9,15 +9,16 @@
 {% block table_head %}
     {% include "@AdminCore/Tables/head.html.twig" with {
         rows: {
-            "Id": {width:"25"},
-            "Name": {},
-            "Slug": {},
-            "Show in home": {width:"25"},
-            "Stock": {width:"25"},
-            "Price": {width:"50"},
-            "ReducedPrice": {width:"50"},
-            "Principal category": {sorting_disabled: true},
-            "Enabled": {width:"25"},
+            "id": {width:"25"},
+            "name": {},
+            "slug": {},
+            "showInHome": {width:"25"},
+            "hasVariants" : {sorting_disabled: true},
+            "stock": {width:"25"},
+            "price": {width:"50"},
+            "reducedPrice": {width:"50"},
+            "principalCategory": {sorting_disabled: true},
+            "enabled": {width:"25"},
         },
         class: "product",
     } %}
@@ -38,6 +39,9 @@
     </td>
     <td>
         {% if entity.showInHome %}<span class="label label-success">true</span>{% else %}<span class="label label-danger">false</span>{% endif %}
+    </td>
+    <td>
+        {% if entity.hasVariants %}<span class="label label-success">true</span>{% else %}<span class="label label-danger">false</span>{% endif %}
     </td>
     <td>
         {{ entity.stock }}

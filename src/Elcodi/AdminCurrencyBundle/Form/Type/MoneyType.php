@@ -70,11 +70,11 @@ class MoneyType extends AbstractType
          */
         $money = Money::create(
             0,
-            $this->currencyWrapper->getCurrency()
+            $this->currencyWrapper->getDefaultCurrency()
         );
 
         $resolver->setDefaults(array(
-            'data_class' => 'Elcodi\CurrencyBundle\Entity\StubMoney',
+            'data_class' => 'Elcodi\CurrencyBundle\Entity\Money',
             'empty_data' => $money,
         ));
     }

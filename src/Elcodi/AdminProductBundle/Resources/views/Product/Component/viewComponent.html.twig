@@ -16,6 +16,7 @@
             <a href="{{ url("admin_product_enable", {"id": entity.id}) }}" class="btn btn-success">{{ 'Enable'|trans }}</a>
         {% endif %}
         <a href="{{ url("admin_product_delete", {"id": entity.id}) }}" class="btn btn-danger">{{ 'Delete'|trans }}</a>
+        {% if not entity.hasVariants() %}<a href="{{ url("admin_variant_new", {id: entity.id}) }}"type="button" class="btn btn-success">{{ "Create variants"|trans }}</a>{% endif %}
     </div>
 {% endblock view_buttons %}
 
@@ -42,9 +43,14 @@
         <td>{% if entity.showInHome %}<span class="label label-success">true</span>{% else %}<span class="label label-danger">false</span>{% endif %}</td>
     </tr>
     <tr>
+        <td>{{ 'hasVariants'|trans }}</td>
+        <td>{% if entity.hasVariants %}<span class="label label-success">true</span>{% else %}<span class="label label-danger">false</span>{% endif %}</td>
+    </tr>
+    <tr>
         <td>{{ 'dimensions'|trans }}</td>
         <td>{{ entity.dimensions }}</td>
     </tr>
+    {% if not entity.hasVariants %}
     <tr>
         <td>{{ 'stock'|trans }}</td>
         <td>{{ entity.stock }}</td>
@@ -57,6 +63,7 @@
         <td>{{ 'reducedPrice'|trans }}</td>
         <td>{{ entity.reducedPrice|print_money }}</td>
     </tr>
+    {% endif %}
     <tr>
         <td>{{ 'createdAt'|trans }}</td>
         <td>{{ entity.createdAt|date('Y.m.d - H:i:s') }}</td>

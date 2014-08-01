@@ -1,0 +1,34 @@
+{% extends '@AdminCore/Tables/head.html.twig' %}
+
+{#
+    This template needs this formatted data:
+
+    {
+        rows: {
+            "id": {width:"25", sorting_disabled: true},
+            "desc": {},
+            "field": {},
+        },
+        class: "rule",
+    }
+
+    You can override the row name by defining "row" field
+#}
+
+{% block column_header %}
+    <th role="columnheader" tabindex="0" aria-controls="database-icons" class="{{ directionclass }}"
+        {% if info.width is defined %} style="width={{ info.width }}px"{% endif %}
+            >
+            {% if islink %}
+                <a href="{{ url("admin_" ~ class ~ "_list", {
+                    "id": id,
+                    "page": page,
+                    "limit": limit,
+                    "orderByField": field,
+                    "orderByDirection": direction
+                }) }}">{{ row|trans }}</a>
+            {% else %}
+                {{ row|trans }}
+            {% endif %}
+    </th>
+{% endblock %}

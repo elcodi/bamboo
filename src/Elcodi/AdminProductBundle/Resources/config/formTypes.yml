@@ -8,9 +8,16 @@ services:
         arguments:
             entity: %elcodi.core.product.entity.product.class%
             product_factory: @elcodi.factory.product
-            currency_factory: @elcodi.factory.currency
         tags:
             - { name: form.type, alias: elcodi_admin_product_form_type_product }
+
+    elcodi.admin.product.form_type.variant:
+        class: %elcodi.admin.product.form_type.variant.class%
+        arguments:
+            entity: %elcodi.core.product.entity.variant.class%
+            product_factory: @elcodi.factory.variant
+        tags:
+            - { name: form.type, alias: elcodi_admin_product_form_type_variant }
 
     elcodi.admin.product.form_type.category:
         class: %elcodi.admin.product.form_type.category.class%

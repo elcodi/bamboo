@@ -1,0 +1,78 @@
+{% extends 'AdminCoreBundle::Common/viewComponent.html.twig' %}
+
+{% block title %}
+    {{ entity|purchasable_name }} - {{ entity }}
+{% endblock title %}
+
+{% block alerts %}
+{% endblock %}
+
+
+{% block view_buttons %}
+    <div class="spacer spacer-bottom">
+        <a href="{{ url("admin_product_view", {"id": entity.product.id}) }}" class="btn">{{ 'View all'|trans }}</a>
+        <a href="{{ url("admin_variant_edit", {"id": entity.product.id, "variantId": entity.id}) }}" class="btn btn-primary">{{ 'Edit'|trans }}</a>
+        {% if entity.enabled %}
+            <a href="{{ url("admin_variant_disable", {"id": entity.product.id, "variantId": entity.id}) }}" class="btn btn-warning">{{ 'Disable'|trans }}</a>
+        {% else %}
+            <a href="{{ url("admin_variant_enable", {"id": entity.product.id, "variantId": entity.id}) }}" class="btn btn-success">{{ 'Enable'|trans }}</a>
+        {% endif %}
+        <a href="{{ url("admin_variant_delete", {"id": entity.product.id, "variantId": entity.id}) }}" class="btn btn-danger">{{ 'Delete'|trans }}</a>
+    </div>
+{% endblock view_buttons %}
+
+
+{% block content %}
+    <tr>
+        <td colspan="2">
+            <div class="alert alert-info alert-white rounded">
+                <button data-dismiss="alert" class="close" type="button">×</button>
+                <div class="icon"><i class="icon-info-sign"></i></div>
+                <strong>This is a product variant</strong> for the product
+                    <a href="{{ url('admin_product_view', {id: entity.product.id}) }}"  title="{{ entity.product.name }}">
+                        {{ entity.product.name }}
+                    </a>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>{{ 'name'|trans }}</td>
+        <td>{{ entity|purchasable_name }}</td>
+    </tr>
+    <td>{{ 'options'|trans }}</td>
+    <td>
+        <ul>
+            {% for option in entity.options %}
+                <li>
+                    <a href="{{ url("admin_category_view", {id: option.id}) }}">
+                        {{ option.attribute.name }} - {{ option.name }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </td>
+    <tr>
+        <td>{{ 'stock'|trans }}</td>
+        <td>{{ entity.stock }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'price'|trans }}</td>
+        <td>{{ entity.price|print_money }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'reducedPrice'|trans }}</td>
+        <td>{{ entity.reducedPrice|print_money }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'createdAt'|trans }}</td>
+        <td>{{ entity.createdAt|date('Y.m.d - H:i:s') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'updatedAt'|trans }}</td>
+        <td>{{ entity.updatedAt|date('Y.m.d - H:i:s') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'enabled'|trans }}</td>
+        <td>{% if entity.enabled %}<span class="label label-success">true</span>{% else %}<span class="label label-danger">false</span>{% endif %}</td>
+    </tr>
+{% endblock content %}
