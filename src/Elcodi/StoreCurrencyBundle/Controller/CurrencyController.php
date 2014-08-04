@@ -53,7 +53,7 @@ class CurrencyController extends Controller
             ]);
 
         if (!$currencies) {
-            throw $this->createNotFoundException(
+            throw new \LogicException(
                 'There are not currencies, you must configure at least one'
             );
         }  
