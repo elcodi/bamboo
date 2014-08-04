@@ -52,6 +52,12 @@ class CurrencyController extends Controller
                 'enabled' => true,
             ]);
 
+        if (!$currencies) {
+            throw $this->createNotFoundException(
+                'There are not currencies, you must configure at least one'
+            );
+        }  
+        
         $activeCurrency = $this
             ->get('elcodi.currency_wrapper')
             ->loadCurrency();
