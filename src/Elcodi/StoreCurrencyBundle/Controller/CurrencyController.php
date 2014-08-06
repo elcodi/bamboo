@@ -52,7 +52,7 @@ class CurrencyController extends Controller
                 'enabled' => true,
             ]);
 
-        if ($currencies == null) {
+        if (!($currencies instanceof Collection)) {
             throw new \LogicException(
                 'There are not currencies, you must configure at least one'
             );
