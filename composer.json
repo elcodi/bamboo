@@ -55,6 +55,7 @@
         "twbs/bootstrap": "2.3.*",
         "leafo/lessphp": "0.3.9",
         "sebastian/money": "~1.3",
+        "incenteev/composer-parameter-handler": "~2.0",
 
         "mmoreram/controller-extra-bundle": "~1.0",
         "ornicar/gravatar-bundle" : "1.1.2",
@@ -80,12 +81,14 @@
     },
     "scripts": {
         "post-install-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
         ],
         "post-update-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
@@ -105,6 +108,9 @@
     "extra": {
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",
+        "incenteev-parameters": {
+            "file": "app/config/parameters.yml"
+        },
         "branch-alias": {
             "dev-master": "0.2-dev"
         }
