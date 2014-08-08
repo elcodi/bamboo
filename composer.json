@@ -77,7 +77,8 @@
         "elcodi/core-bundle": "~0.2.0"
     },
     "require-dev": {
-        "mmoreram/php-formatter": "~1.0"
+        "mmoreram/php-formatter": "~1.0",
+        "elcodi/bamboo-fixtures": "0.1.*@dev"
     },
     "scripts": {
         "post-install-cmd": [
