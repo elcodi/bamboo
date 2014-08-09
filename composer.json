@@ -78,7 +78,7 @@
     },
     "require-dev": {
         "mmoreram/php-formatter": "~1.0",
-        "elcodi/bamboo-fixtures": "0.1.*@dev"
+        "elcodi/bamboo-fixtures": "~0.2.0"
     },
     "scripts": {
         "post-install-cmd": [
