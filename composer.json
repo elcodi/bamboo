@@ -100,7 +100,7 @@
         "psr-4": {
             "Elcodi\\": "src/Elcodi"
         },
-        "files": ["app/AppKernel.php"]
+        "files": ["app/AdminAppKernel.php"]
     },
     "config": {
         "bin-dir": "bin"
