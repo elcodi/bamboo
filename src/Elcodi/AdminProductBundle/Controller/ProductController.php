@@ -136,7 +136,7 @@ class ProductController
      *     }
      * )
      *
-     * @ Template("@AdminProduct/Variant/view.html.twig")
+     * @Template("@AdminProduct/Variant/view.html.twig")
      * @Method({"GET"})
      */
     public function viewAction(

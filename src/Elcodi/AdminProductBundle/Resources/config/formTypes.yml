@@ -15,7 +15,7 @@ services:
         class: %elcodi.admin.product.form_type.variant.class%
         arguments:
             entity: %elcodi.core.product.entity.variant.class%
-            product_factory: @elcodi.factory.variant
+            product_factory: @elcodi.factory.product_variant
         tags:
             - { name: form.type, alias: elcodi_admin_product_form_type_variant }
 
