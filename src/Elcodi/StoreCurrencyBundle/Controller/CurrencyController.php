@@ -16,6 +16,7 @@
 
 namespace Elcodi\StoreCurrencyBundle\Controller;
 
+use LogicException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -34,9 +35,11 @@ use Elcodi\CurrencyBundle\Entity\Interfaces\CurrencyInterface;
 class CurrencyController extends Controller
 {
     /**
-     * Currency switcher
+     * Currency navigator
      *
      * @return array
+     *
+     * @throws LogicException No currencies available
      *
      * @Route(
      *      path = "/nav",
@@ -52,12 +55,12 @@ class CurrencyController extends Controller
                 'enabled' => true,
             ]);
 
-        if (!($currencies instanceof Collection)) {
-            throw new \LogicException(
+        if (empty($currencies)) {
+            throw new LogicException(
                 'There are not currencies, you must configure at least one'
             );
-        }  
-        
+        }
+
         $activeCurrency = $this
             ->get('elcodi.currency_wrapper')
             ->loadCurrency();

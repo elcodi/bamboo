@@ -64,6 +64,7 @@
         "elcodi/user-bundle": "~0.2.0",
         "elcodi/cart-coupon-bundle": "~0.2.0",
         "elcodi/geo-bundle": "~0.2.0",
+        "elcodi/rule-bundle": "~0.2.0",
         "elcodi/bamboo-fixtures": "~0.2.0"
     },
     "require-dev": {
