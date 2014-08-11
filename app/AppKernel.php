@@ -17,7 +17,7 @@
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
-class AppKernel extends Kernel
+class StoreAppKernel extends Kernel
 {
     /**
      * Register common bundles in all environments
