@@ -705,12 +705,12 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
     /**
      * Steps necessary to store an image
      *
-     * @param ObjectManager    $manager         Manager
-     * @param ImageManager     $imageManager    ImageManager
-     * @param Filesystem       $filesystem      Filesystem
-     * @param fileIdentifierTransformer  $fileIdentifierTransformer fileIdentifierTransformer
-     * @param ProductInterface $product         Product
-     * @param string           $imageName       Image name
+     * @param ObjectManager             $manager                   Manager
+     * @param ImageManager              $imageManager              ImageManager
+     * @param Filesystem                $filesystem                Filesystem
+     * @param fileIdentifierTransformer $fileIdentifierTransformer fileIdentifierTransformer
+     * @param ProductInterface          $product                   Product
+     * @param string                    $imageName                 Image name
      *
      * @return ProductData self Object
      */
@@ -746,7 +746,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
      *
      * @return array
      */
-    function getDependencies()
+    public function getDependencies()
     {
         return [
             'Elcodi\Fixtures\DataFixtures\ORM\CurrencyData',

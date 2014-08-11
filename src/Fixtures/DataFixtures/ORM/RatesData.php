@@ -91,7 +91,7 @@ class RatesData extends AbstractFixture implements DependentFixtureInterface
      *
      * @return array
      */
-    function getDependencies()
+    public function getDependencies()
     {
         return [
             'Elcodi\Fixtures\DataFixtures\ORM\CurrencyData',
