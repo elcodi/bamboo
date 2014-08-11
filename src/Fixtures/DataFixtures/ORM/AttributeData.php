@@ -30,13 +30,13 @@ class AttributeData extends AbstractFixture
      */
     public function load(ObjectManager $objectManager)
     {
-        /* Attributes */
-
         /**
          * @var Attribute $sizeAttribute
          * @var Attribute $colorAttribute
          */
-        $sizeAttribute = $this->container->get('elcodi.core.attribute.factory.attribute')->create();
+        $sizeAttribute = $this
+            ->container
+            ->get('elcodi.factory.attribute')->create();
 
         $sizeAttribute
             ->setName('Size')
@@ -46,7 +46,10 @@ class AttributeData extends AbstractFixture
         $objectManager->persist($sizeAttribute);
         $this->addReference('attribute-size', $sizeAttribute);
 
-        $colorAttribute = $this->container->get('elcodi.core.attribute.factory.attribute')->create();
+        $colorAttribute = $this
+            ->container
+            ->get('elcodi.factory.attribute')
+            ->create();
 
         $colorAttribute
             ->setName('Color')
@@ -56,12 +59,22 @@ class AttributeData extends AbstractFixture
         $objectManager->persist($colorAttribute);
         $this->addReference('attribute-color', $colorAttribute);
 
-        /* Values */
+        /**
+         * Values
+         */
 
-        /* Colors */
+        /**
+         * Colors
+         */
 
-        /* Black */
-        $blackValue = $this->container->get('elcodi.core.attribute.factory.value')->create();
+        /**
+         * Black
+         */
+        $blackValue = $this
+            ->container
+            ->get('elcodi.factory.attribute_value')
+            ->create();
+
         $blackValue
             ->setName('Black')
             ->setDisplayName('Black')
@@ -71,8 +84,14 @@ class AttributeData extends AbstractFixture
         $objectManager->persist($blackValue);
         $this->addReference('value-color-black', $blackValue);
 
-        /* White */
-        $whiteValue = $this->container->get('elcodi.core.attribute.factory.value')->create();
+        /**
+         * White
+         */
+        $whiteValue = $this
+            ->container
+            ->get('elcodi.factory.attribute_value')
+            ->create();
+
         $whiteValue
             ->setName('White')
             ->setDisplayName('White')
@@ -82,8 +101,14 @@ class AttributeData extends AbstractFixture
         $objectManager->persist($whiteValue);
         $this->addReference('value-color-white', $whiteValue);
 
-        /* Gray */
-        $grayValue = $this->container->get('elcodi.core.attribute.factory.value')->create();
+        /**
+         * Gray
+         */
+        $grayValue = $this
+            ->container
+            ->get('elcodi.factory.attribute_value')
+            ->create();
+
         $grayValue
             ->setName('Gray')
             ->setDisplayName('Gray')
@@ -93,10 +118,18 @@ class AttributeData extends AbstractFixture
         $objectManager->persist($grayValue);
         $this->addReference('value-color-gray', $grayValue);
 
-        /* Sizes */
+        /**
+         * Sizes
+         */
 
-        /* Small */
-        $smallValue = $this->container->get('elcodi.core.attribute.factory.value')->create();
+        /**
+         * Small
+         */
+        $smallValue = $this
+            ->container
+            ->get('elcodi.factory.attribute_value')
+            ->create();
+
         $smallValue
             ->setName('Small')
             ->setDisplayName('Small')
@@ -106,8 +139,14 @@ class AttributeData extends AbstractFixture
         $objectManager->persist($smallValue);
         $this->addReference('value-size-small', $smallValue);
 
-        /* Medium */
-        $mediumValue = $this->container->get('elcodi.core.attribute.factory.value')->create();
+        /**
+         * Medium
+         */
+        $mediumValue = $this
+            ->container
+            ->get('elcodi.factory.attribute_value')
+            ->create();
+
         $mediumValue
             ->setName('Medium')
             ->setDisplayName('Medium')
@@ -117,8 +156,14 @@ class AttributeData extends AbstractFixture
         $objectManager->persist($mediumValue);
         $this->addReference('value-size-medium', $mediumValue);
 
-        /* Large */
-        $largeValue = $this->container->get('elcodi.core.attribute.factory.value')->create();
+        /**
+         * Large
+         */
+        $largeValue = $this
+            ->container
+            ->get('elcodi.factory.attribute_value')
+            ->create();
+
         $largeValue
             ->setName('Large')
             ->setDisplayName('Large')
@@ -129,13 +174,5 @@ class AttributeData extends AbstractFixture
         $this->addReference('value-size-large', $largeValue);
 
         $objectManager->flush();
-    }
-
-    /**
-     * @return int|void
-     */
-    public function getOrder()
-    {
-        return 1;
     }
 }

@@ -16,6 +16,7 @@
 
 namespace Elcodi\Fixtures\DataFixtures\ORM;
 
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Gaufrette\Adapter;
 use Gaufrette\Filesystem;
@@ -25,16 +26,15 @@ use Elcodi\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
 use Elcodi\CurrencyBundle\Entity\Interfaces\CurrencyInterface;
 use Elcodi\CurrencyBundle\Entity\Money;
 use Elcodi\MediaBundle\Services\ImageManager;
-use Elcodi\MediaBundle\Transformer\FileTransformer;
+use Elcodi\MediaBundle\Transformer\FileIdentifierTransformer;
 use Elcodi\ProductBundle\Entity\Interfaces\CategoryInterface;
 use Elcodi\ProductBundle\Entity\Interfaces\ProductInterface;
 
 /**
  * Class ProductData
  */
-class ProductData extends AbstractFixture
+class ProductData extends AbstractFixture implements DependentFixtureInterface
 {
-
     /**
      * Load data fixtures with the passed EntityManager
      *
@@ -45,16 +45,16 @@ class ProductData extends AbstractFixture
         /**
          * @var ImageManager      $imageManager
          * @var Adapter           $filesystemAdapter
-         * @var FileTransformer   $fileTransformer
+         * @var FileIdentifierTransformer   $fileIdentifierTransformer
          * @var CategoryInterface $menCategory
          * @var CategoryInterface $wemanCategory
          * @var CurrencyInterface $currency
          */
-        $imageManager = $this->container->get('elcodi.core.media.service.image_manager');
-        $productFactory = $this->container->get('elcodi.core.product.factory.product');
-        $variantFactory = $this->container->get('elcodi.core.product.factory.variant');
+        $imageManager = $this->container->get('elcodi.image_manager');
+        $productFactory = $this->container->get('elcodi.factory.product');
+        $variantFactory = $this->container->get('elcodi.factory.product_variant');
         $filesystem = $this->container->get('elcodi.core.media.filesystem.default');
-        $fileTransformer = $this->container->get('elcodi.core.media.transformer.file');
+        $fileIdentifierTransformer = $this->container->get('elcodi.file_identifier_transformer');
         $menCategory = $this->getReference('category-men');
         $womenCategory = $this->getReference('category-women');
         $currency = $this->getReference('currency-dollar');
@@ -77,6 +77,7 @@ class ProductData extends AbstractFixture
 
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
+            ->setShowInHome(true)
             ->setStock(10000)
             ->setPrice(Money::create(799, $currency))
             ->setEnabled(true);
@@ -125,7 +126,14 @@ class ProductData extends AbstractFixture
 
         $this->addReference('product-ibiza-lips', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-1.jpg');
+        $this->storeImage(
+            $manager,
+            $imageManager,
+            $filesystem,
+            $fileIdentifierTransformer,
+            $product,
+            'product-1.jpg'
+        );
 
         /**
          * Ibiza Banana
@@ -141,6 +149,7 @@ class ProductData extends AbstractFixture
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.'
             )
+            ->setShowInHome(true)
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
             ->setStock(10000)
@@ -150,7 +159,14 @@ class ProductData extends AbstractFixture
         $manager->persist($product);
         $this->addReference('product-ibiza-banana', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-2.jpg');
+        $this->storeImage(
+            $manager,
+            $imageManager,
+            $filesystem,
+            $fileIdentifierTransformer,
+            $product,
+            'product-2.jpg'
+        );
 
         /**
          * I Was There
@@ -166,6 +182,7 @@ class ProductData extends AbstractFixture
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.'
             )
+            ->setShowInHome(true)
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
             ->setStock(10000)
@@ -175,7 +192,14 @@ class ProductData extends AbstractFixture
         $manager->persist($product);
         $this->addReference('product-i-was-there', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-3.jpg');
+        $this->storeImage(
+            $manager,
+            $imageManager,
+            $filesystem,
+            $fileIdentifierTransformer,
+            $product,
+            'product-3.jpg'
+        );
 
         /**
          * A Life Style
@@ -191,6 +215,7 @@ class ProductData extends AbstractFixture
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.'
             )
+            ->setShowInHome(true)
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
             ->setStock(10000)
@@ -200,7 +225,14 @@ class ProductData extends AbstractFixture
         $manager->persist($product);
         $this->addReference('product-a-life-style', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-4.jpg');
+        $this->storeImage(
+            $manager,
+            $imageManager,
+            $filesystem,
+            $fileIdentifierTransformer,
+            $product,
+            'product-4.jpg'
+        );
 
         /**
          * A.M. Nesia Ibiza
@@ -216,6 +248,7 @@ class ProductData extends AbstractFixture
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.'
             )
+            ->setShowInHome(true)
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
             ->setStock(10000)
@@ -225,7 +258,14 @@ class ProductData extends AbstractFixture
         $manager->persist($product);
         $this->addReference('product-a-m-nesia-ibiza', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-5.jpg');
+        $this->storeImage(
+            $manager,
+            $imageManager,
+            $filesystem,
+            $fileIdentifierTransformer,
+            $product,
+            'product-5.jpg'
+        );
 
         /**
          * Amnesia poem
@@ -241,6 +281,7 @@ class ProductData extends AbstractFixture
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.'
             )
+            ->setShowInHome(true)
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
             ->setStock(10000)
@@ -250,7 +291,14 @@ class ProductData extends AbstractFixture
         $manager->persist($product);
         $this->addReference('product-amnesia-poem', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-6.jpg');
+        $this->storeImage(
+            $manager,
+            $imageManager,
+            $filesystem,
+            $fileIdentifierTransformer,
+            $product,
+            'product-6.jpg'
+        );
 
         /**
          * Pyramid
@@ -266,6 +314,7 @@ class ProductData extends AbstractFixture
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.'
             )
+            ->setShowInHome(true)
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
             ->setStock(10000)
@@ -275,7 +324,14 @@ class ProductData extends AbstractFixture
         $manager->persist($product);
         $this->addReference('product-pyramid', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-7.jpg');
+        $this->storeImage(
+            $manager,
+            $imageManager,
+            $filesystem,
+            $fileIdentifierTransformer,
+            $product,
+            'product-7.jpg'
+        );
 
         /**
          * Amnesia pink
@@ -291,6 +347,7 @@ class ProductData extends AbstractFixture
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.'
             )
+            ->setShowInHome(true)
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
             ->setStock(10000)
@@ -300,7 +357,14 @@ class ProductData extends AbstractFixture
         $manager->persist($product);
         $this->addReference('product-amnesia-pink', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-8.jpg');
+        $this->storeImage(
+            $manager,
+            $imageManager,
+            $filesystem,
+            $fileIdentifierTransformer,
+            $product,
+            'product-8.jpg'
+        );
 
         /**
          * Pinky fragments
@@ -316,6 +380,7 @@ class ProductData extends AbstractFixture
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.'
             )
+            ->setShowInHome(true)
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
             ->setStock(10000)
@@ -325,7 +390,14 @@ class ProductData extends AbstractFixture
         $manager->persist($product);
         $this->addReference('product-pinky-fragments', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-9.jpg');
+        $this->storeImage(
+            $manager,
+            $imageManager,
+            $filesystem,
+            $fileIdentifierTransformer,
+            $product,
+            'product-9.jpg'
+        );
 
         /**
          * I Was There II
@@ -341,6 +413,7 @@ class ProductData extends AbstractFixture
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.'
             )
+            ->setShowInHome(true)
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
             ->setStock(10000)
@@ -350,7 +423,14 @@ class ProductData extends AbstractFixture
         $manager->persist($product);
         $this->addReference('product-i-was-there-ii', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-10.jpg');
+        $this->storeImage(
+            $manager,
+            $imageManager,
+            $filesystem,
+            $fileIdentifierTransformer,
+            $product,
+            'product-10.jpg'
+        );
 
         /**
          * Amnesia
@@ -366,6 +446,7 @@ class ProductData extends AbstractFixture
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.'
             )
+            ->setShowInHome(true)
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
             ->setStock(10000)
@@ -375,7 +456,14 @@ class ProductData extends AbstractFixture
         $manager->persist($product);
         $this->addReference('product-amnesia', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-11.jpg');
+        $this->storeImage(
+            $manager,
+            $imageManager,
+            $filesystem,
+            $fileIdentifierTransformer,
+            $product,
+            'product-11.jpg'
+        );
 
         /**
          * Amnesia 100%
@@ -391,6 +479,7 @@ class ProductData extends AbstractFixture
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.'
             )
+            ->setShowInHome(true)
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
             ->setStock(10000)
@@ -400,7 +489,14 @@ class ProductData extends AbstractFixture
         $manager->persist($product);
         $this->addReference('product-amnesia-100-percent', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-12.jpg');
+        $this->storeImage(
+            $manager,
+            $imageManager,
+            $filesystem,
+            $fileIdentifierTransformer,
+            $product,
+            'product-12.jpg'
+        );
 
         /**
          * A life style
@@ -416,6 +512,7 @@ class ProductData extends AbstractFixture
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.'
             )
+            ->setShowInHome(true)
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
             ->setStock(10000)
@@ -425,7 +522,14 @@ class ProductData extends AbstractFixture
         $manager->persist($product);
         $this->addReference('product-a-life-style-ii', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-13.jpg');
+        $this->storeImage(
+            $manager,
+            $imageManager,
+            $filesystem,
+            $fileIdentifierTransformer,
+            $product,
+            'product-13.jpg'
+        );
 
         /**
          * All night long
@@ -441,6 +545,7 @@ class ProductData extends AbstractFixture
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.'
             )
+            ->setShowInHome(true)
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
             ->setStock(10000)
@@ -450,7 +555,14 @@ class ProductData extends AbstractFixture
         $manager->persist($product);
         $this->addReference('product-all-night-long', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-14.jpg');
+        $this->storeImage(
+            $manager,
+            $imageManager,
+            $filesystem,
+            $fileIdentifierTransformer,
+            $product,
+            'product-14.jpg'
+        );
 
         /**
          * A.M. Nesia Ibiza II
@@ -467,6 +579,7 @@ class ProductData extends AbstractFixture
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.'
             )
+            ->setShowInHome(true)
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
             ->setStock(10000)
@@ -476,7 +589,14 @@ class ProductData extends AbstractFixture
         $manager->persist($product);
         $this->addReference('product-a-m-nesia-ibiza-ii', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-15.jpg');
+        $this->storeImage(
+            $manager,
+            $imageManager,
+            $filesystem,
+            $fileIdentifierTransformer,
+            $product,
+            'product-15.jpg'
+        );
 
         /**
          * High Pyramid
@@ -493,6 +613,7 @@ class ProductData extends AbstractFixture
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.'
             )
+            ->setShowInHome(true)
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
             ->setStock(10000)
@@ -502,7 +623,14 @@ class ProductData extends AbstractFixture
         $manager->persist($product);
         $this->addReference('product-high-pyramid', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-16.jpg');
+        $this->storeImage(
+            $manager,
+            $imageManager,
+            $filesystem,
+            $fileIdentifierTransformer,
+            $product,
+            'product-16.jpg'
+        );
 
         /**
          * Star Amnesia
@@ -519,6 +647,7 @@ class ProductData extends AbstractFixture
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.'
             )
+            ->setShowInHome(true)
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
             ->setStock(10000)
@@ -528,7 +657,14 @@ class ProductData extends AbstractFixture
         $manager->persist($product);
         $this->addReference('product-star-amnesia', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-17.jpg');
+        $this->storeImage(
+            $manager,
+            $imageManager,
+            $filesystem,
+            $fileIdentifierTransformer,
+            $product,
+            'product-17.jpg'
+        );
 
         /**
          * Ibiza 4 Ever
@@ -544,6 +680,7 @@ class ProductData extends AbstractFixture
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.'
             )
+            ->setShowInHome(true)
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
             ->setStock(10000)
@@ -553,19 +690,16 @@ class ProductData extends AbstractFixture
         $manager->persist($product);
         $this->addReference('product-ibiza-4-ever', $product);
 
-        $this->storeImage($manager, $imageManager, $filesystem, $fileTransformer, $product, 'product-18.jpg');
+        $this->storeImage(
+            $manager,
+            $imageManager,
+            $filesystem,
+            $fileIdentifierTransformer,
+            $product,
+            'product-18.jpg'
+        );
 
         $manager->flush();
-    }
-
-    /**
-     * Order for given fixture
-     *
-     * @return int
-     */
-    public function getOrder()
-    {
-        return 5;
     }
 
     /**
@@ -574,7 +708,7 @@ class ProductData extends AbstractFixture
      * @param ObjectManager    $manager         Manager
      * @param ImageManager     $imageManager    ImageManager
      * @param Filesystem       $filesystem      Filesystem
-     * @param FileTransformer  $fileTransformer FileTransformer
+     * @param fileIdentifierTransformer  $fileIdentifierTransformer fileIdentifierTransformer
      * @param ProductInterface $product         Product
      * @param string           $imageName       Image name
      *
@@ -584,7 +718,7 @@ class ProductData extends AbstractFixture
         ObjectManager $manager,
         ImageManager $imageManager,
         Filesystem $filesystem,
-        FileTransformer $fileTransformer,
+        fileIdentifierTransformer $fileIdentifierTransformer,
         ProductInterface $product,
         $imageName
     )
@@ -595,7 +729,7 @@ class ProductData extends AbstractFixture
         $manager->flush($image);
 
         $filesystem->write(
-            $fileTransformer->transform($image),
+            $fileIdentifierTransformer->transform($image),
             file_get_contents($imagePath),
             true
         );
@@ -604,5 +738,20 @@ class ProductData extends AbstractFixture
         $product->setPrincipalImage($image);
 
         return $this;
+    }
+
+    /**
+     * This method must return an array of fixtures classes
+     * on which the implementing class depends on
+     *
+     * @return array
+     */
+    function getDependencies()
+    {
+        return [
+            'Elcodi\Fixtures\DataFixtures\ORM\CurrencyData',
+            'Elcodi\Fixtures\DataFixtures\ORM\CategoryData',
+            'Elcodi\Fixtures\DataFixtures\ORM\AttributeData',
+        ];
     }
 }

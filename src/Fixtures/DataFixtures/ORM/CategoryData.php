@@ -38,7 +38,11 @@ class CategoryData extends AbstractFixture
          *
          * @var CategoryInterface $category
          */
-        $womenCategory = $this->container->get('elcodi.core.product.factory.category')->create();
+        $womenCategory = $this
+            ->container
+            ->get('elcodi.factory.category')
+            ->create();
+
         $womenCategory
             ->setName('Women\'s')
             ->setSlug('women-shirts')
@@ -53,7 +57,11 @@ class CategoryData extends AbstractFixture
          *
          * @var CategoryInterface $menCategory
          */
-        $menCategory = $this->container->get('elcodi.core.product.factory.category')->create();
+        $menCategory = $this
+            ->container
+            ->get('elcodi.factory.category')
+            ->create();
+
         $menCategory
             ->setName('Men\'s')
             ->setSlug('men-shirts')
@@ -64,15 +72,5 @@ class CategoryData extends AbstractFixture
         $this->addReference('category-men', $menCategory);
 
         $manager->flush();
-    }
-
-    /**
-     * Order for given fixture
-     *
-     * @return int
-     */
-    public function getOrder()
-    {
-        return 1;
     }
 }
