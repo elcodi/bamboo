@@ -17,6 +17,9 @@
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
+/**
+ * Class StoreAppKernel
+ */
 class StoreAppKernel extends Kernel
 {
     /**
