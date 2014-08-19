@@ -83,10 +83,6 @@ doctrine_cache:
         elcodi:
             type: array
 
-elcodi_media:
-    images:
-        filesystem: gaufrette.local_filesystem
-
 knp_gaufrette:
     adapters:
         local:
