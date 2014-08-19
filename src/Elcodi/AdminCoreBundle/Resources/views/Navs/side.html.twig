@@ -19,7 +19,7 @@
                     {% for menu_item in menu_items %}
 
                     <li {% if menu_item.subnodes|length %}class="parent"{% endif %}>
-                        <a href="{{ menu_item.url }}">
+                        <a href="{{ generate_url(menu_item.url) }}">
                             <i class="fa fa-users"></i>
                             <span>{{ menu_item.name|trans }}</span>
                         </a>
@@ -28,7 +28,7 @@
                             {% if loop.first %}
                             <ul class="sub-menu">
                             {% endif %}
-                            <li><a href="{{ submenu_item.url }}">{{ submenu_item.name }}</a></li>
+                            <li><a href="{{ generate_url(submenu_item.url) }}">{{ submenu_item.name }}</a></li>
                             {% if loop.last %}
                             </ul>
                             {% endif %}
