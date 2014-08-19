@@ -72,10 +72,6 @@ controller_extra:
         default_method: create
         default_static: false
 
-elcodi_media:
-    images:
-        filesystem: gaufrette.local_filesystem
-
 knp_gaufrette:
     adapters:
         local:
