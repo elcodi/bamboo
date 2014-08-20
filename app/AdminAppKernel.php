@@ -67,6 +67,7 @@ class AdminAppKernel extends Kernel
             new \Elcodi\MediaBundle\ElcodiMediaBundle(),
             new \Elcodi\RuleBundle\ElcodiRuleBundle(),
             new \Elcodi\NewsletterBundle\ElcodiNewsletterBundle(),
+            new \Elcodi\MenuBundle\ElcodiMenuBundle(),
 
             /**
              * Elcodi store bundles
