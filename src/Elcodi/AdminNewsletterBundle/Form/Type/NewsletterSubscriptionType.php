@@ -16,14 +16,17 @@
 
 namespace Elcodi\AdminNewsletterBundle\Form\Type;
 
+use Elcodi\NewsletterBundle\Factory\NewsletterSubscriptionFactory;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
  * Class NewsletterSubscriptionType
  */
 class NewsletterSubscriptionType extends AbstractType
 {
+
     /**
      * Buildform function
      *
@@ -62,7 +65,7 @@ class NewsletterSubscriptionType extends AbstractType
                 'label'    => 'enabled',
             ))
             ->add('language', 'entity', array(
-                'class'    => 'Elcodi\CoreBundle\Entity\Language',
+                'class'    => 'Elcodi\LanguageBundle\Entity\Language',
                 'required' => false,
                 'label'    => 'language',
                 'multiple' => false,
