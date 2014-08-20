@@ -81,3 +81,7 @@ knp_gaufrette:
     filesystems:
         local:
             adapter:    local
+elcodi_menu:
+    route_provider:
+        adapter: symfony
+
