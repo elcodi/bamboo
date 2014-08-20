@@ -36,6 +36,13 @@ class CategoryType extends AbstractType
     protected $categoryFactory;
 
     /**
+     * @var ProductFactory
+     *
+     * Product factory
+     */
+    protected $productFactory;
+
+    /**
      * Constructor
      *
      * @param CategoryFactory $categoryFactory Category Factory
