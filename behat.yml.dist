@@ -1,0 +1,20 @@
+default:
+    extensions:
+        Behat\Symfony2Extension:
+            kernel:
+                path: app/StoreAppKernel.php
+                class: StoreAppKernel
+                env: test
+                debug: true
+        Behat\MinkExtension:
+            sessions:
+                symfony2:
+                    symfony2: ~
+
+    suites:
+        homepage:
+            contexts:
+                - Behat\MinkExtension\Context\MinkContext
+                - Elcodi\StoreCoreBundle\Behat\DoctrineContext
+                - Elcodi\StoreCoreBundle\Behat\Context
+                - Elcodi\StoreProductBundle\Behat\Context

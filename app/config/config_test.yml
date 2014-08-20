@@ -1,5 +1,6 @@
 imports:
     - { resource: config_dev.yml }
+    - { resource: parameters_test.yml }
 
 framework:
     test: ~
@@ -14,3 +15,17 @@ web_profiler:
 
 swiftmailer:
     disable_delivery: true
+
+doctrine:
+    dbal:
+        connections:
+            default:
+                dbname:   "%database_name%_test"
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        metadata_cache_driver: array
+        auto_mapping: true
+        query_cache_driver:
+            type: array
+        result_cache_driver:
+            type: array
