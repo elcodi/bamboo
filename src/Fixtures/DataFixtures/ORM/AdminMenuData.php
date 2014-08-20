@@ -74,7 +74,7 @@ class AdminMenuData extends AbstractFixture
         $userNode = $this
             ->createNewNode()
             ->setName('User')
-            ->setUrl('')
+            ->setCode('users')
             ->addSubnode($adminUsersNode)
             ->addSubnode($customersNode)
             ->enable();
@@ -112,6 +112,7 @@ class AdminMenuData extends AbstractFixture
         $catalogNode = $this
             ->createNewNode()
             ->setName('Catalog')
+            ->setCode('tags')
             ->setUrl('')
             ->addSubnode($productsNode)
             ->addSubnode($categoriesNode)
@@ -143,6 +144,7 @@ class AdminMenuData extends AbstractFixture
         $purchasesNode = $this
             ->createNewNode()
             ->setName('Purchases')
+            ->setCode('shopping-cart')
             ->setUrl('')
             ->addSubnode($cartsNode)
             ->addSubnode($ordersNode)
@@ -157,6 +159,7 @@ class AdminMenuData extends AbstractFixture
         $mediasNode = $this
             ->createNewNode()
             ->setName('Medias')
+            ->setCode('picture-o')
             ->setUrl('admin_image_list')
             ->enable();
 
@@ -211,6 +214,7 @@ class AdminMenuData extends AbstractFixture
         $currenciesNode = $this
             ->createNewNode()
             ->setName('Currencies')
+            ->setCode('btc')
             ->setUrl('admin_currency_list')
             ->enable();
 
