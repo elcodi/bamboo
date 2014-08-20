@@ -58,13 +58,15 @@
 
         "elcodi/banner-bundle": "~0.2.0",
         "elcodi/cart-bundle": "~0.2.0",
-        "elcodi/currency-bundle": "~0.2.0",
-        "elcodi/media-bundle": "~0.2.0",
-        "elcodi/product-bundle": "~0.2.0",
-        "elcodi/user-bundle": "~0.2.0",
         "elcodi/cart-coupon-bundle": "~0.2.0",
+        "elcodi/currency-bundle": "~0.2.0",
         "elcodi/geo-bundle": "~0.2.0",
+        "elcodi/media-bundle": "~0.2.0",
+        "elcodi/menu-bundle": "~0.2.0",
+        "elcodi/product-bundle": "~0.2.0",
         "elcodi/rule-bundle": "~0.2.0",
+        "elcodi/user-bundle": "~0.2.0",
+
         "elcodi/bamboo-fixtures": "~0.2.0"
     },
     "require-dev": {
