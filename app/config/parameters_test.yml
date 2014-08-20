@@ -1,0 +1,5 @@
+parameters:
+
+    database_driver: pdo_sqlite
+    database_path:   %kernel.cache_dir%/elcodi.test
+    database_memory: false
