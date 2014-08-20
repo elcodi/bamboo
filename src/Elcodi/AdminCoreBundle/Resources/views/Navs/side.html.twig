@@ -20,7 +20,7 @@
 
                     <li {% if menu_item.subnodes|length %}class="parent"{% endif %}>
                         <a href="{{ generate_url(menu_item.url) }}">
-                            <i class="fa fa-users"></i>
+                            <i class="fa fa-{{ menu_item.code|default("folder") }}"></i>
                             <span>{{ menu_item.name|trans }}</span>
                         </a>
 
