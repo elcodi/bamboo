@@ -69,3 +69,8 @@
     {% endfor %}
 
 {% endblock table_body %}
+
+{% block table_paginator_links %}
+    {% set url = 'admin_banner_list' %}
+    {{ parent() }}
+{% endblock table_paginator_links %}
