@@ -20,7 +20,7 @@
     <td class="qty">
         {{ form_row(line.quantity) }}
     </td>
-    <td class="price">{{ lineObject.amount|print_convert_money() }}</td>
+    <td class="price">{{ lineObject.purchasable.price|print_convert_money() }}</td>
     <td class="total">{{ lineObject.amount|print_convert_money() }}</td>
     <td class="remove">
         <a href="{{ url('store_cartline_remove', { id: lineObject.id }) }}">
