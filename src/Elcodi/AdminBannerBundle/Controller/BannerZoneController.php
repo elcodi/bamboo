@@ -129,7 +129,7 @@ class BannerZoneController
      *
      * @PaginatorAnnotation(
      *      attributes = "paginatorAttributes",
-     *      class = "elcodi.core.banner.entity.bannerzone.class",
+     *      class = "elcodi.core.banner.entity.banner_zone.class",
      *      page = "~page~",
      *      limit = "~limit~",
      *      orderBy = {
@@ -426,7 +426,7 @@ class BannerZoneController
      * @Method({"POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.banner.entity.bannerzone.class",
+     *      class = "elcodi.core.banner.entity.banner_zone.class",
      *      mapping = {
      *          "id": "~id~",
      *      }
@@ -512,7 +512,7 @@ class BannerZoneController
      * @Method({"POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.banner.entity.bannerzone.class",
+     *      class = "elcodi.core.banner.entity.banner_zone.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }
@@ -555,7 +555,7 @@ class BannerZoneController
      * @Method({"GET"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.banner.entity.bannerzone.class",
+     *      class = "elcodi.core.banner.entity.banner_zone.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }
