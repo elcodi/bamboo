@@ -63,7 +63,7 @@ class NewsletterSubscriptionType extends AbstractType
                 'label'    => 'enabled',
             ))
             ->add('language', 'entity', array(
-                'class'    => 'Elcodi\LanguageBundle\Entity\Language',
+                'class'    => 'Elcodi\Component\Language\Entity\Language',
                 'required' => false,
                 'label'    => 'language',
                 'multiple' => false,

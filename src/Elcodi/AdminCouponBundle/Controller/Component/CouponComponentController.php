@@ -27,7 +27,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormView;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\CoreBundle\Entity\Abstracts\AbstractEntity;
+use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
 
 /**
  * Class CouponComponentController

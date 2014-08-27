@@ -24,8 +24,8 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-use Elcodi\CoreBundle\Entity\Abstracts\AbstractEntity;
-use Elcodi\CoreBundle\Entity\Interfaces\EnabledInterface;
+use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
+use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 
 /**
  * Class AbstractAdminController

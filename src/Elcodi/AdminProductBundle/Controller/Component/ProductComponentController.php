@@ -29,8 +29,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\AdminMediaBundle\Controller\Interfaces\GalleriableComponentControllerInterface;
-use Elcodi\CoreBundle\Entity\Abstracts\AbstractEntity;
-use Elcodi\ProductBundle\Entity\Interfaces\ProductInterface;
+use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
+use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
 
 /**
  * Class ProductComponentController

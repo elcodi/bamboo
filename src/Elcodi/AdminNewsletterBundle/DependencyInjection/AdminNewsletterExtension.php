@@ -16,7 +16,7 @@
 
 namespace Elcodi\AdminNewsletterBundle\DependencyInjection;
 
-use Elcodi\CoreBundle\DependencyInjection\Abstracts\AbstractExtension;
+use Elcodi\Bundle\CoreBundle\DependencyInjection\Abstracts\AbstractExtension;
 
 /**
  * Class AdminNewsletterExtension

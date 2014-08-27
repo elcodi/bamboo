@@ -28,7 +28,7 @@ use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\CoreBundle\Entity\Abstracts\AbstractEntity;
+use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
 
 /**
  * Class CategoryComponentController

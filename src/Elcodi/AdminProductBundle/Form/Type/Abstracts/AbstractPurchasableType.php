@@ -19,7 +19,7 @@ namespace Elcodi\AdminProductBundle\Form\Type\Abstracts;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-use Elcodi\CoreBundle\Factory\Abstracts\AbstractFactory;
+use Elcodi\Component\Core\Factory\Abstracts\AbstractFactory;
 
 abstract class AbstractPurchasableType extends AbstractType
 {

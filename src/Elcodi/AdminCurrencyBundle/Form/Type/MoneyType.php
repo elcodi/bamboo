@@ -20,7 +20,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-use Elcodi\CurrencyBundle\Entity\Money;
+use Elcodi\Component\Currency\Entity\Money;
 use Elcodi\CurrencyBundle\Wrapper\CurrencyWrapper;
 
 /**
@@ -53,7 +53,7 @@ class MoneyType extends AbstractType
         $builder
             ->add('amount', 'integer')
             ->add('currency', 'entity', [
-                'class'    => 'Elcodi\CurrencyBundle\Entity\Currency',
+                'class'    => 'Elcodi\Component\Currency\Entity\Currency',
                 'required' => true,
                 'multiple' => false,
                 'property' => 'symbol'
@@ -74,7 +74,7 @@ class MoneyType extends AbstractType
         );
 
         $resolver->setDefaults(array(
-            'data_class' => 'Elcodi\CurrencyBundle\Entity\Money',
+            'data_class' => 'Elcodi\Component\Currency\Entity\Money',
             'empty_data' => $money,
         ));
     }

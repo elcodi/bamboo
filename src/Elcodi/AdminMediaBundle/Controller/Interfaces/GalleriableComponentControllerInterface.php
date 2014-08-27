@@ -18,7 +18,7 @@ namespace Elcodi\AdminMediaBundle\Controller\Interfaces;
 
 use Symfony\Component\HttpFoundation\Request;
 
-use Elcodi\CoreBundle\Entity\Abstracts\AbstractEntity;
+use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
 
 /**
  * Interface GalleriableComponentControllerInterface

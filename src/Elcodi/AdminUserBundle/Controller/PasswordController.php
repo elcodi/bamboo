@@ -23,7 +23,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
-use Elcodi\UserBundle\Entity\Abstracts\AbstractUser;
+use Elcodi\Component\User\Entity\Abstracts\AbstractUser;
 
 /**
  * Class PasswordController

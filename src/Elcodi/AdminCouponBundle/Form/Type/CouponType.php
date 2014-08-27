@@ -20,11 +20,11 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-use Elcodi\CouponBundle\ElcodiCouponTypes;
-use Elcodi\CouponBundle\Entity\Interfaces\CouponInterface;
-use Elcodi\CouponBundle\Factory\CouponFactory;
-use Elcodi\CurrencyBundle\Entity\Money;
-use Elcodi\CurrencyBundle\Factory\CurrencyFactory;
+use Elcodi\Component\Coupon\ElcodiCouponTypes;
+use Elcodi\Component\Coupon\Entity\Interfaces\CouponInterface;
+use Elcodi\Component\Coupon\Factory\CouponFactory;
+use Elcodi\Component\Currency\Entity\Money;
+use Elcodi\Component\Currency\Factory\CurrencyFactory;
 
 /**
  * Class CouponType

@@ -38,13 +38,13 @@ class CurrencyExchangeRateType extends AbstractType
                 'label'    => 'exchangeRate',
             ))
             ->add('targetCurrency', 'entity', array(
-                'class'    => 'Elcodi\CurrencyBundle\Entity\Currency',
+                'class'    => 'Elcodi\Component\Currency\Entity\Currency',
                 'required' => false,
                 'label'    => 'targetCurrency',
                 'multiple' => false,
             ))
             ->add('sourceCurrency', 'entity', array(
-                'class'    => 'Elcodi\CurrencyBundle\Entity\Currency',
+                'class'    => 'Elcodi\Component\Currency\Entity\Currency',
                 'required' => false,
                 'label'    => 'sourceCurrency',
                 'multiple' => false,

@@ -99,31 +99,31 @@ class ProductType extends AbstractPurchasableType
                 'label'    => 'metaKeywords',
             ))
             ->add('manufacturer', 'entity', array(
-                'class'    => 'Elcodi\ProductBundle\Entity\Manufacturer',
+                'class'    => 'Elcodi\Component\Product\Entity\Manufacturer',
                 'required' => false,
                 'label'    => 'manufacturer',
                 'multiple' => false,
             ))
             ->add('principalCategory', 'entity', array(
-                'class'    => 'Elcodi\ProductBundle\Entity\Category',
+                'class'    => 'Elcodi\Component\Product\Entity\Category',
                 'required' => false,
                 'label'    => 'principalCategory',
                 'multiple' => false,
             ))
             ->add('principalImage', 'entity', array(
-                'class'    => 'Elcodi\MediaBundle\Entity\Image',
+                'class'    => 'Elcodi\Component\Media\Entity\Image',
                 'required' => false,
                 'label'    => 'principalImage',
                 'multiple' => false,
             ))
             ->add('categories', 'entity', array(
-                'class'    => 'Elcodi\ProductBundle\Entity\Category',
+                'class'    => 'Elcodi\Component\Product\Entity\Category',
                 'required' => false,
                 'label'    => 'categories',
                 'multiple' => true,
             ))
             ->add('images', 'entity', array(
-                'class'    => 'Elcodi\MediaBundle\Entity\Image',
+                'class'    => 'Elcodi\Component\Media\Entity\Image',
                 'required' => false,
                 'label'    => 'images',
                 'multiple' => true,
