@@ -22,10 +22,10 @@ use Doctrine\Common\Persistence\ObjectManager;
 
 use Elcodi\Bundle\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
 use Elcodi\Component\Coupon\ElcodiCouponTypes;
+use Elcodi\Component\Coupon\Entity\Interfaces\CouponInterface;
 use Elcodi\Component\Coupon\Factory\CouponFactory;
 use Elcodi\Component\Currency\Entity\Interfaces\CurrencyInterface;
 use Elcodi\Component\Currency\Entity\Money;
-use Elcodi\CouponBuComponent\Couponndle\Entity\Interfaces\CouponInterface;
 
 /**
  * Class CouponData

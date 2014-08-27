@@ -18,9 +18,9 @@ namespace Elcodi\Fixtures\DataFixtures\ORM;
 
 use Doctrine\Common\Persistence\ObjectManager;
 
-use Elcodi\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
-use Elcodi\MenuBundle\Entity\Menu\Menu;
-use Elcodi\MenuBundle\Entity\Menu\Node;
+use Elcodi\Bundle\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
+use Elcodi\Component\Menu\Entity\Menu\Menu;
+use Elcodi\Component\Menu\Entity\Menu\Node;
 
 /**
  * Class AdminMenuData

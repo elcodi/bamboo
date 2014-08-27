@@ -20,16 +20,17 @@
     "require": {
         "php": ">=5.4",
         "doctrine/common": "~2.4",
-        "doctrine/data-fixtures": "1.0.*",
+        "doctrine/data-fixtures": "~1.0",
         "mmoreram/php-formatter": "~1.0",
 
         "elcodi/core-bundle": "~0.3.0",
-        "elcodi/coupon-bundle": "~0.3.0",
-        "elcodi/currency-bundle": "~0.3.0",
-        "elcodi/product-bundle": "~0.3.0",
-        "elcodi/media-bundle": "~0.3.0",
-        "elcodi/user-bundle": "~0.3.0",
-        "elcodi/geo-bundle": "~0.3.0"
+        "elcodi/coupon": "~0.3.0",
+        "elcodi/currency": "~0.3.0",
+        "elcodi/product": "~0.3.0",
+        "elcodi/media": "~0.3.0",
+        "elcodi/user": "~0.3.0",
+        "elcodi/geo": "~0.3.0",
+        "elcodi/menu": "~0.3.0"
     },
     "autoload": {
         "psr-4": {
