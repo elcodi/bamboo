@@ -28,9 +28,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
 use Elcodi\AdminCoreBundle\Controller\Interfaces\NavegableControllerInterface;
-use Elcodi\CoreBundle\Entity\Abstracts\AbstractEntity;
-use Elcodi\ProductBundle\Entity\Product;
-use Elcodi\ProductBundle\Entity\Variant;
+use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
+use Elcodi\Component\Product\Entity\Product;
+use Elcodi\Component\Product\Entity\Variant;
 
 /**
  * Class Controller for Variant

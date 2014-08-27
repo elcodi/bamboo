@@ -78,7 +78,7 @@ class RuleGroupType extends AbstractType
                 'label'    => 'enabled',
             ))
             ->add('rules', 'entity', array(
-                'class'    => 'Elcodi\RuleBundle\Entity\Abstracts\AbstractRule',
+                'class'    => 'Elcodi\Component\Rule\Entity\Abstracts\AbstractRule',
                 'required' => false,
                 'property' => 'code',
                 'label'    => 'rules',

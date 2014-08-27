@@ -30,9 +30,9 @@ use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\AdminMediaBundle\Controller\Interfaces\GalleriableComponentControllerInterface;
-use Elcodi\CartBundle\Entity\Interfaces\CartInterface;
-use Elcodi\CartBundle\Entity\Interfaces\CartLineInterface;
-use Elcodi\CoreBundle\Entity\Abstracts\AbstractEntity;
+use Elcodi\Component\Cart\Entity\Interfaces\CartInterface;
+use Elcodi\Component\Cart\Entity\Interfaces\CartLineInterface;
+use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
 
 /**
  * Class CartComponentController

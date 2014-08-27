@@ -28,8 +28,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
 use Elcodi\AdminCoreBundle\Controller\Interfaces\NavegableControllerInterface;
-use Elcodi\CartBundle\Entity\Interfaces\CartInterface;
-use Elcodi\CoreBundle\Entity\Abstracts\AbstractEntity;
+use Elcodi\Component\Cart\Entity\Interfaces\CartInterface;
+use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
 
 /**
  * Class Controller for Cart

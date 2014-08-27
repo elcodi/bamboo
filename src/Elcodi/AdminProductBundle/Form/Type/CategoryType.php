@@ -20,8 +20,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-use Elcodi\ProductBundle\Factory\CategoryFactory;
-use Elcodi\ProductBundle\Factory\ProductFactory;
+use Elcodi\Component\Product\Factory\CategoryFactory;
+use Elcodi\Component\Product\Factory\ProductFactory;
 
 /**
  * Class CategoryType

@@ -34,13 +34,13 @@ class CartCouponType extends AbstractType
     {
         $builder
             ->add('cart', 'entity', array(
-                'class'    => 'Elcodi\CartBundle\Entity\Cart',
+                'class'    => 'Elcodi\Component\Cart\Entity\Cart',
                 'required' => false,
                 'label'    => 'cart',
                 'multiple' => false,
             ))
             ->add('coupon', 'entity', array(
-                'class'    => 'Elcodi\CouponBundle\Entity\Coupon',
+                'class'    => 'Elcodi\Component\Coupon\Entity\Coupon',
                 'required' => false,
                 'label'    => 'coupon',
                 'multiple' => false,

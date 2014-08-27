@@ -20,9 +20,9 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-use Elcodi\LanguageBundle\Factory\LanguageFactory;
-use Elcodi\UserBundle\ElcodiUserProperties;
-use Elcodi\UserBundle\Factory\CustomerFactory;
+use Elcodi\Component\Language\Factory\LanguageFactory;
+use Elcodi\Component\User\ElcodiUserProperties;
+use Elcodi\Component\User\Factory\CustomerFactory;
 
 /**
  * Class CustomerType

@@ -36,7 +36,7 @@ class VariantType extends AbstractPurchasableType
     {
         $builder
             ->add('options', 'entity', array(
-                'class'    => 'Elcodi\AttributeBundle\Entity\Value',
+                'class'    => 'Elcodi\Component\Attribute\Entity\Value',
                 'required' => true,
                 'label'    => 'options',
                 'multiple' => true,

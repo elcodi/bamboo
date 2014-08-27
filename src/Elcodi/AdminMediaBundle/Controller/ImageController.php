@@ -29,8 +29,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
-use Elcodi\CoreBundle\Entity\Abstracts\AbstractEntity;
-use Elcodi\MediaBundle\Entity\Image;
+use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
+use Elcodi\Component\Media\Entity\Image;
 
 /**
  * Class Controller for Media

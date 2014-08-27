@@ -54,19 +54,19 @@ class BannerType extends AbstractType
                 'label'    => 'enabled',
             ))
             ->add('image', 'entity', array(
-                'class'    => 'Elcodi\MediaBundle\Entity\Image',
+                'class'    => 'Elcodi\Component\Media\Entity\Image',
                 'required' => false,
                 'label'    => 'image',
                 'multiple' => false,
             ))
             ->add('principalImage', 'entity', array(
-                'class'    => 'Elcodi\MediaBundle\Entity\Image',
+                'class'    => 'Elcodi\Component\Media\Entity\Image',
                 'required' => false,
                 'label'    => 'principalImage',
                 'multiple' => false,
             ))
             ->add('bannerZones', 'entity', array(
-                'class'    => 'Elcodi\BannerBundle\Entity\BannerZone',
+                'class'    => 'Elcodi\Component\Banner\Entity\BannerZone',
                 'required' => false,
                 'label'    => 'bannerZones',
                 'multiple' => false,

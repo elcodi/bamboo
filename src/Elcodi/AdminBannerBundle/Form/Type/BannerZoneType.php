@@ -50,13 +50,13 @@ class BannerZoneType extends AbstractType
                 'label'    => 'width',
             ))
             ->add('language', 'entity', array(
-                'class'    => 'Elcodi\CoreBundle\Entity\Language',
+                'class'    => 'Elcodi\Component\Core\Entity\Language',
                 'required' => false,
                 'label'    => 'language',
                 'multiple' => false,
             ))
             ->add('banners', 'entity', array(
-                'class'    => 'Elcodi\BannerBundle\Entity\Banner',
+                'class'    => 'Elcodi\Component\Banner\Entity\Banner',
                 'required' => false,
                 'label'    => 'banners',
                 'multiple' => false,

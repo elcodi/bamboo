@@ -46,19 +46,19 @@ class OrderCouponType extends AbstractType
                 'label'    => 'name',
             ))
             ->add('order', 'entity', array(
-                'class'    => 'Elcodi\CartBundle\Entity\Order',
+                'class'    => 'Elcodi\Component\Cart\Entity\Order',
                 'required' => false,
                 'label'    => 'order',
                 'multiple' => false,
             ))
             ->add('coupon', 'entity', array(
-                'class'    => 'Elcodi\CouponBundle\Entity\Coupon',
+                'class'    => 'Elcodi\Component\Coupon\Entity\Coupon',
                 'required' => false,
                 'label'    => 'coupon',
                 'multiple' => false,
             ))
             ->add('amountCurrency', 'entity', array(
-                'class'    => 'Elcodi\CurrencyBundle\Entity\Currency',
+                'class'    => 'Elcodi\Component\Currency\Entity\Currency',
                 'required' => false,
                 'label'    => 'amountCurrency',
                 'multiple' => false,
