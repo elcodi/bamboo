@@ -220,4 +220,4 @@ class NewsletterSubscriptionComponentController
         ];
     }
 
-} 
+}

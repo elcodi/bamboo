@@ -16,10 +16,8 @@
 
 namespace Elcodi\AdminNewsletterBundle\Form\Type;
 
-use Elcodi\NewsletterBundle\Factory\NewsletterSubscriptionFactory;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
  * Class NewsletterSubscriptionType

@@ -16,7 +16,6 @@
 
 namespace Elcodi\AdminNewsletterBundle\Controller;
 
-use Exception;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\JsonResponse;
