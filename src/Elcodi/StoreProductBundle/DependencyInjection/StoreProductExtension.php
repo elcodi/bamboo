@@ -18,7 +18,7 @@ namespace Elcodi\StoreProductBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
-use Elcodi\CoreBundle\DependencyInjection\Abstracts\AbstractExtension;
+use Elcodi\Bundle\CoreBundle\DependencyInjection\Abstracts\AbstractExtension;
 
 /**
  * Class StoreFrontExtension

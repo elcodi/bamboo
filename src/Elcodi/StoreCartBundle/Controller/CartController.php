@@ -16,21 +16,22 @@
 
 namespace Elcodi\StoreCartBundle\Controller;
 
+use Doctrine\ORM\EntityNotFoundException;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as AnnotationEntity;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as AnnotationForm;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Form;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-use Elcodi\CartBundle\Entity\Interfaces\CartInterface;
-use Elcodi\CartBundle\Entity\Interfaces\CartLineInterface;
+use Elcodi\Component\Cart\Entity\Interfaces\CartInterface;
+use Elcodi\Component\Cart\Entity\Interfaces\CartLineInterface;
 use Elcodi\ProductBundle\Entity\Interfaces\ProductInterface;
 use Elcodi\ProductBundle\Entity\Interfaces\VariantInterface;
 
@@ -46,7 +47,7 @@ class CartController extends Controller
     /**
      * Cart view
      *
-     * @param FormView      $formView Form view
+     * @param FormType      $formType Form type
      * @param CartInterface $cart     Cart
      *
      * @return array
@@ -73,7 +74,7 @@ class CartController extends Controller
      * )
      */
     public function viewAction(
-        FormView $formView,
+        FormType $formType,
         CartInterface $cart
     )
     {
@@ -90,9 +91,23 @@ class CartController extends Controller
                     , 3);
         }
 
+        /**
+         * Let's sort the cartLines if needed
+         */
+        $cart->setCartLines(
+            $this
+                ->get('elcodi.cart_lines_sorter')
+                ->sortCartLines($cart->getCartLines())
+        );
+
         $cartCoupons = $this
             ->get('elcodi.cart_coupon_manager')
             ->getCartCoupons($cart);
+
+        $formView = $this
+            ->get('form.factory')
+            ->create($formType, $cart)
+            ->createView();
 
         return [
             'cart'             => $cart,
@@ -110,6 +125,8 @@ class CartController extends Controller
      * @param CartInterface    $cart    Cart
      *
      * @return Response Redirect response
+     *
+     * @throws EntityNotFoundException product not found
      *
      * @Route(
      *      path = "/product/{id}/add",
@@ -167,10 +184,6 @@ class CartController extends Controller
              */
             $purchasable = $product;
         }
-
-        $cart = $this
-            ->get('elcodi.cart_wrapper')
-            ->loadCart();
 
         $this
             ->get('elcodi.cart_manager')

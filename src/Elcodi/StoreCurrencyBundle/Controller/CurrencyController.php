@@ -23,7 +23,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
-use Elcodi\CurrencyBundle\Entity\Interfaces\CurrencyInterface;
+use Elcodi\Component\Currency\Entity\Interfaces\CurrencyInterface;
 
 /**
  * Class ControllerCurrency
