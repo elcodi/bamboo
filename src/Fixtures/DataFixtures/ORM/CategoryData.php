@@ -18,8 +18,8 @@ namespace Elcodi\Fixtures\DataFixtures\ORM;
 
 use Doctrine\Common\Persistence\ObjectManager;
 
-use Elcodi\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
-use Elcodi\ProductBundle\Entity\Interfaces\CategoryInterface;
+use Elcodi\Bundle\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
+use Elcodi\Component\Product\Entity\Interfaces\CategoryInterface;
 
 /**
  * Class CategoryData

@@ -18,15 +18,14 @@ namespace Elcodi\Fixtures\DataFixtures\ORM;
 
 use DateTime;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
-use Elcodi\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
-use Elcodi\CouponBundle\ElcodiCouponTypes;
-use Elcodi\CouponBundle\Entity\Interfaces\CouponInterface;
-use Elcodi\CouponBundle\Factory\CouponFactory;
-use Elcodi\CurrencyBundle\Entity\Interfaces\CurrencyInterface;
-use Elcodi\CurrencyBundle\Entity\Money;
+use Elcodi\Bundle\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
+use Elcodi\Component\Coupon\ElcodiCouponTypes;
+use Elcodi\Component\Coupon\Factory\CouponFactory;
+use Elcodi\Component\Currency\Entity\Interfaces\CurrencyInterface;
+use Elcodi\Component\Currency\Entity\Money;
+use Elcodi\CouponBuComponent\Couponndle\Entity\Interfaces\CouponInterface;
 
 /**
  * Class CouponData

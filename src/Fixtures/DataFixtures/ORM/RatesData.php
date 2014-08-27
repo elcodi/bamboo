@@ -19,10 +19,10 @@ namespace Elcodi\Fixtures\DataFixtures\ORM;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
-use Elcodi\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
-use Elcodi\CurrencyBundle\Entity\Interfaces\CurrencyExchangeRateInterface;
-use Elcodi\CurrencyBundle\Entity\Interfaces\CurrencyInterface;
-use Elcodi\CurrencyBundle\Factory\CurrencyExchangeRateFactory;
+use Elcodi\Bundle\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
+use Elcodi\Component\Currency\Entity\Interfaces\CurrencyExchangeRateInterface;
+use Elcodi\Component\Currency\Entity\Interfaces\CurrencyInterface;
+use Elcodi\Component\Currency\Factory\CurrencyExchangeRateFactory;
 
 /**
  * Class RatesData

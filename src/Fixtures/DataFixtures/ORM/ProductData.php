@@ -22,13 +22,13 @@ use Gaufrette\Adapter;
 use Gaufrette\Filesystem;
 use Symfony\Component\HttpFoundation\File\File;
 
-use Elcodi\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
-use Elcodi\CurrencyBundle\Entity\Interfaces\CurrencyInterface;
-use Elcodi\CurrencyBundle\Entity\Money;
-use Elcodi\MediaBundle\Services\ImageManager;
-use Elcodi\MediaBundle\Transformer\FileIdentifierTransformer;
-use Elcodi\ProductBundle\Entity\Interfaces\CategoryInterface;
-use Elcodi\ProductBundle\Entity\Interfaces\ProductInterface;
+use Elcodi\Bundle\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
+use Elcodi\Component\Currency\Entity\Interfaces\CurrencyInterface;
+use Elcodi\Component\Currency\Entity\Money;
+use Elcodi\Component\Media\Services\ImageManager;
+use Elcodi\Component\Media\Transformer\FileIdentifierTransformer;
+use Elcodi\Component\Product\Entity\Interfaces\CategoryInterface;
+use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
 
 /**
  * Class ProductData
