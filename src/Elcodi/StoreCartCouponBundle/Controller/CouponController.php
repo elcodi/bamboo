@@ -24,7 +24,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Form;
 use Symfony\Component\Form\FormView;
 
-use Elcodi\CartBundle\Entity\Interfaces\CartInterface;
+use Elcodi\Component\Cart\Entity\Interfaces\CartInterface;
 
 /**
  * Class CouponController

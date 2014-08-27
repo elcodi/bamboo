@@ -20,7 +20,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-use Elcodi\GeoBundle\Factory\AddressFactory;
+use Elcodi\Component\geo\Factory\AddressFactory;
 
 /**
  * Class AddressType

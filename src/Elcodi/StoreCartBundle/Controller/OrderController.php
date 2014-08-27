@@ -21,7 +21,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use Elcodi\CartBundle\Entity\Interfaces\OrderInterface;
+use Elcodi\Component\Cart\Entity\Interfaces\OrderInterface;
 
 /**
  * Order controllers

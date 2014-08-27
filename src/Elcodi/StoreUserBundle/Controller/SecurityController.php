@@ -26,8 +26,8 @@ use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Security\Core\SecurityContext;
 
-use Elcodi\CoreBundle\Services\ManagerProvider;
-use Elcodi\UserBundle\Entity\Interfaces\CustomerInterface;
+use Elcodi\Component\Core\Services\ManagerProvider;
+use Elcodi\Component\User\Entity\Interfaces\CustomerInterface;
 
 /**
  * Class SecurityController

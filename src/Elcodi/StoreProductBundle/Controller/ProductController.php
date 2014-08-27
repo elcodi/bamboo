@@ -22,9 +22,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-use Elcodi\ProductBundle\Entity\Interfaces\ProductInterface;
-use Elcodi\ProductBundle\Entity\Interfaces\VariantInterface;
-use Elcodi\ProductBundle\Twig\ProductExtension;
+use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
+use Elcodi\Component\Product\Entity\Interfaces\VariantInterface;
+use Elcodi\Component\Product\Twig\ProductExtension;
 
 /**
  * Product related actions

@@ -57,20 +57,20 @@ class StoreAppKernel extends Kernel
             /**
              * Elcodi core bundles
              */
-            new \Elcodi\CoreBundle\ElcodiCoreBundle(),
-            new \Elcodi\LanguageBundle\ElcodiLanguageBundle(),
-            new \Elcodi\CartBundle\ElcodiCartBundle(),
-            new \Elcodi\CartCouponBundle\ElcodiCartCouponBundle(),
-            new \Elcodi\CouponBundle\ElcodiCouponBundle(),
-            new \Elcodi\BannerBundle\ElcodiBannerBundle(),
-            new \Elcodi\CurrencyBundle\ElcodiCurrencyBundle(),
-            new \Elcodi\UserBundle\ElcodiUserBundle(),
-            new \Elcodi\AttributeBundle\ElcodiAttributeBundle(),
-            new \Elcodi\ProductBundle\ElcodiProductBundle(),
-            new \Elcodi\MediaBundle\ElcodiMediaBundle(),
-            new \Elcodi\GeoBundle\ElcodiGeoBundle(),
-            new \Elcodi\RuleBundle\ElcodiRuleBundle(),
-            new \Elcodi\MenuBundle\ElcodiMenuBundle(),
+            new \Elcodi\Bundle\CoreBundle\ElcodiCoreBundle(),
+            new \Elcodi\Bundle\LanguageBundle\ElcodiLanguageBundle(),
+            new \Elcodi\Bundle\CartBundle\ElcodiCartBundle(),
+            new \Elcodi\Bundle\CartCouponBundle\ElcodiCartCouponBundle(),
+            new \Elcodi\Bundle\CouponBundle\ElcodiCouponBundle(),
+            new \Elcodi\Bundle\BannerBundle\ElcodiBannerBundle(),
+            new \Elcodi\Bundle\CurrencyBundle\ElcodiCurrencyBundle(),
+            new \Elcodi\Bundle\UserBundle\ElcodiUserBundle(),
+            new \Elcodi\Bundle\AttributeBundle\ElcodiAttributeBundle(),
+            new \Elcodi\Bundle\ProductBundle\ElcodiProductBundle(),
+            new \Elcodi\Bundle\MediaBundle\ElcodiMediaBundle(),
+            new \Elcodi\Bundle\GeoBundle\ElcodiGeoBundle(),
+            new \Elcodi\Bundle\RuleBundle\ElcodiRuleBundle(),
+            new \Elcodi\Bundle\MenuBundle\ElcodiMenuBundle(),
 
             /**
              * Elcodi store bundles

@@ -18,9 +18,9 @@ namespace Elcodi\StoreProductBundle\Services;
 
 use Doctrine\Common\Collections\ArrayCollection;
 
-use Elcodi\ProductBundle\Entity\Interfaces\CategoryInterface;
-use Elcodi\ProductBundle\Entity\Interfaces\ProductInterface;
-use Elcodi\ProductBundle\Services\ProductCollectionProvider as BaseProductCollectionProvider;
+use Elcodi\Component\Product\Entity\Interfaces\CategoryInterface;
+use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
+use Elcodi\Component\Product\Services\ProductCollectionProvider as BaseProductCollectionProvider;
 
 /**
  * Product Collection provider
