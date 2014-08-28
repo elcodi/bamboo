@@ -216,7 +216,7 @@ class CartController extends Controller
     }
 
     /**
-     * Empty Cart
+     * Update Cart
      *
      * @param FormInterface $form    Form
      * @param CartInterface $cart    Cart
