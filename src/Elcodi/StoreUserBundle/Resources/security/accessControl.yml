@@ -1,5 +1,4 @@
 security:
-
     access_control:
         customer_area:
             path: /user/.*
