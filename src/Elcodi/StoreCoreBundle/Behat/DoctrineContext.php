@@ -18,13 +18,13 @@ namespace Elcodi\StoreCoreBundle\Behat;
 
 use Behat\Behat\Hook\Scope\AfterScenarioScope;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
-use Behat\Symfony2Extension\Context\KernelAwareContext;
+use Elcodi\StoreCoreBundle\Behat\abstracts\AbstractElcodiContext;
 use Symfony\Component\Console\Input\ArrayInput;
 
 /**
  * Class DoctrineContext
  */
-class DoctrineContext extends Context implements KernelAwareContext
+class DoctrineContext extends AbstractElcodiContext
 {
     /**
      * @BeforeScenario

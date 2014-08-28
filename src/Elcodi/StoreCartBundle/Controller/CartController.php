@@ -23,7 +23,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -32,8 +31,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 use Elcodi\Component\Cart\Entity\Interfaces\CartInterface;
 use Elcodi\Component\Cart\Entity\Interfaces\CartLineInterface;
-use Elcodi\ProductBundle\Entity\Interfaces\ProductInterface;
-use Elcodi\ProductBundle\Entity\Interfaces\VariantInterface;
+use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
+use Elcodi\Component\Product\Entity\Interfaces\VariantInterface;
 
 /**
  * Cart controllers
@@ -47,7 +46,7 @@ class CartController extends Controller
     /**
      * Cart view
      *
-     * @param FormType      $formType Form type
+     * @param FormView      $formView Form view
      * @param CartInterface $cart     Cart
      *
      * @return array
@@ -74,7 +73,7 @@ class CartController extends Controller
      * )
      */
     public function viewAction(
-        FormType $formType,
+        FormView $formView,
         CartInterface $cart
     )
     {
@@ -91,23 +90,9 @@ class CartController extends Controller
                     , 3);
         }
 
-        /**
-         * Let's sort the cartLines if needed
-         */
-        $cart->setCartLines(
-            $this
-                ->get('elcodi.cart_lines_sorter')
-                ->sortCartLines($cart->getCartLines())
-        );
-
         $cartCoupons = $this
             ->get('elcodi.cart_coupon_manager')
             ->getCartCoupons($cart);
-
-        $formView = $this
-            ->get('form.factory')
-            ->create($formType, $cart)
-            ->createView();
 
         return [
             'cart'             => $cart,
@@ -168,7 +153,7 @@ class CartController extends Controller
             $optionIds = $request->request->get('variant-option-for-attribute');
 
             $purchasable = $this
-                ->get('elcodi.repository.variant')
+                ->get('elcodi.repository.product_variant')
                 ->findByOptionIds($product, $optionIds);
 
             if (!($purchasable instanceof VariantInterface)) {
