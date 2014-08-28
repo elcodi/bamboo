@@ -36,7 +36,7 @@ class CartLineType extends AbstractType
     /**
      * Constructor
      *
-     * @param string $cartLineNamespace CartLinenames
+     * @param string $cartLineNamespace CartLine namespace
      */
     public function __construct($cartLineNamespace)
     {

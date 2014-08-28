@@ -6,14 +6,14 @@ services:
     store.cart.form_type.cart:
         class: %store.cart.form_type.cart.class%
         arguments:
-            router: @router
-            customer_namespace: %elcodi.core.cart.entity.cart.class%
+            - @router
+            - %elcodi.core.cart.entity.cart.class%
         tags:
             - { name: form.type, alias: store_cart_form_type_cart }
 
     store.cart.form_type.cart_line:
         class: %store.cart.form_type.cart_line.class%
         arguments:
-            customer_namespace: %elcodi.core.cart.entity.cart_line.class%
+            - %elcodi.core.cart.entity.cart_line.class%
         tags:
             - { name: form.type, alias: store_cart_form_type_cart_line }
