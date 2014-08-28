@@ -18,9 +18,9 @@ namespace Elcodi\PaymentBridgeBundle\EventListener;
 
 use PaymentSuite\PaymentCoreBundle\Event\PaymentOrderLoadEvent;
 
-use Elcodi\CartBundle\Services\OrderManager;
-use Elcodi\CartBundle\Transformer\CartOrderTransformer;
-use Elcodi\CartBundle\Wrapper\CartWrapper;
+use Elcodi\Component\Cart\Services\OrderManager;
+use Elcodi\Component\Cart\Transformer\CartOrderTransformer;
+use Elcodi\Component\Cart\Wrapper\CartWrapper;
 
 /**
  * Class PaymentEventListener
