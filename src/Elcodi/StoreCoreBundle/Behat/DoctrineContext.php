@@ -18,8 +18,9 @@ namespace Elcodi\StoreCoreBundle\Behat;
 
 use Behat\Behat\Hook\Scope\AfterScenarioScope;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
-use Elcodi\StoreCoreBundle\Behat\abstracts\AbstractElcodiContext;
 use Symfony\Component\Console\Input\ArrayInput;
+
+use Elcodi\StoreCoreBundle\Behat\abstracts\AbstractElcodiContext;
 
 /**
  * Class DoctrineContext
