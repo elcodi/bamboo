@@ -96,5 +96,13 @@ $ php app/console server:run localhost:8080
 
 Point your browser to `http://localhost:8080` and you are done!
 
+Login as a customer
+-------------------
+
+You can login as an already registered customer using these credentials.
+
+* email: customer@customer.com
+* password: 1234
+
 [1]:  http://symfony.com/doc/2.4/book/installation.html
 [2]:  http://getcomposer.org/
