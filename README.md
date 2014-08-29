@@ -87,14 +87,13 @@ $ php app/console server:run localhost:8080
 
 Point your browser to `http://localhost:8080` and you are done!
 
-Logging in
----------------------
 
-Access the backoffice application using the following credentials:
+Login as an admin user
+----------------------
 
-```
-user: admin@admin.com
-password: 1234
-```
+You can login as an already registered admin user using these credentials.
+
+* email: admin@admin.com
+* password: 1234
 
 [1]:  http://getcomposer.org/
