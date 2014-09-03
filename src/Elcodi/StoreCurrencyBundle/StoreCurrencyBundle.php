@@ -23,5 +23,4 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  */
 class StoreCurrencyBundle extends Bundle
 {
-
 }

@@ -52,5 +52,4 @@ class StoreCoreExtension extends AbstractExtension
             'services'
         ];
     }
-
 }

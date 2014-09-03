@@ -133,5 +133,4 @@ class ProductController extends Controller
             'price' => $variantPrice
         ];
     }
-
 }
