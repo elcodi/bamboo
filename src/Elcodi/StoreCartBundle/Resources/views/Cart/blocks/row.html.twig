@@ -7,10 +7,10 @@
 <tr>
     <td class="image">
         <a href="{{ productRoute }}">
-            <img src="{{ lineObject.product.principalImage|resize({
+            <img src="{{ lineObject.product.principalImage ? lineObject.product.principalImage|resize({
                 width: 80,
                 height: 80,
-                type: 5 })
+                type: 5 }) : 'http://placehold.it/80x80'
             }}" alt="{{ lineObject.product.name }}" />
         </a>
     </td>

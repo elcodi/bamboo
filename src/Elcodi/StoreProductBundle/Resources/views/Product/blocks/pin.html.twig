@@ -16,11 +16,11 @@
 
     {% block pin_image %}
     <a href="{{ productRoute }}">
-        <img class="image" src="{{ product.principalImage|resize({
+        <img class="image" src="{{ product.principalImage ? product.principalImage|resize({
             'width': 372,
             'height': 291,
             'type': 5
-        }) }}" alt="{{ product.name }}" />
+        }) : 'http://placehold.it/372x291' }}" alt="{{ product.name }}" />
     </a>
     {% endblock %}
 

@@ -33,7 +33,7 @@ use Elcodi\Component\Cart\Entity\Interfaces\OrderInterface;
 class OrderController extends Controller
 {
     /**
-     * Cart view
+     * Order view
      *
      * @param OrderInterface $order  Order id
      * @param boolean        $thanks Thanks
