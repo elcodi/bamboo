@@ -21,7 +21,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 use Elcodi\Component\Currency\Entity\Money;
-use Elcodi\CurrencyBundle\Wrapper\CurrencyWrapper;
+use Elcodi\Component\Currency\Wrapper\CurrencyWrapper;
 
 /**
  * Class MoneyType
