@@ -110,7 +110,7 @@ class ProductController extends Controller
         $optionIds = $request->query->get('variant-option-for-attribute');
 
         $variant = $this
-            ->get('elcodi.repository.variant')
+            ->get('elcodi.repository.product_variant')
             ->findByOptionIds($product, $optionIds);
 
         if (!$variant instanceof VariantInterface) {
