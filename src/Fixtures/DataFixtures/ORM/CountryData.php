@@ -277,10 +277,7 @@ class CountryData extends AbstractFixture
             ["GF","French Guiana"],
             ["PF","French Polynesia"],
             ["TF","French Southern Territories"],
-            ["AX","Åland Islands"],
-            ["AR","Argetina"],
-            ["ES","Eslovaquia"],
-            ["EV","Eslovenia"],
+            ["AX","Åland Islands"]
         ];
 
         foreach ($countries as $country) {
