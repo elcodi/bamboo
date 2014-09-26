@@ -19,7 +19,7 @@ namespace Elcodi\AdminProductBundle\Form\Type;
 use Symfony\Component\Form\FormBuilderInterface;
 
 use Elcodi\AdminProductBundle\Form\Type\Abstracts\AbstractPurchasableType;
-use Elcodi\AttributeBundle\Repository\ValueRepository;
+use Elcodi\Component\Attribute\Repository\ValueRepository;
 
 /**
  * Class ProductType
