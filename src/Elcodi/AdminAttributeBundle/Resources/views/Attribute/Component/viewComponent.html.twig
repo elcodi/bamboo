@@ -30,14 +30,6 @@
         <td>{{ entity.displayName }} </td>
     </tr>
     <tr>
-        <td>{{ 'values'|trans }}</td>
-        <td>
-            {% for value in entity.values %}
-                <li>{{ value.name }}</li>
-            {% endfor %}
-        </td>
-    </tr>
-    <tr>
         <td>{{ 'enabled'|trans }}</td>
         <td>{% if entity.enabled %}<span class="label label-success">true</span>{% else %}<span class="label label-danger">false</span>{% endif %}</td>
     </tr>

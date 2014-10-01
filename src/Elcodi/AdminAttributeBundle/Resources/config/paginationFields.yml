@@ -8,4 +8,9 @@ parameters:
         - name
         - displayName
         - enabled
+    elcodi.admin.attribute.pagination.value.fields:
+            - id
+            - name
+            - displayName
+            - enabled
 

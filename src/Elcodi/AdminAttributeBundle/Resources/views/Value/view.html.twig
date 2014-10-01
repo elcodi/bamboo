@@ -1,14 +1,14 @@
-{% extends 'AdminCoreBundle::layout.html.twig' %}
+{% extends '@AdminProduct/Product/view.html.twig' %}
 
 {% block content_title %}
-    {{ 'Attribute Zone'|trans }}
+    {{ 'Attribute Value Zone'|trans }}
 {% endblock content_title %}
 
 {% block breadcrumb %}
 
     {% include "@AdminCore/Common/breadcrumb.html.twig" with {
         breadcrumb: {
-            "view attribute": {
+            "view value": {
                 "active" : true
             }
         }
@@ -20,13 +20,9 @@
 
     <div class="row">
         <div class="col-md-6">
-            {{ render(url("admin_attribute_view_component", {
+            {{ render(url("admin_value_view_component", {
                 'id': id,
-            })) }}
-        </div>
-        <div class="col-md-6">
-            {{ render(url("admin_value_list_component", {
-                'id': id,
+                'valueId': valueId
             })) }}
         </div>
     </div>

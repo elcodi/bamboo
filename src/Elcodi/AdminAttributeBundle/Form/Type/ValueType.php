@@ -20,9 +20,9 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 /**
- * Class AttributeType
+ * Class ValueType
  */
-class AttributeType extends AbstractType
+class ValueType extends AbstractType
 {
     /**
      * Buildform function
@@ -66,6 +66,6 @@ class AttributeType extends AbstractType
      */
     public function getName()
     {
-        return 'elcodi_admin_attribute_form_type_attribute';
+        return 'elcodi_admin_attribute_form_type_value';
     }
 }

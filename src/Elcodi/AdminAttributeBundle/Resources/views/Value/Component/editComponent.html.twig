@@ -1,0 +1,31 @@
+{% extends 'AdminCoreBundle::Common/formComponent.html.twig' %}
+
+{% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
+
+{% block title %}
+    {{ 'Edit Value'|trans }} - {{ entity.id }} - {{ entity.displayName }}
+{% endblock title %}
+
+{% block content %}
+
+    {{ form_start(form, {'action': url('admin_value_update', {
+        'id': entity.product.id,
+        'valueId': entity.id
+    })}) }}
+
+    {{ form_row(form.name) }}
+    {{ form_row(form.displayName) }}
+    {{ form_row(form.createdAt) }}
+    {{ form_row(form.updatedAt) }}
+    {{ form_row(form.enabled) }}
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">{{ 'Update'|trans }}</button>
+            <button class="btn btn-default">{{ 'Cancel'|trans }}</button>
+        </div>
+    </div>
+
+    {{ form_end(form) }}
+
+{% endblock content %}
