@@ -1,0 +1,61 @@
+{% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
+
+
+{% block title %}
+    {{ 'Attribute list'|trans }}
+{% endblock title %}
+
+
+{% block table_head %}
+    {% include "@AdminCore/Tables/head.html.twig" with {
+        rows: {
+            "id": {width:"25"},
+            "name": {},
+            "displayName": {},
+            "values": {sorting_disabled: true},
+            "enabled": {width:"25"}
+        },
+        class: "attribute",
+    } %}
+{% endblock table_head %}
+
+
+{% block table_body_row %}
+    <td>
+        <a href="{{ url("admin_attribute_view", {"id": entity.id}) }}">
+            {{ entity.id }}
+        </a>
+    </td>
+    <td>
+        {{ entity.name }}
+    </td>
+    <td>
+        {{ entity.displayName }}
+    </td>
+    <td>
+        <ul>
+            {% for value in entity.values %}
+                <li>{{ value.name }}</li>
+            {% endfor %}
+        </ul>
+    </td>
+    <td>
+        {% if entity.enabled %}<span class="label label-success">true</span>{% else %}<span class="label label-danger">false</span>{% endif %}
+    </td>
+
+    {% include "@AdminCore/Tables/actions.html.twig" with {
+        entity: entity,
+        class: "attribute",
+    } %}
+{% endblock table_body_row %}
+
+
+{% block table_paginator_links %}
+    {% set url = 'admin_attribute_list' %}
+    {{ parent() }}
+{% endblock table_paginator_links %}
+
+
+{% block table_buttons %}
+    <a href="{{ url("admin_attribute_new") }}"type="button" class="btn btn-success">{{ "New attribute"|trans }}</a>
+{% endblock table_buttons %}

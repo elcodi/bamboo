@@ -74,6 +74,7 @@ class AdminAppKernel extends Kernel
              */
             new \Elcodi\AdminCoreBundle\AdminCoreBundle(),
             new \Elcodi\AdminUserBundle\AdminUserBundle(),
+            new \Elcodi\AdminAttributeBundle\AdminAttributeBundle(),
             new \Elcodi\AdminBannerBundle\AdminBannerBundle(),
             new \Elcodi\AdminCartBundle\AdminCartBundle(),
             new \Elcodi\AdminCartCouponBundle\AdminCartCouponBundle(),

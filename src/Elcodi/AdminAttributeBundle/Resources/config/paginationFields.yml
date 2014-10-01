@@ -1,0 +1,11 @@
+parameters:
+
+    #
+    # Pagination fields
+    #
+    elcodi.admin.attribute.pagination.attribute.fields:
+        - id
+        - name
+        - displayName
+        - enabled
+
