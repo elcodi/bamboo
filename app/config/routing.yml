@@ -4,6 +4,9 @@ admin_core:
 admin_user:
     resource: "@AdminUserBundle/Resources/config/routing.yml"
 
+admin_attribute:
+    resource: "@AdminAttributeBundle/Resources/config/routing.yml"
+
 admin_cart:
     resource: "@AdminCartBundle/Resources/config/routing.yml"
 
