@@ -50,8 +50,7 @@ class AdminAttributeExtension extends AbstractExtension
     {
         return [
             'classes',
-            'formTypes',
-            'paginationFields',
+            'formTypes'
         ];
     }
 }

@@ -32,6 +32,10 @@ use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
 
 /**
  * Class CategoryComponentController
+ *
+ *  * @Route(
+ *      path = "/attribute",
+ * )
  */
 class AttributeComponentController
     extends
@@ -54,7 +58,7 @@ class AttributeComponentController
      * @return array Result
      *
      * @Route(
-     *      path = "/attributes/list/component/{page}/{limit}/{orderByField}/{orderByDirection}",
+     *      path = "s/list/component/{page}/{limit}/{orderByField}/{orderByDirection}",
      *      name = "admin_attribute_list_component",
      *      requirements = {
      *          "page" = "\d*",
@@ -113,7 +117,7 @@ class AttributeComponentController
      * @return array Result
      *
      * @Route(
-     *      path = "/attribute/component/{id}",
+     *      path = "/component/{id}",
      *      name = "admin_attribute_view_component",
      *      requirements = {
      *          "id" = "\d*",
