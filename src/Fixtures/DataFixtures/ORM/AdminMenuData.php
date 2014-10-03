@@ -85,6 +85,12 @@ class AdminMenuData extends AbstractFixture
          * Catalog
          */
 
+        $attributesNode = $this
+            ->createNewNode()
+            ->setName('Attribute')
+            ->setUrl('admin_attribute_list')
+            ->enable();
+
         $productsNode = $this
             ->createNewNode()
             ->setName('Products')
@@ -114,6 +120,7 @@ class AdminMenuData extends AbstractFixture
             ->setName('Catalog')
             ->setCode('tags')
             ->setUrl('')
+            ->addSubnode($attributesNode)
             ->addSubnode($productsNode)
             ->addSubnode($categoriesNode)
             ->addSubnode($manufacturersNode)
