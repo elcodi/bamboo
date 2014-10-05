@@ -8,10 +8,13 @@
 
     {% include "@AdminCore/Common/breadcrumb.html.twig" with {
         breadcrumb: {
-            'list attributes': {
-                'url': 'admin_attribute_list'
+            'Attributes': {
+                'url': url('admin_attribute_list')
             },
-            "new value": {
+            ('#' ~ id): {
+                'url': url('admin_attribute_view', { 'id': id })
+            },
+            "New Value": {
                 "active" : true
             }
         }

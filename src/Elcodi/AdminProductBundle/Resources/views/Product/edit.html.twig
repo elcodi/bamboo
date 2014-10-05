@@ -8,10 +8,10 @@
 
     {% include '@AdminCore/Common/breadcrumb.html.twig' with {
         breadcrumb: {
-            'list products': {
-                'url': 'admin_product_list'
+            'Products': {
+                'url': url('admin_product_list')
             },
-            ('edit product ' ~ id): {
+            ('Edit #' ~ id): {
                 'active' : true
             }
         }

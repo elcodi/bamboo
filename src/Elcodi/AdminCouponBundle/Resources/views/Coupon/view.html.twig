@@ -5,6 +5,18 @@
     {{ 'Coupon Zone'|trans }}
 {% endblock content_title %}
 
+{% block breadcrumb %}
+    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
+        breadcrumb: {
+            "Coupons": {
+                "url": url('admin_coupon_list')
+            },
+            ("View #" ~ id): {
+                "active" : true
+            }
+        }
+    } %}
+{% endblock %}
 
 {% block content %}
     <div class="row">

@@ -2,7 +2,7 @@
     <li><a href="{{ url("admin_homepage") }}">{{ 'Home'|trans }}</a></li>
     {% for value,attr in breadcrumb %}
         <li{% if attr.active %} class="active"{% endif %}>
-            {% if attr.url %}<a href="{{ url(attr.url) }}">{% endif %}
+            {% if attr.url %}<a href="{{ attr.url }}">{% endif %}
                 {{ value|trans }}
             {% if attr.url %}</a>{% endif %}
         </li>
