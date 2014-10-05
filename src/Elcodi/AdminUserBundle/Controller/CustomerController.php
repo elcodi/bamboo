@@ -358,7 +358,8 @@ class CustomerController
     {
         return parent::deleteAction(
             $request,
-            $entity
+            $entity,
+            'admin_customer_list'
         );
     }
 }

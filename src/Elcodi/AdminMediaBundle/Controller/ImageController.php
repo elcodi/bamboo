@@ -348,7 +348,8 @@ class ImageController
     {
         return parent::deleteAction(
             $request,
-            $entity
+            $entity,
+            'admin_image_list'
         );
     }
 

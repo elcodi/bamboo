@@ -358,7 +358,8 @@ class AttributeController
     {
         return parent::deleteAction(
             $request,
-            $entity
+            $entity,
+            'admin_attribute_list'
         );
     }
 }

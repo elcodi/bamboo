@@ -358,7 +358,8 @@ class ManufacturerController
     {
         return parent::deleteAction(
             $request,
-            $entity
+            $entity,
+            'admin_manufacturer_list'
         );
     }
 }

@@ -358,7 +358,8 @@ class CategoryController
     {
         return parent::deleteAction(
             $request,
-            $entity
+            $entity,
+            'admin_category_list'
         );
     }
 }
