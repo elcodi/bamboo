@@ -8,7 +8,10 @@
 
     {% include "@AdminCore/Common/breadcrumb.html.twig" with {
         breadcrumb: {
-            "new category": {
+            "Categories": {
+                "url": url('admin_category_list')
+            },
+            "New": {
                 "active" : true
             }
         }

@@ -4,6 +4,16 @@
     {{ 'Currency Zone'|trans }}
 {% endblock content_title %}
 
+{% block breadcrumb %}
+    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
+        breadcrumb: {
+            ("Currency"): {
+                "active" : true
+            }
+        }
+    } %}
+{% endblock %}
+
 {% block content %}
 
     <div class="row">

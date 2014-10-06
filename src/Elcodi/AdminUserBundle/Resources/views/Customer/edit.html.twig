@@ -9,7 +9,10 @@
 {% block breadcrumb %}
     {% include "@AdminCore/Common/breadcrumb.html.twig" with {
         breadcrumb: {
-            "edit customer": {
+            "Customers": {
+                "url": url('admin_customer_list')
+            },
+            ("Edit #" ~ id): {
                 "active" : true
             }
         }

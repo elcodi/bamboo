@@ -8,7 +8,10 @@
 
     {% include "@AdminCore/Common/breadcrumb.html.twig" with {
         breadcrumb: {
-            "view manufacturer": {
+            "Manufacturers": {
+                "url": url('admin_manufacturer_list')
+            },
+            ("View #" ~ id): {
                 "active" : true
             }
         }

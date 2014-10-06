@@ -4,6 +4,19 @@
     {{ 'Order Zone'|trans }}
 {% endblock content_title %}
 
+{% block breadcrumb %}
+    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
+        breadcrumb: {
+            "Orders": {
+                "url": url('admin_order_list')
+            },
+            ("Edit #" ~ id): {
+                "active" : true
+            }
+        }
+    } %}
+{% endblock breadcrumb %}
+
 {% block content %}
 
     <div class="row">
