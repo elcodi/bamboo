@@ -76,7 +76,7 @@ knp_gaufrette:
     adapters:
         local:
             local:
-                directory: %kernel.cache_dir%/tmp/gaufrette
+                directory: %kernel.root_dir%/../web/images
                 create: true
     filesystems:
         local:
