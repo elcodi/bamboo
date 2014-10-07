@@ -377,7 +377,8 @@ class CouponController
     {
         return parent::deleteAction(
             $request,
-            $entity
+            $entity,
+            'admin_coupon_list'
         );
     }
 }

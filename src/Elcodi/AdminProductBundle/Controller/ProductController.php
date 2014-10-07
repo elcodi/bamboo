@@ -394,7 +394,8 @@ class ProductController
     {
         return parent::deleteAction(
             $request,
-            $entity
+            $entity,
+            'admin_product_list'
         );
     }
 }

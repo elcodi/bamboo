@@ -362,7 +362,8 @@ class NewsletterSubscriptionController
     {
         return parent::deleteAction(
             $request,
-            $entity
+            $entity,
+            'admin_newsletter_subscription_list'
         );
     }
 }

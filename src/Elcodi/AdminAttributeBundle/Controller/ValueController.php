@@ -62,7 +62,7 @@ class ValueController extends
      *
      * @Route(
      *      path = "s/list/{page}/{limit}/{orderByField}/{orderByDirection}",
-     *      name = "admin_valuet_list",
+     *      name = "admin_values_list",
      *      requirements = {
      *          "page" = "\d*",
      *          "limit" = "\d*",
