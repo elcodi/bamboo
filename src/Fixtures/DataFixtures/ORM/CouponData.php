@@ -46,6 +46,8 @@ class CouponData extends AbstractFixture implements DependentFixtureInterface
         $currencyDollar = $this->getReference('currency-dollar');
         $currencyEuro = $this->getReference('currency-euro');
 
+        $zeroEuros = Money::create(0, $currencyEuro);
+
         /**
          * Coupon with 12% of discount
          *
@@ -64,6 +66,8 @@ class CouponData extends AbstractFixture implements DependentFixtureInterface
             ->setType(ElcodiCouponTypes::TYPE_PERCENT)
             ->setDiscount(12)
             ->setCount(100)
+            ->setPrice($zeroEuros)
+            ->setMinimumPurchase($zeroEuros)
             ->setEnabled(true)
             ->setValidFrom(new DateTime())
             ->setValidTo(new DateTime('next month'));
@@ -88,6 +92,8 @@ class CouponData extends AbstractFixture implements DependentFixtureInterface
             ->setType(ElcodiCouponTypes::TYPE_AMOUNT)
             ->setPrice(Money::create(500, $currencyEuro))
             ->setCount(20)
+            ->setPrice($zeroEuros)
+            ->setMinimumPurchase($zeroEuros)
             ->setEnabled(true)
             ->setValidFrom(new DateTime());
         $manager->persist($couponAmountEuro);
@@ -110,6 +116,7 @@ class CouponData extends AbstractFixture implements DependentFixtureInterface
             ->setName('10 dollars discount')
             ->setType(ElcodiCouponTypes::TYPE_AMOUNT)
             ->setPrice(Money::create(1000, $currencyDollar))
+            ->setMinimumPurchase($zeroEuros)
             ->setCount(20)
             ->setEnabled(true)
             ->setValidFrom(new DateTime());
