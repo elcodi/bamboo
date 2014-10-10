@@ -36,7 +36,7 @@ use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
  * Class ProductComponentController
  *
  * @Route(
- *      path = "product",
+ *      path = "product"
  * )
  */
 class ProductComponentController

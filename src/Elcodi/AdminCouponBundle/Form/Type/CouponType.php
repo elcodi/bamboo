@@ -16,83 +16,17 @@
 
 namespace Elcodi\AdminCouponBundle\Form\Type;
 
-use Symfony\Component\Form\AbstractType;
+use Elcodi\AdminCurrencyBundle\Form\Type\Abstracts\AbstractPurchasableType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 use Elcodi\Component\Coupon\ElcodiCouponTypes;
-use Elcodi\Component\Coupon\Entity\Interfaces\CouponInterface;
-use Elcodi\Component\Coupon\Factory\CouponFactory;
-use Elcodi\Component\Currency\Entity\Money;
-use Elcodi\Component\Currency\Factory\CurrencyFactory;
+
 
 /**
  * Class CouponType
  */
-class CouponType extends AbstractType
+class CouponType extends AbstractPurchasableType
 {
-    /**
-     * @var string
-     *
-     * Entity namespace
-     */
-    protected $entityNamespace;
-
-    /**
-     * @var CouponFactory
-     *
-     * productFactory
-     */
-    protected $couponFactory;
-
-    /**
-     * @var CurrencyFactory
-     *
-     * currencyFactory
-     */
-    protected $currencyFactory;
-
-    /**
-     * Construct method
-     *
-     * @param string          $entityNamespace Entity namespace
-     * @param CouponFactory   $couponFactory   Coupon Factory
-     * @param CurrencyFactory $currencyFactory Currency factory
-     */
-    public function __construct(
-        $entityNamespace,
-        CouponFactory $couponFactory,
-        CurrencyFactory $currencyFactory
-    )
-    {
-        $this->entityNamespace = $entityNamespace;
-        $this->couponFactory = $couponFactory;
-        $this->currencyFactory = $currencyFactory;
-    }
-
-    /**
-     * Default form options
-     *
-     * @param OptionsResolverInterface $resolver
-     *
-     * @return array With the options
-     */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        $money = Money::create(1, $this->currencyFactory->create()->setIso('EUR'));
-
-        /**
-         * @var CouponInterface $coupon
-         */
-        $coupon = $this->couponFactory->create();
-        $coupon->setPrice($money);
-        $coupon->setMinimumPurchase($money);
-
-        $resolver->setDefaults(array(
-            'empty_data' => $coupon
-        ));
-    }
-
     /**
      * Buildform function
      *
@@ -138,7 +72,7 @@ class CouponType extends AbstractType
                 'required' => false,
                 'label'    => 'count',
             ))
-            ->add('used', 'integer', array(
+            ->add('used', 'checkbox', array(
                 'required' => false,
                 'label'    => 'used',
             ))

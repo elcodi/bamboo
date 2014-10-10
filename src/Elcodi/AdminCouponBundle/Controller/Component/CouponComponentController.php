@@ -31,6 +31,10 @@ use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
 
 /**
  * Class CouponComponentController
+ *
+ * @Route(
+ *      path = "/coupon"
+ * )
  */
 class CouponComponentController extends AbstractAdminController
 {
