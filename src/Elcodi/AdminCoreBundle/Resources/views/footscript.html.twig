@@ -12,15 +12,19 @@
 <script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.flot/jquery.flot.pie.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.flot/jquery.flot.resize.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.flot/jquery.flot.labels.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/admincore/js/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/admincore/js/masonry.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/admincore/js/dropzone/dropzone.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.magnific-popup/dist/jquery.magnific-popup.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/admincore/js/skycons/skycons.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/admincore/js/intro.js/minified/intro.min.js') }}"></script>
 
 <script type="text/javascript" src="{{ asset('bundles/admincore/js/bootstrap.switch/bootstrap-switch.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/admincore/js/bootstrap.datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/admincore/js/bootstrap.slider/js/bootstrap-slider.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/admincore/js/bootstrap.multiselect/js/bootstrap-multiselect.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/admincore/js/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+
 
 <script type="text/javascript" src="{{ asset('bundles/admincore/js/behaviour/general.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/admincore/js/behaviour/voice-commands.js') }}"></script>
@@ -30,13 +34,14 @@
 
         App.init();
 
-        //Initialize Mansory
+        //Initialize Masonry
         var $container = $('.gallery-cont');
 
-        // initialize
-        $container.masonry({
-            columnWidth: 0,
-            itemSelector: '.item'
+        //Initialize only after images are loaded
+        imagesLoaded( $container, function() {
+            $container.masonry({
+                itemSelector: '.item'
+            });
         });
 
         //Resizes gallery items on sidebar collapse
