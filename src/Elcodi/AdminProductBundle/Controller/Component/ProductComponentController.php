@@ -247,7 +247,7 @@ class ProductComponentController
      *      path = "/{id}/gallery/component",
      *      name = "admin_product_gallery_component"
      * )
-     * @Template("AdminMediaBundle:Gallery/Component:view.html.twig")
+     * @Template("AdminProductBundle:Gallery/Component:view.html.twig")
      * @Method({"GET"})
      *
      * @EntityAnnotation(
