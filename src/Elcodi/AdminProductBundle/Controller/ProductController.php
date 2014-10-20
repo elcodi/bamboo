@@ -29,6 +29,7 @@ use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
 use Elcodi\AdminCoreBundle\Controller\Interfaces\NavegableControllerInterface;
 use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
+use Elcodi\Component\Media\Entity\Interfaces\ImageInterface;
 use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
 
 /**
@@ -397,5 +398,51 @@ class ProductController
             $entity,
             'admin_product_list'
         );
+    }
+
+    /**
+     * Remove relation between Product and Image
+     *
+     * @param Request $request Request
+     * @param ProductInterface $product
+     * @param ImageInterface $image
+     *
+     * @return RedirectResponse Redirect response
+     *
+     * @Route(
+     *      path = "/{id}/image/{imageId}/delete",
+     *      name = "admin_product_image_delete"
+     * )
+     * @Method({"GET", "POST"})
+     *
+     * @EntityAnnotation(
+     *      name = "product",
+     *      class = "elcodi.core.product.entity.product.class",
+     *      mapping = {
+     *          "id" = "~id~"
+     *      }
+     * )
+     *
+     * @EntityAnnotation(
+     *      name = "image",
+     *      class = "elcodi.core.media.entity.image.class",
+     *      mapping = {
+     *          "id" = "~imageId~"
+     *      }
+     * )
+     */
+    public function deleteImageAction(
+        Request $request,
+        ProductInterface $product,
+        ImageInterface $image
+    )
+    {
+        return $this->getResponse($request, function () use ($product, $image) {
+            $product->removeImage($image);
+
+            /** @var AbstractEntity $product */
+            $entityManager = $this->getManagerForClass($product);
+            $entityManager->flush($product);
+        });
     }
 }
