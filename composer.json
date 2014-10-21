@@ -62,6 +62,7 @@
         "paymentsuite/free-payment-bundle": "~1.0",
         "paymentsuite/paypal-web_checkout-bundle": "dev-master",
         "incenteev/composer-parameter-handler": "~2.1.0",
+        "hwi/oauth-bundle": "0.4.*@dev",
 
         "elcodi/banner-bundle": "~0.3.0",
         "elcodi/cart-bundle": "~0.3.0",

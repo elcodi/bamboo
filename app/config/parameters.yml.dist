@@ -20,3 +20,6 @@ parameters:
     use_assetic_controller: false
     debug_toolbar:     true
     debug_redirects:   false
+
+    bamboo_social_github_client_id: ~
+    bamboo_social_github_client_secret: ~

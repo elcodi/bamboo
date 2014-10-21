@@ -7,15 +7,23 @@ security:
         customer_secured_area:
             context: customer_secured_area
             pattern: ^/
-            provider: customer
             anonymous: true
             security: true
             form_login:
+                provider: customer
                 login_path: store_login
                 check_path: store_login_check
                 username_parameter: store_user_form_type_login[email]
                 password_parameter: store_user_form_type_login[password]
             logout:
-                path:   store_logout
+                path: store_logout
                 target: store_homepage
                 invalidate_session: false
+            oauth:
+                login_path: /login
+                use_forward: false
+                failure_path: /login
+                oauth_user_provider:
+                    service: hwi_oauth.user.provider
+                resource_owners:
+                    github: /login/check-github
