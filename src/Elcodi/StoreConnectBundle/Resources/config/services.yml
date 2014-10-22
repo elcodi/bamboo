@@ -1,0 +1,13 @@
+services:
+
+    #
+    # Services
+    #
+    store.connect.service.oauth_provider:
+        class: %store.connect.service.oauth_provider.class%
+        arguments:
+            - @security.user.provider.concrete.customer
+            - @store.connect.repository.authorization
+            - @store.connect.object_manager.authorization
+            - @elcodi.core.user.factory.customer
+            - @elcodi.object_manager.customer

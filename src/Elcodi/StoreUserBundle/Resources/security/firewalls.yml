@@ -24,6 +24,6 @@ security:
                 use_forward: false
                 failure_path: /login
                 oauth_user_provider:
-                    service: hwi_oauth.user.provider
+                    service: store.connect.service.oauth_provider
                 resource_owners:
                     github: /login/check-github
