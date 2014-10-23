@@ -18,17 +18,37 @@ namespace Elcodi\PaymentBridgeBundle\Services;
 
 use PaymentSuite\PaymentCoreBundle\Services\Interfaces\PaymentBridgeInterface;
 
+use Elcodi\Component\Cart\Entity\Order;
+use Elcodi\Component\Cart\Entity\OrderLine;
+use Elcodi\Component\Cart\Repository\OrderRepository;
+use Elcodi\Component\Currency\Entity\Money;
+
 /**
  * Class PaymentBridge
  */
 class PaymentBridge implements PaymentBridgeInterface
 {
     /**
-     * @var Object
+     * @var Order
      *
      * Order object
      */
     protected $order;
+
+    /**
+     * @var OrderRepository
+     *
+     * Order repository
+     */
+    protected $orderRepository;
+
+    /**
+     * @param OrderRepository $orderRepository Order repository
+     */
+    public function __construct(OrderRepository $orderRepository)
+    {
+        $this->orderRepository = $orderRepository;
+    }
 
     /**
      * Set order to OrderWrapper
@@ -69,17 +89,36 @@ class PaymentBridge implements PaymentBridgeInterface
      */
     public function findOrder($orderId)
     {
-        return null;
+        $this->order = $this
+            ->orderRepository
+            ->find($orderId);
+
+        return $this->order;
     }
 
     /**
      * Get the currency in which the order is paid
      *
+     * @throws \LogicException
+     *
      * @return string
      */
     public function getCurrency()
     {
-        return 'USD';
+        $amount = $this->order->getAmount();
+
+        if ($amount instanceof Money) {
+            $currency = $amount->getCurrency();
+
+            return $currency->getIso();
+        }
+
+        throw new \LogicException(
+            sprintf(
+                'Invalid Currency for Order [%d]',
+                $this->getOrderId()
+            )
+        );
     }
 
     /**
@@ -89,17 +128,64 @@ class PaymentBridge implements PaymentBridgeInterface
      */
     public function getAmount()
     {
-        return $this->order->getAmount();
+        $amount = $this->order->getAmount();
+
+        if ($amount instanceof Money) {
+            return $this
+                ->order
+                ->getAmount()
+                ->getAmount();
+        }
+
+        throw new \LogicException(
+            sprintf(
+                'Invalid Amount for Order [%d]',
+                $this->getOrderId()
+            )
+        );
     }
 
     /**
      * Get extra data
      *
+     * Returns the order lines as array in the following form
+     *
+     * [
+     *   1 => [ 'item' => 'Item 1', 'amount' => 1234, 'currency_code' => 'EUR ],
+     *   2 => [ 'item_name' => 'Item 2', 'item_amount' => 2345, 'item_currency_code' => 'EUR ],
+     * ]
+     *
      * @return array
      */
     public function getExtraData()
     {
-        return [];
+        $extraData = [];
+
+        if ($this->order instanceof Order) {
+            /**
+             * @var OrderLine $orderLine
+             */
+            foreach ($this->order->getOrderLines() as $orderLine) {
+
+                $orderLineArray = [];
+                $orderLineArray['item_name'] = $orderLine
+                    ->getPurchasable()
+                    ->getName();
+
+                $orderLineArray['item_amount'] = $orderLine
+                    ->getAmount()
+                    ->getAmount();
+
+                $orderLineArray['item_currency_code'] = $orderLine
+                    ->getAmount()
+                    ->getCurrency()
+                    ->getIso();
+
+                $extraData['items'][$orderLine->getId()] = $orderLineArray;
+            }
+        }
+
+        return $extraData;
     }
 
     /**

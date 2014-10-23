@@ -16,8 +16,13 @@
 
 namespace Elcodi\PaymentBridgeBundle\EventListener;
 
+use PaymentSuite\PaymentCoreBundle\Event\PaymentOrderCreatedEvent;
+use PaymentSuite\PaymentCoreBundle\Event\PaymentOrderDoneEvent;
 use PaymentSuite\PaymentCoreBundle\Event\PaymentOrderLoadEvent;
+use PaymentSuite\PaymentCoreBundle\Event\PaymentOrderSuccessEvent;
 
+use Elcodi\Component\Cart\Entity\Order;
+use Elcodi\Component\Cart\Repository\OrderRepository;
 use Elcodi\Component\Cart\Services\OrderManager;
 use Elcodi\Component\Cart\Transformer\CartOrderTransformer;
 use Elcodi\Component\Cart\Wrapper\CartWrapper;
@@ -30,16 +35,30 @@ class PaymentEventListener
     /**
      * @var CartWrapper
      *
-     * cartWrapper
+     * Cart Wrapper
      */
     protected $cartWrapper;
 
     /**
-     * @var OrderManager
+     * @var CartOrderTransformer
      *
-     * OrderManager
+     * Cart to Order transformer
      */
     protected $cartOrderTransformer;
+
+    /**
+     * @var OrderManager
+     *
+     * Order Manager
+     */
+    protected $orderManager;
+
+    /**
+     * @var OrderRepository
+     *
+     * Order Repository
+     */
+    protected $orderRepository;
 
     /**
      * Construct method
@@ -49,11 +68,15 @@ class PaymentEventListener
      */
     public function __construct(
         CartWrapper $cartWrapper,
-        CartOrderTransformer $cartOrderTransformer
+        CartOrderTransformer $cartOrderTransformer,
+        OrderManager $orderManager,
+        OrderRepository $orderRepository
     )
     {
         $this->cartWrapper = $cartWrapper;
         $this->cartOrderTransformer = $cartOrderTransformer;
+        $this->orderManager = $orderManager;
+        $this->orderRepository = $orderRepository;
     }
 
     /**
@@ -74,5 +97,44 @@ class PaymentEventListener
         $event
             ->getPaymentBridge()
             ->setOrder($order);
+
+        $this->orderManager->addStateToOrder($order, 'pending.payment');
     }
+
+    /**
+     * @param PaymentOrderCreatedEvent $event
+     */
+    public function onPaymentOrderCreated(PaymentOrderCreatedEvent $event)
+    {
+
+    }
+
+    /**
+     * @param PaymentOrderDoneEvent $paymentOrderDoneEvent
+     */
+    public function onPaymentOrderDone(PaymentOrderDoneEvent $paymentOrderDoneEvent)
+    {
+        // STORE THE TRANSACTION ID LOCALLY
+    }
+
+    /**
+     * Completes the payment process when the payment.order.success event is raised.
+     *
+     * This means that we can change the order state to ACCEPTED
+     *
+     * @param PaymentOrderSuccessEvent $event
+     */
+    public function onPaymentOrderSuccess(PaymentOrderSuccessEvent $event)
+    {
+        $order = $event->getPaymentBridge()->getOrder();
+
+        if (!$order instanceof Order) {
+            throw new \LogicException(
+                'Cannot retrieve Order from PaymentBridge'
+            );
+        }
+
+        $this->orderManager->addStateToOrder($order, 'accepted');
+    }
+
 }

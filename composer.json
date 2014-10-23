@@ -28,6 +28,10 @@
                     "type": "file"
                 }
             }
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/alch/PaypalWebCheckoutBundle.git"
         }
     ],
     "require": {
@@ -56,6 +60,7 @@
         "paymentsuite/payment-core-bundle": "v1.3",
         "knplabs/knp-gaufrette-bundle": "~0.1",
         "paymentsuite/free-payment-bundle": "~1.0",
+        "paymentsuite/paypal-web_checkout-bundle": "dev-master",
         "incenteev/composer-parameter-handler": "~2.1.0",
 
         "elcodi/banner-bundle": "~0.3.0",

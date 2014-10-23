@@ -16,11 +16,14 @@
 
 namespace Elcodi\StoreCartBundle\Controller;
 
+use Mmoreram\ControllerExtraBundle\Annotation\Entity as AnnotationEntity;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+use Elcodi\Component\Cart\Entity\Order;
 use Elcodi\Component\Currency\Entity\Money;
 
 /**
@@ -64,21 +67,42 @@ class CheckoutController extends Controller
     }
 
     /**
-     * Checkout payment step
+     * Checkout payment fail action
      *
-     * @param int $orderId Order id
+     * @param Order $order Order
+     *
+     * @throws NotFoundHttpException
      *
      * @return array
      *
      * @Route(
-     *      path = "/order/{orderId}",
-     *      name = "store_checkout_thanks"
+     *      path = "/payment/fail/order/{id}",
+     *      name = "store_checkout_payment_fail"
      * )
      * @Method("GET")
+     *
      * @Template
+     *
+     * @AnnotationEntity(
+     *      class = "elcodi.core.cart.entity.order.class",
+     *      name = "order",
+     *      mapping = {
+     *          "id" = "~id~",
+     *      }
+     * )
      */
-    public function orderAction($orderId)
+    public function paymentFailAction(Order $order)
     {
-        return [];
+        /*
+         * Checking if logged user has permission to see
+         * this page
+         */
+        if ($order->getCustomer() != $this->get('elcodi.customer_wrapper')->loadCustomer()) {
+            throw($this->createNotFoundException());
+        }
+
+        return [
+            'order' => $order
+        ];
     }
 }

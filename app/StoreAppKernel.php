@@ -53,6 +53,7 @@ class StoreAppKernel extends Kernel
             new \Mmoreram\ControllerExtraBundle\ControllerExtraBundle(),
             new \PaymentSuite\PaymentCoreBundle\PaymentCoreBundle(),
             new \PaymentSuite\FreePaymentBundle\FreePaymentBundle(),
+            new \PaymentSuite\PaypalWebCheckoutBundle\PaypalWebCheckoutBundle(),
 
             /**
              * Elcodi core bundles

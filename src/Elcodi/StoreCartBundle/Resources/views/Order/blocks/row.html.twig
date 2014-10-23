@@ -16,6 +16,7 @@
     <td class="title">
         <a href="{{ productRoute }}">{{ line.purchasable|purchasable_name }}</a>
     </td>
+    <td>{{ line.lastOrderLineHistory.state }}</td>
     <td class="qty">{{ line.quantity }}</td>
     <td class="price">{{ line.amount|print_convert_money() }}</td>
     <td class="total">{{ line.amount|print_convert_money() }}</td>
