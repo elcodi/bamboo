@@ -38,8 +38,14 @@
                     'type': 5
                 }) : 'http://placehold.it/60x47' }}" alt="{{ product.name }}"/>
 
+                {% if product.reducedPrice.amount > 0 %}
+                    {% set product_price = product.reducedPrice %}
+                {% else %}
+                    {% set product_price = product.price %}
+                {% endif %}
+
                 <p>{{ product.name }}<br/>
-                    <span>{{ product.reduced_price|default(product.price)|print_convert_money() }}</span>
+                    <span>{{ product_price|print_convert_money() }}</span>
                 </p>
                 <a title="Add {{ product|purchasable_name }} to cart"
                    class="btn btn-addcart btn-primary"
