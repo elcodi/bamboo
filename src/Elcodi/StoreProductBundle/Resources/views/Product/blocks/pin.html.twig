@@ -26,11 +26,13 @@
 
     <p class="price">
 
-        {{ product.price|print_convert_money() }}
+        {% set product_price = product.reduced_price|default(product.price) %}
 
-        {% if product.price.currency != currency_wrapper.loadCurrency %}
+        {{ product_price|print_convert_money() }}
 
-            - <span class="original-price">({{ product.price|print_money() }})</span>
+        {% if product_price.currency != currency_wrapper.loadCurrency %}
+
+            - <span class="original-price">({{ product_price|print_money() }})</span>
 
         {% endif %}
 

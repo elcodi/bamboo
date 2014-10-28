@@ -1,26 +1,28 @@
 {% set lineObject = line.vars.data %}
+{% set product = lineObject.product %}
+{% set purchasable = lineObject.purchasable %}
 {% set productRoute = url('store_product_view', {
-    slug: lineObject.product.slug,
-    id: lineObject.product.id
+    slug: product.slug,
+    id: product.id
 }) %}
 
 <tr>
     <td class="image">
         <a href="{{ productRoute }}">
-            <img src="{{ lineObject.product.principalImage ? lineObject.product.principalImage|resize({
+            <img src="{{ product.principalImage ? product.principalImage|resize({
                 width: 80,
                 height: 80,
                 type: 5 }) : 'http://placehold.it/80x80'
-            }}" alt="{{ lineObject.product.name }}" />
+            }}" alt="{{ product.name }}" />
         </a>
     </td>
     <td class="title">
-        <a href="{{ productRoute }}">{{ lineObject.purchasable|purchasable_name }}</a>
+        <a href="{{ productRoute }}">{{ purchasable|purchasable_name }}</a>
     </td>
     <td class="qty">
         {{ form_row(line.quantity) }}
     </td>
-    <td class="price">{{ lineObject.purchasable.price|print_convert_money() }}</td>
+    <td class="price">{{ purchasable.reduced_price|default(purchasable.price)|print_convert_money() }}</td>
     <td class="total">{{ lineObject.amount|print_convert_money() }}</td>
     <td class="remove">
         <a href="{{ url('store_cartline_remove', { id: lineObject.id }) }}">

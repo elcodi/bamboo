@@ -39,7 +39,7 @@
                 }) : 'http://placehold.it/60x47' }}" alt="{{ product.name }}"/>
 
                 <p>{{ product.name }}<br/>
-                    <span>{{ product.price|print_convert_money() }}</span>
+                    <span>{{ product.reduced_price|default(product.price)|print_convert_money() }}</span>
                 </p>
                 <a title="Add {{ product|purchasable_name }} to cart"
                    class="btn btn-addcart btn-primary"
