@@ -9,16 +9,16 @@
 {% block content %}
 
     {{ form_start(form, {'action': url('admin_variant_save', {
-        'id': id,
+        'id': product.id,
     })}) }}
 
 
     <div class="alert alert-info alert-white rounded">
         <button data-dismiss="alert" class="close" type="button">×</button>
         <div class="icon"><i class="icon-info-sign"></i></div>
-        <strong>This is a product variant</strong> for the product id
+        <strong>This is a product variant</strong> for product
         <a href="{{ url('admin_product_view', {id: id}) }}">
-            {{ id }}
+            {{ product.name }}
         </a>
     </div>
 
@@ -33,7 +33,7 @@
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
             <button type="submit" class="btn btn-primary">{{ 'Save'|trans }}</button>
-            <a href="{{ url("admin_product_view", {"id": id, }) }}" class="btn btn-default">{{ 'Cancel'|trans }}</a>
+            <a href="{{ url("admin_product_view", {"id": product.id, }) }}" class="btn btn-default">{{ 'Cancel'|trans }}</a>
         </div>
     </div>
 

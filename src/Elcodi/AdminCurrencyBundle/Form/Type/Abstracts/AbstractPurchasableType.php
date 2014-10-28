@@ -64,7 +64,7 @@ abstract class AbstractPurchasableType extends AbstractType
         $purchasable = $this->purchasableFactory->create();
 
         $resolver->setDefaults(array(
-            'data_class' => $this->entityNamespace
+            'empty_data' => $purchasable
         ));
     }
 }

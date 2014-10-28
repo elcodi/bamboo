@@ -16,6 +16,10 @@
 
 namespace Elcodi\AdminProductBundle\Controller;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Elcodi\Component\Attribute\Entity\Attribute;
+use Elcodi\Component\Attribute\Entity\Value;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -176,8 +180,8 @@ class VariantController
      * Should be POST
      *
      * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to save
-     * @param Product        $product
+     * @param Variant        $variant Product variant Entity to save
+     * @param Product        $product Parent product for the variant being saved
      * @param FormInterface  $form    Form view
      * @param boolean        $isValid Request handle is valid
      *
@@ -196,25 +200,27 @@ class VariantController
      *     },
      *     name = "product"
      * )
-     *
      * @EntityAnnotation(
      *     class = {
      *         "factory" = "elcodi.core.product.factory.variant"
      *     },
-     *     persist  = true
+     *     name = "variant",
+     *     persist = true,
+     *     setters = {
+     *         "setProduct": "product"
+     *     }
      * )
-     *
      * @FormAnnotation(
      *      class = "elcodi_admin_product_form_type_variant",
      *      name  = "form",
-     *      entity = "entity",
+     *      entity = "variant",
      *      handleRequest = true,
      *      validate = "isValid"
      * )
      */
     public function saveAction(
         Request $request,
-        AbstractEntity $entity,
+        Variant $variant,
         Product $product,
         FormInterface $form,
         $isValid
@@ -223,15 +229,33 @@ class VariantController
         /**
          * @var Variant $entity
          */
-        $entity->setProduct($product);
+        $variant->setProduct($product);
 
         $this
-            ->getManagerForClass($entity)
-            ->flush($entity);
+            ->getManagerForClass($variant)
+            ->flush($variant);
+
+        /**
+         * @var Value $option
+         */
+        foreach ($variant->getOptions() as $option) {
+            /*
+             * When adding an option to a Variant it is
+             * important to check that the parent Product
+             * has its corresponding Attribute
+             */
+            if (!$product->getAttributes()->contains($option->getAttribute())) {
+                $product->addAttribute($option->getAttribute());
+            }
+        }
+
+        $this
+            ->getManagerForClass($product)
+            ->flush();
 
         return $this->redirectRoute("admin_variant_view", [
             'id' => $product->getId(),
-            'variantId' => $entity->getId()
+            'variantId' => $variant->getId()
         ]);
     }
 
@@ -271,7 +295,7 @@ class VariantController
      * Should be POST
      *
      * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to update
+     * @param Variant        $variant Product variant to update
      * @param FormInterface  $form    Form view
      * @param boolean        $isValid Request handle is valid
      *
@@ -285,6 +309,7 @@ class VariantController
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.product.entity.variant.class",
+     *      name = "variant",
      *      mapping = {
      *          "id": "~variantId~",
      *      }
@@ -292,25 +317,49 @@ class VariantController
      * @FormAnnotation(
      *      class = "elcodi_admin_product_form_type_variant",
      *      name  = "form",
-     *      entity = "entity",
+     *      entity = "variant",
      *      handleRequest = true,
      *      validate = "isValid"
      * )
      */
     public function updateAction(
         Request $request,
-        AbstractEntity $entity,
+        Variant $variant,
         FormInterface $form,
         $isValid
     )
     {
+
         $this
-            ->getManagerForClass($entity)
-            ->flush($entity);
+            ->getManagerForClass($variant)
+            ->flush($variant);
+
+        /**
+         * @var Product $product
+         */
+        $product = $variant->getProduct();
+
+        /**
+         * @var Value $option
+         */
+        foreach ($variant->getOptions() as $option) {
+            /*
+             * When adding an option to a Variant it is
+             * important to check that the parent Product
+             * has its corresponding Attribute
+             */
+            if (!$product->getAttributes()->contains($option->getAttribute())) {
+                $product->addAttribute($option->getAttribute());
+            }
+        }
+
+        $this
+            ->getManagerForClass($product)
+            ->flush();
 
         return $this->redirectRoute("admin_variant_view", [
-            'id'        => $entity->getProduct()->getId(),
-            'variantId' => $entity->getId(),
+            'id'        => $variant->getProduct()->getId(),
+            'variantId' => $variant->getId(),
         ]);
     }
 
@@ -318,7 +367,7 @@ class VariantController
      * Enable entity
      *
      * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to enable
+     * @param AbstractEntity $variant Product variant to enable
      *
      * @return array Result
      *
@@ -330,6 +379,7 @@ class VariantController
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.product.entity.variant.class",
+     *      name = "variant",
      *      mapping = {
      *          "id" = "~variantId~"
      *      }
@@ -337,12 +387,12 @@ class VariantController
      */
     public function enableAction(
         Request $request,
-        AbstractEntity $entity
+        AbstractEntity $variant
     )
     {
         return parent::enableAction(
             $request,
-            $entity
+            $variant
         );
     }
 
@@ -382,7 +432,7 @@ class VariantController
      * Delete element action
      *
      * @param Request        $request     Request
-     * @param AbstractEntity $entity      Entity to delete
+     * @param AbstractEntity $variant     Variant to delete
      * @param string         $redirectUrl Redirect url
      *
      * @return RedirectResponse Redirect response
@@ -394,7 +444,15 @@ class VariantController
      * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
+     *     class = "elcodi.core.product.entity.product.class",
+     *     name = "product",
+     *     mapping = {
+     *         "id": "~id~"
+     *     }
+     * )
+     * @EntityAnnotation(
      *      class = "elcodi.core.product.entity.variant.class",
+     *      name = "variant",
      *      mapping = {
      *          "id" = "~variantId~"
      *      }
@@ -402,13 +460,109 @@ class VariantController
      */
     public function deleteAction(
         Request $request,
-        AbstractEntity $entity,
+        AbstractEntity $variant,
         $redirectUrl = null
     )
     {
+        /**
+         * @var Product $product
+         * @var Variant $variant
+         */
+        $product = $variant->getProduct();
+
+        /*
+         * Getting the list of unique Attributes associated with
+         * the Variant to be deleted. This is a safety check,
+         * since a Variant should *not* have more than one
+         * option with the same Attribute
+         */
+        $variantAttributes = $this->getUniqueAttributesFromVariant($variant);;
+
+        $notRemovableAttributes = [];
+
+        /**
+         * @var Variant $iteratedVariant
+         *
+         * Getting all the Attributes by iterating over the parent
+         * product Variants (except for the Variant being deleted)
+         * to see if we can safetly remove from the product collection
+         * the Attributes associated with the Variant to be removed
+         *
+         */
+        foreach ($product->getVariants() as $iteratedVariant) {
+
+            /*
+             * We want to collect Attributes from Varints other
+             * than the one we want to delete
+             */
+            if ($iteratedVariant == $variant) {
+                /*
+                 * Do not add attributes from Variant to be deleted
+                 */
+                continue;
+            }
+
+            $notRemovableAttributes = array_merge(
+                $notRemovableAttributes,
+                $this->getUniqueAttributesFromVariant($iteratedVariant)
+            );
+
+        }
+
+        /**
+         * @var Attribute $variantAttribute
+         *
+         * Checking whether we can safely de-associate
+         * Attributes from the Variant we are deleting
+         * from parent product Attribute collection
+         */
+        foreach ($variantAttributes as $variantAttribute) {
+
+            if (in_array($variantAttribute, $notRemovableAttributes)) {
+                continue;
+            }
+
+            $product->removeAttribute($variantAttribute);
+        }
+
+        $this
+            ->getManagerForClass($product)
+            ->flush();
+
         return parent::deleteAction(
             $request,
-            $entity
+            $variant
         );
     }
+
+    /**
+     * Given a Variant, return a list of the associated Attributes
+     *
+     * The Attribute is fetched from the "options" relation. In theory
+     * each option in a Variant should belong to a different Attribute.
+     *
+     * @param Variant $variant
+     *
+     * @return array
+     */
+    private function getUniqueAttributesFromVariant(Variant $variant)
+    {
+        $variantAttributes = [];
+
+        foreach ($variant->getOptions() as $option) {
+
+            /**
+             * @var Attribute $attribute
+             */
+            $attribute = $option->getAttribute();
+
+            if (!array_key_exists($attribute->getId(), $variantAttributes)) {
+                $variantAttributes[$attribute->getId()] = $attribute;
+            }
+        }
+
+        return $variantAttributes;
+    }
+
+
 }

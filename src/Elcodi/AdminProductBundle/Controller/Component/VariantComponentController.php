@@ -171,10 +171,20 @@ class VariantComponentController
      * @Method({"GET"})
      *
      * @EntityAnnotation(
+     *      class = "elcodi.core.product.entity.product.class",
+     *      name = "product",
+     *      mapping = {
+     *          "id" = "~id~"
+     *      }
+     * )
+     * @EntityAnnotation(
      *      class = {
      *          "factory" = "elcodi.core.product.factory.variant"
      *      },
-     *      name = "entity"*
+     *      name = "entity",
+     *      setters = {
+     *          "setProduct": "product"
+     *      }
      * )
      * @FormAnnotation(
      *      class = "elcodi_admin_product_form_type_variant",
@@ -184,13 +194,15 @@ class VariantComponentController
      */
     public function newComponentAction(
         Request $request,
+        $product,
         $id,
         FormView $formView
     )
     {
         return [
-            'id'   => $id,
-            'form' => $formView,
+            'id' => $id,
+            'product' => $product,
+            'form'    => $formView,
         ];
     }
 

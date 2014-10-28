@@ -70,7 +70,7 @@
     <div class="col-sm-12">
         <div class="pull-left">
             <div class="dataTables_info" id="datatable_info">
-                {% set firstElement = limit * (page-1) + 1 %}
+                {% set firstElement = limit * (page - 1) + 1 %}
                 {% set lastElement = firstElement + limit - 1 %}
                 {% set lastElement = min(lastElement, totalElements) %}
                 Showing {{ firstElement }} to {{ lastElement }} of {{ totalElements }} entries
