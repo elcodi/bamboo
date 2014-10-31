@@ -24,13 +24,15 @@
         "mmoreram/php-formatter": "~1.0",
 
         "elcodi/core-bundle": "~0.3.0",
-        "elcodi/coupon": "~0.3.0",
         "elcodi/currency": "~0.3.0",
+        "elcodi/shipping": "dev-master",
         "elcodi/product": "~0.3.0",
+        "elcodi/coupon": "~0.3.0",
         "elcodi/media": "~0.3.0",
         "elcodi/user": "~0.3.0",
+        "elcodi/menu": "~0.3.0",
         "elcodi/geo": "~0.3.0",
-        "elcodi/menu": "~0.3.0"
+        "elcodi/tax": "~0.3.0"
     },
     "autoload": {
         "psr-4": {
