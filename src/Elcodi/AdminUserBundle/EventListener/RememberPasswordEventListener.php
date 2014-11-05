@@ -22,8 +22,8 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Templating\EngineInterface;
 
-use Elcodi\UserBundle\Event\PasswordRecoverEvent;
-use Elcodi\UserBundle\Event\PasswordRememberEvent;
+use Elcodi\Component\User\Event\PasswordRecoverEvent;
+use Elcodi\Component\User\Event\PasswordRememberEvent;
 
 /**
  * Password event listener
