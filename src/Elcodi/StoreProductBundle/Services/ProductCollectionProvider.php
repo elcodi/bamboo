@@ -46,10 +46,18 @@ class ProductCollectionProvider extends BaseProductCollectionProvider
 
             $relatedProducts = $this
                 ->productRepository
-                ->findBy([
-                    'principalCategory' => $product->getPrincipalCategory(),
-                    'enabled'           => true
-                ]);
+                ->createQueryBuilder('p')
+                ->select('p', 'v', 'o')
+                ->leftJoin('p.variants', 'v')
+                ->leftJoin('v.options', 'o')
+                ->where('p.principalCategory = :principalCategory')
+                ->andWhere('p.enabled = :enabled')
+                ->setParameters([
+                    'principalCategory' => $principalCategory,
+                    'enabled' => true
+                ])
+                ->getQuery()
+                ->getResult();
 
             $relatedProducts = new ArrayCollection($relatedProducts);
             $relatedProducts->removeElement($product);
