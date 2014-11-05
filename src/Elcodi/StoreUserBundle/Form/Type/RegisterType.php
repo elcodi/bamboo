@@ -48,6 +48,10 @@ class RegisterType extends AbstractType
                 'required' => true,
                 'label'    => 'Email'
             ])
+            ->add('username', 'text', [
+                'required' => true,
+                'label'    => 'Username'
+            ])
             ->add('password', 'repeated', [
                 'type'           => 'password',
                 'first_options'  => [
