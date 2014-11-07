@@ -100,3 +100,19 @@ free_payment:
         route: store_order_thanks
         order_append: true
         order_append_field: id
+
+paypal_web_checkout:
+    business: payment-test-facilitator@elcodi.com
+    payment_process:
+        route: store_payment_process
+    payment_success:
+        route: store_order_thanks
+        order_append: true
+        order_append_field: id
+    payment_cancel:
+        route: store_homepage
+        order_append: false
+    payment_fail:
+        route: store_checkout_payment_fail
+        order_append: true
+        order_append_field: id

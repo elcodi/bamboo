@@ -8,8 +8,16 @@
         <div class="span12">
 
             <table class="basket-table">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Order ID</th>
+                    <th>Order State</th>
+                    <th>Creation date</th>
+                    <th>Amount</th>
+                </tr>
+                </thead>
                 <tbody>
-
                 {% for order in orders %}
 
                     <tr>
@@ -25,6 +33,7 @@
                                 id: order.id
                             }) }}">Order #{{ order.id }}</a>
                         </td>
+                        <td class="title">{{ order.lastOrderHistory.state }}</td>
                         <td class="title">{{ order.createdAt|date('d.m.Y') }}</td>
                         <td class="total">{{ order.amount|print_convert_money() }}</td>
                     </tr>
