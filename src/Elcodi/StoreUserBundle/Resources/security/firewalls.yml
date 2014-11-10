@@ -27,3 +27,4 @@ security:
                     service: store.connect.service.oauth_provider
                 resource_owners:
                     github: /login/check-github
+                    paypal: /login/check-paypal

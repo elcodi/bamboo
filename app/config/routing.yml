@@ -38,3 +38,6 @@ hwi_oauth_login:
 
 github_login:
     pattern: /login/check-github
+
+paypal_login:
+    pattern: /login/check-paypal

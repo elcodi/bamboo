@@ -124,3 +124,7 @@ hwi_oauth:
             type: github
             client_id: %bamboo_social_github_client_id%
             client_secret: %bamboo_social_github_client_secret%
+        paypal:
+            type: paypal
+            client_id: %bamboo_social_paypal_client_id%
+            client_secret: %bamboo_social_paypal_client_secret%
