@@ -41,7 +41,7 @@ class AdminAppKernel extends Kernel
              */
             new \Doctrine\Bundle\DoctrineCacheBundle\DoctrineCacheBundle(),
             new \Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
-            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new \Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new \Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new \JMS\SerializerBundle\JMSSerializerBundle(),
             new \JMS\AopBundle\JMSAopBundle(),
@@ -70,7 +70,7 @@ class AdminAppKernel extends Kernel
             new \Elcodi\Bundle\MenuBundle\ElcodiMenuBundle(),
 
             /**
-             * Elcodi store bundles
+             * Elcodi admin bundles
              */
             new \Elcodi\AdminCoreBundle\AdminCoreBundle(),
             new \Elcodi\AdminUserBundle\AdminUserBundle(),
