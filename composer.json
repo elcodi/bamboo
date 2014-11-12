@@ -81,6 +81,7 @@
         "elcodi/tax-bundle": "~0.4.0",
         "elcodi/state-transition-machine-bundle": "~0.4.0",
         "elcodi/entity-translator-bundle": "~0.4.0",
+        "elcodi/page-bundle": "~0.4.0",
 
         "elcodi/bamboo-fixtures": "~0.3.0"
     },

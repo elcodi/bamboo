@@ -73,6 +73,7 @@ class AdminAppKernel extends Kernel
             new \Elcodi\Bundle\EntityTranslatorBundle\ElcodiEntityTranslatorBundle(),
             new \Elcodi\Bundle\StateTransitionMachineBundle\ElcodiStateTransitionMachineBundle(),
             new \Elcodi\Bundle\ConfigurationBundle\ElcodiConfigurationBundle(),
+            new \Elcodi\Bundle\PageBundle\ElcodiPageBundle(),
 
             /**
              * Elcodi admin bundles
