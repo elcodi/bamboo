@@ -1,0 +1,62 @@
+{% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
+
+
+{% block title %}
+    {{ 'Page list'|trans }}
+{% endblock title %}
+
+
+{% block table_head %}
+    {% include "@AdminCore/Tables/head.html.twig" with {
+        rows: {
+            "id": {width:"25"},
+            "title": {},
+            "path": {},
+            "content": {},
+            "enabled": {width:"25"},
+        },
+        class: "page",
+    } %}
+{% endblock table_head %}
+
+
+{% block table_body_row %}
+    <td>
+        <a href="{{ url("admin_page_view", {"id": entity.id}) }}">
+            {{ entity.id }}
+        </a>
+    </td>
+    <td>
+        {{ entity.title|truncate(20, '…') }}
+    </td>
+    <td>
+        {{ entity.path }}
+    </td>
+    <td>
+        {{ entity.content|truncate(80, '…') }}
+    </td>
+    <td>
+        {% if entity.enabled %}
+            <span class="label label-success">true</span>
+        {% else %}
+            <span class="label label-danger">false</span>
+        {% endif %}
+    </td>
+
+    {% include "@AdminCore/Tables/actions.html.twig" with {
+        entity: entity,
+        delete: false,
+        class: "page",
+    } %}
+{% endblock table_body_row %}
+
+
+{% block table_paginator_links %}
+    {% set url = 'admin_page_list' %}
+    {{ parent() }}
+{% endblock table_paginator_links %}
+
+
+{% block table_buttons %}
+    <a href="{{ url("admin_page_new") }}"type="button" class="btn btn-success">{{ "New Page"|trans }}</a>
+{% endblock table_buttons %}

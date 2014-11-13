@@ -1,0 +1,30 @@
+{% extends 'AdminCoreBundle::Common/formComponent.html.twig' %}
+
+
+{% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
+
+
+{% block title %}
+    {{ 'Edit Page'|trans }} - {{ entity.id }}
+{% endblock title %}
+
+
+{% block content %}
+    {{ form_start(form, {'action': url('admin_page_update', {
+        'id': entity.id
+    })}) }}
+
+        {{ form_row(form.title) }}
+        {{ form_row(form.path) }}
+        {{ form_row(form.content) }}
+        {{ form_row(form.enabled) }}
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">{{ 'Update'|trans }}</button>
+                <a href="{{ path('admin_page_list') }}" class="btn btn-default">{{ 'Cancel'|trans }}</a>
+            </div>
+        </div>
+
+    {{ form_end(form) }}
+{% endblock content %}
