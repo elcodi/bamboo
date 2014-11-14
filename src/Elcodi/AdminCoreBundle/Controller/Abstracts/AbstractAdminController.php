@@ -196,9 +196,15 @@ class AbstractAdminController extends Controller
      */
     protected function getOkResponse(Request $request, $redirectUrl = null)
     {
-        $redirectRoute = $redirectUrl
-            ? $this->generateUrl($redirectUrl)
-            : $request->headers->get('referer');
+        if (null === $redirectUrl) {
+            $redirectRoute = $request->headers->get('referer');
+
+        } elseif ($redirectUrl instanceof Closure) {
+            $redirectRoute = $redirectUrl();
+
+        } else {
+            $redirectRoute = $this->generateUrl($redirectUrl);
+        }
 
         return ('GET' === $request->getMethod())
             ? $this->redirect($redirectRoute)

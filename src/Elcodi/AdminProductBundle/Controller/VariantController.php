@@ -531,7 +531,12 @@ class VariantController
 
         return parent::deleteAction(
             $request,
-            $variant
+            $variant,
+            function () use ($product) {
+                return $this->generateUrl('admin_product_view', [
+                    'id' => $product->getId(),
+                ]);
+            }
         );
     }
 
