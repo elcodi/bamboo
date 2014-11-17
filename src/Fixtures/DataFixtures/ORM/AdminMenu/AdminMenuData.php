@@ -271,6 +271,18 @@ class AdminMenuData extends AbstractFixture
         $manager->persist($configurationNode);
 
         /*
+         * Pages
+         */
+
+        $pagesNode = $this
+            ->createNewNode()
+            ->setName('Pages')
+            ->setUrl('admin_page_list')
+            ->enable();
+
+        $manager->persist($pagesNode);
+
+        /*
          * Admin side Menu
          */
 
@@ -293,6 +305,7 @@ class AdminMenuData extends AbstractFixture
             ->addSubnode($currenciesNode)
             ->addSubnode($rulesNode)
             ->addSubnode($configurationNode)
+            ->addSubnode($pagesNode)
             ->enable();
 
         $manager->persist($adminMenu);
