@@ -14,7 +14,13 @@
 
         {{ form_row(form.title) }}
         {{ form_row(form.path) }}
-        {{ form_row(form.content) }}
+        {{ form_row(form.content, {
+                attr: {
+                    class: "text-editor",
+                    rows: 15
+                }
+            })
+        }}
         {{ form_row(form.enabled) }}
 
         <div class="form-group">
