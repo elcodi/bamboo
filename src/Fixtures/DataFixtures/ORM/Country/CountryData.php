@@ -292,7 +292,7 @@ class CountryData extends AbstractFixture
 
             $countryInstance
                 ->setCode(strtolower($country[0]))
-                ->setName(ucfirst(strtolower($country[1])));
+                ->setName(ucfirst($country[1]));
 
             $manager->persist($countryInstance);
             $this->setReference('country-' . $countryInstance->getCode(), $countryInstance);
