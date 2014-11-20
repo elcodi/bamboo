@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\Fixtures\DataFixtures\ORM;
+namespace Elcodi\Fixtures\DataFixtures\ORM\Coupon;
 
 use DateTime;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
@@ -135,7 +135,7 @@ class CouponData extends AbstractFixture implements DependentFixtureInterface
     public function getDependencies()
     {
         return [
-            'Elcodi\Fixtures\DataFixtures\ORM\CurrencyData',
+            'Elcodi\Fixtures\DataFixtures\ORM\CurrencyData\Currency',
         ];
     }
 }

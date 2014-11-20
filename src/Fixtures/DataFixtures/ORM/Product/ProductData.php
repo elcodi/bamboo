@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\Fixtures\DataFixtures\ORM;
+namespace Elcodi\Fixtures\DataFixtures\ORM\Product;
 
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -749,9 +749,9 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
     public function getDependencies()
     {
         return [
-            'Elcodi\Fixtures\DataFixtures\ORM\CurrencyData',
-            'Elcodi\Fixtures\DataFixtures\ORM\CategoryData',
-            'Elcodi\Fixtures\DataFixtures\ORM\AttributeData',
+            'Elcodi\Fixtures\DataFixtures\ORM\Currency\CurrencyData',
+            'Elcodi\Fixtures\DataFixtures\ORM\Category\CategoryData',
+            'Elcodi\Fixtures\DataFixtures\ORM\Attribute\AttributeData',
         ];
     }
 }

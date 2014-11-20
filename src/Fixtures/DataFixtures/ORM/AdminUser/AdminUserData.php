@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\Fixtures\DataFixtures\ORM;
+namespace Elcodi\Fixtures\DataFixtures\ORM\AdminUser;
 
 use Doctrine\Common\Persistence\ObjectManager;
 

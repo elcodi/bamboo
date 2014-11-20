@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\Fixtures\DataFixtures\ORM;
+namespace Elcodi\Fixtures\DataFixtures\ORM\Rates;
 
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -94,7 +94,7 @@ class RatesData extends AbstractFixture implements DependentFixtureInterface
     public function getDependencies()
     {
         return [
-            'Elcodi\Fixtures\DataFixtures\ORM\CurrencyData',
+            'Elcodi\Fixtures\DataFixtures\ORM\Currency\CurrencyData',
         ];
     }
 }
