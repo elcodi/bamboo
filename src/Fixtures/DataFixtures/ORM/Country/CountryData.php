@@ -39,7 +39,6 @@ class CountryData extends AbstractFixture
             ["BE","Belgium"],
             ["CA","Canada"],
             ["CN","China"],
-            ["ES","Spain"],
             ["FI","Finland"],
             ["FR","France"],
             ["GR","Greece"],
