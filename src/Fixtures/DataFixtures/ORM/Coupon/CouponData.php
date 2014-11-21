@@ -135,7 +135,7 @@ class CouponData extends AbstractFixture implements DependentFixtureInterface
     public function getDependencies()
     {
         return [
-            'Elcodi\Fixtures\DataFixtures\ORM\CurrencyData\Currency',
+            'Elcodi\Fixtures\DataFixtures\ORM\Currency\CurrencyData',
         ];
     }
 }
