@@ -72,6 +72,7 @@ class StoreAppKernel extends Kernel
             new \Elcodi\Bundle\GeoBundle\ElcodiGeoBundle(),
             new \Elcodi\Bundle\RuleBundle\ElcodiRuleBundle(),
             new \Elcodi\Bundle\MenuBundle\ElcodiMenuBundle(),
+            new \Elcodi\Bundle\TaxBundle\ElcodiTaxBundle(),
 
             /**
              * Elcodi store bundles
