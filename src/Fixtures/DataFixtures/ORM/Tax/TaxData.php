@@ -42,21 +42,21 @@ class TaxData extends AbstractFixture
 
         $tax21 = $taxFactory->create();
         $tax21
-            ->setName('IVA 21')
-            ->setDescription('IVA 21 for Spain')
+            ->setName('VAT 21')
+            ->setDescription('VAT 21 for Spain')
             ->setValue(21.0);
 
         $taxObjectManager->persist($tax21);
-        $this->addReference('tax-iva-21', $tax21);
+        $this->addReference('tax-vat-21', $tax21);
 
         $tax16 = $taxFactory->create();
         $tax16
-            ->setName('IVA 16')
-            ->setDescription('IVA 16 for Spain')
+            ->setName('VAT 16')
+            ->setDescription('VAT 16 for Spain')
             ->setValue(16.0);
 
         $taxObjectManager->persist($tax16);
-        $this->addReference('tax-iva-16', $tax16);
+        $this->addReference('tax-vat-16', $tax16);
 
         $taxObjectManager->flush();
     }
