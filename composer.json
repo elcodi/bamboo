@@ -73,6 +73,7 @@
         "elcodi/product-bundle": "~0.3.0",
         "elcodi/rule-bundle": "~0.3.0",
         "elcodi/user-bundle": "~0.3.0",
+        "elcodi/tax-bundle": "~0.3.0",
         "elcodi/bamboo-fixtures": "~0.3.0"
     },
     "require-dev": {
