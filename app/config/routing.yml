@@ -27,3 +27,17 @@ store_logout:
 
 core_media_bundle:
     resource: "@ElcodiMediaBundle/Resources/config/routing.yml"
+
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /login
+
+hwi_oauth_login:
+    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
+    prefix:   /login
+
+github_login:
+    pattern: /login/check-github
+
+paypal_login:
+    pattern: /login/check-paypal

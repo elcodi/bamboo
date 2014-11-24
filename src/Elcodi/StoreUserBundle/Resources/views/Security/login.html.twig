@@ -14,25 +14,22 @@
                     <h2>{{ "Login"|trans }}</h2>
 
                     {{ form_start(form) }}
-                    <p>
                         {{ form_row(form.email) }}
-                    </p>
-                    <p>
                         {{ form_row(form.password) }}
-                    </p>
-                    <p class="buttons">
-                        {{ form_row(form.send, {attr: {'class': 'btn btn-primary' }}) }}
-                        <a class="btn btn-blank"
-                            href="{{ url("store_password_remember") }}">
-                            Forgot your password?
-                        </a> -
-                        <a class="btn btn-blank"
-                            href="{{ url("store_register") }}">
-                            Create new account
-                        </a>
-                    </p>
+
+                        <p class="buttons">
+                            {{ form_row(form.send, {attr: {'class': 'btn btn-primary' }}) }}
+                            <a class="btn btn-blank" href="{{ url("store_password_remember") }}">
+                                Forgot your password?
+                            </a>
+                            -
+                            <a class="btn btn-blank" href="{{ url("store_register") }}">
+                                Create new account
+                            </a>
+                        </p>
                     {{ form_end(form) }}
 
+                    {% render url('hwi_oauth_connect') %}
                 </div>
             </div>
         </div>

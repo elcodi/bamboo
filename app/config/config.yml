@@ -116,3 +116,15 @@ paypal_web_checkout:
         route: store_checkout_payment_fail
         order_append: true
         order_append_field: id
+
+hwi_oauth:
+    firewall_name: customer_secured_area
+    resource_owners:
+        github:
+            type: github
+            client_id: %bamboo_social_github_client_id%
+            client_secret: %bamboo_social_github_client_secret%
+        paypal:
+            type: paypal
+            client_id: %bamboo_social_paypal_client_id%
+            client_secret: %bamboo_social_paypal_client_secret%
