@@ -21,5 +21,8 @@ parameters:
     debug_toolbar:     true
     debug_redirects:   false
 
-    bamboo_social_github_client_id: ~
-    bamboo_social_github_client_secret: ~
+    bamboo_social_github_client_id:     github-client-id
+    bamboo_social_github_client_secret: github-client-secret
+
+    bamboo_social_paypal_client_id:     paypal-client-id
+    bamboo_social_paypal_client_secret: paypal-client-secret
