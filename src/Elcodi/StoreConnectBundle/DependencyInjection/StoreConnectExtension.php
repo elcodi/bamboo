@@ -68,6 +68,7 @@ class StoreConnectExtension extends AbstractExtension implements EntitiesOverrid
             'store.connect.entity.authorization.class' => $config['mapping']['authorization']['class'],
             'store.connect.entity.authorization.mapping_file' => $config['mapping']['authorization']['mapping_file'],
             'store.connect.entity.authorization.manager' => $config['mapping']['authorization']['manager'],
+            'store.connect.entity.authorization.enabled' => $config['mapping']['authorization']['enabled'],
         ];
     }
 
