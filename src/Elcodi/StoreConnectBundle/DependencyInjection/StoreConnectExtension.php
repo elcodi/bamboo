@@ -36,14 +36,6 @@ class StoreConnectExtension extends AbstractExtension implements EntitiesOverrid
     /**
      * @return string
      */
-    public static function getExtensionName()
-    {
-        return static::EXTENSION_NAME;
-    }
-
-    /**
-     * @return string
-     */
     public function getConfigFilesLocation()
     {
         return __DIR__ . '/../Resources/config';
