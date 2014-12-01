@@ -6,43 +6,44 @@
     {% else %}
         {% set form_method = "POST" %}
     {% endif %}
-    {% set attr = attr|merge({'class': 'form-horizontal group-border-dashed'}) %}
+    {% set attr = attr|merge({'class': 'form'}) %}
     <form role="form" name="{{ form.vars.name }}" method="{{ form_method|lower }}" action="{{ action }}"{% for attrname, attrvalue in attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}{% if multipart %} enctype="multipart/form-data"{% endif %}>
     {% if form_method != method %}
         <input type="hidden" name="_method" value="{{ method }}" />
+
     {% endif %}
 {% endspaceless %}
 {% endblock form_start %}
 
+{% block form_end %}
+    {% spaceless %}
+        </form>
+    {% endspaceless %}
+{% endblock form_end %}
 
 {% block form_row %}
-{% spaceless %}
-    <div class="form-group">
-        <div class="col-sm-4">
-            {{ form_label(form) }}
-        </div>
-        <div class="col-sm-8">
-            {{ form_widget(form) }}
-        </div>
-    </div>
+    {% spaceless %}
+    {% if attr.type != 'checkbox' %}
+        {{ form_label(form) }}
+    {% endif %}
+    {{ form_widget(form) }}
 {% endspaceless %}
 {% endblock form_row %}
 
 
 {% block form_label %}
 {% spaceless %}
-    {% if label is not sameas(false) %}
-        <label class="control-label">{{ label|trans({}, translation_domain) }}</label>
+    {% if label is not sameas(false) and label is defined %}
+        <label>{{ label|trans({}, translation_domain) }} {% if attr.label_help is defined %}<em>{{ attr.label_help }}</em>{% endif %}</label>
     {% endif %}
 {% endspaceless %}
 {% endblock form_label %}
-
 
 {% block form_widget_simple %}
 {% spaceless %}
     {% set type = type|default('text') %}
     {% set attr = attr|merge({'class': 'form-control'}) %}
-    <input type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
+    <input type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %} />
 {% endspaceless %}
 {% endblock form_widget_simple %}
 
@@ -51,7 +52,7 @@
 {% spaceless %}
     {% if multiple %}
         <div id="ms-custom-headers">
-            <select class="multiselect" multiple="multiple" {{ block('widget_attributes') }}>
+            <select multiple="multiple" {{ block('widget_attributes') }}>
                 {% set options = choices %}
                 {{ block('choice_widget_options') }}
             </select>
@@ -68,10 +69,10 @@
 
 {% block money_object_widget %}
 {% spaceless %}
-    <div class="col-sm-6">
+    <div class="d-ib mr-m">
         {{ form_widget(form.amount) }}
     </div>
-    <div class="col-sm-6">
+    <div class="d-ib">
         {{  form_widget(form.currency) }}
     </div>
 {% endspaceless %}
@@ -80,22 +81,16 @@
 
 {% block datetime_widget %}
 {% spaceless %}
-    <div class="input-group date datetime col-md-6 col-xs-6"
-         data-start-view="0"
-         data-date="{{ value }}"
-         data-date-format="yyyy-mm-dd - HH:ii:ss"
-         data-link-field="dtp_input1"
-    >
         <input {{ block('widget_attributes') }} class="form-control" size="16" type="text" value="{{ value }}" />
-        <span class="input-group-addon btn btn-primary"><span class="glyphicon glyphicon-th"></span></span>
-    </div>
 {% endspaceless %}
 {% endblock datetime_widget %}
 
 
 {% block checkbox_widget %}
 {% spaceless %}
-    <input type="checkbox" data-size="small" class="switch" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+    <label>
+        <input type="checkbox" data-size="small" class="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+        {{ label|trans({}, translation_domain) }} {% if attr.label_help is defined %}<em>{{ attr.label_help }}</em>{% endif %}</label>
 {% endspaceless %}
 {% endblock checkbox_widget %}
 

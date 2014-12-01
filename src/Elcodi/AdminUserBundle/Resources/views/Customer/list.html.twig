@@ -16,28 +16,15 @@
     } %}
 {% endblock breadcrumb %}
 
+{% block header_actions %}
+    <a href="{{ url("admin_customer_new") }}" class="button-main"> <i class="icon-plus"></i> {{ "New customer"|trans }}</a>
+{% endblock header_actions %}
 
 {% block content %}
-    <div class="row">
-        <div class="col-md-4">
-            {{ render(url("admin_customer_stats_total")) }}
-        </div>
-        <div class="col-md-4">
-            {{ render(url("admin_customer_stats_monthly")) }}
-        </div>
-        <div class="col-md-4">
-            {{ render(url("admin_customer_stats_daily")) }}
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-12">
-            {{ render(url("admin_customer_list_component", {
-                'page': page,
-                'limit': limit,
-                'orderByField': orderByField,
-                'orderByDirection': orderByDirection
-            })) }}
-        </div>
-    </div>
+    {{ render(url("admin_customer_list_component", {
+        'page': page,
+        'limit': limit,
+        'orderByField': orderByField,
+        'orderByDirection': orderByDirection
+    })) }}
 {% endblock content %}

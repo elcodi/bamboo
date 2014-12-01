@@ -5,6 +5,9 @@
     {{ 'Attribute list'|trans }}
 {% endblock title %}
 
+{% block no_items %}
+    {{ lists.no_items('attribute','attributes', url("admin_manufacturer_new") ) }}
+{% endblock no_items %}
 
 {% block table_head %}
     {% include "@AdminCore/Tables/head.html.twig" with {
@@ -55,7 +58,3 @@
     {{ parent() }}
 {% endblock table_paginator_links %}
 
-
-{% block table_buttons %}
-    <a href="{{ url("admin_attribute_new") }}"type="button" class="btn btn-success">{{ "New attribute"|trans }}</a>
-{% endblock table_buttons %}

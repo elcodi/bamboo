@@ -15,6 +15,10 @@
     } %}
 {% endblock breadcrumb %}
 
+{% block header_actions %}
+    <a href="{{ url("admin_attribute_new") }}" class="button-main"><i class="icon-plus"></i> {{ "New attribute"|trans }}</a>
+{% endblock header_actions %}
+
 
 {% block content %}
     <div class="row">

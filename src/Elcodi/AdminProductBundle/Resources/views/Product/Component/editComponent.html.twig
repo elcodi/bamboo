@@ -14,10 +14,8 @@
 
         {% if entity.hasVariants() %}
 
-            <div class="alert alert-info alert-white rounded">
-                <button data-dismiss="alert" class="close" type="button">×</button>
-                <div class="icon"><i class="icon-info-sign"></i></div>
-
+        <div class="box-background pa-n">
+            <div class="msg-warning mb-n">
                 <strong>{{ 'This product has variants'|trans }}</strong>
 
                 {{ 'Manage them from the %admin_product_detail% page'|trans({
@@ -30,39 +28,169 @@
                     })|raw
                 }}
             </div>
-
+        </div>
         {% endif %}
 
-        {{ form_row(form.name) }}
-        {{ form_row(form.slug) }}
-        {{ form_row(form.shortDescription) }}
-        {{ form_row(form.description) }}
-        {{ form_row(form.showInHome) }}
-        {{ form_row(form.dimensions) }}
-        {% if not entity.hasVariants() %}
-            {{ form_row(form.stock) }}
-            {{ form_row(form.price) }}
-            {{ form_row(form.reducedPrice) }}
-        {% endif %}
-        {{ form_row(form.createdAt) }}
-        {{ form_row(form.updatedAt) }}
-        {{ form_row(form.enabled) }}
-        {{ form_row(form.metaTitle) }}
-        {{ form_row(form.metaDescription) }}
-        {{ form_row(form.metaKeywords) }}
-        {{ form_row(form.manufacturer) }}
-        {{ form_row(form.principalCategory) }}
-        {{ form_row(form.principalImage) }}
-        {{ form_row(form.categories) }}
-        {{ form_row(form.images) }}
-
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-primary">{{ 'Update'|trans }}</button>
-                <a href="{{ path('admin_product_list') }}" class="btn btn-default">{{ 'Cancel'|trans }}</a>
+    {{ form_fieldset_start }}
+    <fieldset class="mb-n">
+        <div class="grid">
+            <div class="col-1-3">
+                <div class="box-none">
+                    <h3 class="fw-n">{% trans %}Basic Details{% endtrans %}</h3>
+                    <p>{% trans %}Provide a very specific name and a good description to your product.{% endtrans %}</p>
+                </div>
+            </div>
+            <div class="col-2-3">
+                <div class="box-lighten">
+                    <ol>
+                        <li>
+                            {{ form_row(form.name,{'attr': {'placeholder':'e.g. My Awesome Product'}}) }}
+                            {{ form_row(form.slug,{'attr': {'data-tc-modules':'slug','data-tc-parent':'elcodi_admin_product_form_type_product_name' }}) }}
+                        </li>
+                        <li>
+                            {{ form_row(form.description,{'attr': {'placeholder':'e.g. This awesome product is exactly what you are lookin for.'}}) }}
+                            <details class="ph-n mt-m">
+                                <summary class="pl-l">{{ 'Advanced details'|trans }}</summary>
+                                {{ form_row(form.shortDescription,{'attr': {'placeholder':'Add a short description or leave this field blank to get an auto extract of the description.'}}) }}
+                                <div class="pt-m"> {{ form_row(form.dimensions,{'attr': {'placeholder':'e.g. 25 x 25 x 50 cm'}}) }}</div>
+                            </details>
+                        </li>
+                    </ol>
+                    <ol class="grid">
+                        <li class="col-1-2 pb-n pr-l">
+                            {{ form_row(form.principalCategory, {'attr': {'label_help':'e.g. Computers, handbags...'}}) }}
+                        </li>
+                        <li class="col-1-2 pb-n">
+                            {{ form_row(form.manufacturer, {'attr': {'label_help':'e.g. Apple, Disney...'}}) }}
+                        </li>
+                    </ol>
+                </div>
             </div>
         </div>
+        <div class="grid">
+            <div class="col-1-3">
+                <div class="box-none">
+                    <h3 class="fw-n">{% trans %}Pricing & Stock{% endtrans %}</h3>
+                    <p>{% trans %}Set the price and the stock of your product.{% endtrans %}</p>
+                </div>
+            </div>
+            <div class="col-2-3">
+                <div class="box-lighten pb-n">
+                    <ol class="grid">
+                        <li class="col-1-2 pb-n">
+                            {{ form_row(form.price) }}
+                            <details class="mt-m ph-n">
+                                <summary class="pl-l">{{ 'Advanced pricing'|trans }}</summary>
+                                <div class="pb-l">{{ form_row(form.reducedPrice) }}</div>
+                            </details>
+                        </li>
+                        <li class="col-1-2 pb-n">
+                            {{ form_row(form.stock) }}
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="col-1-3">
+                <div id="upload-container" class="box-none">
+                    <h3 class="fw-n">{% trans %}Images{% endtrans %}</h3>
+                    <p>{% trans %}Select the images of this product.{% endtrans %}</p>
+                    <a href="{{ url("admin_image_upload") }}" id="pickfiles" class="button" data-tc-modules="uploader">
+                        Upload images
+                    </a>
+                    <progress id="progresBar" value="0" max="100" style="display: none"></progress>
+                </div>
+            </div>
+            <div class="col-2-3">
+                <div class="box-lighten">
+                    {{ form_row(form.images,{'attr': {'class':'d-n'}}) }}
+                    <ul id="thumb-gallery" class="thumbnail-group pl-s">
+                    {% for image in entity.images %}
+                        <li>
+                            <a href="{{ image|resize({'width':1200,'height':1200,'type': 2}) }}" data-tc-modules="modal" data-tc-width="90%" data-tc-height="90%" class="group-images thumbnail">
+                             <img id="image-{{ image.id }}" src="{{ image|resize({'width':200,'height':200,'type': 4}) }}" />
+                            </a>
+                            <ul class="thumbnail-actions">
+                                <li>
+                                    <a href="{{ url("admin_image_delete", {id: image.id}) }}" class="icon-trash-o"></a>
+                                </li>
+                            </ul>
+                        </li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <details class="ph-n">
+            <summary class="mb-n pl-xl">{{ 'Personalize Metadata'|trans }}</summary>
+            <div class="grid">
+                <div class="col-1-3">
+                    <div class="box-none">
+                        <h3 class="fw-n">{% trans %}Metadata{% endtrans %}</h3>
+                        <p>{% trans %}Description and keywords in meta tags are commonly used to describe the Web page's content. Most search engines use these data when adding pages to their search index.{% endtrans %}</p>
+                    </div>
+                </div>
+                <div class="col-2-3">
+                    <div class="box-lighten">
+                        <p class="msg-warning">{% trans %}<strong>This area for advanced users.</strong> Leave this fields in blank to obtain automatically the metadata of your product.{% endtrans %}</p>
+                        <ol>
+                            <li>
+                                {{ form_row(form.metaTitle) }}
+                            </li>
+                            <li>
+                                {{ form_row(form.metaDescription) }}
+                            </li>
+                            <li>
+                                {{ form_row(form.metaKeywords) }}
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </details>
+        <div class="grid">
+            <div class="col-1-3">
+                <div class="box-none mb-n pb-m">
+                    <h3 class="fw-n">{% trans %}Visibility{% endtrans %}</h3>
+                    <p>{% trans %}Control where and when this product could be seen.{% endtrans %}</p>
+                </div>
+            </div>
+            <div class="col-2-3">
+                <div class="box-lighten mb-n pb-n">
+                    <ol class="grid pt-m">
+                        <li class="col-1-2">
+                            {{ form_row(form.showInHome, {'attr': {'type':'checkbox', 'label_help':'Check this to show it in home'}}) }}
+                        </li>
+                        <li class="col-1-2">
+                            {{ form_row(form.enabled, {'attr': {'type':'checkbox','label_help':'Uncheck to hide the product'}}) }}
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    {{ form_row(form.createdAt, {'attr': {'class':'d-n'}}) }}
+    {{ form_row(form.updatedAt, {'attr': {'class':'d-n'}}) }}
+    <div class="grid">
+        <div class="col-1-3">
+            &nbsp;
+        </div>
+        <div class="col-2-3">
+            <button type="submit" class="button-main">{{ 'Update'|trans }}</button>
+            <a href="{{ path('admin_product_list') }}" class="button">{{ 'Cancel'|trans }}</a>
 
+        </div>
+    </div>
+
+    {% if not entity.hasVariants() %}
+        {{ form_row(form.stock) }}
+        {{ form_row(form.price) }}
+        {{ form_row(form.reducedPrice) }}
+    {% endif %}
+
+
+    {{ form_fieldset_end }}
     {{ form_end(form, {render_rest : false}) }}
 
 {% endblock content %}

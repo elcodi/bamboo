@@ -1,0 +1,12 @@
+/**
+ * Returns the passed value with no unit
+ *
+ * @author Toni Pinel
+ *
+ * @param {string}	$num (empty) - Desired value to convert
+ * @return {Number (Given value with no unit)}
+ */
+
+@function strip-unit($num) {
+	@return $num / ( $num * 0 + 1 );
+}

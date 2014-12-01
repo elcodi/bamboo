@@ -4,6 +4,10 @@
     {{ 'Category list'|trans }}
 {% endblock title %}
 
+{% block no_items %}
+    {{ lists.no_items('category','categories', url("admin_category_new")  ) }}
+{% endblock no_items %}
+
 {% block table_head %}
 
     {% include "@AdminCore/Tables/head.html.twig" with {
@@ -75,6 +79,3 @@
 
 {% endblock table_paginator_links %}
 
-{% block table_buttons %}
-    <a href="{{ url("admin_category_new") }}"type="button" class="btn btn-success">{{ "New category"|trans }}</a>
-{% endblock table_buttons %}

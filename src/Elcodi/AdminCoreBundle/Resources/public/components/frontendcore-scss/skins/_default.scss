@@ -1,0 +1,121 @@
+$font-line-height-default: (
+	base: 1.5em,
+	title: 1.2em
+) !global !default;
+
+$font-faces-default: (
+	default: 'Tahoma, Arial, Verdana, sans-serif',
+	title: "'Open Sans Condensed','Arial Narrow', Tahoma, sans-serif",
+	icons: true
+) !global !default;
+
+$font-sizes-default: (
+	base: 14px,
+	xxxl: 2.2rem,
+	xxl: 1.7rem,
+	xl: 1.4rem,
+	l: 1.2rem,
+	ml: 1.1rem,
+	m: 1rem,
+	default: .9rem,
+	s: .8rem,
+	xs: .75rem,
+	xxs: .7rem,
+	xxxs: .6rem,
+	xxxxs: .5rem,
+	title-exponential: 1.5
+) !global !default;
+
+$colors-default: (
+	foreground: #000,
+	foreground-light: auto,
+	foreground-dark: auto,
+	background:	#FFF,
+	background-light: auto,
+	background-dark: auto,
+	body: #E6E9EA,
+	primary: #0193d3,
+	primary-light: auto,
+	primary-dark: auto,
+	secondary: #f77990,
+	secondary-light: auto,
+	secondary-dark: auto,
+	link: #0086da,
+	link-hover:	#006bc1,
+	link-hover-background: transparent,
+	box: #f4f2f2,
+	box-light: auto,
+	box-dark: auto,
+	megacontrast: #000,
+	header-background: #3d474e,
+	rank: #FCCB04,
+	info: #1E72A6,
+	ok: #6A932C,
+	ko: #EE3728,
+	warning: #DFB84F,
+	input-focus: #ffffea
+) !global !default;
+
+$objects-default: (
+	style: flat,
+	boxes: default,
+	buttons: default,
+	filters: default,
+	footer: default,
+	form: default,
+	form-search: default,
+	header: default,
+	image-circle: default,
+	image-polaroid: default,
+	lists: default,
+	messages: default,
+	navigation: default,
+	navigation-sub: default,
+	pagination: default,
+	ratings: default,
+	slides: default,
+	steps: default,
+	tabs: default,
+	tags: default,
+	labels: default
+) !global !default;
+
+$defaults-default: (
+	spacing: 1.6em,
+	border-radius: 3px,
+	box-shadow-color: rgba( 0, 0, 0, .2 ),
+	box-shadow-h-offset: .2em,
+	box-shadow-v-offset: .2em,
+	box-shadow-blur: .2em,
+	box-shadow-spread: false,
+	box-shadow-inset: false,
+	ranking-scale: 5,
+	text-shadow-color: rgba( 0, 0, 0, .2 ),
+	text-shadow-h-offset: 1px,
+	text-shadow-v-offset: 1px,
+	text-shadow-blur: 0,grun
+	text-shadow-spread: false
+) !global !default;
+
+$grid-default: (
+	container-width: 100%,
+	gutters: .50,
+	flow: ltr,
+	container-position: center,
+) !global !default;
+
+$font-line-height-custom: () !global !default;
+$font-faces-custom: () !global !default;
+$font-sizes-custom: () !global !default;
+$colors-custom: () !global !default;
+$objects-custom: () !global !default;
+$defaults-custom: () !global !default;
+$grid-custom: () !global !default;
+
+$font-line-height : map-merge($font-line-height-default, $font-line-height-custom) !global;
+$font-faces : map-merge($font-faces-default, $font-faces-custom) !global;
+$font-sizes : map-merge($font-sizes-default, $font-sizes-custom) !global;
+$colors : map-merge($colors-default, $colors-custom) !global;
+$objects : map-merge($objects-default, $objects-custom) !global;
+$defaults : map-merge($defaults-default, $defaults-custom) !global;
+$grid : map-merge($grid-default, $grid-custom) !global;

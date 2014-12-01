@@ -16,6 +16,9 @@
     } %}
 {% endblock breadcrumb %}
 
+{% block header_actions %}
+    <a href="{{ url("admin_admin_user_new") }}"class="button-main"><i class="icon-plus"></i> {{ "New admin user"|trans }}</a>
+{% endblock header_actions %}
 
 {% block content %}
     <div class="row">

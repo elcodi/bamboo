@@ -1,0 +1,8 @@
+%icon-rounded {
+		font-size: 4rem;
+		color: rgba($color-foreground, .4);
+		@include border-radius(600px);
+		padding: $spacing/4;
+		border: 8px solid rgba($color-foreground, .4);
+		margin: $spacing/4 0;
+}

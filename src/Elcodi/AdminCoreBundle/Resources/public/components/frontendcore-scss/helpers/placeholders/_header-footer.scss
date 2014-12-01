@@ -1,0 +1,15 @@
+%header-footer {
+	& {
+		width: 100%;
+		background: $color-header;
+		color: $color-background;
+		position: relative;
+		padding: $spacing/2 $spacing;
+	}
+	& > a {
+		color: $color-background;
+	}
+	.logo {
+		max-width:75%;
+	}
+}

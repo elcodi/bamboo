@@ -1,0 +1,42 @@
+.navigation-dropdown {
+	& > a {
+		padding-right: $spacing;
+		margin-bottom: 0;
+	}
+	&:after {
+		@extend .#{$fa-css-prefix};
+		content: $fa-var-angle-down;
+		position: absolute;
+		top: $spacing/1.5;
+		color: $color-background;
+		right: $spacing/3;
+	}
+	.opened {
+		background: rgba($color-background, .5);
+	}
+	ul {
+		display: none;
+		position: absolute;
+		right: 0;
+		margin-top: 0;
+		background: $color-background;
+		@include box-shadow(0 0 $spacing/2 rgba($color-foreground, .25));
+		@include border-radius(0 0 $default-border-radius $default-border-radius);
+	}
+	li {
+		& {
+			display: block;
+		}
+		a {
+			& {
+				color: $color-primary;
+				margin: 0;
+				@include border-radius(0);
+			}
+			&:hover {
+				background: $color-primary;
+				color: contrast-color($color-primary);
+			}
+		}
+	}
+}

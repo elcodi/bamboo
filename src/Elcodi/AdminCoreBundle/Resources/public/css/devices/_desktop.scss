@@ -1,0 +1,7 @@
+@media screen and (min-width: 980px){
+
+	@include desktop-core;
+	@include desktop-sidebar;
+	@include desktop-sidebar-currency;
+
+}

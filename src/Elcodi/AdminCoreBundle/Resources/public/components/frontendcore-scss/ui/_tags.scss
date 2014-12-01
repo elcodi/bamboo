@@ -1,0 +1,185 @@
+@if $ui-tags == true {
+	/* AutoSuggest CSS - Version 1.2 */
+
+	ul.as-selections {
+		list-style-type: none;
+		border-top: 1px solid $color-foreground-light;
+		border-bottom: 1px solid $color-foreground-light;
+		border-left: 1px solid $color-foreground-light;
+		border-right: 1px solid $color-foreground-light;
+		padding: 4px 0 4px 4px;
+		margin: 0;
+		overflow: auto;
+		background-color: $color-background;
+		box-shadow: inset 0 1px 2px $color-foreground-light;
+		-webkit-box-shadow: inset 0 1px 2px $color-foreground-light;
+		-moz-box-shadow: inset 0 1px 2px $color-foreground-light;
+	}
+
+	ul.as-selections.loading {
+		background-color: $color-box;
+	}
+
+	ul.as-selections li {
+		float: left;
+		margin: 1px $spacing/4 1px 0;
+	}
+
+	ul.as-selections li.as-selection-item {
+		color: $color-foreground;
+		font-size: $font-size-s;
+		text-shadow: 0 1px 1px $color-background;
+		background: $color-box;
+		border: 1px solid $color-box;
+		padding: $spacing/8 $spacing/4 $spacing/8 $spacing/2;
+		@include border-radius($spacing/4);
+		@include box-shadow(0 1px 1px $color-foreground-light);
+	}
+
+	ul.as-selections li.as-selection-item:last-child {
+		margin-left: $spacing/2;
+	}
+
+	ul.as-selections li.as-selection-item a.as-close {
+		float: right;
+		margin: 1px 0 0 $spacing/4;
+		padding: 0 $spacing/8;
+		cursor: pointer;
+		color: $color-foreground;
+		font-size: $font-face-default;
+		font-weight: bold;
+		text-shadow: 0 1px 1px $color-background;
+		-webkit-transition: color .1s ease-in;
+		@include opacity(.5);
+	}
+
+	ul.as-selections li.as-selection-item.blur {
+		color: $color-foreground;
+		background: $color-box;
+		border-color: $color-box;
+	}
+
+	ul.as-selections li.as-selection-item.blur a.as-close {
+		@include opacity(.7);
+	}
+
+	ul.as-selections li:hover.as-selection-item {
+		background: darken($color-box, 10%);
+		color: contrast-color(darken($color-box, 10%));
+	}
+
+	ul.as-selections li:hover.as-selection-item a.as-close {
+		@include opacity(1);
+		text-decoration: none;
+	}
+
+	ul.as-selections li.as-selection-item.selected {
+		border-color: $color-foreground;
+	}
+
+	ul.as-selections li.as-original {
+		margin-left: 0;
+	}
+
+	.as-input:focus {
+		background: $color-background !important;
+	}
+
+	ul.as-selections li.as-original input {
+		border: none;
+		outline: none;
+		font-size: $font-size-s;
+		width: auto;
+		padding-top: $spacing/4;
+		@include box-shadow(none);
+	}
+	ul.as-list {
+		position: absolute;
+		list-style-type: none;
+		margin: 2px 0 0 0;
+		padding: 0;
+		font-size: $font-size-s;
+		color: $color-foreground;
+		@include background(linear-gradient(top, lighten($color-box, 10%) 50%, lighten($color-box, 15%) 100%));
+		@include background-gradient-ie-old(lighten($color-box, 5%), darken($color-box, 10%));
+		z-index: 2;
+		@include box-shadow(0 2px $spacing/2 $color-foreground);
+		@include border-radius;
+	}
+
+	li.as-result-item, li.as-message {
+		margin: 0 0 0 0;
+		padding: 5px 12px;
+		background-color: transparent;
+		border: 1px solid $color-background;
+		border-bottom: 1px solid #ddd;
+		cursor: pointer;
+	}
+
+	li:first-child.as-result-item {
+		margin: 0;
+	}
+
+	li.as-message {
+		margin: 0;
+		cursor: default;
+	}
+
+	li.as-result-item.active {
+		background-color: $color-link;
+		border-color: $color-link-hover;
+		color: contrast-color($color-link);
+	}
+
+	li.as-result-item em {
+		font-style: normal;
+		@include background-transparent($color-link, .1);
+		padding: 0;
+	}
+
+	li.as-result-item.active em {
+		@include background-transparent($color-foreground, .2);
+	}
+
+	/* Webkit Hacks  */
+	@media screen and (-webkit-min-device-pixel-ratio: 0) {
+		ul.as-selections {
+			border-top-width: 2px;
+		}
+		ul.as-selections li.as-selection-item {
+			padding-top: 3px;
+			padding-bottom: 3px;
+		}
+		ul.as-selections li.as-selection-item a.as-close {
+			margin-top: -1px;
+		}
+	}
+
+	/* Opera Hacks  */
+	@media all and (-webkit-min-device-pixel-ratio: 10000), not all and (-webkit-min-device-pixel-ratio: 0) {
+		ul.as-list {
+			border: 1px solid $color-foreground-light;
+		}
+		ul.as-selections li.as-selection-item a.as-close {
+			margin-left: 4px;
+			margin-top: 0;
+		}
+	}
+
+	/* IE Hacks  */
+	ul.as-list {
+		border: 1px solid $color-foreground-light;
+	}
+	ul.as-selections li.as-selection-item a.as-close {
+		margin-left: 4 px\9;
+		margin-top: 0 \9;
+	}
+
+	/* Firefox 3.0 Hacks */
+	ul.as-list, x:-moz-any-link, x:default {
+		border: 1px solid $color-foreground-light;
+	}
+	BODY:first-of-type ul.as-list, x:-moz-any-link, x:default { /* Target FF 3.5+ */
+		border: none;
+	}
+}

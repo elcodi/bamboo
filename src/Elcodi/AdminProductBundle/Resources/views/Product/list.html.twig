@@ -16,29 +16,17 @@
 
 {% endblock breadcrumb %}
 
+{% block header_actions %}
+    <a href="{{ url("admin_product_new") }}"type="button" class="button-main"><i class="icon-plus"></i> {{ "New product"|trans }}</a>
+{% endblock %}
+
 {% block content %}
 
-    <div class="row">
-        <div class="col-md-4">
-            {{ render(url("admin_product_stats_total")) }}
-        </div>
-        <div class="col-md-4">
-            {{ render(url("admin_product_stats_monthly")) }}
-        </div>
-        <div class="col-md-4">
-            {{ render(url("admin_product_stats_daily")) }}
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-12">
-            {{ render(url("admin_product_list_component", {
-                'page': page,
-                'limit': limit,
-                'orderByField': orderByField,
-                'orderByDirection': orderByDirection
-            })) }}
-        </div>
-    </div>
+    {{ render(url("admin_product_list_component", {
+        'page': page,
+        'limit': limit,
+        'orderByField': orderByField,
+        'orderByDirection': orderByDirection
+    })) }}
 
 {% endblock content %}

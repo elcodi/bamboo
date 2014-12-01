@@ -1,0 +1,107 @@
+@if $skin == 'obolog' {
+
+	$line-height-custom: (
+		base: 1.5em,
+		title: 1.2em
+	) !global !default;
+
+	$font-face-custom: (
+		default: "Tahoma, Arial, Verdana, sans-serif",
+		title: "'Open Sans Condensed', 'Arial Narrow', Tahoma, sans-serif"
+	) !global !default;
+
+	$font-size-custom: (
+		base: 14px,
+		xxxl: 2.2rem,
+		xxl: 1.7rem,
+		xl: 1.4rem,
+		l: 1.2rem,
+		ml: 1.1rem,
+		m: 1rem,
+		default: .9rem,
+		s: .8rem,
+		xs: .75rem,
+		xxs: .7rem,
+		xxxs: .6rem,
+		xxxxs: .5rem
+	) !global !default;
+
+	$colors-custom: (
+		foreground:	#333,
+		foreground-light: auto,
+		foreground-dark: auto,
+		background:	#FFF,
+		background-light: auto,
+		background-dark: auto,
+		body: #E6E9EA,
+		primary: #36658E,
+		primary-light: #8bb7dd,
+		primary-dark: auto,
+		secondary: #D4A340,
+		secondary-light: #E6C16C,
+		secondary-dark: auto,
+		link: #0d65a8,
+		link-hover:	#0d65a8,
+		link-hover-background: transparent,
+		box: #EDEDEB,
+		box-light: #fafafa,
+		box-dark: auto,
+		megacontrast: #000,
+		header-background: #FFFFFF,
+		rank: #FCCB04,
+		info: #1E72A6,
+		ok: #6A932C,
+		ko: #EE3728,
+		warning: #DFB84F,
+		input-focus: #ffffea
+	) !global !default;
+
+	$objects-custom: (
+		style: gradient,
+		boxes: default,
+		buttons: default,
+		filters: default,
+		footer: default,
+		form: default,
+		form-search: default,
+		header: default,  //personalized
+		image-circle: default,
+		image-polaroid: default,
+		lists: default,
+		messages: default,
+		navigation: tabbed,  //personalized
+		navigation-sub: default,  //personalized
+		pagination: default,  //personalized
+		ratings: default,
+		slides: default,
+		steps: default,
+		tabs: default,
+		tags: default//personalized
+	) !global !default;
+
+	$defaults-custom: (
+		spacing: 1.6em,
+		border-radius: 3px,
+		box-shadow-color: rgba( 0, 0, 0, .2 ),
+		box-shadow-h-offset: .2em,
+		box-shadow-v-offset: .2em,
+		box-shadow-blur: .2em,
+		box-shadow-spread: false,
+		box-shadow-inset: false,
+		ranking-scale: 5,
+		text-shadow-color: rgba( 0, 0, 0, .2 ),
+		text-shadow-h-offset: 1px,
+		text-shadow-v-offset: 1px,
+		text-shadow-blur: 0,
+		text-shadow-spread: false,
+		grid-container-width: 100%,
+		grid-columns: 12,
+		grid-gutters: .50
+	) !global !default;
+
+	.delete {
+		color: #EE3728;
+		text-decoration: none !important;
+	}
+	
+}

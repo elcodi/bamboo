@@ -1,24 +1,24 @@
 {% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
 
-
 {% block title %}
     {{ 'Product list'|trans }}
 {% endblock title %}
 
+{% block no_items %}
+    {{ lists.no_items('product','products', url("admin_product_new")  ) }}
+{% endblock no_items %}
 
 {% block table_head %}
     {% include "@AdminCore/Tables/head.html.twig" with {
         rows: {
-            "id": {width:"25"},
-            "name": {},
-            "slug": {},
-            "showInHome": {width:"25"},
-            "hasVariants" : {sorting_disabled: true},
-            "stock": {width:"25"},
-            "price": {width:"50"},
-            "reducedPrice": {width:"50"},
-            "principalCategory": {sorting_disabled: true},
-            "enabled": {width:"25"},
+            "Name & Slug": {},
+            "Name & Slug": {width:"35"},
+            "Category": {width:"20"},
+            "Stock": {width:"10"},
+            "Price": {width:"10"},
+            "Home": {width:"10"},
+            "Variants" : {width:"10"},
+            "Status": {width:"10"},
         },
         class: "product",
     } %}
@@ -27,21 +27,15 @@
 
 {% block table_body_row %}
     <td>
-        <a href="{{ url("admin_product_view", {"id": entity.id}) }}">
-            {{ entity.id }}
-        </a>
+        <a href="{{ url("admin_product_view", {"id": entity.id}) }}"><strong>{{ entity.name }}</strong></a>
+        <p class="fz-s">/{{ entity.slug }}</p>
     </td>
     <td>
-        {{ entity.name }}
-    </td>
-    <td>
-        {{ entity.slug }}
-    </td>
-    <td>
-        {% if entity.showInHome %}<span class="label label-success">true</span>{% else %}<span class="label label-danger">false</span>{% endif %}
-    </td>
-    <td>
-        {% if entity.hasVariants %}<span class="label label-success">true</span>{% else %}<span class="label label-danger">false</span>{% endif %}
+        {% if entity.principalCategory %}
+            <a href="{{ url("admin_category_view", { id: entity.principalCategory.id }) }}">
+                {{ entity.principalCategory.name }}
+            </a>
+        {% endif %}
     </td>
     <td>
         {{ entity.stock }}
@@ -50,17 +44,13 @@
         {{ entity.price|print_money }}
     </td>
     <td>
-        {{ entity.reducedPrice|print_money }}
+        {% if entity.showInHome %}<span class="label-info">{{'Home'|trans}}</span>{% endif %}
     </td>
     <td>
-        {% if entity.principalCategory %}
-        <a href="{{ url("admin_category_view", { id: entity.principalCategory.id }) }}">
-            {{ entity.principalCategory.name }}
-        </a>
-        {% endif %}
+        {% if entity.hasVariants %}<span class="label bg-secondary">{{'Variants'|trans}}</span>{% endif %}
     </td>
     <td>
-        {% if entity.enabled %}<span class="label label-success">true</span>{% else %}<span class="label label-danger">false</span>{% endif %}
+        {% if entity.enabled %}<span class="label-ok">Enabled</span>{% else %}<span class="label">Disabled</span>{% endif %}
     </td>
 
     {% include "@AdminCore/Tables/actions.html.twig" with {
@@ -74,8 +64,3 @@
     {% set url = 'admin_product_list' %}
     {{ parent() }}
 {% endblock table_paginator_links %}
-
-
-{% block table_buttons %}
-    <a href="{{ url("admin_product_new") }}"type="button" class="btn btn-success">{{ "New product"|trans }}</a>
-{% endblock table_buttons %}

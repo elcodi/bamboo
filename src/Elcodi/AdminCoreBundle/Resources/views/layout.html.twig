@@ -1,54 +1,34 @@
 {% extends 'AdminCoreBundle::base.html.twig' %}
 
 {% block head_style %}
-    {% stylesheets filter='cssrewrite' output="css/*.css"
-        'bundles/admincore/js/bootstrap/dist/css/bootstrap.css'
-        'bundles/admincore/js/jquery.gritter/css/jquery.gritter.css'
-        'bundles/admincore/js/jquery.nanoscroller/nanoscroller.css'
-        'bundles/admincore/js/jquery.easypiechart/jquery.easy-pie-chart.css'
-        'bundles/admincore/js/bootstrap.switch/bootstrap-switch.css'
-        'bundles/admincore/js/bootstrap.datetimepicker/css/bootstrap-datetimepicker.min.css'
-        'bundles/admincore/js/jquery.select2/select2.css'
-        'bundles/admincore/js/bootstrap.slider/css/slider.css'
-        'bundles/admincore/js/jquery.datatables/bootstrap-adapter/css/datatables.css'
-        'bundles/admincore/js/bootstrap.multiselect/css/bootstrap-multiselect.css'
-        'bundles/admincore/js/jquery.multiselect/css/multi-select.css'
-        'bundles/admincore/fonts/font-awesome-4/css/font-awesome.min.css'
-        'bundles/admincore/css/style.css'
-        'bundles/admincore/js/prettify/prettify.css'
-        'bundles/admincore/js/jquery.icheck/skins/square/blue.css'
-        'bundles/admincore/js/jquery.magnific-popup/dist/magnific-popup.css'
-        'bundles/admincore/js/dropzone/css/dropzone.css'
-        'bundles/admincore/js/bootstrap.wysihtml5/dist/bootstrap3-wysihtml5.css'
-     %}
-        <link rel="stylesheet" href="{{ asset_url }}" />
-    {% endstylesheets %}
 
-    <!-- External Font assets -->
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Raleway:300,200,100" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css"  href="{{ asset('bundles/admincore/css/main.css') }}" media="all">
+    <!--[if gte IE 9]>
+    <link rel="stylesheet" type="text/css"  href="{{ asset('bundles/admincore/css/ie-new.css') }}" media="all">
+    <![endif]-->
+    <!--[if lte IE 8]>
+    <script src="{{ asset('bundles/admincore/js/ie-old.js') }}"></script>
+    <link rel="stylesheet" type="text/css"  href="{{ asset('bundles/admincore/css/ie-old.css') }}" media="all">
+    <![endif]-->
+
 {% endblock head_style %}
 
 {% block body %}
-
-    {% include 'AdminCoreBundle::Navs/top.html.twig' %}
-
-    <div id="cl-wrapper">
-
-        {% render url('admin_menu_side') %}
-
-        <div class="container-fluid" id="pcont">
-
-            <div class="page-head">
-                <h2>{% block content_title %}{% endblock content_title %}</h2>
+    <div class="grid">
+        <div class="col-4-5 pull-right">
+            <header class="header">
+                <div class="buttons-group">{% block header_actions %}{% endblock %}</div>
                 {% block breadcrumb %}{% endblock %}
-			</div>
-            <div class="cl-mcont">
-                {% block content %}
-                {% endblock content %}
+            </header>
+            <div class="box-none">
+                {% block content %}{% endblock content %}
             </div>
-
         </div>
+        <aside class="col-1-5 sidebar">
+            {% render url('admin_menu_side') %}
+            {% render url('admin_currency_switch_nav') %}
+        </aside>
+
     </div>
 
 {% endblock body %}

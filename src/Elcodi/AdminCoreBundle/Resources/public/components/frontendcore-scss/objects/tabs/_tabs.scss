@@ -1,0 +1,152 @@
+@if $object-tabs != false {
+	.tabs {
+		& {
+			overflow: hidden;
+			padding: 0 $spacing/4;
+		}
+		li {
+			& {
+				display: block;
+				float: left;
+				position: relative;
+				margin-left: 0;
+			}
+			a {
+				& {
+					display: block;
+					text-decoration: none;
+					border-top-color: $color-primary;
+					background-color: $color-box-light;
+					border-color: $color-box;
+					border-style:solid;
+					border-width:1px 1px 0 1px;
+					color: $color-foreground;
+				}
+				&:hover {
+					color: $color-foreground;
+				}
+				[class^='icon-'] {
+					color: $color-foreground-light;
+				}
+			}
+			&.active {
+				a {
+					font-weight: bold;
+					border-top-color: $color-primary;
+					background-color: $color-background;
+				}
+				&:hover {
+					border-top-color: $color-primary-dark;
+				}
+			}
+		}
+	}
+
+	header.tab {
+		& {
+			margin-bottom: $spacing;
+		}
+		a {
+			& {
+				display:block;
+				position:relative;
+				padding: $spacing/4 $spacing/2;
+				border-top-color: $color-primary;
+				background-color: $color-box-light;
+				border: 1px solid $color-box;
+				@extend .fz-h4;
+				color: $color-foreground;
+				text-transform:capitalize;
+				text-decoration: none;
+				margin:0;
+			}
+			&:hover {
+				background:$color-link;
+				color: contrast-color($color-link);
+			}
+			&:after {
+				font-family: 'FontAwesome';
+				content: "\f078";
+				position:absolute;
+				right:$spacing/2;
+				top: $spacing/4;
+			}
+		}
+		&.active {
+			& {
+				margin-bottom: 0;
+			}
+			&:last-of-type {
+				margin-bottom:0;
+			}
+			> a {
+				&, &:hover {
+					background-color: $color-background;
+					color: $color-foreground;
+					cursor: default;
+				}
+				&:after {
+					@include opacity(.2);
+				}
+			}
+
+		}
+		&:last-of-type {
+			margin-bottom:$spacing;
+		}
+
+	}
+	.tab-container {
+		& > section {
+			clear: both;
+		}
+	}
+}
+
+@if $object-tabs == default {
+	.tabs {
+		& {
+			@include background-gradient-ie-old(transparent,$color-box);
+			@include background-image(linear-gradient(transparent 95%,$color-box ));
+
+		}
+		li {
+			margin-right: $spacing/4;
+			a {
+				padding: $spacing/4 $spacing;
+				@include rem-fallback(font-size, $font-size-default);
+				@include border-radius($default-border-radius $default-border-radius 0 0);
+				&:hover {
+					background-color: $color-background;
+					text-decoration: none;
+				}
+			}
+		}
+		.active a {
+			& {
+				border-top-color: $color-primary;
+				background-color: $color-background;
+				border-top-width: 2px;
+			}
+			&:hover {
+				border-top-color: $color-primary-dark;
+			}
+		}
+	}
+
+}
+@mixin desktop-tabs {
+	@if $object-tabs != false {
+		header.tab {
+			display:none !important;
+		}
+	}
+}
+
+@mixin mobile-tabs {
+	@if $object-tabs != false {
+		.tabs {
+			display:none !important;
+		}
+	}
+}

@@ -1,24 +1,26 @@
 {% block component %}
 
-    {% block style %}
-    {% endblock style %}
+    {%  if paginator|length > 0 %}
 
-    <div class="block-flat">
+        {{ block("table_pagination") }}
 
-        <div class="header hthin">
-            <h3>{% block title %}{% endblock title %}</h3>
-        </div>
-        <div class="content">
-            <table class="no-border">
-                <tbody class="no-border-y">
-                {% block content %}
-                {% endblock content %}
-                </tbody>
-            </table>
-        </div>
-    </div>
+        {{ block("table_content") }}
 
-    {% block script %}
-    {% endblock script %}
+        {{ block("table_pagination") }}
+    {% else %}
+
+        {% macro no_items(item, items, no_item_url) %}
+            <div class="no-items">
+                <i class="icon-table no-items-icon"></i>
+                <h2>{% trans with {'%items%': items|default('items') } %}There are not %items%{% endtrans %}</h2>
+                <p><a href="{{ no_item_url|default('#') }}" class="button-main"><i class="icon-plus"></i> {% trans with {'%item%': item|default('item') } %}Create my first %item%{% endtrans %}</a></p>
+            </div>
+        {% endmacro %}
+
+        {% import _self as lists %}
+
+        {{ block("no_items") }}
+
+    {% endif %}
 
 {% endblock component %}

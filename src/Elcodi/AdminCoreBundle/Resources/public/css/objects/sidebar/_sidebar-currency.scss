@@ -1,0 +1,56 @@
+.sidebar-currency {
+	& {
+		position: relative;
+	}
+	[data-tc-modules="toggle"] {
+		color: $color-background;
+		background: lighten($color-primary, 20%);
+		display: block;
+		position: relative;
+		z-index: 101;
+	}
+	li, a {
+		display: inline-block;
+	}
+	a {
+		& {
+			padding: $spacing/2;
+			min-width: $spacing*2;
+			text-align: center;
+			background: $color-box;
+			margin:$spacing/4;
+			@include border-radius;
+		}
+		&:hover {
+			background: $color-link;
+			color: contrast-color($color-link);
+			text-decoration: none;
+		}
+	}
+	ul ul {
+		& {
+			position: absolute;
+			width: 206px;
+			padding-left: 49px;
+			left: 0;
+			z-index: 100;
+			bottom: 0;
+			@include border-radius;
+			background: $color-background;
+			@include box-shadow(0 0 $spacing/2 rgba(0,0,0,.3));
+		}
+
+
+	}
+}
+
+@mixin desktop-sidebar-currency(){
+	.sidebar-currency {
+		& {
+			position: fixed;
+			left: 0;
+			bottom: 0;
+			z-index: 100;
+		}
+	}
+}

@@ -1,0 +1,54 @@
+@if $object-pagination != false {
+	.pagination {
+		& {
+			overflow: hidden;
+			margin-bottom: $spacing/2;
+			clear: both;
+			width: auto;
+			text-align: center;
+		}
+		&.right {
+			float: right;
+		}
+		ul {
+			word-spacing: inherit !important;
+			letter-spacing: inherit !important;
+		}
+		li {
+			display: inline-block;
+			padding: 0 1px;
+		}
+		a {
+			& {
+				display: block;
+				padding: $spacing/4 $spacing/4;
+				line-height: 100%;
+				margin-bottom: $spacing/4;
+				text-decoration: none;
+				font-weight: bold;
+			}
+		}
+	}
+}
+
+@if $object-pagination == default {
+	.pagination {
+		a {
+			& {
+				color: $color-foreground;
+				@include background-transparent($color-foreground, .05);
+				border:1px solid $color-box;
+			}
+			&:hover {
+				background:$color-link;
+				color: contrast-color($color-link);
+			}
+		}
+		.active {
+			a {
+				background: $color-background;
+				color: $color-foreground;
+			}
+		}
+	}
+}

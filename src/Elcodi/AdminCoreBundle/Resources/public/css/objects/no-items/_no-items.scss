@@ -1,0 +1,33 @@
+.no-items {
+	& {
+		display: block;
+		text-align: center;
+		min-height: 500px;
+		position: relative;
+	}
+	h2, p {
+		z-index: 101;
+		position: absolute;
+		width: 100%;
+
+	}
+	h2 {
+		top: 45%
+	}
+	p {
+		top: 58%;
+	}
+}
+
+.no-items-icon {
+	@extend %icon-rounded;
+	font-size: 15rem;
+	position: absolute;
+	left: 28%;
+	top: 15%;
+	opacity: .1;
+	margin: 0;
+	z-index: 100;
+	width: 404px;
+
+}

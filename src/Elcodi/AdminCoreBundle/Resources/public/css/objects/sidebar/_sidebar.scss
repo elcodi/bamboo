@@ -1,0 +1,44 @@
+.sidebar {
+	&{
+		background: $color-primary;
+		overflow: hidden;
+		@include text-shadow(1px 1px 0 rgba($color-foreground,.2))
+	}
+	.navigation-vertical li a {
+		background: rgba($color-foreground, .1);
+	}
+	.navigation-vertical li li a {
+		background: transparent;
+	}
+	.navigation-vertical a:hover {
+		background: rgba($color-background, .3);
+	}
+
+	.navigation-vertical li.active a {
+		background: $color-background;
+	}
+
+}
+
+.sidebar-title {
+	display: block;
+	color: $color-background;
+	font-family: $font-face-title;
+	font-weight: 400;
+	font-size: $font-size-xl;
+}
+
+@mixin desktop-sidebar(){
+	.sidebar {
+		&{
+			height: 100%;
+			position: fixed;
+			overflow-y: auto;
+		}
+		.navigation-vertical{
+			z-index: 100;
+			position: relative;
+			margin-bottom: 80px;
+		}
+	}
+}

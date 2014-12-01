@@ -4,6 +4,10 @@
     {{ 'Variants'|trans }}
 {% endblock title %}
 
+{% block no_items %}
+    {{ lists.no_items('variant','variants', url("admin_variant_new") ) }}
+{% endblock no_items %}
+
 {% block table_head %}
 
     {% include "@AdminProduct/Variant/Tables/head.html.twig" with {
@@ -95,6 +99,3 @@
  # since in this block scope we cannot access entities
  # being iterated
  #}
-{% block table_buttons %}
-    <a href="{{ url("admin_variant_new", {id: productId}) }}"type="button" class="btn btn-success">{{ "New Variant"|trans }}</a>
-{% endblock table_buttons %}
