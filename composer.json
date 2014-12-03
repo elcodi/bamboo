@@ -25,7 +25,7 @@
 
         "elcodi/core-bundle": "~0.3.0",
         "elcodi/currency": "~0.3.0",
-        "elcodi/shipping": "dev-master",
+        "elcodi/shipping": "~0.3.0",
         "elcodi/product": "~0.3.0",
         "elcodi/coupon": "~0.3.0",
         "elcodi/media": "~0.3.0",
