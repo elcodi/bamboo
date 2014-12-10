@@ -1,6 +1,9 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: @ElcodiBambooBundle/Resources/config/translations.yml }
+    - { resource: @ElcodiBambooBundle/Resources/config/mapping.yml }
+    - { resource: @ElcodiBambooBundle/Resources/config/filesystem.yml }
 
 framework:
     secret:          "%secret%"
@@ -61,9 +64,9 @@ swiftmailer:
 doctrine_cache:
     providers:
         elcodi:
-            type: array
+            type: redis
         elcodi_configuration:
-             type: array
+            type: redis
 
 sensio_framework_extra:
     request:
@@ -74,15 +77,6 @@ controller_extra:
         default_method: create
         default_static: false
 
-knp_gaufrette:
-    adapters:
-        local:
-            local:
-                directory: %kernel.root_dir%/../web/images
-                create: true
-    filesystems:
-        local:
-            adapter:    local
 elcodi_menu:
     route_provider:
         adapter: symfony

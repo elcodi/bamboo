@@ -51,7 +51,6 @@ class AdminCurrencyExtension extends AbstractExtension
         return [
             'classes',
             'formTypes',
-            'paginationFields',
         ];
     }
 }

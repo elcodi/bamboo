@@ -8,6 +8,8 @@ services:
         arguments:
             entity: %elcodi.core.product.entity.product.class%
             product_factory: @elcodi.factory.product
+        calls:
+            - [setEntityTranslatorFormEventListener, [@elcodi.entity_translator_form_event_listener]]
         tags:
             - { name: form.type, alias: elcodi_admin_product_form_type_product }
 
@@ -24,6 +26,8 @@ services:
         arguments:
             category_factory: @elcodi.factory.category
             product_factory: @elcodi.factory.product
+        calls:
+            - [setEntityTranslatorFormEventListener, [@elcodi.entity_translator_form_event_listener]]
         tags:
             - { name: form.type, alias: elcodi_admin_product_form_type_category }
 

@@ -36,9 +36,7 @@ class SessionCurrencyController extends Controller
     /**
      * Switch currency to new one
      *
-     * @param Request $request Request
-     *
-     * @return RedirectResponse Last page
+     * @return array Currency data
      *
      * @Route(
      *      path = "/switch/nav",
@@ -46,7 +44,7 @@ class SessionCurrencyController extends Controller
      * )
      * @Template
      */
-    public function navAction(Request $request)
+    public function navAction()
     {
         $currencies = $this
             ->get('elcodi.repository.currency')
