@@ -27,7 +27,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
-use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
+use Elcodi\Component\Attribute\Entity\Interfaces\AttributeInterface;
+use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 
 /**
  * Class Controller for Category
@@ -46,13 +47,12 @@ class AttributeController
      * List elements of certain entity type.
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
-     * @param Request $request Request
-     * @param integer $page Page
-     * @param integer $limit Limit of items per page
-     * @param string $orderByField Field to order by
-     * @param string $orderByDirection Direction to order by
+     * @param integer $page             Page
+     * @param integer $limit            Limit of items per page
+     * @param string  $orderByField     Field to order by
+     * @param string  $orderByDirection Direction to order by
      *
      * @return array Result
      *
@@ -74,7 +74,6 @@ class AttributeController
      * @Method({"GET"})
      */
     public function listAction(
-        Request $request,
         $page,
         $limit,
         $orderByField,
@@ -82,9 +81,9 @@ class AttributeController
     )
     {
         return [
-            'page' => $page,
-            'limit' => $limit,
-            'orderByField' => $orderByField,
+            'page'             => $page,
+            'limit'            => $limit,
+            'orderByField'     => $orderByField,
             'orderByDirection' => $orderByDirection,
         ];
     }
@@ -93,10 +92,9 @@ class AttributeController
      * View element action.
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
-     * @param Request $request     Request
-     * @param integer $id          Attribute id
+     * @param integer $id Attribute id
      *
      * @return array Result
      *
@@ -110,10 +108,7 @@ class AttributeController
      * @Template("@AdminAttribute/Attribute/view.html.twig")
      * @Method({"GET"})
      */
-    public function viewAction(
-        Request $request,
-        $id
-    )
+    public function viewAction($id)
     {
         return [
             'id' => $id
@@ -124,7 +119,7 @@ class AttributeController
      * New element action
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
      * @return array Result
      *
@@ -145,10 +140,9 @@ class AttributeController
      *
      * Should be POST
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to save
-     * @param FormInterface  $form    Form view
-     * @param boolean        $isValid Request handle is valid
+     * @param AttributeInterface $entity  Entity to save
+     * @param FormInterface      $form    Form view
+     * @param boolean            $isValid Request handle is valid
      *
      * @return RedirectResponse Redirect response
      *
@@ -169,19 +163,19 @@ class AttributeController
      *      name  = "form",
      *      entity = "entity",
      *      handleRequest = true,
-     *      validate = "isValid"
      * )
      */
     public function saveAction(
-        Request $request,
-        AbstractEntity $entity,
+        AttributeInterface $entity,
         FormInterface $form,
         $isValid
     )
     {
-        $this
-            ->getManagerForClass($entity)
-            ->flush($entity);
+        if ($isValid) {
+            $this
+                ->get('elcodi.object_manager.attribute')
+                ->flush($entity);
+        }
 
         return $this->redirectRoute("admin_attribute_view", [
             'id' => $entity->getId(),
@@ -192,7 +186,7 @@ class AttributeController
      * Edit element action
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
      * @param Request $request Request
      * @param integer $id      Entity id
@@ -206,10 +200,7 @@ class AttributeController
      * @Template
      * @Method({"GET"})
      */
-    public function editAction(
-        Request $request,
-        $id
-    )
+    public function editAction($id)
     {
         return [
             'id' => $id,
@@ -221,10 +212,10 @@ class AttributeController
      *
      * Should be POST
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to update
-     * @param FormInterface  $form    Form view
-     * @param boolean        $isValid Request handle is valid
+     * @param Request            $request Request
+     * @param AttributeInterface $entity  Entity to update
+     * @param FormInterface      $form    Form view
+     * @param boolean            $isValid Request handle is valid
      *
      * @return RedirectResponse Redirect response
      *
@@ -250,14 +241,16 @@ class AttributeController
      */
     public function updateAction(
         Request $request,
-        AbstractEntity $entity,
+        AttributeInterface $entity,
         FormInterface $form,
         $isValid
     )
     {
-        $this
-            ->getManagerForClass($entity)
-            ->flush($entity);
+        if ($isValid) {
+            $this
+                ->get('elcodi.object_manager.attribute')
+                ->flush($entity);
+        }
 
         return $this->redirectRoute("admin_attribute_view", [
             'id' => $entity->getId(),
@@ -267,8 +260,8 @@ class AttributeController
     /**
      * Enable entity
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to enable
+     * @param Request          $request Request
+     * @param EnabledInterface $entity  Entity to enable
      *
      * @return array Result
      *
@@ -287,7 +280,7 @@ class AttributeController
      */
     public function enableAction(
         Request $request,
-        AbstractEntity $entity
+        EnabledInterface $entity
     )
     {
         return parent::enableAction(
@@ -299,8 +292,8 @@ class AttributeController
     /**
      * Disable entity
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to disable
+     * @param Request          $request Request
+     * @param EnabledInterface $entity  Entity to disable
      *
      * @return array Result
      *
@@ -319,7 +312,7 @@ class AttributeController
      */
     public function disableAction(
         Request $request,
-        AbstractEntity $entity
+        EnabledInterface $entity
     )
     {
         return parent::disableAction(
@@ -331,9 +324,9 @@ class AttributeController
     /**
      * Delete element action
      *
-     * @param Request        $request     Request
-     * @param AbstractEntity $entity      Entity to delete
-     * @param string         $redirectUrl Redirect url
+     * @param Request $request     Request
+     * @param mixed   $entity      Entity to delete
+     * @param string  $redirectUrl Redirect url
      *
      * @return RedirectResponse Redirect response
      *
@@ -352,7 +345,7 @@ class AttributeController
      */
     public function deleteAction(
         Request $request,
-        AbstractEntity $entity,
+        $entity,
         $redirectUrl = null
     )
     {

@@ -38,7 +38,10 @@ class MenuController extends Controller
      */
     public function sideNavAction()
     {
-        $menuItems = $this->container->get('elcodi.core.menu.service.menu_manager')->loadMenuByCode('admin');
+        $menuItems = $this
+            ->container
+            ->get('elcodi.core.menu.service.menu_manager')
+            ->loadMenuByCode('admin');
 
         return [
             'menu_items' => $menuItems

@@ -29,7 +29,6 @@ use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
 use Elcodi\AdminCoreBundle\Controller\Interfaces\NavegableControllerInterface;
 use Elcodi\Component\Cart\Entity\Interfaces\CartInterface;
-use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
 
 /**
  * Class Controller for Cart
@@ -66,9 +65,8 @@ class CartController
      * List elements of certain entity type.
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
-     * @param Request $request          Request
      * @param integer $page             Page
      * @param integer $limit            Limit of items per page
      * @param string  $orderByField     Field to order by
@@ -94,7 +92,6 @@ class CartController
      * @Method({"GET"})
      */
     public function listAction(
-        Request $request,
         $page,
         $limit,
         $orderByField,
@@ -113,10 +110,9 @@ class CartController
      * View element action.
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
-     * @param Request $request Request
-     * @param integer $id      Entity id
+     * @param integer $id Entity id
      *
      * @return array Result
      *
@@ -130,10 +126,7 @@ class CartController
      * @Template
      * @Method({"GET"})
      */
-    public function viewAction(
-        Request $request,
-        $id
-    )
+    public function viewAction($id)
     {
         return [
             'id' => $id,
@@ -144,10 +137,9 @@ class CartController
      * New element action
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
-     * @param Request $request Request
-     * @param integer $id      Entity id
+     * @param integer $id Entity id
      *
      * @return array Result
      *
@@ -158,10 +150,7 @@ class CartController
      * @Template
      * @Method({"GET"})
      */
-    public function editAction(
-        Request $request,
-        $id
-    )
+    public function editAction($id)
     {
         return [
             'id' => $id,
@@ -173,10 +162,9 @@ class CartController
      *
      * Should be POST
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to update
-     * @param FormInterface  $form    Form view
-     * @param boolean        $isValid Request handle is valid
+     * @param CartInterface $entity  Entity to update
+     * @param FormInterface $form    Form view
+     * @param boolean       $isValid Request handle is valid
      *
      * @return RedirectResponse Redirect response
      *
@@ -201,15 +189,16 @@ class CartController
      * )
      */
     public function updateAction(
-        Request $request,
-        AbstractEntity $entity,
+        CartInterface $entity,
         FormInterface $form,
         $isValid
     )
     {
-        $this
-            ->getManagerForClass($entity)
-            ->flush($entity);
+        if ($isValid) {
+            $this
+                ->get('elcodi.object_manager.cart')
+                ->flush($entity);
+        }
 
         return $this->redirectRoute("admin_cart_view", [
             'id' => $entity->getId(),
@@ -217,11 +206,11 @@ class CartController
     }
 
     /**
-     * Updated edited element action
+     * Delete entity
      *
-     * @param Request        $request     Request
-     * @param AbstractEntity $entity      Entity to delete
-     * @param string         $redirectUrl Redirect url
+     * @param Request $request     Request
+     * @param mixed   $entity      Entity to delete
+     * @param string  $redirectUrl Redirect url
      *
      * @return RedirectResponse Redirect response
      *
@@ -243,7 +232,7 @@ class CartController
      */
     public function deleteAction(
         Request $request,
-        AbstractEntity $entity,
+        $entity,
         $redirectUrl = null
     )
     {
@@ -280,7 +269,7 @@ class CartController
      *      }
      * )
      */
-    public function viewComponentAction(CartInterface $cart)
+    public function toOrderAction(CartInterface $cart)
     {
         $this
             ->get('elcodi.cart_event_dispatcher')

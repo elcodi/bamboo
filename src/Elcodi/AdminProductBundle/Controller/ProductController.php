@@ -28,7 +28,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
 use Elcodi\AdminCoreBundle\Controller\Interfaces\NavegableControllerInterface;
-use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
+use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 use Elcodi\Component\Media\Entity\Interfaces\ImageInterface;
 use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
 
@@ -67,7 +67,7 @@ class ProductController
      * List elements of certain entity type.
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
      * @param Request $request          Request
      * @param integer $page             Page
@@ -114,7 +114,7 @@ class ProductController
      * View element action.
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
      * @param Request          $request Request
      * @param ProductInterface $product Product
@@ -161,7 +161,7 @@ class ProductController
      * New element action
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
      * @return array Result
      *
@@ -182,10 +182,10 @@ class ProductController
      *
      * Should be POST
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to save
-     * @param FormInterface  $form    Form view
-     * @param boolean        $isValid Request handle is valid
+     * @param Request          $request Request
+     * @param ProductInterface $entity  Entity to save
+     * @param FormInterface    $form    Form view
+     * @param boolean          $isValid Request handle is valid
      *
      * @return RedirectResponse Redirect response
      *
@@ -211,14 +211,16 @@ class ProductController
      */
     public function saveAction(
         Request $request,
-        AbstractEntity $entity,
+        ProductInterface $entity,
         FormInterface $form,
         $isValid
     )
     {
-        $this
-            ->getManagerForClass($entity)
-            ->flush($entity);
+        if ($isValid) {
+            $this
+                ->get('elcodi.object_manager.product')
+                ->flush($entity);
+        }
 
         return $this->redirectRoute("admin_product_view", [
             'id' => $entity->getId(),
@@ -229,7 +231,7 @@ class ProductController
      * New element action
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
      * @param Request $request Request
      * @param integer $id      Entity id
@@ -258,10 +260,10 @@ class ProductController
      *
      * Should be POST
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to update
-     * @param FormInterface  $form    Form view
-     * @param boolean        $isValid Request handle is valid
+     * @param Request          $request Request
+     * @param ProductInterface $entity  Entity to update
+     * @param FormInterface    $form    Form view
+     * @param boolean          $isValid Request handle is valid
      *
      * @return RedirectResponse Redirect response
      *
@@ -287,14 +289,16 @@ class ProductController
      */
     public function updateAction(
         Request $request,
-        AbstractEntity $entity,
+        ProductInterface $entity,
         FormInterface $form,
         $isValid
     )
     {
-        $this
-            ->getManagerForClass($entity)
-            ->flush($entity);
+        if ($isValid) {
+            $this
+                ->get('elcodi.object_manager.product')
+                ->flush($entity);
+        }
 
         return $this->redirectRoute("admin_product_view", [
             'id' => $entity->getId(),
@@ -304,8 +308,8 @@ class ProductController
     /**
      * Enable entity
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to enable
+     * @param Request          $request Request
+     * @param EnabledInterface $entity  Entity to enable
      *
      * @return array Result
      *
@@ -324,7 +328,7 @@ class ProductController
      */
     public function enableAction(
         Request $request,
-        AbstractEntity $entity
+        EnabledInterface $entity
     )
     {
         return parent::enableAction(
@@ -336,8 +340,8 @@ class ProductController
     /**
      * Disable entity
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to disable
+     * @param Request          $request Request
+     * @param EnabledInterface $entity  Entity to disable
      *
      * @return array Result
      *
@@ -356,7 +360,7 @@ class ProductController
      */
     public function disableAction(
         Request $request,
-        AbstractEntity $entity
+        EnabledInterface $entity
     )
     {
         return parent::disableAction(
@@ -366,11 +370,11 @@ class ProductController
     }
 
     /**
-     * Updated edited element action
+     * Delete entity
      *
-     * @param Request        $request     Request
-     * @param AbstractEntity $entity      Entity to delete
-     * @param string         $redirectUrl Redirect url
+     * @param Request $request     Request
+     * @param mixed   $entity      Entity to delete
+     * @param string  $redirectUrl Redirect url
      *
      * @return RedirectResponse Redirect response
      *
@@ -389,7 +393,7 @@ class ProductController
      */
     public function deleteAction(
         Request $request,
-        AbstractEntity $entity,
+        $entity,
         $redirectUrl = null
     )
     {
@@ -403,9 +407,9 @@ class ProductController
     /**
      * Remove relation between Product and Image
      *
-     * @param Request $request Request
+     * @param Request          $request Request
      * @param ProductInterface $product
-     * @param ImageInterface $image
+     * @param ImageInterface   $image
      *
      * @return RedirectResponse Redirect response
      *
@@ -440,9 +444,9 @@ class ProductController
         return $this->getResponse($request, function () use ($product, $image) {
             $product->removeImage($image);
 
-            /** @var AbstractEntity $product */
-            $entityManager = $this->getManagerForClass($product);
-            $entityManager->flush($product);
+            $this
+                ->get('elcodi.object_manager.product')
+                ->flush($product);
         });
     }
 }

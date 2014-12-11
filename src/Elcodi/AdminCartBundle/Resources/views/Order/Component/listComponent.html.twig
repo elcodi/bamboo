@@ -12,10 +12,10 @@
             "id": { width:"25" },
             "customer": {},
             "Nb. OrderLines": { width:"25", sorting_disabled: true },
-            "Nb. OrderHistories": { width:"25", sorting_disabled: true },
             "productAmount": {sorting_disabled: true },
             "couponAmount": {sorting_disabled: true },
             "amount": {sorting_disabled: true },
+            "state": {sorting_disabled: true },
             "last Mod.": {sorting_disabled: true },
             "createdAt": {},
             "updatedAt": {},
@@ -40,9 +40,6 @@
         {{ entity.orderLines|length }}
     </td>
     <td>
-        {{ entity.quantity }}
-    </td>
-    <td>
         {{ entity.productAmount|print_money }}
     </td>
     <td>
@@ -50,6 +47,9 @@
     </td>
     <td>
         {{ entity.amount|print_money }}
+    </td>
+    <td>
+        {{ entity.lastStateLine.name }}
     </td>
     <td>
         {{ entity.orderHistories.last.createdAt|date("Y.m.d H:i:s") }}

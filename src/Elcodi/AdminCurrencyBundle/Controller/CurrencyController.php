@@ -27,7 +27,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
-use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
+use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
+use Elcodi\Component\Currency\Entity\Interfaces\CurrencyInterface;
 
 /**
  * Class Controller for Currency
@@ -59,9 +60,8 @@ class CurrencyController
      * List elements of certain entity type.
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
-     * @param Request $request          Request
      * @param integer $page             Page
      * @param integer $limit            Limit of items per page
      * @param string  $orderByField     Field to order by
@@ -87,7 +87,6 @@ class CurrencyController
      * @Method({"GET"})
      */
     public function listAction(
-        Request $request,
         $page,
         $limit,
         $orderByField,
@@ -106,10 +105,9 @@ class CurrencyController
      * View element action.
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
-     * @param Request $request Request
-     * @param integer $id      Entity id
+     * @param integer $id Entity id
      *
      * @return array Result
      *
@@ -123,10 +121,7 @@ class CurrencyController
      * @Template
      * @Method({"GET"})
      */
-    public function viewAction(
-        Request $request,
-        $id
-    )
+    public function viewAction($id)
     {
         return [
             'id' => $id,
@@ -137,7 +132,7 @@ class CurrencyController
      * New element action
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
      * @return array Result
      *
@@ -157,10 +152,9 @@ class CurrencyController
      * New element action
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
-     * @param Request $request Request
-     * @param integer $id      Entity id
+     * @param integer $id Entity id
      *
      * @return array Result
      *
@@ -171,10 +165,7 @@ class CurrencyController
      * @Template
      * @Method({"GET"})
      */
-    public function editAction(
-        Request $request,
-        $id
-    )
+    public function editAction($id)
     {
         return [
             'id' => $id,
@@ -186,10 +177,10 @@ class CurrencyController
      *
      * Should be POST
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to save
-     * @param FormInterface  $form    Form view
-     * @param boolean        $isValid Request handle is valid
+     * @param Request           $request Request
+     * @param CurrencyInterface $entity  Entity to save
+     * @param FormInterface     $form    Form view
+     * @param boolean           $isValid Request handle is valid
      *
      * @return RedirectResponse Redirect response
      *
@@ -214,15 +205,16 @@ class CurrencyController
      * )
      */
     public function saveAction(
-        Request $request,
-        AbstractEntity $entity,
+        CurrencyInterface $entity,
         FormInterface $form,
         $isValid
     )
     {
-        $this
-            ->getManagerForClass($entity)
-            ->flush($entity);
+        if ($isValid) {
+            $this
+                ->get('elcodi.object_manager.currency')
+                ->flush($entity);
+        }
 
         return $this->redirectRoute("admin_currency_view", [
             'id' => $entity->getId(),
@@ -234,10 +226,9 @@ class CurrencyController
      *
      * Should be POST
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to update
-     * @param FormInterface  $form    Form view
-     * @param boolean        $isValid Request handle is valid
+     * @param CurrencyInterface $entity  Entity to update
+     * @param FormInterface     $form    Form view
+     * @param boolean           $isValid Request handle is valid
      *
      * @return RedirectResponse Redirect response
      *
@@ -262,15 +253,16 @@ class CurrencyController
      * )
      */
     public function updateAction(
-        Request $request,
-        AbstractEntity $entity,
+        CurrencyInterface $entity,
         FormInterface $form,
         $isValid
     )
     {
-        $this
-            ->getManagerForClass($entity)
-            ->flush($entity);
+        if ($isValid) {
+            $this
+                ->get('elcodi.object_manager.currency')
+                ->flush($entity);
+        }
 
         return $this->redirectRoute("admin_currency_view", [
             'id' => $entity->getId(),
@@ -280,8 +272,8 @@ class CurrencyController
     /**
      * Enable entity
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to enable
+     * @param Request          $request Request
+     * @param EnabledInterface $entity  Entity to enable
      *
      * @return array Result
      *
@@ -300,7 +292,7 @@ class CurrencyController
      */
     public function enableAction(
         Request $request,
-        AbstractEntity $entity
+        EnabledInterface $entity
     )
     {
         return parent::enableAction(
@@ -312,8 +304,8 @@ class CurrencyController
     /**
      * Disable entity
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to disable
+     * @param Request          $request Request
+     * @param EnabledInterface $entity  Entity to disable
      *
      * @return array Result
      *
@@ -332,7 +324,7 @@ class CurrencyController
      */
     public function disableAction(
         Request $request,
-        AbstractEntity $entity
+        EnabledInterface $entity
     )
     {
         return parent::disableAction(

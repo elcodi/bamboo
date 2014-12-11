@@ -33,7 +33,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
-use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
+use Elcodi\Component\CartCoupon\Entity\Interfaces\CartCouponInterface;
+use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 
 /**
  * Class Controller for CartCoupon
@@ -52,9 +53,8 @@ class CartCouponController
      * List elements of certain entity type.
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
-     * @param Request $request          Request
      * @param integer $page             Page
      * @param integer $limit            Limit of items per page
      * @param string  $orderByField     Field to order by
@@ -80,7 +80,6 @@ class CartCouponController
      * @Method({"GET"})
      */
     public function listAction(
-        Request $request,
         $page,
         $limit,
         $orderByField,
@@ -101,12 +100,12 @@ class CartCouponController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request   $request          Request
-     * @param Paginator $paginator        Paginator instance
-     * @param integer   $page             Page
-     * @param integer   $limit            Limit of items per page
-     * @param string    $orderByField     Field to order by
-     * @param string    $orderByDirection Direction to order by
+     * @param Paginator           $paginator           Paginator instance
+     * @param PaginatorAttributes $paginatorAttributes Paginator attributes
+     * @param integer             $page                Page
+     * @param integer             $limit               Limit of items per page
+     * @param string              $orderByField        Field to order by
+     * @param string              $orderByDirection    Direction to order by
      *
      * @return array Result
      *
@@ -137,7 +136,6 @@ class CartCouponController
      * )
      */
     public function listComponentAction(
-        Request $request,
         Paginator $paginator,
         PaginatorAttributes $paginatorAttributes,
         $page,
@@ -146,17 +144,15 @@ class CartCouponController
         $orderByDirection
     )
     {
-        $paginatorFields = $this
-            ->container
-            ->getParameter('elcodi.admin.cartcoupon.pagination.cart_coupon.fields');
-
         return [
             'paginator'        => $paginator,
             'page'             => $page,
             'limit'            => $limit,
             'orderByField'     => $orderByField,
             'orderByDirection' => $orderByDirection,
-            'paginatorFields'  => $paginatorFields,
+            'totalPages'       => $paginatorAttributes->getTotalPages(),
+            'totalElements'    => $paginatorAttributes->getTotalElements(),
+
         ];
     }
 
@@ -164,10 +160,9 @@ class CartCouponController
      * View element action.
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
-     * @param Request $request Request
-     * @param integer $id      Entity id
+     * @param integer $id Entity id
      *
      * @return array Result
      *
@@ -181,10 +176,7 @@ class CartCouponController
      * @Template
      * @Method({"GET"})
      */
-    public function viewAction(
-        Request $request,
-        $id
-    )
+    public function viewAction($id)
     {
         return [
             'id' => $id,
@@ -197,8 +189,7 @@ class CartCouponController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to view
+     * @param CartCouponInterface $entity Entity to view
      *
      * @return array Result
      *
@@ -221,10 +212,7 @@ class CartCouponController
      *      }
      * )
      */
-    public function viewComponentAction(
-        Request $request,
-        AbstractEntity $entity
-    )
+    public function viewComponentAction(CartCouponInterface $entity)
     {
         return [
             'entity' => $entity,
@@ -235,7 +223,7 @@ class CartCouponController
      * New element action
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
      * @return array Result
      *
@@ -257,7 +245,6 @@ class CartCouponController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request  $request  Request
      * @param FormView $formView Form view
      *
      * @return array Result
@@ -280,10 +267,7 @@ class CartCouponController
      *      entity = "entity"
      * )
      */
-    public function newComponentAction(
-        Request $request,
-        FormView $formView
-    )
+    public function newComponentAction(FormView $formView)
     {
         return [
             'form' => $formView,
@@ -295,10 +279,9 @@ class CartCouponController
      *
      * Should be POST
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to save
-     * @param FormInterface  $form    Form view
-     * @param boolean        $isValid Request handle is valid
+     * @param CartCouponInterface $entity  Entity to save
+     * @param FormInterface       $form    Form view
+     * @param boolean             $isValid Request handle is valid
      *
      * @return RedirectResponse Redirect response
      *
@@ -323,18 +306,19 @@ class CartCouponController
      * )
      */
     public function saveAction(
-        Request $request,
-        AbstractEntity $entity,
+        CartCouponInterface $entity,
         FormInterface $form,
         $isValid
     )
     {
-        $this
-            ->getManagerForClass($entity)
-            ->flush($entity);
+        if ($isValid) {
+            $this
+                ->get('elcodi.object_manager.cart_coupon')
+                ->flush($entity);
+        }
 
         return $this->redirectRoute("admin_cart_coupon_view", [
-            'id'    =>  $entity->getId(),
+            'id' => $entity->getId(),
         ]);
     }
 
@@ -342,10 +326,9 @@ class CartCouponController
      * New element action
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
-     * @param Request $request Request
-     * @param integer $id      Entity id
+     * @param integer $id Entity id
      *
      * @return array Result
      *
@@ -356,10 +339,7 @@ class CartCouponController
      * @Template
      * @Method({"GET"})
      */
-    public function editAction(
-        Request $request,
-        $id
-    )
+    public function editAction($id)
     {
         return [
             'id' => $id,
@@ -372,9 +352,8 @@ class CartCouponController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request        $request  Request
-     * @param AbstractEntity $entity   Entity
-     * @param FormView       $formView Form view
+     * @param CartCouponInterface $entity   Entity
+     * @param FormView            $formView Form view
      *
      * @return array Result
      *
@@ -398,14 +377,13 @@ class CartCouponController
      * )
      */
     public function editComponentAction(
-        Request $request,
-        AbstractEntity $entity,
+        CartCouponInterface $entity,
         FormView $formView
     )
     {
         return [
             'entity' => $entity,
-            'form' => $formView,
+            'form'   => $formView,
         ];
     }
 
@@ -414,10 +392,9 @@ class CartCouponController
      *
      * Should be POST
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to update
-     * @param FormInterface  $form    Form view
-     * @param boolean        $isValid Request handle is valid
+     * @param CartCouponInterface $entity  Entity to update
+     * @param FormInterface       $form    Form view
+     * @param boolean             $isValid Request handle is valid
      *
      * @return RedirectResponse Redirect response
      *
@@ -442,26 +419,27 @@ class CartCouponController
      * )
      */
     public function updateAction(
-        Request $request,
-        AbstractEntity $entity,
+        CartCouponInterface $entity,
         FormInterface $form,
         $isValid
     )
     {
-        $this
-            ->getManagerForClass($entity)
-            ->flush($entity);
+        if ($isValid) {
+            $this
+                ->get('elcodi.object_manager.cart_coupon')
+                ->flush($entity);
+        }
 
         return $this->redirectRoute("admin_cart_coupon_view", [
-            'id'    =>  $entity->getId(),
+            'id' => $entity->getId(),
         ]);
     }
 
     /**
      * Enable entity
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to enable
+     * @param Request          $request Request
+     * @param EnabledInterface $entity  Entity to enable
      *
      * @return array Result
      *
@@ -481,7 +459,7 @@ class CartCouponController
      */
     public function enableAction(
         Request $request,
-        AbstractEntity $entity
+        EnabledInterface $entity
     )
     {
         try {
@@ -502,8 +480,8 @@ class CartCouponController
     /**
      * Disable entity
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to disable
+     * @param Request          $request Request
+     * @param EnabledInterface $entity  Entity to disable
      *
      * @return array Result
      *
@@ -523,7 +501,7 @@ class CartCouponController
      */
     public function disableAction(
         Request $request,
-        AbstractEntity $entity
+        EnabledInterface $entity
     )
     {
         try {
@@ -542,11 +520,11 @@ class CartCouponController
     }
 
     /**
-     * Updated edited element action
+     * Delete entity
      *
-     * @param Request        $request     Request
-     * @param AbstractEntity $entity      Entity to delete
-     * @param string         $redirectUrl Redirect url
+     * @param Request $request     Request
+     * @param mixed   $entity      Entity to delete
+     * @param string  $redirectUrl Redirect url
      *
      * @return RedirectResponse Redirect response
      *
@@ -566,7 +544,7 @@ class CartCouponController
      */
     public function deleteAction(
         Request $request,
-        AbstractEntity $entity,
+        $entity,
         $redirectUrl = null
     )
     {

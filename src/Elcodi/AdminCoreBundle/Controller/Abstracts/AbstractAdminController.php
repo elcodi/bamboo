@@ -24,7 +24,6 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
 use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 
 /**
@@ -36,14 +35,14 @@ class AbstractAdminController extends Controller
     /**
      * Enable entity
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to enable
+     * @param Request          $request Request
+     * @param EnabledInterface $entity  Entity to enable
      *
      * @return array Result
      */
     public function enableAction(
         Request $request,
-        AbstractEntity $entity
+        EnabledInterface $entity
     )
     {
         return $this->getResponse($request, function () use ($entity) {
@@ -60,14 +59,14 @@ class AbstractAdminController extends Controller
     /**
      * Disable entity
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to disable
+     * @param Request          $request Request
+     * @param EnabledInterface $entity  Entity to disable
      *
      * @return array Result
      */
     public function disableAction(
         Request $request,
-        AbstractEntity $entity
+        EnabledInterface $entity
     )
     {
         return $this->getResponse($request, function () use ($entity) {
@@ -84,15 +83,15 @@ class AbstractAdminController extends Controller
     /**
      * Updated edited element action
      *
-     * @param Request        $request     Request
-     * @param AbstractEntity $entity      Entity to delete
-     * @param string         $redirectUrl Redirect url
+     * @param Request $request     Request
+     * @param Mixed   $entity      Entity to delete
+     * @param string  $redirectUrl Redirect url
      *
      * @return RedirectResponse Redirect response
      */
     public function deleteAction(
         Request $request,
-        AbstractEntity $entity,
+        $entity,
         $redirectUrl = null
     )
     {
@@ -110,34 +109,6 @@ class AbstractAdminController extends Controller
     /**
      * Controller helpers
      */
-
-    /**
-     * Get entity manager from an entity
-     *
-     * @param AbstractEntity $entity Entity
-     *
-     * @return ObjectManager specific manager
-     */
-    protected function getManagerForClass(AbstractEntity $entity)
-    {
-        return $this
-            ->get('elcodi.manager_provider')
-            ->getManagerByEntityNamespace(get_class($entity));
-    }
-
-    /**
-     * Get entity repository from an entity
-     *
-     * @param AbstractEntity $entity Entity
-     *
-     * @return ObjectManager specific manager
-     */
-    protected function getRepositoryForClass(AbstractEntity $entity)
-    {
-        return $this
-            ->get('elcodi.repository_provider')
-            ->getRepositoryByEntityNamespace(get_class($entity));
-    }
 
     /**
      * Return a RedirectResponse given a route name and an array of parameters
@@ -239,5 +210,40 @@ class AbstractAdminController extends Controller
             'code'    => $exception->getCode(),
             'message' => $exception->getMessage(),
         ]));
+    }
+
+    /**
+     * Private controller helpers
+     *
+     * These helpers MUST be private. Should not expose this magic to the whole
+     * controller set, but help internal methods
+     */
+
+    /**
+     * Get entity manager from an entity
+     *
+     * @param Mixed $entity Entity
+     *
+     * @return ObjectManager specific manager
+     */
+    private function getManagerForClass($entity)
+    {
+        return $this
+            ->get('elcodi.manager_provider')
+            ->getManagerByEntityNamespace(get_class($entity));
+    }
+
+    /**
+     * Get entity repository from an entity
+     *
+     * @param Mixed $entity Entity
+     *
+     * @return ObjectManager specific manager
+     */
+    private function getRepositoryForClass($entity)
+    {
+        return $this
+            ->get('elcodi.repository_provider')
+            ->getRepositoryByEntityNamespace(get_class($entity));
     }
 }

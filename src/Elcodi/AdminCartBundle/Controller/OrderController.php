@@ -27,7 +27,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
-use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
+use Elcodi\Component\Cart\Entity\Interfaces\OrderInterface;
+use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 
 /**
  * Class Controller for Cart
@@ -46,9 +47,8 @@ class OrderController
      * List elements of certain entity type.
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
-     * @param Request $request          Request
      * @param integer $page             Page
      * @param integer $limit            Limit of items per page
      * @param string  $orderByField     Field to order by
@@ -74,7 +74,6 @@ class OrderController
      * @Method({"GET"})
      */
     public function listAction(
-        Request $request,
         $page,
         $limit,
         $orderByField,
@@ -93,10 +92,9 @@ class OrderController
      * View element action.
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
-     * @param Request $request Request
-     * @param integer $id      Entity id
+     * @param integer $id Entity id
      *
      * @return array Result
      *
@@ -110,10 +108,7 @@ class OrderController
      * @Template
      * @Method({"GET"})
      */
-    public function viewAction(
-        Request $request,
-        $id
-    )
+    public function viewAction($id)
     {
         return [
             'id' => $id,
@@ -124,7 +119,7 @@ class OrderController
      * New element action
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
      * @return array Result
      *
@@ -145,8 +140,7 @@ class OrderController
      *
      * Should be POST
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to save
+     * @param OrderInterface $order   Order to save
      * @param FormInterface  $form    Form view
      * @param boolean        $isValid Request handle is valid
      *
@@ -173,18 +167,19 @@ class OrderController
      * )
      */
     public function saveAction(
-        Request $request,
-        AbstractEntity $entity,
+        OrderInterface $order,
         FormInterface $form,
         $isValid
     )
     {
-        $this
-            ->getManagerForClass($entity)
-            ->flush($entity);
+        if ($isValid) {
+            $this
+                ->get('elcodi.object_manager.order')
+                ->flush($order);
+        }
 
         return $this->redirectRoute("admin_order_view", [
-            'id' => $entity->getId(),
+            'id' => $order->getId(),
         ]);
     }
 
@@ -192,10 +187,9 @@ class OrderController
      * New element action
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
-     * @param Request $request Request
-     * @param integer $id      Entity id
+     * @param integer $id Entity id
      *
      * @return array Result
      *
@@ -206,10 +200,7 @@ class OrderController
      * @Template
      * @Method({"GET"})
      */
-    public function editAction(
-        Request $request,
-        $id
-    )
+    public function editAction($id)
     {
         return [
             'id' => $id,
@@ -221,8 +212,7 @@ class OrderController
      *
      * Should be POST
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to update
+     * @param OrderInterface $order   Order to update
      * @param FormInterface  $form    Form view
      * @param boolean        $isValid Request handle is valid
      *
@@ -249,26 +239,27 @@ class OrderController
      * )
      */
     public function updateAction(
-        Request $request,
-        AbstractEntity $entity,
+        OrderInterface $order,
         FormInterface $form,
         $isValid
     )
     {
-        $this
-            ->getManagerForClass($entity)
-            ->flush($entity);
+        if ($isValid) {
+            $this
+                ->get('elcodi.object_manager.order')
+                ->flush($order);
+        }
 
         return $this->redirectRoute("admin_order_view", [
-            'id' => $entity->getId(),
+            'id' => $order->getId(),
         ]);
     }
 
     /**
      * Enable entity
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to enable
+     * @param Request          $request Request
+     * @param EnabledInterface $entity  Entity to enable
      *
      * @return array Result
      *
@@ -287,7 +278,7 @@ class OrderController
      */
     public function enableAction(
         Request $request,
-        AbstractEntity $entity
+        EnabledInterface $entity
     )
     {
         return parent::enableAction(
@@ -299,8 +290,8 @@ class OrderController
     /**
      * Disable entity
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to disable
+     * @param Request          $request Request
+     * @param EnabledInterface $entity  Entity to disable
      *
      * @return array Result
      *
@@ -319,7 +310,7 @@ class OrderController
      */
     public function disableAction(
         Request $request,
-        AbstractEntity $entity
+        EnabledInterface $entity
     )
     {
         return parent::disableAction(
@@ -329,11 +320,11 @@ class OrderController
     }
 
     /**
-     * Updated edited element action
+     * Delete entity
      *
-     * @param Request        $request     Request
-     * @param AbstractEntity $entity      Entity to delete
-     * @param string         $redirectUrl Redirect url
+     * @param Request $request     Request
+     * @param mixed   $entity      Entity to delete
+     * @param string  $redirectUrl Redirect url
      *
      * @return RedirectResponse Redirect response
      *
@@ -352,7 +343,7 @@ class OrderController
      */
     public function deleteAction(
         Request $request,
-        AbstractEntity $entity,
+        $entity,
         $redirectUrl = null
     )
     {

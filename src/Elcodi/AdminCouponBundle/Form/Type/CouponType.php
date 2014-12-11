@@ -16,11 +16,10 @@
 
 namespace Elcodi\AdminCouponBundle\Form\Type;
 
-use Elcodi\AdminCurrencyBundle\Form\Type\Abstracts\AbstractPurchasableType;
 use Symfony\Component\Form\FormBuilderInterface;
 
+use Elcodi\AdminCurrencyBundle\Form\Type\Abstracts\AbstractPurchasableType;
 use Elcodi\Component\Coupon\ElcodiCouponTypes;
-
 
 /**
  * Class CouponType

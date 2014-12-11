@@ -24,11 +24,10 @@ use Mmoreram\ControllerExtraBundle\ValueObject\PaginatorAttributes;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormView;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
+use Elcodi\Component\Newsletter\Entity\Interfaces\NewsletterSubscriptionInterface;
 
 /**
  * Class NewsletterSubscriptionComponentController
@@ -105,8 +104,7 @@ class NewsletterSubscriptionComponentController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to view
+     * @param NewsletterSubscriptionInterface $entity Entity to view
      *
      * @return array Result
      *
@@ -129,10 +127,7 @@ class NewsletterSubscriptionComponentController
      *      }
      * )
      */
-    public function viewComponentAction(
-        Request $request,
-        AbstractEntity $entity
-    )
+    public function viewComponentAction(NewsletterSubscriptionInterface $entity)
     {
         return [
             'entity' => $entity,
@@ -145,7 +140,6 @@ class NewsletterSubscriptionComponentController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request  $request  Request
      * @param FormView $formView Form view
      *
      * @return array Result
@@ -168,10 +162,7 @@ class NewsletterSubscriptionComponentController
      *      entity = "entity"
      * )
      */
-    public function newComponentAction(
-        Request $request,
-        FormView $formView
-    )
+    public function newComponentAction(FormView $formView)
     {
         return [
             'form' => $formView,
@@ -184,9 +175,8 @@ class NewsletterSubscriptionComponentController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request        $request  Request
-     * @param AbstractEntity $entity   Entity
-     * @param FormView       $formView Form view
+     * @param NewsletterSubscriptionInterface $entity   Entity
+     * @param FormView                        $formView Form view
      *
      * @return array Result
      *
@@ -210,8 +200,7 @@ class NewsletterSubscriptionComponentController
      * )
      */
     public function editComponentAction(
-        Request $request,
-        AbstractEntity $entity,
+        NewsletterSubscriptionInterface $entity,
         FormView $formView
     )
     {

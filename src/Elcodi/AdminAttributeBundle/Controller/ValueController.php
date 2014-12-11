@@ -16,8 +16,6 @@
 
 namespace Elcodi\AdminAttributeBundle\Controller;
 
-use Elcodi\Component\Attribute\Entity\Attribute;
-use Elcodi\Component\Attribute\Entity\Value;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -29,7 +27,10 @@ use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
-use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
+use Elcodi\Component\Attribute\Entity\Attribute;
+use Elcodi\Component\Attribute\Entity\Interfaces\ValueInterface;
+use Elcodi\Component\Attribute\Entity\Value;
+use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 
 /**
  * Class Controller for Value
@@ -50,9 +51,8 @@ class ValueController extends
      * List elements of certain entity type.
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
-     * @param Request $request          Request
      * @param integer $page             Page
      * @param integer $limit            Limit of items per page
      * @param string  $orderByField     Field to order by
@@ -78,7 +78,6 @@ class ValueController extends
      * @Method({"GET"})
      */
     public function listAction(
-        Request $request,
         $page,
         $limit,
         $orderByField,
@@ -97,11 +96,10 @@ class ValueController extends
      * View element action.
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
-     * @param Request $request   Request
-     * @param integer $id        Attribute id
-     * @param integer $valueId   Value id
+     * @param integer $id      Attribute id
+     * @param integer $valueId Value id
      *
      * @return array Result
      *
@@ -116,13 +114,12 @@ class ValueController extends
      * @Method({"GET"})
      */
     public function viewAction(
-        Request $request,
         $id,
         $valueId
     )
     {
         return [
-            'id' => $id,
+            'id'      => $id,
             'valueId' => $valueId
         ];
     }
@@ -131,9 +128,10 @@ class ValueController extends
      * New element action
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
      * @param $id integer Attribute id
+     *
      * @return array Result
      *
      * @Route(
@@ -155,11 +153,10 @@ class ValueController extends
      *
      * Should be POST
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to save
+     * @param ValueInterface $entity    Entity to save
      * @param Attribute      $attribute
-     * @param FormInterface  $form    Form view
-     * @param boolean        $isValid Request handle is valid
+     * @param FormInterface  $form      Form view
+     * @param boolean        $isValid   Request handle is valid
      *
      * @return RedirectResponse Redirect response
      *
@@ -193,24 +190,26 @@ class ValueController extends
      * )
      */
     public function saveAction(
-        Request $request,
-        AbstractEntity $entity,
+        ValueInterface $entity,
         Attribute $attribute,
         FormInterface $form,
         $isValid
     )
     {
-        /**
-         * @var Value $entity
-         */
-        $entity->setAttribute($attribute);
+        if ($isValid) {
 
-        $this
-            ->getManagerForClass($entity)
-            ->flush($entity);
+            /**
+             * @var Value $entity
+             */
+            $entity->setAttribute($attribute);
+
+            $this
+                ->get('elcodi.object_manager.value')
+                ->flush($entity);
+        }
 
         return $this->redirectRoute("admin_value_view", [
-            'id' => $attribute->getId(),
+            'id'      => $attribute->getId(),
             'valueId' => $entity->getId()
         ]);
     }
@@ -219,12 +218,12 @@ class ValueController extends
      * Edit element action
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
-     * @param  Request $request   Request
-     * @param  integer $id        Attribute id
-     * @param  integer $valueId   Value id
-     * @return array   Result
+     * @param integer $id      Attribute id
+     * @param integer $valueId Value id
+     *
+     * @return array Result
      *
      * @Route(
      *      path = "/{valueId}/edit",
@@ -234,13 +233,12 @@ class ValueController extends
      * @Method({"GET"})
      */
     public function editAction(
-        Request $request,
         $id,
         $valueId
     )
     {
         return [
-            'id' => $id,
+            'id'      => $id,
             'valueId' => $valueId,
         ];
     }
@@ -250,8 +248,7 @@ class ValueController extends
      *
      * Should be POST
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to update
+     * @param ValueInterface $entity  Entity to update
      * @param FormInterface  $form    Form view
      * @param boolean        $isValid Request handle is valid
      *
@@ -278,27 +275,29 @@ class ValueController extends
      * )
      */
     public function updateAction(
-        Request $request,
-        AbstractEntity $entity,
+        ValueInterface $entity,
         FormInterface $form,
         $isValid
     )
     {
-        $this
-            ->getManagerForClass($entity)
-            ->flush($entity);
+        if ($isValid) {
+
+            $this
+                ->get('elcodi.object_manager.value')
+                ->flush($entity);
+        }
 
         return $this->redirectRoute("admin_value_view", [
-            'id'        => $entity->getAttribute()->getId(),
-            'valueId'   => $entity->getId(),
+            'id'      => $entity->getAttribute()->getId(),
+            'valueId' => $entity->getId(),
         ]);
     }
 
     /**
      * Enable entity
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to enable
+     * @param Request          $request Request
+     * @param EnabledInterface $entity  Entity to enable
      *
      * @return array Result
      *
@@ -317,7 +316,7 @@ class ValueController extends
      */
     public function enableAction(
         Request $request,
-        AbstractEntity $entity
+        EnabledInterface $entity
     )
     {
         return parent::enableAction(
@@ -329,8 +328,8 @@ class ValueController extends
     /**
      * Disable entity
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to disable
+     * @param Request          $request Request
+     * @param EnabledInterface $entity  Entity to disable
      *
      * @return array Result
      *
@@ -349,7 +348,7 @@ class ValueController extends
      */
     public function disableAction(
         Request $request,
-        AbstractEntity $entity
+        EnabledInterface $entity
     )
     {
         return parent::disableAction(
@@ -361,9 +360,9 @@ class ValueController extends
     /**
      * Delete element action
      *
-     * @param Request        $request     Request
-     * @param AbstractEntity $entity      Entity to delete
-     * @param string         $redirectUrl Redirect url
+     * @param Request $request     Request
+     * @param mixed   $entity      Entity to delete
+     * @param string  $redirectUrl Redirect url
      *
      * @return RedirectResponse Redirect response
      *
@@ -382,7 +381,7 @@ class ValueController extends
      */
     public function deleteAction(
         Request $request,
-        AbstractEntity $entity,
+        $entity,
         $redirectUrl = null
     )
     {

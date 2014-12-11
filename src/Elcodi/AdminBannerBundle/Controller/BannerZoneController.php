@@ -33,7 +33,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
-use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
+use Elcodi\Component\Banner\Entity\Interfaces\BannerZoneInterface;
+use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 
 /**
  * Class Controller for Banner
@@ -52,9 +53,8 @@ class BannerZoneController
      * List elements of certain entity type.
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
-     * @param Request $request          Request
      * @param integer $page             Page
      * @param integer $limit            Limit of items per page
      * @param string  $orderByField     Field to order by
@@ -80,7 +80,6 @@ class BannerZoneController
      * @Method({"GET"})
      */
     public function listAction(
-        Request $request,
         $page,
         $limit,
         $orderByField,
@@ -101,12 +100,12 @@ class BannerZoneController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request   $request          Request
-     * @param Paginator $paginator        Paginator instance
-     * @param integer   $page             Page
-     * @param integer   $limit            Limit of items per page
-     * @param string    $orderByField     Field to order by
-     * @param string    $orderByDirection Direction to order by
+     * @param Paginator           $paginator           Paginator instance
+     * @param PaginatorAttributes $paginatorAttributes Paginator attributes
+     * @param integer             $page                Page
+     * @param integer             $limit               Limit of items per page
+     * @param string              $orderByField        Field to order by
+     * @param string              $orderByDirection    Direction to order by
      *
      * @return array Result
      *
@@ -138,7 +137,6 @@ class BannerZoneController
      * )
      */
     public function listComponentAction(
-        Request $request,
         Paginator $paginator,
         PaginatorAttributes $paginatorAttributes,
         $page,
@@ -162,10 +160,9 @@ class BannerZoneController
      * View element action.
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
-     * @param Request $request Request
-     * @param integer $id      Entity id
+     * @param integer $id Entity id
      *
      * @return array Result
      *
@@ -179,10 +176,7 @@ class BannerZoneController
      * @Template
      * @Method({"GET"})
      */
-    public function viewAction(
-        Request $request,
-        $id
-    )
+    public function viewAction($id)
     {
         return [
             'id' => $id,
@@ -195,8 +189,7 @@ class BannerZoneController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to view
+     * @param BannerZoneInterface $entity Entity to view
      *
      * @return array Result
      *
@@ -219,10 +212,7 @@ class BannerZoneController
      *      }
      * )
      */
-    public function viewComponentAction(
-        Request $request,
-        AbstractEntity $entity
-    )
+    public function viewComponentAction(BannerZoneInterface $entity)
     {
         return [
             'entity' => $entity,
@@ -233,7 +223,7 @@ class BannerZoneController
      * New element action
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
      * @return array Result
      *
@@ -255,7 +245,6 @@ class BannerZoneController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request  $request  Request
      * @param FormView $formView Form view
      *
      * @return array Result
@@ -278,10 +267,7 @@ class BannerZoneController
      *      entity = "entity"
      * )
      */
-    public function newComponentAction(
-        Request $request,
-        FormView $formView
-    )
+    public function newComponentAction(FormView $formView)
     {
         return [
             'form' => $formView,
@@ -293,10 +279,9 @@ class BannerZoneController
      *
      * Should be POST
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to save
-     * @param FormInterface  $form    Form view
-     * @param boolean        $isValid Request handle is valid
+     * @param BannerZoneInterface $entity  Entity to save
+     * @param FormInterface       $form    Form view
+     * @param boolean             $isValid Request handle is valid
      *
      * @return RedirectResponse Redirect response
      *
@@ -321,15 +306,16 @@ class BannerZoneController
      * )
      */
     public function saveAction(
-        Request $request,
-        AbstractEntity $entity,
+        BannerZoneInterface $entity,
         FormInterface $form,
         $isValid
     )
     {
-        $this
-            ->getManagerForClass($entity)
-            ->flush($entity);
+        if ($isValid) {
+            $this
+                ->get('elcodi.object_manager.banner_zone')
+                ->flush($entity);
+        }
 
         return $this->redirectRoute("admin_banner_zone_view", [
             'id' => $entity->getId(),
@@ -340,10 +326,9 @@ class BannerZoneController
      * New element action
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
-     * @param Request $request Request
-     * @param integer $id      Entity id
+     * @param integer $id Entity id
      *
      * @return array Result
      *
@@ -354,10 +339,7 @@ class BannerZoneController
      * @Template
      * @Method({"GET"})
      */
-    public function editAction(
-        Request $request,
-        $id
-    )
+    public function editAction($id)
     {
         return [
             'id' => $id,
@@ -370,9 +352,8 @@ class BannerZoneController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request        $request  Request
-     * @param AbstractEntity $entity   Entity
-     * @param FormView       $formView Form view
+     * @param BannerZoneInterface $entity   Entity
+     * @param FormView            $formView Form view
      *
      * @return array Result
      *
@@ -396,8 +377,7 @@ class BannerZoneController
      * )
      */
     public function editComponentAction(
-        Request $request,
-        AbstractEntity $entity,
+        BannerZoneInterface $entity,
         FormView $formView
     )
     {
@@ -412,10 +392,9 @@ class BannerZoneController
      *
      * Should be POST
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to update
-     * @param FormInterface  $form    Form view
-     * @param boolean        $isValid Request handle is valid
+     * @param BannerZoneInterface $entity  Entity to update
+     * @param FormInterface       $form    Form view
+     * @param boolean             $isValid Request handle is valid
      *
      * @return RedirectResponse Redirect response
      *
@@ -440,15 +419,16 @@ class BannerZoneController
      * )
      */
     public function updateAction(
-        Request $request,
-        AbstractEntity $entity,
+        BannerZoneInterface $entity,
         FormInterface $form,
         $isValid
     )
     {
-        $this
-            ->getManagerForClass($entity)
-            ->flush($entity);
+        if ($isValid) {
+            $this
+                ->get('elcodi.object_manager.banner_zone')
+                ->flush($entity);
+        }
 
         return $this->redirectRoute("admin_banner_zone_view", [
             'id' => $entity->getId(),
@@ -458,8 +438,8 @@ class BannerZoneController
     /**
      * Enable entity
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to enable
+     * @param Request          $request Request
+     * @param EnabledInterface $entity  Entity to enable
      *
      * @return array Result
      *
@@ -479,7 +459,7 @@ class BannerZoneController
      */
     public function enableAction(
         Request $request,
-        AbstractEntity $entity
+        EnabledInterface $entity
     )
     {
         try {
@@ -500,8 +480,8 @@ class BannerZoneController
     /**
      * Disable entity
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to disable
+     * @param Request          $request Request
+     * @param EnabledInterface $entity  Entity to disable
      *
      * @return array Result
      *
@@ -521,7 +501,7 @@ class BannerZoneController
      */
     public function disableAction(
         Request $request,
-        AbstractEntity $entity
+        EnabledInterface $entity
     )
     {
         try {
@@ -540,11 +520,11 @@ class BannerZoneController
     }
 
     /**
-     * Updated edited element action
+     * Delete entity
      *
-     * @param Request        $request     Request
-     * @param AbstractEntity $entity      Entity to delete
-     * @param string         $redirectUrl Redirect url
+     * @param Request $request     Request
+     * @param mixed   $entity      Entity to delete
+     * @param string  $redirectUrl Redirect url
      *
      * @return RedirectResponse Redirect response
      *
@@ -564,7 +544,7 @@ class BannerZoneController
      */
     public function deleteAction(
         Request $request,
-        AbstractEntity $entity,
+        $entity,
         $redirectUrl = null
     )
     {

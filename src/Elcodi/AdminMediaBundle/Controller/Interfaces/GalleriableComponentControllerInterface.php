@@ -16,10 +16,6 @@
 
 namespace Elcodi\AdminMediaBundle\Controller\Interfaces;
 
-use Symfony\Component\HttpFoundation\Request;
-
-use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
-
 /**
  * Interface GalleriableComponentControllerInterface
  */
@@ -28,13 +24,9 @@ interface GalleriableComponentControllerInterface
     /**
      * View gallery action
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity
+     * @param mixed $entity Entity
      *
      * @return array result
      */
-    public function galleryComponentAction(
-        Request $request,
-        AbstractEntity $entity
-    );
+    public function galleryComponentAction($entity);
 }

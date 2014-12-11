@@ -1,13 +1,17 @@
 <?php
-/*
- * jQuery File Upload Plugin PHP Class 7.1.3
- * https://github.com/blueimp/jQuery-File-Upload
+
+/**
+ * This file is part of the Elcodi package.
  *
- * Copyright 2010, Sebastian Tschan
- * https://blueimp.net
+ * Copyright (c) 2014 Elcodi.com
  *
- * Licensed under the MIT license:
- * http://www.opensource.org/licenses/MIT
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * Feel free to edit as you please, and have fun.
+ *
+ * @author Marc Morera <yuhu@mmoreram.com>
+ * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
 class UploadHandler

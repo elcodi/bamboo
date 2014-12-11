@@ -33,7 +33,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
-use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
+use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
+use Elcodi\Component\Rule\Entity\Interfaces\RuleInterface;
 
 /**
  * Class Controller for Rule
@@ -69,7 +70,7 @@ class RuleController
      * List elements of certain entity type.
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
      * @param Request $request          Request
      * @param integer $page             Page
@@ -177,10 +178,9 @@ class RuleController
      * View element action.
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
-     * @param Request $request Request
-     * @param integer $id      Entity id
+     * @param integer $id Entity id
      *
      * @return array Result
      *
@@ -194,10 +194,7 @@ class RuleController
      * @Template
      * @Method({"GET"})
      */
-    public function viewAction(
-        Request $request,
-        $id
-    )
+    public function viewAction($id)
     {
         return [
             'id' => $id,
@@ -210,8 +207,7 @@ class RuleController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to view
+     * @param RuleInterface $entity Entity to view
      *
      * @return array Result
      *
@@ -234,10 +230,7 @@ class RuleController
      *      }
      * )
      */
-    public function viewComponentAction(
-        Request $request,
-        AbstractEntity $entity
-    )
+    public function viewComponentAction(RuleInterface $entity)
     {
         return [
             'entity' => $entity,
@@ -248,7 +241,7 @@ class RuleController
      * New element action
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
      * @return array Result
      *
@@ -270,7 +263,6 @@ class RuleController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request  $request  Request
      * @param FormView $formView Form view
      *
      * @return array Result
@@ -293,10 +285,7 @@ class RuleController
      *      entity = "entity"
      * )
      */
-    public function newComponentAction(
-        Request $request,
-        FormView $formView
-    )
+    public function newComponentAction(FormView $formView)
     {
         return [
             'form' => $formView,
@@ -308,10 +297,9 @@ class RuleController
      *
      * Should be POST
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to save
-     * @param FormInterface  $form    Form view
-     * @param boolean        $isValid Request handle is valid
+     * @param RuleInterface $entity  Entity to save
+     * @param FormInterface $form    Form view
+     * @param boolean       $isValid Request handle is valid
      *
      * @return RedirectResponse Redirect response
      *
@@ -336,15 +324,16 @@ class RuleController
      * )
      */
     public function saveAction(
-        Request $request,
-        AbstractEntity $entity,
+        RuleInterface $entity,
         FormInterface $form,
         $isValid
     )
     {
-        $this
-            ->getManagerForClass($entity)
-            ->flush($entity);
+        if ($isValid) {
+            $this
+                ->get('elcodi.object_manager.rule')
+                ->flush($entity);
+        }
 
         return $this->redirectRoute("admin_rule_view", [
             'id' => $entity->getId(),
@@ -355,9 +344,8 @@ class RuleController
      * New element action
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
-     * @param Request $request Request
      * @param integer $id      Entity id
      *
      * @return array Result
@@ -369,10 +357,7 @@ class RuleController
      * @Template
      * @Method({"GET"})
      */
-    public function editAction(
-        Request $request,
-        $id
-    )
+    public function editAction($id)
     {
         return [
             'id' => $id,
@@ -385,9 +370,8 @@ class RuleController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request        $request  Request
-     * @param AbstractEntity $entity   Entity
-     * @param FormView       $formView Form view
+     * @param RuleInterface $entity   Entity
+     * @param FormView      $formView Form view
      *
      * @return array Result
      *
@@ -411,8 +395,7 @@ class RuleController
      * )
      */
     public function editComponentAction(
-        Request $request,
-        AbstractEntity $entity,
+        RuleInterface $entity,
         FormView $formView
     )
     {
@@ -427,10 +410,9 @@ class RuleController
      *
      * Should be POST
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to update
-     * @param FormInterface  $form    Form view
-     * @param boolean        $isValid Request handle is valid
+     * @param RuleInterface $entity  Entity to update
+     * @param FormInterface $form    Form view
+     * @param boolean       $isValid Request handle is valid
      *
      * @return RedirectResponse Redirect response
      *
@@ -455,15 +437,16 @@ class RuleController
      * )
      */
     public function updateAction(
-        Request $request,
-        AbstractEntity $entity,
+        RuleInterface $entity,
         FormInterface $form,
         $isValid
     )
     {
-        $this
-            ->getManagerForClass($entity)
-            ->flush($entity);
+        if ($isValid) {
+            $this
+                ->get('elcodi.object_manager.rule')
+                ->flush($entity);
+        }
 
         return $this->redirectRoute("admin_rule_view", [
             'id' => $entity->getId(),
@@ -473,8 +456,8 @@ class RuleController
     /**
      * Enable entity
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to enable
+     * @param Request          $request Request
+     * @param EnabledInterface $entity  Entity to enable
      *
      * @return array Result
      *
@@ -494,7 +477,7 @@ class RuleController
      */
     public function enableAction(
         Request $request,
-        AbstractEntity $entity
+        EnabledInterface $entity
     )
     {
         try {
@@ -515,8 +498,8 @@ class RuleController
     /**
      * Disable entity
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to disable
+     * @param Request          $request Request
+     * @param EnabledInterface $entity  Entity to disable
      *
      * @return array Result
      *
@@ -536,7 +519,7 @@ class RuleController
      */
     public function disableAction(
         Request $request,
-        AbstractEntity $entity
+        EnabledInterface $entity
     )
     {
         try {
@@ -555,11 +538,11 @@ class RuleController
     }
 
     /**
-     * Updated edited element action
+     * Delete entity
      *
-     * @param Request        $request     Request
-     * @param AbstractEntity $entity      Entity to delete
-     * @param string         $redirectUrl Redirect url
+     * @param Request $request     Request
+     * @param mixed   $entity      Entity to delete
+     * @param string  $redirectUrl Redirect url
      *
      * @return RedirectResponse Redirect response
      *
@@ -579,7 +562,7 @@ class RuleController
      */
     public function deleteAction(
         Request $request,
-        AbstractEntity $entity,
+        $entity,
         $redirectUrl = null
     )
     {

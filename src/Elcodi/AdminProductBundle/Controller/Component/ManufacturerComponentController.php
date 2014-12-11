@@ -25,10 +25,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormView;
-use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
+use Elcodi\Component\Product\Entity\Interfaces\ManufacturerInterface;
 
 /**
  * Class ManufacturerComponentsController
@@ -47,7 +46,6 @@ class ManufacturerComponentController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request             $request             Request
      * @param Paginator           $paginator           Paginator instance
      * @param PaginatorAttributes $paginatorAttributes Paginator attributes
      * @param integer             $page                Page
@@ -85,7 +83,6 @@ class ManufacturerComponentController
      * )
      */
     public function listComponentAction(
-        Request $request,
         Paginator $paginator,
         PaginatorAttributes $paginatorAttributes,
         $page,
@@ -111,8 +108,7 @@ class ManufacturerComponentController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to view
+     * @param ManufacturerInterface $entity Entity to view
      *
      * @return array Result
      *
@@ -135,10 +131,7 @@ class ManufacturerComponentController
      *      }
      * )
      */
-    public function viewComponentAction(
-        Request $request,
-        AbstractEntity $entity
-    )
+    public function viewComponentAction(ManufacturerInterface $entity)
     {
         return [
             'entity' => $entity,
@@ -151,7 +144,6 @@ class ManufacturerComponentController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request  $request  Request
      * @param FormView $formView Form view
      *
      * @return array Result
@@ -174,10 +166,7 @@ class ManufacturerComponentController
      *      entity = "entity"
      * )
      */
-    public function newComponentAction(
-        Request $request,
-        FormView $formView
-    )
+    public function newComponentAction(FormView $formView)
     {
         return [
             'form' => $formView,
@@ -190,9 +179,8 @@ class ManufacturerComponentController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request        $request  Request
-     * @param AbstractEntity $entity   Entity
-     * @param FormView       $formView Form view
+     * @param ManufacturerInterface $entity   Entity
+     * @param FormView              $formView Form view
      *
      * @return array Result
      *
@@ -216,8 +204,7 @@ class ManufacturerComponentController
      * )
      */
     public function editComponentAction(
-        Request $request,
-        AbstractEntity $entity,
+        ManufacturerInterface $entity,
         FormView $formView
     )
     {

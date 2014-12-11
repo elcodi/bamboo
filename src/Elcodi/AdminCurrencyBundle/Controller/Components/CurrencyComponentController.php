@@ -27,7 +27,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormView;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
+use Elcodi\Component\Currency\Entity\Interfaces\CurrencyInterface;
 
 /**
  * Class CurrencyComponentController
@@ -102,7 +102,7 @@ class CurrencyComponentController extends AbstractAdminController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param AbstractEntity $entity Entity to view
+     * @param CurrencyInterface $entity Entity to view
      *
      * @return array Result
      *
@@ -125,9 +125,7 @@ class CurrencyComponentController extends AbstractAdminController
      *      }
      * )
      */
-    public function viewComponentAction(
-        AbstractEntity $entity
-    )
+    public function viewComponentAction(CurrencyInterface $entity)
     {
         return [
             'entity' => $entity,
@@ -162,9 +160,7 @@ class CurrencyComponentController extends AbstractAdminController
      *      entity = "entity"
      * )
      */
-    public function newComponentAction(
-        FormView $formView
-    )
+    public function newComponentAction(FormView $formView)
     {
         return [
             'form' => $formView,
@@ -177,8 +173,8 @@ class CurrencyComponentController extends AbstractAdminController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param AbstractEntity $entity   Entity
-     * @param FormView       $formView Form view
+     * @param CurrencyInterface $entity   Entity
+     * @param FormView          $formView Form view
      *
      * @return array Result
      *
@@ -202,7 +198,7 @@ class CurrencyComponentController extends AbstractAdminController
      * )
      */
     public function editComponentAction(
-        AbstractEntity $entity,
+        CurrencyInterface $entity,
         FormView $formView
     )
     {

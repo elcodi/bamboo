@@ -25,10 +25,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormView;
-use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
+use Elcodi\Component\User\Entity\Interfaces\CustomerInterface;
 
 /**
  * Class CustomerComponentsController
@@ -45,7 +44,6 @@ class CustomerComponentController extends AbstractAdminController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request             $request             Request
      * @param Paginator           $paginator           Paginator instance
      * @param PaginatorAttributes $paginatorAttributes Paginator attributes
      * @param integer             $page                Page
@@ -83,7 +81,6 @@ class CustomerComponentController extends AbstractAdminController
      * )
      */
     public function listComponentAction(
-        Request $request,
         Paginator $paginator,
         PaginatorAttributes $paginatorAttributes,
         $page,
@@ -109,8 +106,7 @@ class CustomerComponentController extends AbstractAdminController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to view
+     * @param CustomerInterface $entity Entity to view
      *
      * @return array Result
      *
@@ -133,10 +129,7 @@ class CustomerComponentController extends AbstractAdminController
      *      }
      * )
      */
-    public function viewComponentAction(
-        Request $request,
-        AbstractEntity $entity
-    )
+    public function viewComponentAction(CustomerInterface $entity)
     {
         return [
             'entity' => $entity,
@@ -149,7 +142,6 @@ class CustomerComponentController extends AbstractAdminController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request  $request  Request
      * @param FormView $formView Form view
      *
      * @return array Result
@@ -172,10 +164,7 @@ class CustomerComponentController extends AbstractAdminController
      *      entity = "entity"
      * )
      */
-    public function newComponentAction(
-        Request $request,
-        FormView $formView
-    )
+    public function newComponentAction(FormView $formView)
     {
         return [
             'form' => $formView,
@@ -188,9 +177,8 @@ class CustomerComponentController extends AbstractAdminController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request        $request  Request
-     * @param AbstractEntity $entity   Entity
-     * @param FormView       $formView Form view
+     * @param CustomerInterface $entity   Entity
+     * @param FormView          $formView Form view
      *
      * @return array Result
      *
@@ -214,8 +202,7 @@ class CustomerComponentController extends AbstractAdminController
      * )
      */
     public function editComponentAction(
-        Request $request,
-        AbstractEntity $entity,
+        CustomerInterface $entity,
         FormView $formView
     )
     {

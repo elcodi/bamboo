@@ -69,6 +69,7 @@ class AdminAppKernel extends Kernel
             new \Elcodi\Bundle\NewsletterBundle\ElcodiNewsletterBundle(),
             new \Elcodi\Bundle\MenuBundle\ElcodiMenuBundle(),
             new \Elcodi\Bundle\TaxBundle\ElcodiTaxBundle(),
+            new \Elcodi\Bundle\StateTransitionMachineBundle\ElcodiStateTransitionMachineBundle(),
 
             /**
              * Elcodi admin bundles

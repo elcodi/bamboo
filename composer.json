@@ -78,6 +78,7 @@
         "elcodi/rule-bundle": "~0.3.0",
         "elcodi/user-bundle": "~0.3.0",
         "elcodi/tax-bundle": "~0.3.0",
+        "elcodi/state-transition-machine-bundle": "~0.3.0",
 
         "elcodi/bamboo-fixtures": "~0.3.0"
     },
@@ -109,7 +110,6 @@
     "config": {
         "bin-dir": "bin"
     },
-    "minimum-stability": "dev",
     "extra": {
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",

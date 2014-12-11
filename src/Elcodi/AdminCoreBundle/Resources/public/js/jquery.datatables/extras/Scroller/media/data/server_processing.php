@@ -1,12 +1,20 @@
 <?php
-    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-     * Easy set variables
-     */
 
-    /* Array of database columns which should be read and sent back to DataTables. Use a space where
-     * you want to insert a non-database field (for example a counter or static image)
-     */
-    $aColumns = array( 'id', 'firstname', 'surname', 'zip', 'country' );
+/**
+ * This file is part of the Elcodi package.
+ *
+ * Copyright (c) 2014 Elcodi.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * Feel free to edit as you please, and have fun.
+ *
+ * @author Marc Morera <yuhu@mmoreram.com>
+ * @author Aldo Chiecchia <zimage@tiscali.it>
+ */
+
+$aColumns = array( 'id', 'firstname', 'surname', 'zip', 'country' );
 
     /* Indexed column (used for fast and accurate table cardinality) */
     $sIndexColumn = "id";
@@ -21,7 +29,7 @@
     $gaSql['server']     = "localhost";
 
     /* REMOVE THIS LINE (it just includes my SQL connection user/pass) */
-    include( $_SERVER['DOCUMENT_ROOT']."/datatables/mysql.php" );
+    include $_SERVER['DOCUMENT_ROOT']."/datatables/mysql.php";
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
      * If you just want to use the basic configuration for DataTables with PHP server-side, there is

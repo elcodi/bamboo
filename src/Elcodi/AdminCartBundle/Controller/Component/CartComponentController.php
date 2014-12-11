@@ -26,13 +26,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormView;
-use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\AdminMediaBundle\Controller\Interfaces\GalleriableComponentControllerInterface;
 use Elcodi\Component\Cart\Entity\Interfaces\CartInterface;
 use Elcodi\Component\Cart\Entity\Interfaces\CartLineInterface;
-use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
 
 /**
  * Class CartComponentController
@@ -131,7 +129,7 @@ class CartComponentController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param AbstractEntity $entity Entity to view
+     * @param CartInterface $entity Entity to view
      *
      * @return array Result
      *
@@ -154,13 +152,8 @@ class CartComponentController
      *      }
      * )
      */
-    public function viewComponentAction(
-        AbstractEntity $entity
-    )
+    public function viewComponentAction(CartInterface $entity)
     {
-        /**
-         * @var CartInterface $entity
-         */
         $this
             ->get('elcodi.cart_event_dispatcher')
             ->dispatchCartOnLoadEvent($entity);
@@ -170,7 +163,7 @@ class CartComponentController
             ->getCoupons($entity);
 
         return [
-            'entity' => $entity,
+            'entity'  => $entity,
             'coupons' => $coupons,
         ];
     }
@@ -197,9 +190,7 @@ class CartComponentController
      *      name  = "formView"
      * )
      */
-    public function newComponentAction(
-        FormView $formView
-    )
+    public function newComponentAction(FormView $formView)
     {
         return [
             'form' => $formView,
@@ -212,8 +203,8 @@ class CartComponentController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param AbstractEntity $entity   Entity
-     * @param FormView       $formView Form view
+     * @param CartInterface $entity   Entity
+     * @param FormView      $formView Form view
      *
      * @return array Result
      *
@@ -237,7 +228,7 @@ class CartComponentController
      * )
      */
     public function editComponentAction(
-        AbstractEntity $entity,
+        CartInterface $entity,
         FormView $formView
     )
     {
@@ -250,8 +241,7 @@ class CartComponentController
     /**
      * View gallery action
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity
+     * @param mixed $entity Entity
      *
      * @return array result
      *
@@ -269,12 +259,9 @@ class CartComponentController
      *      }
      * )
      */
-    public function galleryComponentAction(
-        Request $request,
-        AbstractEntity $entity
-    )
+    public function galleryComponentAction($entity)
     {
-        $images = new ArrayCollection;
+        $images = new ArrayCollection();
 
         /**
          * @var CartInterface     $entity

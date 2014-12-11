@@ -96,7 +96,7 @@ abstract class AbstractStatsController extends Controller
 
         if (is_null($to)) {
 
-            $to = new DateTime;
+            $to = new DateTime();
         }
 
         if (!is_null($from)) {

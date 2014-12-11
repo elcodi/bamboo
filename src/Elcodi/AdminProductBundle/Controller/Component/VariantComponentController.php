@@ -25,12 +25,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormView;
-use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\AdminMediaBundle\Controller\Interfaces\GalleriableComponentControllerInterface;
-use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
 use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
+use Elcodi\Component\Product\Entity\Interfaces\VariantInterface;
 
 /**
  * Class VariantComponentController
@@ -42,8 +40,6 @@ use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
 class VariantComponentController
     extends
     AbstractAdminController
-    implements
-    GalleriableComponentControllerInterface
 {
     /**
      * Component for entity list.
@@ -51,7 +47,6 @@ class VariantComponentController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request             $request             Request
      * @param Paginator           $paginator           Paginator instance
      * @param PaginatorAttributes $paginatorAttributes Paginator attributes
      * @param integer             $id                  Product id
@@ -91,7 +86,6 @@ class VariantComponentController
      * )
      */
     public function listComponentAction(
-        Request $request,
         Paginator $paginator,
         PaginatorAttributes $paginatorAttributes,
         $id,
@@ -119,8 +113,7 @@ class VariantComponentController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to view
+     * @param VariantInterface $entity Entity to view
      *
      * @return array Result
      *
@@ -141,10 +134,7 @@ class VariantComponentController
      *      }
      * )
      */
-    public function viewComponentAction(
-        Request $request,
-        AbstractEntity $entity
-    )
+    public function viewComponentAction(VariantInterface $entity)
     {
         return [
             'entity' => $entity,
@@ -157,9 +147,8 @@ class VariantComponentController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request  $request  Request
-     * @param integer  $id       Product id
-     * @param FormView $formView Form view
+     * @param ProductInterface $product  Product
+     * @param FormView         $formView Form view
      *
      * @return array Result
      *
@@ -193,14 +182,11 @@ class VariantComponentController
      * )
      */
     public function newComponentAction(
-        Request $request,
-        $product,
-        $id,
+        ProductInterface $product,
         FormView $formView
     )
     {
         return [
-            'id' => $id,
             'product' => $product,
             'form'    => $formView,
         ];
@@ -212,9 +198,8 @@ class VariantComponentController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request        $request  Request
-     * @param AbstractEntity $entity   Entity
-     * @param FormView       $formView Form view
+     * @param VariantInterface $entity   Entity
+     * @param FormView         $formView Form view
      *
      * @return array Result
      *
@@ -238,51 +223,13 @@ class VariantComponentController
      * )
      */
     public function editComponentAction(
-        Request $request,
-        AbstractEntity $entity,
+        VariantInterface $entity,
         FormView $formView
     )
     {
         return [
             'entity' => $entity,
             'form'   => $formView,
-        ];
-    }
-//
-//    /**
-//     * View gallery action
-//     *
-//     * @param Request        $request Request
-//     * @param AbstractEntity $entity  Entity
-//     *
-//     * @return array result
-//     *
-//     * @Route(
-//     *      path = "/{id}/gallery/component",
-//     *      name = "admin_product_gallery_component"
-//     * )
-//     * @Template("AdminMediaBundle:Gallery:Component/gallery.html.twig")
-//     * @Method({"GET"})
-//     *
-//     * @EntityAnnotation(
-//     *      class = "elcodi.core.product.entity.product.class",
-//     *      mapping = {
-//     *          "id" = "~id~"
-//     *      }
-//     * )
-//     */
-    public function galleryComponentAction(
-        Request $request,
-        AbstractEntity $entity
-    )
-    {
-        /**
-         * @var ProductInterface $entity
-         */
-
-        return [
-            'entity' => $entity,
-            'images' => $entity->getImages(),
         ];
     }
 }
