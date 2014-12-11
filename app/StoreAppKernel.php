@@ -44,7 +44,7 @@ class StoreAppKernel extends Kernel
              */
             new \Doctrine\Bundle\DoctrineCacheBundle\DoctrineCacheBundle(),
             new \Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
-            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new \Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new \Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new \JMS\SerializerBundle\JMSSerializerBundle(),
             new \JMS\AopBundle\JMSAopBundle(),
@@ -74,6 +74,7 @@ class StoreAppKernel extends Kernel
             new \Elcodi\Bundle\RuleBundle\ElcodiRuleBundle(),
             new \Elcodi\Bundle\MenuBundle\ElcodiMenuBundle(),
             new \Elcodi\Bundle\TaxBundle\ElcodiTaxBundle(),
+            new \Elcodi\Bundle\StateTransitionMachineBundle\ElcodiStateTransitionMachineBundle(),
 
             /**
              * Elcodi store bundles

@@ -101,7 +101,7 @@ class CurrencyController extends Controller
         }
 
         $referrer = $request->headers->get('referer')
-            ? : $this->generateUrl('store_homepage');
+            ?: $this->generateUrl('store_homepage');
 
         return $this->redirect($referrer);
     }

@@ -16,16 +16,13 @@
 
 namespace Elcodi\PaymentBridgeBundle\EventListener;
 
-use PaymentSuite\PaymentCoreBundle\Event\PaymentOrderCreatedEvent;
-use PaymentSuite\PaymentCoreBundle\Event\PaymentOrderDoneEvent;
 use PaymentSuite\PaymentCoreBundle\Event\PaymentOrderLoadEvent;
 use PaymentSuite\PaymentCoreBundle\Event\PaymentOrderSuccessEvent;
 
 use Elcodi\Component\Cart\Entity\Order;
-use Elcodi\Component\Cart\Repository\OrderRepository;
-use Elcodi\Component\Cart\Services\OrderManager;
 use Elcodi\Component\Cart\Transformer\CartOrderTransformer;
 use Elcodi\Component\Cart\Wrapper\CartWrapper;
+use Elcodi\Component\StateTransitionMachine\Machine\MachineManager;
 
 /**
  * Class PaymentEventListener
@@ -47,40 +44,33 @@ class PaymentEventListener
     protected $cartOrderTransformer;
 
     /**
-     * @var OrderManager
+     * @var MachineManager
      *
-     * Order Manager
+     * MachineManager
      */
-    protected $orderManager;
-
-    /**
-     * @var OrderRepository
-     *
-     * Order Repository
-     */
-    protected $orderRepository;
+    protected $orderStateTransitionMachineManager;
 
     /**
      * Construct method
      *
-     * @param CartWrapper          $cartWrapper          Cart Wrapper
-     * @param CartOrderTransformer $cartOrderTransformer Cart Order Transformer
+     * @param CartWrapper          $cartWrapper                        Cart Wrapper
+     * @param CartOrderTransformer $cartOrderTransformer               Cart Order Transformer
+     * @param MachineManager       $orderStateTransitionMachineManager Order State Transition Machine manager
      */
     public function __construct(
         CartWrapper $cartWrapper,
         CartOrderTransformer $cartOrderTransformer,
-        OrderManager $orderManager,
-        OrderRepository $orderRepository
+        MachineManager $orderStateTransitionMachineManager
     )
     {
         $this->cartWrapper = $cartWrapper;
         $this->cartOrderTransformer = $cartOrderTransformer;
-        $this->orderManager = $orderManager;
-        $this->orderRepository = $orderRepository;
+        $this->orderStateTransitionMachineManager = $orderStateTransitionMachineManager;
     }
 
     /**
-     * Create order given current cart
+     * Create order given current cart. This event is only for pushing the new
+     * Order to the payment infrastructure
      *
      * @param PaymentOrderLoadEvent $event Event
      */
@@ -97,24 +87,6 @@ class PaymentEventListener
         $event
             ->getPaymentBridge()
             ->setOrder($order);
-
-        $this->orderManager->addStateToOrder($order, 'pending.payment');
-    }
-
-    /**
-     * @param PaymentOrderCreatedEvent $event
-     */
-    public function onPaymentOrderCreated(PaymentOrderCreatedEvent $event)
-    {
-
-    }
-
-    /**
-     * @param PaymentOrderDoneEvent $paymentOrderDoneEvent
-     */
-    public function onPaymentOrderDone(PaymentOrderDoneEvent $paymentOrderDoneEvent)
-    {
-        // STORE THE TRANSACTION ID LOCALLY
     }
 
     /**
@@ -126,7 +98,9 @@ class PaymentEventListener
      */
     public function onPaymentOrderSuccess(PaymentOrderSuccessEvent $event)
     {
-        $order = $event->getPaymentBridge()->getOrder();
+        $order = $event
+            ->getPaymentBridge()
+            ->getOrder();
 
         if (!$order instanceof Order) {
             throw new \LogicException(
@@ -134,7 +108,13 @@ class PaymentEventListener
             );
         }
 
-        $this->orderManager->addStateToOrder($order, 'accepted');
+        $this
+            ->orderStateTransitionMachineManager
+            ->transition(
+                $order,
+                'pay',
+                'Order paid'
+            );
     }
 
 }

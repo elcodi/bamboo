@@ -8,9 +8,7 @@ services:
         arguments:
             cart_wrapper: @elcodi.cart_wrapper
             cart_order_transformer: @elcodi.cart_order_transformer
-            order_manager: @elcodi.order_manager
-            order_repository: @elcodi.repository.order
+            order_state_transition_machine: @elcodi.order_state_transition_machine
         tags:
             - { name: kernel.event_listener, event: payment.order.load, method: onPaymentOrderLoad }
             - { name: kernel.event_listener, event: payment.order.success, method: onPaymentOrderSuccess }
-            - { name: kernel.event_listener, event: payment.order.done, method: onPaymentOrderDone }

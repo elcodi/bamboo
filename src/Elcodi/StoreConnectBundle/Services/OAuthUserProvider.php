@@ -62,10 +62,10 @@ class OAuthUserProvider implements OAuthAwareUserProviderInterface
 
     /**
      * @param UserProviderInterface $provider
-     * @param ObjectRepository $authorizationRepository
-     * @param ObjectManager $authorizationManager
-     * @param AbstractFactory $customerFactory
-     * @param ObjectManager $customerObjectManager
+     * @param ObjectRepository      $authorizationRepository
+     * @param ObjectManager         $authorizationManager
+     * @param AbstractFactory       $customerFactory
+     * @param ObjectManager         $customerObjectManager
      */
     public function __construct(
         UserProviderInterface $provider,
@@ -118,7 +118,7 @@ class OAuthUserProvider implements OAuthAwareUserProviderInterface
 
     /**
      * @param UserResponseInterface $response
-     * @param UserInterface $user
+     * @param UserInterface         $user
      *
      * @return Authorization
      */
@@ -135,7 +135,7 @@ class OAuthUserProvider implements OAuthAwareUserProviderInterface
     }
 
     /**
-     * @param Authorization $authorization
+     * @param Authorization         $authorization
      * @param UserResponseInterface $response
      *
      * @return Authorization
