@@ -16,8 +16,6 @@
 
 namespace Elcodi\AdminCoreBundle\Controller\Interfaces;
 
-use Symfony\Component\HttpFoundation\Request;
-
 /**
  * Class StatsControllerInterface
  */
@@ -26,27 +24,21 @@ interface StatsControllerInterface
     /**
      * Get count of all elements
      *
-     * @param Request $request Request
-     *
      * @return mixed
      */
-    public function totalStatsAction(Request $request);
+    public function totalStatsAction();
 
     /**
      * Get last month elements count
      *
-     * @param Request $request Request
-     *
      * @return mixed
      */
-    public function monthlyStatsAction(Request $request);
+    public function monthlyStatsAction();
 
     /**
      * Get today elements count
      *
-     * @param Request $request Request
-     *
      * @return mixed
      */
-    public function dailyStatsAction(Request $request);
+    public function dailyStatsAction();
 }

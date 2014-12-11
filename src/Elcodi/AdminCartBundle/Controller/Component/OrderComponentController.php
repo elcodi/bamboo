@@ -26,13 +26,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormView;
-use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\AdminMediaBundle\Controller\Interfaces\GalleriableComponentControllerInterface;
 use Elcodi\Component\Cart\Entity\Interfaces\OrderInterface;
 use Elcodi\Component\Cart\Entity\Interfaces\OrderLineInterface;
-use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
 
 /**
  * Class Controller for Order
@@ -120,7 +118,7 @@ class OrderComponentController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param AbstractEntity $entity Entity to view
+     * @param OrderInterface $entity Entity to view
      *
      * @return array Result
      *
@@ -143,16 +141,14 @@ class OrderComponentController
      *      }
      * )
      */
-    public function viewComponentAction(
-        AbstractEntity $entity
-    )
+    public function viewComponentAction(OrderInterface $entity)
     {
         $orderCoupons = $this
             ->get('elcodi.order_coupon_manager')
             ->getOrderCoupons($entity);
 
         return [
-            'entity' => $entity,
+            'entity'  => $entity,
             'coupons' => $orderCoupons,
         ];
     }
@@ -179,9 +175,7 @@ class OrderComponentController
      *      name  = "formView"
      * )
      */
-    public function newComponentAction(
-        FormView $formView
-    )
+    public function newComponentAction(FormView $formView)
     {
         return [
             'form' => $formView,
@@ -194,7 +188,7 @@ class OrderComponentController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param AbstractEntity $entity   Entity
+     * @param OrderInterface $entity   Entity
      * @param FormView       $formView Form view
      *
      * @return array Result
@@ -219,7 +213,7 @@ class OrderComponentController
      * )
      */
     public function editComponentAction(
-        AbstractEntity $entity,
+        OrderInterface $entity,
         FormView $formView
     )
     {
@@ -232,8 +226,7 @@ class OrderComponentController
     /**
      * View gallery action
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity
+     * @param mixed $entity Entity
      *
      * @return array result
      *
@@ -251,10 +244,7 @@ class OrderComponentController
      *      }
      * )
      */
-    public function galleryComponentAction(
-        Request $request,
-        AbstractEntity $entity
-    )
+    public function galleryComponentAction($entity)
     {
         $images = new ArrayCollection();
 

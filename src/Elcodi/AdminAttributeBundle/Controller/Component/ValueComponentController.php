@@ -25,10 +25,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormView;
-use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
+use Elcodi\Component\Attribute\Entity\Interfaces\ValueInterface;
 
 /**
  * Class ValueComponentController
@@ -47,7 +46,6 @@ class ValueComponentController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request             $request             Request
      * @param Paginator           $paginator           Paginator instance
      * @param PaginatorAttributes $paginatorAttributes Paginator attributes
      * @param integer             $id                  Attribute id
@@ -87,7 +85,6 @@ class ValueComponentController
      * )
      */
     public function listComponentAction(
-        Request $request,
         Paginator $paginator,
         PaginatorAttributes $paginatorAttributes,
         $id,
@@ -105,7 +102,7 @@ class ValueComponentController
             'orderByDirection' => $orderByDirection,
             'totalPages'       => $paginatorAttributes->getTotalPages(),
             'totalElements'    => $paginatorAttributes->getTotalElements(),
-            'attributeId'        => $id
+            'attributeId'      => $id
         ];
     }
 
@@ -115,8 +112,7 @@ class ValueComponentController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to view
+     * @param ValueInterface $entity Entity to view
      *
      * @return array Result
      *
@@ -137,10 +133,7 @@ class ValueComponentController
      *      }
      * )
      */
-    public function viewComponentAction(
-        Request $request,
-        AbstractEntity $entity
-    )
+    public function viewComponentAction(ValueInterface $entity)
     {
         return [
             'entity' => $entity,
@@ -153,7 +146,6 @@ class ValueComponentController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request  $request  Request
      * @param integer  $id       Attribute id
      * @param FormView $formView Form view
      *
@@ -179,7 +171,6 @@ class ValueComponentController
      * )
      */
     public function newComponentAction(
-        Request $request,
         $id,
         FormView $formView
     )
@@ -196,8 +187,7 @@ class ValueComponentController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Request        $request  Request
-     * @param AbstractEntity $entity   Entity
+     * @param ValueInterface $entity   Entity
      * @param FormView       $formView Form view
      *
      * @return array Result
@@ -222,8 +212,7 @@ class ValueComponentController
      * )
      */
     public function editComponentAction(
-        Request $request,
-        AbstractEntity $entity,
+        ValueInterface $entity,
         FormView $formView
     )
     {

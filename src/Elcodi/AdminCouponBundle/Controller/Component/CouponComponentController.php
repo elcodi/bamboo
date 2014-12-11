@@ -27,7 +27,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormView;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
+use Elcodi\Component\Coupon\Entity\Interfaces\CouponInterface;
 
 /**
  * Class CouponComponentController
@@ -106,7 +106,7 @@ class CouponComponentController extends AbstractAdminController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param AbstractEntity $entity Entity to view
+     * @param CouponInterface $entity Entity to view
      *
      * @return array Result
      *
@@ -129,7 +129,7 @@ class CouponComponentController extends AbstractAdminController
      *      }
      * )
      */
-    public function viewComponentAction(AbstractEntity $entity)
+    public function viewComponentAction(CouponInterface $entity)
     {
         return [
             'entity' => $entity,
@@ -177,8 +177,8 @@ class CouponComponentController extends AbstractAdminController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param AbstractEntity $entity   Entity
-     * @param FormView       $formView Form view
+     * @param CouponInterface $entity   Entity
+     * @param FormView        $formView Form view
      *
      * @return array Result
      *
@@ -202,7 +202,7 @@ class CouponComponentController extends AbstractAdminController
      * )
      */
     public function editComponentAction(
-        AbstractEntity $entity,
+        CouponInterface $entity,
         FormView $formView
     )
     {

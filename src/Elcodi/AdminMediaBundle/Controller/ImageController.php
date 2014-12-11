@@ -29,8 +29,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
-use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
-use Elcodi\Component\Media\Entity\Image;
+use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
+use Elcodi\Component\Media\Entity\Interfaces\ImageInterface;
 
 /**
  * Class Controller for Media
@@ -49,7 +49,7 @@ class ImageController
      * List elements of certain entity type.
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
      * @param integer $page             Page
      * @param integer $limit            Limit of items per page
@@ -94,7 +94,7 @@ class ImageController
      * View element action.
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
      * @param integer $id Entity id
      *
@@ -121,7 +121,7 @@ class ImageController
      * New element action
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
      * @return array Result
      *
@@ -142,7 +142,7 @@ class ImageController
      *
      * Should be POST
      *
-     * @param AbstractEntity $entity  Entity to save
+     * @param ImageInterface $entity  Entity to save
      * @param FormInterface  $form    Form view
      * @param boolean        $isValid Request handle is valid
      *
@@ -169,14 +169,14 @@ class ImageController
      * )
      */
     public function saveAction(
-        AbstractEntity $entity,
+        ImageInterface $entity,
         FormInterface $form,
         $isValid
     )
     {
         if ($isValid) {
             $this
-                ->getManagerForClass($entity)
+                ->get('elcodi.object_manager.image')
                 ->flush($entity);
         }
 
@@ -189,7 +189,7 @@ class ImageController
      * New element action
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
      * @param integer $id Entity id
      *
@@ -214,7 +214,7 @@ class ImageController
      *
      * Should be POST
      *
-     * @param AbstractEntity $entity  Entity to update
+     * @param ImageInterface $entity  Entity to update
      * @param boolean        $isValid Request handle is valid
      *
      * @return RedirectResponse Redirect response
@@ -239,13 +239,13 @@ class ImageController
      * )
      */
     public function updateAction(
-        AbstractEntity $entity,
+        ImageInterface $entity,
         $isValid
     )
     {
         if ($isValid) {
             $this
-                ->getManagerForClass($entity)
+                ->get('elcodi.object_manager.image')
                 ->flush($entity);
         }
 
@@ -257,8 +257,8 @@ class ImageController
     /**
      * Enable entity
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to enable
+     * @param Request          $request Request
+     * @param EnabledInterface $entity  Entity to enable
      *
      * @return array Result
      *
@@ -277,7 +277,7 @@ class ImageController
      */
     public function enableAction(
         Request $request,
-        AbstractEntity $entity
+        EnabledInterface $entity
     )
     {
         return parent::enableAction(
@@ -289,8 +289,8 @@ class ImageController
     /**
      * Disable entity
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to disable
+     * @param Request          $request Request
+     * @param EnabledInterface $entity  Entity to disable
      *
      * @return array Result
      *
@@ -309,7 +309,7 @@ class ImageController
      */
     public function disableAction(
         Request $request,
-        AbstractEntity $entity
+        EnabledInterface $entity
     )
     {
         return parent::disableAction(
@@ -319,11 +319,11 @@ class ImageController
     }
 
     /**
-     * Updated edited element action
+     * Delete entity
      *
-     * @param Request        $request     Request
-     * @param AbstractEntity $entity      Entity to delete
-     * @param string         $redirectUrl Redirect url
+     * @param Request $request     Request
+     * @param mixed   $entity      Entity to delete
+     * @param string  $redirectUrl Redirect url
      *
      * @return RedirectResponse Redirect response
      *
@@ -342,7 +342,7 @@ class ImageController
      */
     public function deleteAction(
         Request $request,
-        AbstractEntity $entity,
+        $entity,
         $redirectUrl = null
     )
     {
@@ -398,7 +398,7 @@ class ImageController
                 ->uploadFile($image, $image->getContent(), false);
 
             $filesystem = $this->container->get('elcodi.core.media.filesystem.default');
-            $fileTransformer = $this->container->get('elcodi.core.media.transformer.file');
+            $fileTransformer = $this->container->get('elcodi.file_identifier_transformer');
 
             $filesystem->write(
                 $fileTransformer->transform($image),

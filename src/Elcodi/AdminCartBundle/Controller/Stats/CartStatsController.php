@@ -19,7 +19,6 @@ namespace Elcodi\AdminCartBundle\Controller\Stats;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractStatsController;
 use Elcodi\AdminCoreBundle\Controller\Interfaces\StatsControllerInterface;
@@ -36,8 +35,6 @@ class CartStatsController extends AbstractStatsController implements StatsContro
     /**
      * Get count of all elements
      *
-     * @param Request $request Request
-     *
      * @return mixed
      *
      * @Route(
@@ -47,7 +44,7 @@ class CartStatsController extends AbstractStatsController implements StatsContro
      * @Template("AdminCoreBundle:Stats:total.html.twig")
      * @Method({"GET"})
      */
-    public function totalStatsAction(Request $request)
+    public function totalStatsAction()
     {
         return [
             'total' => $this->getTotalStats('elcodi.core.cart.entity.cart.class'),
@@ -56,8 +53,6 @@ class CartStatsController extends AbstractStatsController implements StatsContro
 
     /**
      * Get last month elements count
-     *
-     * @param Request $request Request
      *
      * @return mixed
      *
@@ -68,7 +63,7 @@ class CartStatsController extends AbstractStatsController implements StatsContro
      * @Template("AdminCoreBundle:Stats:monthly.html.twig")
      * @Method({"GET"})
      */
-    public function monthlyStatsAction(Request $request)
+    public function monthlyStatsAction()
     {
         return [
             'total' => $this->getMonthlyStats('elcodi.core.cart.entity.cart.class'),
@@ -77,8 +72,6 @@ class CartStatsController extends AbstractStatsController implements StatsContro
 
     /**
      * Get today elements count
-     *
-     * @param Request $request Request
      *
      * @return mixed
      *
@@ -89,7 +82,7 @@ class CartStatsController extends AbstractStatsController implements StatsContro
      * @Template("AdminCoreBundle:Stats:daily.html.twig")
      * @Method({"GET"})
      */
-    public function dailyStatsAction(Request $request)
+    public function dailyStatsAction()
     {
         return [
             'total' => $this->getDailyStats('elcodi.core.cart.entity.cart.class'),

@@ -27,7 +27,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
-use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
+use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
+use Elcodi\Component\User\Entity\Interfaces\CustomerInterface;
 
 /**
  * Class Controller for Customer
@@ -46,9 +47,8 @@ class CustomerController
      * List elements of certain entity type.
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
-     * @param Request $request          Request
      * @param integer $page             Page
      * @param integer $limit            Limit of items per page
      * @param string  $orderByField     Field to order by
@@ -74,7 +74,6 @@ class CustomerController
      * @Method({"GET"})
      */
     public function listAction(
-        Request $request,
         $page,
         $limit,
         $orderByField,
@@ -93,10 +92,9 @@ class CustomerController
      * View element action.
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
-     * @param Request $request Request
-     * @param integer $id      Entity id
+     * @param integer $id Entity id
      *
      * @return array Result
      *
@@ -110,10 +108,7 @@ class CustomerController
      * @Template
      * @Method({"GET"})
      */
-    public function viewAction(
-        Request $request,
-        $id
-    )
+    public function viewAction($id)
     {
         return [
             'id' => $id,
@@ -124,7 +119,7 @@ class CustomerController
      * New element action
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
      * @return array Result
      *
@@ -145,10 +140,9 @@ class CustomerController
      *
      * Should be POST
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to save
-     * @param FormInterface  $form    Form view
-     * @param boolean        $isValid Request handle is valid
+     * @param CustomerInterface $entity  Entity to save
+     * @param FormInterface     $form    Form view
+     * @param boolean           $isValid Request handle is valid
      *
      * @return RedirectResponse Redirect response
      *
@@ -173,15 +167,16 @@ class CustomerController
      * )
      */
     public function saveAction(
-        Request $request,
-        AbstractEntity $entity,
+        CustomerInterface $entity,
         FormInterface $form,
         $isValid
     )
     {
-        $this
-            ->getManagerForClass($entity)
-            ->flush($entity);
+        if ($isValid) {
+            $this
+                ->get('elcodi.object_manager.customer')
+                ->flush($entity);
+        }
 
         return $this->redirectRoute("admin_customer_view", [
             'id' => $entity->getId(),
@@ -192,10 +187,9 @@ class CustomerController
      * New element action
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
-     * @param Request $request Request
-     * @param integer $id      Entity id
+     * @param integer $id Entity id
      *
      * @return array Result
      *
@@ -206,10 +200,7 @@ class CustomerController
      * @Template
      * @Method({"GET"})
      */
-    public function editAction(
-        Request $request,
-        $id
-    )
+    public function editAction($id)
     {
         return [
             'id' => $id,
@@ -221,10 +212,9 @@ class CustomerController
      *
      * Should be POST
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to update
-     * @param FormInterface  $form    Form view
-     * @param boolean        $isValid Request handle is valid
+     * @param CustomerInterface $entity  Entity to update
+     * @param FormInterface     $form    Form view
+     * @param boolean           $isValid Request handle is valid
      *
      * @return RedirectResponse Redirect response
      *
@@ -249,15 +239,16 @@ class CustomerController
      * )
      */
     public function updateAction(
-        Request $request,
-        AbstractEntity $entity,
+        CustomerInterface $entity,
         FormInterface $form,
         $isValid
     )
     {
-        $this
-            ->getManagerForClass($entity)
-            ->flush($entity);
+        if ($isValid) {
+            $this
+                ->get('elcodi.object_manager.customer')
+                ->flush($entity);
+        }
 
         return $this->redirectRoute("admin_customer_view", [
             'id' => $entity->getId(),
@@ -267,8 +258,8 @@ class CustomerController
     /**
      * Enable entity
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to enable
+     * @param Request          $request Request
+     * @param EnabledInterface $entity  Entity to enable
      *
      * @return array Result
      *
@@ -287,7 +278,7 @@ class CustomerController
      */
     public function enableAction(
         Request $request,
-        AbstractEntity $entity
+        EnabledInterface $entity
     )
     {
         return parent::enableAction(
@@ -299,8 +290,8 @@ class CustomerController
     /**
      * Disable entity
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to disable
+     * @param Request          $request Request
+     * @param EnabledInterface $entity  Entity to disable
      *
      * @return array Result
      *
@@ -319,7 +310,7 @@ class CustomerController
      */
     public function disableAction(
         Request $request,
-        AbstractEntity $entity
+        EnabledInterface $entity
     )
     {
         return parent::disableAction(
@@ -329,11 +320,11 @@ class CustomerController
     }
 
     /**
-     * Updated edited element action
+     * Delete entity
      *
-     * @param Request        $request     Request
-     * @param AbstractEntity $entity      Entity to delete
-     * @param string         $redirectUrl Redirect url
+     * @param Request $request     Request
+     * @param mixed   $entity      Entity to delete
+     * @param string  $redirectUrl Redirect url
      *
      * @return RedirectResponse Redirect response
      *
@@ -352,7 +343,7 @@ class CustomerController
      */
     public function deleteAction(
         Request $request,
-        AbstractEntity $entity,
+        $entity,
         $redirectUrl = null
     )
     {

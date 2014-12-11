@@ -1,13 +1,17 @@
 <?php
-/*
- * jQuery File Upload Plugin PHP Example 5.14
- * https://github.com/blueimp/jQuery-File-Upload
+
+/**
+ * This file is part of the Elcodi package.
  *
- * Copyright 2010, Sebastian Tschan
- * https://blueimp.net
+ * Copyright (c) 2014 Elcodi.com
  *
- * Licensed under the MIT license:
- * http://www.opensource.org/licenses/MIT
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * Feel free to edit as you please, and have fun.
+ *
+ * @author Marc Morera <yuhu@mmoreram.com>
+ * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
 error_reporting(E_ALL | E_STRICT);

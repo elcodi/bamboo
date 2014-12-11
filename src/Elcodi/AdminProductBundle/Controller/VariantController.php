@@ -16,10 +16,6 @@
 
 namespace Elcodi\AdminProductBundle\Controller;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
-use Elcodi\Component\Attribute\Entity\Attribute;
-use Elcodi\Component\Attribute\Entity\Value;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -32,7 +28,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
 use Elcodi\AdminCoreBundle\Controller\Interfaces\NavegableControllerInterface;
-use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
+use Elcodi\Component\Attribute\Entity\Attribute;
+use Elcodi\Component\Attribute\Entity\Value;
+use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 use Elcodi\Component\Product\Entity\Product;
 use Elcodi\Component\Product\Entity\Variant;
 
@@ -74,7 +72,7 @@ class VariantController
      * List elements of certain entity type.
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
      * @param Request $request          Request
      * @param integer $page             Page
@@ -121,7 +119,7 @@ class VariantController
      * View element action.
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
      * @param Request $request   Request
      * @param integer $id        Product id
@@ -146,7 +144,7 @@ class VariantController
     )
     {
         return [
-            'id' => $id,
+            'id'        => $id,
             'variantId' => $variantId
         ];
     }
@@ -155,9 +153,10 @@ class VariantController
      * New element action
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
      * @param $id integer Product id
+     *
      * @return array Result
      *
      * @Route(
@@ -179,11 +178,11 @@ class VariantController
      *
      * Should be POST
      *
-     * @param Request        $request Request
-     * @param Variant        $variant Product variant Entity to save
-     * @param Product        $product Parent product for the variant being saved
-     * @param FormInterface  $form    Form view
-     * @param boolean        $isValid Request handle is valid
+     * @param Request       $request Request
+     * @param Variant       $variant Product variant Entity to save
+     * @param Product       $product Parent product for the variant being saved
+     * @param FormInterface $form    Form view
+     * @param boolean       $isValid Request handle is valid
      *
      * @return RedirectResponse Redirect response
      *
@@ -226,35 +225,38 @@ class VariantController
         $isValid
     )
     {
-        /**
-         * @var Variant $entity
-         */
-        $variant->setProduct($product);
+        if ($isValid) {
 
-        $this
-            ->getManagerForClass($variant)
-            ->flush($variant);
-
-        /**
-         * @var Value $option
-         */
-        foreach ($variant->getOptions() as $option) {
-            /*
-             * When adding an option to a Variant it is
-             * important to check that the parent Product
-             * has its corresponding Attribute
+            /**
+             * @var Variant $entity
              */
-            if (!$product->getAttributes()->contains($option->getAttribute())) {
-                $product->addAttribute($option->getAttribute());
+            $variant->setProduct($product);
+
+            $this
+                ->get('elcodi.object_manager.product_variant')
+                ->flush($variant);
+
+            /**
+             * @var Value $option
+             */
+            foreach ($variant->getOptions() as $option) {
+                /*
+                 * When adding an option to a Variant it is
+                 * important to check that the parent Product
+                 * has its corresponding Attribute
+                 */
+                if (!$product->getAttributes()->contains($option->getAttribute())) {
+                    $product->addAttribute($option->getAttribute());
+                }
             }
+
+            $this
+                ->get('elcodi.object_manager.product_variant')
+                ->flush($product);
         }
 
-        $this
-            ->getManagerForClass($product)
-            ->flush();
-
         return $this->redirectRoute("admin_variant_view", [
-            'id' => $product->getId(),
+            'id'        => $product->getId(),
             'variantId' => $variant->getId()
         ]);
     }
@@ -263,12 +265,13 @@ class VariantController
      * Edit element action
      *
      * This action is just a wrapper, so should never get any data,
-     * as this is component responsability
+     * as this is component responsibility
      *
-     * @param  Request $request   Request
-     * @param  integer $id        Product id
-     * @param  integer $variantId Variant id
-     * @return array   Result
+     * @param Request $request   Request
+     * @param integer $id        Product id
+     * @param integer $variantId Variant id
+     *
+     * @return array Result
      *
      * @Route(
      *      path = "/{variantId}/edit",
@@ -284,7 +287,7 @@ class VariantController
     )
     {
         return [
-            'id' => $id,
+            'id'        => $id,
             'variantId' => $variantId,
         ];
     }
@@ -294,10 +297,10 @@ class VariantController
      *
      * Should be POST
      *
-     * @param Request        $request Request
-     * @param Variant        $variant Product variant to update
-     * @param FormInterface  $form    Form view
-     * @param boolean        $isValid Request handle is valid
+     * @param Request       $request Request
+     * @param Variant       $variant Product variant to update
+     * @param FormInterface $form    Form view
+     * @param boolean       $isValid Request handle is valid
      *
      * @return RedirectResponse Redirect response
      *
@@ -330,32 +333,34 @@ class VariantController
     )
     {
 
-        $this
-            ->getManagerForClass($variant)
-            ->flush($variant);
+        if ($isValid) {
+            $this
+                ->get('elcodi.object_manager.product_variant')
+                ->flush($variant);
 
-        /**
-         * @var Product $product
-         */
-        $product = $variant->getProduct();
-
-        /**
-         * @var Value $option
-         */
-        foreach ($variant->getOptions() as $option) {
-            /*
-             * When adding an option to a Variant it is
-             * important to check that the parent Product
-             * has its corresponding Attribute
+            /**
+             * @var Product $product
              */
-            if (!$product->getAttributes()->contains($option->getAttribute())) {
-                $product->addAttribute($option->getAttribute());
-            }
-        }
+            $product = $variant->getProduct();
 
-        $this
-            ->getManagerForClass($product)
-            ->flush();
+            /**
+             * @var Value $option
+             */
+            foreach ($variant->getOptions() as $option) {
+                /*
+                 * When adding an option to a Variant it is
+                 * important to check that the parent Product
+                 * has its corresponding Attribute
+                 */
+                if (!$product->getAttributes()->contains($option->getAttribute())) {
+                    $product->addAttribute($option->getAttribute());
+                }
+            }
+
+            $this
+                ->get('elcodi.object_manager.product')
+                ->flush($variant);
+        }
 
         return $this->redirectRoute("admin_variant_view", [
             'id'        => $variant->getProduct()->getId(),
@@ -366,8 +371,8 @@ class VariantController
     /**
      * Enable entity
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $variant Product variant to enable
+     * @param Request          $request Request
+     * @param EnabledInterface $variant Product variant to enable
      *
      * @return array Result
      *
@@ -387,7 +392,7 @@ class VariantController
      */
     public function enableAction(
         Request $request,
-        AbstractEntity $variant
+        EnabledInterface $variant
     )
     {
         return parent::enableAction(
@@ -399,8 +404,8 @@ class VariantController
     /**
      * Disable entity
      *
-     * @param Request        $request Request
-     * @param AbstractEntity $entity  Entity to disable
+     * @param Request          $request Request
+     * @param EnabledInterface $entity  Entity to disable
      *
      * @return array Result
      *
@@ -419,7 +424,7 @@ class VariantController
      */
     public function disableAction(
         Request $request,
-        AbstractEntity $entity
+        EnabledInterface $entity
     )
     {
         return parent::disableAction(
@@ -431,9 +436,9 @@ class VariantController
     /**
      * Delete element action
      *
-     * @param Request        $request     Request
-     * @param AbstractEntity $variant     Variant to delete
-     * @param string         $redirectUrl Redirect url
+     * @param Request $request     Request
+     * @param mixed   $variant     Variant to delete
+     * @param string  $redirectUrl Redirect url
      *
      * @return RedirectResponse Redirect response
      *
@@ -460,7 +465,7 @@ class VariantController
      */
     public function deleteAction(
         Request $request,
-        AbstractEntity $variant,
+        $variant,
         $redirectUrl = null
     )
     {
@@ -526,8 +531,8 @@ class VariantController
         }
 
         $this
-            ->getManagerForClass($product)
-            ->flush();
+            ->get('elcodi.object_manager.product')
+            ->flush($product);
 
         return parent::deleteAction(
             $request,
@@ -550,7 +555,7 @@ class VariantController
      *
      * @return array
      */
-    private function getUniqueAttributesFromVariant(Variant $variant)
+    protected function getUniqueAttributesFromVariant(Variant $variant)
     {
         $variantAttributes = [];
 
@@ -568,6 +573,5 @@ class VariantController
 
         return $variantAttributes;
     }
-
 
 }

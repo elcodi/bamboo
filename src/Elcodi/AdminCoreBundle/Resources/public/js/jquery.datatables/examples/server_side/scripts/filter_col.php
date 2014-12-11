@@ -1,6 +1,20 @@
 <?php
-  /* MySQL connection */
-    include( $_SERVER['DOCUMENT_ROOT']."/datatables/mysql.php" ); /* ;-) */
+
+/**
+ * This file is part of the Elcodi package.
+ *
+ * Copyright (c) 2014 Elcodi.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * Feel free to edit as you please, and have fun.
+ *
+ * @author Marc Morera <yuhu@mmoreram.com>
+ * @author Aldo Chiecchia <zimage@tiscali.it>
+ */
+
+include $_SERVER['DOCUMENT_ROOT']."/datatables/mysql.php"; /* ;-) */
 
     /*
      * Local functions
@@ -113,12 +127,12 @@
     {
         if ( $i == 0 )
             return "engine";
-        else if ( $i == 1 )
+        elseif ( $i == 1 )
             return "browser";
-        else if ( $i == 2 )
+        elseif ( $i == 2 )
             return "platform";
-        else if ( $i == 3 )
+        elseif ( $i == 3 )
             return "version";
-        else if ( $i == 4 )
+        elseif ( $i == 4 )
             return "grade";
     }

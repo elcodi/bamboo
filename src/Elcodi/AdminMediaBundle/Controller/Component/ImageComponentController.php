@@ -27,7 +27,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormView;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
+use Elcodi\Component\Media\Entity\Interfaces\ImageInterface;
 
 /**
  * Class ImageComponentController
@@ -106,7 +106,7 @@ class ImageComponentController extends AbstractAdminController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param AbstractEntity $entity Entity to view
+     * @param ImageInterface $entity Entity to view
      *
      * @return array Result
      *
@@ -129,7 +129,7 @@ class ImageComponentController extends AbstractAdminController
      *      }
      * )
      */
-    public function viewComponentAction(AbstractEntity $entity)
+    public function viewComponentAction(ImageInterface $entity)
     {
         return [
             'entity' => $entity,
@@ -177,7 +177,7 @@ class ImageComponentController extends AbstractAdminController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param AbstractEntity $entity   Entity
+     * @param ImageInterface $entity   Entity
      * @param FormView       $formView Form view
      *
      * @return array Result
@@ -202,7 +202,7 @@ class ImageComponentController extends AbstractAdminController
      * )
      */
     public function editComponentAction(
-        AbstractEntity $entity,
+        ImageInterface $entity,
         FormView $formView
     )
     {
