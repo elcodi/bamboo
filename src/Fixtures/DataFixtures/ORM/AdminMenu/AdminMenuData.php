@@ -258,6 +258,19 @@ class AdminMenuData extends AbstractFixture
         $manager->persist($rulesNode);
 
         /*
+         * Currencies
+         */
+
+        $configurationNode = $this
+            ->createNewNode()
+            ->setName('Configuration')
+            ->setCode('gear')
+            ->setUrl('admin_configuration_list')
+            ->enable();
+
+        $manager->persist($configurationNode);
+
+        /*
          * Admin side Menu
          */
 
@@ -279,6 +292,7 @@ class AdminMenuData extends AbstractFixture
             ->addSubnode($couponsNode)
             ->addSubnode($currenciesNode)
             ->addSubnode($rulesNode)
+            ->addSubnode($configurationNode)
             ->enable();
 
         $manager->persist($adminMenu);
