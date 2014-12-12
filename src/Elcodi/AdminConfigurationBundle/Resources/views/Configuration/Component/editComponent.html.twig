@@ -1,0 +1,31 @@
+{% extends 'AdminCoreBundle::Common/formComponent.html.twig' %}
+
+{% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
+
+{% block title %}
+    {{ 'Edit Configuration'|trans }} - {{ entity.id }} - {{ entity.name }}
+{% endblock title %}
+
+{% block content %}
+
+    {{ form_start(form, {'action': url('admin_configuration_update', {
+        'id': entity.id
+    })}) }}
+
+    {{ form_row(form.namespace) }}
+    {{ form_row(form.parameter) }}
+    {{ form_row(form.value) }}
+    {{ form_row(form.createdAt) }}
+    {{ form_row(form.updatedAt) }}
+    {{ form_row(form.enabled) }}
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">{{ 'Update'|trans }}</button>
+            <a href="{{ path('admin_configuration_list') }}" class="btn btn-default">{{ 'Cancel'|trans }}</a>
+        </div>
+    </div>
+
+    {{ form_end(form, {render_rest : false}) }}
+
+{% endblock content %}
