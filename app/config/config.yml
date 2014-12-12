@@ -84,6 +84,8 @@ doctrine_cache:
     providers:
         elcodi:
             type: array
+        elcodi_configuration:
+             type: array
 
 knp_gaufrette:
     adapters:

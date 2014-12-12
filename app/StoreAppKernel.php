@@ -75,6 +75,7 @@ class StoreAppKernel extends Kernel
             new \Elcodi\Bundle\MenuBundle\ElcodiMenuBundle(),
             new \Elcodi\Bundle\TaxBundle\ElcodiTaxBundle(),
             new \Elcodi\Bundle\StateTransitionMachineBundle\ElcodiStateTransitionMachineBundle(),
+            new \Elcodi\Bundle\ConfigurationBundle\ElcodiConfigurationBundle(),
 
             /**
              * Elcodi store bundles
