@@ -18,12 +18,12 @@ namespace Elcodi\AdminUserBundle\EventListener;
 
 use Swift_Mailer;
 use Swift_Message;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
-use Symfony\Component\Security\Core\SecurityContextInterface;
 use Symfony\Component\Templating\EngineInterface;
 
-use Elcodi\UserBundle\Event\PasswordRecoverEvent;
-use Elcodi\UserBundle\Event\PasswordRememberEvent;
+use Elcodi\Component\User\Event\PasswordRecoverEvent;
+use Elcodi\Component\User\Event\PasswordRememberEvent;
 
 /**
  * Password event listener
@@ -45,28 +45,28 @@ class RememberPasswordEventListener
     protected $templating;
 
     /**
-     * @var SecurityContextInterface
+     * @var TokenStorageInterface
      *
-     * SecurityContext
+     * Token storage
      */
-    protected $securityContext;
+    protected $tokenStorage;
 
     /**
      * Build method
      *
-     * @param Swift_Mailer             $mailer          Mailer
-     * @param EngineInterface          $templating      Templating
-     * @param SecurityContextInterface $securityContext Security context
+     * @param Swift_Mailer          $mailer       Mailer
+     * @param EngineInterface       $templating   Templating
+     * @param TokenStorageInterface $tokenStorage Token storage
      */
     public function __construct(
         Swift_Mailer $mailer,
         EngineInterface $templating,
-        SecurityContextInterface $securityContext
+        TokenStorageInterface $tokenStorage
     )
     {
         $this->mailer = $mailer;
         $this->templating = $templating;
-        $this->securityContext = $securityContext;
+        $this->tokenStorage = $tokenStorage;
     }
 
     /**
@@ -116,6 +116,6 @@ class RememberPasswordEventListener
             $user->getRoles()
         );
 
-        $this->securityContext->setToken($token);
+        $this->tokenStorage->setToken($token);
     }
 }
