@@ -19,7 +19,9 @@ namespace Elcodi\Fixtures\DataFixtures\ORM\Category;
 use Doctrine\Common\Persistence\ObjectManager;
 
 use Elcodi\Bundle\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
+use Elcodi\Component\EntityTranslator\Services\Interfaces\EntityTranslatorInterface;
 use Elcodi\Component\Product\Entity\Interfaces\CategoryInterface;
+use Elcodi\Component\Product\Factory\CategoryFactory;
 
 /**
  * Class CategoryData
@@ -34,43 +36,88 @@ class CategoryData extends AbstractFixture
     public function load(ObjectManager $manager)
     {
         /**
+         * @var CategoryFactory $categoryFactory
+         * @var ObjectManager             $categoryObjectManager
+         * @var EntityTranslatorInterface $entityTranslator
+         */
+        $categoryFactory = $this->get('elcodi.factory.category');
+        $categoryObjectManager = $this->get('elcodi.object_manager.category');
+        $entityTranslator = $this->get('elcodi.entity_translator');
+
+        /**
          * Women's Category
          *
          * @var CategoryInterface $category
          */
-        $womenCategory = $this
-            ->container
-            ->get('elcodi.factory.category')
-            ->create();
-
-        $womenCategory
-            ->setName('Women\'s')
-            ->setSlug('women-shirts')
+        $womenCategory = $categoryFactory
+            ->create()
             ->setEnabled(true)
             ->setRoot(true);
 
-        $manager->persist($womenCategory);
+        $categoryObjectManager->persist($womenCategory);
         $this->addReference('category-women', $womenCategory);
+        $categoryObjectManager->flush($womenCategory);
+
+        $entityTranslator->save($womenCategory, array(
+            'en' => array(
+                'name' => 'Women\'s',
+                'slug' => 'women-shirts',
+                'metaTitle' => 'Women Shirts',
+                'metaDescription' => 'Women Shirts',
+                'metaKeywords' => 'Women Shirts',
+            ),
+            'es' => array(
+                'name' => 'Mujer',
+                'slug' => 'camisetas-de-mujer',
+                'metaTitle' => 'Camisetas de Mujer',
+                'metaDescription' => 'Camisetas de Mujer',
+                'metaKeywords' => 'Camisetas Mujer',
+            ),
+            'fr' => array(
+                'name' => 'Femme',
+                'slug' => 'chemises-de-femme',
+                'metaTitle' => 'Chemises de femme',
+                'metaDescription' => 'Chemises de femme',
+                'metaKeywords' => 'Chemises de femme',
+            )
+        ));
 
         /**
          * Men's Category
          *
          * @var CategoryInterface $menCategory
          */
-        $menCategory = $this
-            ->container
-            ->get('elcodi.factory.category')
-            ->create();
-
-        $menCategory
-            ->setName('Men\'s')
-            ->setSlug('men-shirts')
+        $menCategory = $categoryFactory
+            ->create()
             ->setEnabled(true)
             ->setRoot(true);
 
-        $manager->persist($menCategory);
+        $categoryObjectManager->persist($menCategory);
         $this->addReference('category-men', $menCategory);
+        $categoryObjectManager->flush($menCategory);
 
-        $manager->flush();
+        $entityTranslator->save($menCategory, array(
+            'en' => array(
+                'name' => 'Men\'s',
+                'slug' => 'men-shirts',
+                'metaTitle' => 'Men Shirts',
+                'metaDescription' => 'Men Shirts',
+                'metaKeywords' => 'Men Shirts',
+            ),
+            'es' => array(
+                'name' => 'Hombre',
+                'slug' => 'camisetas-de-hombre',
+                'metaTitle' => 'Camisetas de Hombre',
+                'metaDescription' => 'Camisetas de Hombre',
+                'metaKeywords' => 'Camisetas Hombre',
+            ),
+            'fr' => array(
+                'name' => 'Homem',
+                'slug' => 'chemises-de-homme',
+                'metaTitle' => 'Chemises de homme',
+                'metaDescription' => 'Chemises de homme',
+                'metaKeywords' => 'Chemises de homme',
+            )
+        ));
     }
 }
