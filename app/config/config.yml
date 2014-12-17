@@ -62,6 +62,8 @@ doctrine_cache:
     providers:
         elcodi:
             type: array
+        elcodi_configuration:
+             type: array
 
 sensio_framework_extra:
     request:

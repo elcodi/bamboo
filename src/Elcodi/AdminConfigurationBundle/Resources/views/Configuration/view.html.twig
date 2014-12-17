@@ -1,0 +1,32 @@
+{% extends 'AdminCoreBundle::layout.html.twig' %}
+
+{% block content_title %}
+    {{ 'Configuration Zone'|trans }}
+{% endblock content_title %}
+
+{% block breadcrumb %}
+
+    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
+        breadcrumb: {
+            "Configuration": {
+                "url": url('admin_configuration_list')
+            },
+            ( "View #"  ~ id ): {
+                "active" : true
+            }
+        }
+    } %}
+
+{% endblock breadcrumb %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-12">
+            {{ render(url("admin_configuration_view_component", {
+                'id': id,
+            })) }}
+        </div>
+    </div>
+
+{% endblock content %}

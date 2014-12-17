@@ -31,6 +31,9 @@ admin_media:
 admin_newsletter:
     resource: "@AdminNewsletterBundle/Resources/config/routing.yml"
 
+admin_configuration:
+    resource: "@AdminConfigurationBundle/Resources/config/routing.yml"
+
 admin_login_check:
     path:  /login_check
 
