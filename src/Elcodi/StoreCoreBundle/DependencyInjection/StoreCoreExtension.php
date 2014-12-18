@@ -24,6 +24,13 @@ use Elcodi\Bundle\CoreBundle\DependencyInjection\Abstracts\AbstractExtension;
 class StoreCoreExtension extends AbstractExtension
 {
     /**
+     * @var string
+     *
+     * Extension name
+     */
+    const EXTENSION_NAME = 'store_core';
+
+    /**
      * Get the Config file location
      *
      * @return string Config file location
@@ -51,5 +58,15 @@ class StoreCoreExtension extends AbstractExtension
         return [
             'services'
         ];
+    }
+
+    /**
+     * Returns the extension alias, same value as extension name
+     *
+     * @return string The alias
+     */
+    public function getAlias()
+    {
+        return self::EXTENSION_NAME;
     }
 }

@@ -24,6 +24,13 @@ use Elcodi\Bundle\CoreBundle\DependencyInjection\Abstracts\AbstractExtension;
 class StoreUserExtension extends AbstractExtension
 {
     /**
+     * @var string
+     *
+     * Extension name
+     */
+    const EXTENSION_NAME = 'store_user';
+
+    /**
      * Get the Config file location
      *
      * @return string Config file location
@@ -53,5 +60,15 @@ class StoreUserExtension extends AbstractExtension
             'formTypes',
             'eventListeners',
         ];
+    }
+
+    /**
+     * Returns the extension alias, same value as extension name
+     *
+     * @return string The alias
+     */
+    public function getAlias()
+    {
+        return self::EXTENSION_NAME;
     }
 }
