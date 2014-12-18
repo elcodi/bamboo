@@ -90,7 +90,7 @@ class AdminAppKernel extends Kernel
             new \Elcodi\AdminNewsletterBundle\AdminNewsletterBundle(),
             new \Elcodi\AdminProductBundle\AdminProductBundle(),
             new \Elcodi\AdminRuleBundle\AdminRuleBundle(),
-            new \Elcodi\AdminConfigurationBundle\AdminConfigurationBundle()
+            new \Elcodi\AdminConfigurationBundle\AdminConfigurationBundle(),
             new \Elcodi\AdminPageBundle\AdminPageBundle(),
         );
 
