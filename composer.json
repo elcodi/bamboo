@@ -71,6 +71,7 @@
         "elcodi/geo-bundle": "~0.3.0",
         "elcodi/media-bundle": "~0.3.0",
         "elcodi/menu-bundle": "~0.3.0",
+        "elcodi/page-bundle": "~0.4.0",
         "elcodi/product-bundle": "~0.3.0",
         "elcodi/rule-bundle": "~0.3.0",
         "elcodi/user-bundle": "~0.3.0",

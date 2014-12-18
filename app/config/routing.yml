@@ -41,3 +41,7 @@ github_login:
 
 paypal_login:
     pattern: /login/check-paypal
+
+page_bundle:
+    resource: "@ElcodiPageBundle/Resources/config/routing.yml"
+    prefix: /
