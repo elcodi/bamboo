@@ -1,0 +1,34 @@
+{% extends 'AdminCoreBundle::Common/formComponent.html.twig' %}
+
+
+{% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
+
+
+{% block title %}
+    {{ 'New Page'|trans }}
+{% endblock title %}
+
+
+{% block content %}
+    {{ form_start(form, {'action': url('admin_page_save')}) }}
+
+        {{ form_row(form.title) }}
+        {{ form_row(form.path) }}
+        {{ form_row(form.content, {
+                attr: {
+                    class: "text-editor",
+                    rows: 15
+                }
+            })
+        }}
+        {{ form_row(form.enabled) }}
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">{{ 'Save'|trans }}</button>
+                <a href="{{ path('admin_page_list') }}" class="btn btn-default">{{ 'Cancel'|trans }}</a>
+            </div>
+        </div>
+
+    {{ form_end(form) }}
+{% endblock content %}

@@ -73,6 +73,7 @@ class AdminAppKernel extends Kernel
             new \Elcodi\Bundle\EntityTranslatorBundle\ElcodiEntityTranslatorBundle(),
             new \Elcodi\Bundle\StateTransitionMachineBundle\ElcodiStateTransitionMachineBundle(),
             new \Elcodi\Bundle\ConfigurationBundle\ElcodiConfigurationBundle(),
+            new \Elcodi\Bundle\PageBundle\ElcodiPageBundle(),
 
             /**
              * Elcodi admin bundles
@@ -90,6 +91,7 @@ class AdminAppKernel extends Kernel
             new \Elcodi\AdminProductBundle\AdminProductBundle(),
             new \Elcodi\AdminRuleBundle\AdminRuleBundle(),
             new \Elcodi\AdminConfigurationBundle\AdminConfigurationBundle()
+            new \Elcodi\AdminPageBundle\AdminPageBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

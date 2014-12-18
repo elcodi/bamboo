@@ -23,6 +23,7 @@
 <script type="text/javascript" src="{{ asset('bundles/admincore/js/bootstrap.datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/admincore/js/bootstrap.slider/js/bootstrap-slider.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/admincore/js/bootstrap.multiselect/js/bootstrap-multiselect.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/admincore/js/bootstrap.wysihtml5/dist/bootstrap3-wysihtml5.all.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/admincore/js/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 
 
@@ -110,6 +111,10 @@
                     return parent;
                 }
             }
+        });
+
+        $('.text-editor').wysihtml5({
+            "html": true
         });
 
         //initialize the javascript

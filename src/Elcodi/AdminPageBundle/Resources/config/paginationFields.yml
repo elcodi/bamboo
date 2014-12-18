@@ -1,0 +1,13 @@
+parameters:
+
+    #
+    # Pagination fields
+    #
+    elcodi.admin.page.pagination.page.fields:
+        - id
+        - title
+        - content
+        - path
+        - createdAt
+        - updatedAt
+        - enabled

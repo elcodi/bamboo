@@ -1,0 +1,9 @@
+services:
+
+    #
+    # Form Types
+    #
+    elcodi.admin.page.form_type.page:
+        class: %elcodi.admin.page.form_type.page.class%
+        tags:
+            - { name: form.type, alias: elcodi_admin_page_form_type_page }

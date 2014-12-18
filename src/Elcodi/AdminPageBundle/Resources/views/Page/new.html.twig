@@ -1,0 +1,28 @@
+{% extends 'AdminCoreBundle::layout.html.twig' %}
+
+{% block content_title %}
+    {{ 'Page Zone'|trans }}
+{% endblock content_title %}
+
+{% block breadcrumb %}
+    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
+        breadcrumb: {
+            "Page": {
+                "url": url('admin_page_list')
+            },
+            "New": {
+                "active" : true
+            }
+        }
+    } %}
+{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-12">
+            {{ render(url("admin_page_new_component")) }}
+        </div>
+    </div>
+
+{% endblock content %}
