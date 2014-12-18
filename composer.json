@@ -61,7 +61,7 @@
         "mmoreram/controller-extra-bundle": "~1.0",
         "ornicar/gravatar-bundle" : "1.1.2",
 
-        "elcodi/bundle-bundle": "~0.4.0",
+        "elcodi/bamboo-bundle": "~0.4.0",
         "elcodi/attribute-bundle": "~0.4.0",
         "elcodi/banner-bundle": "~0.4.0",
         "elcodi/cart-bundle": "~0.4.0",
