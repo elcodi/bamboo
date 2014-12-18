@@ -24,6 +24,13 @@ use Elcodi\Bundle\CoreBundle\DependencyInjection\Abstracts\AbstractExtension;
 class AdminCartExtension extends AbstractExtension
 {
     /**
+     * @var string
+     *
+     * Extension name
+     */
+    const EXTENSION_NAME = 'admin_cart';
+
+    /**
      * Get the Config file location
      *
      * @return string Config file location
@@ -49,5 +56,15 @@ class AdminCartExtension extends AbstractExtension
     public function getConfigFiles(array $config)
     {
         return [];
+    }
+
+    /**
+     * Returns the extension alias, same value as extension name
+     *
+     * @return string The alias
+     */
+    public function getAlias()
+    {
+        return self::EXTENSION_NAME;
     }
 }

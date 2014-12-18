@@ -19,12 +19,15 @@ namespace Elcodi\AdminProductBundle\Form\Type;
 use Symfony\Component\Form\FormBuilderInterface;
 
 use Elcodi\AdminCurrencyBundle\Form\Type\Abstracts\AbstractPurchasableType;
+use Elcodi\Component\EntityTranslator\EventListener\Traits\EntityTranslatableFormTrait;
 
 /**
  * Class ProductType
  */
 class ProductType extends AbstractPurchasableType
 {
+    use EntityTranslatableFormTrait;
+
     /**
      * Buildform function
      *
@@ -128,6 +131,8 @@ class ProductType extends AbstractPurchasableType
                 'label'    => 'images',
                 'multiple' => true,
             ));
+
+        $builder->addEventSubscriber($this->getEntityTranslatorFormEventListener());
     }
 
     /**

@@ -69,7 +69,6 @@ class ProductController
      * This action is just a wrapper, so should never get any data,
      * as this is component responsibility
      *
-     * @param Request $request          Request
      * @param integer $page             Page
      * @param integer $limit            Limit of items per page
      * @param string  $orderByField     Field to order by
@@ -95,7 +94,6 @@ class ProductController
      * @Method({"GET"})
      */
     public function listAction(
-        Request $request,
         $page,
         $limit,
         $orderByField,
@@ -116,7 +114,6 @@ class ProductController
      * This action is just a wrapper, so should never get any data,
      * as this is component responsibility
      *
-     * @param Request          $request Request
      * @param ProductInterface $product Product
      *
      * @return array Result
@@ -140,10 +137,7 @@ class ProductController
      * @Template("@AdminProduct/Variant/view.html.twig")
      * @Method({"GET"})
      */
-    public function viewAction(
-        Request $request,
-        ProductInterface $product
-    )
+    public function viewAction(ProductInterface $product)
     {
         if ($product->hasVariants()) {
             $template = "@AdminProduct/Product/viewVariants.html.twig";
@@ -182,7 +176,6 @@ class ProductController
      *
      * Should be POST
      *
-     * @param Request          $request Request
      * @param ProductInterface $entity  Entity to save
      * @param FormInterface    $form    Form view
      * @param boolean          $isValid Request handle is valid
@@ -210,7 +203,6 @@ class ProductController
      * )
      */
     public function saveAction(
-        Request $request,
         ProductInterface $entity,
         FormInterface $form,
         $isValid
@@ -233,8 +225,7 @@ class ProductController
      * This action is just a wrapper, so should never get any data,
      * as this is component responsibility
      *
-     * @param Request $request Request
-     * @param integer $id      Entity id
+     * @param integer $id Entity id
      *
      * @return array Result
      *
@@ -245,10 +236,7 @@ class ProductController
      * @Template
      * @Method({"GET"})
      */
-    public function editAction(
-        Request $request,
-        $id
-    )
+    public function editAction($id)
     {
         return [
             'id' => $id,
@@ -260,7 +248,6 @@ class ProductController
      *
      * Should be POST
      *
-     * @param Request          $request Request
      * @param ProductInterface $entity  Entity to update
      * @param FormInterface    $form    Form view
      * @param boolean          $isValid Request handle is valid
@@ -288,7 +275,6 @@ class ProductController
      * )
      */
     public function updateAction(
-        Request $request,
         ProductInterface $entity,
         FormInterface $form,
         $isValid

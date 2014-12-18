@@ -184,7 +184,7 @@ class ConfigurationComponentController
      * only the specific component
      *
      * @param ConfigurationInterface $entity   Entity
-     * @param FormView           $formView Form view
+     * @param FormView               $formView Form view
      *
      * @return array Result
      *
