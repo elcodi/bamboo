@@ -1,6 +1,9 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: @ElcodiBambooBundle/Resources/config/translations.yml }
+    - { resource: @ElcodiBambooBundle/Resources/config/mapping.yml }
+    - { resource: @ElcodiBambooBundle/Resources/config/filesystem.yml }
 
 monolog:
     handlers:
@@ -83,19 +86,9 @@ swiftmailer:
 doctrine_cache:
     providers:
         elcodi:
-            type: array
+            type: redis
         elcodi_configuration:
-             type: array
-
-knp_gaufrette:
-    adapters:
-        local:
-            local:
-                directory: %kernel.root_dir%/../web/images
-                create: true
-    filesystems:
-        local:
-            adapter:    local
+	    type: redis
 
 free_payment:
     payment_success:

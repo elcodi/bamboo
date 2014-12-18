@@ -30,13 +30,6 @@ assetic:
 swiftmailer:
     disable_delivery: true
 
-doctrine:
-    dbal:
-        default_connection:   default
-        connections:
-            default:
-                dbname:   "%database_name%_dev"
-
 hwi_oauth:
     resource_owners:
         paypal: { options: { sandbox: true } }

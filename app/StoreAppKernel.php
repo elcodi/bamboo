@@ -59,6 +59,7 @@ class StoreAppKernel extends Kernel
             /**
              * Elcodi core bundles
              */
+            new \Elcodi\Bundle\BambooBundle\ElcodiBambooBundle(),
             new \Elcodi\Bundle\CoreBundle\ElcodiCoreBundle(),
             new \Elcodi\Bundle\LanguageBundle\ElcodiLanguageBundle(),
             new \Elcodi\Bundle\CartBundle\ElcodiCartBundle(),
@@ -74,6 +75,7 @@ class StoreAppKernel extends Kernel
             new \Elcodi\Bundle\RuleBundle\ElcodiRuleBundle(),
             new \Elcodi\Bundle\MenuBundle\ElcodiMenuBundle(),
             new \Elcodi\Bundle\TaxBundle\ElcodiTaxBundle(),
+            new \Elcodi\Bundle\EntityTranslatorBundle\ElcodiEntityTranslatorBundle(),
             new \Elcodi\Bundle\StateTransitionMachineBundle\ElcodiStateTransitionMachineBundle(),
             new \Elcodi\Bundle\ConfigurationBundle\ElcodiConfigurationBundle(),
             new \Elcodi\Bundle\PageBundle\ElcodiPageBundle(),

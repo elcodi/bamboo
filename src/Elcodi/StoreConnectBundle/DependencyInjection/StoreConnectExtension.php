@@ -88,4 +88,14 @@ class StoreConnectExtension extends AbstractExtension implements EntitiesOverrid
             'Elcodi\StoreConnectBundle\Entity\AuthorizationInterface' => 'store.connect.entity.authorization.class',
         ];
     }
+
+    /**
+     * Returns the extension alias, same value as extension name
+     *
+     * @return string The alias
+     */
+    public function getAlias()
+    {
+        return self::EXTENSION_NAME;
+    }
 }

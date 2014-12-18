@@ -64,20 +64,22 @@
         "incenteev/composer-parameter-handler": "~2.1.0",
         "hwi/oauth-bundle": "0.4.*@dev",
 
-        "elcodi/banner-bundle": "~0.3.0",
-        "elcodi/cart-bundle": "~0.3.0",
-        "elcodi/cart-coupon-bundle": "~0.3.0",
-        "elcodi/currency-bundle": "~0.3.0",
-        "elcodi/geo-bundle": "~0.3.0",
-        "elcodi/media-bundle": "~0.3.0",
-        "elcodi/menu-bundle": "~0.3.0",
+        "elcodi/bamboo-bundle": "~0.4.0",
+        "elcodi/banner-bundle": "~0.4.0",
+        "elcodi/cart-bundle": "~0.4.0",
+        "elcodi/cart-coupon-bundle": "~0.4.0",
+        "elcodi/currency-bundle": "~0.4.0",
+        "elcodi/geo-bundle": "~0.4.0",
+        "elcodi/media-bundle": "~0.4.0",
+        "elcodi/menu-bundle": "~0.4.0",
+        "elcodi/product-bundle": "~0.4.0",
+        "elcodi/rule-bundle": "~0.4.0",
+        "elcodi/user-bundle": "~0.4.0",
+        "elcodi/tax-bundle": "~0.4.0",
+        "elcodi/state-transition-machine-bundle": "~0.4.0",
+        "elcodi/entity-translator-bundle": "~0.4.0",
         "elcodi/page-bundle": "~0.4.0",
-        "elcodi/product-bundle": "~0.3.0",
-        "elcodi/rule-bundle": "~0.3.0",
-        "elcodi/user-bundle": "~0.3.0",
-        "elcodi/tax-bundle": "~0.3.0",
-        "elcodi/state-transition-machine-bundle": "~0.3.0",
-        "elcodi/bamboo-fixtures": "~0.3.0"
+	"elcodi/bamboo-fixtures": "~0.4.0"
     },
     "require-dev": {
         "phpunit/phpunit": ">=3.7",
@@ -116,7 +118,7 @@
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",
         "branch-alias": {
-            "dev-master": "0.4-dev"
+            "dev-master": "0.5-dev"
         },
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
