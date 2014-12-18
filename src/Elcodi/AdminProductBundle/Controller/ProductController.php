@@ -225,7 +225,7 @@ class ProductController
      * This action is just a wrapper, so should never get any data,
      * as this is component responsibility
      *
-     * @param integer $id      Entity id
+     * @param integer $id Entity id
      *
      * @return array Result
      *

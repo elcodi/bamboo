@@ -7,4 +7,3 @@ services:
         class: %elcodi.admin.configuration.form_type.configuration.class%
         tags:
             - { name: form.type, alias: elcodi_admin_configuration_form_type_configuration }
-

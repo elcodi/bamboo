@@ -24,6 +24,13 @@ use Elcodi\Bundle\CoreBundle\DependencyInjection\Abstracts\AbstractExtension;
 class AdminAttributeExtension extends AbstractExtension
 {
     /**
+     * @var string
+     *
+     * Extension name
+     */
+    const EXTENSION_NAME = 'admin_attribute';
+
+    /**
      * Get the Config file location
      *
      * @return string Config file location
@@ -52,5 +59,15 @@ class AdminAttributeExtension extends AbstractExtension
             'classes',
             'formTypes'
         ];
+    }
+
+    /**
+     * Returns the extension alias, same value as extension name
+     *
+     * @return string The alias
+     */
+    public function getAlias()
+    {
+        return self::EXTENSION_NAME;
     }
 }

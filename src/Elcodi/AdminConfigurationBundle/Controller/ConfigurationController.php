@@ -16,7 +16,6 @@
 
 namespace Elcodi\AdminConfigurationBundle\Controller;
 
-use Elcodi\Component\Configuration\Entity\Interfaces\ConfigurationInterface;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -28,6 +27,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
+use Elcodi\Component\Configuration\Entity\Interfaces\ConfigurationInterface;
 use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 
 /**
@@ -141,8 +141,8 @@ class ConfigurationController
      * Should be POST
      *
      * @param ConfigurationInterface $entity  Entity to save
-     * @param FormInterface      $form    Form view
-     * @param boolean            $isValid Request handle is valid
+     * @param FormInterface          $form    Form view
+     * @param boolean                $isValid Request handle is valid
      *
      * @return RedirectResponse Redirect response
      *
@@ -213,10 +213,10 @@ class ConfigurationController
      *
      * Should be POST
      *
-     * @param Request            $request Request
+     * @param Request                $request Request
      * @param ConfigurationInterface $entity  Entity to update
-     * @param FormInterface      $form    Form view
-     * @param boolean            $isValid Request handle is valid
+     * @param FormInterface          $form    Form view
+     * @param boolean                $isValid Request handle is valid
      *
      * @return RedirectResponse Redirect response
      *

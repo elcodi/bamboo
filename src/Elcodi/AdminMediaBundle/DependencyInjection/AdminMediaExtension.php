@@ -24,6 +24,13 @@ use Elcodi\Bundle\CoreBundle\DependencyInjection\Abstracts\AbstractExtension;
 class AdminMediaExtension extends AbstractExtension
 {
     /**
+     * @var string
+     *
+     * Extension name
+     */
+    const EXTENSION_NAME = 'admin_media';
+
+    /**
      * Get the Config file location
      *
      * @return string Config file location
@@ -53,5 +60,15 @@ class AdminMediaExtension extends AbstractExtension
             'formTypes',
             'paginationFields',
         ];
+    }
+
+    /**
+     * Returns the extension alias, same value as extension name
+     *
+     * @return string The alias
+     */
+    public function getAlias()
+    {
+        return self::EXTENSION_NAME;
     }
 }
