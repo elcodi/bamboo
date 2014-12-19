@@ -258,7 +258,7 @@ class AdminMenuData extends AbstractFixture
         $manager->persist($rulesNode);
 
         /*
-         * Currencies
+         * Configuration
          */
 
         $configurationNode = $this
