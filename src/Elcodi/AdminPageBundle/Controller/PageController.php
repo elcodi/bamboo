@@ -112,7 +112,7 @@ class PageController
      * This action is just a wrapper, so should never get any data,
      * as this is component responsability
      *
-     * @param integer $id      Entity id
+     * @param integer $id Entity id
      *
      * @return array Result
      *
@@ -159,7 +159,7 @@ class PageController
      * This action is just a wrapper, so should never get any data,
      * as this is component responsability
      *
-     * @param integer $id      Entity id
+     * @param integer $id Entity id
      *
      * @return array Result
      *
@@ -182,7 +182,7 @@ class PageController
      *
      * Should be POST
      *
-     * @param PageInterface $entity Entity to save
+     * @param PageInterface $entity  Entity to save
      * @param FormInterface $form
      * @param bool          $isValid
      *

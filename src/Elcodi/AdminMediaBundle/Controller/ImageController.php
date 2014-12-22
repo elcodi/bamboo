@@ -23,7 +23,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormInterface;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -356,8 +355,6 @@ class ImageController
     /**
      * Nav for entity
      *
-     * @param Request $request Request
-     *
      * @return array Result
      *
      * @Route(
@@ -368,52 +365,25 @@ class ImageController
      *
      * @JsonResponse()
      */
-    public function uploadAction(Request $request)
+    public function uploadAction()
     {
-        $file = $request->files->get('file');
+        $jsonResponse = $this
+            ->forward('elcodi.core.media.controller.image_upload:uploadAction')
+            ->getContent();
 
-        /**
-         * @var $file UploadedFile
-         */
-        $fileMime = $file->getMimeType();
-        if (strpos($fileMime, 'image/') !== 0) {
-            return [
-                'status'  => 'ko',
-                'message' => 'Invalid format'
-            ];
+        $response = json_decode($jsonResponse, true);
+
+        if ('ok' === $response['status']) {
+
+            $routes = $this
+                ->get('router')
+                ->getRouteCollection();
+
+            $response['response']['routes']['delete'] = $routes
+                ->get('admin_image_delete')
+                ->getPath();
         }
 
-        if ($file instanceof UploadedFile) {
-
-            $image = $this
-                ->get('elcodi.image_manager')
-                ->createImage($file);
-
-            $imageObjectManager = $this->get('elcodi.object_manager.image');
-            $imageObjectManager->persist($image);
-            $imageObjectManager->flush($image);
-
-            $this
-                ->get('elcodi.file_manager')
-                ->uploadFile($image, $image->getContent(), false);
-
-            $filesystem = $this->container->get('elcodi.core.media.filesystem.default');
-            $fileTransformer = $this->container->get('elcodi.file_identifier_transformer');
-
-            $filesystem->write(
-                $fileTransformer->transform($image),
-                file_get_contents($file->getPathname()),
-                true
-            );
-
-            return [
-                'status' => 'ok'
-            ];
-        }
-
-        return [
-            'status'  => 'ko',
-            'message' => 'Upload error'
-        ];
+        return $response;
     }
 }
