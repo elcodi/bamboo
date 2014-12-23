@@ -16,34 +16,16 @@
 
 namespace Elcodi\StoreUserBundle\EventListener;
 
-use Swift_Mailer;
-use Swift_Message;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
-use Symfony\Component\Templating\EngineInterface;
 
 use Elcodi\Component\User\Event\PasswordRecoverEvent;
-use Elcodi\Component\User\Event\PasswordRememberEvent;
 
 /**
  * Password event listener
  */
 class RememberPasswordEventListener
 {
-    /**
-     * @var Swift_Mailer
-     *
-     * Mailer
-     */
-    protected $mailer;
-
-    /**
-     * @var EngineInterface
-     *
-     * Templating
-     */
-    protected $templating;
-
     /**
      * @var TokenStorageInterface
      *
@@ -54,46 +36,11 @@ class RememberPasswordEventListener
     /**
      * Build method
      *
-     * @param Swift_Mailer          $mailer       Mailer
-     * @param EngineInterface       $templating   Templating
      * @param TokenStorageInterface $tokenStorage Token storage
      */
-    public function __construct(
-        Swift_Mailer $mailer,
-        EngineInterface $templating,
-        TokenStorageInterface $tokenStorage
-    )
+    public function __construct(TokenStorageInterface $tokenStorage)
     {
-        $this->mailer = $mailer;
-        $this->templating = $templating;
         $this->tokenStorage = $tokenStorage;
-    }
-
-    /**
-     * on Password Remember event
-     *
-     * @param PasswordRememberEvent $event Password remember event
-     */
-    public function onPasswordRemember(PasswordRememberEvent $event)
-    {
-        $user = $event->getUser();
-        $rememberUrl = $event->getRememberUrl();
-        $userMail = $user->getEmail();
-
-        $message = Swift_Message::newInstance()
-            ->setSubject('Recover your password')
-            ->setFrom('no-reply@elcodi.com', 'Elcodi team')
-            ->setTo($userMail)
-            ->setBody($this->templating->render(
-                'StoreUserBundle:Password:email/recover_password.html.twig',
-                [
-                    'customer'    => $user,
-                    'recover_url' => $rememberUrl,
-                ]
-            ))
-            ->setContentType('text/html');
-
-        $this->mailer->send($message);
     }
 
     /**

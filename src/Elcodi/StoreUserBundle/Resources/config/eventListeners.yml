@@ -6,9 +6,6 @@ services:
     store.user.event_listener.remember_password:
         class: %store.user.event_listener.remember_password.class%
         arguments:
-            - @mailer
-            - @templating
             - @security.context
         tags:
-            - { name: kernel.event_listener, event: password.remember, method: onPasswordRemember }
             - { name: kernel.event_listener, event: password.recover, method: onPasswordRecover }
