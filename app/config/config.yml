@@ -88,7 +88,7 @@ doctrine_cache:
         elcodi:
             type: redis
         elcodi_configuration:
-	    type: redis
+            type: redis
 
 free_payment:
     payment_success:
