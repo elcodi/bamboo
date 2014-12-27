@@ -16,12 +16,14 @@
 
 namespace Elcodi\StoreConnectBundle\Entity\Interfaces;
 
+use Elcodi\Component\Core\Entity\Interfaces\IdentifiableInterface;
+
 /**
  * Interface AuthorizationInterface
  *
  * @author Berny Cantos <be@rny.cc>
  */
-interface AuthorizationInterface
+interface AuthorizationInterface extends IdentifiableInterface
 {
     /**
      * Get the name of resource owner
