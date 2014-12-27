@@ -17,16 +17,22 @@
 namespace Elcodi\PaymentBridgeBundle\Entity;
 
 use Elcodi\Component\Cart\Entity\Order;
-use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
 use Elcodi\Component\Core\Entity\Interfaces\DateTimeInterface;
+use Elcodi\Component\Core\Entity\Interfaces\IdentifiableInterface;
 use Elcodi\Component\Core\Entity\Traits\DateTimeTrait;
+use Elcodi\Component\Core\Entity\Traits\IdentifiableTrait;
 
 /**
  * Class PaypalTransaction
  */
-class PaypalTransaction extends AbstractEntity implements DateTimeInterface
+class PaypalTransaction
+    implements
+    IdentifiableInterface,
+    DateTimeInterface
 {
-    use DateTimeTrait;
+    use
+        IdentifiableTrait,
+        DateTimeTrait;
 
     /**
      * @var string

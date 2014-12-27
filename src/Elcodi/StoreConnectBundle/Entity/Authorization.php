@@ -18,7 +18,7 @@ namespace Elcodi\StoreConnectBundle\Entity;
 
 use Symfony\Component\Security\Core\User\UserInterface;
 
-use Elcodi\Component\Core\Entity\Abstracts\AbstractEntity;
+use Elcodi\Component\Core\Entity\Traits\IdentifiableTrait;
 use Elcodi\StoreConnectBundle\Entity\Interfaces\AuthorizationInterface;
 
 /**
@@ -28,8 +28,10 @@ use Elcodi\StoreConnectBundle\Entity\Interfaces\AuthorizationInterface;
  *
  * @author Berny Cantos <be@rny.cc>
  */
-class Authorization extends AbstractEntity implements AuthorizationInterface
+class Authorization implements AuthorizationInterface
 {
+    use IdentifiableTrait;
+
     /**
      * Name of the resource owner
      *
