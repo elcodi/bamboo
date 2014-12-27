@@ -13,13 +13,13 @@ services:
         tags:
             - { name: form.type, alias: elcodi_admin_product_form_type_product }
 
-    elcodi.admin.product.form_type.variant:
-        class: %elcodi.admin.product.form_type.variant.class%
+    elcodi.admin.product.form_type.product_variant:
+        class: %elcodi.admin.product.form_type.product_variant.class%
         arguments:
-            entity: %elcodi.core.product.entity.variant.class%
+            entity: %elcodi.core.product.entity.product_variant.class%
             product_factory: @elcodi.factory.product_variant
         tags:
-            - { name: form.type, alias: elcodi_admin_product_form_type_variant }
+            - { name: form.type, alias: elcodi_admin_product_form_type_product_variant }
 
     elcodi.admin.product.form_type.category:
         class: %elcodi.admin.product.form_type.category.class%

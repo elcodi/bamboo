@@ -76,7 +76,7 @@ class VariantComponentController
      *
      * @PaginatorAnnotation(
      *      attributes = "paginatorAttributes",
-     *      class = "elcodi.core.product.entity.variant.class",
+     *      class = "elcodi.core.product.entity.product_variant.class",
      *      innerJoins = {
      *          {"x", "product", "p", false}
      *      },
@@ -128,7 +128,7 @@ class VariantComponentController
      * @Method({"GET"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.product.entity.variant.class",
+     *      class = "elcodi.core.product.entity.product_variant.class",
      *      mapping = {
      *          "id" = "~variantId~"
      *      }
@@ -168,7 +168,7 @@ class VariantComponentController
      * )
      * @EntityAnnotation(
      *      class = {
-     *          "factory" = "elcodi.core.product.factory.variant"
+     *          "factory" = "elcodi.core.product.factory.product_variant"
      *      },
      *      name = "entity",
      *      setters = {
@@ -176,7 +176,7 @@ class VariantComponentController
      *      }
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_product_form_type_variant",
+     *      class = "elcodi_admin_product_form_type_product_variant",
      *      name  = "formView",
      *      entity = "entity"
      * )
@@ -211,13 +211,13 @@ class VariantComponentController
      * @Method({"GET"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.product.entity.variant.class",
+     *      class = "elcodi.core.product.entity.product_variant.class",
      *      mapping = {
      *          "id": "~variantId~",
      *      }
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_product_form_type_variant",
+     *      class = "elcodi_admin_product_form_type_product_variant",
      *      name  = "formView",
      *      entity = "entity"
      * )

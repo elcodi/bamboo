@@ -86,6 +86,6 @@ class VariantType extends AbstractPurchasableType
      */
     public function getName()
     {
-        return 'elcodi_admin_product_form_type_variant';
+        return 'elcodi_admin_product_form_type_product_variant';
     }
 }
