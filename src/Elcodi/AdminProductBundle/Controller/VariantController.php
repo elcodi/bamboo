@@ -27,7 +27,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
-use Elcodi\AdminCoreBundle\Controller\Interfaces\NavegableControllerInterface;
 use Elcodi\Component\Attribute\Entity\Attribute;
 use Elcodi\Component\Attribute\Entity\Value;
 use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
@@ -48,26 +47,8 @@ class VariantController
     extends
     AbstractAdminController
     implements
-    NavegableControllerInterface,
     EnableableControllerInterface
 {
-    /**
-     * Nav for product group
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "s/nav",
-     *      name = "admin_variant_nav"
-     * )
-     * @Method({"GET"})
-     * @Template
-     */
-    public function navAction()
-    {
-        return [];
-    }
-
     /**
      * List elements of certain entity type.
      *
@@ -201,7 +182,7 @@ class VariantController
      * )
      * @EntityAnnotation(
      *     class = {
-     *         "factory" = "elcodi.core.product.factory.variant"
+     *         "factory" = "elcodi.core.product.factory.product_variant"
      *     },
      *     name = "variant",
      *     persist = true,
@@ -210,7 +191,7 @@ class VariantController
      *     }
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_product_form_type_variant",
+     *      class = "elcodi_admin_product_form_type_product_variant",
      *      name  = "form",
      *      entity = "variant",
      *      handleRequest = true,
@@ -311,14 +292,14 @@ class VariantController
      * @Method({"POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.product.entity.variant.class",
+     *      class = "elcodi.core.product.entity.product_variant.class",
      *      name = "variant",
      *      mapping = {
      *          "id": "~variantId~",
      *      }
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_product_form_type_variant",
+     *      class = "elcodi_admin_product_form_type_product_variant",
      *      name  = "form",
      *      entity = "variant",
      *      handleRequest = true,
@@ -383,7 +364,7 @@ class VariantController
      * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.product.entity.variant.class",
+     *      class = "elcodi.core.product.entity.product_variant.class",
      *      name = "variant",
      *      mapping = {
      *          "id" = "~variantId~"
@@ -416,7 +397,7 @@ class VariantController
      * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.product.entity.variant.class",
+     *      class = "elcodi.core.product.entity.product_variant.class",
      *      mapping = {
      *          "id" = "~variantId~"
      *      }
@@ -456,7 +437,7 @@ class VariantController
      *     }
      * )
      * @EntityAnnotation(
-     *      class = "elcodi.core.product.entity.variant.class",
+     *      class = "elcodi.core.product.entity.product_variant.class",
      *      name = "variant",
      *      mapping = {
      *          "id" = "~variantId~"
