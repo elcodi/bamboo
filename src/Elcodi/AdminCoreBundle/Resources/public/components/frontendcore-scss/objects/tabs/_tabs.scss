@@ -133,6 +133,11 @@
 			}
 		}
 	}
+	.tabs-box {
+		li.active a {
+			background-color: $color-box;
+		}
+	}
 
 }
 @mixin desktop-tabs {

@@ -2,7 +2,8 @@ TinyCore.AMD.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupl
 	return {
 		onStart: function () {
 
-			var uploader = new plupload.Uploader({
+			var self = this,
+				uploader = new plupload.Uploader({
 				runtimes : 'html5,flash,silverlight,html4',
 
 				browse_button : 'pickfiles',
@@ -30,7 +31,13 @@ TinyCore.AMD.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupl
 					},
 
 					FileUploaded: function(up, file, response) {
-						self.addImageToGallery(File.id, File, Response.response);
+
+						var oResponse = $.parseJSON(response.response),
+							nId = oResponse.response.id,
+							sUrlEdit = oResponse.response.routes.view.replace('{id}', nId),
+							sUrlDelete = oResponse.response.routes['delete'].replace('{id}', nId);
+
+						self.addImageToGallery(nId, sUrlEdit, sUrlDelete);
 
 					},
 
@@ -55,8 +62,6 @@ TinyCore.AMD.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupl
 		},
 		updateSelect : function() {
 
-			console.log('dentro');
-
 			var oSelect = document.getElementById('elcodi_admin_product_form_type_product_images'),
 				oThumbs = document.getElementById('thumb-gallery'),
 				sName;
@@ -72,8 +77,39 @@ TinyCore.AMD.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupl
 
 			});
 		},
-		addImageToGallery : function( sId, sPath, oResponse) {
-			var oSelect = document.getElementById('elcodi_admin_product_form_type_product_images');
+		addImageToGallery : function( nId, sUrlView, sUrlDelete) {
+
+			var self = this,
+				oSelect = document.getElementById('elcodi_admin_product_form_type_product_images'),
+				oThumbs = document.getElementById('thumb-gallery'),
+				oLi = document.createElement('li'),
+				oLink = document.createElement('a'),
+				oThumb = document.createElement('img'),
+				oOption,
+				oActions = '<ul class="thumbnail-actions"><li><a href="' + sUrlDelete + '" class="icon-trash-o"></a></li></ul>';
+
+
+				if ($('option[value='+ nId +']' , oSelect).length === 0) {
+					oOption = document.createElement('option');
+					oOption.value = oOption.innerHTML = nId;
+					$(oSelect).append(oOption);
+
+				}
+
+				oLink.href = sUrlView;
+				oLink.className = 'group-images thumbnail';
+				oLink.dataset.tcModules = 'modal';
+
+				oThumb.id = nId;
+				oThumb.src = sUrlView;
+				oThumb.width = 150;
+
+				oLink.innerHTML = oThumb.outerHTML;
+				oLi.innerHTML = oLink.outerHTML + oActions;
+
+				oThumbs.appendChild(oLi);
+
+				self.updateSelect();
 		}
 	};
 });

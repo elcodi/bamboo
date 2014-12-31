@@ -4,30 +4,14 @@
 		text-align: center;
 		min-height: 500px;
 		position: relative;
+		padding-top: $spacing*2;
 	}
-	h2, p {
-		z-index: 101;
-		position: absolute;
-		width: 100%;
 
-	}
 	h2 {
-		top: 45%
-	}
-	p {
-		top: 58%;
+		margin-bottom: $spacing/2;
 	}
 }
 
 .no-items-icon {
 	@extend %icon-rounded;
-	font-size: 15rem;
-	position: absolute;
-	left: 28%;
-	top: 15%;
-	opacity: .1;
-	margin: 0;
-	z-index: 100;
-	width: 404px;
-
 }

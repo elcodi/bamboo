@@ -38,7 +38,7 @@ class VariantType extends AbstractPurchasableType
             ->add('options', 'entity', array(
                 'class'    => 'Elcodi\Component\Attribute\Entity\Value',
                 'required' => true,
-                'label'    => 'options',
+                'label'    => 'Select one or more attributes:',
                 'multiple' => true,
                 'group_by' => 'attribute',
                 'query_builder' =>
@@ -49,33 +49,33 @@ class VariantType extends AbstractPurchasableType
                     },
                 'property' => 'name'
             ))
-            ->add('stock', 'integer', array(
+            ->add('stock', 'hidden', array(
                 'required' => false,
                 'label'    => 'stock',
             ))
             ->add('price', 'money_object', array(
                 'required' => false,
-                'label'    => 'price',
+                'label'    => 'Price',
             ))
             ->add('reducedPrice', 'money_object', array(
                 'required' => false,
-                'label'    => 'reducedPrice',
+                'label'    => 'Reduced Price',
             ))
             ->add('createdAt', 'datetime', array(
                 'widget'   => 'single_text',
                 'format'   => 'yyyy-MM-dd - HH:mm:ss',
                 'required' => false,
-                'label'    => 'createdAt',
+                'label'    => false,
             ))
             ->add('updatedAt', 'datetime', array(
                 'widget'   => 'single_text',
                 'format'   => 'yyyy-MM-dd - HH:mm:ss',
                 'required' => false,
-                'label'    => 'updatedAt',
+                'label'    => false,
             ))
             ->add('enabled', 'checkbox', array(
                 'required' => false,
-                'label'    => 'enabled',
+                'label'    => 'Enabled'
             ));
     }
 

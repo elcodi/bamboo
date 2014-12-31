@@ -12,11 +12,10 @@
 
     {% include "@AdminProduct/Variant/Tables/head.html.twig" with {
         rows: {
-            "id": {width:"25"},
-            "stock": {width:"25"},
-            "price": {width:"50"},
-            "reducedPrice": {width:"50"},
-            "enabled": {width:"25"},
+            "Variant": {width:"50"},
+            "Price": {width:"10"},
+            "Reduced Price": {width:"20"},
+            "Status": {width:"10"},
         },
         class: "variant",
         id: entity.id
@@ -25,14 +24,12 @@
 {% endblock table_head %}
 
 {% block table_body_row %}
-
     <td>
-        <a href="{{ url("admin_product_view", {"id": entity.id}) }}">
-            {{ entity.id }}
+        <a href="{{ url( "admin_variant_edit", { "id": entity.product.id, "variantId": entity.id }) }}">
+        {% for option in entity.options %}
+            {{ option.name }}
+        {% endfor %}
         </a>
-    </td>
-    <td>
-        {{ entity.stock }}
     </td>
     <td>
         {{ entity.price|print_money }}
@@ -41,40 +38,15 @@
         {{ entity.reducedPrice|print_money }}
     </td>
     <td>
-        {% if entity.enabled %}<span class="label label-success">true</span>{% else %}<span class="label label-danger">false</span>{% endif %}
+        {% if entity.enabled %}<span class="label-ok">Enabled</span>{% else %}<span class="label-ko">Disabled</span>{% endif %}
     </td>
 
     <td class="center">
-        <a class="btn btn-default btn-xs"
-           data-original-title="{{ "Show"|trans }}"
-           data-toggle="tooltip"
-           href="{{
-                    url(
-                        "admin_variant_view", {
-                            "id": entity.product.id,
-                            "variantId": entity.id
-                        }
-                    )
-                 }}">
-            <i class="fa fa-file"></i>
-        </a>
-        <a class="btn btn-primary btn-xs"
-           data-original-title="{{ "Edit"|trans }}"
-           data-toggle="tooltip"
-           href="{{
-                    url(
-                        "admin_variant_edit", {
-                            "id": entity.product.id,
-                            "variantId": entity.id
-                        }
-                    )
-                 }}">
-            <i class="fa fa-pencil"></i>
-        </a>
         {% if delete is not defined or delete != false %}
-            <a class="btn btn-danger btn-xs"
-               data-original-title="{{ "Remove"|trans }}"
-               data-toggle="tooltip"
+            <a class="icon-trash-o c-ko td-n fz-l"
+               data-tc-modules="confirm"
+               data-tc-name="{{ entity.product.name }}{% for option in entity.options %} {{ option.name }}{% endfor %}"
+               data-tc-text="{{ "Are you sure you want to delete it?"|trans }}"
                href="{{
                         url(
                             "admin_variant_delete", {

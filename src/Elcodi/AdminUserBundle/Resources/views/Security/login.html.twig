@@ -1,70 +1,37 @@
-{% extends 'AdminCoreBundle::layout.html.twig' %}
+{% extends 'AdminCoreBundle::layouts/center_box.html.twig' %}
 
-{% block body_class %}texture{% endblock body_class %}
+{% block content %}
 
-{% block body %}
+                {{ form_start(form, {
+                    "attr": {
+                        "class": "form"
+                    }
+                }) }}
+                    <fieldset>
+                        <legend>{{ "Login access required"|trans }}</legend>
+                        <ol>
+                            <li>
+                                {{ form_row(form.email, {
+                                    "attr": {
+                                        "class": "form-control",
+                                        "placeholder": "Email"|trans
+                                    }
+                                }) }}
+                            </li>
+                            <li>
+                                {{ form_row(form.password, {
+                                    "attr": {
+                                        "class": "form-control",
+                                        "placeholder": "Password"|trans
+                                    }
+                                }) }}
+                            </li>
+                        </ol>
+                        <button type="submit" class="button-main">{{ "Log In"|trans }}</button>
+                        <a href="{{ url("admin_password_remember") }}" class="button" data-dismiss="modal" type="warning">
+                            {{ "Remember"|trans }}
+                        </a>
+                    </fieldset>
+                {{ form_end(form) }}
 
-    <div id="cl-wrapper" class="login-container">
-
-        <div class="middle-login">
-            <div class="block-flat">
-                <div class="header">
-                    <h3 class="text-center">Bamboo Admin</h3>
-                </div>
-                <div>
-                    {{ form_start(form, {
-                        "attr": {
-                            "class": "form-horizontal",
-                            "style": "margin-bottom: 0px !important;"
-                        }
-                    }) }}
-
-                        <div class="content">
-                            <h4 class="title">{{ "Login Access"|trans }}</h4>
-
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="fa fa-user"></i>
-                                        </span>
-                                        {{ form_row(form.email, {
-                                            "attr": {
-                                                "class": "form-control",
-                                                "placeholder": "Email"|trans
-                                            }
-                                        }) }}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="fa fa-lock"></i>
-                                        </span>
-                                        {{ form_row(form.password, {
-                                            "attr": {
-                                                "class": "form-control",
-                                                "placeholder": "Password"|trans
-                                            }
-                                        }) }}
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="foot">
-                            <button type="submit" class="btn btn-primary">{{ "Log In"|trans }}</button>
-                            <a href="{{ url("admin_password_remember") }}" class="btn btn-warning" data-dismiss="modal" type="warning">
-                                Remember
-                            </a>
-                        </div>
-                    {{ form_end(form) }}
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-{% endblock body %}
+{% endblock content %}

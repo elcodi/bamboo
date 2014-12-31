@@ -11,14 +11,10 @@
 {% block table_head %}
     {% include "@AdminCore/Tables/head.html.twig" with {
         rows: {
-            "Name & Slug": {},
-            "Name & Slug": {width:"35"},
+            "Image": {width:"20"},
+            "Name & details": {},
             "Category": {width:"20"},
-            "Stock": {width:"10"},
-            "Price": {width:"10"},
-            "Home": {width:"10"},
-            "Variants" : {width:"10"},
-            "Status": {width:"10"},
+            "Price": {width:"10"}
         },
         class: "product",
     } %}
@@ -27,32 +23,24 @@
 
 {% block table_body_row %}
     <td>
-        <a href="{{ url("admin_product_view", {"id": entity.id}) }}"><strong>{{ entity.name }}</strong></a>
+        <a href="{{ url("admin_product_edit", {"id": entity.id}) }}" class="thumbnail"><img src="{{ entity.images.0|viewImage() }}" /></a>
+    </td>
+
+    <td>
+        <a href="{{ url("admin_product_edit", {"id": entity.id}) }}"><strong>{{ entity.name }}</strong></a>
         <p class="fz-s">/{{ entity.slug }}</p>
+        {% if entity.enabled %}<span class="label-ok fz-xs">Enabled</span>{% else %}<span class="label fz-xs">Disabled</span>{% endif %} {% if entity.showInHome %}<span class="label-info fz-xs">{{'Home'|trans}}</span>{% endif %} {% if entity.hasVariants %}<span class="label bg-secondary fz-xs">{{'Variants'|trans}}</span>{% endif %}
     </td>
     <td>
         {% if entity.principalCategory %}
-            <a href="{{ url("admin_category_view", { id: entity.principalCategory.id }) }}">
+            <a href="{{ url("admin_category_edit", { id: entity.principalCategory.id }) }}">
                 {{ entity.principalCategory.name }}
             </a>
         {% endif %}
     </td>
     <td>
-        {{ entity.stock }}
-    </td>
-    <td>
         {{ entity.price|print_money }}
     </td>
-    <td>
-        {% if entity.showInHome %}<span class="label-info">{{'Home'|trans}}</span>{% endif %}
-    </td>
-    <td>
-        {% if entity.hasVariants %}<span class="label bg-secondary">{{'Variants'|trans}}</span>{% endif %}
-    </td>
-    <td>
-        {% if entity.enabled %}<span class="label-ok">Enabled</span>{% else %}<span class="label">Disabled</span>{% endif %}
-    </td>
-
     {% include "@AdminCore/Tables/actions.html.twig" with {
         entity: entity,
         class: "product",

@@ -41,7 +41,7 @@ class ProductType extends AbstractPurchasableType
                 'required' => true,
                 'label'    => 'Title'
             ))
-            ->add('slug', 'hidden', array(
+            ->add('slug', 'text', array(
                 'required' => true,
                 'label'    => 'slug',
             ))
@@ -61,7 +61,7 @@ class ProductType extends AbstractPurchasableType
                 'required' => false,
                 'label'    => 'Dimensions',
             ))
-            ->add('stock', 'integer', array(
+            ->add('stock', 'hidden', array(
                 'required' => true,
                 'label'    => 'stock',
             ))
@@ -103,7 +103,7 @@ class ProductType extends AbstractPurchasableType
             ))
             ->add('manufacturer', 'entity', array(
                 'class'    => 'Elcodi\Component\Product\Entity\Manufacturer',
-                'required' => true,
+                'required' => false,
                 'label'    => 'manufacturer',
                 'multiple' => false,
             ))

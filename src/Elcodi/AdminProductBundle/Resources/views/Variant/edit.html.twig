@@ -12,7 +12,7 @@
                 'url': url('admin_product_list')
             },
             ('#' ~ id): {
-                'url': url('admin_product_view', {id: id})
+                'url': url('admin_product_edit', {id: id})
             },
             ('Edit Variant #' ~ variantId): {
                 'active': true
@@ -24,18 +24,9 @@
 
 {% block content %}
 
-    <div class="row">
-        <div class="col-md-8">
-            {{ render(url('admin_variant_edit_component', {
-                'id': id,
-                'variantId': variantId
-            })) }}
-        </div>
-        <div class="col-md-4">
-            {{ render(url('admin_product_gallery_component', {
-                'id': id,
-            })) }}
-        </div>
-    </div>
+    {{ render(url('admin_variant_edit_component', {
+        'id': id,
+        'variantId': variantId
+    })) }}
 
 {% endblock content %}

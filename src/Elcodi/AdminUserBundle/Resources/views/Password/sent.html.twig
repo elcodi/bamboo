@@ -1,26 +1,12 @@
-{% extends 'AdminCoreBundle::layout.html.twig' %}
+{% extends 'AdminCoreBundle::layouts/center_box.html.twig' %}
 
 
-{% block body_class %}texture{% endblock body_class %}
 
-
-{% block body %}
-    <div id="cl-wrapper" class="forgotpassword-container">
-
-        <div class="middle">
-            <div class="block-flat">
-                <div class="header">
-                    <h3 class="text-center">Bamboo Admin</h3>
-                </div>
-                <div class="content">
-                    <h5 class="title text-center">
-                        <strong>{{ "Email sent"|trans }}</strong>
-                    </h5>
-                    <p class="text-center">
-                        {{ "Please, check your email and follow the instruction to recover your password."|trans }}
-                    </p>
-                </div>
-            </div>
-        </div>
+{% block container %}
+    <div class="msg-ok">
+        <h3>{{ "Email sent"|trans }}</h3>
     </div>
-{% endblock body %}
+    <p>
+        {{ "Please, check your email and follow the instruction to recover your password."|trans }}
+    </p>
+{% endblock container %}

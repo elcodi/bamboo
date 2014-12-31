@@ -7,31 +7,9 @@
 {% endblock title %}
 
 {% block content %}
-
     {{ form_start(form, {'action': url('admin_product_update', {
         'id': entity.id
     })}) }}
-
-        {% if entity.hasVariants() %}
-
-        <div class="box-background pa-n">
-            <div class="msg-warning mb-n">
-                <strong>{{ 'This product has variants'|trans }}</strong>
-
-                {{ 'Manage them from the %admin_product_detail% page'|trans({
-                    '%admin_product_detail%':
-                        '<a href="' ~
-                        url('admin_product_view', {id: entity.id}) ~
-                        '" title="' ~
-                        entity.name ~
-                        '">product detail</a>'
-                    })|raw
-                }}
-            </div>
-        </div>
-        {% endif %}
-
-    {{ form_fieldset_start }}
     <fieldset class="mb-n">
         <div class="grid">
             <div class="col-1-3">
@@ -41,21 +19,30 @@
                 </div>
             </div>
             <div class="col-2-3">
-                <div class="box-lighten">
-                    <ol>
-                        <li>
-                            {{ form_row(form.name,{'attr': {'placeholder':'e.g. My Awesome Product'}}) }}
-                            {{ form_row(form.slug,{'attr': {'data-tc-modules':'slug','data-tc-parent':'elcodi_admin_product_form_type_product_name' }}) }}
-                        </li>
-                        <li>
-                            {{ form_row(form.description,{'attr': {'placeholder':'e.g. This awesome product is exactly what you are lookin for.'}}) }}
-                            <details class="ph-n mt-m">
-                                <summary class="pl-l">{{ 'Advanced details'|trans }}</summary>
-                                {{ form_row(form.shortDescription,{'attr': {'placeholder':'Add a short description or leave this field blank to get an auto extract of the description.'}}) }}
-                                <div class="pt-m"> {{ form_row(form.dimensions,{'attr': {'placeholder':'e.g. 25 x 25 x 50 cm'}}) }}</div>
-                            </details>
-                        </li>
-                    </ol>
+                <div data-tc-modules="tabs" class="tabs-box">
+                    {% set languages = ['es', 'en','fr'] %}
+                    {% for language in languages %}
+                    <section id="tab-{{ language }}" data-tc-name="{{ language|capitalize }}">
+                        <div class="box">
+                            <ol>
+                                <li>
+                                    <label>{{ 'Title'|trans }}</label>
+                                    {{ form_widget(form.name[language ~ '_name'],{'attr': {'placeholder':'e.g. My Awesome Product'}}) }}
+                                    <details class="ph-n pt-m mb-n">
+                                        <summary class="pl-l mb-n">{{ 'Personalize slug' }}</summary>
+                                        {{ form_widget(form.slug[language ~ '_slug'],{'attr': {'data-tc-modules':'slug','data-tc-parent':'elcodi_admin_product_form_type_product_name_'~ language ~'_name' }}) }}
+                                    </details>
+                                </li>
+                                <li>
+                                    <label>{{ 'Description'|trans }}</label>
+                                    {{ form_widget(form.description[language ~ '_description'],{'attr': {'placeholder':'e.g. This awesome product is exactly what you are lookin for.'}}) }}
+                                </li>
+                            </ol>
+                        </div>
+                    </section>
+                    {% endfor %}
+                </div>
+                <div class="box">
                     <ol class="grid">
                         <li class="col-1-2 pb-n pr-l">
                             {{ form_row(form.principalCategory, {'attr': {'label_help':'e.g. Computers, handbags...'}}) }}
@@ -67,27 +54,48 @@
                 </div>
             </div>
         </div>
+        {% if not entity.hasVariants() %}
         <div class="grid">
             <div class="col-1-3">
                 <div class="box-none">
-                    <h3 class="fw-n">{% trans %}Pricing & Stock{% endtrans %}</h3>
-                    <p>{% trans %}Set the price and the stock of your product.{% endtrans %}</p>
+                    <h3 class="fw-n">{% trans %}Pricing{% endtrans %}</h3>
+                    <p>{% trans %}Set the price and the offer if is needed.{% endtrans %}</p>
                 </div>
             </div>
             <div class="col-2-3">
-                <div class="box-lighten pb-n">
+                <div class="box pb-n">
                     <ol class="grid">
-                        <li class="col-1-2 pb-n">
+                        <li class="col-1-2">
                             {{ form_row(form.price) }}
-                            <details class="mt-m ph-n">
-                                <summary class="pl-l">{{ 'Advanced pricing'|trans }}</summary>
-                                <div class="pb-l">{{ form_row(form.reducedPrice) }}</div>
-                            </details>
-                        </li>
-                        <li class="col-1-2 pb-n">
                             {{ form_row(form.stock) }}
                         </li>
+                        <li class="col-1-2">
+                            {{ form_row(form.reducedPrice) }}
+                        </li>
                     </ol>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        <div class="grid">
+            <div class="col-1-3">
+                <div class="box-none">
+                    <h3 class="fw-n">{% trans %}Variants{% endtrans %}</h3>
+                    <p>{% trans %}Set the variants for this product.{% endtrans %}</p>
+                    <a href="{{ url("admin_variant_new", {id: entity.id}) }}" class="button">
+                        Create Variant
+                    </a>
+                </div>
+            </div>
+            <div class="col-2-3">
+                <div class="box">
+                    {% if entity.hasVariants() %}
+                        {{ render(url("admin_variant_list_component", {
+                            'id': entity.id
+                        })) }}
+                    {% else %}
+                        <p class="mt-l mb-xl">{% trans %}There are not variants for this product.{% endtrans %}</p>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -103,13 +111,13 @@
                 </div>
             </div>
             <div class="col-2-3">
-                <div class="box-lighten">
+                <div class="box">
                     {{ form_row(form.images,{'attr': {'class':'d-n'}}) }}
                     <ul id="thumb-gallery" class="thumbnail-group pl-s">
                     {% for image in entity.images %}
                         <li>
-                            <a href="{{ image|resize({'width':1200,'height':1200,'type': 2}) }}" data-tc-modules="modal" data-tc-width="90%" data-tc-height="90%" class="group-images thumbnail">
-                             <img id="image-{{ image.id }}" src="{{ image|resize({'width':200,'height':200,'type': 4}) }}" />
+                            <a href="{{ image|viewImage }}" data-tc-modules="modal" data-tc-width="90%" data-tc-height="90%" class="group-images thumbnail">
+                             <img id="image-{{ image.id }}" src="{{ image|viewImage }}" width="150" />
                             </a>
                             <ul class="thumbnail-actions">
                                 <li>
@@ -132,7 +140,7 @@
                     </div>
                 </div>
                 <div class="col-2-3">
-                    <div class="box-lighten">
+                    <div class="box">
                         <p class="msg-warning">{% trans %}<strong>This area for advanced users.</strong> Leave this fields in blank to obtain automatically the metadata of your product.{% endtrans %}</p>
                         <ol>
                             <li>
@@ -157,13 +165,13 @@
                 </div>
             </div>
             <div class="col-2-3">
-                <div class="box-lighten mb-n pb-n">
+                <div class="box mb-n pb-n">
                     <ol class="grid pt-m">
                         <li class="col-1-2">
-                            {{ form_row(form.showInHome, {'attr': {'type':'checkbox', 'label_help':'Check this to show it in home'}}) }}
+                            {{ form_row(form.showInHome, {'attr': {'type':'checkbox'}}) }}
                         </li>
                         <li class="col-1-2">
-                            {{ form_row(form.enabled, {'attr': {'type':'checkbox','label_help':'Uncheck to hide the product'}}) }}
+                            {{ form_row(form.enabled, {'attr': {'type':'checkbox'}}) }}
                         </li>
                     </ol>
                 </div>
@@ -182,15 +190,6 @@
 
         </div>
     </div>
-
-    {% if not entity.hasVariants() %}
-        {{ form_row(form.stock) }}
-        {{ form_row(form.price) }}
-        {{ form_row(form.reducedPrice) }}
-    {% endif %}
-
-
-    {{ form_fieldset_end }}
     {{ form_end(form, {render_rest : false}) }}
 
 {% endblock content %}

@@ -12,8 +12,7 @@
             {% block table_body %}
             {% for entity in paginator %}
                 <tr class="gradeA {{ cycle(["odd", "even"], loop.index0) }}">
-                    {% block table_body_row %}
-                    {% endblock table_body_row %}
+                    {% block table_body_row %}{% endblock table_body_row %}
                 </tr>
             {% endfor %}
             {% endblock table_body %}
