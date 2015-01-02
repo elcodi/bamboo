@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\AdminCurrencyBundle\Controller;
+namespace Elcodi\AdminLanguageBundle\Controller;
 
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -27,30 +27,18 @@ use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
 use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 
 /**
- * Class Controller for Currency
+ * Class Controller for Language
+ *
+ * @Route(
+ *      path = "/language",
+ * )
  */
-class CurrencyController
+class LanguageController
     extends
     AbstractAdminController
     implements
     EnableableControllerInterface
 {
-    /**
-     * Nav for currency group
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/currency/nav",
-     *      name = "admin_currency_nav"
-     * )
-     * @Method({"GET"})
-     * @Template
-     */
-    public function navAction()
-    {
-        return [];
-    }
 
     /**
      * List elements of certain entity type.
@@ -61,8 +49,8 @@ class CurrencyController
      * @return array Result
      *
      * @Route(
-     *      path = "/currencies/list",
-     *      name = "admin_currency_list"
+     *      path = "s/list",
+     *      name = "admin_language_list"
      * )
      * @Template
      * @Method({"GET"})
@@ -81,13 +69,13 @@ class CurrencyController
      * @return array Result
      *
      * @Route(
-     *      path = "/currency/{id}/enable",
-     *      name = "admin_currency_enable"
+     *      path = "/{id}/enable",
+     *      name = "admin_language_enable"
      * )
      * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.currency.entity.currency.class",
+     *      class = "elcodi.core.language.entity.language.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }
@@ -113,13 +101,13 @@ class CurrencyController
      * @return array Result
      *
      * @Route(
-     *      path = "/currency/{id}/disable",
-     *      name = "admin_currency_disable"
+     *      path = "/{id}/disable",
+     *      name = "admin_language_disable"
      * )
      * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.currency.entity.currency.class",
+     *      class = "elcodi.core.language.entity.language.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }

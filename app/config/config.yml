@@ -2,7 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: @ElcodiBambooBundle/Resources/config/translations.yml }
-    - { resource: @ElcodiBambooBundle/Resources/config/mapping.yml }
+    # - { resource: @ElcodiBambooBundle/Resources/config/mapping.yml }
     - { resource: @ElcodiBambooBundle/Resources/config/filesystem.yml }
 
 framework:
@@ -32,13 +32,16 @@ twig:
 # Doctrine Configuration
 doctrine:
     dbal:
-        driver:   "%database_driver%"
-        host:     "%database_host%"
-        port:     "%database_port%"
-        dbname:   "%database_name%"
-        user:     "%database_user%"
-        password: "%database_password%"
-        charset:  UTF8
+        driver:    "%database_driver%"
+        host:      "%database_host%"
+        port:      "%database_port%"
+        dbname:    "%database_name%"
+        user:      "%database_user%"
+        password:  "%database_password%"
+        path:      "%database_path%"
+        logging:   "%database_logging%"
+        profiling: "%database_profiling%"
+        charset:   UTF8
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"

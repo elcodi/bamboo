@@ -5,6 +5,10 @@ parameters:
     database_name:     bamboo
     database_user:     root
     database_password: ~
+    database_path:     ~
+    database_memory:   false
+    database_profiling: true
+    database_logging:  true
 
     mailer_transport:  smtp
     mailer_host:       127.0.0.1
