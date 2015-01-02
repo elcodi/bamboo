@@ -19,6 +19,9 @@ admin_coupon:
 admin_currency:
     resource: "@AdminCurrencyBundle/Resources/config/routing.yml"
 
+admin_language:
+    resource: "@AdminLanguageBundle/Resources/config/routing.yml"
+
 admin_product:
     resource: "@AdminProductBundle/Resources/config/routing.yml"
 

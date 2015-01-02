@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\AdminCurrencyBundle\Controller\Components;
+namespace Elcodi\AdminLanguageBundle\Controller\Components;
 
 use Doctrine\ORM\Tools\Pagination\Paginator;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -24,9 +24,13 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
 
 /**
- * Class CurrencyComponentController
+ * Class LanguageComponentController
+ *
+ * @Route(
+ *      path = "/language",
+ * )
  */
-class CurrencyComponentController extends AbstractAdminController
+class LanguageComponentController extends AbstractAdminController
 {
     /**
      * Component for entity list.
@@ -37,20 +41,20 @@ class CurrencyComponentController extends AbstractAdminController
      * @return array Result
      *
      * @Route(
-     *      path = "currencies/list/component",
-     *      name = "admin_currency_list_component",
+     *      path = "s/list/component",
+     *      name = "admin_language_list_component",
      * )
-     * @Template("AdminCurrencyBundle:Currency:Component/listComponent.html.twig")
+     * @Template("AdminLanguageBundle:Language:Component/listComponent.html.twig")
      * @Method({"GET"})
      */
     public function listComponentAction()
     {
-        $currencies = $this
-            ->get('elcodi.repository.currency')
+        $languages = $this
+            ->get('elcodi.repository.language')
             ->findAll();
 
         return [
-            'paginator' => $currencies,
+            'paginator' => $languages,
         ];
     }
 }

@@ -1,16 +1,13 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
 {% block content_title %}
-    {{ 'Currency Zone'|trans }}
+    {{ 'Language Zone'|trans }}
 {% endblock content_title %}
 
 {% block breadcrumb %}
     {% include "@AdminCore/Common/breadcrumb.html.twig" with {
         breadcrumb: {
-            "Currency": {
-                "url": url('admin_currency_list')
-            },
-            "New": {
+            ("Language"): {
                 "active" : true
             }
         }
@@ -21,7 +18,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            {{ render(url("admin_currency_new_component")) }}
+            {{ render(url("admin_language_list_component")) }}
         </div>
     </div>
 

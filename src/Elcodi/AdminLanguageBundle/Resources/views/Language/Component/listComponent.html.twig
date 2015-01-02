@@ -2,19 +2,18 @@
 
 
 {% block title %}
-    {{ 'Currency list'|trans }}
+    {{ 'Language list'|trans }}
 {% endblock title %}
 
 
 {% block table_head %}
     {% include "@AdminCore/Tables/head.html.twig" with {
         rows: {
-            "iso": {"sorting_disabled": true},
-            "name": {"sorting_disabled": true},
-            "symbol": {"sorting_disabled": true},
-            "enabled": {width:"25", "sorting_disabled": true},
+            "iso": {},
+            "symbol": {},
+            "enabled": {width:"25"},
         },
-        class: "currency",
+        class: "language",
         actions: false
     } %}
 {% endblock table_head %}
@@ -27,9 +26,6 @@
     </td>
     <td>
         {{ entity.name }}
-    </td>
-    <td>
-        {{ entity.symbol }}
     </td>
     <td>
         {% if entity.enabled %}
