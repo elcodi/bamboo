@@ -58,8 +58,8 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
         $fileIdentifierTransformer = $this->container->get('elcodi.file_identifier_transformer');
         $menCategory = $this->getReference('category-men');
         $womenCategory = $this->getReference('category-women');
-        $currency = $this->getReference('currency-dollar');
-        $currencyEuros = $this->getReference('currency-euro');
+        $currency = $this->getReference('currency-USD');
+        $currencyEuros = $this->getReference('currency-EUR');
 
         /**
          * @var ObjectManager $productObjectManager
@@ -77,6 +77,14 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
          */
         $product = $productFactory->create();
         $product
+            ->setName('Ibiza Lips English')
+            ->setSlug('ibiza-lips-en')
+            ->setDescription('Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.')
+            ->setMetaTitle('Ibiza Lips English')
+            ->setMetaDescription('Ibiza Lips English')
+            ->setMetaKeywords('Ibiza Lips English')
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
             ->setShowInHome(true)
@@ -178,6 +186,14 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
          */
         $product = $productFactory->create();
         $product
+            ->setName('Ibiza Banana English')
+            ->setSlug('ibiza-banana-en')
+            ->setDescription('Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.')
+            ->setMetaTitle('Ibiza Banana English')
+            ->setMetaDescription('Ibiza Banana English')
+            ->setMetaKeywords('Ibiza Banana English')
             ->setShowInHome(true)
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
@@ -238,6 +254,15 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
          */
         $product = $productFactory->create();
         $product
+            ->setName('I Was There English')
+            ->setSlug('i-was-there-en')
+            ->setDescription('Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.')
+            ->setMetaTitle('I Was There English')
+            ->setMetaDescription('I Was There English')
+            ->setMetaKeywords('I Was There English')
+            ->setShowInHome(true)
             ->setShowInHome(true)
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
@@ -298,6 +323,15 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
          */
         $product = $productFactory->create();
         $product
+            ->setName('A Life Style English')
+            ->setSlug('a-life-style-en')
+            ->setDescription('Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.')
+            ->setMetaTitle('A Life Style English')
+            ->setMetaDescription('A Life Style English')
+            ->setMetaKeywords('A Life Style English')
+            ->setShowInHome(true)
             ->setShowInHome(true)
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
@@ -358,6 +392,15 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
          */
         $product = $productFactory->create();
         $product
+            ->setName('A.M. Nesia Ibiza English')
+            ->setSlug('a-m-nesia-ibiza-en')
+            ->setDescription('Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.')
+            ->setMetaTitle('A.M. Nesia Ibiza English')
+            ->setMetaDescription('A.M. Nesia Ibiza English')
+            ->setMetaKeywords('A.M. Nesia Ibiza English')
+            ->setShowInHome(true)
             ->setShowInHome(true)
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
@@ -418,6 +461,15 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
          */
         $product = $productFactory->create();
         $product
+            ->setName('Amnesia Poem English')
+            ->setSlug('amnesia-poem-en')
+            ->setDescription('Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.')
+            ->setMetaTitle('Amnesia Poem English')
+            ->setMetaDescription('Amnesia Poem English')
+            ->setMetaKeywords('Amnesia Poem English')
+            ->setShowInHome(true)
             ->setShowInHome(true)
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
@@ -478,6 +530,15 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
          */
         $product = $productFactory->create();
         $product
+            ->setName('Pyramid English')
+            ->setSlug('pyramid-en')
+            ->setDescription('Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.')
+            ->setMetaTitle('Pyramid English')
+            ->setMetaDescription('Pyramid English')
+            ->setMetaKeywords('Pyramid English')
+            ->setShowInHome(true)
             ->setShowInHome(true)
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
@@ -538,6 +599,15 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
          */
         $product = $productFactory->create();
         $product
+            ->setName('Amnesia Pink English')
+            ->setSlug('amnesia-pink-en')
+            ->setDescription('Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.')
+            ->setMetaTitle('Amnesia Pink English')
+            ->setMetaDescription('Amnesia Pink English')
+            ->setMetaKeywords('Amnesia Pink English')
+            ->setShowInHome(true)
             ->setShowInHome(true)
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
@@ -598,6 +668,15 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
          */
         $product = $productFactory->create();
         $product
+            ->setName('Pinky Fragments English')
+            ->setSlug('pinky-fragments-en')
+            ->setDescription('Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.')
+            ->setMetaTitle('Pinky Fragments English')
+            ->setMetaDescription('Pinky Fragments English')
+            ->setMetaKeywords('Pinky Fragments English')
+            ->setShowInHome(true)
             ->setShowInHome(true)
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
@@ -658,6 +737,15 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
          */
         $product = $productFactory->create();
         $product
+            ->setName('I was there II English')
+            ->setSlug('i-was-there-ii-en')
+            ->setDescription('Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.')
+            ->setMetaTitle('I was there II English')
+            ->setMetaDescription('I was there II English')
+            ->setMetaKeywords('I was there II English')
+            ->setShowInHome(true)
             ->setShowInHome(true)
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
@@ -718,6 +806,15 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
          */
         $product = $productFactory->create();
         $product
+            ->setName('Amnesia English')
+            ->setSlug('amnesia-en')
+            ->setDescription('Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.')
+            ->setMetaTitle('Amnesia English')
+            ->setMetaDescription('Amnesia English')
+            ->setMetaKeywords('Amnesia English')
+            ->setShowInHome(true)
             ->setShowInHome(true)
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
@@ -778,6 +875,15 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
          */
         $product = $productFactory->create();
         $product
+            ->setName('Amnesia 100% English')
+            ->setSlug('amnesia-100-percent-en')
+            ->setDescription('Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.')
+            ->setMetaTitle('Amnesia 100% English')
+            ->setMetaDescription('Amnesia 100% English')
+            ->setMetaKeywords('Amnesia 100% English')
+            ->setShowInHome(true)
             ->setShowInHome(true)
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
@@ -838,6 +944,15 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
          */
         $product = $productFactory->create();
         $product
+            ->setName('A life style II English')
+            ->setSlug('a-life-style-ii-en')
+            ->setDescription('Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.')
+            ->setMetaTitle('A life style II English')
+            ->setMetaDescription('A life style II English')
+            ->setMetaKeywords('A life style II English')
+            ->setShowInHome(true)
             ->setShowInHome(true)
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
@@ -898,6 +1013,15 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
          */
         $product = $productFactory->create();
         $product
+            ->setName('All night long English')
+            ->setSlug('all-night-long-en')
+            ->setDescription('Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.')
+            ->setMetaTitle('All night long English')
+            ->setMetaDescription('All night long English')
+            ->setMetaKeywords('All night long English')
+            ->setShowInHome(true)
             ->setShowInHome(true)
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
@@ -959,6 +1083,15 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
         $product = $productFactory->create();
         $menCategory = $this->getReference('category-men');
         $product
+            ->setName('A.M. Nesia Ibiza II English')
+            ->setSlug('a-m-nesia-ibiza-ii-en')
+            ->setDescription('Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.')
+            ->setMetaTitle('A.M. Nesia Ibiza II English')
+            ->setMetaDescription('A.M. Nesia Ibiza II English')
+            ->setMetaKeywords('A.M. Nesia Ibiza II English')
+            ->setShowInHome(true)
             ->setShowInHome(true)
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
@@ -1020,6 +1153,15 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
         $product = $productFactory->create();
         $menCategory = $this->getReference('category-men');
         $product
+            ->setName('High Pyramid English')
+            ->setSlug('high-pyramid-en')
+            ->setDescription('Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.')
+            ->setMetaTitle('High Pyramid English')
+            ->setMetaDescription('High Pyramid English')
+            ->setMetaKeywords('High Pyramid English')
+            ->setShowInHome(true)
             ->setShowInHome(true)
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
@@ -1081,6 +1223,15 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
         $product = $productFactory->create();
         $menCategory = $this->getReference('category-men');
         $product
+            ->setName('Star Amnesia English')
+            ->setSlug('star-amnesia-en')
+            ->setDescription('Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.')
+            ->setMetaTitle('Star Amnesia English')
+            ->setMetaDescription('Star Amnesia English')
+            ->setMetaKeywords('Star Amnesia English')
+            ->setShowInHome(true)
             ->setShowInHome(true)
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
@@ -1141,6 +1292,15 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
          */
         $product = $productFactory->create();
         $product
+            ->setName('Ibiza 4 Ever English')
+            ->setSlug('ibiza-4-ever-en')
+            ->setDescription('Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.')
+            ->setMetaTitle('Ibiza 4 Ever English')
+            ->setMetaDescription('Ibiza 4 Ever English')
+            ->setMetaKeywords('Ibiza 4 Ever English')
+            ->setShowInHome(true)
             ->setShowInHome(true)
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)

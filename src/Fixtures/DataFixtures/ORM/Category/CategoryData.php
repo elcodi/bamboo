@@ -51,6 +51,11 @@ class CategoryData extends AbstractFixture
          */
         $womenCategory = $categoryFactory
             ->create()
+            ->setName('Women\'s')
+            ->setSlug('women-shirts')
+            ->setMetaTitle('Women Shirts')
+            ->setMetaDescription('Women Shirts')
+            ->setMetaKeywords('Women Shirts')
             ->setEnabled(true)
             ->setRoot(true);
 
@@ -89,6 +94,11 @@ class CategoryData extends AbstractFixture
          */
         $menCategory = $categoryFactory
             ->create()
+            ->setName('Men\'s')
+            ->setSlug('Men-shirts')
+            ->setMetaTitle('Men Shirts')
+            ->setMetaDescription('Men Shirts')
+            ->setMetaKeywords('Men Shirts')
             ->setEnabled(true)
             ->setRoot(true);
 

@@ -1,0 +1,167 @@
+menu_nodes:
+    bambooadmin_admin_users:
+        name: Admin users
+        code: ~
+        url: admin_admin_user_list
+        enabled: 1
+        subnodes: ~
+
+    bambooadmin_customers:
+        name: Customers
+        code: ~
+        url: admin_customer_list
+        enabled: 1
+        subnodes: ~
+
+    bambooadmin_users:
+        name: Users
+        code: users
+        url: ~
+        enabled: 1
+        subnodes:
+            - bambooadmin_admin_users
+            - bambooadmin_customers
+
+    bambooadmin_attributes:
+        name: Attribute
+        code: ~
+        url: admin_attribute_list
+        enabled: 1
+        subnodes: ~
+
+    bambooadmin_products:
+        name: Products
+        code: ~
+        url: admin_product_list
+        enabled: 1
+        subnodes: ~
+
+    bambooadmin_categories:
+        name: Categories
+        code: ~
+        url: admin_category_list
+        enabled: 1
+        subnodes: ~
+
+    bambooadmin_manufacturers:
+        name: Manufacturers
+        code: ~
+        url: admin_manufacturer_list
+        enabled: 1
+        subnodes: ~
+
+    bambooadmin_catalog:
+        name: Catalog
+        code: tags
+        url: ~
+        enabled: 1
+        subnodes:
+            - bambooadmin_attributes
+            - bambooadmin_products
+            - bambooadmin_categories
+            - bambooadmin_manufacturers
+
+    bambooadmin_carts:
+        name: Carts
+        code: ~
+        url: admin_cart_list
+        enabled: 1
+        subnodes: ~
+
+    bambooadmin_orders:
+        name: Customers
+        code: ~
+        url: admin_order_list
+        enabled: 1
+        subnodes: ~
+
+    bambooadmin_purchases:
+        name: Purchases
+        code: shopping-cart
+        url: admin_customer_list
+        enabled: 1
+        subnodes:
+            - bambooadmin_carts
+            - bambooadmin_orders
+
+    bambooadmin_medias:
+        name: Medias
+        code: picture-o
+        url: admin-image-list
+        enabled: 1
+        subnodes: ~
+
+    bambooadmin_bannerzones:
+        name: Banner Zones
+        code: ~
+        url: admin_banner_zone_list
+        enabled: 1
+        subnodes: ~
+
+    bambooadmin_banners:
+        name: Banners
+        code: ~
+        url: admin_banner_list
+        enabled: 1
+        subnodes: ~
+
+    bambooadmin_banner_server:
+        name: Banners
+        code: ~
+        url: ~
+        enabled: 1
+        subnodes:
+            - bambooadmin_bannerzones
+            - bambooadmin_banners
+
+    bambooadmin_coupons:
+        name: Coupons
+        code: ~
+        url: admin_coupon_list
+        enabled: 1
+        subnodes: ~
+
+    bambooadmin_pages:
+        name: Pages
+        code: file-text-o
+        url: admin_page_list
+        enabled: 1
+        subnodes: ~
+
+    bambooadmin_configurations:
+        name: Configuration
+        code: gear
+        url: admin_configuration_list
+        enabled: 1
+        subnodes: ~
+
+    bambooadmin_currencies:
+        name: Currencies
+        code: btc
+        url: admin_currency_list
+        enabled: 1
+        subnodes: ~
+
+    bambooadmin_languages:
+        name: Languages
+        code: ~
+        url: admin_language_list
+        enabled: 1
+        subnodes: ~
+
+menus:
+    admin:
+        code: admin
+        description: Admin menu
+        enabled: 1
+        subnodes:
+            - bambooadmin_users
+            - bambooadmin_catalog
+            - bambooadmin_purchases
+            - bambooadmin_medias
+            - bambooadmin_banner_server
+            - bambooadmin_coupons
+            - bambooadmin_pages
+            - bambooadmin_configurations
+            - bambooadmin_currencies
+            - bambooadmin_languages

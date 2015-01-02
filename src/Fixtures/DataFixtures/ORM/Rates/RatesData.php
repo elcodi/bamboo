@@ -47,10 +47,10 @@ class RatesData extends AbstractFixture implements DependentFixtureInterface
             ->container
             ->get('elcodi.factory.currency_exchange_rate');
 
-        $currencyEuro = $this->getReference('currency-euro');
-        $currencyDollar = $this->getReference('currency-dollar');
-        $currencyPound = $this->getReference('currency-pound');
-        $currencyIen = $this->getReference('currency-ien');
+        $currencyEuro = $this->getReference('currency-EUR');
+        $currencyDollar = $this->getReference('currency-USD');
+        $currencyPound = $this->getReference('currency-GBP');
+        $currencyIen = $this->getReference('currency-JPY');
 
         /**
          * @var CurrencyExchangeRateInterface $dollarToEuroRate

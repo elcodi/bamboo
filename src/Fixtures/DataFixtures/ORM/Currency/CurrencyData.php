@@ -19,7 +19,7 @@ namespace Elcodi\Fixtures\DataFixtures\ORM\Currency;
 use Doctrine\Common\Persistence\ObjectManager;
 
 use Elcodi\Bundle\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
-use Elcodi\Component\Currency\Entity\Interfaces\CurrencyInterface;
+use Elcodi\Component\Currency\Factory\CurrencyFactory;
 
 /**
  * Class CurrencyData
@@ -33,63 +33,30 @@ class CurrencyData extends AbstractFixture
      */
     public function load(ObjectManager $manager)
     {
-
         /**
-         * @var CurrencyInterface $currencyDollar
+         * @var array           $currencies
+         * @var ObjectManager   $currencyObjectManager
+         * @var CurrencyFactory $currencyFactory
          */
-        $currencyDollar = $this
-            ->container
-            ->get('elcodi.factory.currency')->create();
+        $currencies = $this->parseYaml(dirname(__FILE__) . '/currencies.yml');
+        $currencyObjectManager = $this->get('elcodi.object_manager.currency');
+        $currencyFactory = $this->get('elcodi.factory.currency');
+        $currencyEntities = [];
 
-        $currencyDollar
-            ->setSymbol('$')
-            ->setIso('USD');
+        foreach ($currencies as $currencyIso => $currencyData) {
 
-        $manager->persist($currencyDollar);
-        $this->setReference('currency-dollar', $currencyDollar);
+            $currency = $currencyFactory
+                ->create()
+                ->setIso($currencyIso)
+                ->setName($currencyData['name'])
+                ->setSymbol($currencyData['symbol'])
+                ->setEnabled((boolean) $currencyData['enabled']);
 
-        /**
-         * @var CurrencyInterface $currencyEuro
-         */
-        $currencyEuro = $this
-            ->container
-            ->get('elcodi.factory.currency')->create();
+            $this->setReference('currency-' . $currencyIso, $currency);
+            $currencyObjectManager->persist($currency);
+            $currencyEntities[] = $currency;
+        }
 
-        $currencyEuro
-            ->setSymbol('€')
-            ->setIso('EUR');
-
-        $manager->persist($currencyEuro);
-        $this->setReference('currency-euro', $currencyEuro);
-
-        /**
-         * @var CurrencyInterface $currencyPound
-         */
-        $currencyPound = $this
-            ->container
-            ->get('elcodi.factory.currency')->create();
-
-        $currencyPound
-            ->setSymbol('£')
-            ->setIso('GBP');
-
-        $manager->persist($currencyPound);
-        $this->setReference('currency-pound', $currencyPound);
-
-        /**
-         * @var CurrencyInterface $currencyIen
-         */
-        $currencyIen = $this
-            ->container
-            ->get('elcodi.factory.currency')->create();
-
-        $currencyIen
-            ->setSymbol('円')
-            ->setIso('JPY');
-
-        $manager->persist($currencyIen);
-        $this->setReference('currency-ien', $currencyIen);
-
-        $manager->flush();
+        $currencyObjectManager->flush($currencyEntities);
     }
 }
