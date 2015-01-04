@@ -2,8 +2,10 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: @ElcodiBambooBundle/Resources/config/translations.yml }
-    # - { resource: @ElcodiBambooBundle/Resources/config/mapping.yml }
+    - { resource: @ElcodiBambooBundle/Resources/config/mapping.yml }
     - { resource: @ElcodiBambooBundle/Resources/config/filesystem.yml }
+    - { resource: @ElcodiBambooBundle/Resources/config/configuration.yml }
+    - { resource: @ElcodiBambooBundle/Resources/config/cache.yml }
 
 framework:
     secret:          "%secret%"
@@ -63,13 +65,6 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
-
-doctrine_cache:
-    providers:
-        elcodi:
-            type: redis
-        elcodi_configuration:
-            type: redis
 
 sensio_framework_extra:
     request:
