@@ -17,14 +17,14 @@
 
 
 {% block content %}
-    <div class="row">
-        <div class="col-md-12">
-            {{ render(url("admin_configuration_list_component", {
-            'page': page,
-            'limit': limit,
-            'orderByField': orderByField,
-            'orderByDirection': orderByDirection
-            })) }}
-        </div>
-    </div>
+
+    <h4>Store configuration</h4>
+    <ul>
+        <li>Store name <input type="text" value="{{ getConfiguration('store.name') }}" /> </li>
+    </ul>
+    <h4>Products configuration</h4>
+    <ul>
+        <li>Use stock <input type="checkbox"{% if getConfiguration('product.use_stock') %} checked="checked"{% endif %} /></li>
+    </ul>
+
 {% endblock content %}
