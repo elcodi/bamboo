@@ -4,6 +4,8 @@ imports:
     - { resource: @ElcodiBambooBundle/Resources/config/translations.yml }
     - { resource: @ElcodiBambooBundle/Resources/config/mapping.yml }
     - { resource: @ElcodiBambooBundle/Resources/config/filesystem.yml }
+    - { resource: @ElcodiBambooBundle/Resources/config/configuration.yml }
+    - { resource: @ElcodiBambooBundle/Resources/config/cache.yml }
 
 monolog:
     handlers:
@@ -82,13 +84,6 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
-
-doctrine_cache:
-    providers:
-        elcodi:
-            type: redis
-        elcodi_configuration:
-            type: redis
 
 free_payment:
     payment_success:
