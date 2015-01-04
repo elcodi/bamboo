@@ -52,7 +52,7 @@ class CategoryComponentController
      * @return array Result
      *
      * @Route(
-     *      path = "/categories/list/component/{page}/{limit}/{orderByField}/{orderByDirection}",
+     *      path = "/categories/component/{page}/{limit}/{orderByField}/{orderByDirection}",
      *      name = "admin_category_list_component",
      *      requirements = {
      *          "page" = "\d*",

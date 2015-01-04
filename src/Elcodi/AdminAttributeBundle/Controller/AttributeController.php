@@ -57,7 +57,7 @@ class AttributeController
      * @return array Result
      *
      * @Route(
-     *      path = "s/list/{page}/{limit}/{orderByField}/{orderByDirection}",
+     *      path = "s/{page}/{limit}/{orderByField}/{orderByDirection}",
      *      name = "admin_attribute_list",
      *      requirements = {
      *          "page" = "\d*",

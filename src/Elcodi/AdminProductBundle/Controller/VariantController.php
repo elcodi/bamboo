@@ -64,7 +64,7 @@ class VariantController
      * @return array Result
      *
      * @Route(
-     *      path = "s/list/{page}/{limit}/{orderByField}/{orderByDirection}",
+     *      path = "s/{page}/{limit}/{orderByField}/{orderByDirection}",
      *      name = "admin_variant_list",
      *      requirements = {
      *          "page" = "\d*",

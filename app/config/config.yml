@@ -74,8 +74,3 @@ controller_extra:
     factory:
         default_method: create
         default_static: false
-
-elcodi_menu:
-    route_provider:
-        adapter: symfony
-
