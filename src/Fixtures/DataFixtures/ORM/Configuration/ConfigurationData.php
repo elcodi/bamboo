@@ -19,7 +19,6 @@ namespace Elcodi\Fixtures\DataFixtures\ORM\Configuration;
 use Doctrine\Common\Persistence\ObjectManager;
 
 use Elcodi\Bundle\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
-use Elcodi\Component\Configuration\Entity\Configuration;
 
 /**
  * Class ConfigurationData
@@ -33,21 +32,31 @@ class ConfigurationData extends AbstractFixture
      */
     public function load(ObjectManager $manager)
     {
+        $configurations = $this->parseYaml(dirname(__FILE__) . '/configuration.yml');
 
         /**
-         * @var Configuration $storeNameConfiguration
+         * @var ObjectManager $configurationObjectManager
+         * @var array         $configurationEntities
          */
-        $storeNameConfiguration = $this
-            ->get('elcodi.factory.configuration')
-            ->create();
-        $storeNameConfiguration
-            ->setNamespace('')
-            ->setParameter('store.name')
-            ->setValue('Bamboo Store')
-            ->setEnabled(true);
+        $configurationObjectManager = $this->get('elcodi.object_manager.configuration');
+        $configurationFactory = $this->get('elcodi.factory.configuration');
+        $configurationEntities = [];
 
-        $manager->persist($storeNameConfiguration);
+        foreach ($configurations as $configuration) {
 
-        $manager->flush();
+            $configuration = $configurationFactory
+                ->create()
+                ->setKey($configuration['key'])
+                ->setNamespace($configuration['namespace'])
+                ->setName($configuration['name'])
+                ->setType($configuration['type'])
+                ->setValue($configuration['value'])
+            ;
+
+            $configurationObjectManager->persist($configuration);
+            $configurationEntities[] = $configuration;
+        }
+
+        $configurationObjectManager->flush($configurationEntities);
     }
 }
