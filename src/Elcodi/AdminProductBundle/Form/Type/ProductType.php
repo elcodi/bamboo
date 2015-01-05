@@ -117,6 +117,7 @@ class ProductType extends AbstractPurchasableType
                 'class'    => 'Elcodi\Component\Media\Entity\Image',
                 'required' => false,
                 'label'    => 'principalImage',
+                'property' => 'id',
                 'multiple' => false,
             ))
             ->add('categories', 'entity', array(
@@ -129,6 +130,7 @@ class ProductType extends AbstractPurchasableType
                 'class'    => 'Elcodi\Component\Media\Entity\Image',
                 'required' => false,
                 'label'    => 'images',
+                'property' => 'id',
                 'multiple' => true,
             ));
 
