@@ -26,5 +26,12 @@
     <ul>
         <li>Use stock <input type="checkbox"{% if getConfiguration('product.use_stock') %} checked="checked"{% endif %} /></li>
     </ul>
+    <h4>Currency configuration</h4>
+    {% set defaultCurrency = getConfiguration('currency.default_currency') %}
+    <select>
+        {% for currency in currencies %}
+            <option value="{{ currency.iso }}"{% if currency.iso == defaultCurrency %} selected="selected"{% endif %}>{{ currency.name }}</option>
+        {% endfor %}
+    </select>
 
 {% endblock content %}

@@ -1,5 +1,5 @@
-<?php 
-/* 
+<?php
+/*
 In order to upload files to S3 using Flash runtime, one should start by placing crossdomain.xml into the bucket.
 crossdomain.xml can be as simple as this:
 
@@ -24,20 +24,20 @@ $secret = 'SECRET_ACCESS_KEY';
 
 // prepare policy
 $policy = base64_encode(json_encode(array(
-	// ISO 8601 - date('c'); generates uncompatible date, so better do it manually
-	'expiration' => date('Y-m-d\TH:i:s.000\Z', strtotime('+1 day')),  
-	'conditions' => array(
-		array('bucket' => $bucket),
-		array('acl' => 'public-read'),
-		array('starts-with', '$key', ''),
-		// for demo purposes we are accepting only images
-		array('starts-with', '$Content-Type', 'image/'),
-		// Plupload internally adds name field, so we need to mention it here
-		array('starts-with', '$name', ''), 	
-		// One more field to take into account: Filename - gets silently sent by FileReference.upload() in Flash
-		// http://docs.amazonwebservices.com/AmazonS3/latest/dev/HTTPPOSTFlash.html
-		array('starts-with', '$Filename', ''), 
-	)
+    // ISO 8601 - date('c'); generates uncompatible date, so better do it manually
+    'expiration' => date('Y-m-d\TH:i:s.000\Z', strtotime('+1 day')),
+    'conditions' => array(
+        array('bucket' => $bucket),
+        array('acl' => 'public-read'),
+        array('starts-with', '$key', ''),
+        // for demo purposes we are accepting only images
+        array('starts-with', '$Content-Type', 'image/'),
+        // Plupload internally adds name field, so we need to mention it here
+        array('starts-with', '$name', ''),
+        // One more field to take into account: Filename - gets silently sent by FileReference.upload() in Flash
+        // http://docs.amazonwebservices.com/AmazonS3/latest/dev/HTTPPOSTFlash.html
+        array('starts-with', '$Filename', ''),
+    )
 )));
 
 // sign policy
@@ -63,7 +63,7 @@ $signature = base64_encode(hash_hmac('sha1', $policy, $secret, true));
 <script type="text/javascript" src="../../js/plupload.full.min.js"></script>
 <script type="text/javascript" src="../../js/jquery.ui.plupload/jquery.ui.plupload.js"></script>
 
-<!-- debug 
+<!-- debug
 <script type="text/javascript" src="../../js/moxie.js"></script>
 <script type="text/javascript" src="../../js/plupload.dev.js"></script>
 <script type="text/javascript" src="../../js/jquery.ui.plupload/jquery.ui.plupload.js"></script>
@@ -80,26 +80,26 @@ $signature = base64_encode(hash_hmac('sha1', $policy, $secret, true));
 
 <script type="text/javascript">
 // Convert divs to queue widgets when the DOM is ready
-$(function() {
+$(function () {
 	$("#uploader").plupload({
 		runtimes : 'html5,flash,silverlight',
 		url : 'http://<?php echo $bucket; ?>.s3.amazonaws.com/',
-		
+
 		multipart: true,
 		multipart_params: {
 			'key': '${filename}', // use filename as a key
 			'Filename': '${filename}', // adding this to keep consistency across the runtimes
 			'acl': 'public-read',
 			'Content-Type': 'image/jpeg',
-			'AWSAccessKeyId' : '<?php echo $accessKeyId; ?>',		
+			'AWSAccessKeyId' : '<?php echo $accessKeyId; ?>',
 			'policy': '<?php echo $policy; ?>',
 			'signature': '<?php echo $signature; ?>'
 		},
-		
-		// !!!Important!!! 
+
+		// !!!Important!!!
 		// this is not recommended with S3, since it will force Flash runtime into the mode, with no progress indication
-		//resize : {width : 800, height : 600, quality : 60},  // Resize images on clientside, if possible 
-		
+		//resize : {width : 800, height : 600, quality : 60},  // Resize images on clientside, if possible
+
 		// optional, but better be specified directly
 		file_data_name: 'file',
 

@@ -47,7 +47,22 @@ class ConfigurationController extends AbstractAdminController
      */
     public function listAction()
     {
-        return [];
+        $currencies = $this
+            ->get('elcodi.repository.currency')
+            ->findBy([
+                'enabled' => true
+            ]);
+
+        $languages = $this
+            ->get('elcodi.repository.language')
+            ->findBy([
+                'enabled' => true
+            ]);
+
+        return [
+            'languages' => $languages,
+            'currencies' => $currencies,
+        ];
     }
 
     /**
@@ -57,7 +72,7 @@ class ConfigurationController extends AbstractAdminController
      *
      * @Route(
      *      path = "/{id}/update",
-     *      name = "admin_configuration_list"
+     *      name = "admin_configuration_update"
      * )
      * @Method({"POST"})
      *
