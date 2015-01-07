@@ -103,7 +103,7 @@ class AdminUserType extends AbstractType
             ))
             ->add('enabled', 'checkbox', array(
                 'required' => false,
-                'label'    => 'Enabled'
+                'label'    => 'Status'
             ));
     }
 

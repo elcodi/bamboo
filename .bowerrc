@@ -1,3 +1,3 @@
 {
-	"directory" : "public/components"
+	"directory" : "src/Elcodi/AdminCoreBundle/Resources/public/components"
 }

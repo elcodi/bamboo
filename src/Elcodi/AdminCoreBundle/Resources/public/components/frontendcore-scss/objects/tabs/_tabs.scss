@@ -133,11 +133,18 @@
 			}
 		}
 	}
-	.tabs-box {
-		li.active a {
-			background-color: $color-box;
+	$colors-list: 'foreground','background','primary','secondary','box','info';
+
+	@each $color in $colors-list {
+
+		.tabs-#{$color} {
+			li.active a {
+				background-color: map-get($colors, $color) !important;
+				color: contrast-color(map-get($colors, $color));
+			}
 		}
 	}
+
 
 }
 @mixin desktop-tabs {

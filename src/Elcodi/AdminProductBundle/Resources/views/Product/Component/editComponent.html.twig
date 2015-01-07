@@ -140,19 +140,28 @@
                     </div>
                 </div>
                 <div class="col-2-3">
-                    <div class="box">
-                        <p class="msg-warning">{% trans %}<strong>This area for advanced users.</strong> Leave this fields in blank to obtain automatically the metadata of your product.{% endtrans %}</p>
-                        <ol>
-                            <li>
-                                {{ form_row(form.metaTitle) }}
-                            </li>
-                            <li>
-                                {{ form_row(form.metaDescription) }}
-                            </li>
-                            <li>
-                                {{ form_row(form.metaKeywords) }}
-                            </li>
-                        </ol>
+                    <p class="msg-warning">{% trans %}<strong>This area for advanced users.</strong> Leave this fields in blank to obtain automatically the metadata of your product.{% endtrans %}</p>
+                    <div data-tc-modules="tabs" class="tabs-box">
+                        {% for language in languages %}
+                            <section id="metadata-{{ language }}" data-tc-name="{{ language|capitalize }}">
+                                <div class="box">
+                                    <ol>
+                                        <li>
+                                            <label>{{ 'metaTitle'|trans }}</label>
+                                            {{ form_widget(form.metaTitle[language ~ '_metaTitle'],{'attr': {'placeholder':'e.g. My Awesome Product'}}) }}
+                                        </li>
+                                        <li>
+                                            <label>{{ 'metaDescription'|trans }}</label>
+                                            {{ form_widget(form.metaDescription[language ~ '_metaDescription'],{'attr': {'placeholder':'e.g. This awesome product is exactly what you are lookin for.'}}) }}
+                                        </li>
+                                        <li>
+                                            <label>{{ 'metaKeywords'|trans }}</label>
+                                            {{ form_widget(form.metaKeywords[language ~ '_metaKeywords'],{'attr': {'placeholder':'e.g. product,awesome'}}) }}
+                                        </li>
+                                    </ol>
+                                </div>
+                            </section>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -185,7 +194,7 @@
             &nbsp;
         </div>
         <div class="col-2-3">
-            <button type="submit" class="button-main">{{ 'Update'|trans }}</button>
+            <button type="submit" class="button-primary">{{ 'Update'|trans }}</button>
             <a href="{{ path('admin_product_list') }}" class="button">{{ 'Cancel'|trans }}</a>
 
         </div>

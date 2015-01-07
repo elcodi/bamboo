@@ -13,7 +13,7 @@
             <div class="no-items">
                 <i class="icon-table no-items-icon"></i>
                 <h2>{% trans with {'%items%': items|default('items') } %}There are not %items%{% endtrans %}</h2>
-                <p><a href="{{ no_item_url|default('#') }}" class="button-main"><i class="icon-plus"></i> {% trans with {'%item%': item|default('item') } %}Create my first %item%{% endtrans %}</a></p>
+                <p><a href="{{ no_item_url|default('#') }}" class="button-primary"><i class="icon-plus"></i> {% trans with {'%item%': item|default('item') } %}Create my first %item%{% endtrans %}</a></p>
             </div>
         {% endmacro %}
 

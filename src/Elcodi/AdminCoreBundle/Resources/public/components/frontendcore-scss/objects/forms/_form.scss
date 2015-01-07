@@ -113,6 +113,19 @@
 		input:disabled {
 			background-color: $color-box-light;
 		}
+		select {
+			border-radius: 0;
+			background-color: $color-background;
+			border-style: solid;
+			border-width: 1px;
+			border-color: $color-box-dark;
+			padding:$spacing/4;
+			color: rgba(0, 0, 0, 0.75);
+			line-height: normal;
+			border-radius: 0;
+			height: $spacing*1.9;
+
+		}
 
 		.select-multiple {
 			& {

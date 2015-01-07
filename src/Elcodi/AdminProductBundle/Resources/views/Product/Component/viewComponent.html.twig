@@ -13,14 +13,14 @@
                class="button-ok icon-power-off pr-m"></a>
         {% else %}
             <a href="{{ url("admin_product_enable", {"id": entity.id}) }}" title="{{ 'Enable'|trans }}"
-               class="button-alt icon-power-off pr-m"></a>
+               class="button-secondary icon-power-off pr-m"></a>
         {% endif %}
         <a href="{{ url("admin_product_delete", {"id": entity.id}) }}" title="{{ 'Delete'|trans }}"
            class="button-ko icon-trash-o pr-m"></a>
         <a href="{{ url("admin_product_edit", {"id": entity.id}) }}" title="{{ 'Edit'|trans }}"
            class="button icon-pencil"> {{ 'Edit'|trans }}</a>
         {% if not entity.hasVariants() %}<a href="{{ url("admin_variant_new", {id: entity.id}) }}"type="button"
-                                            class="button-main icon-sitemap"
+                                            class="button-primary icon-sitemap"
                                             title="{{ "Create variants"|trans }}" > {{ "Create variants"|trans }}</a>{% endif %}
     </div>
 {% endblock view_buttons %}

@@ -64,31 +64,31 @@
 		@include background-transparent($color-foreground, .15);
 	}
 
-	.button-main {
+	.button-primary {
 		background:$color-primary;
 		color: $color-background;
 		@include text-shadow(0 1px rgba($color-foreground, .3));
 	}
 
-	.button-main:hover {
+	.button-primary:hover {
 		@include background-transparent($color-primary, .8);
 	}
 
-	.button-main:active {
+	.button-primary:active {
 		@include background-transparent($color-primary, .7);
 	}
 
-	.button-alt {
+	.button-secondary {
 		background:$color-secondary;
 		color: $color-background;
 		@include text-shadow(0 1px rgba($color-foreground, .3));
 	}
 
-	.button-alt:hover {
+	.button-secondary:hover {
 		@include background-transparent($color-secondary, .8);
 	}
 
-	.button-alt:active {
+	.button-secondary:active {
 		@include background-transparent($color-secondary, .7);
 	}
 
@@ -152,14 +152,14 @@
 		color: $color-foreground;
 	}
 
-	.button-main {
+	.button-primary {
 		@include background-image(linear-gradient($color-primary-light 20%, $color-primary 80%));
 		@include background-gradient-ie-old($color-primary-light, $color-primary);
 		border: 1px solid $color-primary;
 		color: contrast-color($color-primary);
 	}
 
-	.button-alt {
+	.button-secondary {
 		@include background-image(linear-gradient($color-secondary-light 20%, $color-secondary 80%)); @include background-gradient-ie-old($color-secondary-light, $color-secondary);
 		border: 1px solid $color-secondary;
 		color: contrast-color($color-secondary);

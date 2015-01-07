@@ -235,11 +235,19 @@ class ProductController
      * )
      * @Template
      * @Method({"GET"})
+     *
+     *  @EntityAnnotation(
+     *      class = "elcodi.core.product.entity.product.class",
+     *      mapping = {
+     *          "id": "~id~",
+     *      }
+     * )
      */
-    public function editAction($id)
+    public function editAction(ProductInterface $entity)
     {
         return [
-            'id' => $id,
+            'entity' => $entity,
+            'id' => $entity->getId(),
         ];
     }
 

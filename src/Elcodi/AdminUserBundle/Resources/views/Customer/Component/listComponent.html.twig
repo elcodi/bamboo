@@ -9,29 +9,24 @@
 {% block table_head %}
     {% include "@AdminCore/Tables/head.html.twig" with {
         rows: {
-            "Id": {width:"25"},
-            "name": {},
-            "username": {},
-            "email": {},
-            "Nb. Orders": {width:"25", sorting_disabled: true},
-            "enabled": {width:"25"},
+            "Username": {},
+            "Name": {},
+            "E-mail": {},
+            "Orders": {width:"10", sorting_disabled: true},
+            "Status": {width:"10"},
         },
         class: "customer",
     } %}
 {% endblock table_head %}
 
-
 {% block table_body_row %}
     <td>
-        <a href="{{ url("admin_customer_view", {"id": entity.id}) }}">
-            {{ entity.id }}
+        <a href="{{ url("admin_customer_edit", {"id": entity.id}) }}">
+            <strong>{{ entity.username }}</strong>
         </a>
     </td>
     <td>
         {{ entity.fullname }}
-    </td>
-    <td>
-        {{ entity.username }}
     </td>
     <td>
         {{ entity.email }}
@@ -41,9 +36,9 @@
     </td>
     <td>
         {% if entity.enabled %}
-            <span class="label label-success">true</span>
+            <span class="label-ok">Active</span>
         {% else %}
-            <span class="label label-danger">false</span>
+            <span class="label-ko">Inactive</span>
         {% endif %}
     </td>
 

@@ -1,11 +1,5 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
-
-{% block content_title %}
-    {{ 'Customer Zone'|trans }}
-{% endblock content_title %}
-
-
 {% block breadcrumb %}
     {% include "@AdminCore/Common/breadcrumb.html.twig" with {
         breadcrumb: {
@@ -16,8 +10,9 @@
     } %}
 {% endblock breadcrumb %}
 
+
 {% block header_actions %}
-    <a href="{{ url("admin_customer_new") }}" class="button-main"> <i class="icon-plus"></i> {{ "New customer"|trans }}</a>
+    <a href="{{ url("admin_customer_new") }}" class="button-primary"> <i class="icon-plus"></i> {{ "New customer"|trans }}</a>
 {% endblock header_actions %}
 
 {% block content %}

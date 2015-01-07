@@ -88,9 +88,13 @@
 
 {% block checkbox_widget %}
 {% spaceless %}
-    <label>
-        <input type="checkbox" data-size="small" class="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
-        {{ label|trans({}, translation_domain) }} {% if attr.label_help is defined %}<em>{{ attr.label_help }}</em>{% endif %}</label>
+
+    <div class="switch">
+        <input id="switch-{{ label|trans({}, translation_domain)|url_encode  }}" type="checkbox" {{ block('widget_attributes') }} {% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %}>
+        <label for="switch-{{ label|trans({}, translation_domain)|url_encode }}"></label> {% if attr.label_help is defined %}<em>{{ attr.label_help }}</em>{% endif %}
+    </div>
+    {{ label|trans({}, translation_domain) }}
+
 {% endspaceless %}
 {% endblock checkbox_widget %}
 

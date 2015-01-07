@@ -128,15 +128,15 @@ class CustomerType extends AbstractType
             ))
             ->add('guest', 'checkbox', array(
                 'required' => false,
-                'label'    => 'Is guest'
+                'label'    => 'Guest'
             ))
             ->add('newsletter', 'checkbox', array(
                 'required' => false,
-                'label'    => 'Newsletter subscribed'
+                'label'    => 'Newsletter'
             ))
             ->add('enabled', 'checkbox', array(
                 'required' => false,
-                'label'    => 'Is enabled'
+                'label'    => 'Status'
             ));
     }
 

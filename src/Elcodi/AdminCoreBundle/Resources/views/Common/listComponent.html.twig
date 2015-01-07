@@ -1,7 +1,7 @@
 {% extends 'AdminCoreBundle::Common/component.html.twig' %}
 
 {% block table_content %}
-    <table class="table" id="datatable-icons"  summary="{% block title %}{% endblock %}">
+    <table class="table" id="datatable-icons"  summary="{% block title %}{% endblock %}" {% block table_attributes %}{% endblock table_attributes %}>
         <thead>
             <tr role="row">
                 {% block table_head %}

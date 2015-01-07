@@ -5,15 +5,13 @@
     {{ 'Admin Users list'|trans }}
 {% endblock title %}
 
-
 {% block table_head %}
     {% include "@AdminCore/Tables/head.html.twig" with {
         rows: {
-            "Id": {width:"25"},
-            "name": {},
-            "username": {},
-            "email": {},
-            "enabled": {width:"25"},
+            "Name": {},
+            "Username": {},
+            "E-mail": {},
+            "Status": {width:"10"},
         },
         class: "admin_user",
     } %}
@@ -22,12 +20,9 @@
 
 {% block table_body_row %}
     <td>
-        <a href="{{ url("admin_admin_user_view", {"id": entity.id}) }}">
-            {{ entity.id }}
+        <a href="{{ url("admin_admin_user_edit", {"id": entity.id}) }}">
+            <strong>{{ entity.fullname }}</strong>
         </a>
-    </td>
-    <td>
-        {{ entity.fullname }}
     </td>
     <td>
         {{ entity.username }}
@@ -37,9 +32,9 @@
     </td>
     <td>
         {% if entity.enabled %}
-            <span class="label label-success">true</span>
+            <span class="label-ok">Active</span>
         {% else %}
-            <span class="label label-danger">false</span>
+            <span class="label-ko">Inactive</span>
         {% endif %}
     </td>
 
