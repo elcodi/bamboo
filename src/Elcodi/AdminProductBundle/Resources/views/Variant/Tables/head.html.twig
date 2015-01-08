@@ -16,9 +16,7 @@
 #}
 
 {% block column_header %}
-    <th role="columnheader" tabindex="0" aria-controls="database-icons" class="{{ directionclass }}"
-        {% if info.width is defined %} style="width={{ info.width }}px"{% endif %}
-            >
+    <th class="{{ directionclass }} {% if info.width is defined %} w-{{ info.width }}"{% endif %}">
             {% if islink %}
                 <a href="{{ url("admin_" ~ class ~ "_list", {
                     "id": id,

@@ -1,11 +1,5 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
-
-{% block content_title %}
-    {{ 'Admin User Zone'|trans }}
-{% endblock content_title %}
-
-
 {% block breadcrumb %}
     {% include "@AdminCore/Common/breadcrumb.html.twig" with {
         breadcrumb: {
@@ -16,16 +10,15 @@
     } %}
 {% endblock breadcrumb %}
 
+{% block header_actions %}
+    <a href="{{ url("admin_admin_user_new") }}"class="button-primary"><i class="icon-plus"></i> {{ "New admin user"|trans }}</a>
+{% endblock header_actions %}
 
 {% block content %}
-    <div class="row">
-        <div class="col-md-12">
-            {{ render(url("admin_admin_user_list_component", {
-                'page': page,
-                'limit': limit,
-                'orderByField': orderByField,
-                'orderByDirection': orderByDirection
-            })) }}
-        </div>
-    </div>
+    {{ render(url("admin_admin_user_list_component", {
+        'page': page,
+        'limit': limit,
+        'orderByField': orderByField,
+        'orderByDirection': orderByDirection
+    })) }}
 {% endblock content %}

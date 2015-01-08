@@ -1,0 +1,29 @@
+.sidebar-user {
+	& {
+		display: block;
+		background: $color-foreground;
+		margin: 0;
+		padding: $spacing/2;
+		overflow: hidden;
+		border-bottom: 1px solid rgba($color-background, .2);
+	}
+}
+
+.sidebar-user-avatar {
+	float: left;
+	margin-right: $spacing/2;
+
+}
+
+.sidebar-user-info {
+	& {
+		float: left;
+	}
+	a {
+		color: $color-background;
+	}
+}
+
+.sidebar-user-dropdown{
+	display: none;
+}

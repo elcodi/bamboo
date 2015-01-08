@@ -30,19 +30,20 @@
 
 
 
-<div class="dataTables_paginate paging_bs_normal">
-    <ul class="pagination">
-        <li class="prev{% if is_first_page == true %} disabled{% endif %}">
+<nav class="pagination">
+    <ul>
+        {% if not is_first_page %}
+        <li>
             <a {% if is_first_page == false %} href="{{ url(url, {
                 page: prev_page,
                 limit: limit,
                 orderByField: orderByField,
                 orderByDirection: orderByDirection
             }) }}"{% endif %}>
-                <span class="fa fa-angle-left"></span>
-                &nbsp;{{ 'Previous'|trans }}
+                <span class="icon-step-backward"></span>
             </a>
         </li>
+        {% endif %}
         {% if space_left <= page %}
             <li>
                 <a href="{{ url(url, {
@@ -85,16 +86,18 @@
                 }) }}">{{ total_pages }}</a>
             </li>
         {% endif %}
-        <li class="prev{% if is_last_page == true %} disabled{% endif %}">
+        {% if not is_last_page %}
+        <li>
+            {{ is_last_page }}
             <a {% if is_last_page == false %} href="{{ url(url, {
                 page: next_page,
                 limit: limit,
                 orderByField: orderByField,
                 orderByDirection: orderByDirection
             }) }}"{% endif %}>
-                &nbsp;{{ 'Next'|trans }}
-                <span class="fa fa-angle-right"></span>
+                <span class="icon-step-forward"></span>
             </a>
         </li>
+        {% endif %}
     </ul>
-</div>
+</nav>

@@ -1,0 +1,3 @@
+@function brightness($color) {
+  @return round((red($color) * 299) + (green($color) * 587) + (blue($color) * 114) / 1000);
+}

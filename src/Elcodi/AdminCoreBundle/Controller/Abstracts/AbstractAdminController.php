@@ -31,7 +31,6 @@ use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
  */
 class AbstractAdminController extends Controller
 {
-
     /**
      * Enable entity
      *
@@ -210,6 +209,27 @@ class AbstractAdminController extends Controller
             'code'    => $exception->getCode(),
             'message' => $exception->getMessage(),
         ]));
+    }
+
+    /**
+     * Save an entity. To ensure the method is simple, the entity will be
+     * persisted always
+     *
+     * @param mixed $entity Entity
+     *
+     * @return $this self Object
+     */
+    public function flush($entity)
+    {
+        /**
+         * @var ObjectManager $objectManager
+         */
+        $objectManager = $this->getManagerForClass($entity);
+
+        $objectManager->persist($entity);
+        $objectManager->flush($entity);
+
+        return $this;
     }
 
     /**

@@ -1,0 +1,17 @@
+.no-items {
+	& {
+		display: block;
+		text-align: center;
+		min-height: 500px;
+		position: relative;
+		padding-top: $spacing*2;
+	}
+
+	h2 {
+		margin-bottom: $spacing/2;
+	}
+}
+
+.no-items-icon {
+	@extend %icon-rounded;
+}

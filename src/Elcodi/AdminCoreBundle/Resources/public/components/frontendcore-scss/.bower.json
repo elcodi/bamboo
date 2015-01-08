@@ -1,0 +1,27 @@
+{
+  "name": "frontendcore-scss",
+  "version": "1.2.4",
+  "authors": [
+    "Toni Pinel <tonipinel@gmail.com>"
+  ],
+  "main": "Gruntfile.js",
+  "moduleType": [
+    "amd"
+  ],
+  "homepage": "http://www.frontendcore.com",
+  "private": true,
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "tests"
+  ],
+  "_release": "1.2.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.2.4",
+    "commit": "7096311c34847a4a04ecc673831664341b0bae6d"
+  },
+  "_source": "https://github.com/tonipinel/frontendcore-scss.git",
+  "_target": "1.2.4",
+  "_originalSource": "https://github.com/tonipinel/frontendcore-scss.git"
+}

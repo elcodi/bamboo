@@ -7,12 +7,18 @@
 
 
 {% block breadcrumb %}
+
+    {% set entityName = customer.id
+        ? customer.name
+        : 'New Customer'
+    %}
+
     {% include "@AdminCore/Common/breadcrumb.html.twig" with {
         breadcrumb: {
             "Customers": {
                 "url": url('admin_customer_list')
             },
-            ("Edit #" ~ id): {
+            ("Edit " ~ entityName): {
                 "active" : true
             }
         }
@@ -21,11 +27,13 @@
 
 
 {% block content %}
-    <div class="row">
-        <div class="col-md-6">
-            {{ render(url("admin_customer_edit_component", {
-                'id': id
-            })) }}
-        </div>
-    </div>
+
+    {% if customer.id %}
+        {{ render(url("admin_customer_edit_component", {
+            'id': customer.id
+        })) }}
+    {% else %}
+        {{ render(url("admin_customer_new_component")) }}
+    {% endif %}
+
 {% endblock content %}

@@ -5,42 +5,40 @@
     {{ 'Attribute list'|trans }}
 {% endblock title %}
 
+{% block no_items %}
+    {{ lists.no_items('attribute','attributes', url("admin_manufacturer_new") ) }}
+{% endblock no_items %}
 
 {% block table_head %}
     {% include "@AdminCore/Tables/head.html.twig" with {
         rows: {
-            "id": {width:"25"},
-            "name": {},
-            "displayName": {},
-            "values": {sorting_disabled: true},
-            "enabled": {width:"25"}
+            "Name": {},
+            "Display Name": {},
+            "Values": {sorting_disabled: true},
+            "Status": {width:"10"}
         },
         class: "attribute",
     } %}
 {% endblock table_head %}
 
-
 {% block table_body_row %}
     <td>
-        <a href="{{ url("admin_attribute_view", {"id": entity.id}) }}">
-            {{ entity.id }}
+        <a href="{{ url("admin_attribute_edit", {"id": entity.id}) }}">
+            <strong>{{ entity.name }}</strong>
         </a>
-    </td>
-    <td>
-        {{ entity.name }}
     </td>
     <td>
         {{ entity.displayName }}
     </td>
     <td>
-        <ul>
+        <ul class="list">
             {% for value in entity.values %}
                 <li>{{ value.name }}</li>
             {% endfor %}
         </ul>
     </td>
     <td>
-        {% if entity.enabled %}<span class="label label-success">true</span>{% else %}<span class="label label-danger">false</span>{% endif %}
+        {% if entity.enabled %}<span class="label-ok">Enabled</span>{% else %}<span class="label-ko">Disabled</span>{% endif %}
     </td>
 
     {% include "@AdminCore/Tables/actions.html.twig" with {
@@ -54,8 +52,3 @@
     {% set url = 'admin_attribute_list' %}
     {{ parent() }}
 {% endblock table_paginator_links %}
-
-
-{% block table_buttons %}
-    <a href="{{ url("admin_attribute_new") }}"type="button" class="btn btn-success">{{ "New attribute"|trans }}</a>
-{% endblock table_buttons %}

@@ -1,57 +1,28 @@
-{% extends 'AdminCoreBundle::layout.html.twig' %}
+{% extends 'AdminCoreBundle::layouts/center_box.html.twig' %}
 
 
-{% block body_class %}texture{% endblock body_class %}
+{% block content %}
 
-
-{% block body %}
-    <div id="cl-wrapper" class="forgotpassword-container">
-        <div class="middle">
-            <div class="block-flat">
-                <div class="header">
-                    <h3 class="text-center">Bamboo Admin</h3>
-                </div>
-                <div>
-                    {{ form_start(form, {
+    {{ form_start(form, {
+        "attr": {
+            "class": "form-horizontal",
+            "style": "margin-bottom: 0px !important;"
+        }
+    }) }}
+        <fieldset>
+            <legend>{{ 'Forgot your password?'|trans }}</legend>
+            <p>{{ "Don't worry, we'll send you an email to reset your password."|trans }}</p>
+            <ol>
+                <li>
+                    {{ form_row(form.email, {
                         "attr": {
-                            "class": "form-horizontal",
-                            "style": "margin-bottom: 0px !important;"
+                            "class": "form-control",
+                            "placeholder": "Email"|trans
                         }
                     }) }}
-
-                        <div class="content">
-
-                            <h5 class="title text-center">
-                                <strong>{{ 'Forgot your password?'|trans }}</strong>
-                            </h5>
-                            <p class="text-center">
-                                {{ "Don't worry, we'll send you an email to reset your password."|trans }}
-                            </p>
-                            <hr>
-
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="fa fa-envelope"></i>
-                                        </span>
-                                        {{ form_row(form.email, {
-                                            "attr": {
-                                                "class": "form-control",
-                                                "placeholder": "Email"|trans
-                                            }
-                                        }) }}
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="foot">
-                            <button type="submit" class="btn btn-block btn-primary btn-rad btn-lg">{{ "Remember"|trans }}</button>
-                        </div>
-                    {{ form_end(form) }}
-                </div>
-            </div>
-        </div>
-    </div>
-{% endblock body %}
+                </li>
+            </ol>
+            <button type="submit" class="button-primary">{{ "Remember"|trans }}</button>
+        </fieldset>
+    {{ form_end(form) }}
+{% endblock content %}

@@ -1,63 +1,18 @@
 {% extends 'AdminCoreBundle::Common/component.html.twig' %}
 
-
-{% block component %}
-
-    {% block style %}
-    {% endblock style %}
-
-    <div class="block-flat">
-
-        <div class="header">
-            <h3>{% block title %}{% endblock title %}</h3>
-        </div>
-        <div class="content">
-            <div class="table-responsive">
-                <div id="datatable_wrapper" class="dataTables_wrapper form-inline" role="grid">
-
-                    <ul class="row">
-                        {{ block("table_buttons") }}
-                    </ul>
-
-                    <div class="row">
-                        {{ block("table_pagination") }}
-                    </div>
-
-                    {{ block("table_content") }}
-
-                    <div class="row">
-                        {{ block("table_pagination") }}
-                    </div>
-
-                    <ul class="row">
-                        {{ block("table_buttons") }}
-                    </ul>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    {% block script %}
-    {% endblock script %}
-
-{% endblock component %}
-
-
 {% block table_content %}
-    <table class="table table-bordered dataTable" id="datatable-icons" aria-describedBy="datatable-icons_info">
+    <table class="table" id="datatable-icons"  summary="{% block title %}{% endblock %}" {% block table_attributes %}{% endblock table_attributes %}>
         <thead>
             <tr role="row">
                 {% block table_head %}
                 {% endblock table_head %}
             </tr>
         </thead>
-        <tbody role="alert" aria-live="polite" aria-relevant="all">
+        <tbody>
             {% block table_body %}
             {% for entity in paginator %}
                 <tr class="gradeA {{ cycle(["odd", "even"], loop.index0) }}">
-                    {% block table_body_row %}
-                    {% endblock table_body_row %}
+                    {% block table_body_row %}{% endblock table_body_row %}
                 </tr>
             {% endfor %}
             {% endblock table_body %}
@@ -67,19 +22,18 @@
 
 
 {% block table_pagination %}
-    <div class="col-sm-12">
-        <div class="pull-left">
-            <div class="dataTables_info" id="datatable_info">
-                {% set firstElement = limit * (page - 1) + 1 %}
+    <div class="box-none pa-n mb-n">
+        <div class="fl-l">
+            <p class="fz-default">
+                {% set firstElement = limit * (page-1) + 1 %}
                 {% set lastElement = firstElement + limit - 1 %}
                 {% set lastElement = min(lastElement, totalElements) %}
                 Showing {{ firstElement }} to {{ lastElement }} of {{ totalElements }} entries
-            </div>
+            </p>
         </div>
-        <div class="pull-right">
+        <div class="fl-r">
             {{ block("table_paginator_links") }}
         </div>
-        <div class="clearfix"></div>
     </div>
 {% endblock table_pagination %}
 
@@ -104,7 +58,3 @@
         side_group_space_length: 1,
     } %}
 {% endblock table_paginator_links %}
-
-
-{% block table_buttons %}
-{% endblock table_buttons %}

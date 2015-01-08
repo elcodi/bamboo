@@ -1,0 +1,52 @@
+{% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
+
+
+{% block title %}
+    {{ 'Admin Users list'|trans }}
+{% endblock title %}
+
+
+{% block table_head %}
+    {% include "@AdminCore/Tables/head.html.twig" with {
+        rows: {
+            "Username": {},
+            "Name & Surname": {},
+            "E-mail": {},
+            "Status": {width:"10"},
+        },
+        class: "admin_user",
+    } %}
+{% endblock table_head %}
+
+
+{% block table_body_row %}
+    <td>
+        <a href="{{ url("admin_admin_user_edit", {"id": entity.id}) }}">
+            <strong>{{ entity.username}}</strong>
+        </a>
+    </td>
+    <td>
+        {{ entity.fullname  }}
+    </td>
+    <td>
+        {{ entity.email }}
+    </td>
+    <td>
+        {% if entity.enabled %}
+            <span class="label-ok">Active</span>
+        {% else %}
+            <span class="label-ko">Inactive</span>
+        {% endif %}
+    </td>
+
+    {% include "@AdminCore/Tables/actions.html.twig" with {
+        entity: entity,
+        class: "admin_user",
+    } %}
+{% endblock table_body_row %}
+
+
+{% block table_paginator_links %}
+    {% set url = 'admin_admin_user_list' %}
+    {{ parent() }}
+{% endblock table_paginator_links %}

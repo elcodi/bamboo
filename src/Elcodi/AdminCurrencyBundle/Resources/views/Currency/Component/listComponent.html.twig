@@ -6,13 +6,18 @@
 {% endblock title %}
 
 
+{% block table_attributes %}
+    data-tc-modules="table"
+{% endblock table_attributes %}
+
+
 {% block table_head %}
     {% include "@AdminCore/Tables/head.html.twig" with {
         rows: {
-            "iso": {"sorting_disabled": true},
-            "name": {"sorting_disabled": true},
-            "symbol": {"sorting_disabled": true},
-            "enabled": {width:"25", "sorting_disabled": true},
+            "Symbol": {"sorting_disabled": true, "width": 10},
+            "Iso": {"sorting_disabled": true, "width": 10},
+            "Name": {"sorting_disabled": true},
+            "Status": {width:"10", "sorting_disabled": true},
         },
         class: "currency",
         actions: false
@@ -21,7 +26,9 @@
 
 
 {% block table_body_row %}
-
+    <td>
+        {{ entity.symbol }}
+    </td>
     <td>
         {{ entity.iso }}
     </td>
@@ -29,14 +36,12 @@
         {{ entity.name }}
     </td>
     <td>
-        {{ entity.symbol }}
-    </td>
-    <td>
-        {% if entity.enabled %}
-            <span class="label label-success">true</span>
-        {% else %}
-            <span class="label label-danger">false</span>
-        {% endif %}
+        <div class="switch">
+            <input id="enable-{{ entity.iso }}" type="hidden" value="{{ url("admin_currency_enable", {"iso": entity.iso }) }}" />
+            <input id="disable-{{ entity.iso }}" type="hidden" value="{{ url("admin_currency_disable", {"iso": entity.iso }) }}" />
+            <input id="{{ entity.iso }}" type="checkbox" {% if entity.enabled %}checked="checked"{% endif %} />
+            <label for="{{ entity.iso }}"></label>
+        </div>
     </td>
 
 {% endblock table_body_row %}

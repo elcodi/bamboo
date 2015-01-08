@@ -16,6 +16,7 @@
 
 namespace Elcodi\AdminCurrencyBundle\Form\Type;
 
+use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -36,13 +37,25 @@ class MoneyType extends AbstractType
     protected $currencyManager;
 
     /**
+     * @var string
+     *
+     * Default currency
+     */
+    protected $defaultCurrency;
+
+    /**
      * Construct method
      *
      * @param CurrencyWrapper $currencyWrapper Currency Wrapper
+     * @param string          $defaultCurrency Default Currency
      */
-    public function __construct(CurrencyWrapper $currencyWrapper)
+    public function __construct(
+        CurrencyWrapper $currencyWrapper,
+        $defaultCurrency
+    )
     {
         $this->currencyWrapper = $currencyWrapper;
+        $this->defaultCurrency = $defaultCurrency;
     }
 
     /**
@@ -53,10 +66,17 @@ class MoneyType extends AbstractType
         $builder
             ->add('amount', 'integer')
             ->add('currency', 'entity', [
-                'class'    => 'Elcodi\Component\Currency\Entity\Currency',
-                'required' => true,
-                'multiple' => false,
-                'property' => 'symbol'
+                'class'         => 'Elcodi\Component\Currency\Entity\Currency',
+                'query_builder' => function (EntityRepository $repository) {
+                    return $repository
+                        ->createQueryBuilder('c')
+                        ->where('c.enabled = :enabled')
+                        ->setParameter('enabled', true);
+                },
+                'required'      => true,
+                'multiple'      => false,
+                'property'      => 'symbol',
+                'data'          => $this->defaultCurrency,
             ]);
     }
 

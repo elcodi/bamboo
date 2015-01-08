@@ -7,25 +7,38 @@
 
 
 {% block breadcrumb %}
+
+    {% set entityName = adminUser.id
+        ? adminUser.name
+        : 'New Admin User'
+    %}
+
     {% include "@AdminCore/Common/breadcrumb.html.twig" with {
         breadcrumb: {
             "Admin Users": {
                 "url": url('admin_admin_user_list')
             },
-            ("Edit #" ~ id): {
+            ("Edit " ~ entityName): {
                 "active" : true
             }
         }
     } %}
+
 {% endblock breadcrumb %}
 
 
 {% block content %}
+
     <div class="row">
         <div class="col-md-12">
-            {{ render(url("admin_admin_user_edit_component", {
-                'id': id
-            })) }}
+            {% if adminUser.id %}
+                {{ render(url("admin_admin_user_edit_component", {
+                    'id': adminUser.id
+                })) }}
+            {% else %}
+                {{ render(url("admin_admin_user_new_component")) }}
+            {% endif %}
         </div>
     </div>
+
 {% endblock content %}

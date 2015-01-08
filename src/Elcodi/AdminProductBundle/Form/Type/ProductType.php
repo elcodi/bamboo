@@ -39,7 +39,7 @@ class ProductType extends AbstractPurchasableType
         $builder
             ->add('name', 'text', array(
                 'required' => true,
-                'label'    => 'name',
+                'label'    => 'Title'
             ))
             ->add('slug', 'text', array(
                 'required' => true,
@@ -47,59 +47,59 @@ class ProductType extends AbstractPurchasableType
             ))
             ->add('shortDescription', 'text', array(
                 'required' => false,
-                'label'    => 'shortDescription',
+                'label'    => 'Short Description',
             ))
             ->add('description', 'textarea', array(
-                'required' => false,
-                'label'    => 'description',
+                'required' => true,
+                'label'    => 'Description',
             ))
             ->add('showInHome', 'checkbox', array(
                 'required' => false,
-                'label'    => 'showInHome',
+                'label'    => 'Show in home',
             ))
             ->add('dimensions', 'text', array(
                 'required' => false,
-                'label'    => 'dimensions',
+                'label'    => 'Dimensions',
             ))
-            ->add('stock', 'integer', array(
-                'required' => false,
+            ->add('stock', 'hidden', array(
+                'required' => true,
                 'label'    => 'stock',
             ))
             ->add('price', 'money_object', array(
-                'required' => false,
-                'label'    => 'price',
+                'required' => true,
+                'label'    => 'Price',
             ))
             ->add('reducedPrice', 'money_object', array(
                 'required' => false,
-                'label'    => 'reducedPrice',
+                'label'    => 'Reduced Price',
             ))
             ->add('createdAt', 'datetime', array(
                 'widget'   => 'single_text',
                 'format'   => 'yyyy-MM-dd - HH:mm:ss',
-                'required' => false,
-                'label'    => 'createdAt',
+                'required' => true,
+                'label' => false
             ))
             ->add('updatedAt', 'datetime', array(
                 'widget'   => 'single_text',
                 'format'   => 'yyyy-MM-dd - HH:mm:ss',
-                'required' => false,
-                'label'    => 'updatedAt',
+                'required' => true,
+                'label' => false
             ))
             ->add('enabled', 'checkbox', array(
                 'required' => false,
-                'label'    => 'enabled',
+                'label'    => 'Enabled',
             ))
             ->add('metaTitle', 'text', array(
                 'required' => false,
-                'label'    => 'metaTitle',
+                'label'    => 'Metatitle',
             ))
             ->add('metaDescription', 'text', array(
                 'required' => false,
-                'label'    => 'metaDescription',
+                'label'    => 'Metadescription',
             ))
             ->add('metaKeywords', 'text', array(
                 'required' => false,
-                'label'    => 'metaKeywords',
+                'label'    => 'Metakeywords',
             ))
             ->add('manufacturer', 'entity', array(
                 'class'    => 'Elcodi\Component\Product\Entity\Manufacturer',
@@ -109,28 +109,22 @@ class ProductType extends AbstractPurchasableType
             ))
             ->add('principalCategory', 'entity', array(
                 'class'    => 'Elcodi\Component\Product\Entity\Category',
-                'required' => false,
-                'label'    => 'principalCategory',
+                'required' => true,
+                'label'    => 'Category',
                 'multiple' => false,
             ))
             ->add('principalImage', 'entity', array(
                 'class'    => 'Elcodi\Component\Media\Entity\Image',
                 'required' => false,
-                'label'    => 'principalImage',
+                'label'    => 'principal image',
                 'property' => 'id',
                 'multiple' => false,
-            ))
-            ->add('categories', 'entity', array(
-                'class'    => 'Elcodi\Component\Product\Entity\Category',
-                'required' => false,
-                'label'    => 'categories',
-                'multiple' => true,
             ))
             ->add('images', 'entity', array(
                 'class'    => 'Elcodi\Component\Media\Entity\Image',
                 'required' => false,
-                'label'    => 'images',
                 'property' => 'id',
+                'label'    => false,
                 'multiple' => true,
             ));
 

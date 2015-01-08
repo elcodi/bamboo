@@ -80,11 +80,11 @@ class AdminUserType extends AbstractType
                 'label'    => 'Email'
             ))
             ->add('firstname', 'text', array(
-                'required' => true,
+                'required' => false,
                 'label'    => 'Firstname'
             ))
             ->add('lastname', 'text', array(
-                'required' => true,
+                'required' => false,
                 'label'    => 'Lastname'
             ))
             ->add('gender', 'choice', array(
@@ -96,14 +96,14 @@ class AdminUserType extends AbstractType
                 'label'    => 'Gender'
             ))
             ->add('birthday', 'date', array(
-                'required' => true,
+                'required' => false,
                 'widget'   => 'single_text',
                 'format'   => 'yyyy-MM-dd',
                 'label'    => 'Birthday',
             ))
             ->add('enabled', 'checkbox', array(
                 'required' => false,
-                'label'    => 'Enabled'
+                'label'    => 'Status'
             ));
     }
 

@@ -11,7 +11,7 @@
             'Products': {
                 'url': url('admin_product_list')
             },
-            ('Edit #' ~ id): {
+            (entity.name): {
                 'active' : true
             }
         }
@@ -20,18 +20,7 @@
 {% endblock breadcrumb %}
 
 {% block content %}
-
-    <div class="row">
-        <div class="col-md-6">
-            {{ render(url('admin_product_edit_component', {
-                'id': id
-            })) }}
-        </div>
-        <div class="col-md-6">
-            {{ render(url('admin_product_gallery_component', {
-                'id': id,
-            })) }}
-        </div>
-    </div>
-
+    {{ render(url('admin_product_edit_component', {
+        'id': id
+    })) }}
 {% endblock content %}

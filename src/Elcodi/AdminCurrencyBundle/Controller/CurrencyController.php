@@ -81,7 +81,7 @@ class CurrencyController
      * @return array Result
      *
      * @Route(
-     *      path = "/currency/{id}/enable",
+     *      path = "/currency/{iso}/enable",
      *      name = "admin_currency_enable"
      * )
      * @Method({"GET", "POST"})
@@ -89,7 +89,7 @@ class CurrencyController
      * @EntityAnnotation(
      *      class = "elcodi.core.currency.entity.currency.class",
      *      mapping = {
-     *          "id" = "~id~"
+     *          "iso" = "~iso~"
      *      }
      * )
      */
@@ -113,7 +113,7 @@ class CurrencyController
      * @return array Result
      *
      * @Route(
-     *      path = "/currency/{id}/disable",
+     *      path = "/currency/{iso}/disable",
      *      name = "admin_currency_disable"
      * )
      * @Method({"GET", "POST"})
@@ -121,7 +121,7 @@ class CurrencyController
      * @EntityAnnotation(
      *      class = "elcodi.core.currency.entity.currency.class",
      *      mapping = {
-     *          "id" = "~id~"
+     *          "iso" = "~iso~"
      *      }
      * )
      */

@@ -35,11 +35,11 @@ class AttributeType extends AbstractType
         $builder
             ->add('name', 'text', array(
                 'required' => true,
-                'label'    => 'name',
+                'label'    => 'Name',
             ))
             ->add('displayName', 'text', array(
                 'required' => true,
-                'label'    => 'displayName',
+                'label'    => 'Display Name',
             ))
             ->add('createdAt', 'datetime', array(
                 'widget'   => 'single_text',
@@ -55,7 +55,7 @@ class AttributeType extends AbstractType
             ))
             ->add('enabled', 'checkbox', array(
                 'required' => false,
-                'label'    => 'enabled',
+                'label'    => 'Status',
             ));
     }
 

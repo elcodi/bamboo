@@ -67,7 +67,7 @@ class AdminUserComponentController extends AbstractAdminController
      *          "orderByDirection" = "DESC",
      *      },
      * )
-     * @Template("AdminUserBundle:AdminUser:Component/listComponent.html.twig")
+     * @Template("AdminUserBundle:AdminUser:listComponent.html.twig")
      * @Method({"GET"})
      *
      * @PaginatorAnnotation(
@@ -101,114 +101,56 @@ class AdminUserComponentController extends AbstractAdminController
     }
 
     /**
-     * Component for entity view
-     *
-     * As a component, this action should not return all the html macro, but
-     * only the specific component
-     *
-     * @param AdminUserInterface $entity Entity to view
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/component/{id}",
-     *      name = "admin_admin_user_view_component",
-     *      requirements = {
-     *          "id" = "\d*",
-     *      }
-     * )
-     * @Template("AdminUserBundle:AdminUser:Component/viewComponent.html.twig")
-     * @Method({"GET"})
-     *
-     * @EntityAnnotation(
-     *      class = {
-     *          "factory" = "elcodi.core.user.factory.admin_user",
-     *      },
-     *      mapping = {
-     *          "id" = "~id~"
-     *      }
-     * )
-     */
-    public function viewComponentAction(AdminUserInterface $entity)
-    {
-        return [
-            'entity' => $entity,
-        ];
-    }
-
-    /**
-     * New element action
-     *
-     * As a component, this action should not return all the html macro, but
-     * only the specific component
-     *
-     * @param FormView $formView Form view
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/new/component",
-     *      name = "admin_admin_user_new_component"
-     * )
-     * @Template("AdminUserBundle:AdminUser:Component/newComponent.html.twig")
-     * @Method({"GET"})
-     *
-     * @EntityAnnotation(
-     *      class = {
-     *          "factory" = "elcodi.core.user.factory.admin_user",
-     *      }
-     * )
-     * @FormAnnotation(
-     *      class = "admin_user_form_type_admin_user",
-     *      name  = "formView",
-     *      entity = "entity"
-     * )
-     */
-    public function newComponentAction(FormView $formView)
-    {
-        return [
-            'form' => $formView,
-        ];
-    }
-
-    /**
      * New element component action
      *
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param AdminUserInterface $entity   Entity
-     * @param FormView           $formView Form view
+     * @param FormView           $formView  Form view
+     * @param AdminUserInterface $adminUser AdminUser
      *
      * @return array Result
      *
      * @Route(
-     *      path = "/{id}/edit/component",
-     *      name = "admin_admin_user_edit_component"
+     *      path = "/{id}/component",
+     *      name = "admin_admin_user_edit_component",
+     *      requirements = {
+     *          "id" = "\d+",
+     *      }
      * )
-     * @Template("AdminUserBundle:AdminUser:Component/editComponent.html.twig")
+     * @Route(
+     *      path = "/new/component",
+     *      name = "admin_admin_user_new_component",
+     *      methods = {"GET"}
+     * )
+     * @Template("AdminUserBundle:AdminUser:editComponent.html.twig")
      * @Method({"GET"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.user.entity.admin_user.class",
+     *      name = "adminUser",
      *      mapping = {
-     *          "id": "~id~",
-     *      }
+     *          "id" = "~id~"
+     *      },
+     *      mappingFallback = true,
+     *      persist = true
      * )
      * @FormAnnotation(
      *      class = "admin_user_form_type_admin_user",
      *      name  = "formView",
-     *      entity = "entity"
+     *      entity = "adminUser",
+     *      handleRequest = true,
+     *      validate = "isValid"
      * )
      */
     public function editComponentAction(
-        AdminUserInterface $entity,
-        FormView $formView
+        FormView $formView,
+        AdminUserInterface $adminUser
     )
     {
         return [
-            'entity' => $entity,
-            'form'   => $formView,
+            'adminUser' => $adminUser,
+            'form'      => $formView,
         ];
     }
 }

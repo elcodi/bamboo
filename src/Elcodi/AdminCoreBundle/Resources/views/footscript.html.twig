@@ -1,35 +1,20 @@
-<script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.nanoscroller/jquery.nanoscroller.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.sparkline/jquery.sparkline.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.easypiechart/jquery.easy-pie-chart.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.ui/jquery-ui.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.nestable/jquery.nestable.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.select2/select2.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.gritter/js/jquery.gritter.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.multiselect/js/jquery.multi-select.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.quicksearch/jquery.quicksearch.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.flot/jquery.flot.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.flot/jquery.flot.pie.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.flot/jquery.flot.resize.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.flot/jquery.flot.labels.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/admincore/js/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/admincore/js/masonry.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/admincore/js/dropzone/dropzone.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/admincore/js/jquery.magnific-popup/dist/jquery.magnific-popup.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/admincore/js/skycons/skycons.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/admincore/js/intro.js/minified/intro.min.js') }}"></script>
+<script type="text/javascript">
+    var oGlobalSettings = {
+        sPathJs: "{{ asset('bundles/admincore/js/') }}",
+        sPathJsModules: "{{ asset('bundles/admincore/js/modules/') }}",
+        sPathJsCore: "{{ asset('bundles/admincore/components/frontendcore-js/') }}",
+        sPathJsLibs: "{{ asset('bundles/admincore/components/frontendcore-js/libs/') }}",
+        sPathRoot: "http://bamboo.dev/app_dev.php/",
+        sPathCss: "css/",
+        bCss: false,
+        bTrackModules: true,
+        sHash:  '100',
+        sDevice: 'desktop'
+    }
+</script>
+<script type="text/javascript" src="{{ asset('bundles/admincore/components/frontendcore-js/core.js') }}"></script>
 
-<script type="text/javascript" src="{{ asset('bundles/admincore/js/bootstrap.switch/bootstrap-switch.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/admincore/js/bootstrap.datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/admincore/js/bootstrap.slider/js/bootstrap-slider.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/admincore/js/bootstrap.multiselect/js/bootstrap-multiselect.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/admincore/js/bootstrap.wysihtml5/dist/bootstrap3-wysihtml5.all.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/admincore/js/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-
-
-<script type="text/javascript" src="{{ asset('bundles/admincore/js/behaviour/general.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/admincore/js/behaviour/voice-commands.js') }}"></script>
-
+{#
 <script type="text/javascript">
     $(document).ready(function(){
 
@@ -124,3 +109,4 @@
 
     });
 </script>
+#}

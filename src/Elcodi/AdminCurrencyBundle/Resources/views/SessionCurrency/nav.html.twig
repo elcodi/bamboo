@@ -1,14 +1,20 @@
-<li class="dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-        {{ currentCurrency.iso }} {{ currentCurrency.symbol }}&nbsp;<b class="caret"></b>
-    </a>
-    <ul class="dropdown-menu col-menu-1">
-        {% for currency in currencies %}
-            <li>
-                <a href="{{ url("admin_currency_switch", {iso: currency.iso}) }}">
-                    {{ currency.iso }} {{ currency.symbol }}
-                </a>
-            </li>
-        {% endfor %}
+<nav class="sidebar-currency">
+    <ul>
+        <li>
+            <a href="#currency-dropdown" data-tc-modules="toggle" title="{{ currentCurrency.iso }} ">
+                {{ currentCurrency.symbol }}
+            </a>
+            <ul id="currency-dropdown" class="hidden">
+                {% for currency in currencies %}
+                    {% if currentCurrency.iso != currency.iso %}
+                    <li>
+                        <a href="{{ url("admin_currency_switch", {iso: currency.iso}) }}" title="{{ currency.iso }}">
+                             {{ currency.symbol }}
+                        </a>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </li>
     </ul>
-</li>
+</nav>

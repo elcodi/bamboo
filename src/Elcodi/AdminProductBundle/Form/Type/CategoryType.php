@@ -84,11 +84,11 @@ class CategoryType extends AbstractType
     {
         $builder
             ->add('name', 'text', array(
-                'required' => false,
+                'required' => true,
                 'label'    => 'name',
             ))
             ->add('slug', 'text', array(
-                'required' => false,
+                'required' => true,
                 'label'    => 'slug',
             ))
             ->add('root', 'checkbox', array(
@@ -102,18 +102,18 @@ class CategoryType extends AbstractType
             ->add('createdAt', 'datetime', array(
                 'widget'   => 'single_text',
                 'format'   => 'yyyy-MM-dd - HH:mm:ss',
-                'required' => false,
-                'label'    => 'createdAt',
+                'required' => true,
+                'label'    => false
             ))
             ->add('updatedAt', 'datetime', array(
                 'widget'   => 'single_text',
                 'format'   => 'yyyy-MM-dd - HH:mm:ss',
-                'required' => false,
-                'label'    => 'updatedAt',
+                'required' => true,
+                'label'    => false,
             ))
             ->add('enabled', 'checkbox', array(
                 'required' => false,
-                'label'    => 'enabled',
+                'label'    => 'Enabled',
             ))
             ->add('metaTitle', 'text', array(
                 'required' => false,
@@ -136,7 +136,7 @@ class CategoryType extends AbstractType
             ->add('products', 'entity', array(
                 'class'    => $this->productFactory->getEntityNamespace(),
                 'required' => false,
-                'label'    => 'products',
+                'label'    => false,
                 'multiple' => true,
             ));
 

@@ -2,39 +2,80 @@
 
 {% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
 
-{% block title %}
-    {{ 'Edit Variant'|trans }} - {{ entity.id }} - {{ entity|purchasable_name }}
-{% endblock title %}
-
 {% block content %}
 
     {{ form_start(form, {'action': url('admin_variant_update', {
         'id': entity.product.id,
         'variantId': entity.id
     })}) }}
-
-
-    <div class="alert alert-info alert-white rounded">
-        <button data-dismiss="alert" class="close" type="button">×</button>
-        <div class="icon"><i class="icon-info-sign"></i></div>
-        <strong>This is a product variant</strong> for product
-        <a href="{{ url('admin_product_view', {id: entity.product.id}) }}"  title="{{ entity.product.name }}">
-            {{ entity.product.name }}
-        </a>
-    </div>
-
-    {{ form_row(form.options) }}
+    <fieldset>
+        <div class="grid">
+            <div class="col-1-3">
+                <div class="box-none">
+                    <h3 class="fw-n">{% trans %}Attributes{% endtrans %}</h3>
+                    <p>{% trans %}What are the principle attributes that make unique this variant?{% endtrans %}</p>
+                </div>
+            </div>
+            <div class="col-2-3">
+                <div class="box">
+                    <ol>
+                        <li>
+                            {{ form_row(form.options) }}
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="col-1-3">
+                <div class="box-none">
+                    <h3 class="fw-n">{% trans %}Pricing{% endtrans %}</h3>
+                    <p>{% trans %}Set the price and the offer if is needed.{% endtrans %}</p>
+                </div>
+            </div>
+            <div class="col-2-3">
+                <div class="box pb-n">
+                    <ol class="grid">
+                        <li class="col-1-2">
+                            {{ form_row(form.price) }}
+                            {{ form_row(form.stock) }}
+                        </li>
+                        <li class="col-1-2">
+                            {{ form_row(form.reducedPrice) }}
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="col-1-3">
+                <div class="box-none mb-n pb-m">
+                    <h3 class="fw-n">{% trans %}Visibility{% endtrans %}</h3>
+                    <p>{% trans %}Control where and when this product could be seen.{% endtrans %}</p>
+                </div>
+            </div>
+            <div class="col-2-3">
+                <div class="box mb-n pb-n">
+                    <ol>
+                        <li>
+                            {{ form_row(form.enabled, {'attr': {'type':'checkbox','label_help':'Uncheck to hide the product'}}) }}
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </fieldset>
     {{ form_row(form.stock) }}
-    {{ form_row(form.price) }}
-    {{ form_row(form.reducedPrice) }}
-    {{ form_row(form.createdAt) }}
-    {{ form_row(form.updatedAt) }}
-    {{ form_row(form.enabled) }}
+    {{ form_row(form.createdAt, {'attr': {'class':'d-n'}}) }}
+    {{ form_row(form.updatedAt, {'attr': {'class':'d-n'}}) }}
+    <div class="grid">
+        <div class="col-1-3">
+            &nbsp;
+        </div>
+        <div class="col-2-3">
+            <button type="submit" class="button-primary">{{ 'Update'|trans }}</button>
+            <a href="{{ url("admin_product_edit", {"id": entity.product.id, }) }}" class="button">{{ 'Cancel'|trans }}</a>
 
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-primary">{{ 'Update'|trans }}</button>
-            <a href="{{ url("admin_product_view", {"id": entity.product.id, }) }}" class="btn btn-default">{{ 'Cancel'|trans }}</a>
         </div>
     </div>
 

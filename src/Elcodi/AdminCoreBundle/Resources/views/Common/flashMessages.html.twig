@@ -1,0 +1,5 @@
+{% for flashMessage in app.session.flashbag.get('success') %}
+    <div class="msg-ok">
+        {{ flashMessage | trans }}
+    </div>
+{% endfor %}

@@ -1,10 +1,12 @@
 {% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
 
+{% block no_items %}
+    {{ lists.no_items('manufacturer','manufacturers', url("admin_manufacturer_new") ) }}
+{% endblock no_items %}
 
 {% block title %}
     {{ 'Manufacturer list'|trans }}
 {% endblock title %}
-
 
 {% block table_head %}
     {% include "@AdminCore/Tables/head.html.twig" with {
@@ -54,8 +56,3 @@
     {% set url = 'admin_manufacturer_list' %}
     {{ parent() }}
 {% endblock table_paginator_links %}
-
-
-{% block table_buttons %}
-    <a href="{{ url("admin_manufacturer_new") }}"type="button" class="btn btn-success">{{ "New manufacturer"|trans }}</a>
-{% endblock table_buttons %}

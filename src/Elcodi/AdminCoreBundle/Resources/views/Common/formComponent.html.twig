@@ -5,16 +5,7 @@
     {% block style %}
     {% endblock style %}
 
-    <div class="block-flat">
-
-        <div class="header">
-            <h3>{% block title %}{% endblock title %}</h3>
-        </div>
-        <div class="content">
-            {% block content %}
-            {% endblock content %}
-        </div>
-    </div>
+    {% block content %}{% endblock content %}
 
     {% block script %}
     {% endblock script %}

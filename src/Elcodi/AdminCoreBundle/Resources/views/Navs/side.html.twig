@@ -1,53 +1,51 @@
-<div class="cl-sidebar">
-    <div class="cl-toggle"><i class="fa fa-bars"></i></div>
-    <div class="cl-navblock">
-        <div class="menu-space">
-            <div class="content">
-                <div class="side-user">
-                    <div class="avatar">
-                        <img src="{{ gravatar(app.user.email, 50) }}" alt="Avatar">
-                    </div>
-                    <div class="info">
-                        <a href="{{ url("admin_admin_user_view", {id: app.user.id }) }}">{{ app.user.fullname }}</a>
-                        <img src="{{ asset("bundles/admincore/images/state_online.png") }}" alt="Status"> <span>Online</span>
-                    </div>
-                </div>
-                <ul class="cl-vnavigation">
 
-                    {% block side_menu %}
-
-                    {% for menu_item in menu_items %}
-
-                    <li {% if menu_item.subnodes|length %}class="parent"{% endif %}>
-                        <a href="{{ generate_url(menu_item.url) }}">
-                            <i class="fa fa-{{ menu_item.code|default("folder") }}"></i>
-                            <span>{{ menu_item.name|trans }}</span>
-                        </a>
-
-                        {% for submenu_item in menu_item.subnodes %}
-                            {% if loop.first %}
-                            <ul class="sub-menu">
-                            {% endif %}
-                            <li><a href="{{ generate_url(submenu_item.url) }}">{{ submenu_item.name }}</a></li>
-                            {% if loop.last %}
-                            </ul>
-                            {% endif %}
-                        {% endfor %}
-                    </li>
-
-                    {% endfor %}
-
-                    {% endblock %}
-
-                </ul>
-            </div>
-        </div>
-
-        <div class="text-right collapse-button" style="padding:7px 9px;">
-            <input type="text" class="form-control search" placeholder="Search...">
-            <button id="sidebar-collapse" class="btn btn-default" style="">
-                <i style="color:#fff;" class="fa fa-angle-left"></i>
-            </button>
-        </div>
+<div class="sidebar-user">
+    <a href="{{ url("admin_admin_user_edit", {id: app.user.id }) }}" class="sidebar-user-avatar">
+        <img src="{{ gravatar(app.user.email, 40) }}" alt="Avatar" class="image-circle">
+    </a>
+    <div class="sidebar-user-info">
+        <a class="sidebar-title" href="{{ url("admin_homepage") }}">Elcodi Admin</a>
+        <a href="#sidebar-user-dropdown" data-tc-modules="toggle">{{ app.user.fullname }} <i class="icon-angle-down"></i> </a>
+        <ul id="sidebar-user-dropdown" class="sidebar-user-dropdown">
+            <li>
+                <a href="{{ url('admin_admin_user_edit', {id: app.security.getToken().getUser().getId() }) }}">Profile</a>
+            </li>
+            <li>
+                <a href="{{ url("admin_logout") }}">Sign Out</a>
+            </li>
+        </ul>
     </div>
 </div>
+<nav class="navigation navigation-vertical">
+    <ul>
+        {% block side_menu %}
+            {% for menu_item in menu_items %}
+                <li {% if menu_item.subnodes|length %}class="parent"{% endif %}>
+                        {% if generate_url(menu_item.url) != '' %}
+                            <a href="{{ generate_url(menu_item.url) }}">
+                        {% else %}
+                            <a href="#{{ menu_item.id }}" data-tc-modules="toggle">
+                            <i class="icon-angle-down fl-r"></i>
+                        {% endif %}
+                        <i class="icon-{{ menu_item.code|default("folder") }}"></i>
+                        <span>{{ menu_item.name|trans }}</span>
+                    </a>
+                    {% for submenu_item in menu_item.subnodes %}
+                        {% if loop.first %}
+                            <ul id="{{ menu_item.id }}" {% if not menu_item.active %}class="hidden"{% endif %}>
+                        {% endif %}
+                        <li {% if submenu_item.active %}class="active"{% endif %}>
+                            <a href="{{ generate_url(submenu_item.url) }}" class="pl-l"><i class="icon-angle-right"></i> {{ submenu_item.name }}</a>
+                        </li>
+                        {% if loop.last %}
+                            </ul>
+                        {% endif %}
+                    {% endfor %}
+                </li>
+
+            {% endfor %}
+
+        {% endblock %}
+
+    </ul>
+</nav>

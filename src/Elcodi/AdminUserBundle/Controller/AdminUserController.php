@@ -91,170 +91,86 @@ class AdminUserController
     }
 
     /**
-     * View element action.
+     * Edit and Saves admin user
      *
-     * This action is just a wrapper, so should never get any data,
-     * as this is component responsibility
-     *
-     * @param integer $id Entity id
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/{id}",
-     *      name = "admin_admin_user_view",
-     *      requirements = {
-     *          "id" = "\d*",
-     *      }
-     * )
-     * @Template
-     * @Method({"GET"})
-     */
-    public function viewAction($id)
-    {
-        return [
-            'id' => $id,
-        ];
-    }
-
-    /**
-     * New element action
-     *
-     * This action is just a wrapper, so should never get any data,
-     * as this is component responsibility
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/new",
-     *      name = "admin_admin_user_new"
-     * )
-     * @Template
-     * @Method({"GET"})
-     */
-    public function newAction()
-    {
-        return [];
-    }
-
-    /**
-     * Save new element action
-     *
-     * Should be POST
-     *
-     * @param AdminUserInterface $entity  Entity to save
-     * @param FormInterface      $form    Form view
-     * @param boolean            $isValid Request handle is valid
+     * @param FormInterface      $form      Form
+     * @param AdminUserInterface $adminUser Admin User
+     * @param boolean            $isValid   Is valid
      *
      * @return RedirectResponse Redirect response
      *
      * @Route(
-     *      path = "/save",
-     *      name = "admin_admin_user_save"
+     *      path = "/{id}",
+     *      name = "admin_admin_user_edit",
+     *      requirements = {
+     *          "id" = "\d+",
+     *      },
+     *      methods = {"GET"}
      * )
-     * @Method({"POST"})
+     * @Route(
+     *      path = "/{id}/update",
+     *      name = "admin_admin_user_update",
+     *      requirements = {
+     *          "id" = "\d+",
+     *      },
+     *      methods = {"POST"}
+     * )
+     *
+     * @Route(
+     *      path = "/new",
+     *      name = "admin_admin_user_new",
+     *      methods = {"GET"}
+     * )
+     * @Route(
+     *      path = "/new/update",
+     *      name = "admin_admin_user_save",
+     *      methods = {"POST"}
+     * )
      *
      * @EntityAnnotation(
      *      class = {
-     *          "factory" = "elcodi.core.user.factory.admin_user",
+     *          "factory" = "elcodi.factory.admin_user",
+     *          "method" = "create",
+     *          "static" = false
      *      },
+     *      mapping = {
+     *          "id" = "~id~"
+     *      },
+     *      mappingFallback = true,
+     *      name = "adminUser",
      *      persist = true
      * )
      * @FormAnnotation(
      *      class = "admin_user_form_type_admin_user",
      *      name  = "form",
-     *      entity = "entity",
+     *      entity = "adminUser",
      *      handleRequest = true,
      *      validate = "isValid"
      * )
-     */
-    public function saveAction(
-        AdminUserInterface $entity,
-        FormInterface $form,
-        $isValid
-    )
-    {
-        if ($isValid) {
-            $this
-                ->get('elcodi.object_manager.admin_user')
-                ->flush($entity);
-        }
-
-        return $this->redirectRoute("admin_admin_user_view", [
-            'id' => $entity->getId(),
-        ]);
-    }
-
-    /**
-     * New element action
      *
-     * This action is just a wrapper, so should never get any data,
-     * as this is component responsibility
-     *
-     * @param integer $id Entity id
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/{id}/edit",
-     *      name = "admin_admin_user_edit"
-     * )
      * @Template
-     * @Method({"GET"})
      */
-    public function editAction($id)
-    {
-        return [
-            'id' => $id,
-        ];
-    }
-
-    /**
-     * Updated edited element action
-     *
-     * Should be POST
-     *
-     * @param AdminUserInterface $entity  Entity to update
-     * @param FormInterface      $form    Form view
-     * @param boolean            $isValid Request handle is valid
-     *
-     * @return RedirectResponse Redirect response
-     *
-     * @Route(
-     *      path = "/{id}/update",
-     *      name = "admin_admin_user_update"
-     * )
-     * @Method({"POST"})
-     *
-     * @EntityAnnotation(
-     *      class = "elcodi.core.user.entity.admin_user.class",
-     *      mapping = {
-     *          "id": "~id~",
-     *      }
-     * )
-     * @FormAnnotation(
-     *      class = "admin_user_form_type_admin_user",
-     *      name  = "form",
-     *      entity = "entity",
-     *      handleRequest = true,
-     *      validate = "isValid"
-     * )
-     */
-    public function updateAction(
-        AdminUserInterface $entity,
+    public function editAction(
         FormInterface $form,
+        AdminUserInterface $adminUser,
         $isValid
     )
     {
         if ($isValid) {
-            $this
-                ->get('elcodi.object_manager.admin_user')
-                ->flush($entity);
+
+            $this->flush($adminUser);
+
+            $this->addFlash('success','Changes saved');
+
+            return $this->redirectToRoute('admin_admin_user_edit', [
+                'id' => $adminUser->getId(),
+            ]);
         }
 
-        return $this->redirectRoute("admin_admin_user_view", [
-            'id' => $entity->getId(),
-        ]);
+        return [
+            'adminUser' => $adminUser,
+            'form'      => $form->createView(),
+        ];
     }
 
     /**

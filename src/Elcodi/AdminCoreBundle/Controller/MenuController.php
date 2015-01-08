@@ -38,13 +38,39 @@ class MenuController extends Controller
      */
     public function sideNavAction()
     {
-        $menuItems = $this
+        $root = $this
             ->container
             ->get('elcodi.core.menu.service.menu_manager')
             ->loadMenuByCode('admin');
 
+        $currentRoute = $this
+            ->get('request_stack')
+            ->getMasterRequest()
+            ->get('_route');
+
+        /*
+         * We need to add some information about the selected menu,
+         * which is a simple comparison between current route in the
+         * master request and the route from the menu
+         */
+        foreach ($root as &$menuItems) {
+
+            $menuItems['active'] = ($currentRoute == $menuItems['url']);
+
+            if (count($menuItems['subnodes'])) {
+
+                foreach ($menuItems['subnodes'] as &$menuItem) {
+                    $menuItem['active'] = $currentRoute == $menuItem['url'];
+
+                    if ($menuItem['active']) {
+                        $menuItems['active'] = true;
+                    }
+                }
+            }
+        }
+
         return [
-            'menu_items' => $menuItems
+            'menu_items' => $root
         ];
     }
 }
