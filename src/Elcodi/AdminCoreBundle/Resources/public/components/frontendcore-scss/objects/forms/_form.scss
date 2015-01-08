@@ -82,7 +82,7 @@
 			width: 100%;
 			font-size: $font-size-default;
 		}
-		input[readonly='readonly'],textarea[readonly='readonly'] {
+		input[readonly],textarea[readonly],input[readonly='readonly'],textarea[readonly='readonly'] {
 			border: 0px none;
 			background: none;
 			outline: 0;

@@ -1,5 +1,6 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
+
 {% block content_title %}
     {{ 'Configuration Zone'|trans }}
 {% endblock content_title %}
@@ -17,21 +18,53 @@
 
 
 {% block content %}
-
-    <h4>Store configuration</h4>
-    <ul>
-        <li>Store name <input type="text" value="{{ getConfiguration('store.name') }}" /> </li>
-    </ul>
-    <h4>Products configuration</h4>
-    <ul>
-        <li>Use stock <input type="checkbox"{% if getConfiguration('product.use_stock') %} checked="checked"{% endif %} /></li>
-    </ul>
-    <h4>Currency configuration</h4>
-    {% set defaultCurrency = getConfiguration('currency.default_currency') %}
-    <select>
-        {% for currency in currencies %}
-            <option value="{{ currency.iso }}"{% if currency.iso == defaultCurrency %} selected="selected"{% endif %}>{{ currency.name }}</option>
-        {% endfor %}
-    </select>
-
+    <form class="form-configuration" data-tc-modules="form-configuration">
+        <fieldset class="grid">
+            <div class="col-1-3">
+                <h2 class="fw-n">Store setup</h2>
+                <p>Set the Store data.</p>
+            </div>
+            <div class="col-2-3">
+                <div class="box">
+                    <ol>
+                        <li>
+                            <label for="store.name">{{ 'Store Name'|trans }}</label>
+                            <input id="store.name" type="text" name="store.name" value="{{ getConfiguration('store.name') }}"/>
+                            <input id="url-store.name" type="hidden" value="{{ url("admin_configuration_update", {"name": "store.name"}) }}">
+                        </li>
+                        <li>
+                            <label for="currency.default_currency">{{ 'Currency configuration'|trans }}</label>
+                            {% set defaultCurrency = getConfiguration('currency.default_currency') %}
+                            <select id="currency.default_currency" name="currency.default_currency">
+                                {% for currency in currencies %}
+                                    <option value="{{ currency.iso }}"{% if currency.iso == defaultCurrency %} selected="selected"{% endif %}>{{ currency.name }}</option>
+                                {% endfor %}
+                            </select>
+                            <input id="url-currency.default_currency" type="hidden" value="{{ url("admin_configuration_update", {"name": "currency.default_currency"}) }}">
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="grid">
+            <div class="col-1-3">
+                <h2 class="fw-n">Products setup</h2>
+                <p>Set the Store data.</p>
+            </div>
+            <div class="col-2-3">
+                <div class="box">
+                    <ol>
+                        <li>
+                            <input id="url-product.use_stock" type="hidden" value="{{ url("admin_configuration_update", {"name": "product.use_stock"}) }}">
+                            <div class="switch">
+                                <input id="product.use_stock" name="product.use_stock" type="checkbox"{% if getConfiguration('product.use_stock') %} checked="checked"{% endif %} />
+                                <label for="product.use_stock"></label>
+                            </div>
+                            {% trans %}Stock <em class="fz-s">(Enable this option to activate stock control)</em> {% endtrans %}
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </fieldset>
+    </form>
 {% endblock content %}

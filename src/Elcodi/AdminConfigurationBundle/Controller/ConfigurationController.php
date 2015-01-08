@@ -71,14 +71,17 @@ class ConfigurationController extends AbstractAdminController
      * @return array Result
      *
      * @Route(
-     *      path = "/{id}/update",
-     *      name = "admin_configuration_update"
+     *      path = "/{name}/update",
+     *      name = "admin_configuration_update",
+     *      requirements = {
+     *          "name" = ".+"
+     *      }
      * )
      * @Method({"POST"})
      *
      * @JsonResponse()
      */
-    public function updateAction(Request $request, $id)
+    public function updateAction(Request $request, $name)
     {
         $value = $request
             ->request
@@ -86,7 +89,7 @@ class ConfigurationController extends AbstractAdminController
 
         $this
             ->get('elcodi.configuration_manager')
-            ->setParameter($id, $value);
+            ->setParameter($name, $value);
 
         return [
             'status' => 200,
