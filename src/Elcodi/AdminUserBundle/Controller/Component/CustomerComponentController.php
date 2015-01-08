@@ -67,7 +67,7 @@ class CustomerComponentController extends AbstractAdminController
      *          "orderByDirection" = "DESC",
      *      },
      * )
-     * @Template("AdminUserBundle:Customer:Component/listComponent.html.twig")
+     * @Template("AdminUserBundle:Customer:listComponent.html.twig")
      * @Method({"GET"})
      *
      * @PaginatorAnnotation(
@@ -101,77 +101,6 @@ class CustomerComponentController extends AbstractAdminController
     }
 
     /**
-     * Component for entity view
-     *
-     * As a component, this action should not return all the html macro, but
-     * only the specific component
-     *
-     * @param CustomerInterface $entity Entity to view
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/component/{id}",
-     *      name = "admin_customer_view_component",
-     *      requirements = {
-     *          "id" = "\d*",
-     *      }
-     * )
-     * @Template("AdminUserBundle:Customer:Component/viewComponent.html.twig")
-     * @Method({"GET"})
-     *
-     * @EntityAnnotation(
-     *      class = {
-     *          "factory" = "elcodi.core.user.factory.customer",
-     *      },
-     *      mapping = {
-     *          "id" = "~id~"
-     *      }
-     * )
-     */
-    public function viewComponentAction(CustomerInterface $entity)
-    {
-        return [
-            'entity' => $entity,
-        ];
-    }
-
-    /**
-     * New element action
-     *
-     * As a component, this action should not return all the html macro, but
-     * only the specific component
-     *
-     * @param FormView $formView Form view
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/new/component",
-     *      name = "admin_customer_new_component"
-     * )
-     * @Template("AdminUserBundle:Customer:Component/newComponent.html.twig")
-     * @Method({"GET"})
-     *
-     * @EntityAnnotation(
-     *      class = {
-     *          "factory" = "elcodi.core.user.factory.customer",
-     *      }
-     * )
-     * @FormAnnotation(
-     *      class = "admin_user_form_type_customer",
-     *      name  = "formView",
-     *      entity = "entity"
-     * )
-     */
-    public function newComponentAction(FormView $formView)
-    {
-        return [
-            'form' => $formView,
-        ];
-    }
-
-    /**
      * New element component action
      *
      * As a component, this action should not return all the html macro, but
@@ -183,31 +112,44 @@ class CustomerComponentController extends AbstractAdminController
      * @return array Result
      *
      * @Route(
-     *      path = "/{id}/edit/component",
-     *      name = "admin_customer_edit_component"
+     *      path = "/{id}/component",
+     *      name = "admin_customer_edit_component",
+     *      requirements = {
+     *          "id" = "\d+",
+     *      }
      * )
-     * @Template("AdminUserBundle:Customer:Component/editComponent.html.twig")
+     * @Route(
+     *      path = "/new/component",
+     *      name = "admin_customer_new_component",
+     *      methods = {"GET"}
+     * )
+     * @Template("AdminUserBundle:Customer:editComponent.html.twig")
      * @Method({"GET"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.user.entity.customer.class",
+     *      name = "customer",
      *      mapping = {
-     *          "id": "~id~",
-     *      }
+     *          "id" = "~id~"
+     *      },
+     *      mappingFallback = true,
+     *      persist = true
      * )
      * @FormAnnotation(
      *      class = "admin_user_form_type_customer",
      *      name  = "formView",
-     *      entity = "entity"
+     *      entity = "customer",
+     *      handleRequest = true,
+     *      validate = "isValid"
      * )
      */
     public function editComponentAction(
-        CustomerInterface $entity,
-        FormView $formView
+        FormView $formView,
+        CustomerInterface $customer
     )
     {
         return [
-            'entity' => $entity,
+            'customer' => $customer,
             'form'   => $formView,
         ];
     }

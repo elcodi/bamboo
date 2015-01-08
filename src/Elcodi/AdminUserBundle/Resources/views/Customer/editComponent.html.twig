@@ -5,12 +5,20 @@
 
 
 {% block title %}
-    {{ 'New Customer'|trans }}
+    {{ 'Edit Customer'|trans }} - {{ entity.id }}
 {% endblock title %}
 
 
 {% block content %}
-    {{ form_start(form, {'action': url('admin_customer_save')}) }}
+
+    {% set formAction = customer.id
+        ? url('admin_customer_update', {
+            'id': customer.id
+        })
+        : url('admin_customer_save')
+    %}
+
+    {{ form_start(form, {'action': formAction}) }}
     <fieldset>
         <div class="grid">
             <div class="col-1-3">
@@ -100,10 +108,11 @@
                 &nbsp;
             </div>
             <div class="col-2-3">
-                <button type="submit" class="button-primary">{{ 'Save'|trans }}</button>
+                <button type="submit" class="button-primary">{{ 'Update'|trans }}</button>
                 <a href="{{ path('admin_customer_list') }}" class="button">{{ 'Cancel'|trans }}</a>
 
             </div>
         </div>
-    </fieldset>    {{ form_end(form) }}
+    </fieldset>
+    {{ form_end(form) }}
 {% endblock content %}

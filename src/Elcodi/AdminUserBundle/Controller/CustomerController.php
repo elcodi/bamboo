@@ -21,7 +21,9 @@ use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -89,170 +91,79 @@ class CustomerController
     }
 
     /**
-     * View element action.
-     *
-     * This action is just a wrapper, so should never get any data,
-     * as this is component responsibility
-     *
-     * @param integer $id Entity id
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/{id}",
-     *      name = "admin_customer_view",
-     *      requirements = {
-     *          "id" = "\d*",
-     *      }
-     * )
-     * @Template
-     * @Method({"GET"})
-     */
-    public function viewAction($id)
-    {
-        return [
-            'id' => $id,
-        ];
-    }
-
-    /**
-     * New element action
-     *
-     * This action is just a wrapper, so should never get any data,
-     * as this is component responsibility
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/new",
-     *      name = "admin_customer_new"
-     * )
-     * @Template
-     * @Method({"GET"})
-     */
-    public function newAction()
-    {
-        return [];
-    }
-
-    /**
-     * Save new element action
-     *
-     * Should be POST
-     *
-     * @param CustomerInterface $entity  Entity to save
-     * @param FormInterface     $form    Form view
-     * @param boolean           $isValid Request handle is valid
      *
      * @return RedirectResponse Redirect response
      *
      * @Route(
-     *      path = "/save",
-     *      name = "admin_customer_save"
+     *      path = "/{id}",
+     *      name = "admin_customer_edit",
+     *      requirements = {
+     *          "id" = "\d+",
+     *      },
+     *      methods = {"GET"}
      * )
-     * @Method({"POST"})
+     * @Route(
+     *      path = "/{id}/update",
+     *      name = "admin_customer_update",
+     *      requirements = {
+     *          "id" = "\d+",
+     *      },
+     *      methods = {"POST"}
+     * )
+     *
+     * @Route(
+     *      path = "/new",
+     *      name = "admin_customer_new",
+     *      methods = {"GET"}
+     * )
+     * @Route(
+     *      path = "/new/update",
+     *      name = "admin_customer_save",
+     *      methods = {"POST"}
+     * )
      *
      * @EntityAnnotation(
      *      class = {
-     *          "factory" = "elcodi.core.user.factory.customer",
+     *          "factory" = "elcodi.factory.customer",
+     *          "method" = "create",
+     *          "static" = false
      *      },
+     *      mapping = {
+     *          "id" = "~id~"
+     *      },
+     *      mappingFallback = true,
+     *      name = "customer",
      *      persist = true
      * )
      * @FormAnnotation(
      *      class = "admin_user_form_type_customer",
      *      name  = "form",
-     *      entity = "entity",
+     *      entity = "customer",
      *      handleRequest = true,
      *      validate = "isValid"
      * )
-     */
-    public function saveAction(
-        CustomerInterface $entity,
-        FormInterface $form,
-        $isValid
-    )
-    {
-        if ($isValid) {
-            $this
-                ->get('elcodi.object_manager.customer')
-                ->flush($entity);
-        }
-
-        return $this->redirectRoute("admin_customer_view", [
-            'id' => $entity->getId(),
-        ]);
-    }
-
-    /**
-     * New element action
      *
-     * This action is just a wrapper, so should never get any data,
-     * as this is component responsibility
-     *
-     * @param integer $id Entity id
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/{id}/edit",
-     *      name = "admin_customer_edit"
-     * )
      * @Template
-     * @Method({"GET"})
      */
-    public function editAction($id)
-    {
-        return [
-            'id' => $id,
-        ];
-    }
-
-    /**
-     * Updated edited element action
-     *
-     * Should be POST
-     *
-     * @param CustomerInterface $entity  Entity to update
-     * @param FormInterface     $form    Form view
-     * @param boolean           $isValid Request handle is valid
-     *
-     * @return RedirectResponse Redirect response
-     *
-     * @Route(
-     *      path = "/{id}/update",
-     *      name = "admin_customer_update"
-     * )
-     * @Method({"POST"})
-     *
-     * @EntityAnnotation(
-     *      class = "elcodi.core.user.entity.customer.class",
-     *      mapping = {
-     *          "id": "~id~",
-     *      }
-     * )
-     * @FormAnnotation(
-     *      class = "admin_user_form_type_customer",
-     *      name  = "form",
-     *      entity = "entity",
-     *      handleRequest = true,
-     *      validate = "isValid"
-     * )
-     */
-    public function updateAction(
-        CustomerInterface $entity,
+    public function editAction(
         FormInterface $form,
+        CustomerInterface $customer,
         $isValid
     )
     {
         if ($isValid) {
-            $this
-                ->get('elcodi.object_manager.customer')
-                ->flush($entity);
+
+            $this->flush($customer);
+
+            return $this->redirectToRoute('admin_customer_edit', [
+                'id' => $customer->getId(),
+            ]);
         }
 
-        return $this->redirectRoute("admin_customer_view", [
-            'id' => $entity->getId(),
-        ]);
+        return [
+            'customer' => $customer,
+            'form'     => $form->createView(),
+        ];
     }
 
     /**
