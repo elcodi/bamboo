@@ -160,6 +160,8 @@ class AdminUserController
 
             $this->flush($adminUser);
 
+            $this->addFlash('success','Changes saved');
+
             return $this->redirectToRoute('admin_admin_user_edit', [
                 'id' => $adminUser->getId(),
             ]);

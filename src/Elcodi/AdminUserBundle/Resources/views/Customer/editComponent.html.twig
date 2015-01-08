@@ -11,11 +11,7 @@
 
 {% block content %}
 
-    {% for flashMessage in app.session.flashbag.get('success') %}
-        <div class="msg-ok">
-            {{ flashMessage | trans }}
-        </div>
-    {% endfor %}
+    {% include 'AdminCoreBundle::Common/flashMessages.html.twig' %}
 
     {% set formAction = customer.id
         ? url('admin_customer_update', {

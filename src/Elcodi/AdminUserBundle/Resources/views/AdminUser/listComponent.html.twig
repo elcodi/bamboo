@@ -9,8 +9,8 @@
 {% block table_head %}
     {% include "@AdminCore/Tables/head.html.twig" with {
         rows: {
-            "Name": {},
             "Username": {},
+            "Name & Surname": {},
             "E-mail": {},
             "Status": {width:"10"},
         },
@@ -22,11 +22,11 @@
 {% block table_body_row %}
     <td>
         <a href="{{ url("admin_admin_user_edit", {"id": entity.id}) }}">
-            <strong>{{ entity.fullname }}</strong>
+            <strong>{{ entity.username}}</strong>
         </a>
     </td>
     <td>
-        {{ entity.username }}
+        {{ entity.fullname  }}
     </td>
     <td>
         {{ entity.email }}

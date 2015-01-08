@@ -1,7 +1,7 @@
 
 <div class="sidebar-user">
     <a href="{{ url("admin_admin_user_edit", {id: app.user.id }) }}" class="sidebar-user-avatar">
-        <img src="{{ gravatar(app.user.email, 30) }}" alt="Avatar" class="circle-s">
+        <img src="{{ gravatar(app.user.email, 40) }}" alt="Avatar" class="image-circle">
     </a>
     <div class="sidebar-user-info">
         <a class="sidebar-title" href="{{ url("admin_homepage") }}">Elcodi Admin</a>
@@ -35,7 +35,7 @@
                             <ul id="{{ menu_item.id }}" {% if not menu_item.active %}class="hidden"{% endif %}>
                         {% endif %}
                         <li {% if submenu_item.active %}class="active"{% endif %}>
-                            <a href="{{ generate_url(submenu_item.url) }}">{{ submenu_item.name }}</a>
+                            <a href="{{ generate_url(submenu_item.url) }}" class="pl-l"><i class="icon-angle-right"></i> {{ submenu_item.name }}</a>
                         </li>
                         {% if loop.last %}
                             </ul>

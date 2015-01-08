@@ -83,7 +83,7 @@ class CustomerType extends AbstractType
         $builder
             ->setMethod('POST')
             ->add('username', 'text', array(
-                'required' => false,
+                'required' => true,
                 'label'    => 'Username'
             ))
             ->add('email', 'email', array(
@@ -91,11 +91,11 @@ class CustomerType extends AbstractType
                 'label'    => 'Email'
             ))
             ->add('firstname', 'text', array(
-                'required' => false,
+                'required' => true,
                 'label'    => 'Firstname'
             ))
             ->add('lastname', 'text', array(
-                'required' => false,
+                'required' => true,
                 'label'    => 'Lastname'
             ))
             ->add('gender', 'choice', array(
@@ -103,13 +103,13 @@ class CustomerType extends AbstractType
                     ElcodiUserProperties::GENDER_MALE   => 'Male',
                     ElcodiUserProperties::GENDER_FEMALE => 'Female',
                 ),
-                'required' => false,
+                'required' => true,
                 'label'    => 'Gender'
             ))
             ->add('language', 'entity', array(
                 'class'    => $this->languageFactory->getEntityNamespace(),
                 'property' => 'name',
-                'required' => false,
+                'required' => true,
                 'label'    => 'Preferred language',
             ))
             ->add('birthday', 'date', array(
