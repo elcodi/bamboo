@@ -1,0 +1,17 @@
+.form-configuration {
+	input[readonly],textarea[readonly],input[readonly='readonly'],textarea[readonly='readonly'] {
+		& {
+			border-width:1px!important;
+			border-style:dotted !important;
+			border-color:transparent;
+			color: $color-foreground !important;;
+			padding-left: $spacing/2;
+			padding-right: $spacing/2;
+		}
+		&:hover {
+			border-color:$color-link;
+			color: $color-link !important;
+			cursor: text;
+		}
+	}
+}

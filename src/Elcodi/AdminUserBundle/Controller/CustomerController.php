@@ -158,6 +158,8 @@ class CustomerController
 
             $this->flush($customer);
 
+            $this->addFlash('success','Changes saved');
+
             return $this->redirectToRoute('admin_customer_edit', [
                 'id' => $customer->getId(),
             ]);

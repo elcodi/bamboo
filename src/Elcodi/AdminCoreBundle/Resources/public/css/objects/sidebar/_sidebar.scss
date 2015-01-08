@@ -1,21 +1,8 @@
 .sidebar {
 	&{
-		background: $color-primary;
+		background: #31373D;
 		overflow: hidden;
 		@include text-shadow(1px 1px 0 rgba($color-foreground,.2))
-	}
-	.navigation-vertical li a {
-		background: rgba($color-foreground, .1);
-	}
-	.navigation-vertical li li a {
-		background: transparent;
-	}
-	.navigation-vertical a:hover {
-		background: rgba($color-background, .3);
-	}
-
-	.navigation-vertical li.active a {
-		background: $color-background;
 	}
 
 }

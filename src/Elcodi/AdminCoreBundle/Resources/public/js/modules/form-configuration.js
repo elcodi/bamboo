@@ -55,20 +55,16 @@ TinyCore.AMD.define('form-configuration', ['devicePackage'], function () {
 
 
 			if (oInput.type !== 'checkbox') {
-				$label.append('<a href="#" class="js-edit-link ml-m c-foreground"><i class="icon-pencil"></i> </a>');
 				$(oTarget).append('<a href="#" class="js-save button-primary fz-l pv-s mb-n" style="vertical-align: top; display: none;"><i class="icon-save"></i> </a>');
+				$(oTarget).find('label').append('<i class="icon-check c-ok js-ok ml-s" style="display: none"></i>');
+				$(oTarget).find('label').append('<i class="icon-spin icon-spinner js-loading ml-s" style="display: none"></i>');
 
 				if (oInput.nodeName == 'SELECT') {
-					$(oInput).before('<input type="text" id="preview-'+ sId +'" readonly="readonly" value="'+ oInput.value +'" data-rel="' + oInput.id + '" />');
+					$(oInput).before('<input type="text" id="preview-'+ sId +'" readonly="readonly" value="'+ $('option[value=' + oInput.value +  ']', oInput).html() +'" data-rel="' + oInput.id + '" />');
 				}
 
 
 				self.toggleField(oInput, true);
-
-
-				$('.js-edit-link', oTarget).on('click', function () {
-					self.setEditable(oTarget, oInput);
-				});
 
 				$(oInput).on('click', function (e) {
 					self.setEditable(oTarget, oInput);
@@ -82,7 +78,9 @@ TinyCore.AMD.define('form-configuration', ['devicePackage'], function () {
 
 					var oData = {};
 
-					oData[sName] = document.getElementById(sName).value;
+					oData.value = document.getElementById(sName).value;
+
+					$('.js-loading', oTarget).show();
 
 					$.ajax({
 						url: document.getElementById('url-' + sName).value,
@@ -91,6 +89,11 @@ TinyCore.AMD.define('form-configuration', ['devicePackage'], function () {
 						success: function(response) {
 							self.toggleField(oInput, true);
 							$('.js-save', oTarget).hide();
+							$('.js-loading', oTarget).hide();
+							$('.js-ok', oTarget).fadeIn('slow').fadeOut('slow').fadeIn('slow').fadeOut('slow').fadeIn('slow');
+							setTimeout( function() {
+								$('.js-ok', oTarget).fadeOut();
+							}, 3000);
 							$('.js-edit-link', oTarget).show();
 						}
 					});
@@ -100,7 +103,7 @@ TinyCore.AMD.define('form-configuration', ['devicePackage'], function () {
 				$(oInput).change( function (e) {
 
 					var oData = {};
-					oData[sName] = oInput.value;
+					oData.value = oInput.value;
 
 					$.ajax({
 						url: document.getElementById('url-' + sName).value,
