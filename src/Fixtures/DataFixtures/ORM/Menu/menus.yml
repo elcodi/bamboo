@@ -69,7 +69,7 @@ menu_nodes:
         subnodes: ~
 
     bambooadmin_orders:
-        name: Customers
+        name: Orders
         code: ~
         url: admin_order_list
         enabled: 1
