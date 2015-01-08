@@ -106,8 +106,8 @@ class CustomerComponentController extends AbstractAdminController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param CustomerInterface $entity   Entity
      * @param FormView          $formView Form view
+     * @param CustomerInterface $customer Customer
      *
      * @return array Result
      *
@@ -150,7 +150,7 @@ class CustomerComponentController extends AbstractAdminController
     {
         return [
             'customer' => $customer,
-            'form'   => $formView,
+            'form'     => $formView,
         ];
     }
 }

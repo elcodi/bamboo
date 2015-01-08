@@ -1,21 +1,19 @@
 <?php
-/*
-In order to upload files to S3 using Flash runtime, one should start by placing crossdomain.xml into the bucket.
-crossdomain.xml can be as simple as this:
 
-<?xml version="1.0"?>
-<!DOCTYPE cross-domain-policy SYSTEM "http://www.macromedia.com/xml/dtds/cross-domain-policy.dtd">
-<cross-domain-policy>
-<allow-access-from domain="*" secure="false" />
-</cross-domain-policy>
+/**
+ * This file is part of the Elcodi package.
+ *
+ * Copyright (c) 2014 Elcodi.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * Feel free to edit as you please, and have fun.
+ *
+ * @author Marc Morera <yuhu@mmoreram.com>
+ * @author Aldo Chiecchia <zimage@tiscali.it>
+ */
 
-In our tests SilverLight didn't require anything special and worked with this configuration just fine. It may fail back
-to the same crossdomain.xml as last resort.
-
-!!!Important!!! Plupload UI Widget here, is used only for demo purposes and is not required for uploading to S3.
-*/
-
-// important variables that will be used throughout this example
 $bucket = 'BUCKET';
 
 // these can be found on your Account page, under Security Credentials > Access Keys

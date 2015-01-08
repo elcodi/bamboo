@@ -21,9 +21,7 @@ use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormInterface;
-use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -91,6 +89,11 @@ class CustomerController
     }
 
     /**
+     * Edit and Saves customer
+     *
+     * @param FormInterface     $form     Form
+     * @param CustomerInterface $customer Customer
+     * @param boolean           $isValid  Is valid
      *
      * @return RedirectResponse Redirect response
      *

@@ -1,21 +1,19 @@
 <?php
+
 /**
- * upload.php
+ * This file is part of the Elcodi package.
  *
- * Copyright 2013, Moxiecode Systems AB
- * Released under GPL License.
+ * Copyright (c) 2014 Elcodi.com
  *
- * License: http://www.plupload.com/license
- * Contributing: http://www.plupload.com/contributing
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * Feel free to edit as you please, and have fun.
+ *
+ * @author Marc Morera <yuhu@mmoreram.com>
+ * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-#!! IMPORTANT:
-#!! this file is just an example, it doesn't incorporate any security checks and
-#!! is not recommended to be used in production environment as it is. Be sure to
-#!! revise it and customize to your needs.
-
-
-// Make sure file is not cached (as it happens for example on iOS devices)
 header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
 header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
 header("Cache-Control: no-store, no-cache, must-revalidate");

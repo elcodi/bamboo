@@ -5,9 +5,15 @@
 
 
 {% block content %}
-    {{ form_start(form, {'action': url('admin_admin_user_update', {
-        'id': entity.id
-    })}) }}
+
+    {% set formAction = adminUser.id
+        ? url('admin_admin_user_update', {
+            'id': adminUser.id
+        })
+        : url('admin_admin_user_save')
+    %}
+
+    {{ form_start(form, {'action':formAction}) }}
     <fieldset>
         <div class="grid">
             <div class="col-1-3">

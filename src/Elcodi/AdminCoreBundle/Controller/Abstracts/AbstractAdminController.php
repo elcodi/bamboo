@@ -18,7 +18,6 @@ namespace Elcodi\AdminCoreBundle\Controller\Abstracts;
 
 use Closure;
 use Doctrine\Common\Persistence\ObjectManager;
-use Elcodi\Bundle\CoreBundle\Container\Traits\ContainerAccessorTrait;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
