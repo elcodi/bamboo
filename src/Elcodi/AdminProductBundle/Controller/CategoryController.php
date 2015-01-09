@@ -89,170 +89,86 @@ class CategoryController
     }
 
     /**
-     * View element action.
+     * Edit and Saves category
      *
-     * This action is just a wrapper, so should never get any data,
-     * as this is component responsibility
-     *
-     * @param integer $id Entity id
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/category/{id}",
-     *      name = "admin_category_view",
-     *      requirements = {
-     *          "id" = "\d*",
-     *      }
-     * )
-     * @Template
-     * @Method({"GET"})
-     */
-    public function viewAction($id)
-    {
-        return [
-            'id' => $id,
-        ];
-    }
-
-    /**
-     * New element action
-     *
-     * This action is just a wrapper, so should never get any data,
-     * as this is component responsibility
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/category/new",
-     *      name = "admin_category_new"
-     * )
-     * @Template
-     * @Method({"GET"})
-     */
-    public function newAction()
-    {
-        return [];
-    }
-
-    /**
-     * Save new element action
-     *
-     * Should be POST
-     *
-     * @param CategoryInterface $entity  Entity to save
-     * @param FormInterface     $form    Form view
-     * @param boolean           $isValid Request handle is valid
+     * @param FormInterface     $form     Form
+     * @param CategoryInterface $category Category
+     * @param boolean           $isValid  Is valid
      *
      * @return RedirectResponse Redirect response
      *
      * @Route(
-     *      path = "/category/save",
-     *      name = "admin_category_save"
+     *      path = "/category/{id}",
+     *      name = "admin_category_edit",
+     *      requirements = {
+     *          "id" = "\d+",
+     *      },
+     *      methods = {"GET"}
      * )
-     * @Method({"POST"})
+     * @Route(
+     *      path = "/category/{id}/update",
+     *      name = "admin_category_update",
+     *      requirements = {
+     *          "id" = "\d+",
+     *      },
+     *      methods = {"POST"}
+     * )
+     *
+     * @Route(
+     *      path = "/category/new",
+     *      name = "admin_category_new",
+     *      methods = {"GET"}
+     * )
+     * @Route(
+     *      path = "/category/new/update",
+     *      name = "admin_category_save",
+     *      methods = {"POST"}
+     * )
      *
      * @EntityAnnotation(
      *      class = {
-     *          "factory" = "elcodi.core.product.factory.category",
+     *          "factory" = "elcodi.factory.category",
+     *          "method" = "create",
+     *          "static" = false
      *      },
+     *      mapping = {
+     *          "id" = "~id~"
+     *      },
+     *      mappingFallback = true,
+     *      name = "category",
      *      persist = true
      * )
      * @FormAnnotation(
      *      class = "elcodi_admin_product_form_type_category",
      *      name  = "form",
-     *      entity = "entity",
+     *      entity = "category",
      *      handleRequest = true,
      *      validate = "isValid"
      * )
-     */
-    public function saveAction(
-        CategoryInterface $entity,
-        FormInterface $form,
-        $isValid
-    )
-    {
-        if ($isValid) {
-            $this
-                ->get('elcodi.object_manager.category')
-                ->flush($entity);
-        }
-
-        return $this->redirectRoute("admin_category_view", [
-            'id' => $entity->getId(),
-        ]);
-    }
-
-    /**
-     * New element action
      *
-     * This action is just a wrapper, so should never get any data,
-     * as this is component responsibility
-     *
-     * @param integer $id Entity id
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/category/{id}/edit",
-     *      name = "admin_category_edit"
-     * )
      * @Template
-     * @Method({"GET"})
      */
-    public function editAction($id)
-    {
-        return [
-            'id' => $id,
-        ];
-    }
-
-    /**
-     * Updated edited element action
-     *
-     * Should be POST
-     *
-     * @param CategoryInterface $entity  Entity to update
-     * @param FormInterface     $form    Form view
-     * @param boolean           $isValid Request handle is valid
-     *
-     * @return RedirectResponse Redirect response
-     *
-     * @Route(
-     *      path = "/category/{id}/update",
-     *      name = "admin_category_update"
-     * )
-     * @Method({"POST"})
-     *
-     * @EntityAnnotation(
-     *      class = "elcodi.core.product.entity.category.class",
-     *      mapping = {
-     *          "id": "~id~",
-     *      }
-     * )
-     * @FormAnnotation(
-     *      class = "elcodi_admin_product_form_type_category",
-     *      name  = "form",
-     *      entity = "entity",
-     *      handleRequest = true,
-     *      validate = "isValid"
-     * )
-     */
-    public function updateAction(
-        CategoryInterface $entity,
+    public function editAction(
         FormInterface $form,
+        CategoryInterface $category,
         $isValid
     )
     {
         if ($isValid) {
-            $this
-                ->get('elcodi.object_manager.category')
-                ->flush($entity);
+
+            $this->flush($category);
+
+            $this->addFlash('success','Changes saved');
+
+            return $this->redirectToRoute('admin_category_edit', [
+                'id' => $category->getId(),
+            ]);
         }
 
-        return $this->redirectRoute("admin_category_view", [
-            'id' => $entity->getId(),
-        ]);
+        return [
+            'category' => $category,
+            'form'     => $form->createView(),
+        ];
     }
 
     /**

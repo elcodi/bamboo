@@ -19,8 +19,8 @@ security:
             form_login:
                 login_path: admin_login
                 check_path: admin_login_check
-                username_parameter: admin_user_form_type_login[email]
-                password_parameter: admin_user_form_type_login[password]
+                username_parameter: elcodi_admin_user_form_type_login[email]
+                password_parameter: elcodi_admin_user_form_type_login[password]
             logout:
                 path:   admin_logout
                 target: admin_homepage

@@ -6,12 +6,17 @@
 
 {% block breadcrumb %}
 
+    {% set entityHeader = category.id
+        ? 'Edit ' ~ category.name
+        : 'Create new Category'
+    %}
+
     {% include "@AdminCore/Common/breadcrumb.html.twig" with {
         breadcrumb: {
             "Categories": {
                 "url": url('admin_category_list')
             },
-            ("Edit #" ~ id): {
+            (entityHeader): {
                 "active" : true
             }
         }
@@ -21,12 +26,12 @@
 
 {% block content %}
 
-    <div class="row">
-        <div class="col-md-12">
-            {{ render(url("admin_category_edit_component", {
-                'id': id
-            })) }}
-        </div>
-    </div>
+    {% if category.id %}
+        {{ render(url("admin_category_edit_component", {
+            'id': category.id
+        })) }}
+    {% else %}
+        {{ render(url("admin_category_new_component")) }}
+    {% endif %}
 
 {% endblock content %}

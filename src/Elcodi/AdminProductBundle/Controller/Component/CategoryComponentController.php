@@ -52,7 +52,7 @@ class CategoryComponentController
      * @return array Result
      *
      * @Route(
-     *      path = "/categories/component/{page}/{limit}/{orderByField}/{orderByDirection}",
+     *      path = "s/list/component/{page}/{limit}/{orderByField}/{orderByDirection}",
      *      name = "admin_category_list_component",
      *      requirements = {
      *          "page" = "\d*",
@@ -65,7 +65,7 @@ class CategoryComponentController
      *          "orderByDirection" = "DESC",
      *      },
      * )
-     * @Template("AdminProductBundle:Category:Component/listComponent.html.twig")
+     * @Template("AdminProductBundle:Category:listComponent.html.twig")
      * @Method({"GET"})
      *
      * @PaginatorAnnotation(
@@ -99,114 +99,60 @@ class CategoryComponentController
     }
 
     /**
-     * Component for entity view
-     *
-     * As a component, this action should not return all the html macro, but
-     * only the specific component
-     *
-     * @param CategoryInterface $entity Entity to view
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/category/component/{id}",
-     *      name = "admin_category_view_component",
-     *      requirements = {
-     *          "id" = "\d*",
-     *      }
-     * )
-     * @Template("AdminProductBundle:Category:Component/viewComponent.html.twig")
-     * @Method({"GET"})
-     *
-     * @EntityAnnotation(
-     *      class = {
-     *          "factory" = "elcodi.core.product.factory.category",
-     *      },
-     *      mapping = {
-     *          "id" = "~id~"
-     *      }
-     * )
-     */
-    public function viewComponentAction(CategoryInterface $entity)
-    {
-        return [
-            'entity' => $entity,
-        ];
-    }
-
-    /**
-     * New element action
-     *
-     * As a component, this action should not return all the html macro, but
-     * only the specific component
-     *
-     * @param FormView $formView Form view
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/category/new/component",
-     *      name = "admin_category_new_component"
-     * )
-     * @Template("AdminProductBundle:Category:Component/newComponent.html.twig")
-     * @Method({"GET"})
-     *
-     * @EntityAnnotation(
-     *      class = {
-     *          "factory" = "elcodi.core.product.factory.category",
-     *      }
-     * )
-     * @FormAnnotation(
-     *      class = "elcodi_admin_product_form_type_category",
-     *      name  = "formView",
-     *      entity = "entity"
-     * )
-     */
-    public function newComponentAction(FormView $formView)
-    {
-        return [
-            'form' => $formView,
-        ];
-    }
-
-    /**
      * New element component action
      *
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param CategoryInterface $entity   Entity
      * @param FormView          $formView Form view
+     * @param CategoryInterface $category Category
      *
      * @return array Result
      *
      * @Route(
-     *      path = "/category/{id}/edit/component",
-     *      name = "admin_category_edit_component"
+     *      path = "/{id}/component",
+     *      name = "admin_category_edit_component",
+     *      requirements = {
+     *          "id" = "\d+",
+     *      }
      * )
-     * @Template("AdminProductBundle:Category:Component/editComponent.html.twig")
+     * @Route(
+     *      path = "/new/component",
+     *      name = "admin_category_new_component",
+     *      methods = {"GET"}
+     * )
+     * @Template("AdminProductBundle:Category:editComponent.html.twig")
      * @Method({"GET"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.product.entity.category.class",
+     *      class = {
+     *          "factory" = "elcodi.factory.category",
+     *          "method" = "create",
+     *          "static" = false
+     *      },
+     *      name = "category",
      *      mapping = {
-     *          "id": "~id~",
-     *      }
+     *          "id" = "~id~"
+     *      },
+     *      mappingFallback = true,
+     *      persist = true
      * )
      * @FormAnnotation(
      *      class = "elcodi_admin_product_form_type_category",
      *      name  = "formView",
-     *      entity = "entity"
+     *      entity = "category",
+     *      handleRequest = true,
+     *      validate = "isValid"
      * )
      */
     public function editComponentAction(
-        CategoryInterface $entity,
-        FormView $formView
+        FormView $formView,
+        CategoryInterface $category
     )
     {
         return [
-            'entity' => $entity,
-            'form'   => $formView,
+            'category' => $category,
+            'form'     => $formView,
         ];
     }
 }

@@ -56,7 +56,7 @@ class ManufacturerComponentController
      * @return array Result
      *
      * @Route(
-     *      path = "s/component/{page}/{limit}/{orderByField}/{orderByDirection}",
+     *      path = "s/list/component/{page}/{limit}/{orderByField}/{orderByDirection}",
      *      name = "admin_manufacturer_list_component",
      *      requirements = {
      *          "page" = "\d*",
@@ -69,7 +69,7 @@ class ManufacturerComponentController
      *          "orderByDirection" = "DESC",
      *      },
      * )
-     * @Template("AdminProductBundle:Manufacturer:Component/listComponent.html.twig")
+     * @Template("AdminProductBundle:Manufacturer:listComponent.html.twig")
      * @Method({"GET"})
      *
      * @PaginatorAnnotation(
@@ -103,114 +103,60 @@ class ManufacturerComponentController
     }
 
     /**
-     * Component for entity view
-     *
-     * As a component, this action should not return all the html macro, but
-     * only the specific component
-     *
-     * @param ManufacturerInterface $entity Entity to view
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/component/{id}",
-     *      name = "admin_manufacturer_view_component",
-     *      requirements = {
-     *          "id" = "\d*",
-     *      }
-     * )
-     * @Template("AdminProductBundle:Manufacturer:Component/viewComponent.html.twig")
-     * @Method({"GET"})
-     *
-     * @EntityAnnotation(
-     *      class = {
-     *          "factory" = "elcodi.core.product.factory.manufacturer",
-     *      },
-     *      mapping = {
-     *          "id" = "~id~"
-     *      }
-     * )
-     */
-    public function viewComponentAction(ManufacturerInterface $entity)
-    {
-        return [
-            'entity' => $entity,
-        ];
-    }
-
-    /**
-     * New element action
-     *
-     * As a component, this action should not return all the html macro, but
-     * only the specific component
-     *
-     * @param FormView $formView Form view
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/new/component",
-     *      name = "admin_manufacturer_new_component"
-     * )
-     * @Template("AdminProductBundle:Manufacturer:Component/newComponent.html.twig")
-     * @Method({"GET"})
-     *
-     * @EntityAnnotation(
-     *      class = {
-     *          "factory" = "elcodi.core.product.factory.manufacturer",
-     *      }
-     * )
-     * @FormAnnotation(
-     *      class = "elcodi_admin_product_form_type_manufacturer",
-     *      name  = "formView",
-     *      entity = "entity"
-     * )
-     */
-    public function newComponentAction(FormView $formView)
-    {
-        return [
-            'form' => $formView,
-        ];
-    }
-
-    /**
      * New element component action
      *
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param ManufacturerInterface $entity   Entity
-     * @param FormView              $formView Form view
+     * @param FormView              $formView     Form view
+     * @param ManufacturerInterface $manufacturer Manufacturer
      *
      * @return array Result
      *
      * @Route(
-     *      path = "/{id}/edit/component",
-     *      name = "admin_manufacturer_edit_component"
+     *      path = "/{id}/component",
+     *      name = "admin_manufacturer_edit_component",
+     *      requirements = {
+     *          "id" = "\d+",
+     *      }
      * )
-     * @Template("AdminProductBundle:Manufacturer:Component/editComponent.html.twig")
+     * @Route(
+     *      path = "/new/component",
+     *      name = "admin_manufacturer_new_component",
+     *      methods = {"GET"}
+     * )
+     * @Template("AdminProductBundle:Manufacturer:editComponent.html.twig")
      * @Method({"GET"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.product.entity.manufacturer.class",
+     *      class = {
+     *          "factory" = "elcodi.factory.manufacturer",
+     *          "method" = "create",
+     *          "static" = false
+     *      },
+     *      name = "manufacturer",
      *      mapping = {
-     *          "id": "~id~",
-     *      }
+     *          "id" = "~id~"
+     *      },
+     *      mappingFallback = true,
+     *      persist = true
      * )
      * @FormAnnotation(
      *      class = "elcodi_admin_product_form_type_manufacturer",
      *      name  = "formView",
-     *      entity = "entity"
+     *      entity = "manufacturer",
+     *      handleRequest = true,
+     *      validate = "isValid"
      * )
      */
     public function editComponentAction(
-        ManufacturerInterface $entity,
-        FormView $formView
+        FormView $formView,
+        ManufacturerInterface $manufacturer
     )
     {
         return [
-            'entity' => $entity,
-            'form'   => $formView,
+            'manufacturer' => $manufacturer,
+            'form'     => $formView,
         ];
     }
 }

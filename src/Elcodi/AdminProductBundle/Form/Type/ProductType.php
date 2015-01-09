@@ -45,10 +45,6 @@ class ProductType extends AbstractPurchasableType
                 'required' => true,
                 'label'    => 'slug',
             ))
-            ->add('shortDescription', 'text', array(
-                'required' => false,
-                'label'    => 'Short Description',
-            ))
             ->add('description', 'textarea', array(
                 'required' => true,
                 'label'    => 'Description',
@@ -56,10 +52,6 @@ class ProductType extends AbstractPurchasableType
             ->add('showInHome', 'checkbox', array(
                 'required' => false,
                 'label'    => 'Show in home',
-            ))
-            ->add('dimensions', 'text', array(
-                'required' => false,
-                'label'    => 'Dimensions',
             ))
             ->add('stock', 'hidden', array(
                 'required' => true,
@@ -77,13 +69,13 @@ class ProductType extends AbstractPurchasableType
                 'widget'   => 'single_text',
                 'format'   => 'yyyy-MM-dd - HH:mm:ss',
                 'required' => true,
-                'label' => false
+                'label'    => false
             ))
             ->add('updatedAt', 'datetime', array(
                 'widget'   => 'single_text',
                 'format'   => 'yyyy-MM-dd - HH:mm:ss',
                 'required' => true,
-                'label' => false
+                'label'    => false
             ))
             ->add('enabled', 'checkbox', array(
                 'required' => false,
@@ -111,13 +103,6 @@ class ProductType extends AbstractPurchasableType
                 'class'    => 'Elcodi\Component\Product\Entity\Category',
                 'required' => true,
                 'label'    => 'Category',
-                'multiple' => false,
-            ))
-            ->add('principalImage', 'entity', array(
-                'class'    => 'Elcodi\Component\Media\Entity\Image',
-                'required' => false,
-                'label'    => 'principal image',
-                'property' => 'id',
                 'multiple' => false,
             ))
             ->add('images', 'entity', array(

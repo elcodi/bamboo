@@ -1,5 +1,6 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
+
 {% block content_title %}
     {{ 'Category Zone'|trans }}
 {% endblock content_title %}
@@ -15,9 +16,11 @@
     } %}
 {% endblock breadcrumb %}
 
+
 {% block header_actions %}
     <a href="{{ url("admin_category_new") }}" class="button-primary"><i class="icon-plus"></i> {{ "New category"|trans }}</a>
 {% endblock header_actions %}
+
 
 {% block content %}
 

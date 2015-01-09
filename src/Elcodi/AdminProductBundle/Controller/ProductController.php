@@ -27,9 +27,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
-use Elcodi\AdminCoreBundle\Controller\Interfaces\NavegableControllerInterface;
 use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
-use Elcodi\Component\Media\Entity\Interfaces\ImageInterface;
 use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
 
 /**
@@ -43,26 +41,8 @@ class ProductController
     extends
     AbstractAdminController
     implements
-    NavegableControllerInterface,
     EnableableControllerInterface
 {
-    /**
-     * Nav for product group
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "s/nav",
-     *      name = "admin_product_nav"
-     * )
-     * @Method({"GET"})
-     * @Template
-     */
-    public function navAction()
-    {
-        return [];
-    }
-
     /**
      * List elements of certain entity type.
      *
@@ -109,194 +89,90 @@ class ProductController
     }
 
     /**
-     * View element action.
+     * Edit and Saves product
      *
-     * This action is just a wrapper, so should never get any data,
-     * as this is component responsibility
-     *
+     * @param FormInterface    $form    Form
      * @param ProductInterface $product Product
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/{id}",
-     *      name = "admin_product_view",
-     *      requirements = {
-     *          "id" = "\d*",
-     *      }
-     * )
-     *
-     * @EntityAnnotation(
-     *     class = "elcodi.core.product.entity.product.class",
-     *     name  = "product",
-     *     mapping = {
-     *         "id": "~id~"
-     *     }
-     * )
-     *
-     * @Template("@AdminProduct/Variant/view.html.twig")
-     * @Method({"GET"})
-     */
-    public function viewAction(ProductInterface $product)
-    {
-        if ($product->hasVariants()) {
-            $template = "@AdminProduct/Product/viewVariants.html.twig";
-        } else {
-            $template = "@AdminProduct/Product/view.html.twig";
-        }
-
-        return $this->render(
-            $template,
-            ['id' => $product->getId()]
-        );
-    }
-
-    /**
-     * New element action
-     *
-     * This action is just a wrapper, so should never get any data,
-     * as this is component responsibility
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/new",
-     *      name = "admin_product_new"
-     * )
-     * @Template
-     * @Method({"GET"})
-     */
-    public function newAction()
-    {
-        return [];
-    }
-
-    /**
-     * Save new element action
-     *
-     * Should be POST
-     *
-     * @param ProductInterface $entity  Entity to save
-     * @param FormInterface    $form    Form view
-     * @param boolean          $isValid Request handle is valid
+     * @param boolean          $isValid Is valid
      *
      * @return RedirectResponse Redirect response
      *
      * @Route(
-     *      path = "/save",
-     *      name = "admin_product_save"
+     *      path = "/{id}",
+     *      name = "admin_product_edit",
+     *      requirements = {
+     *          "id" = "\d+",
+     *      },
+     *      methods = {"GET"}
      * )
-     * @Method({"POST"})
+     * @Route(
+     *      path = "/{id}/update",
+     *      name = "admin_product_update",
+     *      requirements = {
+     *          "id" = "\d+",
+     *      },
+     *      methods = {"POST"}
+     * )
+     *
+     * @Route(
+     *      path = "/new",
+     *      name = "admin_product_new",
+     *      methods = {"GET"}
+     * )
+     * @Route(
+     *      path = "/new/update",
+     *      name = "admin_product_save",
+     *      methods = {"POST"}
+     * )
      *
      * @EntityAnnotation(
      *      class = {
-     *          "factory" = "elcodi.core.product.factory.product"
+     *          "factory" = "elcodi.factory.product",
+     *          "method" = "create",
+     *          "static" = false
      *      },
+     *      mapping = {
+     *          "id" = "~id~"
+     *      },
+     *      mappingFallback = true,
+     *      name = "product",
      *      persist = true
      * )
      * @FormAnnotation(
      *      class = "elcodi_admin_product_form_type_product",
      *      name  = "form",
-     *      entity = "entity",
+     *      entity = "product",
      *      handleRequest = true,
      *      validate = "isValid"
      * )
-     */
-    public function saveAction(
-        ProductInterface $entity,
-        FormInterface $form,
-        $isValid
-    )
-    {
-        if ($isValid) {
-            $this
-                ->get('elcodi.object_manager.product')
-                ->flush($entity);
-        }
-
-        return $this->redirectRoute("admin_product_view", [
-            'id' => $entity->getId(),
-        ]);
-    }
-
-    /**
-     * New element action
      *
-     * This action is just a wrapper, so should never get any data,
-     * as this is component responsibility
-     *
-     * @param integer $id Entity id
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/{id}/edit",
-     *      name = "admin_product_edit"
-     * )
      * @Template
-     * @Method({"GET"})
-     *
-     *  @EntityAnnotation(
-     *      class = "elcodi.core.product.entity.product.class",
-     *      mapping = {
-     *          "id": "~id~",
-     *      }
-     * )
      */
-    public function editAction(ProductInterface $entity)
-    {
-        return [
-            'entity' => $entity,
-            'id' => $entity->getId(),
-        ];
-    }
-
-    /**
-     * Updated edited element action
-     *
-     * Should be POST
-     *
-     * @param ProductInterface $entity  Entity to update
-     * @param FormInterface    $form    Form view
-     * @param boolean          $isValid Request handle is valid
-     *
-     * @return RedirectResponse Redirect response
-     *
-     * @Route(
-     *      path = "/{id}/update",
-     *      name = "admin_product_update"
-     * )
-     * @Method({"POST"})
-     *
-     * @EntityAnnotation(
-     *      class = "elcodi.core.product.entity.product.class",
-     *      mapping = {
-     *          "id": "~id~",
-     *      }
-     * )
-     * @FormAnnotation(
-     *      class = "elcodi_admin_product_form_type_product",
-     *      name  = "form",
-     *      entity = "entity",
-     *      handleRequest = true,
-     *      validate = "isValid"
-     * )
-     */
-    public function updateAction(
-        ProductInterface $entity,
+    public function editAction(
         FormInterface $form,
+        ProductInterface $product,
         $isValid
     )
     {
-        if ($isValid) {
-            $this
-                ->get('elcodi.object_manager.product')
-                ->flush($entity);
+        foreach ($form->getErrors() as $error) {
+            echo $error->getMessage();
         }
 
-        return $this->redirectRoute("admin_product_view", [
-            'id' => $entity->getId(),
-        ]);
+        if ($isValid) {
+
+            $this->flush($product);
+
+            $this->addFlash('success','Changes saved');
+
+            return $this->redirectToRoute('admin_product_edit', [
+                'id' => $product->getId(),
+            ]);
+        }
+
+        return [
+            'product' => $product,
+            'form'     => $form->createView(),
+        ];
     }
 
     /**
@@ -396,51 +272,5 @@ class ProductController
             $entity,
             'admin_product_list'
         );
-    }
-
-    /**
-     * Remove relation between Product and Image
-     *
-     * @param Request          $request Request
-     * @param ProductInterface $product
-     * @param ImageInterface   $image
-     *
-     * @return RedirectResponse Redirect response
-     *
-     * @Route(
-     *      path = "/{id}/image/{imageId}/delete",
-     *      name = "admin_product_image_delete"
-     * )
-     * @Method({"GET", "POST"})
-     *
-     * @EntityAnnotation(
-     *      name = "product",
-     *      class = "elcodi.core.product.entity.product.class",
-     *      mapping = {
-     *          "id" = "~id~"
-     *      }
-     * )
-     *
-     * @EntityAnnotation(
-     *      name = "image",
-     *      class = "elcodi.core.media.entity.image.class",
-     *      mapping = {
-     *          "id" = "~imageId~"
-     *      }
-     * )
-     */
-    public function deleteImageAction(
-        Request $request,
-        ProductInterface $product,
-        ImageInterface $image
-    )
-    {
-        return $this->getResponse($request, function () use ($product, $image) {
-            $product->removeImage($image);
-
-            $this
-                ->get('elcodi.object_manager.product')
-                ->flush($product);
-        });
     }
 }

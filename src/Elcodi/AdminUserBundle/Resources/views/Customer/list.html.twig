@@ -1,5 +1,6 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
+
 {% block breadcrumb %}
     {% include "@AdminCore/Common/breadcrumb.html.twig" with {
         breadcrumb: {
@@ -14,6 +15,7 @@
 {% block header_actions %}
     <a href="{{ url("admin_customer_new") }}" class="button-primary"> <i class="icon-plus"></i> {{ "New customer"|trans }}</a>
 {% endblock header_actions %}
+
 
 {% block content %}
     {{ render(url("admin_customer_list_component", {

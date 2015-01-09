@@ -8,31 +8,31 @@ services:
         arguments:
             router: @router
         tags:
-            - { name: form.type, alias: admin_user_form_type_login }
+            - { name: form.type, alias: elcodi_admin_user_form_type_login }
 
     admin.user.form_type.register:
         class: %admin.user.form_type.register.class%
         arguments:
             customer_namespace: %elcodi.core.user.entity.customer.class%
         tags:
-            - { name: form.type, alias: admin_user_form_type_register }
+            - { name: form.type, alias: elcodi_admin_user_form_type_register }
 
     admin.user.form_type.profile:
         class: %admin.user.form_type.profile.class%
         arguments:
             customer_namespace: %elcodi.core.user.entity.customer.class%
         tags:
-            - { name: form.type, alias: admin_user_form_type_profile }
+            - { name: form.type, alias: elcodi_admin_user_form_type_profile }
 
     admin.user.form_type.password_remember:
         class: %admin.user.form_type.password_remember.class%
         tags:
-            - { name: form.type, alias: admin_user_form_type_password_remember }
+            - { name: form.type, alias: elcodi_admin_user_form_type_password_remember }
 
     admin.user.form_type.password_recover:
         class: %admin.user.form_type.password_recover.class%
         tags:
-            - { name: form.type, alias: admin_user_form_type_password_recover }
+            - { name: form.type, alias: elcodi_admin_user_form_type_password_recover }
 
     admin.user.form_type.customer:
         class: %admin.user.form_type.customer.class%
@@ -40,11 +40,11 @@ services:
             customer_factory: @elcodi.factory.customer
             language_factory: @elcodi.factory.language
         tags:
-            - { name: form.type, alias: admin_user_form_type_customer }
+            - { name: form.type, alias: elcodi_admin_user_form_type_customer }
 
     admin.user.form_type.admin_user:
         class: %admin.user.form_type.admin_user.class%
         arguments:
             admin_user_factory: @elcodi.factory.admin_user
         tags:
-            - { name: form.type, alias: admin_user_form_type_admin_user }
+            - { name: form.type, alias: elcodi_admin_user_form_type_admin_user }

@@ -56,6 +56,6 @@ class RegisterType extends ProfileType
      */
     public function getName()
     {
-        return 'admin_user_form_type_register';
+        return 'elcodi_admin_user_form_type_register';
     }
 }

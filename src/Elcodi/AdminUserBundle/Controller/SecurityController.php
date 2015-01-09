@@ -42,7 +42,7 @@ class SecurityController extends Controller
      * @Template
      *
      * @AnnotationForm(
-     *      class = "admin_user_form_type_login",
+     *      class = "elcodi_admin_user_form_type_login",
      *      name  = "loginFormView"
      * )
      */

@@ -10,19 +10,24 @@
 
 
 {% block content %}
-    {{ form_start(form, {'action': url('admin_manufacturer_update', {
-        'id': entity.id
-    })}) }}
+
+    {% set formAction = manufacturer.id
+        ? url('admin_manufacturer_update', {
+            'id': manufacturer.id
+        })
+        : url('admin_manufacturer_save')
+
+     %}
+
+    {{ form_start(form, {'action': formAction}) }}
 
         {{ form_row(form.name) }}
         {{ form_row(form.slug) }}
         {{ form_row(form.description) }}
-        {{ form_row(form.createdAt) }}
-        {{ form_row(form.updatedAt) }}
-        {{ form_row(form.enabled) }}
         {{ form_row(form.metaTitle) }}
         {{ form_row(form.metaDescription) }}
         {{ form_row(form.metaKeywords) }}
+        {{ form_row(form.enabled) }}
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">

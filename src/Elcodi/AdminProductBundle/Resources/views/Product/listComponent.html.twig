@@ -23,7 +23,9 @@
 
 {% block table_body_row %}
     <td>
-        <a href="{{ url("admin_product_edit", {"id": entity.id}) }}" class="thumbnail"><img src="{{ entity.images.0|viewImage() }}" /></a>
+        <a href="{{ url("admin_product_edit", {"id": entity.id}) }}" class="thumbnail">
+            <img src="{{ entity.images.first|viewImage() }}" />
+        </a>
     </td>
 
     <td>

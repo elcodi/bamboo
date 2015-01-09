@@ -139,7 +139,7 @@ class CustomerController
      *      persist = true
      * )
      * @FormAnnotation(
-     *      class = "admin_user_form_type_customer",
+     *      class = "elcodi_admin_user_form_type_customer",
      *      name  = "form",
      *      entity = "customer",
      *      handleRequest = true,

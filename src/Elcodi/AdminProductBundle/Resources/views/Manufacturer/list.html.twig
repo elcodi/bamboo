@@ -1,8 +1,10 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
+
 {% block content_title %}
     {{ 'Manufacturer Zone'|trans }}
 {% endblock content_title %}
+
 
 {% block breadcrumb %}
 
@@ -16,9 +18,11 @@
 
 {% endblock breadcrumb %}
 
+
 {% block header_actions %}
     <a href="{{ url("admin_manufacturer_new") }}" class="button-primary"><i class="icon-plus"></i> {{ "New manufacturer"|trans }}</a>
 {% endblock header_actions %}
+
 
 {% block content %}
 
