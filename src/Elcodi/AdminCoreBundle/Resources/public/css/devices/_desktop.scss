@@ -1,7 +1,8 @@
 @media screen and (min-width: 980px){
 
 	@include desktop-core;
-	@include desktop-sidebar;
-	@include desktop-sidebar-currency;
+	@include papa-sidebar;
+	@include papa-section-header;
+	@include papa-air;
 
 }

@@ -11,8 +11,8 @@
 			width:260px;
 			overflow-x:none;
 			overflow-y:auto;
-			background:$color-primary;
-			color: contrast-color($color-primary);
+			background:map-get($object-navigation-vars, background-color);
+			color: contrast-color(map-get($object-navigation-vars, background-color));
 			@include box-shadow(0 0 $spacing/4 rgba($color-foreground, .4))
 		}
 		.sidr-inner {
@@ -44,7 +44,7 @@
 			font-size: $font-size-s;
 			margin:0 0 $spacing/2;
 			a {
-				color:rgba($color-background, 0.9);
+				color:rgba(map-get($object-navigation-vars, color), 0.9);
 			}
 		}
 		> p {

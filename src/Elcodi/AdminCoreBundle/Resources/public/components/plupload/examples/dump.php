@@ -5,7 +5,7 @@
 <title>Plupload - Form dump</title>
 </head>
 <body style="font: 13px Verdana; background: #eee; color: #333">
-
+	
 <h1>Post dump</h1>
 
 <p>Shows the form items posted.</p>

@@ -1,6 +1,6 @@
 .sidebar {
 	&{
-		background: #31373D;
+		background: map-get($object-navigation-vars, background-color);;
 		overflow: hidden;
 		@include text-shadow(1px 1px 0 rgba($color-foreground,.2))
 	}
@@ -15,7 +15,7 @@
 	font-size: $font-size-xl;
 }
 
-@mixin desktop-sidebar(){
+@mixin papa-sidebar(){
 	.sidebar {
 		&{
 			height: 100%;

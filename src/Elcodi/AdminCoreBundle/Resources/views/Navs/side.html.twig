@@ -1,12 +1,19 @@
 
 <div class="sidebar-user">
-    <a href="{{ url("admin_admin_user_edit", {id: app.user.id }) }}" class="sidebar-user-avatar">
+    <a href="{{ url("admin_admin_user_edit", {id: app.user.id }) }}" class="sidebar-user-avatar desktop">
         <img src="{{ gravatar(app.user.email, 40) }}" alt="Avatar" class="image-circle">
     </a>
     <div class="sidebar-user-info">
         <a class="sidebar-title" href="{{ url("admin_homepage") }}">Elcodi Admin</a>
         <a href="#sidebar-user-dropdown" data-tc-modules="toggle">{{ app.user.fullname }} <i class="icon-angle-down"></i> </a>
         <ul id="sidebar-user-dropdown" class="sidebar-user-dropdown">
+            <li class="mobile">
+                <a href="{{ url("admin_admin_user_edit", {id: app.user.id }) }}" class="sidebar-user-avatar">
+                    <img src="{{ gravatar(app.user.email, 30) }}" alt="Avatar" class="image-circle">
+                </a>
+                <a href="{{ url("admin_admin_user_edit", {id: app.user.id }) }}" class="pt-m">{{ app.user.fullname }}</a>
+                <hr style="clear: both" />
+            </li>
             <li>
                 <a href="{{ url('admin_admin_user_edit', {id: app.security.getToken().getUser().getId() }) }}">Profile</a>
             </li>
@@ -17,7 +24,7 @@
     </div>
 </div>
 <nav class="navigation navigation-vertical">
-    <ul>
+    <ul id="main-menu">
         {% block side_menu %}
             {% for menu_item in menu_items %}
                 <li {% if menu_item.subnodes|length %}class="parent"{% endif %}>

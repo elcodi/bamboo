@@ -1,7 +1,7 @@
 .sidebar-user {
 	& {
 		display: block;
-		background: $color-foreground;
+		background: rgba($color-foreground,.2);
 		margin: 0;
 		padding: $spacing/2;
 		overflow: hidden;

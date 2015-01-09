@@ -14,17 +14,22 @@
 {% endblock head_style %}
 
 {% block body %}
+    <nav class="topbar mobile">
+        <a data-tc-modules="sidemenu" href="#main-menu" class="icon-align-justify button button-icon topbar-main-menu"></a>
+        <a class="topbar-title" href="{{ url("admin_homepage") }}">Elcodi Admin</a>
+        <a data-tc-modules="sidemenu" data-tc-position="right" href="#sidebar-user-dropdown" class="icon-user button button-icon topbar-user-menu"></a>
+    </nav>
     <div class="grid">
         <div class="col-4-5 pull-right">
-            <header class="header">
+            <header class="section-header">
                 <div class="buttons-group">{% block header_actions %}{% endblock %}</div>
                 {% block breadcrumb %}{% endblock %}
             </header>
-            <div class="box-none">
+            <div class="papa-air">
                 {% block content %}{% endblock content %}
             </div>
         </div>
-        <aside class="col-1-5 sidebar">
+        <aside class="col-1-5 sidebar tablet desktop">
             {% render url('admin_menu_side') %}
         </aside>
     </div>
