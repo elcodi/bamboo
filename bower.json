@@ -16,8 +16,8 @@
     "tests"
   ],
   "dependencies": {
-    "frontendcore-scss": "https://github.com/tonipinel/frontendcore-scss.git#1.2.4",
-    "frontendcore-js": "https://github.com/tonipinel/frontendcore-js.git#1.2.4",
+    "frontendcore-scss": "https://github.com/tonipinel/frontendcore-scss.git#1.2.5",
+    "frontendcore-js": "https://github.com/tonipinel/frontendcore-js.git#1.2.5",
     "plupload": "~2.1.2"
   }
 }

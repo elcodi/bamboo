@@ -1,0 +1,61 @@
+.section-header {
+	& {
+		display: block;
+		overflow: hidden;
+		background: $color-background;
+		padding: $spacing/2 $spacing/2 $spacing/4 $spacing/1.5;
+
+	}
+	.list-horizontal {
+		& {
+			margin-bottom: 0;
+			font-size: $font-size-xl;
+			font-family: $font-face-title;
+			line-height: 100%;
+			padding: $spacing/4 0 $spacing/2;
+		}
+		li {
+			margin-right: 0;
+		}
+		a {
+			& {
+				color: rgba($color-foreground, .4);
+			}
+			&:hover {
+				color: $color-link;
+			}
+		}
+	}
+	.buttons-group {
+		float: right;
+		margin-bottom: 0;
+	}
+
+	.button-primary {
+		width: $spacing*1.4;
+		height: $spacing*1.4;
+		padding: $spacing/4;
+		overflow: hidden;
+	}
+
+}
+
+@mixin papa-section-header(){
+	.section-header {
+		& {
+			padding: $spacing/1.5 $spacing $spacing/2;
+			min-height: 68px;
+		}
+		.list-horizontal {
+			font-size: $font-size-xxl;
+			padding-top: 0;
+		}
+		.button-primary {
+			width: auto;
+			height: auto;
+			padding: $spacing/4 $spacing/2;
+			overflow: visible;
+		}
+	}
+
+}

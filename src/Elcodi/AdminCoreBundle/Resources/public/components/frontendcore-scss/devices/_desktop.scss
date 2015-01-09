@@ -22,4 +22,8 @@
 	}
 
 	@include desktop-tabs;
+
+	@if $object-boxes != false {
+		@include papa-boxes;
+	}
 }
