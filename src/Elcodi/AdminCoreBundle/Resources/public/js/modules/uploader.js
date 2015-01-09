@@ -34,7 +34,8 @@ TinyCore.AMD.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupl
 
 						var oResponse = $.parseJSON(response.response),
 							nId = oResponse.response.id,
-							sUrlEdit = oResponse.response.routes.view.replace('{id}', nId),
+							sFormat = oResponse.response.extension,
+							sUrlEdit = oResponse.response.routes.view.replace('{id}', nId).replace('{_format}', sFormat),
 							sUrlDelete = oResponse.response.routes['delete'].replace('{id}', nId);
 
 						self.addImageToGallery(nId, sUrlEdit, sUrlDelete);
