@@ -47,6 +47,6 @@ class PasswordRememberType extends AbstractType
      */
     public function getName()
     {
-        return 'admin_user_form_type_password_remember';
+        return 'elcodi_admin_user_form_type_password_remember';
     }
 }

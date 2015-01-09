@@ -8,9 +8,9 @@
 
 {% block breadcrumb %}
 
-    {% set entityName = customer.id
-        ? customer.name
-        : 'New Customer'
+    {% set entityHeader = customer.id
+        ? 'Edit ' ~ customer.name
+        : 'Create new Customer'
     %}
 
     {% include "@AdminCore/Common/breadcrumb.html.twig" with {
@@ -18,7 +18,7 @@
             "Customers": {
                 "url": url('admin_customer_list')
             },
-            ("Edit " ~ entityName): {
+            (entityHeader): {
                 "active" : true
             }
         }

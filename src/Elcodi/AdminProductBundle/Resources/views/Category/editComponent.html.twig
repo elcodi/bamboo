@@ -10,9 +10,16 @@
 
 
 {% block content %}
-    {{ form_start(form, {'action': url('admin_category_update', {
-        'id': entity.id
-    })}) }}
+
+    {% set formAction = category.id
+        ? url('admin_category_update', {
+            'id': category.id
+        })
+        : url('admin_category_save')
+
+     %}
+
+    {{ form_start(form, {'action': formAction}) }}
     <fieldset>
         <div class="grid">
             <div class="col-1-3">

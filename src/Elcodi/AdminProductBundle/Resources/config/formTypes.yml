@@ -35,5 +35,7 @@ services:
         class: %elcodi.admin.product.form_type.manufacturer.class%
         arguments:
             entity: %elcodi.core.product.entity.manufacturer.class%
+        calls:
+            - [setEntityTranslatorFormEventListener, [@elcodi.entity_translator_form_event_listener]]
         tags:
             - { name: form.type, alias: elcodi_admin_product_form_type_manufacturer }

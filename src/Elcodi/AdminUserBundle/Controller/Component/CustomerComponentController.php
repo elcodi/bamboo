@@ -127,7 +127,11 @@ class CustomerComponentController extends AbstractAdminController
      * @Method({"GET"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.user.entity.customer.class",
+     *      class = {
+     *          "factory" = "elcodi.factory.customer",
+     *          "method" = "create",
+     *          "static" = false
+     *      },
      *      name = "customer",
      *      mapping = {
      *          "id" = "~id~"
@@ -136,7 +140,7 @@ class CustomerComponentController extends AbstractAdminController
      *      persist = true
      * )
      * @FormAnnotation(
-     *      class = "admin_user_form_type_customer",
+     *      class = "elcodi_admin_user_form_type_customer",
      *      name  = "formView",
      *      entity = "customer",
      *      handleRequest = true,

@@ -6,12 +6,17 @@
 
 {% block breadcrumb %}
 
+    {% set entityHeader = manufacturer.id
+        ? 'Edit ' ~ manufacturer.name
+        : 'Create new Manufacturer'
+    %}
+
     {% include "@AdminCore/Common/breadcrumb.html.twig" with {
         breadcrumb: {
             "Manufacturers": {
                 "url": url('admin_manufacturer_list')
             },
-            ("Edit #" ~ id ): {
+            (entityHeader ): {
                 "active" : true
             }
         }
@@ -21,12 +26,12 @@
 
 {% block content %}
 
-    <div class="row">
-        <div class="col-md-6">
-            {{ render(url("admin_manufacturer_edit_component", {
-                'id': id
-            })) }}
-        </div>
-    </div>
+    {% if manufacturer.id %}
+        {{ render(url("admin_manufacturer_edit_component", {
+            'id': manufacturer.id
+        })) }}
+    {% else %}
+        {{ render(url("admin_manufacturer_new_component")) }}
+    {% endif %}
 
 {% endblock content %}

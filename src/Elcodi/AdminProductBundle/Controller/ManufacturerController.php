@@ -91,182 +91,86 @@ class ManufacturerController
     }
 
     /**
-     * View element action.
+     * Edit and Saves manufacturer
      *
-     * This action is just a wrapper, so should never get any data,
-     * as this is component responsibility
-     *
-     * @param Request $request Request
-     * @param integer $id      Entity id
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/{id}",
-     *      name = "admin_manufacturer_view",
-     *      requirements = {
-     *          "id" = "\d*",
-     *      }
-     * )
-     * @Template
-     * @Method({"GET"})
-     */
-    public function viewAction(
-        Request $request,
-        $id
-    )
-    {
-        return [
-            'id' => $id,
-        ];
-    }
-
-    /**
-     * New element action
-     *
-     * This action is just a wrapper, so should never get any data,
-     * as this is component responsibility
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/new",
-     *      name = "admin_manufacturer_new"
-     * )
-     * @Template
-     * @Method({"GET"})
-     */
-    public function newAction()
-    {
-        return [];
-    }
-
-    /**
-     * Save new element action
-     *
-     * Should be POST
-     *
-     * @param Request               $request Request
-     * @param ManufacturerInterface $entity  Entity to save
-     * @param FormInterface         $form    Form view
-     * @param boolean               $isValid Request handle is valid
+     * @param FormInterface         $form         Form
+     * @param ManufacturerInterface $manufacturer Manufacturer
+     * @param boolean               $isValid      Is valid
      *
      * @return RedirectResponse Redirect response
      *
      * @Route(
-     *      path = "/save",
-     *      name = "admin_manufacturer_save"
+     *      path = "/{id}",
+     *      name = "admin_manufacturer_edit",
+     *      requirements = {
+     *          "id" = "\d+",
+     *      },
+     *      methods = {"GET"}
      * )
-     * @Method({"POST"})
+     * @Route(
+     *      path = "/{id}/update",
+     *      name = "admin_manufacturer_update",
+     *      requirements = {
+     *          "id" = "\d+",
+     *      },
+     *      methods = {"POST"}
+     * )
+     *
+     * @Route(
+     *      path = "/new",
+     *      name = "admin_manufacturer_new",
+     *      methods = {"GET"}
+     * )
+     * @Route(
+     *      path = "/new/update",
+     *      name = "admin_manufacturer_save",
+     *      methods = {"POST"}
+     * )
      *
      * @EntityAnnotation(
      *      class = {
-     *          "factory" = "elcodi.core.product.factory.manufacturer",
+     *          "factory" = "elcodi.factory.manufacturer",
+     *          "method" = "create",
+     *          "static" = false
      *      },
+     *      mapping = {
+     *          "id" = "~id~"
+     *      },
+     *      mappingFallback = true,
+     *      name = "manufacturer",
      *      persist = true
      * )
      * @FormAnnotation(
      *      class = "elcodi_admin_product_form_type_manufacturer",
      *      name  = "form",
-     *      entity = "entity",
+     *      entity = "manufacturer",
      *      handleRequest = true,
      *      validate = "isValid"
      * )
-     */
-    public function saveAction(
-        Request $request,
-        ManufacturerInterface $entity,
-        FormInterface $form,
-        $isValid
-    )
-    {
-        if ($isValid) {
-            $this
-                ->get('elcodi.object_manager.manufacturer')
-                ->flush($entity);
-        }
-
-        return $this->redirectRoute("admin_manufacturer_view", [
-            'id' => $entity->getId(),
-        ]);
-    }
-
-    /**
-     * New element action
      *
-     * This action is just a wrapper, so should never get any data,
-     * as this is component responsibility
-     *
-     * @param Request $request Request
-     * @param integer $id      Entity id
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/{id}/edit",
-     *      name = "admin_manufacturer_edit"
-     * )
      * @Template
-     * @Method({"GET"})
      */
     public function editAction(
-        Request $request,
-        $id
-    )
-    {
-        return [
-            'id' => $id,
-        ];
-    }
-
-    /**
-     * Updated edited element action
-     *
-     * Should be POST
-     *
-     * @param Request               $request Request
-     * @param ManufacturerInterface $entity  Entity to update
-     * @param FormInterface         $form    Form view
-     * @param boolean               $isValid Request handle is valid
-     *
-     * @return RedirectResponse Redirect response
-     *
-     * @Route(
-     *      path = "/{id}/update",
-     *      name = "admin_manufacturer_update"
-     * )
-     * @Method({"POST"})
-     *
-     * @EntityAnnotation(
-     *      class = "elcodi.core.product.entity.manufacturer.class",
-     *      mapping = {
-     *          "id": "~id~",
-     *      }
-     * )
-     * @FormAnnotation(
-     *      class = "elcodi_admin_product_form_type_manufacturer",
-     *      name  = "form",
-     *      entity = "entity",
-     *      handleRequest = true,
-     *      validate = "isValid"
-     * )
-     */
-    public function updateAction(
-        Request $request,
-        ManufacturerInterface $entity,
         FormInterface $form,
+        ManufacturerInterface $manufacturer,
         $isValid
     )
     {
         if ($isValid) {
-            $this
-                ->get('elcodi.object_manager.manufacturer')
-                ->flush($entity);
+
+            $this->flush($manufacturer);
+
+            $this->addFlash('success','Changes saved');
+
+            return $this->redirectToRoute('admin_manufacturer_edit', [
+                'id' => $manufacturer->getId(),
+            ]);
         }
 
-        return $this->redirectRoute("admin_manufacturer_view", [
-            'id' => $entity->getId(),
-        ]);
+        return [
+            'manufacturer' => $manufacturer,
+            'form'     => $form->createView(),
+        ];
     }
 
     /**

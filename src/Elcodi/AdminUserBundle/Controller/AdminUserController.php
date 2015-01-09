@@ -141,7 +141,7 @@ class AdminUserController
      *      persist = true
      * )
      * @FormAnnotation(
-     *      class = "admin_user_form_type_admin_user",
+     *      class = "elcodi_admin_user_form_type_admin_user",
      *      name  = "form",
      *      entity = "adminUser",
      *      handleRequest = true,

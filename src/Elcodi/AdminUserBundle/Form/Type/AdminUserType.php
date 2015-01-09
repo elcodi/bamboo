@@ -114,6 +114,6 @@ class AdminUserType extends AbstractType
      */
     public function getName()
     {
-        return 'admin_user_form_type_admin_user';
+        return 'elcodi_admin_user_form_type_admin_user';
     }
 }

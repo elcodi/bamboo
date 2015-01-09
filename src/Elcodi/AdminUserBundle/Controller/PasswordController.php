@@ -49,7 +49,7 @@ class PasswordController extends Controller
      * @Template
      *
      * @AnnotationForm(
-     *      class         = "admin_user_form_type_password_remember",
+     *      class         = "elcodi_admin_user_form_type_password_remember",
      *      handleRequest = true,
      *      name          = "passwordRememberForm",
      *      validate      = "isValid"
@@ -126,7 +126,7 @@ class PasswordController extends Controller
      * @Template
      *
      * @AnnotationForm(
-     *      class         = "admin_user_form_type_password_recover",
+     *      class         = "elcodi_admin_user_form_type_password_recover",
      *      handleRequest = true,
      *      name          = "passwordRecoverForm",
      *      validate      = "isValid"

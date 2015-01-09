@@ -20,11 +20,15 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
+use Elcodi\Component\EntityTranslator\EventListener\Traits\EntityTranslatableFormTrait;
+
 /**
  * Class ManufacturerType
  */
 class ManufacturerType extends AbstractType
 {
+    use EntityTranslatableFormTrait;
+
     /**
      * @var string
      *
@@ -77,22 +81,6 @@ class ManufacturerType extends AbstractType
                 'required' => false,
                 'label'    => 'description',
             ))
-            ->add('createdAt', 'datetime', array(
-                'widget'   => 'single_text',
-                'format'   => 'yyyy-MM-dd - HH:mm:ss',
-                'required' => false,
-                'label'    => 'createdAt',
-            ))
-            ->add('updatedAt', 'datetime', array(
-                'widget'   => 'single_text',
-                'format'   => 'yyyy-MM-dd - HH:mm:ss',
-                'required' => false,
-                'label'    => 'updatedAt',
-            ))
-            ->add('enabled', 'checkbox', array(
-                'required' => false,
-                'label'    => 'enabled',
-            ))
             ->add('metaTitle', 'text', array(
                 'required' => false,
                 'label'    => 'metaTitle',
@@ -104,7 +92,13 @@ class ManufacturerType extends AbstractType
             ->add('metaKeywords', 'text', array(
                 'required' => false,
                 'label'    => 'metaKeywords',
+            ))
+            ->add('enabled', 'checkbox', array(
+                'required' => false,
+                'label'    => 'enabled',
             ));
+
+        $builder->addEventSubscriber($this->getEntityTranslatorFormEventListener());
     }
 
     /**
