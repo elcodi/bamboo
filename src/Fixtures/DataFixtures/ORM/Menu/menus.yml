@@ -87,7 +87,7 @@ menu_nodes:
     bambooadmin_medias:
         name: Medias
         code: picture-o
-        url: admin-image-list
+        url: admin_image_list
         enabled: 1
         subnodes: ~
 
