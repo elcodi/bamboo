@@ -1,0 +1,38 @@
+{% extends 'StoreTemplateBundle::layout.html.twig' %}
+
+{% form_theme form 'StoreTemplateBundle::fields.html.twig' %}
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="span6 offset3">
+
+                <div class="member-box">
+
+
+                    <h2>Recover password</h2>
+
+                    {{ form_start(form) }}
+
+                    <p>
+                        {{ form_row(form.password) }}
+                    </p>
+
+                    <p class="buttons">
+                        {{ form_row(form.send, {attr: {'class': 'btn btn-primary' }}) }}
+                    </p>
+
+                    {{ form_end(form) }}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock content %}

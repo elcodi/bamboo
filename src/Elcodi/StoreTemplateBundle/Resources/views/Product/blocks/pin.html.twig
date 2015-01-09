@@ -1,0 +1,59 @@
+{#
+ # Base display block for a Product with no variants in listing page.
+ #}
+<div class="span4 product-listing">
+
+    {% set productRoute = url('store_product_view', {
+        'slug': product.slug,
+        'id': product.id
+    }) %}
+
+    {% block pin_title %}
+    <p class="title">
+        <a href="{{ productRoute }}">{{ product.name }}</a>
+    </p>
+    {% endblock %}
+
+    {% block pin_image %}
+    <a href="{{ productRoute }}">
+        <img class="image" src="{{ product.principalImage ? product.principalImage|resize({
+            'width': 372,
+            'height': 291,
+            'type': 5
+        }) : 'http://placehold.it/372x291' }}" alt="{{ product.name }}" />
+    </a>
+    {% endblock %}
+
+    <p class="price">
+
+        {% if product.reducedPrice.amount > 0 %}
+            {% set product_price = product.reducedPrice %}
+        {% else %}
+            {% set product_price = product.price %}
+        {% endif %}
+
+        {{ product_price|print_convert_money() }}
+
+        {% if product_price.currency.id != app.session.get('currency_id') %}
+
+            - <span class="original-price">({{ product_price|print_money() }})</span>
+
+        {% endif %}
+
+        {% block pin_button_addcart %}
+        <a class="btn btn-addcart btn-primary"
+           href="{{ url('store_cart_add_product', { id: product.id }) }}"
+           title="Add to cart {{ product.name }}">
+            <span class="entypo cart"></span>
+        </a>
+        {% endblock %}
+
+        {% block pin_button_view %}
+        <a class="btn btn-view btn-grey"
+           title="View details for {{ product.name }}"
+           href="{{ productRoute }}">
+            <span class="entypo search"></span>
+        </a>
+        {% endblock %}
+    </p>
+</div>

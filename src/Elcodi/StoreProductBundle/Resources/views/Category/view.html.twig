@@ -1,14 +1,1 @@
-{% extends 'StoreCoreBundle::layout.html.twig' %}
-
-
-{% block title %}Bamboo - Category {{ category.name }}{% endblock title %}
-
-
-{% block content_title %}{{ category.name }}{% endblock content_title %}
-
-
-{% block content %}
-
-	{% include 'StoreProductBundle:Product:blocks/grid.html.twig' with {'products' : products} %}
-
-{% endblock content %}
+{% include 'StoreTemplateBundle::Category/view.html.twig' %}

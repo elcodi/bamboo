@@ -1,0 +1,13 @@
+<!-- Product Listing -->
+{% for product in products %}
+
+    {% if loop.index0 % 3 == 0 %}<div class="row">{% endif %}
+
+    {% include product.hasVariants() ?
+        'StoreTemplateBundle:Product:blocks/pinVariant.html.twig' :
+        'StoreTemplateBundle:Product:blocks/pin.html.twig'
+        with {'product' : product}
+    %}
+
+    {% if loop.index0 % 3 == 2 or loop.last %}</div>{% endif %}
+{% endfor %}

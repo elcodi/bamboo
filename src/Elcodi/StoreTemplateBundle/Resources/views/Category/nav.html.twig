@@ -1,0 +1,15 @@
+
+<li{% if not currentCategoryId %} class="active"{% endif %}>
+    <a href="{{ url('store_homepage') }}">New</a>
+</li>
+
+{% for category in categoryTree %}
+
+    <li{% if currentCategoryId == category.entity.id %} class="active"{% endif %}>
+        <a href="{{ url('store_category_products_list', {
+            slug: category.entity.slug,
+            id: category.entity.id
+        }) }}">{{ category.entity.name }}</a>
+    </li>
+
+{% endfor %}
