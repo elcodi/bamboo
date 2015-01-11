@@ -78,7 +78,7 @@ menu_nodes:
     bambooadmin_purchases:
         name: Purchases
         code: shopping-cart
-        url: admin_customer_list
+        url: ~
         enabled: 1
         subnodes:
             - bambooadmin_carts
