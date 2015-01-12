@@ -6,13 +6,18 @@
 
 {% block breadcrumb %}
 
+    {% set entityHeader = product.id
+        ? 'Edit ' ~ variant.name
+        : 'Create new Variant'
+    %}
+
     {% include '@AdminCore/Common/breadcrumb.html.twig' with {
         breadcrumb: {
             'Products': {
                 'url': url('admin_product_list')
             },
             ('#' ~ id): {
-                'url': url('admin_product_edit', {id: id})
+                'url': url('admin_product_edit', {id: product.id})
             },
             ('Edit Variant #' ~ variantId): {
                 'active': true
@@ -24,9 +29,15 @@
 
 {% block content %}
 
-    {{ render(url('admin_variant_edit_component', {
-        'id': id,
-        'variantId': variantId
-    })) }}
+    {% if variant.id %}
+        {{ render(url('admin_product_variant_edit_component', {
+            'productId': product.id,
+            'id': variant.id
+        })) }}
+    {% else %}
+        {{ render(url('admin_product_variant_new_component', {
+            'productId': product.id
+        })) }}
+    {% endif %}
 
 {% endblock content %}

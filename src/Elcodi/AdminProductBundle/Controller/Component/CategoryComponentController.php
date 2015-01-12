@@ -32,9 +32,7 @@ use Elcodi\Component\Product\Entity\Interfaces\CategoryInterface;
 /**
  * Class CategoryComponentController
  */
-class CategoryComponentController
-    extends
-    AbstractAdminController
+class CategoryComponentController extends AbstractAdminController
 {
     /**
      * Component for entity list.

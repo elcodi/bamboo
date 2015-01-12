@@ -28,7 +28,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormView;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\AdminMediaBundle\Controller\Interfaces\GalleriableComponentControllerInterface;
 use Elcodi\Component\Cart\Entity\Interfaces\CartInterface;
 use Elcodi\Component\Cart\Entity\Interfaces\CartLineInterface;
 
@@ -39,11 +38,7 @@ use Elcodi\Component\Cart\Entity\Interfaces\CartLineInterface;
  *      path = "cart",
  * )
  */
-class CartComponentController
-    extends
-    AbstractAdminController
-    implements
-    GalleriableComponentControllerInterface
+class CartComponentController extends AbstractAdminController
 {
     /**
      * Component for entity list.

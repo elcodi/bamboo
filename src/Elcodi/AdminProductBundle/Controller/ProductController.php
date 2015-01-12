@@ -26,7 +26,6 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
 use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
 
@@ -37,11 +36,7 @@ use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
  *      path = "/product",
  * )
  */
-class ProductController
-    extends
-    AbstractAdminController
-    implements
-    EnableableControllerInterface
+class ProductController extends AbstractAdminController
 {
     /**
      * List elements of certain entity type.
@@ -154,10 +149,6 @@ class ProductController
         $isValid
     )
     {
-        foreach ($form->getErrors() as $error) {
-            echo $error->getMessage();
-        }
-
         if ($isValid) {
 
             $this->flush($product);

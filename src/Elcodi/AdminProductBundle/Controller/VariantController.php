@@ -26,10 +26,11 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
 use Elcodi\Component\Attribute\Entity\Attribute;
 use Elcodi\Component\Attribute\Entity\Value;
 use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
+use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
+use Elcodi\Component\Product\Entity\Interfaces\VariantInterface;
 use Elcodi\Component\Product\Entity\Product;
 use Elcodi\Component\Product\Entity\Variant;
 
@@ -37,158 +38,75 @@ use Elcodi\Component\Product\Entity\Variant;
  * Class Controller for Variant
  *
  * @Route(
- *      path = "/product/{id}/variant",
+ *      path = "/product/{productId}/variant",
  *      requirements = {
- *          "id" = "\d*",
+ *          "productId" = "\d+",
  *      }
  * )
  */
-class VariantController
-    extends
-    AbstractAdminController
-    implements
-    EnableableControllerInterface
+class VariantController extends AbstractAdminController
 {
     /**
-     * List elements of certain entity type.
+     * Edit and Saves product
      *
-     * This action is just a wrapper, so should never get any data,
-     * as this is component responsibility
-     *
-     * @param Request $request          Request
-     * @param integer $page             Page
-     * @param integer $limit            Limit of items per page
-     * @param string  $orderByField     Field to order by
-     * @param string  $orderByDirection Direction to order by
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "s/{page}/{limit}/{orderByField}/{orderByDirection}",
-     *      name = "admin_variant_list",
-     *      requirements = {
-     *          "page" = "\d*",
-     *          "limit" = "\d*",
-     *      },
-     *      defaults = {
-     *          "page" = "1",
-     *          "limit" = "50",
-     *          "orderByField" = "id",
-     *          "orderByDirection" = "DESC",
-     *      },
-     * )
-     * @Template
-     * @Method({"GET"})
-     */
-    public function listAction(
-        Request $request,
-        $page,
-        $limit,
-        $orderByField,
-        $orderByDirection
-    )
-    {
-        return [
-            'page'             => $page,
-            'limit'            => $limit,
-            'orderByField'     => $orderByField,
-            'orderByDirection' => $orderByDirection,
-        ];
-    }
-
-    /**
-     * View element action.
-     *
-     * This action is just a wrapper, so should never get any data,
-     * as this is component responsibility
-     *
-     * @param Request $request   Request
-     * @param integer $id        Product id
-     * @param integer $variantId Variant id
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/{variantId}",
-     *      name = "admin_variant_view",
-     *      requirements = {
-     *          "variantId" = "\d*",
-     *      }
-     * )
-     * @Template("@AdminProduct/Variant/view.html.twig")
-     * @Method({"GET"})
-     */
-    public function viewAction(
-        Request $request,
-        $id,
-        $variantId
-    )
-    {
-        return [
-            'id'        => $id,
-            'variantId' => $variantId
-        ];
-    }
-
-    /**
-     * New element action
-     *
-     * This action is just a wrapper, so should never get any data,
-     * as this is component responsibility
-     *
-     * @param $id integer Product id
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/new",
-     *      name = "admin_variant_new"
-     * )
-     * @Template
-     * @Method({"GET"})
-     */
-    public function newAction($id)
-    {
-        return [
-            'id' => $id
-        ];
-    }
-
-    /**
-     * Save new element action
-     *
-     * Should be POST
-     *
-     * @param Request       $request Request
-     * @param Variant       $variant Product variant Entity to save
-     * @param Product       $product Parent product for the variant being saved
-     * @param FormInterface $form    Form view
-     * @param boolean       $isValid Request handle is valid
+     * @param FormInterface    $form    Form
+     * @param ProductInterface $product Product
+     * @param VariantInterface $product Variant
+     * @param boolean          $isValid Is valid
      *
      * @return RedirectResponse Redirect response
      *
      * @Route(
-     *      path = "/save",
-     *      name = "admin_variant_save"
+     *      path = "/{id}",
+     *      name = "admin_product_variant_edit",
+     *      requirements = {
+     *          "id" = "\d+",
+     *      },
+     *      methods = {"GET"}
      * )
-     * @Method({"POST"})
+     * @Route(
+     *      path = "/{id}/update",
+     *      name = "admin_product_variant_update",
+     *      requirements = {
+     *          "id" = "\d+",
+     *      },
+     *      methods = {"POST"}
+     * )
+     *
+     * @Route(
+     *      path = "/new",
+     *      name = "admin_product_variant_new",
+     *      methods = {"GET"}
+     * )
+     * @Route(
+     *      path = "/new/update",
+     *      name = "admin_product_variant_save",
+     *      methods = {"POST"}
+     * )
      *
      * @EntityAnnotation(
-     *     class = "elcodi.core.product.entity.product.class",
-     *     mapping = {
-     *         "id": "~id~"
-     *     },
-     *     name = "product"
+     *      class = {
+     *          "factory" = "elcodi.factory.product",
+     *          "method" = "create",
+     *          "static" = false
+     *      },
+     *      mapping = {
+     *          "id" = "~productId~"
+     *      },
+     *      name = "product"
      * )
      * @EntityAnnotation(
-     *     class = {
-     *         "factory" = "elcodi.core.product.factory.product_variant"
-     *     },
-     *     name = "variant",
-     *     persist = true,
-     *     setters = {
-     *         "setProduct": "product"
-     *     }
+     *      class = {
+     *          "factory" = "elcodi.factory.product_variant",
+     *          "method" = "create",
+     *          "static" = false
+     *      },
+     *      mapping = {
+     *          "id" = "~id~"
+     *      },
+     *      mappingFallback = true,
+     *      name = "variant",
+     *      persist = true
      * )
      * @FormAnnotation(
      *      class = "elcodi_admin_product_form_type_product_variant",
@@ -197,12 +115,13 @@ class VariantController
      *      handleRequest = true,
      *      validate = "isValid"
      * )
+     *
+     * @Template
      */
-    public function saveAction(
-        Request $request,
-        Variant $variant,
-        Product $product,
+    public function editAction(
         FormInterface $form,
+        ProductInterface $product,
+        VariantInterface $variant,
         $isValid
     )
     {
@@ -213,140 +132,42 @@ class VariantController
              */
             $variant->setProduct($product);
 
-            $this
-                ->get('elcodi.object_manager.product_variant')
-                ->flush($variant);
-
             /**
              * @var Value $option
              */
             foreach ($variant->getOptions() as $option) {
-                /*
+
+                /**
                  * When adding an option to a Variant it is
                  * important to check that the parent Product
                  * has its corresponding Attribute
                  */
-                if (!$product->getAttributes()->contains($option->getAttribute())) {
-                    $product->addAttribute($option->getAttribute());
+                $optionAttribute = $option->getAttribute();
+
+                if (!$product
+                    ->getAttributes()
+                    ->contains($optionAttribute)
+                ) {
+                    $product->addAttribute($optionAttribute);
                 }
             }
 
-            $this
-                ->get('elcodi.object_manager.product_variant')
-                ->flush($product);
+            $this->flush($variant);
+            $this->flush($product);
+
+            $this->addFlash('success', 'Changes saved');
+
+            return $this->redirectToRoute('admin_product_variant_edit', [
+                'productId' => $product->getId(),
+                'id'        => $variant->getId(),
+            ]);
         }
 
-        return $this->redirectRoute("admin_variant_view", [
-            'id'        => $product->getId(),
-            'variantId' => $variant->getId()
-        ]);
-    }
-
-    /**
-     * Edit element action
-     *
-     * This action is just a wrapper, so should never get any data,
-     * as this is component responsibility
-     *
-     * @param Request $request   Request
-     * @param integer $id        Product id
-     * @param integer $variantId Variant id
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/{variantId}/edit",
-     *      name = "admin_variant_edit"
-     * )
-     * @Template
-     * @Method({"GET"})
-     */
-    public function editAction(
-        Request $request,
-        $id,
-        $variantId
-    )
-    {
         return [
-            'id'        => $id,
-            'variantId' => $variantId,
+            'product' => $product,
+            'variant' => $variant,
+            'form'    => $form->createView(),
         ];
-    }
-
-    /**
-     * Updated edited element action
-     *
-     * Should be POST
-     *
-     * @param Request       $request Request
-     * @param Variant       $variant Product variant to update
-     * @param FormInterface $form    Form view
-     * @param boolean       $isValid Request handle is valid
-     *
-     * @return RedirectResponse Redirect response
-     *
-     * @Route(
-     *      path = "/{variantId}/update",
-     *      name = "admin_variant_update"
-     * )
-     * @Method({"POST"})
-     *
-     * @EntityAnnotation(
-     *      class = "elcodi.core.product.entity.product_variant.class",
-     *      name = "variant",
-     *      mapping = {
-     *          "id": "~variantId~",
-     *      }
-     * )
-     * @FormAnnotation(
-     *      class = "elcodi_admin_product_form_type_product_variant",
-     *      name  = "form",
-     *      entity = "variant",
-     *      handleRequest = true,
-     *      validate = "isValid"
-     * )
-     */
-    public function updateAction(
-        Request $request,
-        Variant $variant,
-        FormInterface $form,
-        $isValid
-    )
-    {
-
-        if ($isValid) {
-            $this
-                ->get('elcodi.object_manager.product_variant')
-                ->flush($variant);
-
-            /**
-             * @var Product $product
-             */
-            $product = $variant->getProduct();
-
-            /**
-             * @var Value $option
-             */
-            foreach ($variant->getOptions() as $option) {
-                /*
-                 * When adding an option to a Variant it is
-                 * important to check that the parent Product
-                 * has its corresponding Attribute
-                 */
-                if (!$product->getAttributes()->contains($option->getAttribute())) {
-                    $product->addAttribute($option->getAttribute());
-                }
-            }
-
-            $this
-                ->get('elcodi.object_manager.product')
-                ->flush($variant);
-        }
-
-        return $this->redirectRoute("admin_variant_view", [
-            'id'        => $variant->getProduct()->getId(),
-            'variantId' => $variant->getId(),
-        ]);
     }
 
     /**
@@ -359,7 +180,7 @@ class VariantController
      *
      * @Route(
      *      path = "/{variantId}/enable",
-     *      name = "admin_variant_enable"
+     *      name = "admin_product_variant_enable"
      * )
      * @Method({"GET", "POST"})
      *
@@ -392,7 +213,7 @@ class VariantController
      *
      * @Route(
      *      path = "/{variantId}/disable",
-     *      name = "admin_variant_disable"
+     *      name = "admin_product_variant_disable"
      * )
      * @Method({"GET", "POST"})
      *
@@ -424,8 +245,8 @@ class VariantController
      * @return RedirectResponse Redirect response
      *
      * @Route(
-     *      path = "/{variantId}/delete",
-     *      name = "admin_variant_delete"
+     *      path = "/{id}/delete",
+     *      name = "admin_product_variant_delete"
      * )
      * @Method({"GET", "POST"})
      *
@@ -433,14 +254,14 @@ class VariantController
      *     class = "elcodi.core.product.entity.product.class",
      *     name = "product",
      *     mapping = {
-     *         "id": "~id~"
+     *         "id": "~productId~"
      *     }
      * )
      * @EntityAnnotation(
      *      class = "elcodi.core.product.entity.product_variant.class",
      *      name = "variant",
      *      mapping = {
-     *          "id" = "~variantId~"
+     *          "id" = "~id~"
      *      }
      * )
      */
@@ -511,18 +332,12 @@ class VariantController
             $product->removeAttribute($variantAttribute);
         }
 
-        $this
-            ->get('elcodi.object_manager.product')
-            ->flush($product);
+        $this->flush($product);
 
         return parent::deleteAction(
             $request,
             $variant,
-            function () use ($product) {
-                return $this->generateUrl('admin_product_view', [
-                    'id' => $product->getId(),
-                ]);
-            }
+            null
         );
     }
 

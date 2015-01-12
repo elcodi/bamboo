@@ -20,7 +20,6 @@ use Doctrine\ORM\Tools\Pagination\Paginator;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Paginator as PaginatorAnnotation;
-use Mmoreram\ControllerExtraBundle\ValueObject\PaginatorAttributes;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -34,12 +33,13 @@ use Elcodi\Component\Product\Entity\Interfaces\VariantInterface;
  * Class VariantComponentController
  *
  * @Route(
- *      path = "product/{id}/variant",
+ *      path = "product/{productId}/variant",
+ *      requirements = {
+ *          "productId" = "\d+",
+ *      }
  * )
  */
-class VariantComponentController
-    extends
-    AbstractAdminController
+class VariantComponentController extends AbstractAdminController
 {
     /**
      * Component for entity list.
@@ -47,189 +47,107 @@ class VariantComponentController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Paginator           $paginator           Paginator instance
-     * @param PaginatorAttributes $paginatorAttributes Paginator attributes
-     * @param integer             $id                  Product id
-     * @param integer             $page                Page
-     * @param integer             $limit               Limit of items per page
-     * @param string              $orderByField        Field to order by
-     * @param string              $orderByDirection    Direction to order by
+     * @param Paginator $paginator Paginator instance
+     * @param integer   $productId Product id
      *
      * @return array Result
      *
      * @Route(
-     *      path = "s/component/{page}/{limit}/{orderByField}/{orderByDirection}",
-     *      name = "admin_variant_list_component",
-     *      requirements = {
-     *          "page"  = "\d*",
-     *          "limit" = "\d*",
-     *      },
-     *      defaults = {
-     *          "page" = "1",
-     *          "limit" = "50",
-     *          "orderByField" = "id",
-     *          "orderByDirection" = "DESC",
-     *      },
+     *      path = "s/component",
+     *      name = "admin_product_variant_list_component"
      * )
-     * @Template("AdminProductBundle:Variant:Component/listComponent.html.twig")
+     * @Template("AdminProductBundle:Variant:listComponent.html.twig")
      * @Method({"GET"})
      *
      * @PaginatorAnnotation(
-     *      attributes = "paginatorAttributes",
      *      class = "elcodi.core.product.entity.product_variant.class",
      *      innerJoins = {
      *          {"x", "product", "p", false}
      *      },
      *      wheres = {
-     *          {"p", "id", "=", "~id~"}
+     *          {"p", "id", "=", "~productId~"}
      *      }
      * )
      */
     public function listComponentAction(
         Paginator $paginator,
-        PaginatorAttributes $paginatorAttributes,
-        $id,
-        $page,
-        $limit,
-        $orderByField,
-        $orderByDirection
+        $productId
     )
     {
         return [
-            'paginator'        => $paginator,
-            'page'             => $page,
-            'limit'            => $limit,
-            'orderByField'     => $orderByField,
-            'orderByDirection' => $orderByDirection,
-            'totalPages'       => $paginatorAttributes->getTotalPages(),
-            'totalElements'    => $paginatorAttributes->getTotalElements(),
-            'productId'        => $id
+            'paginator' => $paginator,
+            'productId' => $productId
         ];
     }
 
     /**
-     * Component for entity view
+     * New element component action
      *
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param VariantInterface $entity Entity to view
+     * @param FormView         $formView Form view
+     * @param ProductInterface $product  Product
      *
      * @return array Result
      *
      * @Route(
-     *      path = "/component/{variantId}",
-     *      name = "admin_variant_view_component",
+     *      path = "/{id}/component",
+     *      name = "admin_product_variant_edit_component",
      *      requirements = {
-     *          "variantId" = "\d*",
+     *          "id" = "\d+",
      *      }
      * )
-     * @Template("AdminProductBundle:Variant:Component/viewComponent.html.twig")
-     * @Method({"GET"})
-     *
-     * @EntityAnnotation(
-     *      class = "elcodi.core.product.entity.product_variant.class",
-     *      mapping = {
-     *          "id" = "~variantId~"
-     *      }
-     * )
-     */
-    public function viewComponentAction(VariantInterface $entity)
-    {
-        return [
-            'entity' => $entity,
-        ];
-    }
-
-    /**
-     * New element action
-     *
-     * As a component, this action should not return all the html macro, but
-     * only the specific component
-     *
-     * @param ProductInterface $product  Product
-     * @param FormView         $formView Form view
-     *
-     * @return array Result
-     *
      * @Route(
      *      path = "/new/component",
-     *      name = "admin_variant_new_component"
+     *      name = "admin_product_variant_new_component",
+     *      methods = {"GET"}
      * )
-     * @Template("AdminProductBundle:Variant:Component/newComponent.html.twig")
+     * @Template("AdminProductBundle:Variant:editComponent.html.twig")
      * @Method({"GET"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.product.entity.product.class",
-     *      name = "product",
+     *      class = {
+     *          "factory" = "elcodi.factory.product",
+     *          "method" = "create",
+     *          "static" = false
+     *      },
      *      mapping = {
-     *          "id" = "~id~"
-     *      }
+     *          "id" = "~productId~"
+     *      },
+     *      name = "product"
      * )
      * @EntityAnnotation(
      *      class = {
-     *          "factory" = "elcodi.core.product.factory.product_variant"
+     *          "factory" = "elcodi.factory.product_variant",
+     *          "method" = "create",
+     *          "static" = false
      *      },
-     *      name = "entity",
-     *      setters = {
-     *          "setProduct": "product"
-     *      }
-     * )
-     * @FormAnnotation(
-     *      class = "elcodi_admin_product_form_type_product_variant",
-     *      name  = "formView",
-     *      entity = "entity"
-     * )
-     */
-    public function newComponentAction(
-        ProductInterface $product,
-        FormView $formView
-    )
-    {
-        return [
-            'product' => $product,
-            'form'    => $formView,
-        ];
-    }
-
-    /**
-     * Edit element component action
-     *
-     * As a component, this action should not return all the html macro, but
-     * only the specific component
-     *
-     * @param VariantInterface $entity   Entity
-     * @param FormView         $formView Form view
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/{variantId}/edit/component",
-     *      name = "admin_variant_edit_component"
-     * )
-     * @Template("AdminProductBundle:Variant:Component/editComponent.html.twig")
-     * @Method({"GET"})
-     *
-     * @EntityAnnotation(
-     *      class = "elcodi.core.product.entity.product_variant.class",
      *      mapping = {
-     *          "id": "~variantId~",
-     *      }
+     *          "id" = "~id~"
+     *      },
+     *      mappingFallback = true,
+     *      name = "variant",
+     *      persist = true
      * )
      * @FormAnnotation(
      *      class = "elcodi_admin_product_form_type_product_variant",
      *      name  = "formView",
-     *      entity = "entity"
+     *      entity = "variant",
+     *      handleRequest = true,
+     *      validate = "isValid"
      * )
      */
     public function editComponentAction(
-        VariantInterface $entity,
-        FormView $formView
+        FormView $formView,
+        ProductInterface $product,
+        VariantInterface $variant
     )
     {
         return [
-            'entity' => $entity,
-            'form'   => $formView,
+            'variant' => $variant,
+            'product' => $product,
+            'form'    => $formView,
         ];
     }
 }

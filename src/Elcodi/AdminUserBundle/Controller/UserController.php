@@ -21,7 +21,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\AdminCoreBundle\Controller\Interfaces\NavegableControllerInterface;
 
 /**
  * Class UserController
@@ -30,7 +29,7 @@ use Elcodi\AdminCoreBundle\Controller\Interfaces\NavegableControllerInterface;
  *      path = "/user",
  * )
  */
-class UserController extends AbstractAdminController implements NavegableControllerInterface
+class UserController extends AbstractAdminController
 {
     /**
      * Nav for entity

@@ -23,7 +23,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
 use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 
 /**
@@ -33,11 +32,7 @@ use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
  *      path = "/language",
  * )
  */
-class LanguageController
-    extends
-    AbstractAdminController
-    implements
-    EnableableControllerInterface
+class LanguageController extends AbstractAdminController
 {
 
     /**

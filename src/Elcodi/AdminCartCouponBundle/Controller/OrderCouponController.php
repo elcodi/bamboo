@@ -32,7 +32,6 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
 use Elcodi\Component\CartCoupon\Entity\Interfaces\OrderCouponInterface;
 use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 
@@ -43,11 +42,7 @@ use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
  *      path = "/ordercoupon",
  * )
  */
-class OrderCouponController
-    extends
-    AbstractAdminController
-    implements
-    EnableableControllerInterface
+class OrderCouponController extends AbstractAdminController
 {
     /**
      * List elements of certain entity type.

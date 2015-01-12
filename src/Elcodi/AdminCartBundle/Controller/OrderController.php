@@ -26,7 +26,6 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
 use Elcodi\Component\Cart\Entity\Interfaces\OrderInterface;
 use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 
@@ -37,11 +36,7 @@ use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
  *      path = "/order",
  * )
  */
-class OrderController
-    extends
-    AbstractAdminController
-    implements
-    EnableableControllerInterface
+class OrderController extends AbstractAdminController
 {
     /**
      * List elements of certain entity type.

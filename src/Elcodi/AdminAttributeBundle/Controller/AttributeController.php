@@ -26,7 +26,6 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
 use Elcodi\Component\Attribute\Entity\Interfaces\AttributeInterface;
 use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 
@@ -37,11 +36,7 @@ use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
  *      path = "/attribute",
  * )
  */
-class AttributeController
-    extends
-    AbstractAdminController
-    implements
-    EnableableControllerInterface
+class AttributeController extends AbstractAdminController
 {
     /**
      * List elements of certain entity type.

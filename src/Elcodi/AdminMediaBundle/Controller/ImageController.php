@@ -27,7 +27,6 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
 use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 use Elcodi\Component\Media\Entity\Interfaces\ImageInterface;
 
@@ -38,11 +37,7 @@ use Elcodi\Component\Media\Entity\Interfaces\ImageInterface;
  *      path = "/image"
  * )
  */
-class ImageController
-    extends
-    AbstractAdminController
-    implements
-    EnableableControllerInterface
+class ImageController extends AbstractAdminController
 {
     /**
      * List elements of certain entity type.

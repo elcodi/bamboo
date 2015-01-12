@@ -23,17 +23,12 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
 use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 
 /**
  * Class Controller for Currency
  */
-class CurrencyController
-    extends
-    AbstractAdminController
-    implements
-    EnableableControllerInterface
+class CurrencyController extends AbstractAdminController
 {
     /**
      * Nav for currency group
