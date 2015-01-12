@@ -149,6 +149,13 @@ menu_nodes:
         enabled: 1
         subnodes: ~
 
+    bambooadmin_templates:
+        name: Templates
+        code: ~
+        url: admin_template_list
+        enabled: 1
+        subnodes: ~
+
 menus:
     admin:
         code: admin
@@ -165,3 +172,4 @@ menus:
             - bambooadmin_configurations
             - bambooadmin_currencies
             - bambooadmin_languages
+            - bambooadmin_templates
