@@ -1,0 +1,44 @@
+{
+  "name": "frontendcore",
+  "version": "1.2.3",
+  "authors": [
+    "Toni Pinel <tonipinel@gmail.com>"
+  ],
+  "description": "The all in one frontend framework based on components for the real life",
+  "main": "Gruntfile.js",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "frontendcore",
+    "frontend",
+    "framework",
+    "component"
+  ],
+  "license": "MIT",
+  "homepage": "http://www.frontendcore.com",
+  "private": true,
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "~2.1.1",
+    "Autocompleter": "~0.1.5",
+    "jquery-autosize": "~1.18.9",
+    "jquery-colorbox": "~1.5.10",
+    "opentip": "~2.4.6",
+    "jquery.sortable": "https://raw.githubusercontent.com/farhadi/html5sortable/master/jquery.sortable.js",
+    "jquery.truncator.js": "https://github.com/henrik/jquery.truncator.js.git",
+    "jquery-unveil": "https://github.com/luis-almeida/unveil.git#~1.3.0",
+    "sidr": "https://github.com/artberri/sidr.git#~1.2.1",
+    "simplecart-js": "https://github.com/wojodesign/simplecart-js.git",
+    "tinymce": "~4.1.1",
+    "tinycorejs": "~1.0.2",
+    "dynatable" : "~0.3.1"
+  },
+  "dependencies": {
+    "OwlCarousel2": "https://github.com/OwlFonk/OwlCarousel2"
+  }
+}

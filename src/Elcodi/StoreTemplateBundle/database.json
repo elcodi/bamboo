@@ -1,0 +1,310 @@
+{
+	"url": {
+		"base" : "./",
+		"static" : "./static/"
+	},
+	"sections": {
+		"setup" : {
+			"name" : "Setup",
+			"icon" : "table",
+			"href" : "#setup",
+			"id": "setup",
+			"children" : {
+				"GettingStarted" : {
+					"name":"Getting started",
+					"href": "getting-started.html"
+				},
+			  "Installation" : {
+					"name":"Installation",
+					"href": "installation.html"
+				}
+			}
+		},
+	  "structure" : {
+			"name" : "Structure",
+			"icon" : "table",
+			"href" : "#structure",
+			"id": "structure",
+			"children" : {
+				"Grids" : {
+					"name":"Grids",
+					"href": "grids.html"
+				}
+			}
+		},
+		"typography" : {
+			"name" : "Typography",
+			"icon" : "table",
+			"href" : "#typography",
+			"id": "typography",
+			"children" : {
+				"Titles" : {
+					"name":"Titles",
+					"href": "titles.html"
+				},
+				"Paragraphs" : {
+					"name":"Paragraphs",
+					"href": "paragraphs.html"
+				},
+				"Lists" : {
+					"name":"Lists",
+					"href": "lists.html"
+				},
+				"Labels" : {
+					"name":"Labels",
+					"href": "labels.html"
+				}
+			}
+		},
+		"navigation" : {
+			"name" : "Navigation",
+			"icon" : "sitemap",
+			"href" : "#navigation",
+			"id": "navigation",
+			"children" : {
+				"Navigation" : {
+					"name":"Navigation",
+					"href": "navigation.html",
+					"js" : true
+				},
+				"Subnavigation" : {
+					"name":"Subnavigation",
+					"href": "navigation-sub.html"
+				},
+				"Filters" : {
+					"name":"Filters",
+					"href": "filters.html"
+				},
+				"Pagination" : {
+					"name":"Pagination",
+					"href": "pagination.html"
+				},
+				"Tabs" : {
+					"name":"Tabs",
+					"href": "tabs.html",
+					"js" : true
+				},
+				"Tags" : {
+					"name":"Tags",
+					"href": "tags.html"
+				},
+				"Side menu" : {
+					"name":"Side Menu",
+					"href": "side-menu.html",
+					"js" : true
+				},
+				"Steps" : {
+					"name":"Steps",
+					"href": "steps.html"
+				}
+			}
+		},
+		"media" : {
+			"name" : "Media",
+			"icon" : "media",
+			"href" : "#media",
+			"id": "media",
+			"children" : {
+				"Thumbnail" : {
+					"name":"Thumbnail Images",
+					"href": "image-thumb.html"
+				},
+			  	"Circles" : {
+					"name":"Circle Images",
+					"href": "image-circle.html"
+				},
+				"Polaroid" : {
+					"name":"Polaroid Images",
+					"href": "image-polaroid.html"
+				}
+			}
+		},
+		"content" : {
+			"name" : "Content",
+			"icon" : "table",
+			"href" : "#content",
+			"id": "content",
+			"children" : {
+				"Boxes" : {
+					"name":"Boxes",
+					"href": "boxes.html"
+				},
+				"Ratings" : {
+					"name":"Ratings",
+					"href": "ratings.html"
+				},
+				"Carousel" : {
+					"name":"Carousel",
+					"href": "carousel.html",
+					"js": true
+				},
+				"Parallax" : {
+					"name":"Parallax",
+					"href": "parallax.html"
+				},
+				"Cart" : {
+					"name":"Cart",
+					"href": "cart.html",
+					"js": true
+				},
+				"Truncate" : {
+					"name":"Truncate",
+					"href": "truncate.html",
+					"js": true
+				},
+				"Sortable" : {
+					"name":"Sortable lists",
+					"href": "sortable.html",
+					"js": true
+				}
+			}
+		},
+		"buttons" : {
+			"name" : "Buttons",
+			"icon" : "table",
+			"href" : "#buttons",
+			"id": "buttons",
+			"children" : {
+				"Buttons" : {
+					"name":"Buttons",
+					"href": "buttons.html"
+				},
+				"Button Groups" : {
+					"name":"Button Groups",
+					"href": "button-group.html"
+				}
+			}
+		},
+		"forms" : {
+			"name" : "Forms",
+			"icon" : "sitemap",
+			"href" : "#forms",
+			"id": "forms",
+			"children" : {
+				"Form Grids" : {
+					"name":"Form Grids",
+					"href": "form-grids.html"
+				},
+				"Text Fields" : {
+					"name":"Text Fields",
+					"href": "text-fields.html"
+				},
+				"Number Fields" : {
+					"name":"Number Fields",
+					"href": "number-fields.html"
+				},
+				"Option Fields" : {
+					"name":"Option Fields",
+					"href": "option-fields.html"
+				},
+			  	"Select Fields" : {
+					"name":"Select Fields",
+					"href": "select-fields.html"
+				},
+				"Tags Fields" : {
+					"name":"Tags Fields",
+					"href": "tags-fields.html",
+					"js" : true
+				},
+				"Error Fields" : {
+					"name":"Error Fields",
+					"href": "error-fields.html"
+				},
+				"Read Only Fields" : {
+					"name":"Read Only Fields",
+					"href": "read-only-fields.html"
+				},
+				"Search Form" : {
+					"name":"Search Form",
+					"href": "search-form.html"
+				},
+				"Autocomplete" : {
+					"name":"Autocomplete",
+					"href": "autocomplete.html",
+					"js" : true
+
+				},
+				"Autosize" : {
+					"name":"Autosize",
+					"href": "autosize.html",
+					"js" : true
+				}
+			}
+		},
+		"Tables" : {
+			"name" : "Tables",
+			"icon" : "table",
+			"href" : "#tables",
+			"id": "tables",
+			"children" : {
+				"Static Table" : {
+					"name":"Static Table",
+					"href": "static-table.html"
+				},
+				"Dynamic Table" : {
+					"name":"Dynamic Table",
+					"href": "dynamic-table.html",
+					"js": true
+				},
+				"Stats Tables" : {
+					"name":"Stats Tables",
+					"href": "stats-tables.html",
+					"js": true
+				}
+			}
+		},
+		"callouts & prompts" : {
+			"name" : "Callouts & Prompts",
+			"icon" : "table",
+			"href" : "#callouts",
+			"id": "callouts",
+			"children" : {
+				"Messages" : {
+					"name":"Messages",
+					"href": "messages.html"
+				},
+				"Tips" : {
+					"name":"Tips",
+					"href": "tips.html"
+				},
+				"Modals" : {
+					"name":"Modal windows",
+					"href": "modals.html",
+					"js" : true
+				}
+			}
+		},
+		"modifiers" : {
+			"name" : "Modifiers",
+			"icon" : "modifiers",
+			"href" : "#modifiers",
+			"id": "modifiers",
+			"children" : {
+				"Colors" : {
+					"name":"Colors",
+					"href": "colors.html"
+				},
+				"Fonts" : {
+					"name":"Font sizes",
+					"href": "fonts.html"
+				},
+				"Text" : {
+					"name":"Text align & decoration",
+					"href": "text.html"
+				},
+				"Margins & Padding" : {
+					"name":"Margins & Paddings",
+					"href": "margin-padding.html"
+				},
+				"Measures" : {
+					"name":"Measures",
+					"href": "measures.html"
+				},
+				"Borders" : {
+					"name":"Borders",
+					"href": "borders.html"
+				}
+			}
+		}
+	}
+}
