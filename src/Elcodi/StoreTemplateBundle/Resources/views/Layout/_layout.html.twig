@@ -13,14 +13,14 @@
     <div class="container">
         {% block header %}
 
-            {% include 'StoreTemplateBundle::Modules/_header.html.twig' %}
+            {% include '@StoreTemplate/Modules/_header.html.twig' %}
 
         {% endblock header %}
 
         {% block messages %}
             <div class="row pad-top-10">
                 <div class="span12">
-                    {% include "StoreTemplateBundle::Modules/_message-list.html.twig" %}
+                    {% include "@StoreTemplate/Modules/_message-list.html.twig" %}
                 </div>
             </div>
         {% endblock messages %}

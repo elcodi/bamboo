@@ -19,9 +19,7 @@ namespace Elcodi\StoreCartBundle\Controller;
 use Doctrine\ORM\EntityNotFoundException;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as AnnotationEntity;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as AnnotationForm;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
@@ -33,6 +31,7 @@ use Elcodi\Component\Cart\Entity\Interfaces\CartInterface;
 use Elcodi\Component\Cart\Entity\Interfaces\CartLineInterface;
 use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
 use Elcodi\Component\Product\Entity\Interfaces\VariantInterface;
+use Elcodi\StoreCoreBundle\Controller\Traits\TemplateRenderTrait;
 
 /**
  * Cart controllers
@@ -43,20 +42,21 @@ use Elcodi\Component\Product\Entity\Interfaces\VariantInterface;
  */
 class CartController extends Controller
 {
+    use TemplateRenderTrait;
+
     /**
      * Cart view
      *
      * @param FormView      $formView Form view
      * @param CartInterface $cart     Cart
      *
-     * @return array
+     * @return Response Response
      *
      * @Route(
      *      path = "",
-     *      name = "store_cart_view"
+     *      name = "store_cart_view",
+     *      methods = {"GET"}
      * )
-     * @Method("GET")
-     * @Template
      *
      * @AnnotationEntity(
      *      class = {
@@ -94,12 +94,15 @@ class CartController extends Controller
             ->get('elcodi.cart_coupon_manager')
             ->getCartCoupons($cart);
 
-        return [
-            'cart'             => $cart,
-            'cartcoupon'       => $cartCoupons,
-            'form'             => $formView,
-            'related_products' => $relatedProducts
-        ];
+        return $this->renderTemplate(
+            'Pages:cart-view.html.twig',
+            [
+                'cart'             => $cart,
+                'cartcoupon'       => $cartCoupons,
+                'form'             => $formView,
+                'related_products' => $relatedProducts
+            ]
+        );
     }
 
     /**
@@ -118,7 +121,8 @@ class CartController extends Controller
      *      name = "store_cart_add_product",
      *      requirements = {
      *          "productId": "\d+"
-     *      }
+     *      },
+     *      methods = {"GET", "POST"}
      * )
      *
      * @AnnotationEntity(
@@ -145,12 +149,15 @@ class CartController extends Controller
     )
     {
         if ($request->request->get('add-cart-is-variant')) {
+
             /**
              * We are adding a Product with variant,
              * we should identify the Variant given
              * the submitted attribute/options
              */
-            $optionIds = $request->request->get('variant-option-for-attribute');
+            $optionIds = $request
+                ->request
+                ->get('variant-option-for-attribute', []);
 
             $purchasable = $this
                 ->get('elcodi.repository.product_variant')
@@ -160,7 +167,7 @@ class CartController extends Controller
 
                 throw new EntityNotFoundException($this
                     ->container
-                    ->getParameter('elcodi.core.product.entity.variant.class'));
+                    ->getParameter('elcodi.core.product.entity.product_variant.class'));
             }
 
         } else {
@@ -192,7 +199,8 @@ class CartController extends Controller
      *
      * @Route(
      *      path = "/empty",
-     *      name="store_cart_empty"
+     *      name="store_cart_empty",
+     *      methods = {"GET"}
      * )
      *
      * @AnnotationEntity(
@@ -226,9 +234,9 @@ class CartController extends Controller
      *
      * @Route(
      *      path = "/update",
-     *      name="store_cart_update"
+     *      name="store_cart_update",
+     *      methods = {"POST"}
      * )
-     * @Method({"POST"})
      *
      * @AnnotationEntity(
      *      class = {
@@ -273,7 +281,8 @@ class CartController extends Controller
      *
      * @Route(
      *      path = "/line/{id}/delete",
-     *      name="store_cartline_remove"
+     *      name="store_cartline_remove",
+     *      methods = {"GET"}
      * )
      *
      * @AnnotationEntity(
@@ -314,13 +323,13 @@ class CartController extends Controller
      *
      * @param CartInterface $cart Cart
      *
-     * @return array Result
+     * @return Response Response
      *
      * @Route(
      *      path = "/nav",
-     *      name = "store_cart_nav"
+     *      name = "store_cart_nav",
+     *      methods = {"GET"}
      * )
-     * @Template
      *
      * @AnnotationEntity(
      *      class = {
@@ -333,8 +342,11 @@ class CartController extends Controller
      */
     public function navAction(CartInterface $cart)
     {
-        return [
-            'cart' => $cart,
-        ];
+        return $this->renderTemplate(
+            'Modules:_cart-nav.html.twig',
+            [
+                'cart' => $cart,
+            ]
+        );
     }
 }

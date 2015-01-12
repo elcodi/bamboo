@@ -26,7 +26,7 @@
 
                 {% for line in order.orderLines %}
 
-                    {% include "../Modules/_order-item.html.twig" with {
+                    {% include "@StoreTemplate/Modules/_order-item.html.twig" with {
                         "line": line
                     } %}
 
@@ -34,7 +34,7 @@
 
                 {% for orderCoupon in orderCoupons %}
 
-                    {% include "../Modules/_order-coupon-item.html.twig" with {
+                    {% include "@StoreTemplate/Modules/_order-coupon-item.html.twig" with {
                         "orderCoupon": orderCoupon
                     } %}
 

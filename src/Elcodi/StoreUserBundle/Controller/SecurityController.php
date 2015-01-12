@@ -18,34 +18,36 @@ namespace Elcodi\StoreUserBundle\Controller;
 
 use Mmoreram\ControllerExtraBundle\Annotation\Entity;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as AnnotationForm;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\SecurityContext;
 
 use Elcodi\Component\Core\Services\ManagerProvider;
 use Elcodi\Component\User\Entity\Interfaces\CustomerInterface;
+use Elcodi\StoreCoreBundle\Controller\Traits\TemplateRenderTrait;
 
 /**
  * Class SecurityController
  */
 class SecurityController extends Controller
 {
+    use TemplateRenderTrait;
+
     /**
      * Login page
      *
      * @param FormView $loginFormView Login form view
      *
-     * @return array
+     * @return Response Response
      *
      * @Route(
      *      path = "/login",
-     *      name = "store_login"
+     *      name = "store_login",
+     *      methods = {"GET"}
      * )
-     * @Template
      *
      * @AnnotationForm(
      *      class = "store_user_form_type_login",
@@ -71,9 +73,12 @@ class SecurityController extends Controller
                 ->add('error', 'Wrong Email and password combination.');
         }
 
-        return [
-            'form' => $loginFormView,
-        ];
+        return $this->renderTemplate(
+            'User:login.html.twig',
+            [
+                'form' => $loginFormView,
+            ]
+        );
     }
 
     /**
@@ -83,14 +88,13 @@ class SecurityController extends Controller
      * @param FormView          $registerFormView Register form type
      * @param boolean           $isValid          Form submition is valid
      *
-     * @return array
+     * @return Response Response
      *
      * @Route(
      *      path = "/register",
-     *      name = "store_register"
+     *      name = "store_register",
+     *      methods = {"GET", "POST"}
      * )
-     * @Method({"GET", "POST"})
-     * @Template
      *
      * @Entity(
      *      name     = "customer",
@@ -130,8 +134,11 @@ class SecurityController extends Controller
             return $this->redirect($this->generateUrl('store_homepage'));
         }
 
-        return [
-            'form' => $registerFormView,
-        ];
+        return $this->renderTemplate(
+            'User:register.html.twig',
+            [
+                'form' => $registerFormView,
+            ]
+        );
     }
 }

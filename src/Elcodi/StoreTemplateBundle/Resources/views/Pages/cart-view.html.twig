@@ -34,7 +34,7 @@
 
                         {% for line in form.cartLines %}
 
-                            {% include "StoreTemplateBundle::Modules/_cart-item.html.twig" with {
+                            {% include "@StoreTemplate/Modules/_cart-item.html.twig" with {
                                 "line": line,
                             } %}
 
@@ -42,7 +42,7 @@
 
                         {% for cartcoupon in cartcoupon %}
 
-                            {% include "StoreTemplateBundle::Modules/_coupon-item.html.twig" with {
+                            {% include "@StoreTemplate/Modules/_coupon-item.html.twig" with {
                                 "coupon": cartcoupon.coupon,
                             } %}
 
@@ -75,7 +75,7 @@
 
         <!-- Related products -->
 
-        {% include "StoreTemplateBundle::Modules/_product-related.html.twig" with {
+        {% include "@StoreTemplate/Modules/_product-related.html.twig" with {
             'products' : related_products
         } %}
 

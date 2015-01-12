@@ -25,16 +25,19 @@ use Symfony\Component\HttpFoundation\Request;
 use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
 use Elcodi\Component\Product\Entity\Interfaces\VariantInterface;
 use Elcodi\Component\Product\Twig\ProductExtension;
+use Elcodi\StoreCoreBundle\Controller\Traits\TemplateRenderTrait;
 
 /**
  * Product related actions
  *
  * @Route(
- *      path = ""
+ *      path = "/product"
  * )
  */
 class ProductController extends Controller
 {
+    use TemplateRenderTrait;
+
     /**
      * Product view
      *
@@ -43,12 +46,13 @@ class ProductController extends Controller
      * @return array
      *
      * @Route(
-     *      path = "/product/{slug}/{id}",
+     *      path = "/{slug}/{id}",
      *      name = "store_product_view",
      *      requirements = {
      *          "slug": "[\w-]+",
-     *          "productId": "\d+",
-     *      }
+     *          "id": "\d+",
+     *      },
+     *      methods = {"GET"}
      * )
      *
      * @AnnotationEntity(
@@ -66,18 +70,15 @@ class ProductController extends Controller
             ->get('store.product.service.product_collection_provider')
             ->getRelatedProducts($product, 3);
 
-        $viewParameters = array(
+        $template = $product->hasVariants()
+            ? 'Pages:product-view-variant.html.twig'
+            : 'Pages:product-view-item.html.twig';
+
+        return $this->renderTemplate($template, [
             'product'          => $product,
             'related_products' => $relatedProducts
-        );
+        ]);
 
-        if ($product->hasVariants()) {
-            $templateName = 'StoreProductBundle:Product:viewVariant.html.twig';
-        } else {
-            $templateName = 'StoreProductBundle:Product:view.html.twig';
-        }
-
-        return $this->render($templateName, $viewParameters);
     }
 
     /**
@@ -87,11 +88,12 @@ class ProductController extends Controller
      * @return array
      *
      * @Route(
-     *      path = "/variant/product/{id}",
+     *      path = "/{id}/variant",
      *      name = "store_product_variant_info",
      *      requirements = {
      *          "id": "\d+",
-     *      }
+     *      },
+     *      methods = {"GET"}
      * )
      *
      * @AnnotationEntity(
@@ -105,19 +107,24 @@ class ProductController extends Controller
      *
      * @JsonResponse()
      */
-    public function variantInfoAction(Request $request, ProductInterface $product)
+    public function variantInfoAction(
+        Request $request,
+        ProductInterface $product
+    )
     {
-        $optionIds = $request->query->get('variant-option-for-attribute');
+        $optionIds = $request
+            ->query
+            ->get('variant-option-for-attribute');
 
         $variant = $this
             ->get('elcodi.repository.product_variant')
             ->findByOptionIds($product, $optionIds);
 
-        if (!$variant instanceof VariantInterface) {
+        if (!($variant instanceof VariantInterface)) {
             return [
                 'id'         => null,
                 'name'       => null,
-                'parentName' => $variant->getProduct()->getName(),
+                'parentName' => $product->getName(),
                 'price'      => null
             ];
         }

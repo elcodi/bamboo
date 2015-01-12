@@ -92,6 +92,13 @@ class StoreAppKernel extends Kernel
             new \Elcodi\StoreCartCouponBundle\StoreCartCouponBundle,
             new \Elcodi\StoreConnectBundle\StoreConnectBundle(),
             new \Elcodi\PaymentBridgeBundle\PaymentBridgeBundle(),
+
+            /**
+             * Templates
+             */
+            new \Elcodi\StoreTemplateBundle\StoreTemplateBundle(),
+            new \Elcodi\Templates\Template1Bundle\Template1Bundle(),
+            new \Elcodi\Templates\Template2Bundle\Template2Bundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -16,28 +16,31 @@
 
 namespace Elcodi\StoreCoreBundle\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
+use Elcodi\StoreCoreBundle\Controller\Traits\TemplateRenderTrait;
 
 /**
  * Class StaticController
  */
 class StaticController extends Controller
 {
+    use TemplateRenderTrait;
+
     /**
      * Static content controller
      *
-     * @return array
+     * @return Response Response
      *
      * @Route(
      *      path = "/content",
      *      name = "store_static_content"
      * )
-     * @Template()
      */
     public function contentAction()
     {
-        return [];
+        return $this->renderTemplate('static/content.html.twig');
     }
 }

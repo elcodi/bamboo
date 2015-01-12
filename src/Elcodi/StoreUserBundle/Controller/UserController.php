@@ -16,19 +16,24 @@
 
 namespace Elcodi\StoreUserBundle\Controller;
 
-use Mmoreram\ControllerExtraBundle\Annotation\Form as AnnotationForm;
+use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
+use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Form;
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\FormView;
+use Symfony\Component\HttpFoundation\Response;
+
+use Elcodi\Component\User\Entity\Interfaces\CustomerInterface;
+use Elcodi\StoreCoreBundle\Controller\Traits\TemplateRenderTrait;
 
 /**
  * Class UserController
  */
 class UserController extends Controller
 {
+    use TemplateRenderTrait;
+
     /**
      * Customer bar in top position
      *
@@ -36,9 +41,9 @@ class UserController extends Controller
      *
      * @Route(
      *      path = "/user/top",
-     *      name = "store_user_top"
+     *      name = "store_user_top",
+     *      methods = {"GET"}
      * )
-     * @Template
      */
     public function topAction()
     {
@@ -46,9 +51,12 @@ class UserController extends Controller
             ->get('elcodi.core.user.wrapper.customer_wrapper')
             ->loadCustomer();
 
-        return [
-            'customer' => $customer,
-        ];
+        return $this->renderTemplate(
+            'User:_topbar.html.twig',
+            [
+                'customer' => $customer,
+            ]
+        );
     }
 
     /**
@@ -58,54 +66,56 @@ class UserController extends Controller
      *
      * @Route(
      *      path = "/user",
-     *      name = "store_user"
+     *      name = "store_user",
+     *      methods = {"GET"}
      * )
-     * @Template
      */
     public function userAction()
     {
-        return [];
+        return $this->renderTemplate('User:user.html.twig');
     }
 
     /**
      * User profile page
      *
-     * @param Request      $request         Request
-     * @param AbstractType $profileFormType Profile form type
+     * @param CustomerInterface $customer Customer
+     * @param FormView          $formView Form view
+     * @param string            $isValid  Is valid
      *
-     * @return array
+     * @return Response Response
      *
      * @Route(
      *      path = "/user/profile",
-     *      name = "store_user_profile"
+     *      name = "store_user_profile",
+     *      methods = {"GET"}
      * )
-     * @Template
      *
-     * @AnnotationForm(
+     * @EntityAnnotation(
+     *      class = {
+     *          "factory" = "elcodi.customer_wrapper",
+     *          "method" = "loadCustomer",
+     *          "static" = false
+     *      },
+     *      name = "customer",
+     * )
+     * @FormAnnotation(
      *      class         = "store_user_form_type_profile",
-     *      name          = "profileFormType",
+     *      name          = "formView",
+     *      entity        = "customer",
+     *      handleRequest = true,
+     *      validate      = "isValid"
      * )
      */
-    public function profileAction(Request $request, AbstractType $profileFormType)
+    public function profileAction(
+        CustomerInterface $customer,
+        FormView $formView,
+        $isValid
+    )
     {
-        $customer = $this
-            ->get('elcodi.core.user.wrapper.customer_wrapper')
-            ->loadCustomer();
-
-        /**
-         * @var Form $form
-         */
-        $form = $this
-            ->get('form.factory')
-            ->create($profileFormType, $customer);
-
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
+        if ($isValid) {
 
             $this
-                ->get('elcodi.manager_provider')
-                ->getManagerByEntityParameter('elcodi.core.user.entity.customer.class')
+                ->get('elcodi.object_manager.customer')
                 ->flush($customer);
 
             return $this->redirect(
@@ -113,8 +123,11 @@ class UserController extends Controller
             );
         }
 
-        return [
-            'form' => $form->createView(),
-        ];
+        return $this->renderTemplate(
+            'User:profile.html.twig',
+            [
+                'form' => $formView,
+            ]
+        );
     }
 }

@@ -18,12 +18,13 @@ namespace Elcodi\StoreCurrencyBundle\Controller;
 
 use LogicException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 use Elcodi\Component\Currency\Entity\Interfaces\CurrencyInterface;
+use Elcodi\StoreCoreBundle\Controller\Traits\TemplateRenderTrait;
 
 /**
  * Class ControllerCurrency
@@ -34,18 +35,20 @@ use Elcodi\Component\Currency\Entity\Interfaces\CurrencyInterface;
  */
 class CurrencyController extends Controller
 {
+    use TemplateRenderTrait;
+
     /**
      * Currency navigator
      *
-     * @return array
+     * @return Response Response
      *
      * @throws LogicException No currencies available
      *
      * @Route(
      *      path = "/nav",
-     *      name = "store_currency_nav"
+     *      name = "store_currency_nav",
+     *      methods = {"GET"}
      * )
-     * @Template
      */
     public function navAction()
     {
@@ -65,10 +68,13 @@ class CurrencyController extends Controller
             ->get('elcodi.currency_wrapper')
             ->loadCurrency();
 
-        return [
-            'currencies'     => $currencies,
-            'activeCurrency' => $activeCurrency,
-        ];
+        return $this->renderTemplate(
+            'Modules:_currencies.html.twig',
+            [
+                'currencies'     => $currencies,
+                'activeCurrency' => $activeCurrency,
+            ]
+        );
     }
 
     /**
@@ -81,7 +87,8 @@ class CurrencyController extends Controller
      *
      * @Route(
      *      path = "/switch/{iso}",
-     *      name = "store_currency_switch"
+     *      name = "store_currency_switch",
+     *      methods = {"GET"}
      * )
      */
     public function switchAction(Request $request, $iso)

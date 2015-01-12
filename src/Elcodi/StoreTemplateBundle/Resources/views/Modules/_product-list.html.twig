@@ -4,8 +4,8 @@
     {% if loop.index0 % 3 == 0 %}<div class="row">{% endif %}
 
     {% include product.hasVariants() ?
-        'StoreTemplateBundle::Modules/_product-variant.html.twig' :
-        'StoreTemplateBundle::Modules/_product-item.html.twig'
+        '@StoreTemplate/Modules/_product-variant.html.twig' :
+        '@StoreTemplate/Modules/_product-item.html.twig'
         with {'product' : product}
     %}
 

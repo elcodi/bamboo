@@ -17,8 +17,10 @@
 namespace Elcodi\StoreCoreBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
+
+use Elcodi\StoreCoreBundle\Controller\Traits\TemplateRenderTrait;
 
 /**
  * Home controller
@@ -27,16 +29,18 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
  */
 class HomeController extends Controller
 {
+    use TemplateRenderTrait;
+
     /**
      * Home page.
      *
-     * @return array
+     * @return Response Response
      *
      * @Route(
      *      path = "/",
-     *      name = "store_homepage"
+     *      name = "store_homepage",
+     *      methods = {"GET"}
      * )
-     * @Template
      */
     public function homeAction()
     {
@@ -46,8 +50,11 @@ class HomeController extends Controller
 
         $products = $productCollectionProvider->getHomeProducts();
 
-        return [
-            'products' => $products,
-        ];
+        return $this->renderTemplate(
+            'Pages:home-view.html.twig',
+            [
+                'products' => $products,
+            ]
+        );
     }
 }
