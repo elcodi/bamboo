@@ -3,7 +3,7 @@
 {% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
 
 {% block title %}
-    {{ 'Edit Product'|trans }} - {{ entity.id }} - {{ entity.name }}
+    {{ 'Edit Product'|trans }} - {{ product.id }} - {{ product.name }}
 {% endblock title %}
 
 {% block content %}
@@ -61,8 +61,8 @@
                     </div>
                 </div>
             </div>
-            {% if not entity.hasVariants() %}
-            <div class="grid">
+
+            <div class="grid{% if product.hasVariants %} d-n{% endif %}">
                 <div class="col-1-3">
                     <div class="box-none">
                         <h3 class="fw-n">{% trans %}Pricing{% endtrans %}</h3>
@@ -83,29 +83,30 @@
                     </div>
                 </div>
             </div>
-            {% endif %}
-            <div class="grid">
-                <div class="col-1-3">
-                    <div class="box-none">
-                        <h3 class="fw-n">{% trans %}Variants{% endtrans %}</h3>
-                        <p>{% trans %}Set the variants for this product.{% endtrans %}</p>
-                        <a href="{{ url("admin_variant_new", {id: entity.id}) }}" class="button">
-                            Create Variant
-                        </a>
+
+            {% if product.id %}
+                <div class="grid">
+                    <div class="col-1-3">
+                        <div class="box-none">
+                            <h3 class="fw-n">{% trans %}Variants{% endtrans %}</h3>
+                            <p>{% trans %}Set the variants for this product.{% endtrans %}</p>
+                            <a href="{{ url("admin_product_variant_new", {'productId': product.id}) }}" data-tc-modules="modal" data-tc-width="95%" data-tc-height="95%" class="button">
+                                Create Variant
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-2-3">
-                    <div class="box">
-                        {% if entity.hasVariants() %}
-                            {{ render(url("admin_variant_list_component", {
-                                'id': entity.id
+                    <div class="col-2-3" data-tc-modules="variants">
+                        <input id="variants-url" type="hidden" value="{{ url("admin_product_variant_list_component", {
+                        'productId': product.id
+                        }) }}" />
+                        <div class="box" id="variants-list">
+                            {{ render(url("admin_product_variant_list_component", {
+                                'productId': product.id
                             })) }}
-                        {% else %}
-                            <p class="mt-l mb-xl">{% trans %}There are not variants for this product.{% endtrans %}</p>
-                        {% endif %}
+                        </div>
                     </div>
                 </div>
-            </div>
+            {% endif %}
             <div class="grid">
                 <div class="col-1-3">
                     <div id="upload-container" class="box-none">

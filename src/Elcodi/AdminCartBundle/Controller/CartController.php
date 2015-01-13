@@ -26,8 +26,6 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
-use Elcodi\AdminCoreBundle\Controller\Interfaces\NavegableControllerInterface;
 use Elcodi\Component\Cart\Entity\Interfaces\CartInterface;
 
 /**
@@ -37,12 +35,7 @@ use Elcodi\Component\Cart\Entity\Interfaces\CartInterface;
  *      path = "/cart",
  * )
  */
-class CartController
-    extends
-    AbstractAdminController
-    implements
-    NavegableControllerInterface,
-    EnableableControllerInterface
+class CartController extends AbstractAdminController
 {
     /**
      * Nav for cart group

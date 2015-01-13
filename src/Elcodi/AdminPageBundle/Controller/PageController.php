@@ -26,7 +26,6 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
 use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 use Elcodi\Component\Page\Entity\Interfaces\PageInterface;
 
@@ -38,11 +37,7 @@ use Elcodi\Component\Page\Entity\Interfaces\PageInterface;
  * )
  *
  */
-class PageController
-    extends
-    AbstractAdminController
-    implements
-    EnableableControllerInterface
+class PageController extends AbstractAdminController
 {
     /**
      * Nav for page group

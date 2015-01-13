@@ -28,7 +28,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormView;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\AdminMediaBundle\Controller\Interfaces\GalleriableComponentControllerInterface;
 use Elcodi\Component\Cart\Entity\Interfaces\OrderInterface;
 use Elcodi\Component\Cart\Entity\Interfaces\OrderLineInterface;
 
@@ -39,11 +38,7 @@ use Elcodi\Component\Cart\Entity\Interfaces\OrderLineInterface;
  *      path = "/order",
  * )
  */
-class OrderComponentController
-    extends
-    AbstractAdminController
-    implements
-    GalleriableComponentControllerInterface
+class OrderComponentController extends AbstractAdminController
 {
     /**
      * Component for entity list.

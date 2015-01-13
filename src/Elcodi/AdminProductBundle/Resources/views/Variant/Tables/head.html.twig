@@ -2,7 +2,6 @@
 
 {#
     This template needs this formatted data:
-
     {
         rows: {
             "id": {width:"25", sorting_disabled: true},
@@ -11,22 +10,11 @@
         },
         class: "rule",
     }
-
     You can override the row name by defining "row" field
 #}
 
 {% block column_header %}
     <th class="{{ directionclass }} {% if info.width is defined %} w-{{ info.width }}"{% endif %}">
-            {% if islink %}
-                <a href="{{ url("admin_" ~ class ~ "_list", {
-                    "id": id,
-                    "page": page,
-                    "limit": limit,
-                    "orderByField": field,
-                    "orderByDirection": direction
-                }) }}">{{ row|trans }}</a>
-            {% else %}
-                {{ row|trans }}
-            {% endif %}
+        {{ row|trans }}
     </th>
 {% endblock %}

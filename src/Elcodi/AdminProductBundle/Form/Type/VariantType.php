@@ -61,21 +61,9 @@ class VariantType extends AbstractPurchasableType
                 'required' => false,
                 'label'    => 'Reduced Price',
             ))
-            ->add('createdAt', 'datetime', array(
-                'widget'   => 'single_text',
-                'format'   => 'yyyy-MM-dd - HH:mm:ss',
-                'required' => false,
-                'label'    => false,
-            ))
-            ->add('updatedAt', 'datetime', array(
-                'widget'   => 'single_text',
-                'format'   => 'yyyy-MM-dd - HH:mm:ss',
-                'required' => false,
-                'label'    => false,
-            ))
             ->add('enabled', 'checkbox', array(
                 'required' => false,
-                'label'    => 'Enabled'
+                'label'    => 'Status'
             ));
     }
 

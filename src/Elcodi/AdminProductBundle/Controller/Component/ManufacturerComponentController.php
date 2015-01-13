@@ -36,9 +36,7 @@ use Elcodi\Component\Product\Entity\Interfaces\ManufacturerInterface;
  *      path = "manufacturer",
  * )
  */
-class ManufacturerComponentController
-    extends
-    AbstractAdminController
+class ManufacturerComponentController extends AbstractAdminController
 {
     /**
      * Component for entity list.

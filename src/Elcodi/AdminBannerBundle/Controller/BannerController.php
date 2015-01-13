@@ -32,8 +32,6 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
-use Elcodi\AdminCoreBundle\Controller\Interfaces\NavegableControllerInterface;
 use Elcodi\Component\Banner\Entity\Interfaces\BannerInterface;
 use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 
@@ -44,12 +42,7 @@ use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
  *      path = "/banner",
  * )
  */
-class BannerController
-    extends
-    AbstractAdminController
-    implements
-    NavegableControllerInterface,
-    EnableableControllerInterface
+class BannerController extends AbstractAdminController
 {
     /**
      * Nav for banner group

@@ -27,7 +27,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormView;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\AdminMediaBundle\Controller\Interfaces\GalleriableComponentControllerInterface;
 use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
 
 /**
@@ -37,11 +36,7 @@ use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
  *      path = "product"
  * )
  */
-class ProductComponentController
-    extends
-    AbstractAdminController
-    implements
-    GalleriableComponentControllerInterface
+class ProductComponentController extends AbstractAdminController
 {
     /**
      * Component for entity list.
@@ -159,39 +154,6 @@ class ProductComponentController
         return [
             'product' => $product,
             'form'     => $formView,
-        ];
-    }
-
-    /**
-     * View gallery action
-     *
-     * @param mixed $entity Entity
-     *
-     * @return array result
-     *
-     * @Route(
-     *      path = "/{id}/gallery/component",
-     *      name = "admin_product_gallery_component"
-     * )
-     * @Template("AdminProductBundle:Gallery/Component:view.html.twig")
-     * @Method({"GET"})
-     *
-     * @EntityAnnotation(
-     *      class = "elcodi.core.product.entity.product.class",
-     *      mapping = {
-     *          "id" = "~id~"
-     *      }
-     * )
-     */
-    public function galleryComponentAction($entity)
-    {
-        /**
-         * @var ProductInterface $entity
-         */
-
-        return [
-            'entity' => $entity,
-            'images' => $entity->getImages(),
         ];
     }
 }

@@ -21,7 +21,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractStatsController;
-use Elcodi\AdminCoreBundle\Controller\Interfaces\StatsControllerInterface;
 
 /**
  * Class ProductStatsController
@@ -30,7 +29,7 @@ use Elcodi\AdminCoreBundle\Controller\Interfaces\StatsControllerInterface;
  *      path = "/products/stats"
  * )
  */
-class ProductStatsController extends AbstractStatsController implements StatsControllerInterface
+class ProductStatsController extends AbstractStatsController
 {
     /**
      * Get count of all elements

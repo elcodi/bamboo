@@ -5,7 +5,9 @@
 {% endblock title %}
 
 {% block no_items %}
-    {{ lists.no_items('variant','variants', url("admin_variant_new") ) }}
+    {{ lists.no_items('variant','variants', url("admin_product_variant_new", {
+        'productId': productId
+    }) ) }}
 {% endblock no_items %}
 
 {% block table_head %}
@@ -25,10 +27,13 @@
 
 {% block table_body_row %}
     <td>
-        <a href="{{ url( "admin_variant_edit", { "id": entity.product.id, "variantId": entity.id }) }}">
-        {% for option in entity.options %}
-            {{ option.name }}
-        {% endfor %}
+        <a target="_blank" data-tc-modules="modal" data-tc-width="95%" data-tc-height="95%" href="{{ url( "admin_product_variant_edit", {
+            "productId": entity.product.id,
+            "id": entity.id
+        }) }}">
+            {% for option in entity.options %}
+                {{ option.name }}
+            {% endfor %}
         </a>
     </td>
     <td>
@@ -49,9 +54,9 @@
                data-tc-text="{{ "Are you sure you want to delete it?"|trans }}"
                href="{{
                         url(
-                            "admin_variant_delete", {
-                                "id": entity.product.id,
-                               "variantId": entity.id
+                            "admin_product_variant_delete", {
+                                "productId": entity.product.id,
+                                "id": entity.id
                             }
                         )
                      }}">

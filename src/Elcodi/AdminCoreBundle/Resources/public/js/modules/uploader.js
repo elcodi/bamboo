@@ -1,5 +1,6 @@
-TinyCore.AMD.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupload/js/plupload.full.min.js' ], function () {
+TinyCore.AMD.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupload/js/plupload.full.min.js','modal' ], function () {
 	return {
+		modal:  TinyCore.Module.instantiate( 'modal' ),
 		onStart: function () {
 
 			var self = this,
@@ -97,6 +98,7 @@ TinyCore.AMD.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupl
 
 				}
 
+				oLink.id = 'link-' + nId;
 				oLink.href = sUrlView;
 				oLink.className = 'group-images thumbnail';
 				oLink.dataset.tcModules = 'modal';
@@ -109,6 +111,11 @@ TinyCore.AMD.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupl
 				oLi.innerHTML = oLink.outerHTML + oActions;
 
 				oThumbs.appendChild(oLi);
+
+				$(document.getElementById('link-' + nId)).on('click',function(e) {
+					e.preventDefault();
+					self.modal.open({ href: this.href});
+				});
 
 				self.updateSelect();
 		}

@@ -26,6 +26,7 @@
                 {% block breadcrumb %}{% endblock %}
             </header>
             <div class="papa-air">
+                {% include 'AdminCoreBundle::Common/flashMessages.html.twig' %}
                 {% block content %}{% endblock content %}
             </div>
         </div>

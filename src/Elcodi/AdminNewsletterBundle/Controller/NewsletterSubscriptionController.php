@@ -27,7 +27,6 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
 use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 use Elcodi\Component\Newsletter\Entity\Interfaces\NewsletterSubscriptionInterface;
 
@@ -38,11 +37,7 @@ use Elcodi\Component\Newsletter\Entity\Interfaces\NewsletterSubscriptionInterfac
  *      path = "/newsletter/subscription",
  * )
  */
-class NewsletterSubscriptionController
-    extends
-    AbstractAdminController
-    implements
-    EnableableControllerInterface
+class NewsletterSubscriptionController extends AbstractAdminController
 {
     /**
      * List elements of certain entity type.

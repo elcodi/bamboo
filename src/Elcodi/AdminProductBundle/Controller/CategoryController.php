@@ -26,7 +26,6 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
 use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 use Elcodi\Component\Product\Entity\Interfaces\CategoryInterface;
 
@@ -37,11 +36,7 @@ use Elcodi\Component\Product\Entity\Interfaces\CategoryInterface;
  *      path = "",
  * )
  */
-class CategoryController
-    extends
-    AbstractAdminController
-    implements
-    EnableableControllerInterface
+class CategoryController extends AbstractAdminController
 {
     /**
      * List elements of certain entity type.

@@ -26,7 +26,6 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
 use Elcodi\Component\Attribute\Entity\Attribute;
 use Elcodi\Component\Attribute\Entity\Interfaces\ValueInterface;
 use Elcodi\Component\Attribute\Entity\Value;
@@ -42,10 +41,7 @@ use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
  *      }
  * )
  */
-class ValueController extends
-    AbstractAdminController
-    implements
-    EnableableControllerInterface
+class ValueController extends AbstractAdminController
 {
     /**
      * List elements of certain entity type.

@@ -21,7 +21,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\AdminCoreBundle\Controller\Interfaces\NavegableControllerInterface;
 
 /**
  * Class GalleryController
@@ -30,7 +29,7 @@ use Elcodi\AdminCoreBundle\Controller\Interfaces\NavegableControllerInterface;
  *      path = "/gallery"
  * )
  */
-class GalleryController extends AbstractAdminController implements NavegableControllerInterface
+class GalleryController extends AbstractAdminController
 {
     /**
      * Nav for entity

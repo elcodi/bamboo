@@ -32,7 +32,6 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
 use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 use Elcodi\Component\Rule\Entity\Interfaces\RuleGroupInterface;
 
@@ -43,11 +42,7 @@ use Elcodi\Component\Rule\Entity\Interfaces\RuleGroupInterface;
  *      path = "/rulegroup",
  * )
  */
-class RuleGroupController
-    extends
-    AbstractAdminController
-    implements
-    EnableableControllerInterface
+class RuleGroupController extends AbstractAdminController
 {
     /**
      * List elements of certain entity type.

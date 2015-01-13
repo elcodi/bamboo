@@ -6,8 +6,6 @@
 
 {% block content %}
 
-    {% include 'AdminCoreBundle::Common/flashMessages.html.twig' %}
-
     {% set formAction = adminUser.id
         ? url('admin_admin_user_update', {
             'id': adminUser.id

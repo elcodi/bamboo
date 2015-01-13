@@ -28,7 +28,6 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\AdminCoreBundle\Controller\Interfaces\EnableableControllerInterface;
 use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 use Elcodi\Component\User\Entity\Interfaces\AdminUserInterface;
 
@@ -39,11 +38,7 @@ use Elcodi\Component\User\Entity\Interfaces\AdminUserInterface;
  *      path = "/user/admin",
  * )
  */
-class AdminUserController
-    extends
-    AbstractAdminController
-    implements
-    EnableableControllerInterface
+class AdminUserController extends AbstractAdminController
 {
     /**
      * List elements of certain entity type.
