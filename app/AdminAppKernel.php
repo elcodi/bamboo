@@ -94,6 +94,7 @@ class AdminAppKernel extends Kernel
             new \Elcodi\AdminRuleBundle\AdminRuleBundle(),
             new \Elcodi\AdminConfigurationBundle\AdminConfigurationBundle(),
             new \Elcodi\AdminPageBundle\AdminPageBundle(),
+            new \Elcodi\AdminTemplateBundle\AdminTemplateBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

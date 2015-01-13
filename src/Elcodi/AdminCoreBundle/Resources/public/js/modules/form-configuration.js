@@ -54,7 +54,21 @@ TinyCore.AMD.define('form-configuration', ['devicePackage'], function () {
 				sId = oInput.id.replace('.', '_');
 
 
-			if (oInput.type !== 'checkbox') {
+			if (oInput.type === 'checkbox' || oInput.type === 'radio') {
+
+				$(oInput).change(function (e) {
+
+					var oData = {};
+					oData.value = oInput.value;
+
+					$.ajax({
+						url: document.getElementById('url-' + sName).value,
+						type: 'post',
+						data: oData
+					});
+				});
+
+			} else {
 				$(oTarget).append('<a href="#" class="js-save button-primary fz-l pv-s mb-n" style="vertical-align: top; display: none;"><i class="icon-save"></i> </a>');
 				$(oTarget).find('label').append('<i class="icon-check c-ok js-ok ml-s" style="display: none"></i>');
 				$(oTarget).find('label').append('<i class="icon-spin icon-spinner js-loading ml-s" style="display: none"></i>');
@@ -96,19 +110,6 @@ TinyCore.AMD.define('form-configuration', ['devicePackage'], function () {
 							}, 3000);
 							$('.js-edit-link', oTarget).show();
 						}
-					});
-				});
-			} else {
-
-				$(oInput).change( function (e) {
-
-					var oData = {};
-					oData.value = oInput.value;
-
-					$.ajax({
-						url: document.getElementById('url-' + sName).value,
-						type:  'post',
-						data: oData
 					});
 				});
 			}
