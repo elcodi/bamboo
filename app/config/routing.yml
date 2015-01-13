@@ -40,6 +40,9 @@ admin_configuration:
 admin_page:
     resource: "@AdminPageBundle/Resources/config/routing.yml"
 
+admin_templates:
+    resource: "@AdminTemplateBundle/Resources/config/routing.yml"
+
 admin_login_check:
     path:  /login_check
 
