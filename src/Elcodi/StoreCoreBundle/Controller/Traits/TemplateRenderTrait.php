@@ -33,9 +33,7 @@ trait TemplateRenderTrait
     {
         $templateBundle = $this
             ->get('elcodi.configuration_manager')
-            ->getParameter('store.template');
-
-        $templateBundle = 'StoreTemplateBundle';
+            ->get('store.template');
 
         return $this
             ->render(
