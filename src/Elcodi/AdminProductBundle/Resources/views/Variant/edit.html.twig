@@ -27,7 +27,7 @@
 
 {% endblock breadcrumb %}
 
-{% block content %}
+{% block body %}
 
     {% if variant.id %}
         {{ render(url('admin_product_variant_edit_component', {
@@ -40,4 +40,4 @@
         })) }}
     {% endif %}
 
-{% endblock content %}
+{% endblock body %}

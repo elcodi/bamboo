@@ -1,5 +1,12 @@
 {% for flashMessage in app.session.flashbag.get('success') %}
     <div class="msg-ok">
         {{ flashMessage | trans }}
+        <script type="text/javascript">
+            var oParent = window.parent,
+                sUrl =  oParent.document.getElementById('variants-url').value,
+                Mediator = oParent.TinyCore.Toolbox.request( 'mediator' );
+
+            Mediator.publish( 'response:success', { url : sUrl } );
+        </script>
     </div>
 {% endfor %}

@@ -90,13 +90,16 @@
                         <div class="box-none">
                             <h3 class="fw-n">{% trans %}Variants{% endtrans %}</h3>
                             <p>{% trans %}Set the variants for this product.{% endtrans %}</p>
-                            <a href="{{ url("admin_product_variant_new", {'productId': product.id}) }}" class="button">
+                            <a href="{{ url("admin_product_variant_new", {'productId': product.id}) }}" data-tc-modules="modal" data-tc-width="95%" data-tc-height="95%" class="button">
                                 Create Variant
                             </a>
                         </div>
                     </div>
-                    <div class="col-2-3">
-                        <div class="box">
+                    <div class="col-2-3" data-tc-modules="variants">
+                        <input id="variants-url" type="hidden" value="{{ url("admin_product_variant_list_component", {
+                        'productId': product.id
+                        }) }}" />
+                        <div class="box" id="variants-list">
                             {{ render(url("admin_product_variant_list_component", {
                                 'productId': product.id
                             })) }}

@@ -27,7 +27,7 @@
 
 {% block table_body_row %}
     <td>
-        <a target="_blank" href="{{ url( "admin_product_variant_edit", {
+        <a target="_blank" data-tc-modules="modal" data-tc-width="95%" data-tc-height="95%" href="{{ url( "admin_product_variant_edit", {
             "productId": entity.product.id,
             "id": entity.id
         }) }}">

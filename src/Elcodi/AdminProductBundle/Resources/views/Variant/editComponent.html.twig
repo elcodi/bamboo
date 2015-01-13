@@ -3,6 +3,23 @@
 {% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
 
 {% block content %}
+    <header class="section-header">
+        {% include '@AdminCore/Common/breadcrumb.html.twig' with {
+            breadcrumb: {
+                'Products': {
+                    'url': url('admin_product_list')
+                },
+                (product.name): {
+                    'url': url('admin_product_edit', {id: product.id})
+                },
+                ('Variant'): {
+                    'active': true
+                }
+            }
+        } %}
+    </header>
+    <div class="papa-air">
+    {% include 'AdminCoreBundle::Common/flashMessages.html.twig' %}
 
     {% set formAction = variant.id
         ? url('admin_product_variant_update', {
@@ -65,7 +82,7 @@
                     <div class="box mb-n pb-n">
                         <ol>
                             <li>
-                                {{ form_row(form.enabled, {'attr': {'type':'checkbox','label_help':'Uncheck to hide the product'}}) }}
+                                {{ form_row(form.enabled, {'attr': {'type':'checkbox'}}) }}
                             </li>
                         </ol>
                     </div>
@@ -78,11 +95,11 @@
                 &nbsp;
             </div>
             <div class="col-2-3">
-                <button type="submit" class="button-primary">{{ 'Update'|trans }}</button>
+                <button type="submit" class="button-primary">{{ 'Save'|trans }}</button>
                 <a>{{ 'Cancel'|trans }}</a>
 
             </div>
         </div>
     {{ form_end(form) }}
-
+</div>
 {% endblock content %}
