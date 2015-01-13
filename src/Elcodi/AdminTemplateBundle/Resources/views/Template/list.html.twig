@@ -22,13 +22,16 @@
     <form class="form-configuration" data-tc-modules="form-configuration">
         <fieldset class="grid">
             <ol>
-                {% for templateBundle in templates %}
+                {% for template in templates %}
+
+                    {% set templateBundle = template.bundle %}
+                    {% set assetPath = template.assetPath %}
 
                     <li>
                         <input type="hidden" id="url-{{ templateBundle }}-store.template" value="{{ url("admin_configuration_update", {"name": "store.template"}) }}" />
                         <label for="{{ templateBundle }}-store.template">{{ templateBundle }}</label>
                         <input type="radio" name="store.template" id="{{ templateBundle }}-store.template" value="{{ templateBundle }}"{% if getConfiguration('store.template') == templateBundle %} checked="checked"{% endif %} />
-                        <img src="{{ asset('bundles/' ~ templateBundle ~ '/images/preview.jpg') }}" />
+                        <img src="{{ asset('bundles/' ~ assetPath ~ '/preview.jpg') }}" />
                     </li>
 
                 {% endfor %}

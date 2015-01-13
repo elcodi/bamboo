@@ -16,7 +16,6 @@
 
 namespace Elcodi\AdminTemplateBundle\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
@@ -42,27 +41,22 @@ class TemplateController extends AbstractAdminController
      *      methods = {"GET"}
      * )
      * @Template
-     * @Method({"GET"})
      */
     public function listAction()
     {
         $configurationManager = $this->get('elcodi.configuration_manager');
 
-        $currentTemplate = $configurationManager->getParameter('store.template');
-        $templates = json_decode(
-            $configurationManager->getParameter('store.templates'),
-            true
-        );
-        $formattedTemplates = [];
+        $templates = $configurationManager->get('store.templates');
+        $currentTemplate = $configurationManager->get('store.template');
 
-        foreach ($templates as $bundleName => $template) {
+        foreach ($templates as $position => $template) {
 
-            $assetPath = str_replace('Bundle', '', lcfirst($bundleName));
-            $formattedTemplates[$assetPath] = $template;
+            $assetPath = str_replace('bundle', '', strtolower($template['bundle']));
+            $templates[$position]['assetPath'] = $assetPath;
         }
 
         return [
-            'templates'       => $formattedTemplates,
+            'templates'       => $templates,
             'currentTemplate' => $currentTemplate,
         ];
     }

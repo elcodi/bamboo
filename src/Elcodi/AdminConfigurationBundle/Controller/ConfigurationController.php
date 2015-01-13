@@ -89,7 +89,7 @@ class ConfigurationController extends AbstractAdminController
 
         $this
             ->get('elcodi.configuration_manager')
-            ->setParameter($name, $value);
+            ->set($name, $value);
 
         return [
             'status' => 200,
