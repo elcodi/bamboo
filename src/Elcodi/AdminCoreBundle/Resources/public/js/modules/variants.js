@@ -3,6 +3,12 @@ TinyCore.AMD.define('variants', ['devicePackage','modal' ], function () {
         modal:  TinyCore.Module.instantiate( 'modal' ),
         mediator : TinyCore.Toolbox.request( 'mediator' ),
         onStart: function () {
+
+
+            if (TinyCore !== undefined) {
+                TinyCore.AMD.requireAndStart('notification');
+            }
+
             this.mediator.subscribe( ['response:success'], this.updateVariants, this );
 
         },
@@ -37,7 +43,9 @@ TinyCore.AMD.define('variants', ['devicePackage','modal' ], function () {
 
             var self = this;
 
-            document.getElementById('variants-list').innerHTML = '<p class="ta-c pa-xl"><i class="icon-spin icon-spinner fz-xl"></i></p>'
+            self.mediator.publish( 'notification', { type : 'ok', message: document.getElementById('variants-message-ok').value } );
+
+            document.getElementById('variants-list').innerHTML = '<p class="ta-c pa-xl"><i class="icon-spin icon-spinner fz-xl"></i></p>';
 
             $.get(oResponse.data.url, function( sHtml ) {
 
