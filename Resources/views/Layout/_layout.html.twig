@@ -1,0 +1,65 @@
+{% extends 'StoreTemplateBundle::Layout/_base.html.twig' %}
+
+{% block head_style %}
+    <link rel="stylesheet" type="text/css" media="all" href="{{ asset('bundles/storetemplate/css/main.css') }}" />
+
+
+    <!-- External Font assets -->
+    <link href="http://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet" type="text/css" />
+{% endblock head_style %}
+
+{% block body %}
+    {% block container %}
+    <div class="container">
+        {% block header %}
+
+            {% include '@StoreTemplate/Modules/_header.html.twig' %}
+
+        {% endblock header %}
+
+        {% block messages %}
+            <div class="row pad-top-10">
+                <div class="span12">
+                    {% include "@StoreTemplate/Modules/_message-list.html.twig" %}
+                </div>
+            </div>
+        {% endblock messages %}
+
+        <!-- Body -->
+
+        <div class="row">
+            <div class="span12">
+                <h1>{% block content_title %}{{ 'What\'s new'|trans() }}{% endblock %}</h1>
+            </div>
+        </div>
+
+        {% block content %}{% endblock content %}
+        {%  block footer %}
+            <div class="row footer">
+                <div class="span6">
+
+                    <ul class="footer-nav">
+                        <li><a href="{{ url('store_static_content') }}">Terms &amp; Conditions</a></li>
+                        <li><a href="{{ url('store_static_content') }}">Delivery Information</a></li>
+                        <li><a href="{{ url('store_static_content') }}">Contact</a></li>
+                    </ul>
+
+                </div>
+
+                <div class="span6 footer-right">
+
+                    <p>
+                        &copy; Bamboo
+                    </p>
+
+                </div>
+            </div>
+        {% endblock footer %}
+    </div>
+    {% endblock container %}
+{% endblock body %}
+
+{% block foot_script %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="{{ asset('bundles/storetemplate/js/bootstrap.min.js') }}"></script>
+{% endblock foot_script %}
