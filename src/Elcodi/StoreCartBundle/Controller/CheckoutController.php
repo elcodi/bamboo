@@ -16,15 +16,17 @@
 
 namespace Elcodi\StoreCartBundle\Controller;
 
-use Mmoreram\ControllerExtraBundle\Annotation\Entity as AnnotationEntity;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+use Elcodi\Component\Cart\Entity\Interfaces\OrderInterface;
 use Elcodi\Component\Cart\Entity\Order;
 use Elcodi\Component\Currency\Entity\Money;
+use Elcodi\Component\User\Entity\Interfaces\CustomerInterface;
+use Elcodi\StoreCoreBundle\Controller\Traits\TemplateRenderTrait;
 
 /**
  * Class CheckoutController
@@ -35,35 +37,43 @@ use Elcodi\Component\Currency\Entity\Money;
  */
 class CheckoutController extends Controller
 {
+    use TemplateRenderTrait;
+
     /**
      * Checkout payment step
      *
-     * @return array
+     * @return Response Response
      *
      * @Route(
      *      path = "/payment",
-     *      name = "store_checkout_payment"
+     *      name = "store_checkout_payment",
+     *      methods = {"GET"}
      * )
-     * @Method("GET")
-     * @Template
      */
     public function paymentAction()
     {
+        $dollar = $this
+            ->get('elcodi.repository.currency')
+            ->findOneBy([
+                'iso' => 'USD',
+            ]);
+
         $shippingPrice = Money::create(
             455,
-            $this
-                ->get('elcodi.repository.currency')
-                ->findOneBy([
-                    'iso'   =>  'USD',
-                ])
+            $dollar
         );
 
-        return [
-            'cart' => $this
-                    ->get('elcodi.cart_wrapper')
-                    ->loadCart(),
-            'shippingPrice' => $shippingPrice
-        ];
+        $cart = $this
+            ->get('elcodi.cart_wrapper')
+            ->loadCart();
+
+        return $this->renderTemplate(
+            'Pages:cart-checkout.html.twig',
+            [
+                'shippingPrice' => $shippingPrice,
+                'cart'          => $cart
+            ]
+        );
     }
 
     /**
@@ -77,13 +87,19 @@ class CheckoutController extends Controller
      *
      * @Route(
      *      path = "/payment/fail/order/{id}",
-     *      name = "store_checkout_payment_fail"
+     *      name = "store_checkout_payment_fail",
+     *      methods = {"GET"}
      * )
-     * @Method("GET")
      *
-     * @Template
-     *
-     * @AnnotationEntity(
+     * @EntityAnnotation(
+     *      class = {
+     *          "factory" = "elcodi.customer_wrapper",
+     *          "method" = "loadCustomer",
+     *          "static" = false
+     *      },
+     *      name = "customer",
+     * )
+     * @EntityAnnotation(
      *      class = "elcodi.core.cart.entity.order.class",
      *      name = "order",
      *      mapping = {
@@ -91,18 +107,25 @@ class CheckoutController extends Controller
      *      }
      * )
      */
-    public function paymentFailAction(Order $order)
+    public function paymentFailAction(
+        CustomerInterface $customer,
+        OrderInterface $order
+    )
     {
-        /*
+        /**
          * Checking if logged user has permission to see
          * this page
          */
-        if ($order->getCustomer() != $this->get('elcodi.customer_wrapper')->loadCustomer()) {
+        if ($order->getCustomer() != $customer) {
+
             throw($this->createNotFoundException());
         }
 
-        return [
-            'order' => $order
-        ];
+        return $this->renderTemplate(
+            'Pages:cart-checkout-fail.html.twig',
+            [
+                'order' => $order
+            ]
+        );
     }
 }

@@ -18,10 +18,11 @@ namespace Elcodi\StoreCartBundle\Controller;
 
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as AnnotationEntity;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 
 use Elcodi\Component\Cart\Entity\Interfaces\OrderInterface;
+use Elcodi\StoreCoreBundle\Controller\Traits\TemplateRenderTrait;
 
 /**
  * Order controllers
@@ -32,13 +33,15 @@ use Elcodi\Component\Cart\Entity\Interfaces\OrderInterface;
  */
 class OrderController extends Controller
 {
+    use TemplateRenderTrait;
+
     /**
      * Order view
      *
      * @param OrderInterface $order  Order id
      * @param boolean        $thanks Thanks
      *
-     * @return array
+     * @return Response Response
      *
      * @Route(
      *      path = "/{id}",
@@ -48,7 +51,8 @@ class OrderController extends Controller
      *      },
      *      defaults = {
      *          "thanks": false
-     *      }
+     *      },
+     *      methods = {"GET"}
      * )
      * @Route(
      *      path = "/{id}/thanks",
@@ -58,9 +62,9 @@ class OrderController extends Controller
      *      },
      *      defaults = {
      *          "thanks": true
-     *      }
+     *      },
+     *      methods = {"GET"}
      * )
-     * @Template
      *
      * @AnnotationEntity(
      *      class = "elcodi.core.cart.entity.order.class",
@@ -76,23 +80,26 @@ class OrderController extends Controller
             ->get('elcodi.order_coupon_manager')
             ->getOrderCoupons($order);
 
-        return [
-            'order'  => $order,
-            'orderCoupons'  =>  $orderCoupons,
-            'thanks' => $thanks,
-        ];
+        return $this->renderTemplate(
+            'Pages:order-view.html.twig',
+            [
+                'order'        => $order,
+                'orderCoupons' => $orderCoupons,
+                'thanks'       => $thanks,
+            ]
+        );
     }
 
     /**
      * Order list
      *
-     * @return array
+     * @return Response Response
      *
      * @Route(
      *      path = "s",
-     *      name = "store_order_list"
+     *      name = "store_order_list",
+     *      methods = {"GET"}
      * )
-     * @Template
      */
     public function listAction()
     {
@@ -101,8 +108,11 @@ class OrderController extends Controller
             ->loadCustomer()
             ->getOrders();
 
-        return [
-            'orders' => $orders,
-        ];
+        return $this->renderTemplate(
+            'Pages:order-list.html.twig',
+            [
+                'orders' => $orders,
+            ]
+        );
     }
 }

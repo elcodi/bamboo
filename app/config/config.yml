@@ -52,7 +52,7 @@ controller_extra:
 
 # Assetic Configuration
 assetic:
-    bundles: ['StoreCoreBundle']
+    bundles: ~
     debug:          "%kernel.debug%"
     use_controller: false
 

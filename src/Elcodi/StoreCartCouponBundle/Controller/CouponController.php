@@ -17,14 +17,14 @@
 namespace Elcodi\StoreCartCouponBundle\Controller;
 
 use Mmoreram\ControllerExtraBundle\Annotation\Form as AnnotationForm;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Form;
 use Symfony\Component\Form\FormView;
+use Symfony\Component\HttpFoundation\Response;
 
 use Elcodi\Component\Cart\Entity\Interfaces\CartInterface;
+use Elcodi\StoreCoreBundle\Controller\Traits\TemplateRenderTrait;
 
 /**
  * Class CouponController
@@ -35,19 +35,20 @@ use Elcodi\Component\Cart\Entity\Interfaces\CartInterface;
  */
 class CouponController extends Controller
 {
+    use TemplateRenderTrait;
+
     /**
      * Cart coupon form
      *
      * @param FormView $couponApplyFormView Coupon Apply view
      *
-     * @return array
+     * @return Response Response
      *
      * @Route(
      *      path = "/view",
-     *      name = "store_coupon_view"
+     *      name = "store_coupon_view",
+     *      methods = {"GET"}
      * )
-     * @Method("GET")
-     * @Template
      *
      * @AnnotationForm(
      *      class = "store_cart_coupon_form_type_coupon_apply",
@@ -56,9 +57,12 @@ class CouponController extends Controller
      */
     public function viewAction(FormView $couponApplyFormView)
     {
-        return [
-            'form' => $couponApplyFormView,
-        ];
+        return $this->renderTemplate(
+            'Modules:_coupon-add.html.twig',
+            [
+                'form' => $couponApplyFormView,
+            ]
+        );
     }
 
     /**
@@ -70,9 +74,9 @@ class CouponController extends Controller
      *
      * @Route(
      *      path = "/apply",
-     *      name = "store_coupon_apply"
+     *      name = "store_coupon_apply",
+     *      methods = {"POST"}
      * )
-     * @Method("POST")
      *
      * @AnnotationForm(
      *      class = "store_cart_coupon_form_type_coupon_apply",
@@ -107,9 +111,9 @@ class CouponController extends Controller
      *
      * @Route(
      *      path = "/remove/{code}",
-     *      name = "store_coupon_remove"
+     *      name = "store_coupon_remove",
+     *      methods = {"GET"}
      * )
-     * @Method("GET")
      */
     public function removeAction($code)
     {

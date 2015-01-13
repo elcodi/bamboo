@@ -18,10 +18,11 @@ namespace Elcodi\StoreProductBundle\Controller;
 
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as AnnotationEntity;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 
 use Elcodi\Component\Product\Entity\Interfaces\CategoryInterface;
+use Elcodi\StoreCoreBundle\Controller\Traits\TemplateRenderTrait;
 
 /**
  * Category controller
@@ -32,16 +33,18 @@ use Elcodi\Component\Product\Entity\Interfaces\CategoryInterface;
  */
 class CategoryController extends Controller
 {
+    use TemplateRenderTrait;
+
     /**
      * Renders the category nav component
      *
-     * @return array Response parameters
+     * @return Response Response
      *
      * @Route(
      *      path = "/categories/nav",
-     *      name = "store_categories_nav"
+     *      name = "store_categories_nav",
+     *      methods = {"GET"}
      * )
-     * @Template
      */
     public function navAction()
     {
@@ -54,10 +57,13 @@ class CategoryController extends Controller
             ->get('elcodi.core.product.service.category_manager')
             ->load();
 
-        return [
-            'currentCategoryId' => $currentCategoryId,
-            'categoryTree' => $categoryTree,
-        ];
+        return $this->renderTemplate(
+            'Modules:_categories-list.html.twig',
+            [
+                'currentCategoryId' => $currentCategoryId,
+                'categoryTree'      => $categoryTree,
+            ]
+        );
     }
 
     /**
@@ -65,7 +71,7 @@ class CategoryController extends Controller
      *
      * @param CategoryInterface $category Category
      *
-     * @return array Response parameters
+     * @return Response Response
      *
      * @Route(
      *      path = "category/{slug}/{id}",
@@ -73,9 +79,9 @@ class CategoryController extends Controller
      *      requirements = {
      *          "slug" = "[a-zA-Z0-9-]+",
      *          "categoryId" = "\d+"
-     *      }
+     *      },
+     *      methods = {"GET"}
      * )
-     * @Template
      *
      * @AnnotationEntity(
      *      class = "elcodi.core.product.entity.category.class",
@@ -90,9 +96,12 @@ class CategoryController extends Controller
     {
         $products = $category->getProducts();
 
-        return [
-            'products' => $products,
-            'category' => $category,
-        ];
+        return $this->renderTemplate(
+            'Pages:category-view.html.twig',
+            [
+                'products' => $products,
+                'category' => $category,
+            ]
+        );
     }
 }

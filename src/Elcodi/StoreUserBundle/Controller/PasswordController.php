@@ -18,12 +18,13 @@ namespace Elcodi\StoreUserBundle\Controller;
 
 use Mmoreram\ControllerExtraBundle\Annotation\Form as AnnotationForm;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 use Elcodi\Component\User\Entity\Abstracts\AbstractUser;
+use Elcodi\StoreCoreBundle\Controller\Traits\TemplateRenderTrait;
 
 /**
  * Class PasswordController
@@ -34,19 +35,21 @@ use Elcodi\Component\User\Entity\Abstracts\AbstractUser;
  */
 class PasswordController extends Controller
 {
+    use TemplateRenderTrait;
+
     /**
      * Remember password
      *
      * @param Form    $passwordRememberForm Password remember form
      * @param boolean $isValid              Is valid
      *
-     * @return array
+     * @return Response Response
      *
      * @Route(
      *      path = "/remember",
-     *      name = "store_password_remember"
+     *      name = "store_password_remember",
+     *      methods = {"GET"}
      * )
-     * @Template
      *
      * @AnnotationForm(
      *      class         = "store_user_form_type_password_remember",
@@ -79,21 +82,24 @@ class PasswordController extends Controller
             }
         }
 
-        return [
-            'form' => $passwordRememberForm->createView(),
-        ];
+        return $this->renderTemplate(
+            'User/password-remember.html.twig',
+            [
+                'form' => $passwordRememberForm->createView()
+            ]
+        );
     }
 
     /**
      * Recover password sent action
      *
-     * @return array
+     * @return Response Response
      *
      * @Route(
      *      path = "/sent",
-     *      name = "store_password_recover_sent"
+     *      name = "store_password_recover_sent",
+     *      methods = {"GET"}
      * )
-     * @Template
      */
     public function sentAction()
     {
@@ -104,7 +110,7 @@ class PasswordController extends Controller
             return new RedirectResponse($this->generateUrl('store_homepage'));
         }
 
-        return [];
+        return $this->renderTemplate('User/password-sent.html.twig');
     }
 
     /**
@@ -114,16 +120,16 @@ class PasswordController extends Controller
      * @param string  $hash                Hash
      * @param boolean $isValid             Is valid
      *
-     * @return array
+     * @return Response Response
      *
      * @Route(
      *      path = "/recover/{hash}",
      *      name = "store_password_recover",
      *      requirements = {
      *          "hash" = "[\dA-Fa-f]+"
-     *      }
+     *      },
+     *      methods = {"GET"}
      * )
-     * @Template
      *
      * @AnnotationForm(
      *      class         = "store_user_form_type_password_recover",
@@ -155,8 +161,11 @@ class PasswordController extends Controller
             }
         }
 
-        return [
-            'form' => $passwordRecoverForm->createView()
-        ];
+        return $this->renderTemplate(
+            'User/password-recover.html.twig',
+            [
+                'form' => $passwordRecoverForm->createView()
+            ]
+        );
     }
 }
