@@ -4,12 +4,26 @@ TinyCore.AMD.define('variants', ['devicePackage','modal' ], function () {
         mediator : TinyCore.Toolbox.request( 'mediator' ),
         onStart: function () {
 
+            var self = this;
 
             if (TinyCore !== undefined) {
                 TinyCore.AMD.requireAndStart('notification');
             }
 
             this.mediator.subscribe( ['response:success'], this.updateVariants, this );
+
+            $('.button-primary', '#variants-list').on('click', function(event){
+
+                event.preventDefault();
+
+                self.modal.open({
+                    iframe: true,
+                    href: this.href,
+                    width: '90%',
+                    height: '90%'
+                });
+
+            });
 
         },
         bindLinks: function() {
