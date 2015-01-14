@@ -1367,7 +1367,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
      * @param ProductInterface          $product                   Product
      * @param string                    $imageName                 Image name
      *
-     * @return ProductData self Object
+     * @return $this Self object
      */
     protected function storeImage(
         ObjectManager $imageObjectManager,
