@@ -32,6 +32,10 @@
         <td>{{ entity.path }}</td>
     </tr>
     <tr>
+        <td>{{ 'template'|trans }}</td>
+        <td>{{ entity.template|default('Default'|trans) }}</td>
+    </tr>
+    <tr>
         <td>{{ 'createdAt'|trans }}</td>
         <td>{{ entity.createdAt|date('Y.m.d - H:i:s') }}</td>
     </tr>
