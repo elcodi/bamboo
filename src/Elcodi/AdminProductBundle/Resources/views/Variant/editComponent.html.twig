@@ -100,8 +100,12 @@
             </div>
             <div class="col-2-3">
                 <button type="submit" class="button-primary">{{ 'Save'|trans }}</button>
-                <a>{{ 'Cancel'|trans }}</a>
 
+                <script type="text/javascript">
+                    var oParent = window.parent,
+                        oModal =  oParent.TinyCore.Module.instantiate( 'modal' );
+                </script>
+                <a href="javascript:oModal.close();">{{ 'Cancel'|trans }}</a>
             </div>
         </div>
     {{ form_end(form) }}
