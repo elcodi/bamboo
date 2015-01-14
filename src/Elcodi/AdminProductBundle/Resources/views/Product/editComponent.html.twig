@@ -96,9 +96,8 @@
                         </div>
                     </div>
                     <div class="col-2-3" data-tc-modules="variants">
-                        <input id="variants-url" type="hidden" value="{{ url("admin_product_variant_list_component", {
-                        'productId': product.id
-                        }) }}" />
+                        <input id="variants-url" type="hidden" value="{{ url("admin_product_variant_list_component", { 'productId': product.id }) }}" />
+                        <input id="variants-message-ok" type="hidden" value="{{ 'Changes Saved.'|trans }}" />
                         <div class="box" id="variants-list">
                             {{ render(url("admin_product_variant_list_component", {
                                 'productId': product.id

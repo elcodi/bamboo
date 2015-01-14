@@ -3,7 +3,27 @@ TinyCore.AMD.define('variants', ['devicePackage','modal' ], function () {
         modal:  TinyCore.Module.instantiate( 'modal' ),
         mediator : TinyCore.Toolbox.request( 'mediator' ),
         onStart: function () {
+
+            var self = this;
+
+            if (TinyCore !== undefined) {
+                TinyCore.AMD.requireAndStart('notification');
+            }
+
             this.mediator.subscribe( ['response:success'], this.updateVariants, this );
+
+            $('.button-primary', '#variants-list').on('click', function(event){
+
+                event.preventDefault();
+
+                self.modal.open({
+                    iframe: true,
+                    href: this.href,
+                    width: '90%',
+                    height: '90%'
+                });
+
+            });
 
         },
         bindLinks: function() {
@@ -37,7 +57,9 @@ TinyCore.AMD.define('variants', ['devicePackage','modal' ], function () {
 
             var self = this;
 
-            document.getElementById('variants-list').innerHTML = '<p class="ta-c pa-xl"><i class="icon-spin icon-spinner fz-xl"></i></p>'
+            self.mediator.publish( 'notification', { type : 'ok', message: document.getElementById('variants-message-ok').value } );
+
+            document.getElementById('variants-list').innerHTML = '<p class="ta-c pa-xl"><i class="icon-spin icon-spinner fz-xl"></i></p>';
 
             $.get(oResponse.data.url, function( sHtml ) {
 
