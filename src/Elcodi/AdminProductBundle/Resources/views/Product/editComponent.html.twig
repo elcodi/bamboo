@@ -53,11 +53,11 @@
                         <ol class="grid">
                             <li class="col-1-2 pb-n pr-l">
                                 {{ form_row(form.principalCategory, {'attr': {'label_help':'e.g. Computers, handbags...'}}) }}
-                                <p class="pt-s fz-default mb-n ta-r"><a href="{{ url('admin_category_new') }}" data-tc-modules="modal" data-tc-width="90%" data-tc-height="90%"><i class="icon-plus"></i> {{ 'Create new Category' }}</a></p>
+                                <p class="pt-s fz-default mb-n ta-r"><a href="{{ url('admin_category_new') }}" data-tc-modules="modal-content"><i class="icon-plus"></i> {{ 'Create new Category' }}</a></p>
                             </li>
                             <li class="col-1-2 pb-n">
                                 {{ form_row(form.manufacturer, {'attr': {'label_help':'e.g. Apple, Disney...'}}) }}
-                                <p class="pt-s fz-default mb-n ta-r"><a href="{{ url('admin_manufacturer_new') }}" data-tc-modules="modal" data-tc-width="90%" data-tc-height="90%"><i class="icon-plus"></i> {{ 'Create new Manufacturer' }}</a></p>
+                                <p class="pt-s fz-default mb-n ta-r"><a href="{{ url('admin_manufacturer_new') }}" data-tc-modules="modal-content"><i class="icon-plus"></i> {{ 'Create new Manufacturer' }}</a></p>
                             </li>
                         </ol>
                     </div>
