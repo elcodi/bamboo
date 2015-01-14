@@ -30,13 +30,12 @@
     <td>
         {% if entity.subCategories|length > 0 %}
         <ul>
-            {% for subCategory in entity.subCategories %}
+            {% for subCategory in entity.subCategories if not subCategory.root %}
                 <li>
                     <a href="{{ url("admin_category_edit", { id: subCategory.id }) }}">
                         {{ subCategory.name }}
                     </a>
                 </li>
-
             {% endfor %}
         </ul>
         {% endif %}

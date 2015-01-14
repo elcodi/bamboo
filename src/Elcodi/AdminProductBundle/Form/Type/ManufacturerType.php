@@ -70,7 +70,7 @@ class ManufacturerType extends AbstractType
     {
         $builder
             ->add('name', 'text', array(
-                'required' => false,
+                'required' => true,
                 'label'    => 'name',
             ))
             ->add('slug', 'text', array(
@@ -95,7 +95,7 @@ class ManufacturerType extends AbstractType
             ))
             ->add('enabled', 'checkbox', array(
                 'required' => false,
-                'label'    => 'enabled',
+                'label'    => 'Status',
             ));
 
         $builder->addEventSubscriber($this->getEntityTranslatorFormEventListener());

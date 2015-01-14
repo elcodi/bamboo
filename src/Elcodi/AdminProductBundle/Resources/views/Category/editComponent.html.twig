@@ -30,9 +30,10 @@
             </div>
             <div class="col-2-3">
                 <div data-tc-modules="tabs" class="tabs-box">
-                    {% for language in languages() %}
-                        <section id="tab-{{ language }}" data-tc-name="{{ language|capitalize }}">
-                            <div class="box-lighten">
+                    {% set languages = ['es', 'en','fr'] %}
+                    {% for language in languages %}
+                        <section id="tab-{{ language }}" data-tc-name="{% if loop.first %}<i class='icon-star'></i> {% endif %}{{ language|capitalize }}">
+                            <div class="box">
                                 <ol>
                                     <li class="pb-n">
                                         <label>{{ 'Category name'|trans }}</label>
@@ -57,14 +58,22 @@
                 </div>
             </div>
             <div class="col-2-3">
-                <div class="box-lighten mb-n pb-n">
-                    <ol class="grid pt-m">
-                        <li class="col-1-2">
-                            {{ form_row(form.position) }}
-                        </li>
-                        <li class="col-1-2">
+                <div class="box mb-n pb-n">
+                    <ol class="grid pt-m" data-tc-modules="category-parent">
+                        <li class="col-1-3">
                             {{ form_row(form.root, {'attr': {'type':'checkbox'}}) }}
-                            {{ form_row(form.parent) }}
+                        </li>
+                        <li id="parent-categories" style="display: none; margin-top: -2px;" class="col-2-3">
+                            <label class="d-ib">Parent:</label>
+                            <div class="d-ib w-80">
+                                {{ form_widget(form.parent) }}
+                            </div>
+                        </li>
+                    </ol>
+                    <hr />
+                    <ol>
+                        <li>
+                            {{ form_row(form.position) }}
                         </li>
                     </ol>
                 </div>
@@ -82,9 +91,10 @@
                 <div class="col-2-3">
                     <p class="msg-warning">{% trans %}<strong>This area for advanced users.</strong> Leave this fields in blank to obtain automatically the metadata of your product.{% endtrans %}</p>
                     <div data-tc-modules="tabs" class="tabs-box">
-                        {% for language in languages() %}
-                            <section id="metadata-{{ language }}" data-tc-name="{{ language|capitalize }}">
-                                <div class="box-lighten">
+                        {% set languages = ['es', 'en','fr'] %}
+                        {% for language in languages %}
+                            <section id="metadata-{{ language }}" data-tc-name="{% if loop.first %}<i class='icon-star'></i> {% endif %}{{ language|capitalize }}">
+                                <div class="box">
                                     <ol>
                                         <li>
                                             <label>{{ 'MetaTitle'|trans }}</label>
@@ -114,7 +124,7 @@
                 </div>
             </div>
             <div class="col-2-3">
-                <div class="box-lighten mb-n pb-n">
+                <div class="box mb-n pb-n">
                     <ol class="pt-m">
                         <li>
                             {{ form_row(form.enabled, {'attr': {'type':'checkbox'}}) }}
@@ -123,22 +133,19 @@
                 </div>
             </div>
         </div>
-    </fieldset>
+        <div class="grid">
+            <div class="col-1-3">
+                &nbsp;
+            </div>
+            <div class="col-2-3">
+                <button type="submit" class="button-primary">{{ 'Update'|trans }}</button>
+                <a href="{{ path('admin_category_list') }}" class="button">{{ 'Cancel'|trans }}</a>
 
+            </div>
+        </div>
+    </fieldset>
     {{ form_row(form.createdAt, {'attr': {'class':'d-n'}}) }}
     {{ form_row(form.updatedAt, {'attr': {'class':'d-n'}}) }}
     {{ form_row(form.products, {'attr': {'class':'d-n'}}) }}
-
-    <div class="grid">
-        <div class="col-1-3">
-            &nbsp;
-        </div>
-        <div class="col-2-3">
-            <button type="submit" class="button-primary">{{ 'Update'|trans }}</button>
-            <a href="{{ path('admin_category_list') }}" class="button">{{ 'Cancel'|trans }}</a>
-
-        </div>
-    </div>
-
     {{ form_end(form) }}
 {% endblock content %}
