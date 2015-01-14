@@ -1,12 +1,14 @@
 {% for flashMessage in app.session.flashbag.get('success') %}
-    <div class="msg-ok">
-        {{ flashMessage | trans }}
-        <script type="text/javascript">
-            var oParent = window.parent,
-                sUrl =  oParent.document.getElementById('variants-url').value,
-                Mediator = oParent.TinyCore.Toolbox.request( 'mediator' );
+    <script type="text/javascript">
+        var Mediator,
+            sUrl;
+            if ( window!=window.top ) {
+                document.body.innerHTML = '';
+                Mediator =  window.parent.TinyCore.Toolbox.request( 'mediator' );
+                sUrl =   window.parent.document.getElementById('variants-url').value;
+                Mediator.publish( 'response:success', { url : sUrl } );
+            }
 
-            Mediator.publish( 'response:success', { url : sUrl } );
-        </script>
-    </div>
+    </script>
+    <input type="hidden"  data-tc-modules="notification" data-tc-event="load" data-tc-type="ok" data-tc-text="{{ flashMessage | trans }}" />
 {% endfor %}
