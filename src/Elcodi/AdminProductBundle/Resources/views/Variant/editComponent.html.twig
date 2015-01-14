@@ -44,8 +44,11 @@
                 <div class="col-2-3">
                     <div class="box">
                         <ol>
-                            <li>
-                                {{ form_row(form.options) }}
+                            <li data-tc-modules="multiple-select">
+                                <i class="icon-spin icon-spinner fz-xl"></i>
+                                <div class="d-n">
+                                    {{ form_row(form.options) }}
+                                </div>
                             </li>
                         </ol>
                     </div>
