@@ -59,7 +59,7 @@
         "mmoreram/controller-extra-bundle": "~1.0",
         "paymentsuite/payment-core-bundle": "v1.3",
         "knplabs/knp-gaufrette-bundle": "~0.1",
-        "paymentsuite/free-payment-bundle": "~1.0",
+        "paymentsuite/free-payment-bundle": "~1.0@dev",
         "paymentsuite/paypal-web-checkout-bundle": "1.0.*@dev",
         "incenteev/composer-parameter-handler": "~2.1.0",
         "hwi/oauth-bundle": "0.4.*@dev",
@@ -122,7 +122,6 @@
     "config": {
         "bin-dir": "bin"
     },
-    "minimum-stability": "dev",
     "extra": {
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",
