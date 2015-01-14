@@ -18,23 +18,111 @@
         : url('admin_manufacturer_save')
 
      %}
-
+    {% if manufacturer.id %}
+        <script type="text/javascript">
+            if ( window!=window.top ) {
+                var Mediator =  Mediator ? Mediator : window.parent.TinyCore.Toolbox.request( 'mediator' );
+                Mediator.publish( 'new:manufacturer', { id : "{{ manufacturer.id }}", name : "{{ manufacturer.name }}"} );
+            }
+        </script>
+    {% endif %}
     {{ form_start(form, {'action': formAction}) }}
-
-        {{ form_row(form.name) }}
-        {{ form_row(form.slug) }}
-        {{ form_row(form.description) }}
-        {{ form_row(form.metaTitle) }}
-        {{ form_row(form.metaDescription) }}
-        {{ form_row(form.metaKeywords) }}
-        {{ form_row(form.enabled) }}
-
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-primary">{{ 'Update'|trans }}</button>
-                <a href="{{ path('admin_manufacturer_list') }}" class="btn btn-default">{{ 'Cancel'|trans }}</a>
+        <fieldset>
+            <div class="grid">
+                <div class="col-1-3">
+                    <div class="box-none">
+                        <h3 class="fw-n">{% trans %}Basic Details{% endtrans %}</h3>
+                        <p>{% trans %}Provide a very specific name for the manufacturer and a description.{% endtrans %}</p>
+                    </div>
+                </div>
+                <div class="col-2-3">
+                    <div data-tc-modules="tabs" class="tabs-box">
+                        {% for language in languages() %}
+                            <section id="tab-{{ language }}" data-tc-name="{% if loop.first %}<i class='icon-star'></i> {% endif %}{{ language|capitalize }}">
+                                <div class="box">
+                                    <ol>
+                                        <li>
+                                            <label>{{ 'Manufacturer name'|trans }}</label>
+                                            {{ form_widget(form.name[language ~ '_name'],{'attr': {'placeholder':'e.g. My Awesome Manufacturer'}}) }}
+                                            <details class="ph-n pt-m mb-n">
+                                                <summary class="pl-l mb-n">{{ 'Personalize slug' }}</summary>
+                                                {{ form_widget(form.slug[language ~ '_slug'],{'attr': {'data-tc-modules':'slug','data-tc-parent':'elcodi_admin_product_form_type_category_name_'~ language ~'_name' }}) }}
+                                            </details>
+                                        </li>
+                                        <li>
+                                            <label>{{ 'Description'|trans }}</label>
+                                            {{ form_widget(form.description[language ~ '_description'],{'attr': {'placeholder':'e.g. This awesome Manufacturer is exactly what you are lookin for.'}}) }}
+                                        </li>
+                                    </ol>
+                                </div>
+                            </section>
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
-        </div>
+            <details class="ph-n">
+                <summary class="mb-n pl-xl">{{ 'Personalize Metadata'|trans }}</summary>
+                <div class="grid">
+                    <div class="col-1-3">
+                        <div class="box-none">
+                            <h3 class="fw-n">{% trans %}Metadata{% endtrans %}</h3>
+                            <p>{% trans %}Description and keywords in meta tags are commonly used to describe the Web page's content. Most search engines use these data when adding pages to their search index.{% endtrans %}</p>
+                        </div>
+                    </div>
+                    <div class="col-2-3">
+                        <p class="msg-warning">{% trans %}<strong>This area for advanced users.</strong> Leave this fields in blank to obtain automatically the metadata of your product.{% endtrans %}</p>
+                        <div data-tc-modules="tabs" class="tabs-box">
+                            {% for language in languages() %}
+                                <section id="metadata-{{ language }}" data-tc-name="{% if loop.first %}<i class='icon-sitemap'></i> {% endif %}{{ language|capitalize }}">
+                                    <div class="box">
+                                        <ol>
+                                            <li>
+                                                <label>{{ 'metaTitle'|trans }}</label>
+                                                {{ form_widget(form.metaTitle[language ~ '_metaTitle'],{'attr': {'placeholder':'e.g. My Awesome Manufacturer'}}) }}
+                                            </li>
+                                            <li>
+                                                <label>{{ 'metaDescription'|trans }}</label>
+                                                {{ form_widget(form.metaDescription[language ~ '_metaDescription'],{'attr': {'placeholder':'e.g. This awesome Manufacturer is exactly what you are lookin for.'}}) }}
+                                            </li>
+                                            <li>
+                                                <label>{{ 'metaKeywords'|trans }}</label>
+                                                {{ form_widget(form.metaKeywords[language ~ '_metaKeywords'],{'attr': {'placeholder':'e.g. Manufacturer,awesome'}}) }}
+                                            </li>
+                                        </ol>
+                                    </div>
+                                </section>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </details>
+            <div class="grid">
+                <div class="col-1-3">
+                    <div class="box-none mb-n pb-m">
+                        <h3 class="fw-n">{% trans %}Visibility{% endtrans %}</h3>
+                        <p>{% trans %}Set this manufacturer as enabled or disabled.{% endtrans %}</p>
+                    </div>
+                </div>
+                <div class="col-2-3">
+                    <div class="box mb-n pb-n">
+                        <ol>
+                            <li>
+                                {{ form_row(form.enabled, {'attr': {'type':'checkbox'}}) }}
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="col-1-3">
+                    &nbsp;
+                </div>
+                <div class="col-2-3">
+                    <button type="submit" class="button-primary">{{ 'Save'|trans }}</button>
+                    <a href="{{ path('admin_manufacturer_list') }}" class="button">{{ 'Cancel'|trans }}</a>
 
+                </div>
+            </div>
+        </fieldset>
     {{ form_end(form) }}
 {% endblock content %}

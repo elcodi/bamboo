@@ -84,7 +84,7 @@
 {% spaceless %}
 
     <div class="switch">
-        <input id="switch-{{ label|trans({}, translation_domain)|url_encode  }}" type="checkbox" {{ block('widget_attributes') }} {% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %}>
+        <input id="switch-{{ label|trans({}, translation_domain)|url_encode  }}" type="checkbox" {{ block('widget_attributes') }} {% if value is defined %} value="{{ value }}"{% else %}value="1"{% endif %}{% if checked %} checked="checked"{% endif %}>
         <label for="switch-{{ label|trans({}, translation_domain)|url_encode }}"></label> {% if attr.label_help is defined %}<em>{{ attr.label_help }}</em>{% endif %}
     </div>
     {{ label|trans({}, translation_domain) }}

@@ -59,7 +59,7 @@ TinyCore.AMD.define('form-configuration', ['devicePackage'], function () {
 				$(oInput).change(function (e) {
 
 					var oData = {};
-					oData.value = oInput.value;
+					oData.value = $(oInput).is(':checked') || $(oInput).is(':selected') ? oInput.value : '';
 
 					$.ajax({
 						url: document.getElementById('url-' + sName).value,

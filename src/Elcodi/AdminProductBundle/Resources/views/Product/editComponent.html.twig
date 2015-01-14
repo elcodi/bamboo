@@ -28,7 +28,7 @@
                 <div class="col-2-3">
                     <div data-tc-modules="tabs" class="tabs-box">
                         {% for language in languages() %}
-                        <section id="tab-{{ language }}" data-tc-name="{{ language|capitalize }}">
+                        <section id="tab-{{ language }}" data-tc-name="{% if loop.first %}<i class='icon-star'></i> {% endif %}{{ language|capitalize }}">
                             <div class="box">
                                 <ol>
                                     <li>
@@ -52,9 +52,11 @@
                         <ol class="grid">
                             <li class="col-1-2 pb-n pr-l">
                                 {{ form_row(form.principalCategory, {'attr': {'label_help':'e.g. Computers, handbags...'}}) }}
+                                <p class="pt-s fz-default mb-n ta-r"><a href="{{ url('admin_category_new') }}" data-tc-modules="modal-content"><i class="icon-plus"></i> {{ 'Create new Category' }}</a></p>
                             </li>
                             <li class="col-1-2 pb-n">
                                 {{ form_row(form.manufacturer, {'attr': {'label_help':'e.g. Apple, Disney...'}}) }}
+                                <p class="pt-s fz-default mb-n ta-r"><a href="{{ url('admin_manufacturer_new') }}" data-tc-modules="modal-content"><i class="icon-plus"></i> {{ 'Create new Manufacturer' }}</a></p>
                             </li>
                         </ol>
                     </div>
@@ -148,8 +150,8 @@
                     <div class="col-2-3">
                         <p class="msg-warning">{% trans %}<strong>This area for advanced users.</strong> Leave this fields in blank to obtain automatically the metadata of your product.{% endtrans %}</p>
                         <div data-tc-modules="tabs" class="tabs-box">
-                            {% for language in languages %}
-                                <section id="metadata-{{ language }}" data-tc-name="{{ language|capitalize }}">
+                            {% for language in languages() %}
+                                <section id="metadata-{{ language }}" data-tc-name="{% if loop.first %}<i class='icon-star'></i> {% endif %}{{ language|capitalize }}">
                                     <div class="box">
                                         <ol>
                                             <li>

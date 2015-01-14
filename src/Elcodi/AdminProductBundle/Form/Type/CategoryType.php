@@ -88,16 +88,16 @@ class CategoryType extends AbstractType
                 'label'    => 'name',
             ))
             ->add('slug', 'text', array(
-                'required' => true,
+                'required' => false,
                 'label'    => 'slug',
             ))
             ->add('root', 'checkbox', array(
                 'required' => false,
-                'label'    => 'root',
+                'label'    => 'Root Category',
             ))
             ->add('position', 'integer', array(
                 'required' => false,
-                'label'    => 'position',
+                'label'    => 'Position',
             ))
             ->add('createdAt', 'datetime', array(
                 'widget'   => 'single_text',
@@ -113,7 +113,7 @@ class CategoryType extends AbstractType
             ))
             ->add('enabled', 'checkbox', array(
                 'required' => false,
-                'label'    => 'Enabled',
+                'label'    => 'Status',
             ))
             ->add('metaTitle', 'text', array(
                 'required' => false,

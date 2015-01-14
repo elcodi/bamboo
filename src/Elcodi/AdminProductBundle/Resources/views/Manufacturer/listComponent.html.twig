@@ -14,12 +14,9 @@
 {% block table_head %}
     {% include "@AdminCore/Tables/head.html.twig" with {
         rows: {
-            "Id": {width:"25"},
-            "Name": {},
-            "Slug": {},
-            "Description": {},
-            "Nb. products": {width:"25", sorting_disabled: true},
-            "Enabled": {width:"25"},
+            "Name & Slug": {},
+            "Products": {sorting_disabled: true},
+            "Status": {width:"10"},
         },
         class: "manufacturer",
     } %}
@@ -28,24 +25,16 @@
 
 {% block table_body_row %}
     <td>
-        <a href="{{ url("admin_manufacturer_edit", {"id": entity.id}) }}">
-            {{ entity.id }}
+        <a href="{{ url("admin_manufacturer_edit", {"id": entity.id}) }}" class="fw-b">
+            {{ entity.name }}
         </a>
-    </td>
-    <td>
-        {{ entity.name }}
-    </td>
-    <td>
-        {{ entity.slug }}
-    </td>
-    <td>
-        {{ entity.description }}
+        <p class="fz-">{{ entity.slug }}</p>
     </td>
     <td>
         {{ entity.products|length }}
     </td>
     <td>
-        {% if entity.enabled %}<span class="label label-success">true</span>{% else %}<span class="label label-danger">false</span>{% endif %}
+        {% if entity.enabled %}<span class="label-ok">{{ 'Enabled'|trans }}</span>{% else %}<span class="label">{{ 'Disabled'|trans }}</span>{% endif %}
     </td>
 
     {% include "@AdminCore/Tables/actions.html.twig" with {
