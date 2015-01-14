@@ -10,7 +10,14 @@
 
 
 {% block content %}
-
+    {% if category.id %}
+        <script type="text/javascript">
+            if ( window!=window.top ) {
+                var Mediator =  Mediator ? Mediator : window.parent.TinyCore.Toolbox.request( 'mediator' );
+                Mediator.publish( 'new:category', { id : "{{ category.id }}", name : "{{ category.name }}" } );
+            }
+        </script>
+    {% endif %}
     {% set formAction = category.id
         ? url('admin_category_update', {
             'id': category.id
@@ -18,7 +25,6 @@
         : url('admin_category_save')
 
      %}
-
     {{ form_start(form, {'action': formAction}) }}
     <fieldset>
         <div class="grid">
@@ -30,8 +36,7 @@
             </div>
             <div class="col-2-3">
                 <div data-tc-modules="tabs" class="tabs-box">
-                    {% set languages = ['es', 'en','fr'] %}
-                    {% for language in languages %}
+                    {% for language in languages() %}
                         <section id="tab-{{ language }}" data-tc-name="{% if loop.first %}<i class='icon-star'></i> {% endif %}{{ language|capitalize }}">
                             <div class="box">
                                 <ol>
@@ -91,8 +96,7 @@
                 <div class="col-2-3">
                     <p class="msg-warning">{% trans %}<strong>This area for advanced users.</strong> Leave this fields in blank to obtain automatically the metadata of your product.{% endtrans %}</p>
                     <div data-tc-modules="tabs" class="tabs-box">
-                        {% set languages = ['es', 'en','fr'] %}
-                        {% for language in languages %}
+                        {% for language in languages() %}
                             <section id="metadata-{{ language }}" data-tc-name="{% if loop.first %}<i class='icon-star'></i> {% endif %}{{ language|capitalize }}">
                                 <div class="box">
                                     <ol>

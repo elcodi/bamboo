@@ -1,6 +1,7 @@
 TinyCore.AMD.define('modal-content', ['devicePackage','modal' ], function () {
 	return {
 		oModal:  TinyCore.Module.instantiate( 'modal' ),
+		mediator : TinyCore.Toolbox.request( 'mediator' ),
 		onStart: function () {
 
 			var aTargets = FC.getDataModules('modal-content'),
@@ -11,6 +12,32 @@ TinyCore.AMD.define('modal-content', ['devicePackage','modal' ], function () {
 			$(aTargets).each(function () {
 				self.autobind(this);
 			});
+
+			this.mediator.subscribe( ['new:category'], this.updateCategory, this );
+			this.mediator.subscribe( ['new:manufacturer'], this.updateManufacturer, this );
+
+		},
+		updateSelect: function( id, value, innerHTML ) {
+
+			var oOption = document.createElement('option'),
+				oSelect = document.getElementById(id);
+
+			$('option:selected', oSelect).removeAttr('selected');
+
+			oOption.value = value;
+			oOption.innerHTML = innerHTML;
+			oOption.setAttribute('selected','selected');
+
+			oSelect.appendChild(oOption);
+		},
+		updateCategory: function( oResponse ) {
+
+			this.updateSelect( 'elcodi_admin_product_form_type_product_principalCategory', oResponse.data.id, oResponse.data.name );
+
+		},
+		updateManufacturer: function( oResponse ) {
+
+			this.updateSelect( 'elcodi_admin_product_form_type_product_manufacturer', oResponse.data.id, oResponse.data.name );
 
 		},
 		autobind: function( oTarget ){
@@ -25,11 +52,10 @@ TinyCore.AMD.define('modal-content', ['devicePackage','modal' ], function () {
 					href: this.href,
 					iframe: true,
 					fastIframe : false,
-					width: '90%',
-					height: '80%',
+					width: '95%',
+					height: '95%',
 					onOpen: function() {
 						$("#cboxContent").hide();
-						console.log('va');
 					},
 					onComplete: function() {
 						$("iframe").contents().find(".sidebar").remove();
