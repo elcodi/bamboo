@@ -6,6 +6,7 @@ imports:
     - { resource: @ElcodiBambooBundle/Resources/config/filesystem.yml }
     - { resource: @ElcodiBambooBundle/Resources/config/configuration.yml }
     - { resource: @ElcodiBambooBundle/Resources/config/cache.yml }
+    - { resource: @ElcodiBambooBundle/Resources/config/page.yml }
 
 monolog:
     handlers:
