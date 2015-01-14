@@ -27,8 +27,7 @@
                 </div>
                 <div class="col-2-3">
                     <div data-tc-modules="tabs" class="tabs-box">
-                        {% set languages = ['es', 'en','fr'] %}
-                        {% for language in languages %}
+                        {% for language in languages() %}
                         <section id="tab-{{ language }}" data-tc-name="{{ language|capitalize }}">
                             <div class="box">
                                 <ol>
