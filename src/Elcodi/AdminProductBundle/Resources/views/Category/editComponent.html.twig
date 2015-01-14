@@ -30,8 +30,7 @@
             </div>
             <div class="col-2-3">
                 <div data-tc-modules="tabs" class="tabs-box">
-                    {% set languages = ['es', 'en','fr'] %}
-                    {% for language in languages %}
+                    {% for language in languages() %}
                         <section id="tab-{{ language }}" data-tc-name="{{ language|capitalize }}">
                             <div class="box-lighten">
                                 <ol>
@@ -83,8 +82,7 @@
                 <div class="col-2-3">
                     <p class="msg-warning">{% trans %}<strong>This area for advanced users.</strong> Leave this fields in blank to obtain automatically the metadata of your product.{% endtrans %}</p>
                     <div data-tc-modules="tabs" class="tabs-box">
-                        {% set languages = ['es', 'en','fr'] %}
-                        {% for language in languages %}
+                        {% for language in languages() %}
                             <section id="metadata-{{ language }}" data-tc-name="{{ language|capitalize }}">
                                 <div class="box-lighten">
                                     <ol>
