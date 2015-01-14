@@ -41,6 +41,10 @@ class PageType extends AbstractType
                 'required' => true,
                 'label'    => 'path',
             ))
+            ->add('template', 'text', array(
+                'required' => false,
+                'label'    => 'template',
+            ))
             ->add('content', 'textarea', array(
                 'required' => true,
                 'label'    => 'content',

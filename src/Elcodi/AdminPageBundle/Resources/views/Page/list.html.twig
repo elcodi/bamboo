@@ -14,6 +14,12 @@
     } %}
 {% endblock %}
 
+
+{% block header_actions %}
+    <a href="{{ url("admin_page_new") }}"class="button-primary"><i class="icon-plus"></i> {{ "New page"|trans }}</a>
+{% endblock header_actions %}
+
+
 {% block content %}
 
     <div class="row">
