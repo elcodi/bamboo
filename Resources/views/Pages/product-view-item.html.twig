@@ -84,3 +84,10 @@
         'products' : related_products
     } %}
 {% endblock content %}
+
+
+{% block pixels %}
+    <script>
+        _etc.push(["{{ store_tracker }}", 'product_view_' + {{ product.id }}]);
+    </script>
+{% endblock %}
