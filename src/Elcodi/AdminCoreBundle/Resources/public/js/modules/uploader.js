@@ -64,7 +64,7 @@ TinyCore.AMD.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupl
 		},
 		updateSelect : function() {
 
-			var oSelect = document.getElementById('elcodi_admin_product_form_type_product_images'),
+			var oSelect = document.getElementById('thumb-gallery-select').getElementsByTagName('select')[0],
 				oThumbs = document.getElementById('thumb-gallery'),
 				sName;
 
@@ -82,7 +82,7 @@ TinyCore.AMD.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupl
 		addImageToGallery : function( nId, sUrlView, sUrlDelete) {
 
 			var self = this,
-				oSelect = document.getElementById('elcodi_admin_product_form_type_product_images'),
+				oSelect = document.getElementById('thumb-gallery-select').getElementsByTagName('select')[0],
 				oThumbs = document.getElementById('thumb-gallery'),
 				oLi = document.createElement('li'),
 				oLink = document.createElement('a'),

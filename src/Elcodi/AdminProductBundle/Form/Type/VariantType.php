@@ -49,6 +49,17 @@ class VariantType extends AbstractPurchasableType
                     },
                 'property' => 'name'
             ))
+            ->add('imagesSort', 'text', array(
+                'required' => false,
+                'label'    => 'Images sort',
+            ))
+            ->add('images', 'entity', array(
+                'class'    => 'Elcodi\Component\Media\Entity\Image',
+                'required' => false,
+                'property' => 'id',
+                'label'    => false,
+                'multiple' => true,
+            ))
             ->add('stock', 'hidden', array(
                 'required' => false,
                 'label'    => 'stock',

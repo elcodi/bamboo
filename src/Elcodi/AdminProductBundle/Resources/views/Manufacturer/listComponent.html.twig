@@ -14,6 +14,7 @@
 {% block table_head %}
     {% include "@AdminCore/Tables/head.html.twig" with {
         rows: {
+            "Image": {width:"20"},
             "Name & Slug": {},
             "Products": {sorting_disabled: true},
             "Status": {width:"10"},
@@ -24,6 +25,14 @@
 
 
 {% block table_body_row %}
+    <td>
+        {% if entity.images|length > 0 %}
+            <a href="{{ url("admin_manufacturer_edit", {"id": entity.id}) }}" class="thumbnail">
+                <img src="{{ entity.images.first|resize({'height': 30, 'width': 30, 'type': 5}) }}" />
+            </a>
+        {% endif %}
+    </td>
+
     <td>
         <a href="{{ url("admin_manufacturer_edit", {"id": entity.id}) }}" class="fw-b">
             {{ entity.name }}

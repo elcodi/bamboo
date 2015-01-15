@@ -117,37 +117,11 @@
                     </div>
                 </div>
             {% endif %}
-            <div class="grid">
-                <div class="col-1-3">
-                    <div id="upload-container" class="box-none">
-                        <h3 class="fw-n">{% trans %}Images{% endtrans %}</h3>
-                        <p>{% trans %}Add images to your product. A good image will help sell your product, try to upload high quality images.{% endtrans %}</p>
-                        <a href="{{ url("admin_image_upload") }}" id="pickfiles" class="button" data-tc-modules="uploader">
-                            Upload images
-                        </a>
-                        <progress id="progresBar" value="0" max="100" style="display: none"></progress>
-                    </div>
-                </div>
-                <div class="col-2-3">
-                    <div class="box">
-                        {{ form_row(form.images,{'attr': {'class':'d-n'}}) }}
-                        <ul id="thumb-gallery" class="thumbnail-group pl-s">
-                        {% for image in product.images %}
-                            <li>
-                                <a href="{{ image|viewImage }}" data-tc-modules="modal" data-tc-width="90%" data-tc-height="90%" class="group-images thumbnail">
-                                 <img id="image-{{ image.id }}" src="{{ image|viewImage }}" width="150" />
-                                </a>
-                                <ul class="thumbnail-actions">
-                                    <li>
-                                        <a href="{{ url("admin_image_delete", {id: image.id}) }}" class="icon-trash-o"></a>
-                                    </li>
-                                </ul>
-                            </li>
-                        {% endfor %}
-                        </ul>
-                    </div>
-                </div>
-            </div>
+
+            {% include '@AdminMedia/Module/_images-form-field.html.twig' with {
+                'images' : product.images
+            } %}
+
             <details class="ph-n">
                 <summary class="mb-n pl-xl">{{ 'Personalize Metadata'|trans }}</summary>
                 <div class="grid">
@@ -206,8 +180,6 @@
                 </div>
             </div>
         </fieldset>
-        {{ form_row(form.createdAt, {'attr': {'class':'d-n'}}) }}
-        {{ form_row(form.updatedAt, {'attr': {'class':'d-n'}}) }}
         <div class="grid">
             <div class="col-1-3">
                 &nbsp;

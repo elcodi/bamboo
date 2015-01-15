@@ -61,6 +61,11 @@
                     </div>
                 </div>
             </div>
+
+            {% include '@AdminMedia/Module/_images-form-field.html.twig' with {
+                'images' : manufacturer.images
+            } %}
+
             <details class="ph-n">
                 <summary class="mb-n pl-xl">{{ 'Personalize Metadata'|trans }}</summary>
                 <div class="grid">
