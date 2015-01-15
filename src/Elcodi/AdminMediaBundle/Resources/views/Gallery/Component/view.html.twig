@@ -1,33 +1,18 @@
-<div class="gallery-cont">
-
+<ul class="thumbnail-group">
     {% for image in images %}
         {% set imagePath = image|viewImage %}
-        <div class="item">
-            <div class="photo">
-                <div class="head">
-                    <span class="pull-right"><i class="fa fa-heart"></i> </span>
-                    <h4>{{ image.name }}</h4>
-                    <span class="desc">{{ entity.name }}</span>
-                </div>
-                <div class="img">
-                    <img src="{{ imagePath }}"/>
-
-                    <div class="over">
-                        <div class="func">
-                            <a href="{{ imagePath }}">
-                                <i class="fa fa-link"></i>
-                            </a>
-                            <a class="image-zoom" href="{{ imagePath }}">
-                                <i class="fa fa-search"></i>
-                            </a>
-                            <a href="{{ url("admin_image_delete", {id: image.id}) }}">
-                                <i class="fa fa-times-circle fa-"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <li>
+            {{ entity.name }}
+            <a href="{{ imagePath }}" data-tc-modules="modal" class="thumbnail">
+                <img src="{{ imagePath }}" width="150"/>
+            </a>
+            <ul class="thumbnail-actions">
+                <li>
+                    <a href="{{ url("admin_image_delete", {id: image.id}) }}" data-tc-modules="confirm" data-tc-name="{{ image.name }}" data-tc-text="{{ "Are you sure you want to delete it?"|trans }}">
+                        <i class="icon-trash-o"></i>
+                    </a>
+                </li>
+            </ul>
+        </li>
     {% endfor %}
-
-</div>
+</ul>
