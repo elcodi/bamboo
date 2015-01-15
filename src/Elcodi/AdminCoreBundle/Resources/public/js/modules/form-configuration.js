@@ -77,7 +77,6 @@ TinyCore.AMD.define('form-configuration', ['devicePackage'], function () {
 					$(oInput).before('<input type="text" id="preview-'+ sId +'" readonly="readonly" value="'+ $('option[value=' + oInput.value +  ']', oInput).html() +'" data-rel="' + oInput.id + '" />');
 				}
 
-
 				self.toggleField(oInput, true);
 
 				$(oInput).on('click', function (e) {
@@ -101,10 +100,16 @@ TinyCore.AMD.define('form-configuration', ['devicePackage'], function () {
 						type:  'post',
 						data: oData,
 						success: function(response) {
+
+							if (oInput.nodeName == 'SELECT') {
+								document.getElementById('preview-'+ sId).value = oInput.options[oInput.selectedIndex].innerHTML;
+							}
+
 							self.toggleField(oInput, true);
 							$('.js-save', oTarget).hide();
 							$('.js-loading', oTarget).hide();
 							$('.js-ok', oTarget).fadeIn('slow').fadeOut('slow').fadeIn('slow').fadeOut('slow').fadeIn('slow');
+
 							setTimeout( function() {
 								$('.js-ok', oTarget).fadeOut();
 							}, 3000);

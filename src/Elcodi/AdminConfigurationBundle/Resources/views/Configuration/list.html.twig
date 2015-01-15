@@ -29,11 +29,13 @@
                     <ol>
                         <li>
                             <label for="store.name">{{ 'Store Name'|trans }}</label>
+                            <i class="icon-pencil"></i>
                             <input id="store.name" type="text" name="store.name" value="{{ getConfiguration('store.name') }}"/>
                             <input id="url-store.name" type="hidden" value="{{ url("admin_configuration_update", {"name": "store.name"}) }}">
                         </li>
                         <li>
                             <label for="currency.default_currency">{{ 'Currency configuration'|trans }}</label>
+                            <i class="icon-pencil"></i>
                             {% set defaultCurrency = getConfiguration('currency.default_currency') %}
                             <select id="currency.default_currency" name="currency.default_currency">
                                 {% for currency in currencies %}
