@@ -47,6 +47,9 @@ TinyCore.AMD.define('modal-content', ['devicePackage','modal' ], function () {
 			$(oTarget).on('click',function(event) {
 				event.preventDefault();
 
+
+				var $modal = $("#cboxContent");
+
 				// 4.Open in a modal this href
 				self.oModal.open({
 					href: this.href,
@@ -55,12 +58,21 @@ TinyCore.AMD.define('modal-content', ['devicePackage','modal' ], function () {
 					width: '95%',
 					height: '95%',
 					onOpen: function() {
-						$("#cboxContent").hide();
+						$modal.hide();
 					},
 					onComplete: function() {
-						$("iframe").contents().find(".sidebar").remove();
-						$("iframe").contents().find(".col-4-5.pull-right").attr('class','col-1-1');
-						$("#cboxContent").fadeIn();
+
+						var $iframe = $("iframe").contents();
+
+						$iframe.find("#cancel-button").on('click', function(event){
+							event.preventDefault();
+							self.oModal.close();
+						});
+
+						$iframe.find(".sidebar").remove();
+						$iframe.find(".col-4-5.pull-right").attr('class','col-1-1');
+
+						$modal.fadeIn();
 					}
 				});
 			});

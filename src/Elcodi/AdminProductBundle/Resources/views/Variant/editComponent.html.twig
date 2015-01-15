@@ -38,7 +38,8 @@
                 <div class="col-1-3">
                     <div class="box-none">
                         <h3 class="fw-n">{% trans %}Attributes{% endtrans %}</h3>
-                        <p>{% trans %}What are the principle attributes that make unique this variant?{% endtrans %}</p>
+                        <p>{% trans %}Set the principal attributes of this variant.{% endtrans %}</p>
+                        <p><a href="{{ url("admin_attribute_new") }}" target="_parent" class="button"><i class="icon-plus"></i> {{ "New atrribute"|trans }}</a> </p>
                     </div>
                 </div>
                 <div class="col-2-3">
@@ -58,7 +59,7 @@
                 <div class="col-1-3">
                     <div class="box-none">
                         <h3 class="fw-n">{% trans %}Pricing{% endtrans %}</h3>
-                        <p>{% trans %}Set the price and the offer if is needed.{% endtrans %}</p>
+                        <p>{% trans %}Set the price for your variant, it doesn't include taxes or shipping. Also you can set a offer price.{% endtrans %}</p>
                     </div>
                 </div>
                 <div class="col-2-3">
@@ -79,7 +80,7 @@
                 <div class="col-1-3">
                     <div class="box-none mb-n pb-m">
                         <h3 class="fw-n">{% trans %}Visibility{% endtrans %}</h3>
-                        <p>{% trans %}Control where and when this product could be seen.{% endtrans %}</p>
+                        <p>{% trans %}Set this variant as visible or hidden.{% endtrans %}</p>
                     </div>
                 </div>
                 <div class="col-2-3">

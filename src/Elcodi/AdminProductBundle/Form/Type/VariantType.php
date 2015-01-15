@@ -63,7 +63,7 @@ class VariantType extends AbstractPurchasableType
             ))
             ->add('enabled', 'checkbox', array(
                 'required' => false,
-                'label'    => 'Status'
+                'label'    => 'Visible'
             ));
     }
 
