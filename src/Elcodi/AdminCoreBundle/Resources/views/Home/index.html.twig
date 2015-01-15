@@ -12,6 +12,11 @@
 
 {% block content %}
 
+    {{ render(url('admin_metric_last_24_hours', {
+        'tracker': store_tracker,
+        'event': 'page_view'
+    })) }}
+
     <!-- FIRST STEP  -->
 
     <div id="step1" class="grid welcome">

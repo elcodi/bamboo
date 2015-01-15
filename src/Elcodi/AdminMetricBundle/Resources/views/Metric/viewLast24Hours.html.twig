@@ -1,0 +1,18 @@
+<table class="table" data-tc-modules="stats" data-tc-type="bar">
+    <thead>
+    <tr>
+        <td></td>
+        {% for timeElement in timeElements %}
+            <th scope="col">{{ timeElement|date('d.H') }}</th>
+        {% endfor %}
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">Visits</th>
+        {% for timeElement in timeElements %}
+            <td>{{ metric_count(tracker, event, timeElement|date('Y.m.d.H')) }}</td>
+        {% endfor %}
+    </tr>
+    </tbody>
+</table>
