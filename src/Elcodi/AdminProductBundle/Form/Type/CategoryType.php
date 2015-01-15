@@ -113,7 +113,7 @@ class CategoryType extends AbstractType
             ))
             ->add('enabled', 'checkbox', array(
                 'required' => false,
-                'label'    => 'Status',
+                'label'    => 'Visible',
             ))
             ->add('metaTitle', 'text', array(
                 'required' => false,

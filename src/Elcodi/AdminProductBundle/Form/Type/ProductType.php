@@ -79,7 +79,7 @@ class ProductType extends AbstractPurchasableType
             ))
             ->add('enabled', 'checkbox', array(
                 'required' => false,
-                'label'    => 'Enabled',
+                'label'    => 'Visible',
             ))
             ->add('metaTitle', 'text', array(
                 'required' => false,

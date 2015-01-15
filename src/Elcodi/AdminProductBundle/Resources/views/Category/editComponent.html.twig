@@ -31,11 +31,12 @@
             <div class="col-1-3">
                 <div class="box-none">
                     <h3 class="fw-n">{% trans %}Basic Details{% endtrans %}</h3>
-                    <p>{% trans %}Provide a very specific name for the category.{% endtrans %}</p>
+                    <p>{% trans %}Provide a very specific name as short as you can that helps your consumers to find the products of this category.{% endtrans %}</p>
+                    {% if languages()|length > 1 %}<p><i class="icon-star"></i> {% trans %}= Master Language (Mandatory){% endtrans %}</p>{% endif %}
                 </div>
             </div>
             <div class="col-2-3">
-                <div data-tc-modules="tabs" class="tabs-box">
+                <div {% if languages()|length > 1 %}data-tc-modules="tabs" class="tabs-box" {% endif %}>
                     {% for language in languages() %}
                         <section id="tab-{{ language }}" data-tc-name="{% if loop.first %}<i class='icon-star'></i> {% endif %}{{ language|capitalize }}">
                             <div class="box">
@@ -59,7 +60,7 @@
             <div class="col-1-3">
                 <div class="box-none mb-n pb-m">
                     <h3 class="fw-n">{% trans %}Categorization{% endtrans %}</h3>
-                    <p>{% trans %}Control where this category could be seen.{% endtrans %}</p>
+                    <p>{% trans %}Set your category as root if doesn't have any parent or it's going to be parent of others.{% endtrans %}</p>
                 </div>
             </div>
             <div class="col-2-3">
@@ -95,7 +96,7 @@
                 </div>
                 <div class="col-2-3">
                     <p class="msg-warning">{% trans %}<strong>This area for advanced users.</strong> Leave this fields in blank to obtain automatically the metadata of your product.{% endtrans %}</p>
-                    <div data-tc-modules="tabs" class="tabs-box">
+                    <div {% if languages()|length > 1 %}data-tc-modules="tabs" class="tabs-box" {% endif %}>
                         {% for language in languages() %}
                             <section id="metadata-{{ language }}" data-tc-name="{% if loop.first %}<i class='icon-star'></i> {% endif %}{{ language|capitalize }}">
                                 <div class="box">
@@ -124,7 +125,7 @@
             <div class="col-1-3">
                 <div class="box-none mb-n pb-m">
                     <h3 class="fw-n">{% trans %}Visibility{% endtrans %}</h3>
-                    <p>{% trans %}Control when this category could be seen.{% endtrans %}</p>
+                    <p>{% trans %}Set this category as visible or hidden.{% endtrans %}</p>
                 </div>
             </div>
             <div class="col-2-3">
@@ -142,8 +143,8 @@
                 &nbsp;
             </div>
             <div class="col-2-3">
-                <button type="submit" class="button-primary">{{ 'Update'|trans }}</button>
-                <a href="{{ path('admin_category_list') }}" class="button">{{ 'Cancel'|trans }}</a>
+                <button type="submit" class="button-primary">{{ 'Save'|trans }}</button>
+                <a href="{{ path('admin_category_list') }}" id="cancel-button" class="button">{{ 'Cancel'|trans }}</a>
 
             </div>
         </div>
