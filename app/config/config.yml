@@ -7,6 +7,7 @@ imports:
     - { resource: @ElcodiBambooBundle/Resources/config/configuration.yml }
     - { resource: @ElcodiBambooBundle/Resources/config/cache.yml }
     - { resource: @ElcodiBambooBundle/Resources/config/page.yml }
+    - { resource: @ElcodiBambooBundle/Resources/config/metrics.yml }
 
 monolog:
     handlers:
@@ -21,6 +22,7 @@ monolog:
 twig:
     globals:
         currency_wrapper: @elcodi.currency_wrapper
+        store_tracker: %elcodi.core.bamboo.store_tracker%
 
 framework:
     #esi:             ~
@@ -119,3 +121,6 @@ hwi_oauth:
             type: paypal
             client_id: %bamboo_social_paypal_client_id%
             client_secret: %bamboo_social_paypal_client_secret%
+
+elcodi_bamboo:
+    store_tracker: 7s89da7s8d9a
