@@ -45,13 +45,21 @@ class PageType extends AbstractType
                 'required' => true,
                 'label'    => 'path',
             ))
-            ->add('template', 'text', array(
-                'required' => false,
-                'label'    => 'template',
-            ))
             ->add('content', 'textarea', array(
                 'required' => true,
                 'label'    => 'content',
+            ))
+            ->add('metaTitle', 'text', array(
+                'required' => false,
+                'label'    => 'Metatitle',
+            ))
+            ->add('metaDescription', 'text', array(
+                'required' => false,
+                'label'    => 'Metadescription',
+            ))
+            ->add('metaKeywords', 'text', array(
+                'required' => false,
+                'label'    => 'Metakeywords',
             ))
             ->add('enabled', 'checkbox', array(
                 'required' => false,
