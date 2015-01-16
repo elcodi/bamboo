@@ -58,7 +58,7 @@ class CategoryController extends Controller
             ->load();
 
         return $this->renderTemplate(
-            'Modules:_categories-list.html.twig',
+            'Subpages:category-list.html.twig',
             [
                 'currentCategoryId' => $currentCategoryId,
                 'categoryTree'      => $categoryTree,

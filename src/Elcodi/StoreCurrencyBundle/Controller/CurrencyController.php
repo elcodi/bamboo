@@ -69,7 +69,7 @@ class CurrencyController extends Controller
             ->loadCurrency();
 
         return $this->renderTemplate(
-            'Modules:_currencies.html.twig',
+            'Subpages:currency-list.html.twig',
             [
                 'currencies'     => $currencies,
                 'activeCurrency' => $activeCurrency,

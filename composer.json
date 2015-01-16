@@ -87,6 +87,7 @@
         "elcodi/page-bundle": "~0.4.0",
         "elcodi/configuration-bundle": "~0.4.0",
 
+        "elcodi-templates/template": "~0.4.0",
         "elcodi-templates/store-template-bundle": "~0.4.0",
 
         "elcodi/bamboo-fixtures": "~0.4.0"

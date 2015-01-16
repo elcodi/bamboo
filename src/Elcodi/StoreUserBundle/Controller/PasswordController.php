@@ -110,7 +110,7 @@ class PasswordController extends Controller
             return new RedirectResponse($this->generateUrl('store_homepage'));
         }
 
-        return $this->renderTemplate('User/password-sent.html.twig');
+        return $this->renderTemplate('Pages/user-password-sent.html.twig');
     }
 
     /**
@@ -162,7 +162,7 @@ class PasswordController extends Controller
         }
 
         return $this->renderTemplate(
-            'User/password-recover.html.twig',
+            'Pages/user-password-recover.html.twig',
             [
                 'form' => $passwordRecoverForm->createView()
             ]
