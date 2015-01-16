@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\AdminPageBundle\Controller\Components;
+namespace Elcodi\AdminPageBundle\Controller\Component;
 
 use Doctrine\ORM\Tools\Pagination\Paginator;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
@@ -33,9 +33,8 @@ use Elcodi\Component\Page\Entity\Interfaces\PageInterface;
  * Class PageComponentController
  *
  * @Route(
- *      path = "/page"
+ *      path = "page"
  * )
- *
  */
 class PageComponentController extends AbstractAdminController
 {
@@ -55,7 +54,7 @@ class PageComponentController extends AbstractAdminController
      * @return array Result
      *
      * @Route(
-     *      path = "s/component/{page}/{limit}/{orderByField}/{orderByDirection}",
+     *      path = "s/list/component/{page}/{limit}/{orderByField}/{orderByDirection}",
      *      name = "admin_page_list_component",
      *      requirements = {
      *          "page" = "\d*",
@@ -68,7 +67,7 @@ class PageComponentController extends AbstractAdminController
      *          "orderByDirection" = "DESC",
      *      },
      * )
-     * @Template("AdminPageBundle:Page:Component/listComponent.html.twig")
+     * @Template("AdminPageBundle:Page:listComponent.html.twig")
      * @Method({"GET"})
      *
      * @PaginatorAnnotation(
@@ -102,115 +101,59 @@ class PageComponentController extends AbstractAdminController
     }
 
     /**
-     * Component for entity view
-     *
-     * As a component, this action should not return all the html macro, but
-     * only the specific component
-     *
-     * @param PageInterface $entity Entity to view
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "page/component/{id}",
-     *      name = "admin_page_view_component",
-     *      requirements = {
-     *          "id" = "\d*",
-     *      }
-     * )
-     * @Template("AdminPageBundle:Page:Component/viewComponent.html.twig")
-     * @Method({"GET"})
-     *
-     * @EntityAnnotation(
-     *      class = "elcodi.core.page.entity.page.class",
-     *      mapping = {
-     *          "id": "~id~",
-     *      }
-     * )
-     */
-    public function viewComponentAction(
-        PageInterface $entity
-    )
-    {
-        return [
-            'entity' => $entity,
-        ];
-    }
-
-    /**
-     * New element action
-     *
-     * As a component, this action should not return all the html macro, but
-     * only the specific component
-     *
-     * @param FormView $formView
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/new/component",
-     *      name = "admin_page_new_component"
-     * )
-     * @Template("AdminPageBundle:Page:Component/newComponent.html.twig")
-     * @Method({"GET"})
-     *
-     * @EntityAnnotation(
-     *      class = {
-     *          "factory" = "elcodi.core.page.factory.page",
-     *      },
-     *      persist = true
-     * )
-     * @FormAnnotation(
-     *      class = "elcodi_admin_page_form_type_page",
-     *      name  = "formView",
-     *      entity = "entity"
-     * )
-     */
-    public function newComponentAction(FormView $formView)
-    {
-        return [
-            'form' => $formView,
-        ];
-    }
-
-    /**
      * New element component action
      *
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param PageInterface $entity   Entity
      * @param FormView      $formView Form view
+     * @param PageInterface $page     Page
      *
      * @return array Result
      *
      * @Route(
-     *      path = "/{id}/edit/component",
-     *      name = "admin_page_edit_component"
+     *      path = "/{id}/component",
+     *      name = "admin_page_edit_component",
+     *      requirements = {
+     *          "id" = "\d+",
+     *      }
      * )
-     * @Template("AdminPageBundle:Page:Component/editComponent.html.twig")
+     * @Route(
+     *      path = "/new/component",
+     *      name = "admin_page_new_component",
+     *      methods = {"GET"}
+     * )
+     * @Template("AdminPageBundle:Page:editComponent.html.twig")
      * @Method({"GET"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.page.entity.page.class",
+     *      class = {
+     *          "factory" = "elcodi.factory.page",
+     *          "method" = "create",
+     *          "static" = false
+     *      },
+     *      name = "page",
      *      mapping = {
-     *          "id": "~id~",
-     *      }
+     *          "id" = "~id~"
+     *      },
+     *      mappingFallback = true,
      * )
      * @FormAnnotation(
      *      class = "elcodi_admin_page_form_type_page",
      *      name  = "formView",
-     *      entity = "entity"
+     *      entity = "page",
+     *      handleRequest = true,
+     *      validate = "isValid"
      * )
      */
     public function editComponentAction(
-        PageInterface $entity,
-        FormView $formView
+        FormView $formView,
+        PageInterface $page
     )
     {
         return [
-            'entity' => $entity,
-            'form'   => $formView,
+            'page' => $page,
+            'form'     => $formView,
         ];
     }
 }

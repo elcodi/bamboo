@@ -5,26 +5,33 @@
 {% endblock content_title %}
 
 {% block breadcrumb %}
-    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
+
+    {% set entityHeader = page.id
+        ? 'Edit ' ~ page.name
+        : 'Create new Page'
+    %}
+
+    {% include '@AdminCore/Common/breadcrumb.html.twig' with {
         breadcrumb: {
-            "Page": {
-                "url": url('admin_page_list')
+            'Pages': {
+                'url': url('admin_page_list')
             },
-            ("Edit #" ~ id): {
-                "active" : true
+            (entityHeader): {
+                'active' : true
             }
         }
     } %}
-{% endblock %}
+
+{% endblock breadcrumb %}
 
 {% block content %}
 
-    <div class="row">
-        <div class="col-md-12">
-            {{ render(url("admin_page_edit_component", {
-                'id': id
-            })) }}
-        </div>
-    </div>
+    {% if page.id %}
+        {{ render(url("admin_page_edit_component", {
+            'id': page.id
+        })) }}
+    {% else %}
+        {{ render(url("admin_page_new_component")) }}
+    {% endif %}
 
 {% endblock content %}

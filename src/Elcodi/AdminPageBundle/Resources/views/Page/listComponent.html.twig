@@ -12,7 +12,6 @@
             "id": {width:"25"},
             "title": {},
             "path": {},
-            "content": {},
             "enabled": {width:"25"},
         },
         class: "page",
@@ -22,7 +21,7 @@
 
 {% block table_body_row %}
     <td>
-        <a href="{{ url("admin_page_view", {"id": entity.id}) }}">
+        <a href="{{ url("admin_page_edit", {"id": entity.id}) }}">
             {{ entity.id }}
         </a>
     </td>
@@ -31,9 +30,6 @@
     </td>
     <td>
         {{ entity.path }}
-    </td>
-    <td>
-        {{ entity.content|truncate(80, '…') }}
     </td>
     <td>
         {% if entity.enabled %}
