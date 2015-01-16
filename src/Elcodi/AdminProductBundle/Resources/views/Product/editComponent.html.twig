@@ -119,7 +119,7 @@
             {% endif %}
 
             {% include '@AdminMedia/Module/_images-form-field.html.twig' with {
-                'images' : product.images
+                'images' : product.getSortedImages
             } %}
 
             <details class="ph-n">

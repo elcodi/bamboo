@@ -11,7 +11,7 @@
 {% block table_head %}
     {% include "@AdminCore/Tables/head.html.twig" with {
         rows: {
-            "Image": {width:"20"},
+            "Image": {width:"10"},
             "Name & details": {},
             "Category": {width:"20"},
             "Price": {width:"10"}
@@ -25,7 +25,7 @@
     <td>
         {% if entity.images|length > 0 %}
             <a href="{{ url("admin_product_edit", {"id": entity.id}) }}" class="thumbnail">
-                <img src="{{ entity.images.first|resize({'height': 30, 'width': 30, 'type': 5}) }}" />
+                <img src="{{ entity.images.first|resize({'height': 100, 'width': 100, 'type': 4}) }}" />
             </a>
         {% endif %}
     </td>
