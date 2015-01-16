@@ -65,17 +65,9 @@ class ProductType extends AbstractPurchasableType
                 'required' => false,
                 'label'    => 'Reduced Price',
             ))
-            ->add('createdAt', 'datetime', array(
-                'widget'   => 'single_text',
-                'format'   => 'yyyy-MM-dd - HH:mm:ss',
-                'required' => true,
-                'label'    => false
-            ))
-            ->add('updatedAt', 'datetime', array(
-                'widget'   => 'single_text',
-                'format'   => 'yyyy-MM-dd - HH:mm:ss',
-                'required' => true,
-                'label'    => false
+            ->add('imagesSort', 'text', array(
+                'required' => false,
+                'label'    => 'Images sort',
             ))
             ->add('enabled', 'checkbox', array(
                 'required' => false,

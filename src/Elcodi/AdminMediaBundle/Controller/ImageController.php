@@ -17,24 +17,21 @@
 namespace Elcodi\AdminMediaBundle\Controller;
 
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
-use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\JsonResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
-use Elcodi\Component\Media\Entity\Interfaces\ImageInterface;
 
 /**
  * Class Controller for Media
  *
  * @Route(
- *      path = "/image"
+ *      path = "/media/image"
  * )
  */
 class ImageController extends AbstractAdminController
@@ -45,207 +42,18 @@ class ImageController extends AbstractAdminController
      * This action is just a wrapper, so should never get any data,
      * as this is component responsibility
      *
-     * @param integer $page             Page
-     * @param integer $limit            Limit of items per page
-     * @param string  $orderByField     Field to order by
-     * @param string  $orderByDirection Direction to order by
-     *
      * @return array Result
      *
      * @Route(
-     *      path = "s/{page}/{limit}/{orderByField}/{orderByDirection}",
+     *      path = "s/",
      *      name = "admin_image_list",
-     *      requirements = {
-     *          "page" = "\d*",
-     *          "limit" = "\d*",
-     *      },
-     *      defaults = {
-     *          "page" = "1",
-     *          "limit" = "50",
-     *          "orderByField" = "id",
-     *          "orderByDirection" = "DESC",
-     *      },
+     *      methods = {"GET"}
      * )
      * @Template
-     * @Method({"GET"})
      */
-    public function listAction(
-        $page,
-        $limit,
-        $orderByField,
-        $orderByDirection
-    )
-    {
-        return [
-            'page'             => $page,
-            'limit'            => $limit,
-            'orderByField'     => $orderByField,
-            'orderByDirection' => $orderByDirection,
-        ];
-    }
-
-    /**
-     * View element action.
-     *
-     * This action is just a wrapper, so should never get any data,
-     * as this is component responsibility
-     *
-     * @param integer $id Entity id
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/{id}",
-     *      name = "admin_image_view",
-     *      requirements = {
-     *          "id" = "\d*",
-     *      }
-     * )
-     * @Template
-     * @Method({"GET"})
-     */
-    public function viewAction($id)
-    {
-        return [
-            'id' => $id,
-        ];
-    }
-
-    /**
-     * New element action
-     *
-     * This action is just a wrapper, so should never get any data,
-     * as this is component responsibility
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/new",
-     *      name = "admin_image_new"
-     * )
-     * @Template
-     * @Method({"GET"})
-     */
-    public function newAction()
+    public function listAction()
     {
         return [];
-    }
-
-    /**
-     * Save new element action
-     *
-     * Should be POST
-     *
-     * @param ImageInterface $entity  Entity to save
-     * @param FormInterface  $form    Form view
-     * @param boolean        $isValid Request handle is valid
-     *
-     * @return RedirectResponse Redirect response
-     *
-     * @Route(
-     *      path = "/save",
-     *      name = "admin_image_save"
-     * )
-     * @Method({"POST"})
-     *
-     * @EntityAnnotation(
-     *      class = {
-     *          "factory" = "elcodi.core.media.factory.image",
-     *      },
-     *      persist = true
-     * )
-     * @FormAnnotation(
-     *      class = "elcodi_admin_image_form_type_image",
-     *      name  = "form",
-     *      entity = "entity",
-     *      handleRequest = true,
-     *      validate = "isValid"
-     * )
-     */
-    public function saveAction(
-        ImageInterface $entity,
-        FormInterface $form,
-        $isValid
-    )
-    {
-        if ($isValid) {
-            $this
-                ->get('elcodi.object_manager.image')
-                ->flush($entity);
-        }
-
-        return $this->redirectRoute("admin_image_view", [
-            'id' => $entity->getId(),
-        ]);
-    }
-
-    /**
-     * New element action
-     *
-     * This action is just a wrapper, so should never get any data,
-     * as this is component responsibility
-     *
-     * @param integer $id Entity id
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/{id}/edit",
-     *      name = "admin_image_edit"
-     * )
-     * @Template
-     * @Method({"GET"})
-     */
-    public function editAction($id)
-    {
-        return [
-            'id' => $id,
-        ];
-    }
-
-    /**
-     * Updated edited element action
-     *
-     * Should be POST
-     *
-     * @param ImageInterface $entity  Entity to update
-     * @param boolean        $isValid Request handle is valid
-     *
-     * @return RedirectResponse Redirect response
-     *
-     * @Route(
-     *      path = "/{id}/update",
-     *      name = "admin_image_update"
-     * )
-     * @Method({"POST"})
-     *
-     * @EntityAnnotation(
-     *      class = "elcodi.core.media.entity.image.class",
-     *      mapping = {
-     *          "id": "~id~",
-     *      }
-     * )
-     * @FormAnnotation(
-     *      class = "elcodi_admin_image_form_type_image",
-     *      entity = "entity",
-     *      handleRequest = true,
-     *      validate = "isValid"
-     * )
-     */
-    public function updateAction(
-        ImageInterface $entity,
-        $isValid
-    )
-    {
-        if ($isValid) {
-            $this
-                ->get('elcodi.object_manager.image')
-                ->flush($entity);
-        }
-
-        return $this->redirectRoute("admin_image_view", [
-            'id' => $entity->getId(),
-        ]);
     }
 
     /**

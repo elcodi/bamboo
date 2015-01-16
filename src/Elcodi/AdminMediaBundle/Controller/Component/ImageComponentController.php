@@ -16,24 +16,16 @@
 
 namespace Elcodi\AdminMediaBundle\Controller\Component;
 
-use Doctrine\ORM\Tools\Pagination\Paginator;
-use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
-use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
-use Mmoreram\ControllerExtraBundle\Annotation\Paginator as PaginatorAnnotation;
-use Mmoreram\ControllerExtraBundle\ValueObject\PaginatorAttributes;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Symfony\Component\Form\FormView;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\Component\Media\Entity\Interfaces\ImageInterface;
 
 /**
  * Class ImageComponentController
  *
  * @Route(
- *      path = "/image"
+ *      path = "/media/image"
  * )
  */
 class ImageComponentController extends AbstractAdminController
@@ -44,188 +36,23 @@ class ImageComponentController extends AbstractAdminController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Paginator           $paginator           Paginator instance
-     * @param PaginatorAttributes $paginatorAttributes Paginator attributes
-     * @param integer             $page                Page
-     * @param integer             $limit               Limit of items per page
-     * @param string              $orderByField        Field to order by
-     * @param string              $orderByDirection    Direction to order by
-     *
      * @return array Result
      *
      * @Route(
-     *      path = "s/list/component/{page}/{limit}/{orderByField}/{orderByDirection}",
+     *      path = "s/list/component",
      *      name = "admin_image_list_component",
-     *      requirements = {
-     *          "page" = "\d*",
-     *          "limit" = "\d*",
-     *      },
-     *      defaults = {
-     *          "page" = "1",
-     *          "limit" = "50",
-     *          "orderByField" = "id",
-     *          "orderByDirection" = "DESC",
-     *      }
+     *      methods = {"GET"}
      * )
-     * @Template("AdminMediaBundle:Image:Component/listComponent.html.twig")
-     * @Method({"GET"})
-     *
-     * @PaginatorAnnotation(
-     *      attributes = "paginatorAttributes",
-     *      class = "elcodi.core.media.entity.image.class",
-     *      page = "~page~",
-     *      limit = "~limit~",
-     *      orderBy = {
-     *          {"x", "~orderByField~", "~orderByDirection~"}
-     *      }
-     * )
+     * @Template("AdminMediaBundle:Image:listComponent.html.twig")
      */
-    public function listComponentAction(
-        Paginator $paginator,
-        PaginatorAttributes $paginatorAttributes,
-        $page,
-        $limit,
-        $orderByField,
-        $orderByDirection
-    )
+    public function listComponentAction()
     {
-        return [
-            'paginator'        => $paginator,
-            'page'             => $page,
-            'limit'            => $limit,
-            'orderByField'     => $orderByField,
-            'orderByDirection' => $orderByDirection,
-            'totalPages'       => $paginatorAttributes->getTotalPages(),
-            'totalElements'    => $paginatorAttributes->getTotalElements(),
-        ];
-    }
+        $images = $this
+            ->get('elcodi.repository.image')
+            ->findAll();
 
-    /**
-     * Component for entity view
-     *
-     * As a component, this action should not return all the html macro, but
-     * only the specific component
-     *
-     * @param ImageInterface $entity Entity to view
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/component/{id}",
-     *      name = "admin_image_view_component",
-     *      requirements = {
-     *          "id" = "\d*",
-     *      }
-     * )
-     * @Template("AdminMediaBundle:Image:Component/viewComponent.html.twig")
-     * @Method({"GET"})
-     *
-     * @EntityAnnotation(
-     *      class = {
-     *          "factory" = "elcodi.core.media.factory.image",
-     *      },
-     *      mapping = {
-     *          "id" = "~id~"
-     *      }
-     * )
-     */
-    public function viewComponentAction(ImageInterface $entity)
-    {
         return [
-            'entity' => $entity,
+            'images' => $images,
         ];
-    }
-
-    /**
-     * New element action
-     *
-     * As a component, this action should not return all the html macro, but
-     * only the specific component
-     *
-     * @param FormView $formView Form view
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/new/component",
-     *      name = "admin_image_new_component"
-     * )
-     * @Template("AdminMediaBundle:Image:Component/newComponent.html.twig")
-     * @Method({"GET"})
-     *
-     * @EntityAnnotation(
-     *      class = {
-     *          "factory" = "elcodi.core.media.factory.image",
-     *      }
-     * )
-     * @FormAnnotation(
-     *      class = "elcodi_admin_image_form_type_image",
-     *      name  = "formView",
-     *      entity = "entity"
-     * )
-     */
-    public function newComponentAction(FormView $formView)
-    {
-        return [
-            'form' => $formView,
-        ];
-    }
-
-    /**
-     * New element component action
-     *
-     * As a component, this action should not return all the html macro, but
-     * only the specific component
-     *
-     * @param ImageInterface $entity   Entity
-     * @param FormView       $formView Form view
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/{id}/edit/component",
-     *      name = "admin_image_edit_component"
-     * )
-     * @Template("AdminMediaBundle:Image:Component/editComponent.html.twig")
-     * @Method({"GET"})
-     *
-     * @EntityAnnotation(
-     *      class = "elcodi.core.image.entity.image.class",
-     *      mapping = {
-     *          "id": "~id~",
-     *      }
-     * )
-     * @FormAnnotation(
-     *      class = "elcodi_admin_image_form_type_image",
-     *      name  = "formView",
-     *      entity = "entity"
-     * )
-     */
-    public function editComponentAction(
-        ImageInterface $entity,
-        FormView $formView
-    )
-    {
-        return [
-            'entity' => $entity,
-            'form'   => $formView,
-        ];
-    }
-
-    /**
-     * Dropzone component
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/dropzone/component",
-     *      name = "admin_image_dropzone_component"
-     * )
-     * @Template("AdminMediaBundle:Image:Component/dropzoneComponent.html.twig")
-     * @Method({"GET"})
-     */
-    public function dropzoneComponentAction()
-    {
-        return [];
     }
 }

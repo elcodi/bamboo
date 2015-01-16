@@ -23,9 +23,11 @@
 
 {% block table_body_row %}
     <td>
-        <a href="{{ url("admin_product_edit", {"id": entity.id}) }}" class="thumbnail">
-            <img src="{{ entity.images.first|viewImage() }}" />
-        </a>
+        {% if entity.images|length > 0 %}
+            <a href="{{ url("admin_product_edit", {"id": entity.id}) }}" class="thumbnail">
+                <img src="{{ entity.images.first|resize({'height': 30, 'width': 30, 'type': 5}) }}" />
+            </a>
+        {% endif %}
     </td>
 
     <td>

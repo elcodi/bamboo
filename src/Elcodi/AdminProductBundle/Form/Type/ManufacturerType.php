@@ -81,6 +81,17 @@ class ManufacturerType extends AbstractType
                 'required' => false,
                 'label'    => 'description',
             ))
+            ->add('imagesSort', 'text', array(
+                'required' => false,
+                'label'    => 'Images sort',
+            ))
+            ->add('images', 'entity', array(
+                'class'    => 'Elcodi\Component\Media\Entity\Image',
+                'required' => false,
+                'property' => 'id',
+                'label'    => false,
+                'multiple' => true,
+            ))
             ->add('metaTitle', 'text', array(
                 'required' => false,
                 'label'    => 'metaTitle',

@@ -99,18 +99,6 @@ class CategoryType extends AbstractType
                 'required' => false,
                 'label'    => 'Position',
             ))
-            ->add('createdAt', 'datetime', array(
-                'widget'   => 'single_text',
-                'format'   => 'yyyy-MM-dd - HH:mm:ss',
-                'required' => true,
-                'label'    => false
-            ))
-            ->add('updatedAt', 'datetime', array(
-                'widget'   => 'single_text',
-                'format'   => 'yyyy-MM-dd - HH:mm:ss',
-                'required' => true,
-                'label'    => false,
-            ))
             ->add('enabled', 'checkbox', array(
                 'required' => false,
                 'label'    => 'Visible',
