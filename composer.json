@@ -36,6 +36,9 @@
         "symfony/http-kernel": "~2.6",
         "elcodi/bamboo-bundle": "~0.4.0"
     },
+    "provide": {
+        "elcodi-templates/template": "~0.4.0"
+    },
     "autoload": {
         "psr-4": {
             "Elcodi\\StoreTemplateBundle\\": ""
