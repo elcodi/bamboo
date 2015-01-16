@@ -22,13 +22,13 @@
     "bower_components",
     "tests"
   ],
-  "_release": "1.2.6.1",
+  "_release": "1.2.7.7",
   "_resolution": {
     "type": "tag",
-    "tag": "1.2.6.1",
-    "commit": "3da116a43d1743685560b47b259685bc47b23dca"
+    "tag": "1.2.7.7",
+    "commit": "e7b7bd7b2212b250c433dfcb551ad630c3d3a8aa"
   },
   "_source": "https://github.com/tonipinel/frontendcore-js.git",
-  "_target": "1.2.6.1",
+  "_target": "1.2.7.7",
   "_originalSource": "https://github.com/tonipinel/frontendcore-js.git"
 }

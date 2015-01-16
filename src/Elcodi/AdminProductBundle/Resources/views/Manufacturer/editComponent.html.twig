@@ -52,7 +52,7 @@
                                         </li>
                                         <li>
                                             <label>{{ 'Description'|trans }}</label>
-                                            {{ form_widget(form.description[language ~ '_description'],{'attr': {'placeholder':'e.g. This awesome Manufacturer is exactly what you are lookin for.'}}) }}
+                                            {{ form_widget(form.description[language ~ '_description'],{'attr': {'placeholder':'e.g. This awesome Manufacturer is exactly what you are lookin for.','data-tc-modules':'wysiwyg', 'data-tc-help':'Select some text to get some format options'|trans}}) }}
                                         </li>
                                     </ol>
                                 </div>
