@@ -3,6 +3,7 @@
 		& {
 			@extend %field;
 			position: relative;
+			padding-bottom: $spacing*2;
 			min-height: 100px;
 			@include transition(padding, .4s ease-in);
 		}
@@ -11,7 +12,7 @@
 			content: '\f129';
 			color: $color-info;
 			position: absolute;
-			top: $spacing/2;
+			bottom: $spacing/2;
 			left: $spacing/2;
 			min-width: $spacing;
 			@include border-radius(200px);
@@ -26,7 +27,7 @@
 			background: rgba($color-info, .2);
 			width: 100%;
 			padding: $spacing/2 $spacing/2 $spacing/2 $spacing*2;
-			top: 0;
+			bottom: 0;
 			left: 0;
 			position: absolute;
 			display: block;
@@ -38,7 +39,6 @@
 				opacity: 1;
 			}
 			& {
-				padding-top: $spacing*2.5;
 				background: $color-background;
 			}
 
