@@ -19,11 +19,15 @@ namespace Elcodi\AdminPageBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
+use Elcodi\Component\EntityTranslator\EventListener\Traits\EntityTranslatableFormTrait;
+
 /**
  * Class PageType
  */
 class PageType extends AbstractType
 {
+    use EntityTranslatableFormTrait;
+
     /**
      * Buildform function
      *
@@ -54,6 +58,8 @@ class PageType extends AbstractType
                 'label'    => 'enabled',
             ))
         ;
+
+        $builder->addEventSubscriber($this->getEntityTranslatorFormEventListener());
     }
 
     /**
