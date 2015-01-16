@@ -343,7 +343,7 @@ class CartController extends Controller
     public function navAction(CartInterface $cart)
     {
         return $this->renderTemplate(
-            'Modules:_cart-nav.html.twig',
+            'Subpages:cart-nav.html.twig',
             [
                 'cart' => $cart,
             ]

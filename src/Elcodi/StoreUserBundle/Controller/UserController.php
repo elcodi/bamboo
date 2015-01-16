@@ -40,19 +40,19 @@ class UserController extends Controller
      * @return array
      *
      * @Route(
-     *      path = "/user/top",
-     *      name = "store_user_top",
+     *      path = "/user/nav",
+     *      name = "store_user_nav",
      *      methods = {"GET"}
      * )
      */
-    public function topAction()
+    public function navAction()
     {
         $customer = $this
             ->get('elcodi.core.user.wrapper.customer_wrapper')
             ->loadCustomer();
 
         return $this->renderTemplate(
-            'User:_topbar.html.twig',
+            'Subpages:user-nav.html.twig',
             [
                 'customer' => $customer,
             ]
@@ -70,9 +70,9 @@ class UserController extends Controller
      *      methods = {"GET"}
      * )
      */
-    public function userAction()
+    public function homeAction()
     {
-        return $this->renderTemplate('User:user.html.twig');
+        return $this->renderTemplate('Pages:user-home.html.twig');
     }
 
     /**
@@ -85,8 +85,8 @@ class UserController extends Controller
      * @return Response Response
      *
      * @Route(
-     *      path = "/user/profile",
-     *      name = "store_user_profile",
+     *      path = "/user/edit",
+     *      name = "store_user_edit",
      *      methods = {"GET"}
      * )
      *
@@ -106,7 +106,7 @@ class UserController extends Controller
      *      validate      = "isValid"
      * )
      */
-    public function profileAction(
+    public function editAction(
         CustomerInterface $customer,
         FormView $formView,
         $isValid
@@ -124,7 +124,7 @@ class UserController extends Controller
         }
 
         return $this->renderTemplate(
-            'User:profile.html.twig',
+            'Pages:user-edit.html.twig',
             [
                 'form' => $formView,
             ]

@@ -58,7 +58,7 @@ class CouponController extends Controller
     public function viewAction(FormView $couponApplyFormView)
     {
         return $this->renderTemplate(
-            'Modules:_coupon-add.html.twig',
+            'Subpages:coupon-add.html.twig',
             [
                 'form' => $couponApplyFormView,
             ]

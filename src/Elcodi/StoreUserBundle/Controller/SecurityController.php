@@ -74,7 +74,7 @@ class SecurityController extends Controller
         }
 
         return $this->renderTemplate(
-            'User:login.html.twig',
+            'Pages:user-login.html.twig',
             [
                 'form' => $loginFormView,
             ]
@@ -135,7 +135,7 @@ class SecurityController extends Controller
         }
 
         return $this->renderTemplate(
-            'User:register.html.twig',
+            'Pages:user-register.html.twig',
             [
                 'form' => $registerFormView,
             ]
