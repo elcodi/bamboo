@@ -1,6 +1,7 @@
 TinyCore.AMD.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupload/js/plupload.full.min.js','modal' ], function () {
 	return {
 		modal:  TinyCore.Module.instantiate( 'modal' ),
+		sortable: TinyCore.Module.instantiate( 'sortable' ),
 		onStart: function () {
 
 			var self = this,
@@ -95,8 +96,10 @@ TinyCore.AMD.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupl
 					oOption = document.createElement('option');
 					oOption.value = oOption.innerHTML = nId;
 					$(oSelect).append(oOption);
-
 				}
+
+				oLi.id = nId;
+				oLi.setAttribute('draggable','true');
 
 				oLink.id = 'link-' + nId;
 				oLink.href = sUrlView;
@@ -108,6 +111,7 @@ TinyCore.AMD.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupl
 				oThumb.width = 150;
 
 				oLink.innerHTML = oThumb.outerHTML;
+
 				oLi.innerHTML = oLink.outerHTML + oActions;
 
 				oThumbs.appendChild(oLi);
@@ -117,6 +121,9 @@ TinyCore.AMD.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupl
 					self.modal.open({ href: this.href});
 				});
 
+				$(oThumbs).unbind();
+				self.sortable.autobind(oThumbs);
+			
 				self.updateSelect();
 		}
 	};
