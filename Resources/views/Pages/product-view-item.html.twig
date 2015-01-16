@@ -80,7 +80,7 @@
     </div>
     <!-- Related products -->
 
-    {% include "StoreProductBundle:Product:blocks/related.html.twig" with {
+    {% include "@StoreTemplate/Modules/_product-related.html.twig" with {
         'products' : related_products
     } %}
 {% endblock content %}
