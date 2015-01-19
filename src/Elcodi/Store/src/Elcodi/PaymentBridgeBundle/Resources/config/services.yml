@@ -1,0 +1,12 @@
+services:
+
+    #
+    # Services
+    #
+    store.payment.service.payment_bridge:
+        class: %store.payment.service.payment_bridge.class%
+        arguments:
+            order_repository: @elcodi.repository.order
+
+    payment.bridge:
+        alias: store.payment.service.payment_bridge

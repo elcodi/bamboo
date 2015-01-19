@@ -1,0 +1,5 @@
+services:
+
+    store.product.service.product_collection_provider:
+        class: %store.product.service.product_collection_provider.class%
+        parent: elcodi.core.product.service.product_collection_provider

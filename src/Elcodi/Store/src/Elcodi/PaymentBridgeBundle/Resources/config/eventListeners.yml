@@ -1,0 +1,14 @@
+services:
+
+    #
+    # Event Listeners
+    #
+    store.payment.event_listener.payment:
+        class: %store.payment.event_listener.payment.class%
+        arguments:
+            cart_wrapper: @elcodi.cart_wrapper
+            cart_order_transformer: @elcodi.cart_order_transformer
+            order_state_transition_machine: @elcodi.order_state_transition_machine
+        tags:
+            - { name: kernel.event_listener, event: payment.order.load, method: onPaymentOrderLoad }
+            - { name: kernel.event_listener, event: payment.order.success, method: onPaymentOrderSuccess }

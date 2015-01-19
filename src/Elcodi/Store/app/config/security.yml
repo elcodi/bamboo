@@ -1,0 +1,6 @@
+imports:
+    - { resource: @ElcodiUserBundle/Resources/security/encoders.yml }
+    - { resource: @ElcodiUserBundle/Resources/security/providers.yml }
+    - { resource: @StoreUserBundle/Resources/security/firewalls.yml }
+    - { resource: @StoreUserBundle/Resources/security/accessControl.yml }
+    - { resource: @StoreUserBundle/Resources/security/roles.yml }

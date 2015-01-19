@@ -1,0 +1,121 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: @ElcodiBambooBundle/Resources/config/translations.yml }
+    - { resource: @ElcodiBambooBundle/Resources/config/mapping.yml }
+    - { resource: @ElcodiBambooBundle/Resources/config/filesystem.yml }
+    - { resource: @ElcodiBambooBundle/Resources/config/configuration.yml }
+    - { resource: @ElcodiBambooBundle/Resources/config/cache.yml }
+    - { resource: @ElcodiBambooBundle/Resources/config/page.yml }
+
+monolog:
+    handlers:
+        main:
+            type:  stream
+            path:  "%kernel.logs_dir%/%kernel.environment%.log"
+            level: error
+        firephp:
+            type:  firephp
+            level: critical
+
+twig:
+    globals:
+        currency_wrapper: @elcodi.currency_wrapper
+
+framework:
+    #esi:             ~
+    translator:      { fallback: "%locale%" }
+    secret:          "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    templating:
+        engines: ['twig']
+        #assets_version: SomeVersionScheme
+    default_locale:  "%locale%"
+    trusted_hosts:   ~
+    trusted_proxies: ~
+    session:
+        # handler_id set to null will use default session handler from php.ini
+        handler_id:  ~
+    fragments:       ~
+    http_method_override: true
+
+# Configuration for mmoreram/ControllerExtraBundle
+# See https://github.com/mmoreram/ControllerExtraBundle/blob/feature/Paginator-annotation/README.md
+controller_extra:
+    factory:
+        default_method: create
+        default_static: false
+
+# Assetic Configuration
+assetic:
+    bundles: ~
+    debug:          "%kernel.debug%"
+    use_controller: false
+
+    #java: /usr/bin/java
+    filters:
+        cssrewrite: ~
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   "%database_driver%"
+        host:     "%database_host%"
+        port:     "%database_port%"
+        dbname:   "%database_name%"
+        user:     "%database_user%"
+        password: "%database_password%"
+        path:     "%database_path%"
+        memory:   "%database_memory%"
+        charset:  UTF8
+
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        auto_mapping: true
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: "%mailer_transport%"
+    host:      "%mailer_host%"
+    username:  "%mailer_user%"
+    password:  "%mailer_password%"
+    spool:     { type: memory }
+
+free_payment:
+    payment_success:
+        route: store_order_thanks
+        order_append: true
+        order_append_field: id
+
+paypal_web_checkout:
+    business: payment-test-facilitator@elcodi.com
+    payment_process:
+        route: store_payment_process
+    payment_success:
+        route: store_order_thanks
+        order_append: true
+        order_append_field: id
+    payment_cancel:
+        route: store_homepage
+        order_append: false
+    payment_fail:
+        route: store_checkout_payment_fail
+        order_append: true
+        order_append_field: id
+
+hwi_oauth:
+    firewall_name: customer_secured_area
+    resource_owners:
+        github:
+            type: github
+            client_id: %bamboo_social_github_client_id%
+            client_secret: %bamboo_social_github_client_secret%
+        paypal:
+            type: paypal
+            client_id: %bamboo_social_paypal_client_id%
+            client_secret: %bamboo_social_paypal_client_secret%

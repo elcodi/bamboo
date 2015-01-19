@@ -1,0 +1,19 @@
+services:
+
+    #
+    # Form Types
+    #
+    store.cart.form_type.cart:
+        class: %store.cart.form_type.cart.class%
+        arguments:
+            - @router
+            - %elcodi.core.cart.entity.cart.class%
+        tags:
+            - { name: form.type, alias: store_cart_form_type_cart }
+
+    store.cart.form_type.cart_line:
+        class: %store.cart.form_type.cart_line.class%
+        arguments:
+            - %elcodi.core.cart.entity.cart_line.class%
+        tags:
+            - { name: form.type, alias: store_cart_form_type_cart_line }
