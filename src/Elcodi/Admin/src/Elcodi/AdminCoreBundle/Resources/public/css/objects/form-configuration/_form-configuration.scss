@@ -1,0 +1,26 @@
+.form-configuration {
+	.icon-pencil {
+		padding: $spacing/2 0 0 $spacing/2;
+		position: absolute;
+	}
+	select, textarea, input {
+		position: relative;
+		z-index: 100
+	}
+	input[readonly],textarea[readonly],input[readonly='readonly'],textarea[readonly='readonly'] {
+		& {
+			border-width:1px!important;
+			border-style:dotted !important;
+			border-color:transparent;
+			color: $color-foreground !important;;
+			padding-left: $spacing*1.5;
+			padding-right: $spacing/2;
+			position: inherit;
+		}
+		&:hover {
+			border-color:$color-link;
+			color: $color-link !important;
+			cursor: text;
+		}
+	}
+}

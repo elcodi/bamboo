@@ -1,0 +1,119 @@
+{% extends 'AdminCoreBundle::Common/formComponent.html.twig' %}
+
+{% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
+
+{% block content %}
+    <header class="section-header">
+        {% include '@AdminCore/Common/breadcrumb.html.twig' with {
+            breadcrumb: {
+                'Products': {
+                    'url': url('admin_product_list')
+                },
+                (product.name): {
+                    'url': url('admin_product_edit', {id: product.id})
+                },
+                ('Variant'): {
+                    'active': true
+                }
+            }
+        } %}
+    </header>
+    <div class="papa-air">
+
+    {% include 'AdminCoreBundle::Common/flashMessages.html.twig' %}
+
+    {% set formAction = variant.id
+        ? url('admin_product_variant_update', {
+            'productId': product.id,
+            'id' : variant.id
+        })
+        : url('admin_product_variant_save', {
+            'productId': product.id
+        })
+    %}
+
+    {{ form_start(form, {'action': formAction}) }}
+        <fieldset>
+            <div class="grid">
+                <div class="col-1-3">
+                    <div class="box-none">
+                        <h3 class="fw-n">{% trans %}Attributes{% endtrans %}</h3>
+                        <p>{% trans %}Set the principal attributes of this variant.{% endtrans %}</p>
+                        <p><a href="{{ url("admin_attribute_new") }}" target="_parent" class="button"><i class="icon-plus"></i> {{ "New atrribute"|trans }}</a> </p>
+                    </div>
+                </div>
+                <div class="col-2-3">
+                    <div class="box">
+                        <ol>
+                            <li data-tc-modules="multiple-select">
+                                <i class="icon-spin icon-spinner fz-xl"></i>
+                                <div class="d-n">
+                                    {{ form_row(form.options) }}
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="col-1-3">
+                    <div class="box-none">
+                        <h3 class="fw-n">{% trans %}Pricing{% endtrans %}</h3>
+                        <p>{% trans %}Set the price for your variant, it doesn't include taxes or shipping. Also you can set a offer price.{% endtrans %}</p>
+                    </div>
+                </div>
+                <div class="col-2-3">
+                    <div class="box pb-n">
+                        <ol class="grid">
+                            <li class="col-1-2">
+                                {{ form_row(form.price) }}
+                                {{ form_row(form.stock) }}
+                            </li>
+                            <li class="col-1-2">
+                                {{ form_row(form.reducedPrice) }}
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            {% include '@AdminMedia/Module/_images-form-field.html.twig' with {
+                'images' : variant.images
+            } %}
+
+            <div class="grid">
+                <div class="col-1-3">
+                    <div class="box-none mb-n pb-m">
+                        <h3 class="fw-n">{% trans %}Visibility{% endtrans %}</h3>
+                        <p>{% trans %}Set this variant as visible or hidden.{% endtrans %}</p>
+                    </div>
+                </div>
+                <div class="col-2-3">
+                    <div class="box mb-n pb-n">
+                        <ol>
+                            <li>
+                                {{ form_row(form.enabled, {'attr': {'type':'checkbox'}}) }}
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        {{ form_row(form.stock) }}
+        <div class="grid">
+            <div class="col-1-3">
+                &nbsp;
+            </div>
+            <div class="col-2-3">
+                <button type="submit" class="button-primary">{{ 'Save'|trans }}</button>
+
+                <script type="text/javascript">
+                    var oParent = window.parent,
+                        oModal =  oParent.TinyCore.Module.instantiate( 'modal' );
+                </script>
+                <a href="javascript:oModal.close();" class="button">{{ 'Cancel'|trans }}</a>
+            </div>
+        </div>
+    {{ form_end(form) }}
+</div>
+{% endblock content %}

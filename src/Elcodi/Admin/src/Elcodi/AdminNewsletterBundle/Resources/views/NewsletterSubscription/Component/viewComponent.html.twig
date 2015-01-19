@@ -1,0 +1,50 @@
+{% extends 'AdminCoreBundle::Common/viewComponent.html.twig' %}
+
+{% block title %}
+    {{ 'NewsletterSubscription'|trans }} - {{ entity }}
+{% endblock title %}
+
+{% block view_buttons %}
+    <div class="spacer spacer-bottom">
+        <a href="{{ url("admin_newsletter_subscription_list") }}" class="btn">{{ 'View all'|trans }}</a>
+        <a href="{{ url("admin_newsletter_subscription_edit", {"id": entity.id}) }}" class="btn btn-primary">{{ 'Edit'|trans }}</a>
+        {% if entity.enabled %}
+            <a href="{{ url("admin_newsletter_subscription_disable", {"id": entity.id}) }}" class="btn btn-warning">{{ 'Disable'|trans }}</a>
+        {% else %}
+            <a href="{{ url("admin_newsletter_subscription_enable", {"id": entity.id}) }}" class="btn btn-success">{{ 'Enable'|trans }}</a>
+        {% endif %}
+    </div>
+{% endblock view_buttons %}
+
+
+{% block content %}
+    <tr>
+        <td>{{ 'email'|trans }}</td>
+        <td>{{ entity.email }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'language'|trans }}</td>
+        <td>{{ entity.language.name }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'hash'|trans }}</td>
+        <td>{{ entity.hash }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'reason'|trans }}</td>
+        <td>{{ entity.reason }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'createdAt'|trans }}</td>
+        <td>{{ entity.createdAt|date('Y.m.d - H:i:s') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'updatedAt'|trans }}</td>
+        <td>{{ entity.updatedAt|date('Y.m.d - H:i:s') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'enabled'|trans }}</td>
+        <td>{% if entity.enabled %}<span class="label label-success">true</span>{% else %}<span class="label label-danger">false</span>{% endif %}</td>
+    </tr>
+
+{% endblock content %}

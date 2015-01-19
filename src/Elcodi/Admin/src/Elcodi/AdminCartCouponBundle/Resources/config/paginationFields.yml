@@ -1,0 +1,12 @@
+parameters:
+
+    #
+    # Pagination fields
+    #
+    elcodi.admin.cartcoupon.pagination.order_coupon.fields:
+        - id
+        - amount
+        - code
+        - name
+    elcodi.admin.cartcoupon.pagination.cart_coupon.fields:
+        - id

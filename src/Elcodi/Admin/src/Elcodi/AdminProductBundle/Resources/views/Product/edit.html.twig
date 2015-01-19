@@ -1,0 +1,37 @@
+{% extends 'AdminCoreBundle::layout.html.twig' %}
+
+{% block content_title %}
+    {{ 'Product Zone'|trans }}
+{% endblock content_title %}
+
+{% block breadcrumb %}
+
+    {% set entityHeader = product.id
+        ? 'Edit ' ~ product.name
+        : 'Create new Product'
+    %}
+
+    {% include '@AdminCore/Common/breadcrumb.html.twig' with {
+        breadcrumb: {
+            'Products': {
+                'url': url('admin_product_list')
+            },
+            (entityHeader): {
+                'active' : true
+            }
+        }
+    } %}
+
+{% endblock breadcrumb %}
+
+{% block content %}
+
+    {% if product.id %}
+        {{ render(url("admin_product_edit_component", {
+            'id': product.id
+        })) }}
+    {% else %}
+        {{ render(url("admin_product_new_component")) }}
+    {% endif %}
+
+{% endblock content %}

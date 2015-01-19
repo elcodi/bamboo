@@ -1,0 +1,154 @@
+{% extends 'AdminCoreBundle::Common/formComponent.html.twig' %}
+
+
+{% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
+
+
+{% block title %}
+    {{ 'Edit Category'|trans }} - {{ entity.id }}
+{% endblock title %}
+
+
+{% block content %}
+    {% if category.id %}
+        <script type="text/javascript">
+            if ( window!=window.top ) {
+                var Mediator =  Mediator ? Mediator : window.parent.TinyCore.Toolbox.request( 'mediator' );
+                Mediator.publish( 'new:category', { id : "{{ category.id }}", name : "{{ category.name }}" } );
+            }
+        </script>
+    {% endif %}
+    {% set formAction = category.id
+        ? url('admin_category_update', {
+            'id': category.id
+        })
+        : url('admin_category_save')
+
+     %}
+    {{ form_start(form, {'action': formAction}) }}
+    <fieldset>
+        <div class="grid">
+            <div class="col-1-3">
+                <div class="box-none">
+                    <h3 class="fw-n">{% trans %}Basic Details{% endtrans %}</h3>
+                    <p>{% trans %}Provide a very specific name as short as you can that helps your consumers to find the products of this category.{% endtrans %}</p>
+                    {% if languages()|length > 1 %}<p><i class="icon-star"></i> {% trans %}= Master Language (Mandatory){% endtrans %}</p>{% endif %}
+                </div>
+            </div>
+            <div class="col-2-3">
+                <div {% if languages()|length > 1 %}data-tc-modules="tabs" class="tabs-box" {% endif %}>
+                    {% for language in languages() %}
+                        <section id="tab-{{ language }}" data-tc-name="{% if loop.first %}<i class='icon-star'></i> {% endif %}{{ language|capitalize }}">
+                            <div class="box">
+                                <ol>
+                                    <li class="pb-n">
+                                        <label>{{ 'Category name'|trans }}</label>
+                                        {{ form_widget(form.name[language ~ '_name'],{'attr': {'placeholder':'e.g. My Awesome Category'}}) }}
+                                        <details class="ph-n pt-m mb-n">
+                                            <summary class="pl-l mb-n">{{ 'Personalize slug' }}</summary>
+                                            {{ form_widget(form.slug[language ~ '_slug'],{'attr': {'data-tc-modules':'slug','data-tc-parent':'elcodi_admin_product_form_type_category_name_'~ language ~'_name' }}) }}
+                                        </details>
+                                    </li>
+                                </ol>
+                            </div>
+                        </section>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="col-1-3">
+                <div class="box-none mb-n pb-m">
+                    <h3 class="fw-n">{% trans %}Categorization{% endtrans %}</h3>
+                    <p>{% trans %}Set your category as root if doesn't have any parent or it's going to be parent of others.{% endtrans %}</p>
+                </div>
+            </div>
+            <div class="col-2-3">
+                <div class="box mb-n pb-n">
+                    <ol class="grid pt-m" data-tc-modules="category-parent">
+                        <li class="col-1-3">
+                            {{ form_row(form.root, {'attr': {'type':'checkbox'}}) }}
+                        </li>
+                        <li id="parent-categories" style="display: none; margin-top: -2px;" class="col-2-3">
+                            <label class="d-ib">Parent:</label>
+                            <div class="d-ib w-80">
+                                {{ form_widget(form.parent) }}
+                            </div>
+                        </li>
+                    </ol>
+                    <hr />
+                    <ol>
+                        <li>
+                            {{ form_row(form.position) }}
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <details class="ph-n">
+            <summary class="mb-n pl-xl">{{ 'Personalize Metadata'|trans }}</summary>
+            <div class="grid">
+                <div class="col-1-3">
+                    <div class="box-none">
+                        <h3 class="fw-n">{% trans %}Metadata{% endtrans %}</h3>
+                        <p>{% trans %}Description and keywords in meta tags are commonly used to describe the Web page's content. Most search engines use these data when adding pages to their search index.{% endtrans %}</p>
+                    </div>
+                </div>
+                <div class="col-2-3">
+                    <p class="msg-warning">{% trans %}<strong>This area for advanced users.</strong> Leave this fields in blank to obtain automatically the metadata of your product.{% endtrans %}</p>
+                    <div {% if languages()|length > 1 %}data-tc-modules="tabs" class="tabs-box" {% endif %}>
+                        {% for language in languages() %}
+                            <section id="metadata-{{ language }}" data-tc-name="{% if loop.first %}<i class='icon-star'></i> {% endif %}{{ language|capitalize }}">
+                                <div class="box">
+                                    <ol>
+                                        <li>
+                                            <label>{{ 'MetaTitle'|trans }}</label>
+                                            {{ form_widget(form.metaTitle[language ~ '_metaTitle'],{'attr': {'placeholder':'e.g. My Awesome Category'}}) }}
+                                        </li>
+                                        <li>
+                                            <label>{{ 'MetaDescription'|trans }}</label>
+                                            {{ form_widget(form.metaDescription[language ~ '_metaDescription'],{'attr': {'placeholder':'e.g. My Awesome Category'}}) }}
+                                        </li>
+                                        <li class="pb-n">
+                                            <label>{{ 'MetaKeywords'|trans }}</label>
+                                            {{ form_widget(form.metaKeywords[language ~ '_metaKeywords'],{'attr': {'placeholder':'e.g. My Awesome Category'}}) }}
+                                        </li>
+                                    </ol>
+                                </div>
+                            </section>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </details>
+        <div class="grid">
+            <div class="col-1-3">
+                <div class="box-none mb-n pb-m">
+                    <h3 class="fw-n">{% trans %}Visibility{% endtrans %}</h3>
+                    <p>{% trans %}Set this category as visible or hidden.{% endtrans %}</p>
+                </div>
+            </div>
+            <div class="col-2-3">
+                <div class="box mb-n pb-n">
+                    <ol class="pt-m">
+                        <li>
+                            {{ form_row(form.enabled, {'attr': {'type':'checkbox'}}) }}
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="col-1-3">
+                &nbsp;
+            </div>
+            <div class="col-2-3">
+                <button type="submit" class="button-primary">{{ 'Save'|trans }}</button>
+                <a href="{{ path('admin_category_list') }}" id="cancel-button" class="button">{{ 'Cancel'|trans }}</a>
+
+            </div>
+        </div>
+    </fieldset>
+    {{ form_row(form.products, {'attr': {'class':'d-n'}}) }}
+    {{ form_end(form) }}
+{% endblock content %}

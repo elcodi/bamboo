@@ -1,0 +1,3 @@
+AdminNewsletterBundle:
+    resource: "@AdminNewsletterBundle/Controller/"
+    type:     annotation

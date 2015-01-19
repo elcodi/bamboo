@@ -1,0 +1,23 @@
+{% extends 'AdminCoreBundle::layout.html.twig' %}
+
+{% block content_title %}
+    {{ 'Currency Zone'|trans }}
+{% endblock content_title %}
+
+{% block breadcrumb %}
+    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
+        breadcrumb: {
+            ("Currency"): {
+                "active" : true
+            }
+        }
+    } %}
+{% endblock %}
+
+{% block content %}
+    <p  id="currency-loading" class="ta-c fz-xxl"><i class="icon-spin icon-spinner" data-tc-modules="currency-table"></i></p>
+    <div id="currency-table" style="display: none">
+        {{ render(url("admin_currency_list_component")) }}
+    </div>
+
+{% endblock content %}

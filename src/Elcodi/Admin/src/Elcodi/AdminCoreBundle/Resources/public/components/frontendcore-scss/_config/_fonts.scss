@@ -1,0 +1,86 @@
+
+/**
+ * Default font face, used in the body.
+ */
+$font-face-default: unquote(map-get($font-faces, default)) !global;
+
+/**
+ * Font face used for titles, buttons and some other elements.
+ */
+$font-face-title: unquote(map-get($font-faces, title)) !global;
+
+$px-to-em-proportion: strip-unit(map-get($font-sizes, base)) !global;
+
+$icons-font: map-get($font-faces, icons) !global !global;
+
+// Defaults for compass
+
+$base-font-size: map-get($font-sizes, base) !global; // Sets the base font size
+$base-line-height: map-get($font-line-height, base) !global; // Sets the base line height
+$round-to-nearest-half-line: true !global; // Allows compass to round to  multiples of 0.5x line height
+$rhythm-unit: "rem" !global; // Sets rhythm unit to rem. Remove to use default em unit.
+
+/**
+ * @group fonts
+ */
+$font-size-xxxl: map-get($font-sizes, xxxl) !global;
+
+/**
+ * @group fonts
+ */
+$font-size-xxl: map-get($font-sizes, xxl) !global;
+
+/**
+ * @group fonts
+ */
+$font-size-xl: map-get($font-sizes, xl) !global;
+
+/**
+ * @group fonts
+ */
+$font-size-l: map-get($font-sizes, l) !global;
+
+/**
+ * @group fonts
+ */
+$font-size-ml: map-get($font-sizes, ml) !global;
+
+/**
+ * @group fonts
+ */
+$font-size-m: map-get($font-sizes, m) !global;
+
+/**
+ * @group fonts
+ */
+$font-size-default: map-get($font-sizes, default) !global;
+
+/**
+ * @group fonts
+ */
+$font-size-s: map-get($font-sizes, s) !global;
+
+/**
+ * @group fonts
+ */
+$font-size-xs: map-get($font-sizes, xs) !global;
+
+/**
+ * @group fonts
+ */
+$font-size-xxs: map-get($font-sizes, xxs) !global;
+
+/**
+ * @group fonts
+ */
+$font-size-xxxs: map-get($font-sizes, xxxs) !global;
+
+/**
+ * @group fonts
+ */
+$font-size-xxxxs: map-get($font-sizes, xxxxs)!global;
+
+/**
+ * @group fonts
+ */
+$font-title-exponential: map-get($font-sizes, title-exponential )!global;

@@ -1,0 +1,7 @@
+parameters:
+
+    #
+    # Entity classes
+    #
+    elcodi.admin.cartcoupon.form_type.order_coupon.class: Elcodi\AdminCartCouponBundle\Form\Type\OrderCouponType
+    elcodi.admin.cartcoupon.form_type.cart_coupon.class: Elcodi\AdminCartCouponBundle\Form\Type\CartCouponType

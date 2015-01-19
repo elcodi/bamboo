@@ -1,0 +1,27 @@
+{% extends 'AdminCoreBundle::Common/formComponent.html.twig' %}
+
+{% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
+
+{% block title %}
+    {{ 'New Rule'|trans }}
+{% endblock title %}
+
+{% block content %}
+
+    {{ form_start(form, {'action': url('admin_rule_save')}) }}
+
+        {{ form_row(form.name) }}
+        {{ form_row(form.code) }}
+        {{ form_row(form.enabled) }}
+        {{ form_row(form.expression) }}
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">{{ 'Save'|trans }}</button>
+                <a href="{{ path('admin_rule_list') }}" class="btn btn-default">{{ 'Cancel'|trans }}</a>
+            </div>
+        </div>
+
+    {{ form_end(form) }}
+
+{% endblock content %}

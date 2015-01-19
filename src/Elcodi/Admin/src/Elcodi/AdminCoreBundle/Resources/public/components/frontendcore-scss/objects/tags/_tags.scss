@@ -1,0 +1,53 @@
+@if $object-tags != false {
+	.tags {
+		& {
+			margin:0;
+			padding:0;
+			list-style:none;
+		}
+		li, a {
+			float:left;
+			line-height:$spacing*1.5;
+			position:relative;
+		}
+		a {
+			& {
+				margin:0 $spacing/2 $spacing/2 $spacing/2;
+				padding:0 $spacing 0 $spacing/2;
+				background:$color-box-dark;
+				color:contrast-color($color-box-dark);
+				text-decoration:none;
+				@include border-radius(0 $spacing/4 $spacing/4 0);
+			}
+			&:before {
+				content:"";
+				float:left;
+				position:absolute;
+				top:0;
+				left:-$spacing*.75;
+				width:0;
+				height:0;
+				border-color:transparent $color-box-dark transparent transparent;
+				border-style:solid;
+				border-width:$spacing*.8 $spacing*.8 $spacing*.8 0;
+			}
+			&:after {
+				content:"";
+				position:absolute;
+				top:$spacing*.7;
+				left:0;
+				float:left;
+				width:$spacing/4;
+				height:$spacing/4;
+				@include border-radius();
+				background: $color-background;
+				@include box-shadow(-1px -1px 2px $color-box-dark);
+			}
+			&:hover {
+				background:$color-link;
+				color: contrast-color($color-link);
+			}
+			&:hover:before { border-color:transparent $color-link transparent transparent; }
+		}
+	}
+}

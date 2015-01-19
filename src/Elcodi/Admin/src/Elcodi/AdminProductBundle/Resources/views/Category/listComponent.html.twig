@@ -1,0 +1,69 @@
+{% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
+
+{% block no_items %}
+    {{ lists.no_items('category','categories', url("admin_category_new")  ) }}
+{% endblock no_items %}
+
+{% block table_head %}
+
+    {% include "@AdminCore/Tables/head.html.twig" with {
+        rows: {
+            "Name & Slug": {},
+            "SubCategories": {sorting_disabled: true},
+            "Products": {width:"10", sorting_disabled: true},
+            "Root": {width:"10"},
+            "Position": {width:"10"},
+            "Enabled": {width:"5"},
+        },
+        class: "category",
+    } %}
+
+{% endblock table_head %}
+
+{% block table_body_row %}
+    <td>
+        <a href="{{ url("admin_category_edit", {"id": entity.id}) }}">
+           <strong>{{ entity.name }}</strong>
+        </a>
+        <p class="fz-s">/{{ entity.slug }}</p>
+    </td>
+    <td>
+        {% if entity.subCategories|length > 0 %}
+        <ul>
+            {% for subCategory in entity.subCategories if not subCategory.root %}
+                <li>
+                    <a href="{{ url("admin_category_edit", { id: subCategory.id }) }}">
+                        {{ subCategory.name }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </td>
+    <td>
+        {{ entity.products|length }}
+    </td>
+    <td>
+        {% if entity.root %}<span class="label">Root</span>{% endif %}
+    </td>
+    <td>
+        {{ entity.position }}
+    </td>
+    <td>
+        {% if entity.enabled %}<span class="label-ok">Enabled</span>{% else %}<span class="label-ko">Disabled</span>{% endif %}
+    </td>
+
+    {% include "@AdminCore/Tables/actions.html.twig" with {
+        entity: entity,
+        class: "category",
+    } %}
+
+{% endblock table_body_row %}
+
+
+{% block table_paginator_links %}
+
+    {% set url = 'admin_category_list' %}
+    {{ parent() }}
+
+{% endblock table_paginator_links %}

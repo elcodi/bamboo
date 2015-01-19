@@ -1,0 +1,55 @@
+@if $object-filters != false {
+
+	.filters {
+		& {
+			@extend ul[class*='list-'], ul.list;
+			@extend .list-horizontal;
+		}
+		li {
+			& {
+				position: relative;
+				padding: $spacing/8 $spacing/1.5;
+				margin-right: 0 !important;
+			}
+			&:hover {
+				a {
+					color: $color-link;
+					text-decoration: underline;
+				}
+			}
+			a {
+				color: $color-link;
+			}
+			&.active {
+				& {
+					font-weight: bold;
+				}
+				&:after {
+					border: 8px solid transparent;
+					border-style: outset outset solid outset;
+					content: "";
+					height: 0;
+					left: 0;
+					overflow: hidden;
+					position: absolute;
+					width: 0;
+					@include rotate(90deg);
+					top: 50%;
+					border-width: 6px;
+					margin-top: -6px;
+					border-bottom-color: $color-primary;
+				}
+				a {
+					& {
+						color: $color-foreground;
+						text-decoration: none;
+					}
+					&:hover {
+						background: transparent;
+						cursor: default;
+					}
+				}
+			}
+		}
+	}
+}

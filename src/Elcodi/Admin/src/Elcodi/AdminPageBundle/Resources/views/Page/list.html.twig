@@ -1,0 +1,36 @@
+{% extends 'AdminCoreBundle::layout.html.twig' %}
+
+{% block content_title %}
+    {{ 'Page Zone'|trans }}
+{% endblock content_title %}
+
+{% block breadcrumb %}
+    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
+        breadcrumb: {
+            ("Page"): {
+                "active" : true
+            }
+        }
+    } %}
+{% endblock %}
+
+
+{% block header_actions %}
+    <a href="{{ url("admin_page_new") }}"class="button-primary"><i class="icon-plus"></i> {{ "New page"|trans }}</a>
+{% endblock header_actions %}
+
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-12">
+            {{ render(url("admin_page_list_component", {
+                'page': page,
+                'limit': limit,
+                'orderByField': orderByField,
+                'orderByDirection': orderByDirection
+            })) }}
+        </div>
+    </div>
+
+{% endblock content %}

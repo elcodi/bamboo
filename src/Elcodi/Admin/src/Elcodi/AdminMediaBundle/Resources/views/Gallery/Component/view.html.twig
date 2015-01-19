@@ -1,0 +1,18 @@
+<ul class="thumbnail-group">
+    {% for image in images %}
+        {% set imagePath = image|viewImage %}
+        <li>
+            {{ entity.name }}
+            <a href="{{ imagePath }}" data-tc-modules="modal" class="thumbnail">
+                <img src="{{ imagePath }}" width="150"/>
+            </a>
+            <ul class="thumbnail-actions">
+                <li>
+                    <a href="{{ url("admin_image_delete", {id: image.id}) }}" data-tc-modules="confirm" data-tc-name="{{ image.name }}" data-tc-text="{{ "Are you sure you want to delete it?"|trans }}">
+                        <i class="icon-trash-o"></i>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    {% endfor %}
+</ul>

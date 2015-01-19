@@ -1,0 +1,103 @@
+{# vars
+
+    * page : Current page
+    * total_pages : Total pages of query
+    * url : Url of pagination
+    * limit : Elements per page
+    * order_by_field : Field to order by
+    * order_by_direction : Direction to order by this field
+    * middle_group_length : Length of middle group -> 1 ... 3,4,5 ... 19 <- length = 1 [3,[4],5]
+    * side_group_space_length : Length of separation between first and last page
+      and middle group -> 1 ... 4,5,6 ... 19 <- length = 2 [ 1 ... 4 ]
+#}
+
+{% set is_first_page = page == 1 %}
+{% set is_last_page = page == total_pages %}
+{% set prev_page = page - 1 %}
+{% set next_page = page + 1 %}
+
+{% set space_left = middle_group_length + side_group_space_length + 1 %}
+{% set space_right = total_pages - middle_group_length - side_group_space_length %}
+{% set first_middle_group_element = page - middle_group_length %}
+{% if first_middle_group_element < 1 %}
+    {% set first_middle_group_element = 1 %}
+{% endif %}
+{% set last_middle_group_element = first_middle_group_element + middle_group_length + 1 %}
+{% if last_middle_group_element > total_pages %}
+    {% set last_middle_group_element = total_pages %}
+    {% set first_middle_group_element = last_middle_group_element - (2 * middle_group_length) %}
+{% endif %}
+
+
+
+<nav class="pagination">
+    <ul>
+        {% if not is_first_page %}
+        <li>
+            <a {% if is_first_page == false %} href="{{ url(url, {
+                page: prev_page,
+                limit: limit,
+                orderByField: orderByField,
+                orderByDirection: orderByDirection
+            }) }}"{% endif %}>
+                <span class="icon-step-backward"></span>
+            </a>
+        </li>
+        {% endif %}
+        {% if space_left <= page %}
+            <li>
+                <a href="{{ url(url, {
+                    page: 1,
+                    limit: limit,
+                    orderByField: orderByField,
+                    orderByDirection: orderByDirection
+                }) }}">1</a>
+            </li>
+            {% if space_left < page %}
+                <li class="disabled"><a>...</a></li>
+            {% endif %}
+        {% endif %}
+
+        {% if total_pages > 1 %}
+            {% for current_iterated_page in first_middle_group_element..last_middle_group_element %}
+                <li class="prev{% if current_iterated_page == page %} disabled{% endif %}">
+                <a {% if current_iterated_page != page %} href="{{ url(url, {
+                    page: current_iterated_page,
+                    limit: limit,
+                    orderByField: orderByField,
+                    orderByDirection: orderByDirection
+                }) }}"{% endif %}>
+                    {{ current_iterated_page }}
+                </a>
+            </li>
+            {% endfor %}
+        {% endif %}
+
+        {% if space_right >= page %}
+            {% if space_right > page %}
+                <li class="disabled"><a>...</a></li>
+            {% endif %}
+            <li>
+                <a href="{{ url(url, {
+                    page: total_pages,
+                    limit: limit,
+                    orderByField: orderByField,
+                    orderByDirection: orderByDirection
+                }) }}">{{ total_pages }}</a>
+            </li>
+        {% endif %}
+        {% if not is_last_page %}
+        <li>
+            {{ is_last_page }}
+            <a {% if is_last_page == false %} href="{{ url(url, {
+                page: next_page,
+                limit: limit,
+                orderByField: orderByField,
+                orderByDirection: orderByDirection
+            }) }}"{% endif %}>
+                <span class="icon-step-forward"></span>
+            </a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>

@@ -1,0 +1,44 @@
+{% extends 'AdminCoreBundle::layout.html.twig' %}
+
+
+{% block content_title %}
+    {{ 'Admin User Zone'|trans }}
+{% endblock content_title %}
+
+
+{% block breadcrumb %}
+
+    {% set entityHeader = adminUser.id
+        ? 'Edit ' ~ adminUser.name
+        : 'Create new Admin User'
+    %}
+
+    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
+        breadcrumb: {
+            "Admin Users": {
+                "url": url('admin_admin_user_list')
+            },
+            (entityHeader): {
+                "active" : true
+            }
+        }
+    } %}
+
+{% endblock breadcrumb %}
+
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-12">
+            {% if adminUser.id %}
+                {{ render(url("admin_admin_user_edit_component", {
+                    'id': adminUser.id
+                })) }}
+            {% else %}
+                {{ render(url("admin_admin_user_new_component")) }}
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock content %}

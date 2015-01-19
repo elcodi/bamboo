@@ -1,0 +1,85 @@
+{% extends 'AdminCoreBundle::Common/formComponent.html.twig' %}
+
+{% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
+
+{% block title %}
+    {{ 'Edit Attribute'|trans }} - {{ entity.id }} - {{ entity.name }}
+{% endblock title %}
+
+{% block content %}
+    {{ form_start(form, {'action': url('admin_attribute_update', {
+        'id': entity.id
+    })}) }}
+    <fieldset>
+        <div class="grid">
+            <div class="col-1-3">
+                <div class="box-none">
+                    <h2 class="fw-n">{{ 'Basic details'|trans }}</h2>
+                    <p>{% trans %}Name is for internal use and display name is what will be shown in your store{% endtrans %}</p>
+                </div>
+            </div>
+            <div class="col-2-3">
+                <div class="box">
+                    <ol>
+                        <li>
+                            {{ form_row(form.name,{'attr': {'placeholder':'e.g. color'}}) }}
+                        </li>
+                        <li>
+                            {{ form_row(form.displayName,{'attr': {'placeholder':'e.g. Color options'}}) }}
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="col-1-3">
+                <div class="box-none">
+                    <h2 class="fw-n">{{ 'Atributtes'|trans }}</h2>
+                    <p>{% trans %}Set the attributes.{% endtrans %}</p>
+                </div>
+            </div>
+            <div class="col-2-3">
+                <div class="box">
+                    <ul class="list">
+                        {% for value in entity.values %}
+                            <li>{{ value.name }}</li>
+                        {% endfor %}
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="col-1-3">
+                <div class="box-none">
+                    <h2 class="fw-n">{{ 'Status'|trans }}</h2>
+                    <p>{% trans %}Set the user status to enabled or disabled.{% endtrans %}</p>
+                </div>
+            </div>
+            <div class="col-2-3">
+                <div class="box">
+                    <ol class="grid">
+                        <li>
+                            {{ form_row(form.enabled, {'attr': {'type':'checkbox'}}) }}
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="grid">
+            <div class="col-1-3">
+                &nbsp;
+            </div>
+            <div class="col-2-3">
+                <button type="submit" class="button-primary">{{ 'Update'|trans }}</button>
+                <a href="{{ path('admin_attribute_list') }}" class="button">{{ 'Cancel'|trans }}</a>
+
+            </div>
+        </div>
+    </fieldset>
+    {{ form_end(form, {render_rest : false}) }}
+
+{% endblock content %}

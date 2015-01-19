@@ -1,0 +1,4 @@
+security:
+
+    role_hierarchy:
+        ROLE_ADMIN:  [IS_AUTHENTICATED_ANONYMOUSLY]

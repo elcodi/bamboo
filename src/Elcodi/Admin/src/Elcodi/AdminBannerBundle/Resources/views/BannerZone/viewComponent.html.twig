@@ -1,0 +1,72 @@
+{% extends 'AdminCoreBundle::Common/viewComponent.html.twig' %}
+
+{% block title %}
+    {{ 'BannerZone'|trans }} - {{ entity }}
+{% endblock title %}
+
+{% block content %}
+
+
+    <tr>
+        <td>{{ 'name'|trans }}</td>
+        <td>
+            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
+            'entity': entity,
+            'field': 'name',
+            } %}
+        </td>
+    </tr>
+    <tr>
+        <td>{{ 'code'|trans }}</td>
+        <td>
+            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
+            'entity': entity,
+            'field': 'code',
+            } %}
+        </td>
+    </tr>
+    <tr>
+        <td>{{ 'height'|trans }}</td>
+        <td>
+            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
+            'entity': entity,
+            'field': 'height',
+            } %}
+        </td>
+    </tr>
+    <tr>
+        <td>{{ 'width'|trans }}</td>
+        <td>
+            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
+            'entity': entity,
+            'field': 'width',
+            } %}
+        </td>
+    </tr>
+    <tr>
+        <td>{{ 'language'|trans }}</td>
+        <td>
+            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
+            'entity': entity,
+            'field': 'language',
+            } %}
+        </td>
+    </tr>
+    <tr>
+        <td>{{ 'banners'|trans }}</td>
+        <td>
+            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
+            'entity': entity,
+            'field': 'banners',
+            } %}
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <a href="{{ url("admin_banner_zone_edit", {"id": entity.id}) }}" type="button" class="btn btn-primary btn-flat">Edit</a>
+            <a href="{{ url("admin_banner_zone_delete", {"id": entity.id}) }}" type="button" class="btn btn-danger btn-flat">Delete</a>
+        </td>
+    </tr>
+
+{% endblock content %}

@@ -1,0 +1,58 @@
+{% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
+
+{% block title %}
+    {{ 'Product list'|trans }}
+{% endblock title %}
+
+{% block no_items %}
+    {{ lists.no_items('product','products', url("admin_product_new")  ) }}
+{% endblock no_items %}
+
+{% block table_head %}
+    {% include "@AdminCore/Tables/head.html.twig" with {
+        rows: {
+            "Image": {width:"10"},
+            "Name & details": {},
+            "Category": {width:"20"},
+            "Price": {width:"10"}
+        },
+        class: "product",
+    } %}
+{% endblock table_head %}
+
+
+{% block table_body_row %}
+    <td>
+        {% if entity.images|length > 0 %}
+            <a href="{{ url("admin_product_edit", {"id": entity.id}) }}" class="thumbnail">
+                <img src="{{ entity.getSortedImages.first|resize({'height': 100, 'width': 100, 'type': 4}) }}" />
+            </a>
+        {% endif %}
+    </td>
+
+    <td>
+        <a href="{{ url("admin_product_edit", {"id": entity.id}) }}"><strong>{{ entity.name }}</strong></a>
+        <p class="fz-s">/{{ entity.slug }}</p>
+        {% if entity.enabled %}<span class="label-ok fz-xs">Enabled</span>{% else %}<span class="label fz-xs">Disabled</span>{% endif %} {% if entity.showInHome %}<span class="label-info fz-xs">{{'Home'|trans}}</span>{% endif %} {% if entity.hasVariants %}<span class="label bg-secondary fz-xs">{{'Variants'|trans}}</span>{% endif %}
+    </td>
+    <td>
+        {% if entity.principalCategory %}
+            <a href="{{ url("admin_category_edit", { id: entity.principalCategory.id }) }}">
+                {{ entity.principalCategory.name }}
+            </a>
+        {% endif %}
+    </td>
+    <td>
+        {{ entity.price|print_money }}
+    </td>
+    {% include "@AdminCore/Tables/actions.html.twig" with {
+        entity: entity,
+        class: "product",
+    } %}
+{% endblock table_body_row %}
+
+
+{% block table_paginator_links %}
+    {% set url = 'admin_product_list' %}
+    {{ parent() }}
+{% endblock table_paginator_links %}

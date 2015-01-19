@@ -1,0 +1,16 @@
+parameters:
+
+    #
+    # Pagination fields
+    #
+    elcodi.admin.media.pagination.image.fields:
+        - id
+        - name
+        - contentType
+        - extension
+        - size
+        - width
+        - height
+        - createdAt
+        - updatedAt
+        - enabled

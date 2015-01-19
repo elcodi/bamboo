@@ -1,0 +1,59 @@
+{% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
+
+{% block title %}
+    {{ 'NewsletterSubscription list'|trans }}
+{% endblock title %}
+
+{% block table_head %}
+
+    {% include "@AdminCore/Tables/head.html.twig" with {
+        rows: {
+            "Id": {width:"25"},
+            "Language": {},
+            "Email": {},
+            "Reason": {sorting_disabled: true},
+            "Enabled": {width:"25"},
+        },
+        class: "newsletter_subscription",
+    } %}
+
+{% endblock table_head %}
+
+{% block table_body_row %}
+
+    <td>
+        <a href="{{ url("admin_newsletter_subscription_view", {"id": entity.id}) }}">
+            {{ entity.id }}
+        </a>
+    </td>
+    <td>
+        {{ entity.language.name }}
+    </td>
+    <td>
+        {{ entity.email }}
+    </td>
+    <td>
+        {{ entoty.reason }}
+    </td>
+    <td>
+        {% if entity.enabled %}<span class="label label-success">true</span>{% else %}<span class="label label-danger">false</span>{% endif %}
+    </td>
+
+    {% include "@AdminCore/Tables/actions.html.twig" with {
+    entity: entity,
+    class: "newsletter_subscription",
+    } %}
+
+{% endblock %}
+
+
+{% block table_paginator_links %}
+
+    {% set url = 'admin_newsletter_subscription_list' %}
+    {{ parent() }}
+
+{% endblock table_paginator_links %}
+
+{% block table_buttons %}
+    <a href="{{ url("admin_newsletter_subscription_new") }}"type="button" class="btn btn-success">{{ "New newsletter subscription"|trans }}</a>
+{% endblock table_buttons %}

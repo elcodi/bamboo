@@ -1,0 +1,8 @@
+{% extends 'AdminCoreBundle::Common/component.html.twig' %}
+
+
+{% block component %}
+    {% include "@AdminMedia/Module/_images-gallery.html.twig" with {
+        images: images
+    } %}
+{% endblock component %}

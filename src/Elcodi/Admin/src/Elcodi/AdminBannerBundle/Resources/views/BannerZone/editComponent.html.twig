@@ -1,0 +1,31 @@
+{% extends 'AdminCoreBundle::Common/formComponent.html.twig' %}
+
+{% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
+
+{% block title %}
+    {{ 'Edit BannerZone'|trans }} - {{ entity.id }}
+{% endblock title %}
+
+{% block content %}
+
+    {{ form_start(form, {'action': url('admin_banner_zone_update', {
+        'id': entity.id
+    })}) }}
+
+        {{ form_row(form.name) }}
+        {{ form_row(form.code) }}
+        {{ form_row(form.height) }}
+        {{ form_row(form.width) }}
+        {{ form_row(form.language) }}
+        {{ form_row(form.banners) }}
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">{{ 'Update'|trans }}</button>
+                <a href="{{ path('admin_banner_zone_list') }}" class="btn btn-default">{{ 'Cancel'|trans }}</a>
+            </div>
+        </div>
+
+    {{ form_end(form) }}
+
+{% endblock content %}

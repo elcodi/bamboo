@@ -1,0 +1,58 @@
+
+<div class="sidebar-user">
+    <a href="{{ url("admin_admin_user_edit", {id: app.user.id }) }}" class="sidebar-user-avatar desktop">
+        <img src="{{ gravatar(app.user.email, 40) }}" alt="Avatar" class="image-circle">
+    </a>
+    <div class="sidebar-user-info">
+        <a class="sidebar-title" href="{{ url("admin_homepage") }}">Elcodi Admin</a>
+        <a href="#sidebar-user-dropdown" data-tc-modules="toggle">{{ app.user.fullname }} <i class="icon-angle-down"></i> </a>
+        <ul id="sidebar-user-dropdown" class="sidebar-user-dropdown">
+            <li class="mobile">
+                <a href="{{ url("admin_admin_user_edit", {id: app.user.id }) }}" class="sidebar-user-avatar">
+                    <img src="{{ gravatar(app.user.email, 30) }}" alt="Avatar" class="image-circle">
+                </a>
+                <a href="{{ url("admin_admin_user_edit", {id: app.user.id }) }}" class="pt-m">{{ app.user.fullname }}</a>
+                <hr style="clear: both" />
+            </li>
+            <li>
+                <a href="{{ url('admin_admin_user_edit', {id: app.security.getToken().getUser().getId() }) }}">Profile</a>
+            </li>
+            <li>
+                <a href="{{ url("admin_logout") }}">Sign Out</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<nav class="navigation navigation-vertical">
+    <ul id="main-menu">
+        {% block side_menu %}
+            {% for menu_item in menu_items %}
+                <li {% if menu_item.subnodes|length %}class="parent"{% endif %}>
+                        {% if generate_url(menu_item.url) != '' %}
+                            <a href="{{ generate_url(menu_item.url) }}">
+                        {% else %}
+                            <a href="#{{ menu_item.id }}" data-tc-modules="toggle">
+                            <i class="icon-angle-down fl-r"></i>
+                        {% endif %}
+                        <i class="icon-{{ menu_item.code|default("folder") }}"></i>
+                        <span>{{ menu_item.name|trans }}</span>
+                    </a>
+                    {% for submenu_item in menu_item.subnodes %}
+                        {% if loop.first %}
+                            <ul id="{{ menu_item.id }}" {% if not menu_item.active %}class="hidden"{% endif %}>
+                        {% endif %}
+                        <li {% if submenu_item.active %}class="active"{% endif %}>
+                            <a href="{{ generate_url(submenu_item.url) }}" class="pl-l"><i class="icon-angle-right"></i> {{ submenu_item.name }}</a>
+                        </li>
+                        {% if loop.last %}
+                            </ul>
+                        {% endif %}
+                    {% endfor %}
+                </li>
+
+            {% endfor %}
+
+        {% endblock %}
+
+    </ul>
+</nav>

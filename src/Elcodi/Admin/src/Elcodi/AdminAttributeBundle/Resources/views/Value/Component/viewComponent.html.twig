@@ -1,0 +1,38 @@
+{% extends 'AdminCoreBundle::Common/viewComponent.html.twig' %}
+
+{% block title %}
+    {{ entity.attribute.displayName }} - {{ entity.displayName }}
+{% endblock title %}
+
+{% block alerts %}
+{% endblock %}
+
+
+{% block view_buttons %}
+    <div class="spacer spacer-bottom">
+        <a href="{{ url("admin_attribute_view", {"id": entity.attribute.id, }) }}" class="btn">{{ 'View all'|trans }}</a>
+        <a href="{{ url("admin_value_edit", {"id": entity.attribute.id, "valueId": entity.id}) }}" class="btn btn-primary">{{ 'Edit'|trans }}</a>
+        {% if entity.enabled %}
+            <a href="{{ url("admin_value_disable", {"id": entity.attribute.id, "valueId": entity.id}) }}" class="btn btn-warning">{{ 'Disable'|trans }}</a>
+        {% else %}
+            <a href="{{ url("admin_value_enable", {"id": entity.attribute.id, "valueId": entity.id}) }}" class="btn btn-success">{{ 'Enable'|trans }}</a>
+        {% endif %}
+        <a href="{{ url("admin_value_delete", {"id": entity.attribute.id, "valueId": entity.id}) }}" class="btn btn-danger">{{ 'Delete'|trans }}</a>
+    </div>
+{% endblock view_buttons %}
+
+
+{% block content %}
+    <tr>
+        <td>{{ 'name'|trans }}</td>
+        <td>{{ entity.name }} </td>
+    </tr>
+    <tr>
+        <td>{{ 'displayName'|trans }}</td>
+        <td>{{ entity.displayName }} </td>
+    </tr>
+    <tr>
+        <td>{{ 'enabled'|trans }}</td>
+        <td>{% if entity.enabled %}<span class="label label-success">true</span>{% else %}<span class="label label-danger">false</span>{% endif %}</td>
+    </tr>
+{% endblock content %}

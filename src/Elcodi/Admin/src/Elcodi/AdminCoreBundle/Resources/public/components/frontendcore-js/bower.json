@@ -1,0 +1,26 @@
+{
+  "name": "frontendcore-js",
+  "version": "1.0.0",
+  "authors": [
+    "Toni Pinel <tonipinel@gmail.com>"
+  ],
+  "description": "The all in one frontend framework based on components for the real life",
+  "main": "Gruntfile.js",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "frontendcore",
+    "frontend",
+    "framework",
+    "component"
+  ],
+  "license": "MIT",
+  "homepage": "http://www.frontendcore.com",
+  "private": true,
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "tests"
+  ]
+}

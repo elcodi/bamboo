@@ -1,0 +1,21 @@
+parameters:
+
+    #
+    # Pagination fields
+    #
+    elcodi.admin.coupon.pagination.coupon.fields:
+        - id
+        - code
+        - name
+        - type
+        - priceAmount
+        - discount
+        - count
+        - used
+        - priority
+        - minimumPurchaseAmount
+        - validFrom
+        - validTo
+        - createdAt
+        - updatedAt
+        - enabled

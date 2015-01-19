@@ -1,0 +1,36 @@
+{% extends '@AdminProduct/Product/view.html.twig' %}
+
+{% block content_title %}
+    {{ 'Attribute Value Zone'|trans }}
+{% endblock content_title %}
+
+{% block breadcrumb %}
+
+    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
+        breadcrumb: {
+            'Attributes': {
+                'url': url('admin_attribute_list')
+            },
+            ('#' ~ id): {
+                'url': url('admin_attribute_view', { 'id': id })
+            },
+            ('Value #' ~ valueId): {
+                "active" : true
+            }
+        }
+    } %}
+
+{% endblock breadcrumb %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-6">
+            {{ render(url("admin_value_view_component", {
+                'id': id,
+                'valueId': valueId
+            })) }}
+        </div>
+    </div>
+
+{% endblock content %}

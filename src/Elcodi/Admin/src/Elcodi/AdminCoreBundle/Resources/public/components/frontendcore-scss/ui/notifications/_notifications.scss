@@ -1,0 +1,36 @@
+@if $ui-notifications == true {
+	#notification {
+		& {
+			@include box-sizing(border-box);
+			position: fixed;
+			top: -1000px;
+			width: 100%;
+			padding: $spacing*2 15%;
+			z-index: 10000;
+			transition: 1s ease-in-out;
+			@include background-image(linear-gradient(top, rgba(0,0,0,.6) 0%, rgba(0,0,0,0) 100%));
+		}
+		.icon-times {
+			& {
+				position: absolute;
+				right: $spacing/2;
+				top: $spacing/2;
+				color: #000;
+				@include opacity(.5);
+			}
+			&:hover {
+				cursor: pointer;
+				z-index: 10001;
+				@include opacity(.8);
+				text-decoration: none;
+			}
+		}
+		.box-background {
+			position: relative;
+			@include box-shadow;
+		}
+		[class*='msg'] {
+			padding-right: $spacing*1.5;
+		}
+	}
+}

@@ -1,0 +1,23 @@
+.thumbnail-group-extended {
+
+	& > li {
+		min-height: 100px;
+		min-width: 150px;
+		background: $color-box-dark;
+	}
+
+	li:first-child .thumbnail {
+		border-color: $color-foreground;
+		&:after {
+			display: block;
+			padding: $spacing/2;
+			position: absolute;
+			background: rgba($color-foreground, .5);
+			color: $color-background;
+			margin: -10px auto 0;
+			top: $spacing;
+			left: $spacing/2;
+			content: 'Principal';
+		}
+	}
+}

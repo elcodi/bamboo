@@ -1,0 +1,110 @@
+{% block form_start %}
+{% spaceless %}
+    {% set method = method|upper %}
+    {% if method in ["GET", "POST"] %}
+        {% set form_method = method %}
+    {% else %}
+        {% set form_method = "POST" %}
+    {% endif %}
+    {% set attr = attr|merge({'class': 'form'}) %}
+    <form role="form" name="{{ form.vars.name }}" method="{{ form_method|lower }}" action="{{ action }}"{% for attrname, attrvalue in attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}{% if multipart %} enctype="multipart/form-data"{% endif %}>
+    {% if form_method != method %}
+        <input type="hidden" name="_method" value="{{ method }}" />
+
+    {% endif %}
+{% endspaceless %}
+{% endblock form_start %}
+
+{% block form_row %}
+    {% spaceless %}
+    {% if attr.type != 'checkbox' %}
+        {{ form_label(form) }}
+    {% endif %}
+    {{ form_widget(form) }}
+{% endspaceless %}
+{% endblock form_row %}
+
+
+{% block form_label %}
+{% spaceless %}
+    {% if label is not sameas(false) and label is defined %}
+        <label>{{ label|trans({}, translation_domain) }} {% if attr.label_help is defined %}<em>{{ attr.label_help }}</em>{% endif %}</label>
+    {% endif %}
+{% endspaceless %}
+{% endblock form_label %}
+
+{% block form_widget_simple %}
+{% spaceless %}
+    {% set type = type|default('text') %}
+    {% set attr = attr|merge({'class': 'form-control'}) %}
+    <input type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %} />
+{% endspaceless %}
+{% endblock form_widget_simple %}
+
+
+{% block choice_widget_collapsed %}
+{% spaceless %}
+    {% if multiple %}
+        <div id="ms-custom-headers">
+            <select multiple="multiple" {{ block('widget_attributes') }}>
+                {% set options = choices %}
+                {{ block('choice_widget_options') }}
+            </select>
+        </div>
+    {% else %}
+        <select class="oneselect" {{ block('widget_attributes') }}>
+            {% set options = choices %}
+            {{ block('choice_widget_options') }}
+        </select>
+    {% endif %}
+{% endspaceless %}
+{% endblock choice_widget_collapsed %}
+
+
+{% block money_object_widget %}
+{% spaceless %}
+    <div class="d-ib mr-m">
+        {{ form_widget(form.amount) }}
+    </div>
+    <div class="d-ib">
+        {{  form_widget(form.currency) }}
+    </div>
+{% endspaceless %}
+{% endblock money_object_widget %}
+
+
+{% block datetime_widget %}
+{% spaceless %}
+        <input {{ block('widget_attributes') }} class="form-control" size="16" type="text" value="{{ value }}" />
+{% endspaceless %}
+{% endblock datetime_widget %}
+
+
+{% block checkbox_widget %}
+{% spaceless %}
+
+    <div class="switch">
+        <input id="switch-{{ label|trans({}, translation_domain)|url_encode  }}" type="checkbox" {{ block('widget_attributes') }} {% if value is defined %} value="{{ value }}"{% else %}value="1"{% endif %}{% if checked %} checked="checked"{% endif %}>
+        <label for="switch-{{ label|trans({}, translation_domain)|url_encode }}"></label> {% if attr.label_help is defined %}<em>{{ attr.label_help }}</em>{% endif %}
+    </div>
+    {{ label|trans({}, translation_domain) }}
+
+{% endspaceless %}
+{% endblock checkbox_widget %}
+
+
+{% block url_widget %}
+{% spaceless %}
+    {% set type = type|default('url') %}
+    {% set attr = attr|merge({'parsley-type': 'url'}) %}
+    {{ block('form_widget_simple') }}
+{% endspaceless %}
+{% endblock url_widget %}
+
+
+{% block textarea_widget %}
+{% spaceless %}
+    {% set attr = attr|merge({'class': attr.class|default('') ~ ' form-control'}) %}
+    <textarea {{ block('widget_attributes') }}>{{ value }}</textarea>
+{% endspaceless %}
+{% endblock textarea_widget %}

@@ -1,0 +1,39 @@
+{% extends 'AdminCoreBundle::layout.html.twig' %}
+
+
+{% block content_title %}
+    {{ 'Customer Zone'|trans }}
+{% endblock content_title %}
+
+
+{% block breadcrumb %}
+
+    {% set entityHeader = customer.id
+        ? 'Edit ' ~ customer.name
+        : 'Create new Customer'
+    %}
+
+    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
+        breadcrumb: {
+            "Customers": {
+                "url": url('admin_customer_list')
+            },
+            (entityHeader): {
+                "active" : true
+            }
+        }
+    } %}
+{% endblock breadcrumb %}
+
+
+{% block content %}
+
+    {% if customer.id %}
+        {{ render(url("admin_customer_edit_component", {
+            'id': customer.id
+        })) }}
+    {% else %}
+        {{ render(url("admin_customer_new_component")) }}
+    {% endif %}
+
+{% endblock content %}

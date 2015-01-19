@@ -1,0 +1,60 @@
+<?php
+
+/**
+ * This file is part of the Elcodi package.
+ *
+ * Copyright (c) 2014 Elcodi.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * Feel free to edit as you please, and have fun.
+ *
+ * @author Marc Morera <yuhu@mmoreram.com>
+ * @author Aldo Chiecchia <zimage@tiscali.it>
+ */
+
+namespace Elcodi\AdminLanguageBundle\Controller\Components;
+
+use Doctrine\ORM\Tools\Pagination\Paginator;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+
+use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
+
+/**
+ * Class LanguageComponentController
+ *
+ * @Route(
+ *      path = "/language",
+ * )
+ */
+class LanguageComponentController extends AbstractAdminController
+{
+    /**
+     * Component for entity list.
+     *
+     * As a component, this action should not return all the html macro, but
+     * only the specific component
+     *
+     * @return array Result
+     *
+     * @Route(
+     *      path = "s/list/component",
+     *      name = "admin_language_list_component",
+     * )
+     * @Template("AdminLanguageBundle:Language:Component/listComponent.html.twig")
+     * @Method({"GET"})
+     */
+    public function listComponentAction()
+    {
+        $languages = $this
+            ->get('elcodi.repository.language')
+            ->findAll();
+
+        return [
+            'paginator' => $languages,
+        ];
+    }
+}
