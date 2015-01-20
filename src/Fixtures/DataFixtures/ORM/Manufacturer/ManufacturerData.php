@@ -37,9 +37,11 @@ class ManufacturerData extends AbstractFixture
         /**
          * @var ManufacturerFactory $manufacturerFactory
          * @var ObjectManager       $manufacturerObjectManager
+         * @var EntityTranslatorInterface $entityTranslator
          */
         $manufacturerFactory = $this->get('elcodi.factory.manufacturer');
         $manufacturerObjectManager = $this->get('elcodi.object_manager.manufacturer');
+        $entityTranslator = $this->get('elcodi.entity_translator');
 
         /**
          * Levis manufacturer
@@ -54,11 +56,34 @@ class ManufacturerData extends AbstractFixture
             ->setEnabled(true);
 
         $manufacturerObjectManager->persist($levisManufacturer);
-        $this->addReference(
-            'manufacturer-levis',
-            $levisManufacturer
-        );
-
+        $this->addReference('manufacturer-levis', $levisManufacturer);
         $manufacturerObjectManager->flush($levisManufacturer);
+
+        $entityTranslator->save($levisManufacturer, array(
+            'en' => array(
+                'name' => 'Levis',
+                'description' => 'Levis',
+                'slug' => 'levis',
+                'metaTitle' => 'Levis',
+                'metaDescription' => 'Levis Manufacturer',
+                'metaKeywords' => 'Levis, Manufacturer',
+            ),
+            'es' => array(
+                'name' => 'Levis',
+                'description' => 'Levis',
+                'slug' => 'levis',
+                'metaTitle' => 'Levis',
+                'metaDescription' => 'Fabricante Levis',
+                'metaKeywords' => 'Levis, Fabricante',
+            ),
+            'fr' => array(
+                'name' => 'Levis',
+                'description' => 'Levis',
+                'slug' => 'levis',
+                'metaTitle' => 'Levis',
+                'metaDescription' => 'Fabricant Levis',
+                'metaKeywords' => 'Levis, Fabricant',
+            )
+        ));
     }
 }
