@@ -6,12 +6,17 @@
 
 {% block breadcrumb %}
 
+    {% set entityHeader = attribute.id
+        ? 'Edit ' ~ attribute.name
+        : 'Create new Attribute'
+    %}
+
     {% include '@AdminCore/Common/breadcrumb.html.twig' with {
-    breadcrumb: {
+        breadcrumb: {
             'Attributes': {
                 'url': url('admin_attribute_list')
             },
-            ('Edit #' ~ id): {
+            (entityHeader): {
                 'active' : true
             }
         }
@@ -21,12 +26,12 @@
 
 {% block content %}
 
-    <div class="row">
-        <div class="col-md-8">
-            {{ render(url('admin_attribute_edit_component', {
-                'id': id,
-            })) }}
-        </div>
-    </div>
+    {% if attribute.id %}
+        {{ render(url("admin_attribute_edit_component", {
+            'id': attribute.id
+        })) }}
+    {% else %}
+        {{ render(url("admin_attribute_new_component")) }}
+    {% endif %}
 
 {% endblock content %}

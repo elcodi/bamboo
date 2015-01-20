@@ -17,10 +17,9 @@
 namespace Elcodi\AdminAttributeBundle\Controller\Component;
 
 use Doctrine\ORM\Tools\Pagination\Paginator;
+use Elcodi\Component\Attribute\Entity\Interfaces\ValueInterface;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
-use Mmoreram\ControllerExtraBundle\Annotation\Paginator as PaginatorAnnotation;
-use Mmoreram\ControllerExtraBundle\ValueObject\PaginatorAttributes;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -30,15 +29,13 @@ use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\Component\Attribute\Entity\Interfaces\AttributeInterface;
 
 /**
- * Class CategoryComponentController
+ * Class AttributeComponentController
  *
- *  * @Route(
- *      path = "/attribute",
+ * @Route(
+ *      path = "attribute"
  * )
  */
-class AttributeComponentController
-    extends
-    AbstractAdminController
+class AttributeComponentController extends AbstractAdminController
 {
     /**
      * Component for entity list.
@@ -46,175 +43,108 @@ class AttributeComponentController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Paginator           $paginator           Paginator instance
-     * @param PaginatorAttributes $paginatorAttributes Paginator attributes
-     * @param integer             $page                Page
-     * @param integer             $limit               Limit of items per page
-     * @param string              $orderByField        Field to order by
-     * @param string              $orderByDirection    Direction to order by
-     *
      * @return array Result
      *
      * @Route(
-     *      path = "s/component/{page}/{limit}/{orderByField}/{orderByDirection}",
+     *      path = "s/list/component",
      *      name = "admin_attribute_list_component",
-     *      requirements = {
-     *          "page" = "\d*",
-     *          "limit" = "\d*",
-     *      },
-     *      defaults = {
-     *          "page" = "1",
-     *          "limit" = "50",
-     *          "orderByField" = "id",
-     *          "orderByDirection" = "DESC",
-     *      },
+     *      methods = {"GET"}
      * )
-     * @Template("AdminAttributeBundle:Attribute:Component/listComponent.html.twig")
-     * @Method({"GET"})
-     *
-     * @PaginatorAnnotation(
-     *      attributes = "paginatorAttributes",
-     *      class = "elcodi.core.attribute.entity.attribute.class",
-     *      page = "~page~",
-     *      limit = "~limit~",
-     *      orderBy = {
-     *          {"x", "~orderByField~", "~orderByDirection~"}
-     *      }
-     * )
+     * @Template("AdminAttributeBundle:Attribute:listComponent.html.twig")
      */
-    public function listComponentAction(
-        Paginator $paginator,
-        PaginatorAttributes $paginatorAttributes,
-        $page,
-        $limit,
-        $orderByField,
-        $orderByDirection
-    )
+    public function listComponentAction()
     {
+        $attributes = $this
+            ->get('elcodi.repository.attribute')
+            ->findAll();
+
         return [
-            'paginator'        => $paginator,
-            'page'             => $page,
-            'limit'            => $limit,
-            'orderByField'     => $orderByField,
-            'orderByDirection' => $orderByDirection,
-            'totalPages'       => $paginatorAttributes->getTotalPages(),
-            'totalElements'    => $paginatorAttributes->getTotalElements(),
+            'paginator' => $attributes
         ];
     }
 
     /**
-     * Component for entity view
+     * New element component action
      *
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param AttributeInterface $entity Entity to view
+     * @param FormView           $formView  Form view
+     * @param AttributeInterface $attribute Attribute
      *
      * @return array Result
      *
      * @Route(
-     *      path = "/component/{id}",
-     *      name = "admin_attribute_view_component",
+     *      path = "/{id}/component",
+     *      name = "admin_attribute_edit_component",
      *      requirements = {
-     *          "id" = "\d*",
+     *          "id" = "\d+",
      *      }
      * )
-     * @Template("AdminAttributeBundle:Attribute:Component/viewComponent.html.twig")
-     * @Method({"GET"})
-     *
-     * @EntityAnnotation(
-     *      class = {
-     *          "factory" = "elcodi.core.attribute.factory.attribute",
-     *      },
-     *      mapping = {
-     *          "id" = "~id~"
-     *      }
-     * )
-     */
-    public function viewComponentAction(AttributeInterface $entity)
-    {
-        return [
-            'entity' => $entity,
-        ];
-    }
-
-    /**
-     * New element action
-     *
-     * As a component, this action should not return all the html macro, but
-     * only the specific component
-     *
-     * @param FormView $formView Form view
-     *
-     * @return array Result
-     *
      * @Route(
      *      path = "/new/component",
-     *      name = "admin_attribute_new_component"
+     *      name = "admin_attribute_new_component",
+     *      methods = {"GET"}
      * )
-     * @Template("AdminAttributeBundle:Attribute:Component/newComponent.html.twig")
+     * @Template("AdminAttributeBundle:Attribute:editComponent.html.twig")
      * @Method({"GET"})
-     *
-     * Will use productfactory and inject it into the form! ProductType::defaultOptions
-     * is NOT factorying the new product instance correctly!
      *
      * @EntityAnnotation(
      *      class = {
-     *          "factory" = "elcodi.core.attribute.factory.attribute"
+     *          "factory" = "elcodi.factory.attribute",
+     *          "method" = "create",
+     *          "static" = false
      *      },
-     *      name = "entity"
-     * )
-     * @FormAnnotation(
-     *      class = "elcodi_admin_attribute_form_type_attribute",
-     *      name  = "formView",
-     *      entity = "entity"
-     * )
-     */
-    public function newComponentAction(FormView $formView)
-    {
-        return [
-            'form' => $formView,
-        ];
-    }
-
-    /**
-     * Edit element component action
-     *
-     * As a component, this action should not return all the html macro, but
-     * only the specific component
-     *
-     * @param AttributeInterface $entity   Entity
-     * @param FormView           $formView Form view
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/{id}/edit/component",
-     *      name = "admin_attribute_edit_component"
-     * )
-     * @Template("AdminAttributeBundle:Attribute:Component/editComponent.html.twig")
-     * @Method({"GET"})
-     *
-     * @EntityAnnotation(
-     *      class = "elcodi.core.attribute.entity.attribute.class",
+     *      name = "attribute",
      *      mapping = {
-     *          "id": "~id~",
-     *      }
+     *          "id" = "~id~"
+     *      },
+     *      mappingFallback = true,
      * )
      * @FormAnnotation(
      *      class = "elcodi_admin_attribute_form_type_attribute",
      *      name  = "formView",
-     *      entity = "entity"
+     *      entity = "attribute",
+     *      handleRequest = true,
+     *      validate = "isValid"
      * )
      */
     public function editComponentAction(
-        AttributeInterface $entity,
-        FormView $formView
+        FormView $formView,
+        AttributeInterface $attribute
     )
     {
+        $allAvailableValues = $this
+            ->get('elcodi.repository.attribute_value')
+            ->findAll();
+
+        $attributeValues = $attribute
+            ->getValues()
+            ->toArray();
+
         return [
-            'entity' => $entity,
-            'form'   => $formView,
+            'attribute'       => $attribute,
+            'form'            => $formView,
+            'attributeValues' => $this->getValuesSplittedByComma($attributeValues),
+            'allValues'       => $this->getValuesSplittedByComma($allAvailableValues),
         ];
+    }
+
+    /**
+     * Get values splitted by comma
+     *
+     * @param array|null $values Values
+     *
+     * @return string Values splitted by comma
+     */
+    protected function getValuesSplittedByComma(array $values = null)
+    {
+        $values = is_array($values)
+            ? $values
+            : [];
+
+        $values = array_unique($values);
+
+        return implode(',', $values);
     }
 }

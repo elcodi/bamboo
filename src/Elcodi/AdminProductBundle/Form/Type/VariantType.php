@@ -47,7 +47,7 @@ class VariantType extends AbstractPurchasableType
                             ->createQueryBuilder('v')
                             ->join('v.attribute', 'a');
                     },
-                'property' => 'name'
+                'property' => 'value'
             ))
             ->add('imagesSort', 'text', array(
                 'required' => false,

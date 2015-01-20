@@ -32,7 +32,7 @@
             "id": entity.id
         }) }}">
             {% for option in entity.options %}
-                {{ option.name }}
+                {{ option.value }}
             {% endfor %}
         </a>
     </td>
@@ -50,7 +50,7 @@
         {% if delete is not defined or delete != false %}
             <a class="icon-trash-o c-ko td-n fz-l"
                data-tc-modules="confirm"
-               data-tc-name="{{ entity.product.name }}{% for option in entity.options %} {{ option.name }}{% endfor %}"
+               data-tc-name="{{ entity.product.name }}{% for option in entity.options %} {{ option.value }}{% endfor %}"
                data-tc-text="{{ "Are you sure you want to delete it?"|trans }}"
                href="{{
                         url(
