@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\AdminCartBundle;
+namespace Elcodi\Admin\CartBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

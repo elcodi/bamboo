@@ -14,12 +14,12 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\AdminTemplateBundle\Controller;
+namespace Elcodi\Admin\TemplateBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
+use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
 
 /**
  * Class Controller for Category

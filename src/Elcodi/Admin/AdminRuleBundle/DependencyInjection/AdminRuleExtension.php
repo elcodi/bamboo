@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\AdminRuleBundle\DependencyInjection;
+namespace Elcodi\Admin\RuleBundle\DependencyInjection;
 
 use Elcodi\Bundle\CoreBundle\DependencyInjection\Abstracts\AbstractExtension;
 

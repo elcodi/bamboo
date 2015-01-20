@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\AdminConfigurationBundle\Controller;
+namespace Elcodi\Admin\ConfigurationBundle\Controller;
 
 use Mmoreram\ControllerExtraBundle\Annotation\JsonResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -22,7 +22,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 
-use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
+use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
 
 /**
  * Class Controller for Category

@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\AdminCartCouponBundle\DependencyInjection;
+namespace Elcodi\Admin\CartCouponBundle\DependencyInjection;
 
 use Elcodi\Bundle\CoreBundle\DependencyInjection\Abstracts\AbstractExtension;
 

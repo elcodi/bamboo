@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\AdminCouponBundle\Controller\Component;
+namespace Elcodi\Admin\CouponBundle\Controller\Component;
 
 use Doctrine\ORM\Tools\Pagination\Paginator;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
@@ -26,7 +26,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormView;
 
-use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
+use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\Component\Coupon\Entity\Interfaces\CouponInterface;
 
 /**

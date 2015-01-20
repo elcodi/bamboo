@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\AdminNewsletterBundle;
+namespace Elcodi\Admin\NewsletterBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

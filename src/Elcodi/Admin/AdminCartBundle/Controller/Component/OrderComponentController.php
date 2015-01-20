@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\AdminCartBundle\Controller\Component;
+namespace Elcodi\Admin\CartBundle\Controller\Component;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Tools\Pagination\Paginator;
@@ -27,7 +27,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormView;
 
-use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
+use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\Component\Cart\Entity\Interfaces\OrderInterface;
 use Elcodi\Component\Cart\Entity\Interfaces\OrderLineInterface;
 

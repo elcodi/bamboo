@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\AdminCartCouponBundle;
+namespace Elcodi\Admin\CartCouponBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

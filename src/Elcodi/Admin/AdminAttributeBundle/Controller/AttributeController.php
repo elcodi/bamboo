@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\AdminAttributeBundle\Controller;
+namespace Elcodi\Admin\AttributeBundle\Controller;
 
 use Elcodi\Component\Attribute\Entity\Interfaces\ValueInterface;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
@@ -26,7 +26,7 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
-use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
+use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 use Elcodi\Component\Attribute\Entity\Interfaces\AttributeInterface;
 

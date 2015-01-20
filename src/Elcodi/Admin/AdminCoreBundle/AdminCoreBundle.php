@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\AdminCoreBundle;
+namespace Elcodi\Admin\CoreBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

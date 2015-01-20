@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\AdminMetricBundle;
+namespace Elcodi\Admin\MetricBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

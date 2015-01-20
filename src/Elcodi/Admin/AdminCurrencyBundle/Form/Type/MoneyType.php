@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\AdminCurrencyBundle\Form\Type;
+namespace Elcodi\Admin\CurrencyBundle\Form\Type;
 
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;

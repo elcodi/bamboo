@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\AdminMetricBundle\Controller;
+namespace Elcodi\Admin\MetricBundle\Controller;
 
 use DateInterval;
 use DateTime;

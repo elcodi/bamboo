@@ -14,11 +14,11 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\AdminProductBundle\Form\Type;
+namespace Elcodi\Admin\ProductBundle\Form\Type;
 
 use Symfony\Component\Form\FormBuilderInterface;
 
-use Elcodi\AdminCurrencyBundle\Form\Type\Abstracts\AbstractPurchasableType;
+use Elcodi\Admin\CurrencyBundle\Form\Type\Abstracts\AbstractPurchasableType;
 use Elcodi\Component\EntityTranslator\EventListener\Traits\EntityTranslatableFormTrait;
 
 /**

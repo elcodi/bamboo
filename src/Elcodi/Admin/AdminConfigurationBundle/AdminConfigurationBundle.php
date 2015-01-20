@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\AdminConfigurationBundle;
+namespace Elcodi\Admin\ConfigurationBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

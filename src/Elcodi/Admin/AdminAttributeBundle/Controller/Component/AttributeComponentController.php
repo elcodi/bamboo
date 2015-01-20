@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\AdminAttributeBundle\Controller\Component;
+namespace Elcodi\Admin\AttributeBundle\Controller\Component;
 
 use Doctrine\ORM\Tools\Pagination\Paginator;
 use Elcodi\Component\Attribute\Entity\Interfaces\ValueInterface;
@@ -25,7 +25,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormView;
 
-use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
+use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\Component\Attribute\Entity\Interfaces\AttributeInterface;
 
 /**

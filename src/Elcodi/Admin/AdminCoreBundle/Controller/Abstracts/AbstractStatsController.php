@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\AdminCoreBundle\Controller\Abstracts;
+namespace Elcodi\Admin\CoreBundle\Controller\Abstracts;
 
 use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;

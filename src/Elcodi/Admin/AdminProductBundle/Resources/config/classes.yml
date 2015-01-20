@@ -3,7 +3,7 @@ parameters:
     #
     # Entity classes
     #
-    elcodi.admin.product.form_type.product.class: Elcodi\AdminProductBundle\Form\Type\ProductType
-    elcodi.admin.product.form_type.product_variant.class: Elcodi\AdminProductBundle\Form\Type\VariantType
-    elcodi.admin.product.form_type.category.class: Elcodi\AdminProductBundle\Form\Type\CategoryType
-    elcodi.admin.product.form_type.manufacturer.class: Elcodi\AdminProductBundle\Form\Type\ManufacturerType
+    elcodi.admin.product.form_type.product.class: Elcodi\Admin\ProductBundle\Form\Type\ProductType
+    elcodi.admin.product.form_type.product_variant.class: Elcodi\Admin\ProductBundle\Form\Type\VariantType
+    elcodi.admin.product.form_type.category.class: Elcodi\Admin\ProductBundle\Form\Type\CategoryType
+    elcodi.admin.product.form_type.manufacturer.class: Elcodi\Admin\ProductBundle\Form\Type\ManufacturerType

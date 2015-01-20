@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\AdminUserBundle\Controller;
+namespace Elcodi\Admin\UserBundle\Controller;
 
 use Mmoreram\ControllerExtraBundle\Annotation\Form as AnnotationForm;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
