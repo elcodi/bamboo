@@ -1,0 +1,35 @@
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     127.0.0.1
+    database_port:     ~
+    database_name:     bamboo
+    database_user:     root
+    database_password: root
+
+    mailer_transport:  smtp
+    mailer_host:       127.0.0.1
+    mailer_user:       ~
+    mailer_password:   ~
+    mailer_port:       ~
+
+    locale:            en
+    secret:            4acbc300e57d46cb58ac0c629945c17b727f99c8
+
+    use_assetic_controller: false
+    debug_toolbar:          true
+    debug_redirects:        false
+
+    bamboo_social_github_client_id:         github-client-id
+    bamboo_social_github_client_secret:     github-client-secret
+
+    bamboo_social_paypal_client_id:         paypal-client-id
+    bamboo_social_paypal_client_secret:     paypal-client-secret
+    bamboo_social_paypal_client_is_sandbox: true
+
+    paypal_web_checkout_recipient:          payment-test-facilitator@elcodi.com
+
+    aws_access_key_id: fillme
+    aws_secret_access_key: fillme
+    aws_region: us-east-1
+
+    bamboo_bucket_name: fillme

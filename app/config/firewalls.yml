@@ -1,0 +1,61 @@
+security:
+    firewalls:
+        dev:
+            context: store_context
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        customer_secured_area:
+            context: store_context
+            pattern: ^/(?!admin)
+            provider: customer
+            anonymous: true
+            security: true
+            form_login:
+                login_path: store_login
+                check_path: store_login_check
+                username_parameter: store_user_form_type_login[email]
+                password_parameter: store_user_form_type_login[password]
+            logout:
+                path:   store_logout
+                target: store_homepage
+                invalidate_session: false
+            oauth:
+                login_path: /login
+                use_forward: false
+                failure_path: /login
+                oauth_user_provider:
+                    service: store.connect.service.oauth_provider
+                resource_owners:
+                    github: /login/check-github
+                    paypal: /login/check-paypal
+
+        dev:
+            #context: admin_context
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        login_area:
+            #context: admin_context
+            pattern: ^/admin/login$
+            anonymous: ~
+
+        password_area:
+            #context: admin_context
+            pattern: ^/admin/password.*$
+            anonymous: ~
+
+        admin_secured_area:
+            #context: admin_context
+            provider: adminuser
+            pattern: ^/admin?.*$
+            form_login:
+                login_path: admin_login
+                check_path: admin_login_check
+                username_parameter: elcodi_admin_user_form_type_login[email]
+                password_parameter: elcodi_admin_user_form_type_login[password]
+                default_target_path: admin_homepage
+            logout:
+                path:   admin_logout
+                target: admin_homepage
+                invalidate_session: false

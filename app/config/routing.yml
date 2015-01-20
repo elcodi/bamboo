@@ -1,0 +1,121 @@
+#
+# Admin routes
+#
+admin_core:
+    resource: "@AdminCoreBundle/Resources/config/routing.yml"
+    prefix: /admin
+
+admin_user:
+    resource: "@AdminUserBundle/Resources/config/routing.yml"
+    prefix: /admin
+
+admin_cart:
+    resource: "@AdminCartBundle/Resources/config/routing.yml"
+    prefix: /admin
+
+admin_banner:
+    resource: "@AdminBannerBundle/Resources/config/routing.yml"
+    prefix: /admin
+
+admin_coupon:
+    resource: "@AdminCouponBundle/Resources/config/routing.yml"
+    prefix: /admin
+
+admin_currency:
+    resource: "@AdminCurrencyBundle/Resources/config/routing.yml"
+    prefix: /admin
+
+admin_attribute:
+    resource: "@AdminAttributeBundle/Resources/config/routing.yml"
+    prefix: /admin
+
+admin_product:
+    resource: "@AdminProductBundle/Resources/config/routing.yml"
+    prefix: /admin
+
+admin_language:
+    resource: "@AdminLanguageBundle/Resources/config/routing.yml"
+    prefix: /admin
+
+admin_rule:
+    resource: "@AdminRuleBundle/Resources/config/routing.yml"
+    prefix: /admin
+
+admin_media:
+    resource: "@AdminMediaBundle/Resources/config/routing.yml"
+    prefix: /admin
+
+admin_newsletter:
+    resource: "@AdminNewsletterBundle/Resources/config/routing.yml"
+    prefix: /admin
+
+admin_page:
+    resource: "@AdminPageBundle/Resources/config/routing.yml"
+    prefix: /admin
+
+admin_configuration:
+    resource: "@AdminConfigurationBundle/Resources/config/routing.yml"
+    prefix: /admin
+
+admin_templates:
+    resource: "@AdminTemplateBundle/Resources/config/routing.yml"
+    prefix: /admin
+
+admin_login_check:
+    path:  /admin/login_check
+
+admin_logout:
+    path: /admin/logout
+
+#
+# Store routes
+#
+store_core:
+    resource: "@StoreCoreBundle/Resources/config/routing.yml"
+
+store_product:
+    resource: "@StoreProductBundle/Resources/config/routing.yml"
+
+store_user:
+    resource: "@StoreUserBundle/Resources/config/routing.yml"
+
+store_cart:
+    resource: "@StoreCartBundle/Resources/config/routing.yml"
+
+store_cart_coupon:
+    resource: "@StoreCartCouponBundle/Resources/config/routing.yml"
+
+store_currency:
+    resource: "@StoreCurrencyBundle/Resources/config/routing.yml"
+
+payment:
+    resource: "@PaymentBridgeBundle/Resources/config/routing.yml"
+
+store_login_check:
+    path:  /login_check
+
+store_logout:
+    path: /logout
+
+core_media_bundle:
+    resource: "@ElcodiMediaBundle/Resources/config/routing.yml"
+
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /login
+
+hwi_oauth_login:
+    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
+    prefix:   /login
+
+github_login:
+    pattern: /login/check-github
+
+paypal_login:
+    pattern: /login/check-paypal
+
+#
+# Other routes
+#
+core_page_bundle:
+    resource: "@ElcodiPageBundle/Resources/config/routing.yml"
