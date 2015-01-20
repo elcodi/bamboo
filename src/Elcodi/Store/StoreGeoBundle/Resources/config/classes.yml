@@ -1,6 +1,0 @@
-parameters:
-
-    #
-    # Form Types
-    #
-    store.geo.form_type.address.class: Elcodi\Store\StoreGeoBundle\Form\Type\AddressType

@@ -1,0 +1,6 @@
+parameters:
+
+    #
+    # Entity classes
+    #
+    elcodi.admin.page.form_type.page.class: Elcodi\Admin\PageBundle\Form\Type\PageType

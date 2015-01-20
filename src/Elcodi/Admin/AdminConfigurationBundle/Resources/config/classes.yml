@@ -1,6 +1,0 @@
-parameters:
-
-    #
-    # Entity classes
-    #
-    elcodi.admin.configuration.form_type.configuration.class: Elcodi\Admin\AdminConfigurationBundle\Form\Type\ConfigurationType

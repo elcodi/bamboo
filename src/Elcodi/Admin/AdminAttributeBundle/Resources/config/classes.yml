@@ -1,7 +1,0 @@
-parameters:
-
-    #
-    # Entity classes
-    #
-    elcodi.admin.attribute.form_type.attribute.class: Elcodi\Admin\AdminAttributeBundle\Form\Type\AttributeType
-    elcodi.admin.attribute.form_type.value.class: Elcodi\Admin\AdminAttributeBundle\Form\Type\ValueType

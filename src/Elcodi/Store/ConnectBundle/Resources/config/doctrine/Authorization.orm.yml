@@ -1,0 +1,31 @@
+Elcodi\Store\ConnectBundle\Entity\Authorization:
+    type: entity
+    repositoryClass: Elcodi\Store\ConnectBundle\Repository\AuthorizationRepository
+    table: authorization
+    indexes:
+        resourceowner_username_idx:
+            columns:
+                - resourceowner_name
+                - username
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        resourceOwnerName:
+            column: resourceowner_name
+            type: string
+        username:
+            column: username
+            type: string
+        authorizationToken:
+            column: authorization_token
+            type: string
+        expirationDate:
+            column: expiration_date
+            type: datetime
+
+    oneToOne:
+        user:
+            targetEntity: Elcodi\Component\User\Entity\Interfaces\CustomerInterface

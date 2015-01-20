@@ -1,6 +1,0 @@
-parameters:
-
-    #
-    # services
-    #
-    store.product.service.product_collection_provider.class: Elcodi\Store\StoreProductBundle\Services\ProductCollectionProvider
