@@ -37,10 +37,6 @@ admin_language:
     resource: "@AdminLanguageBundle/Resources/config/routing.yml"
     prefix: /admin
 
-admin_rule:
-    resource: "@AdminRuleBundle/Resources/config/routing.yml"
-    prefix: /admin
-
 admin_media:
     resource: "@AdminMediaBundle/Resources/config/routing.yml"
     prefix: /admin
@@ -60,6 +56,9 @@ admin_configuration:
 admin_templates:
     resource: "@AdminTemplateBundle/Resources/config/routing.yml"
     prefix: /admin
+
+admin_metric:
+    resource: "@AdminMetricBundle/Resources/config/routing.yml"
 
 admin_login_check:
     path:  /admin/login_check
@@ -114,8 +113,10 @@ github_login:
 paypal_login:
     pattern: /login/check-paypal
 
-#
-# Other routes
-#
-core_page_bundle:
+core_metric:
+    resource: "@ElcodiMetricBundle/Resources/config/routing.yml"
+    prefix: /
+
+page_bundle:
     resource: "@ElcodiPageBundle/Resources/config/routing.yml"
+    prefix: /

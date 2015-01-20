@@ -7,6 +7,7 @@ imports:
     - { resource: @ElcodiBambooBundle/Resources/config/configuration.yml }
     - { resource: @ElcodiBambooBundle/Resources/config/cache.yml }
     - { resource: @ElcodiBambooBundle/Resources/config/page.yml }
+    - { resource: @ElcodiBambooBundle/Resources/config/metrics.yml }
 
 framework:
     secret:          "%secret%"
@@ -31,6 +32,10 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: false
+
+    globals:
+        currency_wrapper: @elcodi.currency_wrapper
+        store_tracker: %elcodi.core.bamboo.store_tracker%
 
 # Doctrine Configuration
 doctrine:
@@ -110,3 +115,5 @@ hwi_oauth:
             options:
                 sandbox: %bamboo_social_paypal_client_is_sandbox%
 
+elcodi_bamboo:
+    store_tracker: 7s89da7s8d9a

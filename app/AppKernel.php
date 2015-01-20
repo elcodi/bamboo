@@ -93,10 +93,11 @@ class AppKernel extends Kernel
             new \Elcodi\Admin\MediaBundle\AdminMediaBundle(),
             new \Elcodi\Admin\NewsletterBundle\AdminNewsletterBundle(),
             new \Elcodi\Admin\ProductBundle\AdminProductBundle(),
-            new \Elcodi\Admin\RuleBundle\AdminRuleBundle(),
+            //new \Elcodi\Admin\RuleBundle\AdminRuleBundle(),
             new \Elcodi\Admin\ConfigurationBundle\AdminConfigurationBundle(),
             new \Elcodi\Admin\PageBundle\AdminPageBundle(),
             new \Elcodi\Admin\TemplateBundle\AdminTemplateBundle(),
+            new \Elcodi\Admin\MetricBundle\AdminMetricBundle(),
 
             /**
              * Elcodi Templates
