@@ -55,6 +55,7 @@ class StoreAppKernel extends Kernel
             new \PaymentSuite\FreePaymentBundle\FreePaymentBundle(),
             new \PaymentSuite\PaypalWebCheckoutBundle\PaypalWebCheckoutBundle(),
             new \HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
+            new Snc\RedisBundle\SncRedisBundle(),
 
             /**
              * Elcodi core bundles
@@ -79,6 +80,7 @@ class StoreAppKernel extends Kernel
             new \Elcodi\Bundle\StateTransitionMachineBundle\ElcodiStateTransitionMachineBundle(),
             new \Elcodi\Bundle\ConfigurationBundle\ElcodiConfigurationBundle(),
             new \Elcodi\Bundle\PageBundle\ElcodiPageBundle(),
+            new \Elcodi\Bundle\MetricBundle\ElcodiMetricBundle(),
 
             /**
              * Elcodi store bundles

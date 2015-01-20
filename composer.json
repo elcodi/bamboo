@@ -63,6 +63,7 @@
         "paymentsuite/paypal-web-checkout-bundle": "1.0.*@dev",
         "incenteev/composer-parameter-handler": "~2.1.0",
         "hwi/oauth-bundle": "0.4.*@dev",
+        "snc/redis-bundle": "~1.1",
 
         "elcodi/bamboo-bundle": "~0.4.0",
         "elcodi/attribute-bundle": "~0.4.0",
@@ -86,6 +87,7 @@
         "elcodi/entity-translator-bundle": "~0.4.0",
         "elcodi/page-bundle": "~0.4.0",
         "elcodi/configuration-bundle": "~0.4.0",
+        "elcodi/metric-bundle": "~0.4.0",
 
         "elcodi-templates/template": "~0.4.0",
         "elcodi-templates/store-template-bundle": "~0.4.0",
