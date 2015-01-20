@@ -16,6 +16,7 @@
 
 namespace Elcodi\AdminAttributeBundle\Controller;
 
+use Elcodi\Component\Attribute\Entity\Interfaces\ValueInterface;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -26,11 +27,11 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\Component\Attribute\Entity\Interfaces\AttributeInterface;
 use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
+use Elcodi\Component\Attribute\Entity\Interfaces\AttributeInterface;
 
 /**
- * Class Controller for Category
+ * Class Controller for Attribute
  *
  * @Route(
  *      path = "/attribute",
@@ -44,212 +45,109 @@ class AttributeController extends AbstractAdminController
      * This action is just a wrapper, so should never get any data,
      * as this is component responsibility
      *
-     * @param integer $page             Page
-     * @param integer $limit            Limit of items per page
-     * @param string  $orderByField     Field to order by
-     * @param string  $orderByDirection Direction to order by
-     *
      * @return array Result
      *
      * @Route(
-     *      path = "s/{page}/{limit}/{orderByField}/{orderByDirection}",
+     *      path = "s",
      *      name = "admin_attribute_list",
-     *      requirements = {
-     *          "page" = "\d*",
-     *          "limit" = "\d*",
-     *      },
-     *      defaults = {
-     *          "page" = "1",
-     *          "limit" = "50",
-     *          "orderByField" = "id",
-     *          "orderByDirection" = "DESC",
-     *      },
+     *      methods = {"GET"}
      * )
      * @Template
-     * @Method({"GET"})
      */
-    public function listAction(
-        $page,
-        $limit,
-        $orderByField,
-        $orderByDirection
-    )
-    {
-        return [
-            'page'             => $page,
-            'limit'            => $limit,
-            'orderByField'     => $orderByField,
-            'orderByDirection' => $orderByDirection,
-        ];
-    }
-
-    /**
-     * View element action.
-     *
-     * This action is just a wrapper, so should never get any data,
-     * as this is component responsibility
-     *
-     * @param integer $id Attribute id
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/{id}",
-     *      name = "admin_attribute_view",
-     *      requirements = {
-     *          "id" = "\d*",
-     *      }
-     * )
-     * @Template("@AdminAttribute/Attribute/view.html.twig")
-     * @Method({"GET"})
-     */
-    public function viewAction($id)
-    {
-        return [
-            'id' => $id
-        ];
-    }
-
-    /**
-     * New element action
-     *
-     * This action is just a wrapper, so should never get any data,
-     * as this is component responsibility
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/new",
-     *      name = "admin_attribute_new"
-     * )
-     * @Template
-     * @Method({"GET"})
-     */
-    public function newAction()
+    public function listAction()
     {
         return [];
     }
 
     /**
-     * Save new element action
+     * Edit and Saves attribute
      *
-     * Should be POST
-     *
-     * @param AttributeInterface $entity  Entity to save
-     * @param FormInterface      $form    Form view
-     * @param boolean            $isValid Request handle is valid
+     * @param Request            $request   Request
+     * @param FormInterface      $form      Form
+     * @param AttributeInterface $attribute Attribute
+     * @param boolean            $isValid   Is valid
      *
      * @return RedirectResponse Redirect response
      *
      * @Route(
-     *      path = "/save",
-     *      name = "admin_attribute_save"
+     *      path = "/{id}",
+     *      name = "admin_attribute_edit",
+     *      requirements = {
+     *          "id" = "\d+",
+     *      },
+     *      methods = {"GET"}
      * )
-     * @Method({"POST"})
+     * @Route(
+     *      path = "/{id}/update",
+     *      name = "admin_attribute_update",
+     *      requirements = {
+     *          "id" = "\d+",
+     *      },
+     *      methods = {"POST"}
+     * )
+     *
+     * @Route(
+     *      path = "/new",
+     *      name = "admin_attribute_new",
+     *      methods = {"GET"}
+     * )
+     * @Route(
+     *      path = "/new/update",
+     *      name = "admin_attribute_save",
+     *      methods = {"POST"}
+     * )
      *
      * @EntityAnnotation(
      *      class = {
-     *          "factory" = "elcodi.core.attribute.factory.attribute"
+     *          "factory" = "elcodi.factory.attribute",
+     *          "method" = "create",
+     *          "static" = false
      *      },
+     *      mapping = {
+     *          "id" = "~id~"
+     *      },
+     *      mappingFallback = true,
+     *      name = "attribute",
      *      persist = true
      * )
      * @FormAnnotation(
      *      class = "elcodi_admin_attribute_form_type_attribute",
      *      name  = "form",
-     *      entity = "entity",
-     *      handleRequest = true,
-     * )
-     */
-    public function saveAction(
-        AttributeInterface $entity,
-        FormInterface $form,
-        $isValid
-    )
-    {
-        if ($isValid) {
-            $this
-                ->get('elcodi.object_manager.attribute')
-                ->flush($entity);
-        }
-
-        return $this->redirectRoute("admin_attribute_view", [
-            'id' => $entity->getId(),
-        ]);
-    }
-
-    /**
-     * Edit element action
-     *
-     * This action is just a wrapper, so should never get any data,
-     * as this is component responsibility
-     *
-     * @param Request $request Request
-     * @param integer $id      Entity id
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/{id}/edit",
-     *      name = "admin_attribute_edit"
-     * )
-     * @Template
-     * @Method({"GET"})
-     */
-    public function editAction($id)
-    {
-        return [
-            'id' => $id,
-        ];
-    }
-
-    /**
-     * Updated edited element action
-     *
-     * Should be POST
-     *
-     * @param Request            $request Request
-     * @param AttributeInterface $entity  Entity to update
-     * @param FormInterface      $form    Form view
-     * @param boolean            $isValid Request handle is valid
-     *
-     * @return RedirectResponse Redirect response
-     *
-     * @Route(
-     *      path = "/{id}/update",
-     *      name = "admin_attribute_update"
-     * )
-     * @Method({"POST"})
-     *
-     * @EntityAnnotation(
-     *      class = "elcodi.core.attribute.entity.attribute.class",
-     *      mapping = {
-     *          "id": "~id~",
-     *      }
-     * )
-     * @FormAnnotation(
-     *      class = "elcodi_admin_attribute_form_type_attribute",
-     *      name  = "form",
-     *      entity = "entity",
+     *      entity = "attribute",
      *      handleRequest = true,
      *      validate = "isValid"
      * )
+     *
+     * @Template
      */
-    public function updateAction(
+    public function editAction(
         Request $request,
-        AttributeInterface $entity,
         FormInterface $form,
+        AttributeInterface $attribute,
         $isValid
     )
     {
         if ($isValid) {
-            $this
-                ->get('elcodi.object_manager.attribute')
-                ->flush($entity);
+
+            $values = explode(',', $request
+                ->request
+                ->get('values'));
+
+            $this->evaluateAttributeValues($attribute, $values);
+
+            $this->flush($attribute);
+
+            $this->addFlash('success', 'Changes saved');
+
+            return $this->redirectToRoute('admin_attribute_edit', [
+                'id' => $attribute->getId(),
+            ]);
         }
 
-        return $this->redirectRoute("admin_attribute_view", [
-            'id' => $entity->getId(),
-        ]);
+        return [
+            'attribute' => $attribute,
+            'form'      => $form->createView(),
+        ];
     }
 
     /**
@@ -317,7 +215,7 @@ class AttributeController extends AbstractAdminController
     }
 
     /**
-     * Delete element action
+     * Delete entity
      *
      * @param Request $request     Request
      * @param mixed   $entity      Entity to delete
@@ -349,5 +247,59 @@ class AttributeController extends AbstractAdminController
             $entity,
             'admin_attribute_list'
         );
+    }
+
+    /**
+     * Given an attribute and an array of Values, perform database and relation
+     * stuff
+     *
+     * @param AttributeInterface $attribute Attribute
+     * @param array              $values    Values
+     *
+     * @return $this Self object
+     */
+    public function evaluateAttributeValues(AttributeInterface $attribute, array $values = [])
+    {
+        $actualValues = [];
+        $values = array_filter($values, function($value) {
+
+            return !empty($value);
+        });
+
+        /**
+         * We remove all deleted values
+         */
+        $attribute->setValues(
+            $attribute
+                ->getValues()
+                ->filter(function (ValueInterface $value) use ($attribute, $values, &$actualValues) {
+
+                    $found = false;
+                    if (in_array($value->getValue(), $values)) {
+
+                        $actualValues[] = $value->getValue();
+                        $found = true;
+                    } else {
+
+                        $attribute->removeValue($value);
+                    }
+
+                    return $found;
+                })
+        );
+
+        $newValues = array_diff($values, $actualValues);
+
+        foreach ($newValues as $newValue) {
+
+            $value = $this
+                ->get('elcodi.factory.attribute_value')
+                ->create()
+                ->setValue($newValue)
+                ->setAttribute($attribute);
+            $attribute->addValue($value);
+        }
+
+        return $this;
     }
 }

@@ -1,46 +1,35 @@
 {% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
 
-
 {% block title %}
     {{ 'Attribute list'|trans }}
 {% endblock title %}
 
 {% block no_items %}
-    {{ lists.no_items('attribute','attributes', url("admin_manufacturer_new") ) }}
+    {{ lists.no_items('attribute','attributes', url("admin_attribute_new")  ) }}
 {% endblock no_items %}
 
 {% block table_head %}
     {% include "@AdminCore/Tables/head.html.twig" with {
         rows: {
             "Name": {},
-            "Display Name": {},
-            "Values": {sorting_disabled: true},
-            "Status": {width:"10"}
+            "Values": {},
         },
         class: "attribute",
     } %}
 {% endblock table_head %}
 
-{% block table_body_row %}
-    <td>
-        <a href="{{ url("admin_attribute_edit", {"id": entity.id}) }}">
-            <strong>{{ entity.name }}</strong>
-        </a>
-    </td>
-    <td>
-        {{ entity.displayName }}
-    </td>
-    <td>
-        <ul class="list">
-            {% for value in entity.values %}
-                <li>{{ value.name }}</li>
-            {% endfor %}
-        </ul>
-    </td>
-    <td>
-        {% if entity.enabled %}<span class="label-ok">Enabled</span>{% else %}<span class="label-ko">Disabled</span>{% endif %}
-    </td>
 
+{% block table_body_row %}
+
+    <td>
+        <a href="{{ url("admin_attribute_edit", {"id": entity.id}) }}"><strong>{{ entity.name }}</strong></a>
+        {% if entity.enabled %}<span class="label-ok fz-xs">Enabled</span>{% else %}<span class="label fz-xs">Disabled</span>{% endif %} {% if entity.showInHome %}<span class="label-info fz-xs">{{'Home'|trans}}</span>{% endif %} {% if entity.hasVariants %}<span class="label bg-secondary fz-xs">{{'Variants'|trans}}</span>{% endif %}
+    </td>
+    <td>
+        {% for value in entity.values %}
+            {{ value }},
+        {% endfor %}
+    </td>
     {% include "@AdminCore/Tables/actions.html.twig" with {
         entity: entity,
         class: "attribute",

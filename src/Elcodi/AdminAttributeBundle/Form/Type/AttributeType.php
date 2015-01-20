@@ -37,22 +37,6 @@ class AttributeType extends AbstractType
                 'required' => true,
                 'label'    => 'Name',
             ))
-            ->add('displayName', 'text', array(
-                'required' => true,
-                'label'    => 'Display Name',
-            ))
-            ->add('createdAt', 'datetime', array(
-                'widget'   => 'single_text',
-                'format'   => 'yyyy-MM-dd - HH:mm:ss',
-                'required' => false,
-                'label'    => 'createdAt',
-            ))
-            ->add('updatedAt', 'datetime', array(
-                'widget'   => 'single_text',
-                'format'   => 'yyyy-MM-dd - HH:mm:ss',
-                'required' => false,
-                'label'    => 'updatedAt',
-            ))
             ->add('enabled', 'checkbox', array(
                 'required' => false,
                 'label'    => 'Status',
