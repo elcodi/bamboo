@@ -43,6 +43,9 @@ admin_page:
 admin_templates:
     resource: "@AdminTemplateBundle/Resources/config/routing.yml"
 
+admin_metric:
+    resource: "@AdminMetricBundle/Resources/config/routing.yml"
+
 admin_login_check:
     path:  /login_check
 
@@ -51,3 +54,7 @@ admin_logout:
 
 core_media_bundle:
     resource: "@ElcodiMediaBundle/Resources/config/routing.yml"
+
+core_metric:
+    resource: "@ElcodiMetricBundle/Resources/config/routing.yml"
+    prefix: /

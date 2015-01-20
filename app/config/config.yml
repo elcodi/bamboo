@@ -6,6 +6,7 @@ imports:
     - { resource: @ElcodiBambooBundle/Resources/config/filesystem.yml }
     - { resource: @ElcodiBambooBundle/Resources/config/configuration.yml }
     - { resource: @ElcodiBambooBundle/Resources/config/cache.yml }
+    - { resource: @ElcodiBambooBundle/Resources/config/metrics.yml }
 
 framework:
     secret:          "%secret%"
@@ -30,6 +31,8 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: false
+    globals:
+        store_tracker: %elcodi.core.bamboo.store_tracker%
 
 # Doctrine Configuration
 doctrine:
@@ -74,3 +77,6 @@ controller_extra:
     factory:
         default_method: create
         default_static: false
+
+elcodi_bamboo:
+    store_tracker: 7s89da7s8d9a

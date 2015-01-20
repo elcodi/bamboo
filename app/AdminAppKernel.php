@@ -49,6 +49,7 @@ class AdminAppKernel extends Kernel
             new \Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
             new \Mmoreram\ControllerExtraBundle\ControllerExtraBundle(),
             new \Ornicar\GravatarBundle\OrnicarGravatarBundle(),
+            new Snc\RedisBundle\SncRedisBundle(),
 
             /**
              * Elcodi core bundles
@@ -75,6 +76,7 @@ class AdminAppKernel extends Kernel
             new \Elcodi\Bundle\ConfigurationBundle\ElcodiConfigurationBundle(),
             new \Elcodi\Bundle\PageBundle\ElcodiPageBundle(),
             new \Elcodi\Bundle\SitemapBundle\ElcodiSitemapBundle(),
+            new \Elcodi\Bundle\MetricBundle\ElcodiMetricBundle(),
 
             /**
              * Elcodi admin bundles
@@ -95,6 +97,7 @@ class AdminAppKernel extends Kernel
             new \Elcodi\AdminConfigurationBundle\AdminConfigurationBundle(),
             new \Elcodi\AdminPageBundle\AdminPageBundle(),
             new \Elcodi\AdminTemplateBundle\AdminTemplateBundle(),
+            new \Elcodi\AdminMetricBundle\AdminMetricBundle(),
 
             /**
              * Elcodi Templates
