@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\StoreGeoBundle;
+namespace Elcodi\Store\GeoBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

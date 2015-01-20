@@ -1,6 +1,6 @@
-Elcodi\StoreConnectBundle\Entity\Authorization:
+Elcodi\Store\ConnectBundle\Entity\Authorization:
     type: entity
-    repositoryClass: Elcodi\StoreConnectBundle\Repository\AuthorizationRepository
+    repositoryClass: Elcodi\Store\ConnectBundle\Repository\AuthorizationRepository
     table: authorization
     indexes:
         resourceowner_username_idx:

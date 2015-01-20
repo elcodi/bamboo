@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\PaymentBridgeBundle;
+namespace Elcodi\Store\PaymentBridgeBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\StoreConnectBundle\DependencyInjection;
+namespace Elcodi\Store\ConnectBundle\DependencyInjection;
 
 use Elcodi\Bundle\CoreBundle\DependencyInjection\Abstracts\AbstractExtension;
 use Elcodi\Bundle\CoreBundle\DependencyInjection\Interfaces\EntitiesOverridableExtensionInterface;
@@ -85,7 +85,7 @@ class StoreConnectExtension extends AbstractExtension implements EntitiesOverrid
     public function getEntitiesOverrides()
     {
         return [
-            'Elcodi\StoreConnectBundle\Entity\AuthorizationInterface' => 'store.connect.entity.authorization.class',
+            'Elcodi\Store\ConnectBundle\Entity\AuthorizationInterface' => 'store.connect.entity.authorization.class',
         ];
     }
 

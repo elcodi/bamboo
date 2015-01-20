@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\PaymentBridgeBundle\Entity;
+namespace Elcodi\Store\PaymentBridgeBundle\Entity;
 
 use Elcodi\Component\Cart\Entity\Order;
 use Elcodi\Component\Core\Entity\Interfaces\DateTimeInterface;

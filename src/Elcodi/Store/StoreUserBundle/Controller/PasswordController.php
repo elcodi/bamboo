@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\StoreUserBundle\Controller;
+namespace Elcodi\Store\UserBundle\Controller;
 
 use Mmoreram\ControllerExtraBundle\Annotation\Form as AnnotationForm;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -24,7 +24,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 
 use Elcodi\Component\User\Entity\Abstracts\AbstractUser;
-use Elcodi\StoreCoreBundle\Controller\Traits\TemplateRenderTrait;
+use Elcodi\Store\CoreBundle\Controller\Traits\TemplateRenderTrait;
 
 /**
  * Class PasswordController

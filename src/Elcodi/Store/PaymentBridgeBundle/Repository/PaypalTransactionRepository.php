@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\PaymentBridgeBundle\Repository;
+namespace Elcodi\Store\PaymentBridgeBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 

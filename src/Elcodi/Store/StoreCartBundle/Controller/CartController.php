@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\StoreCartBundle\Controller;
+namespace Elcodi\Store\CartBundle\Controller;
 
 use Doctrine\ORM\EntityNotFoundException;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as AnnotationEntity;
@@ -31,7 +31,7 @@ use Elcodi\Component\Cart\Entity\Interfaces\CartInterface;
 use Elcodi\Component\Cart\Entity\Interfaces\CartLineInterface;
 use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
 use Elcodi\Component\Product\Entity\Interfaces\VariantInterface;
-use Elcodi\StoreCoreBundle\Controller\Traits\TemplateRenderTrait;
+use Elcodi\Store\CoreBundle\Controller\Traits\TemplateRenderTrait;
 
 /**
  * Cart controllers

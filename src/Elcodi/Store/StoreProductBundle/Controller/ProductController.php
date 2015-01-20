@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\StoreProductBundle\Controller;
+namespace Elcodi\Store\ProductBundle\Controller;
 
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as AnnotationEntity;
 use Mmoreram\ControllerExtraBundle\Annotation\JsonResponse;
@@ -25,7 +25,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
 use Elcodi\Component\Product\Entity\Interfaces\VariantInterface;
 use Elcodi\Component\Product\Twig\ProductExtension;
-use Elcodi\StoreCoreBundle\Controller\Traits\TemplateRenderTrait;
+use Elcodi\Store\CoreBundle\Controller\Traits\TemplateRenderTrait;
 
 /**
  * Product related actions

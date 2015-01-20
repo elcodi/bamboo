@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\PaymentBridgeBundle\EventListener;
+namespace Elcodi\Store\PaymentBridgeBundle\EventListener;
 
 use PaymentSuite\PaymentCoreBundle\Event\PaymentOrderLoadEvent;
 use PaymentSuite\PaymentCoreBundle\Event\PaymentOrderSuccessEvent;

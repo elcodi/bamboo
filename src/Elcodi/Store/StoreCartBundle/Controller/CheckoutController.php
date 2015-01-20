@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\StoreCartBundle\Controller;
+namespace Elcodi\Store\CartBundle\Controller;
 
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -26,7 +26,7 @@ use Elcodi\Component\Cart\Entity\Interfaces\OrderInterface;
 use Elcodi\Component\Cart\Entity\Order;
 use Elcodi\Component\Currency\Entity\Money;
 use Elcodi\Component\User\Entity\Interfaces\CustomerInterface;
-use Elcodi\StoreCoreBundle\Controller\Traits\TemplateRenderTrait;
+use Elcodi\Store\CoreBundle\Controller\Traits\TemplateRenderTrait;
 
 /**
  * Class CheckoutController

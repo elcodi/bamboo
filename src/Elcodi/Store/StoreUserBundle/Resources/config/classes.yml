@@ -3,13 +3,13 @@ parameters:
     #
     # Event Listeners
     #
-    store.user.event_listener.remember_password.class: Elcodi\StoreUserBundle\EventListener\RememberPasswordEventListener
+    store.user.event_listener.remember_password.class: Elcodi\Store\UserBundle\EventListener\RememberPasswordEventListener
 
     #
     # Form Types
     #
-    store.user.form_type.login.class: Elcodi\StoreUserBundle\Form\Type\LoginType
-    store.user.form_type.register.class: Elcodi\StoreUserBundle\Form\Type\RegisterType
-    store.user.form_type.profile.class: Elcodi\StoreUserBundle\Form\Type\ProfileType
-    store.user.form_type.password_remember.class: Elcodi\StoreUserBundle\Form\Type\PasswordRememberType
-    store.user.form_type.password_recover.class: Elcodi\StoreUserBundle\Form\Type\PasswordRecoverType
+    store.user.form_type.login.class: Elcodi\Store\UserBundle\Form\Type\LoginType
+    store.user.form_type.register.class: Elcodi\Store\UserBundle\Form\Type\RegisterType
+    store.user.form_type.profile.class: Elcodi\Store\UserBundle\Form\Type\ProfileType
+    store.user.form_type.password_remember.class: Elcodi\Store\UserBundle\Form\Type\PasswordRememberType
+    store.user.form_type.password_recover.class: Elcodi\Store\UserBundle\Form\Type\PasswordRecoverType

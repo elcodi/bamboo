@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\StoreUserBundle\Controller;
+namespace Elcodi\Store\UserBundle\Controller;
 
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
@@ -25,7 +25,7 @@ use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\Response;
 
 use Elcodi\Component\User\Entity\Interfaces\CustomerInterface;
-use Elcodi\StoreCoreBundle\Controller\Traits\TemplateRenderTrait;
+use Elcodi\Store\CoreBundle\Controller\Traits\TemplateRenderTrait;
 
 /**
  * Class UserController

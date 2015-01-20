@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\StoreUserBundle;
+namespace Elcodi\Store\UserBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

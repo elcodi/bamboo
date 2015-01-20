@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\StoreCurrencyBundle\Controller;
+namespace Elcodi\Store\CurrencyBundle\Controller;
 
 use LogicException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -24,7 +24,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 use Elcodi\Component\Currency\Entity\Interfaces\CurrencyInterface;
-use Elcodi\StoreCoreBundle\Controller\Traits\TemplateRenderTrait;
+use Elcodi\Store\CoreBundle\Controller\Traits\TemplateRenderTrait;
 
 /**
  * Class ControllerCurrency

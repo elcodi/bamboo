@@ -3,4 +3,4 @@ parameters:
     #
     # services
     #
-    store.product.service.product_collection_provider.class: Elcodi\StoreProductBundle\Services\ProductCollectionProvider
+    store.product.service.product_collection_provider.class: Elcodi\Store\ProductBundle\Services\ProductCollectionProvider

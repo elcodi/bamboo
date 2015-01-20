@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\StoreConnectBundle\Entity\Interfaces;
+namespace Elcodi\Store\ConnectBundle\Entity\Interfaces;
 
 use Elcodi\Component\Core\Entity\Interfaces\IdentifiableInterface;
 

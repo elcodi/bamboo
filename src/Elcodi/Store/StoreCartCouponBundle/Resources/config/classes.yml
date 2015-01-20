@@ -3,4 +3,4 @@ parameters:
     #
     # Form Types
     #
-    store.cart_coupon.form_type.coupon_apply.class: Elcodi\StoreCartCouponBundle\Form\Type\CouponApplyType
+    store.cart_coupon.form_type.coupon_apply.class: Elcodi\Store\CartCouponBundle\Form\Type\CouponApplyType

@@ -3,5 +3,5 @@ parameters:
     #
     # Form Types
     #
-    store.cart.form_type.cart.class: Elcodi\StoreCartBundle\Form\Type\CartType
-    store.cart.form_type.cart_line.class: Elcodi\StoreCartBundle\Form\Type\CartLineType
+    store.cart.form_type.cart.class: Elcodi\Store\CartBundle\Form\Type\CartType
+    store.cart.form_type.cart_line.class: Elcodi\Store\CartBundle\Form\Type\CartLineType

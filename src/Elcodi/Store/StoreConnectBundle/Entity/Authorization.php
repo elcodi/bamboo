@@ -14,12 +14,12 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\StoreConnectBundle\Entity;
+namespace Elcodi\Store\ConnectBundle\Entity;
 
 use Symfony\Component\Security\Core\User\UserInterface;
 
 use Elcodi\Component\Core\Entity\Traits\IdentifiableTrait;
-use Elcodi\StoreConnectBundle\Entity\Interfaces\AuthorizationInterface;
+use Elcodi\Store\ConnectBundle\Entity\Interfaces\AuthorizationInterface;
 
 /**
  * Class Authorization

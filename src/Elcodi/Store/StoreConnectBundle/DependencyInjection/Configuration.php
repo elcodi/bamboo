@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\StoreConnectBundle\DependencyInjection;
+namespace Elcodi\Store\ConnectBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -42,7 +42,7 @@ class Configuration extends AbstractConfiguration implements ConfigurationInterf
                     ->children()
                         ->append($this->addMappingNode(
                             'authorization',
-                            'Elcodi\StoreConnectBundle\Entity\Authorization',
+                            'Elcodi\Store\ConnectBundle\Entity\Authorization',
                             '@StoreConnectBundle/Resources/config/doctrine/Authorization.orm.yml',
                             'default',
                             true

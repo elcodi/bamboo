@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\StoreUserBundle\Controller;
+namespace Elcodi\Store\UserBundle\Controller;
 
 use Mmoreram\ControllerExtraBundle\Annotation\Entity;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as AnnotationForm;
@@ -27,7 +27,7 @@ use Symfony\Component\Security\Core\SecurityContext;
 
 use Elcodi\Component\Core\Services\ManagerProvider;
 use Elcodi\Component\User\Entity\Interfaces\CustomerInterface;
-use Elcodi\StoreCoreBundle\Controller\Traits\TemplateRenderTrait;
+use Elcodi\Store\CoreBundle\Controller\Traits\TemplateRenderTrait;
 
 /**
  * Class SecurityController

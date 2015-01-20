@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\StoreCoreBundle\Controller\Traits;
+namespace Elcodi\Store\CoreBundle\Controller\Traits;
 
 /**
  * Trait TemplateRenderTrait

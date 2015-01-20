@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\StoreConnectBundle\Services;
+namespace Elcodi\Store\ConnectBundle\Services;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\Persistence\ObjectRepository;
@@ -26,7 +26,7 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
 
 use Elcodi\Component\Core\Factory\Abstracts\AbstractFactory;
 use Elcodi\Component\User\Entity\Interfaces\CustomerInterface;
-use Elcodi\StoreConnectBundle\Entity\Authorization;
+use Elcodi\Store\ConnectBundle\Entity\Authorization;
 
 /**
  * Class OAuthUserProvider

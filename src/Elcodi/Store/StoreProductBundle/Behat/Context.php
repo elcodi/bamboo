@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\StoreProductBundle\Behat;
+namespace Elcodi\Store\ProductBundle\Behat;
 
 use Behat\Gherkin\Node\TableNode;
 use Doctrine\ORM\EntityNotFoundException;
@@ -22,7 +22,7 @@ use Exception;
 
 use Elcodi\Component\Product\Entity\Interfaces\CategoryInterface;
 use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
-use Elcodi\StoreCoreBundle\Behat\abstracts\AbstractElcodiContext;
+use Elcodi\Store\CoreBundle\Behat\abstracts\AbstractElcodiContext;
 
 /**
  * Class Context

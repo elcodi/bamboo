@@ -14,12 +14,12 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\StoreConnectBundle;
+namespace Elcodi\Store\ConnectBundle;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-use Elcodi\StoreConnectBundle\CompilerPass\MappingCompilerPass;
+use Elcodi\Store\ConnectBundle\CompilerPass\MappingCompilerPass;
 
 /**
  * Class StoreConnectBundle
