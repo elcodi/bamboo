@@ -1,0 +1,460 @@
+ALL:
+    name: Albania Lek
+    symbol: Lek
+    enabled: 0
+AFN:
+    name: Afghanistan Afghani
+    symbol: ؋
+    enabled: 0
+ARS:
+    name: Argentina Peso
+    symbol: $
+    enabled: 0
+AWG:
+    name: Aruba Guilder
+    symbol: ƒ
+    enabled: 0
+AUD:
+    name: Australia Dollar
+    symbol: $
+    enabled: 0
+AZN:
+    name: Azerbaijan New Manat
+    symbol: ман
+    enabled: 0
+BSD:
+    name: Bahamas Dollar
+    symbol: $
+    enabled: 0
+BBD:
+    name: Barbados Dollar
+    symbol: $
+    enabled: 0
+BYR:
+    name: Belarus Ruble
+    symbol: p.
+    enabled: 0
+BZD:
+    name: Belize Dollar
+    symbol: BZ$
+    enabled: 0
+BMD:
+    name: Bermuda Dollar
+    symbol: $
+    enabled: 0
+BOB:
+    name: Bolivia Boliviano
+    symbol: $b
+    enabled: 0
+BAM:
+    name: Bosnia and Herzegovina Convertible Marka
+    symbol: KM
+    enabled: 0
+BWP:
+    name: Botswana Pula
+    symbol: P
+    enabled: 0
+BGN:
+    name: Bulgaria Lev
+    symbol: лв
+    enabled: 0
+BRL:
+    name: Brazil Real
+    symbol: R$
+    enabled: 0
+BND:
+    name: Brunei Darussalam Dollar
+    symbol: $
+    enabled: 0
+KHR:
+    name: Cambodia Riel
+    symbol: ៛
+    enabled: 0
+CAD:
+    name: Canada Dollar
+    symbol: $
+    enabled: 0
+KYD:
+    name: Cayman Islands Dollar
+    symbol: $
+    enabled: 0
+CLP:
+    name: Chile Peso
+    symbol: $
+    enabled: 0
+CNY:
+    name: China Yuan Renminbi
+    symbol: ¥
+    enabled: 0
+COP:
+    name: Colombia Peso
+    symbol: $
+    enabled: 0
+CRC:
+    name: Costa Rica Colon
+    symbol: ₡
+    enabled: 0
+HRK:
+    name: Croatia Kuna
+    symbol: kn
+    enabled: 0
+CUP:
+    name: Cuba Peso
+    symbol: ₱
+    enabled: 0
+CZK:
+    name: Czech Republic Koruna
+    symbol: Kč
+    enabled: 0
+DKK:
+    name: Denmark Krone
+    symbol: kr
+    enabled: 0
+DOP:
+    name: Dominican Republic Peso
+    symbol: RD$
+    enabled: 0
+XCD:
+    name: East Caribbean Dollar
+    symbol: $
+    enabled: 0
+EGP:
+    name: Egypt Pound
+    symbol: £
+    enabled: 0
+SVC:
+    name: El Salvador Colon
+    symbol: $
+    enabled: 0
+EEK:
+    name: Estonia Kroon
+    symbol: kr
+    enabled: 0
+EUR:
+    name: Euro Member Countries
+    symbol: €
+    enabled: 1
+FKP:
+    name: Falkland Islands (Malvinas) Pound
+    symbol: £
+    enabled: 0
+FJD:
+    name: Fiji Dollar
+    symbol: $
+    enabled: 0
+GHC:
+    name: Ghana Cedi
+    symbol: ¢
+    enabled: 0
+GIP:
+    name: Gibraltar Pound
+    symbol: £
+    enabled: 0
+GTQ:
+    name: Guatemala Quetzal
+    symbol: Q
+    enabled: 0
+GGP:
+    name: Guernsey Pound
+    symbol: £
+    enabled: 0
+GYD:
+    name: Guyana Dollar
+    symbol: $
+    enabled: 0
+HNL:
+    name: Honduras Lempira
+    symbol: L
+    enabled: 0
+HKD:
+    name: Hong Kong Dollar
+    symbol: $
+    enabled: 0
+HUF:
+    name: Hungary Forint
+    symbol: Ft
+    enabled: 0
+ISK:
+    name: Iceland Krona
+    symbol: kr
+    enabled: 0
+INR:
+    name: India Rupee
+    symbol: ₹
+    enabled: 0
+IDR:
+    name: Indonesia Rupiah
+    symbol: Rp
+    enabled: 0
+IRR:
+    name: Iran Rial
+    symbol: ﷼
+    enabled: 0
+IMP:
+    name: Isle of Man Pound
+    symbol: £
+    enabled: 0
+ILS:
+    name: Israel Shekel
+    symbol: ₪
+    enabled: 0
+JMD:
+    name: Jamaica Dollar
+    symbol: J$
+    enabled: 0
+JPY:
+    name: Japan Yen
+    symbol: ¥
+    enabled: 1
+JEP:
+    name: Jersey Pound
+    symbol: £
+    enabled: 0
+KZT:
+    name: Kazakhstan Tenge
+    symbol: лв
+    enabled: 0
+KPW:
+    name: Korea (North) Won
+    symbol: ₩
+    enabled: 0
+KRW:
+    name: Korea (South) Won
+    symbol: ₩
+    enabled: 0
+KGS:
+    name: Kyrgyzstan Som
+    symbol: лв
+    enabled: 0
+LAK:
+    name: Laos Kip
+    symbol: ₭
+    enabled: 0
+LVL:
+    name: Latvia Lat
+    symbol: Ls
+    enabled: 0
+LBP:
+    name: Lebanon Pound
+    symbol: £
+    enabled: 0
+LRD:
+    name: Liberia Dollar
+    symbol: $
+    enabled: 0
+LTL:
+    name: Lithuania Litas
+    symbol: Lt
+    enabled: 0
+MKD:
+    name: Macedonia Denar
+    symbol: ден
+    enabled: 0
+MYR:
+    name: Malaysia Ringgit
+    symbol: RM
+    enabled: 0
+MUR:
+    name: Mauritius Rupee
+    symbol: ₨
+    enabled: 0
+MXN:
+    name: Mexico Peso
+    symbol: $
+    enabled: 0
+MNT:
+    name: Mongolia Tughrik
+    symbol: ₮
+    enabled: 0
+MZN:
+    name: Mozambique Metical
+    symbol: MT
+    enabled: 0
+NAD:
+    name: Namibia Dollar
+    symbol: $
+    enabled: 0
+NPR:
+    name: Nepal Rupee
+    symbol: ₨
+    enabled: 0
+ANG:
+    name: Netherlands Antilles Guilder
+    symbol: ƒ
+    enabled: 0
+NZD:
+    name: New Zealand Dollar
+    symbol: $
+    enabled: 0
+NIO:
+    name: Nicaragua Cordoba
+    symbol: C$
+    enabled: 0
+NGN:
+    name: Nigeria Naira
+    symbol: ₦
+    enabled: 0
+KPW:
+    name: Korea (North) Won
+    symbol: ₩
+    enabled: 0
+NOK:
+    name: Norway Krone
+    symbol: kr
+    enabled: 0
+OMR:
+    name: Oman Rial
+    symbol: ﷼
+    enabled: 0
+PKR:
+    name: Pakistan Rupee
+    symbol: ₨
+    enabled: 0
+PAB:
+    name: Panama Balboa
+    symbol: B/.
+    enabled: 0
+PYG:
+    name: Paraguay Guarani
+    symbol: Gs
+    enabled: 0
+PEN:
+    name: Peru Nuevo Sol
+    symbol: S/.
+    enabled: 0
+PHP:
+    name: Philippines Peso
+    symbol: ₱
+    enabled: 0
+PLN:
+    name: Poland Zloty
+    symbol: zł
+    enabled: 0
+QAR:
+    name: Qatar Riyal
+    symbol: ﷼
+    enabled: 0
+RON:
+    name: Romania New Leu
+    symbol: lei
+    enabled: 0
+RUB:
+    name: Russia Ruble
+    symbol: руб
+    enabled: 0
+SHP:
+    name: Saint Helena Pound
+    symbol: £
+    enabled: 0
+SAR:
+    name: Saudi Arabia Riyal
+    symbol: ﷼
+    enabled: 0
+RSD:
+    name: Serbia Dinar
+    symbol: Дин.
+    enabled: 0
+SCR:
+    name: Seychelles Rupee
+    symbol: ₨
+    enabled: 0
+SGD:
+    name: Singapore Dollar
+    symbol: $
+    enabled: 0
+SBD:
+    name: Solomon Islands Dollar
+    symbol: $
+    enabled: 0
+SOS:
+    name: Somalia Shilling
+    symbol: S
+    enabled: 0
+ZAR:
+    name: South Africa Rand
+    symbol: R
+    enabled: 0
+KRW:
+    name: Korea (South) Won
+    symbol: ₩
+    enabled: 0
+LKR:
+    name: Sri Lanka Rupee
+    symbol: ₨
+    enabled: 0
+SEK:
+    name: Sweden Krona
+    symbol: kr
+    enabled: 0
+CHF:
+    name: Switzerland Franc
+    symbol: CHF
+    enabled: 0
+SRD:
+    name: Suriname Dollar
+    symbol: $
+    enabled: 0
+SYP:
+    name: Syria Pound
+    symbol: £
+    enabled: 0
+TWD:
+    name: Taiwan New Dollar
+    symbol: NT$
+    enabled: 0
+THB:
+    name: Thailand Baht
+    symbol: ฿
+    enabled: 0
+TTD:
+    name: Trinidad and Tobago Dollar
+    symbol: TT$
+    enabled: 0
+TRY:
+    name: Turkey Lira
+    symbol: ₺
+    enabled: 0
+TRL:
+    name: Turkey Lira
+    symbol: ₤
+    enabled: 0
+TVD:
+    name: Tuvalu Dollar
+    symbol: $
+    enabled: 0
+UAH:
+    name: Ukraine Hryvnia
+    symbol: ₴
+    enabled: 0
+GBP:
+    name: United Kingdom Pound
+    symbol: £
+    enabled: 1
+USD:
+    name: United States Dollar
+    symbol: $
+    enabled: 1
+UYU:
+    name: Uruguay Peso
+    symbol: $U
+    enabled: 0
+UZS:
+    name: Uzbekistan Som
+    symbol: лв
+    enabled: 0
+VEF:
+    name: Venezuela Bolivar
+    symbol: Bs
+    enabled: 0
+VND:
+    name: Viet Nam Dong
+    symbol: ₫
+    enabled: 0
+YER:
+    name: Yemen Rial
+    symbol: ﷼
+    enabled: 0
+ZWD:
+    name: Zimbabwe Dollar
+    symbol: Z$
+    enabled: 0
