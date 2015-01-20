@@ -1,0 +1,192 @@
+af:
+    name: Afrikaans
+    enabled: 0
+sq:
+    name: Albanian
+    enabled: 0
+ar:
+    name: Arabic
+    enabled: 0
+az:
+    name: Azerbaijani
+    enabled: 0
+eu:
+    name: Basque
+    enabled: 0
+bn:
+    name: Bengali
+    enabled: 0
+be:
+    name: Belarusian
+    enabled: 0
+bg:
+    name: Bulgarian
+    enabled: 0
+ca:
+    name: Catalan
+    enabled: 0
+zh-CN :
+    name: Chinese Simplified
+    enabled: 0
+zh-TW :
+    name: Chinese Traditional
+    enabled: 0
+hr:
+    name: Croatian
+    enabled: 0
+cs:
+    name: Czech
+    enabled: 0
+da:
+    name: Danish
+    enabled: 0
+nl:
+    name: Dutch
+    enabled: 0
+en:
+    name: English
+    enabled: 1
+eo:
+    name: Esperanto
+    enabled: 0
+et:
+    name: Estonian
+    enabled: 0
+tl:
+    name: Filipino
+    enabled: 0
+fi:
+    name: Finnish
+    enabled: 0
+fr:
+    name: French
+    enabled: 1
+gl:
+    name: Galician
+    enabled: 0
+ka:
+    name: Georgian
+    enabled: 0
+de:
+    name: German
+    enabled: 0
+el:
+    name: Greek
+    enabled: 0
+gu:
+    name: Gujarati
+    enabled: 0
+ht:
+    name: Haitian Creole
+    enabled: 0
+iw:
+    name: Hebrew
+    enabled: 0
+hi:
+    name: Hindi
+    enabled: 0
+hu:
+    name: Hungarian
+    enabled: 0
+is:
+    name: Icelandic
+    enabled: 0
+id:
+    name: Indonesian
+    enabled: 0
+ga:
+    name: Irish
+    enabled: 0
+it:
+    name: Italian
+    enabled: 0
+ja:
+    name: Japanese
+    enabled: 0
+kn:
+    name: Kannada
+    enabled: 0
+ko:
+    name: Korean
+    enabled: 0
+la:
+    name: Latin
+    enabled: 0
+lv:
+    name: Latvian
+    enabled: 0
+lt:
+    name: Lithuanian
+    enabled: 0
+mk:
+    name: Macedonian
+    enabled: 0
+ms:
+    name: Malay
+    enabled: 0
+mt:
+    name: Maltese
+    enabled: 0
+no:
+    name: Norwegian
+    enabled: 0
+fa:
+    name: Persian
+    enabled: 0
+pl:
+    name: Polish
+    enabled: 0
+pt:
+    name: Portuguese
+    enabled: 0
+ro:
+    name: Romanian
+    enabled: 0
+ru:
+    name: Russian
+    enabled: 0
+sr:
+    name: Serbian
+    enabled: 0
+sk:
+    name: Slovak
+    enabled: 0
+sl:
+    name: Slovenian
+    enabled: 0
+es:
+    name: Spanish
+    enabled: 1
+sw:
+    name: Swahili
+    enabled: 0
+sv:
+    name: Swedish
+    enabled: 0
+ta:
+    name: Tamil
+    enabled: 0
+te:
+    name: Telugu
+    enabled: 0
+th:
+    name: Thai
+    enabled: 0
+tr:
+    name: Turkish
+    enabled: 0
+uk:
+    name: Ukrainian
+    enabled: 0
+ur:
+    name: Urdu
+    enabled: 0
+vi:
+    name: Vietnamese
+    enabled: 0
+cy:
+    name: Welsh
+    enabled: 0
+yi:
+    name: Yiddish
+    enabled: 0
