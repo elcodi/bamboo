@@ -1,0 +1,56 @@
+{% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
+
+
+{% block title %}
+    {{ 'Customer list'|trans }}
+{% endblock title %}
+
+
+{% block table_head %}
+    {% include "@AdminCore/Tables/head.html.twig" with {
+        rows: {
+            "Username": {},
+            "Name": {},
+            "E-mail": {},
+            "Orders": {width:"10", sorting_disabled: true},
+            "Status": {width:"10"},
+        },
+        class: "customer",
+    } %}
+{% endblock table_head %}
+
+
+{% block table_body_row %}
+    <td>
+        <a href="{{ url("admin_customer_edit", {"id": entity.id}) }}">
+            <strong>{{ entity.username }}</strong>
+        </a>
+    </td>
+    <td>
+        {{ entity.fullname }}
+    </td>
+    <td>
+        {{ entity.email }}
+    </td>
+    <td>
+        {{ entity.orders|length }}
+    </td>
+    <td>
+        {% if entity.enabled %}
+            <span class="label-ok">Active</span>
+        {% else %}
+            <span class="label-ko">Inactive</span>
+        {% endif %}
+    </td>
+
+    {% include "@AdminCore/Tables/actions.html.twig" with {
+        entity: entity,
+        class: "customer",
+    } %}
+{% endblock table_body_row %}
+
+
+{% block table_paginator_links %}
+    {% set url = 'admin_customer_list' %}
+    {{ parent() }}
+{% endblock table_paginator_links %}

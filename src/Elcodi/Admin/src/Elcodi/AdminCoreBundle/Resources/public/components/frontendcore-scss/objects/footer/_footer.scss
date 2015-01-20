@@ -1,0 +1,9 @@
+@if $object-footer != false {
+
+	.footer {
+		@extend  %header-footer;
+		margin: $spacing*4 -2px 0;
+		width: 102%;
+	}
+
+}

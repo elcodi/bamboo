@@ -1,0 +1,43 @@
+{% extends 'AdminCoreBundle::base.html.twig' %}
+
+{% block head_style %}
+
+    <link rel="stylesheet" type="text/css"  href="{{ asset('bundles/admincore/css/main.css') }}" media="all">
+    <!--[if gte IE 9]>
+    <link rel="stylesheet" type="text/css"  href="{{ asset('bundles/admincore/css/ie-new.css') }}" media="all">
+    <![endif]-->
+    <!--[if lte IE 8]>
+    <script src="{{ asset('bundles/admincore/js/ie-old.js') }}"></script>
+    <link rel="stylesheet" type="text/css"  href="{{ asset('bundles/admincore/css/ie-old.css') }}" media="all">
+    <![endif]-->
+
+{% endblock head_style %}
+
+{% block body %}
+    <nav class="topbar mobile">
+        <a data-tc-modules="sidemenu" href="#main-menu" class="icon-align-justify button button-icon topbar-main-menu"></a>
+        <a class="topbar-title" href="{{ url("admin_homepage") }}">Elcodi Admin</a>
+        <a data-tc-modules="sidemenu" data-tc-position="right" href="#sidebar-user-dropdown" class="icon-user button button-icon topbar-user-menu"></a>
+    </nav>
+    <div class="grid">
+        <div class="col-4-5 pull-right">
+            <header class="section-header">
+                <div class="buttons-group">{% block header_actions %}{% endblock %}</div>
+                {% block breadcrumb %}{% endblock %}
+            </header>
+            <div class="papa-air">
+                {% block content %}{% endblock content %}
+            </div>
+        </div>
+        <aside class="col-1-5 sidebar tablet desktop">
+            {% render url('admin_menu_side') %}
+        </aside>
+    </div>
+    {% include 'AdminCoreBundle::Common/flashMessages.html.twig' %}
+{% endblock body %}
+
+{% block foot_script %}
+
+    {% include 'AdminCoreBundle::footscript.html.twig' %}
+
+{% endblock foot_script %}

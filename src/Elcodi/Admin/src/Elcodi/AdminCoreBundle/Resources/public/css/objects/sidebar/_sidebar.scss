@@ -1,0 +1,31 @@
+.sidebar {
+	&{
+		background: map-get($object-navigation-vars, background-color);;
+		overflow: hidden;
+		@include text-shadow(1px 1px 0 rgba($color-foreground,.2))
+	}
+
+}
+
+.sidebar-title {
+	display: block;
+	color: $color-background;
+	font-family: $font-face-title;
+	font-weight: 400;
+	font-size: $font-size-xl;
+}
+
+@mixin papa-sidebar(){
+	.sidebar {
+		&{
+			height: 100%;
+			position: fixed;
+			overflow-y: auto;
+		}
+		.navigation-vertical{
+			z-index: 100;
+			position: relative;
+			margin-bottom: 80px;
+		}
+	}
+}

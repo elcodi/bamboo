@@ -1,0 +1,47 @@
+{% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
+
+{% block title %}
+    {{ 'Rule list'|trans }}
+{% endblock title %}
+
+{% block table_head %}
+
+    {% include "@AdminCore/Tables/head.html.twig" with {
+        rows: {
+            "Id": {width:"25"},
+            "Name": {},
+            "Code": {},
+            "Expression": {},
+            "Enabled": {width:"25"}
+        },
+        class: "rule",
+    } %}
+
+{% endblock table_head %}
+
+{% block table_body_row %}
+
+    <td>
+        <a href="{{ url("admin_rule_view", {"id": entity.id}) }}">
+            {{ entity.id }}
+        </a>
+    </td>
+    <td>
+        {{ entity.name }}
+    </td>
+    <td>
+        {{ entity.code }}
+    </td>
+    <td>
+        {{ entity.expression.expression }}
+    </td>
+    <td>
+        {% if entity.enabled %}<span class="label label-success">true</span>{% else %}<span class="label label-danger">false</span>{% endif %}
+    </td>
+
+    {% include "@AdminCore/Tables/actions.html.twig" with {
+        entity: entity,
+        class: "rule",
+    } %}
+
+{% endblock table_body_row %}

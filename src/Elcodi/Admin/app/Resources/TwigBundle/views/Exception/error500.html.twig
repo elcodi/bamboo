@@ -1,0 +1,16 @@
+{% extends "AdminCoreBundle::layout.html.twig" %}
+
+
+{% block body_class %}texture{% endblock body_class %}
+
+
+{% block body %}
+    <div id="cl-wrapper" class="error-container">
+        <div class="page-error">
+            <h1 class="number text-center">500</h1>
+            <h2 class="description text-center">{{ "Don't worry, there is a little turbulence!"|trans }}</h2>
+            <h3 class="text-center">{{ "We're trying to fix it, please try again later."|trans }}</a>?</h3>
+        </div>
+        <div class="text-center copy">© 2014 <a href="#">Elcodi.io</a></div>
+    </div>
+{% endblock body %}

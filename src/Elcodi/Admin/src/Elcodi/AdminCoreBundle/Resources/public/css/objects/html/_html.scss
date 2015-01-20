@@ -1,0 +1,12 @@
+html {
+	background-image: url('../images/background-bamboo-small.png');
+	background-position: center center;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/background-bamboo-small.png', sizingMethod='scale');
+	-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/background-bamboo-small.png', sizingMethod='scale')";
+	background-attachment: fixed;
+}

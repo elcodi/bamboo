@@ -1,0 +1,66 @@
+.welcome {
+	& {
+		overflow: hidden;
+		margin-bottom: 300px;
+	}
+}
+
+.welcome-item {
+	& {
+		text-align: center;
+		position: relative;
+		padding: 0 $spacing/2;
+		@include border-radius;
+	}
+	i {
+		@extend %icon-rounded;
+	}
+	.welcome-done-sign {
+		display: none;
+	}
+}
+
+.welcome-active {
+	& {
+		background: $color-background;
+		padding-bottom: $spacing;
+	}
+	i {
+		border-color: $color-primary;
+		color: $color-primary;
+	}
+	.button {
+		background: $color-primary;
+	}
+
+}
+
+.welcome-done {
+	& {
+		@include opacity(.3);
+	}
+	i {
+		border-color: $color-ok;
+		color: $color-ok;
+	}
+	h5 {
+		color: $color-ok;
+	}
+	.button {
+		background: $color-ok;
+	}
+	.welcome-done-sign {
+		position: absolute;
+		@include transform(rotate(-15deg));
+		background: $color-ok;
+		display: inline-block;
+		color: $color-background;
+		padding: $spacing/8 $spacing/2;
+		top: 103px;
+		font-size: 2rem;
+		left: 32%;
+		@include border-radius;
+
+	}
+}
+

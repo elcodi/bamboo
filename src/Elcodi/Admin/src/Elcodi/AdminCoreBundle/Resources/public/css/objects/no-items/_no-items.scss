@@ -1,0 +1,15 @@
+.no-items {
+	& {
+		display: block;
+		text-align: center;
+		position: relative;
+	}
+
+	h2 {
+		margin-bottom: $spacing/2;
+	}
+}
+
+.no-items-icon {
+	@extend %icon-rounded;
+}

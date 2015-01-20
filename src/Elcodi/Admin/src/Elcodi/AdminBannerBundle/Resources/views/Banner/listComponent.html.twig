@@ -1,0 +1,76 @@
+{% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
+
+{% block title %}
+    {{ 'Banner list'|trans }}
+{% endblock title %}
+
+{% block table_head %}
+    {% for field in paginatorFields %}
+        <th
+            class="sorting_asc"
+            tabindex="0"
+            rowspan="1"
+            colspan="1"
+            aria-controls="datatable"
+            aria-sort="ascending"
+            aria-label="Rendering engine: activate to sort column descending"
+            role="columnheader"
+            style="width: 268px;"
+            >{{ field }}
+        </th>
+    {% endfor %}
+    <th>Actions</th>
+{% endblock table_head %}
+
+{% block table_body %}
+
+    {% for entity in paginator %}
+        <tr class="gradeA odd">
+            {% for field in paginatorFields %}
+
+                <td>
+                    {% include 'AdminCoreBundle::Common/listField.html.twig' with {
+                    'entity': entity,
+                    'field': field,
+                    } %}
+                </td>
+
+            {% endfor %}
+            <td class="center ">
+                <div class="btn-group">
+                    <button class="btn btn-default btn-xs" type="button">
+                        Actions
+                    </button>
+                    <button data-toggle="dropdown" class="btn btn-xs btn-primary dropdown-toggle" type="button">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul role="menu" class="dropdown-menu pull-right">
+                        <li>
+                            <a href="{{ url("admin_banner_edit", {"id": entity.id}) }}">
+                                {{ "Edit"|trans }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url("admin_banner_view", {"id": entity.id}) }}">
+                                {{ "Details"|trans }}
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="{{ url("admin_banner_delete", {"id": entity.id}) }}">
+                                {{ "Remove"|trans }}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+
+{% endblock table_body %}
+
+{% block table_paginator_links %}
+    {% set url = 'admin_banner_list' %}
+    {{ parent() }}
+{% endblock table_paginator_links %}

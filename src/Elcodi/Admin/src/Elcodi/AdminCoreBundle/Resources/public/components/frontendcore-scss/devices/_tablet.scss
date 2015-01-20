@@ -1,0 +1,28 @@
+@mixin table-core {
+	.desktop, .mobile {
+		& {
+			display:none;
+		}
+		&.d-ib, &.d-b {
+			display: none !important;
+		}
+	}
+	.tablet {
+		& {
+			display:block !important;
+		}
+		&.d-ib, &.inline-block {
+			display: inline-block !important;
+		}
+	}
+
+	td.tablet, th.tablet {
+		display: table-cell !important;
+	}
+
+	@include tablet-grid;
+
+	@include mobile-tabs;
+
+	@include mobile-header;
+}

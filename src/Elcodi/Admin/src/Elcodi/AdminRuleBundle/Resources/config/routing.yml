@@ -1,0 +1,3 @@
+AdminRuleBundle:
+    resource: "@AdminRuleBundle/Controller/"
+    type:     annotation

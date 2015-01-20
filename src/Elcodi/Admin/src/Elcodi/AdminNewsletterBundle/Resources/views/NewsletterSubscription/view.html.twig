@@ -1,0 +1,17 @@
+{% extends 'AdminCoreBundle::layout.html.twig' %}
+
+{% block content_title %}
+    {{ 'NewsletterSubscription Zone'|trans }}
+{% endblock content_title %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-6">
+            {{ render(url("admin_newsletter_subscription_view_component", {
+                'id': id,
+            })) }}
+        </div>
+    </div>
+
+{% endblock content %}

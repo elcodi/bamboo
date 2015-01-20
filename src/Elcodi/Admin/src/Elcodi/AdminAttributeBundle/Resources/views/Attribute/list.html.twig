@@ -1,0 +1,31 @@
+{% extends 'AdminCoreBundle::layout.html.twig' %}
+
+
+{% block content_title %}
+    {{ 'Attribute Zone'|trans }}
+{% endblock content_title %}
+
+
+{% block breadcrumb %}
+
+    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
+        breadcrumb: {
+            "Attributes": {
+                "active" : true
+            }
+        }
+    } %}
+
+{% endblock breadcrumb %}
+
+
+{% block header_actions %}
+    <a href="{{ url("admin_attribute_new") }}"type="button" class="button-primary"><i class="icon-plus"></i> {{ "New attribute"|trans }}</a>
+{% endblock %}
+
+
+{% block content %}
+
+    {{ render(url("admin_attribute_list_component")) }}
+
+{% endblock content %}

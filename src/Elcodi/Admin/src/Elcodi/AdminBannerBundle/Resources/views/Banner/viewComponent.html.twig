@@ -1,0 +1,90 @@
+{% extends 'AdminCoreBundle::Common/viewComponent.html.twig' %}
+
+{% block title %}
+    {{ 'Banner'|trans }} - {{ entity }}
+{% endblock title %}
+
+{% block content %}
+
+
+    <tr>
+        <td>{{ 'name'|trans }}</td>
+        <td>
+            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
+            'entity': entity,
+            'field': 'name',
+            } %}
+        </td>
+    </tr>
+    <tr>
+        <td>{{ 'description'|trans }}</td>
+        <td>
+            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
+            'entity': entity,
+            'field': 'description',
+            } %}
+        </td>
+    </tr>
+    <tr>
+        <td>{{ 'url'|trans }}</td>
+        <td>
+            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
+            'entity': entity,
+            'field': 'url',
+            } %}
+        </td>
+    </tr>
+    <tr>
+        <td>{{ 'position'|trans }}</td>
+        <td>
+            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
+            'entity': entity,
+            'field': 'position',
+            } %}
+        </td>
+    </tr>
+    <tr>
+        <td>{{ 'enabled'|trans }}</td>
+        <td>
+            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
+            'entity': entity,
+            'field': 'enabled',
+            } %}
+        </td>
+    </tr>
+    <tr>
+        <td>{{ 'image'|trans }}</td>
+        <td>
+            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
+            'entity': entity,
+            'field': 'image',
+            } %}
+        </td>
+    </tr>
+    <tr>
+        <td>{{ 'principalImage'|trans }}</td>
+        <td>
+            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
+            'entity': entity,
+            'field': 'principalImage',
+            } %}
+        </td>
+    </tr>
+    <tr>
+        <td>{{ 'bannerZones'|trans }}</td>
+        <td>
+            {% include 'AdminCoreBundle::Common/viewField.html.twig' with {
+            'entity': entity,
+            'field': 'bannerZones',
+            } %}
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <a href="{{ url("admin_banner_edit", {"id": entity.id}) }}" type="button" class="btn btn-primary btn-flat">Edit</a>
+            <a href="{{ url("admin_banner_delete", {"id": entity.id}) }}" type="button" class="btn btn-danger btn-flat">Delete</a>
+        </td>
+    </tr>
+
+{% endblock content %}

@@ -1,0 +1,38 @@
+<div class="grid">
+    <div class="col-1-3">
+        <div id="upload-container" class="box-none">
+            <h3 class="fw-n">{% trans %}Images{% endtrans %}</h3>
+            <p>{% trans %}First image will be the principal image. You can drag & drop the images to reorder.{% endtrans %}</p>
+            <a href="{{ url("admin_image_upload") }}" id="pickfiles" class="button" data-tc-modules="uploader">
+                Upload images
+            </a>
+            <div class="d-n">
+                {{ form_row(form.imagesSort) }}
+            </div>
+            <progress id="progresBar" value="0" max="100" style="display: none"></progress>
+        </div>
+    </div>
+    <div class="col-2-3">
+        <div class="box">
+            <div id="thumb-gallery-select">
+                {{ form_row(form.images,{'attr': {'class':'d-n'}}) }}
+            </div>
+            <ul id="thumb-gallery" data-tc-modules="sortable" data-tc-input="elcodi_admin_product_form_type_product_imagesSort" class="thumbnail-group thumbnail-group-extended pl-s mb-m">
+            {% for image in images %}
+                {% set imageResize = image|resize({'height': 150, 'width': 150, 'type': 4}) %}
+                {% set imageView = image|viewImage %}
+                <li id="{{ image.id }}">
+                    <a href="{{ imageView }}" data-tc-modules="modal" data-tc-width="90%" data-tc-height="90%" class="group-images thumbnail">
+                        <img id="image-{{ image.id }}" src="{{ imageResize }}" width="150" />
+                    </a>
+                    <ul class="thumbnail-actions">
+                        <li>
+                            <a href="{{ url("admin_image_delete", {id: image.id}) }}" class="icon-trash-o"></a>
+                        </li>
+                    </ul>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>

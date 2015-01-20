@@ -1,0 +1,12 @@
+/web/bundles/
+/web/css/*
+/web/js/*
+/app/bootstrap.php.cache
+/app/cache/*
+/app/config/parameters.yml
+/app/logs/*
+/build/
+/vendor/
+/bin/
+/composer.phar
+/composer.lock

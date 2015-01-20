@@ -1,0 +1,78 @@
+{% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
+
+{% block title %}
+    {{ 'Variants'|trans }}
+{% endblock title %}
+
+{% block no_items %}
+    {{ lists.no_items('variant','variants', url("admin_product_variant_new", {
+        'productId': productId
+    }) ) }}
+{% endblock no_items %}
+
+{% block table_head %}
+
+    {% include "@AdminProduct/Variant/Tables/head.html.twig" with {
+        rows: {
+            "Variant": {width:"50"},
+            "Price": {width:"10"},
+            "Reduced Price": {width:"20"},
+            "Status": {width:"10"},
+        },
+        class: "variant",
+        id: entity.id
+    } %}
+
+{% endblock table_head %}
+
+{% block table_body_row %}
+    <td>
+        <a target="_blank" data-tc-modules="modal" data-tc-width="95%" data-tc-height="95%" href="{{ url( "admin_product_variant_edit", {
+            "productId": entity.product.id,
+            "id": entity.id
+        }) }}">
+            {% for option in entity.options %}
+                {{ option.value }}
+            {% endfor %}
+        </a>
+    </td>
+    <td>
+        {{ entity.price|print_money }}
+    </td>
+    <td>
+        {{ entity.reducedPrice|print_money }}
+    </td>
+    <td>
+        {% if entity.enabled %}<span class="label-ok">Enabled</span>{% else %}<span class="label-ko">Disabled</span>{% endif %}
+    </td>
+
+    <td class="center">
+        {% if delete is not defined or delete != false %}
+            <a class="icon-trash-o c-ko td-n fz-l"
+               data-tc-modules="confirm"
+               data-tc-name="{{ entity.product.name }}{% for option in entity.options %} {{ option.value }}{% endfor %}"
+               data-tc-text="{{ "Are you sure you want to delete it?"|trans }}"
+               href="{{
+                        url(
+                            "admin_product_variant_delete", {
+                                "productId": entity.product.id,
+                                "id": entity.id
+                            }
+                        )
+                     }}">
+                <i class="fa fa-times"></i>
+            </a>
+        {% endif %}
+    </td>
+
+{% endblock table_body_row %}
+
+{% block table_paginator_links %}
+{% endblock table_paginator_links %}
+
+{#
+ # Twig variable 'productId' is passed directly
+ # from VariantComponentController::listComponentAction
+ # since in this block scope we cannot access entities
+ # being iterated
+ #}

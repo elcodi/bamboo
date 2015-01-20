@@ -1,0 +1,22 @@
+services:
+
+    #
+    # Form Types
+    #
+    elcodi.admin.currency.form_type.currency:
+        class: %elcodi.admin.currency.form_type.currency.class%
+        tags:
+            - { name: form.type, alias: elcodi_admin_currency_form_type_currency }
+
+    elcodi.admin.currency.form_type.currency_exchange_rate:
+        class: %elcodi.admin.currency.form_type.currency_exchange_rate.class%
+        tags:
+            - { name: form.type, alias: elcodi_admin_currency_form_type_currency_exchange_rate }
+
+    elcodi.admin.currency.form_type.money:
+        class: %elcodi.admin.currency.form_type.money.class%
+        arguments:
+            currency_wrapper: @elcodi.currency_wrapper
+            default_currency: %elcodi.core.currency.default_currency%
+        tags:
+            - { name: form.type, alias: money_object }

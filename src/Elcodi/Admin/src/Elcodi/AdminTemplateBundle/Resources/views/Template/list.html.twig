@@ -1,0 +1,42 @@
+{% extends 'AdminCoreBundle::layout.html.twig' %}
+
+
+{% block content_title %}
+    {{ 'Template Zone'|trans }}
+{% endblock content_title %}
+
+
+{% block breadcrumb %}
+    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
+        breadcrumb: {
+            "Template": {
+                "active" : true
+            }
+        }
+    } %}
+{% endblock breadcrumb %}
+
+
+{% block content %}
+
+    <form class="form-configuration" data-tc-modules="form-configuration">
+        <fieldset class="grid">
+            <ol>
+                {% for template in templates %}
+
+                    {% set templateBundle = template.bundle %}
+                    {% set assetPath = template.assetPath %}
+
+                    <li>
+                        <input type="hidden" id="url-{{ templateBundle }}-store.template" value="{{ url("admin_configuration_update", {"name": "store.template"}) }}" />
+                        <label for="{{ templateBundle }}-store.template">{{ templateBundle }}</label>
+                        <input type="radio" name="store.template" id="{{ templateBundle }}-store.template" value="{{ templateBundle }}"{% if getConfiguration('store.template') == templateBundle %} checked="checked"{% endif %} />
+                        <img src="{{ asset('bundles/' ~ assetPath ~ '/preview.jpg') }}" />
+                    </li>
+
+                {% endfor %}
+            </ol>
+        </fieldset>
+    </form>
+
+{% endblock content %}

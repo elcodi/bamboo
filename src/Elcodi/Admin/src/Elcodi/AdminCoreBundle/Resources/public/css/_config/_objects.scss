@@ -1,0 +1,33 @@
+$objects-custom: (
+	style: flat,
+	boxes: default,
+	buttons: default,
+	filters: default,
+	footer: default,
+	form: default,
+	form-search: default,
+	header: false,
+	image-circle: default,
+	image-polaroid: default,
+	lists: default,
+	messages: default,
+	navigation: tabbed,
+	navigation-sub: default,
+	pagination: default,
+	ratings: default,
+	slides: default,
+	steps: default,
+	tabs: default,
+	tags: default
+) !global !default;
+
+
+
+$object-navigation-vars-custom : (
+
+	background-color: #354051,
+	background-color-dark: #2E3847,
+	color: #FFF,
+	font-family: unquote( map_get($font-faces-custom, title) ),
+
+) !global !default;

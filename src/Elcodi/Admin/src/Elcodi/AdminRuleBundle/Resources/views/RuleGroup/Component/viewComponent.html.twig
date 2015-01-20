@@ -1,0 +1,43 @@
+{% extends 'AdminCoreBundle::Common/viewComponent.html.twig' %}
+
+{% block title %}
+    {{ 'RuleGroup'|trans }} - {{ entity }}
+{% endblock title %}
+
+{% block content %}
+
+    <tr>
+        <td>{{ 'name'|trans }}</td>
+        <td>{{ entity.name }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'code'|trans }}</td>
+        <td>{{ entity.code }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'enabled'|trans }}</td>
+        <td>{% if entity.enabled %}<span class="label label-success">true</span>{% else %}<span class="label label-danger">false</span>{% endif %}</td>
+    </tr>
+    <tr>
+        <td>{{ 'rules'|trans }}</td>
+        <td>
+            <ul>
+                {% for rule in entity.rules %}
+                    <li>
+                        <a href="{{ url("admin_rule_view", {id: rule.id}) }}">
+                            {{ rule.name }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <a href="{{ url("admin_rule_group_edit", {"id": entity.id}) }}" type="button" class="btn btn-primary btn-flat">Edit</a>
+            <a href="{{ url("admin_rule_group_delete", {"id": entity.id}) }}" type="button" class="btn btn-danger btn-flat">Delete</a>
+        </td>
+    </tr>
+
+{% endblock content %}

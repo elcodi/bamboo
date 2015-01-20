@@ -1,0 +1,3 @@
+AdminLanguageBundle:
+    resource: "@AdminLanguageBundle/Controller/"
+    type:     annotation

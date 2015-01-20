@@ -1,0 +1,32 @@
+$colors-custom: (
+	foreground: #222,
+	foreground-light: auto,
+	foreground-dark: auto,
+	background:	#FFF,
+	background-light: auto,
+	background-dark: auto,
+	body: #EBF1F5,
+	primary: #4cbfbf,
+	primary-light: auto,
+	primary-dark: auto,
+	secondary: #F2A138,
+	secondary-light: auto,
+	secondary-dark: auto,
+	link: #48BAC1,
+	link-hover:	#24cfd8,
+	link-hover-background: transparent,
+	box: #DEE5EA,
+	box-light: auto,
+	box-dark: auto,
+	megacontrast: #000,
+	header-background: #3d474e,
+	rank: #FCCB04,
+	info: #1E72A6,
+	ok: #6A932C,
+	ko: #EE3728,
+	warning: #DFB84F,
+	input-focus: #ffffea
+) !global !default;
+
+$color-navigation-primary: #000 !global;
+

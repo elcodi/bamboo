@@ -1,0 +1,6 @@
+parameters:
+
+    #
+    # Entity classes
+    #
+    elcodi.admin.media.form_type.image.class: Elcodi\AdminMediaBundle\Form\Type\ImageType

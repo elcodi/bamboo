@@ -1,0 +1,37 @@
+{% extends 'AdminCoreBundle::layouts/center_box.html.twig' %}
+
+{% block content %}
+
+                {{ form_start(form, {
+                    "attr": {
+                        "class": "form"
+                    }
+                }) }}
+                    <fieldset>
+                        <legend>{{ "Login access required"|trans }}</legend>
+                        <ol>
+                            <li>
+                                {{ form_row(form.email, {
+                                    "attr": {
+                                        "class": "form-control",
+                                        "placeholder": "Email"|trans
+                                    }
+                                }) }}
+                            </li>
+                            <li>
+                                {{ form_row(form.password, {
+                                    "attr": {
+                                        "class": "form-control",
+                                        "placeholder": "Password"|trans
+                                    }
+                                }) }}
+                            </li>
+                        </ol>
+                        <button type="submit" class="button-primary">{{ "Log In"|trans }}</button>
+                        <a href="{{ url("admin_password_remember") }}" class="button" data-dismiss="modal" type="warning">
+                            {{ "Remember"|trans }}
+                        </a>
+                    </fieldset>
+                {{ form_end(form) }}
+
+{% endblock content %}

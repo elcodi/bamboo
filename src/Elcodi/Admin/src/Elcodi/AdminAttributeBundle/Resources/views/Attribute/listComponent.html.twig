@@ -1,0 +1,43 @@
+{% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
+
+{% block title %}
+    {{ 'Attribute list'|trans }}
+{% endblock title %}
+
+{% block no_items %}
+    {{ lists.no_items('attribute','attributes', url("admin_attribute_new")  ) }}
+{% endblock no_items %}
+
+{% block table_head %}
+    {% include "@AdminCore/Tables/head.html.twig" with {
+        rows: {
+            "Name": {},
+            "Values": {},
+        },
+        class: "attribute",
+    } %}
+{% endblock table_head %}
+
+
+{% block table_body_row %}
+
+    <td>
+        <a href="{{ url("admin_attribute_edit", {"id": entity.id}) }}"><strong>{{ entity.name }}</strong></a>
+        {% if entity.enabled %}<span class="label-ok fz-xs">Enabled</span>{% else %}<span class="label fz-xs">Disabled</span>{% endif %} {% if entity.showInHome %}<span class="label-info fz-xs">{{'Home'|trans}}</span>{% endif %} {% if entity.hasVariants %}<span class="label bg-secondary fz-xs">{{'Variants'|trans}}</span>{% endif %}
+    </td>
+    <td>
+        {% for value in entity.values %}
+            {{ value }},
+        {% endfor %}
+    </td>
+    {% include "@AdminCore/Tables/actions.html.twig" with {
+        entity: entity,
+        class: "attribute",
+    } %}
+{% endblock table_body_row %}
+
+
+{% block table_paginator_links %}
+    {% set url = 'admin_attribute_list' %}
+    {{ parent() }}
+{% endblock table_paginator_links %}

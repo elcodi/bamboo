@@ -1,0 +1,90 @@
+{% extends 'AdminCoreBundle::Common/viewComponent.html.twig' %}
+
+
+{% block title %}
+    {{ 'Coupons'|trans }} - {{ entity }}
+{% endblock title %}
+
+
+{% block view_buttons %}
+    <div class="spacer spacer-bottom">
+        <a href="{{ url("admin_coupon_list", {"id": entity.id}) }}" class="btn">{{ 'View all'|trans }}</a>
+        <a href="{{ url("admin_coupon_edit", {"id": entity.id}) }}" class="btn btn-primary">{{ 'Edit'|trans }}</a>
+        {% if entity.enabled %}
+            <a href="{{ url("admin_coupon_disable", {"id": entity.id}) }}" class="btn btn-warning">{{ 'Disable'|trans }}</a>
+        {% else %}
+            <a href="{{ url("admin_coupon_enable", {"id": entity.id}) }}" class="btn btn-success">{{ 'Enable'|trans }}</a>
+        {% endif %}
+        <a href="{{ url("admin_coupon_delete", {"id": entity.id}) }}" class="btn btn-danger">{{ 'Delete'|trans }}</a>
+    </div>
+{% endblock view_buttons %}
+
+
+{% block content %}
+    <tr>
+        <td>{{ 'code'|trans }}</td>
+        <td>{{ entity.code }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'name'|trans }}</td>
+        <td>{{ entity.name }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'type'|trans }}</td>
+        <td>{{ entity.type }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'enforcement'|trans }}</td>
+        <td>{{ entity.type }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'price'|trans }}</td>
+        <td>{{ entity.price|print_money }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'discount'|trans }}</td>
+        <td>{{ entity.discount }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'count'|trans }}</td>
+        <td>{{ entity.count }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'used'|trans }}</td>
+        <td>{{ entity.used }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'priority'|trans }}</td>
+        <td>{{ entity.priority }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'minimumPurchase'|trans }}</td>
+        <td>{{ entity.minimumPurchase|print_money }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'validFrom'|trans }}</td>
+        <td>{{ entity.validFrom|date('Y.m.d - H:i:s') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'validTo'|trans }}</td>
+        <td>{{ entity.validTo|date('Y.m.d - H:i:s') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'enabled'|trans }}</td>
+        <td>
+            {% if entity.enabled %}
+                <span class="label label-success">true</span>
+            {% else %}
+                <span class="label label-danger">false</span>
+            {% endif %}
+        </td>
+    </tr>
+    <tr>
+        <td>{{ 'createdAt'|trans }}</td>
+        <td>{{ entity.createdAt|date('Y.m.d - H:i:s') }}</td>
+    </tr>
+    <tr>
+        <td>{{ 'updatedAt'|trans }}</td>
+        <td>{{ entity.updatedAt|date('Y.m.d - H:i:s') }}</td>
+    </tr>
+{% endblock content %}

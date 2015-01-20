@@ -1,0 +1,42 @@
+{% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
+
+
+{% block title %}
+    {{ 'Language list'|trans }}
+{% endblock title %}
+
+
+{% block table_head %}
+    {% include "@AdminCore/Tables/head.html.twig" with {
+        rows: {
+            "iso": {},
+            "symbol": {},
+            "enabled": {width:"25"},
+        },
+        class: "language",
+        actions: false
+    } %}
+{% endblock table_head %}
+
+
+{% block table_body_row %}
+
+    <td>
+        {{ entity.iso }}
+    </td>
+    <td>
+        {{ entity.name }}
+    </td>
+    <td>
+        {% if entity.enabled %}
+            <span class="label label-success">true</span>
+        {% else %}
+            <span class="label label-danger">false</span>
+        {% endif %}
+    </td>
+
+{% endblock table_body_row %}
+
+
+{% block table_paginator_links %}
+{% endblock table_paginator_links %}
