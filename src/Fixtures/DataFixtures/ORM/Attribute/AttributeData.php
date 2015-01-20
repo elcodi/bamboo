@@ -52,7 +52,6 @@ class AttributeData extends AbstractFixture
         $sizeAttribute = $attributeFactory
             ->create()
             ->setName('Size')
-            ->setDisplayName('Size')
             ->setEnabled(true);
 
         $attributeObjectManager->persist($sizeAttribute);
@@ -89,7 +88,6 @@ class AttributeData extends AbstractFixture
         $colorAttribute = $attributeFactory
             ->create()
             ->setName('Color')
-            ->setDisplayName('Color')
             ->setEnabled(true);
 
         $attributeObjectManager->persist($colorAttribute);
