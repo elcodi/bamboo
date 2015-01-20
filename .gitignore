@@ -2,6 +2,8 @@
 /web/css/*
 /web/js/*
 /app/bootstrap.php.cache
+/app/check.php
+/app/SymfonyRequirements.php
 /app/cache/*
 /app/config/parameters.yml
 /app/logs/*
