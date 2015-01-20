@@ -1,0 +1,35 @@
+services:
+
+    #
+    # Form Types
+    #
+    store.user.form_type.login:
+        class: %store.user.form_type.login.class%
+        arguments:
+            router: @router
+        tags:
+            - { name: form.type, alias: store_user_form_type_login }
+
+    store.user.form_type.register:
+        class: %store.user.form_type.register.class%
+        arguments:
+            customer_namespace: %elcodi.core.user.entity.customer.class%
+        tags:
+            - { name: form.type, alias: store_user_form_type_register }
+
+    store.user.form_type.profile:
+        class: %store.user.form_type.profile.class%
+        arguments:
+            customer_namespace: %elcodi.core.user.entity.customer.class%
+        tags:
+            - { name: form.type, alias: store_user_form_type_profile }
+
+    store.user.form_type.password_remember:
+        class: %store.user.form_type.password_remember.class%
+        tags:
+            - { name: form.type, alias: store_user_form_type_password_remember }
+
+    store.user.form_type.password_recover:
+        class: %store.user.form_type.password_recover.class%
+        tags:
+            - { name: form.type, alias: store_user_form_type_password_recover }

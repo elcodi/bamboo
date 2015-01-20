@@ -1,0 +1,11 @@
+parameters:
+
+    #
+    # Repositories
+    #
+    store.connect.repository.authorization.class: Doctrine\ORM\EntityRepository
+
+    #
+    # Services
+    #
+    store.connect.service.oauth_provider.class: Elcodi\StoreConnectBundle\Services\OAuthUserProvider

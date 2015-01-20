@@ -1,0 +1,7 @@
+freepayment_payment_routes:
+    resource: .
+    type: freepayment
+
+paypal_web_chckout_payment_routes:
+    resource: .
+    type: paypal_web_checkout

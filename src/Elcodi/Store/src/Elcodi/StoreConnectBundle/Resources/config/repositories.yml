@@ -1,0 +1,15 @@
+services:
+
+    #
+    # Repositories
+    #
+
+    #
+    # Repository for Authentication entities
+    #
+    store.connect.repository.authorization:
+        class: %store.connect.repository.authorization.class%
+        factory_service: elcodi.repository_provider
+        factory_method: getRepositoryByEntityNamespace
+        arguments:
+            entity_namespace: %store.connect.entity.authorization.class%

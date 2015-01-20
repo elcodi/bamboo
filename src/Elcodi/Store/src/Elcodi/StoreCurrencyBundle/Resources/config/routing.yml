@@ -1,0 +1,3 @@
+StoreCurrencyBundle:
+    resource: "@StoreCurrencyBundle/Controller/"
+    type:     annotation
