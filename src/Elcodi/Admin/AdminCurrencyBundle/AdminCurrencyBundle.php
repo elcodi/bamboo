@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\AdminCurrencyBundle;
+namespace Elcodi\Admin\AdminCurrencyBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

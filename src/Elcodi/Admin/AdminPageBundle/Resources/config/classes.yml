@@ -3,4 +3,4 @@ parameters:
     #
     # Entity classes
     #
-    elcodi.admin.page.form_type.page.class: Elcodi\AdminPageBundle\Form\Type\PageType
+    elcodi.admin.page.form_type.page.class: Elcodi\Admin\AdminPageBundle\Form\Type\PageType

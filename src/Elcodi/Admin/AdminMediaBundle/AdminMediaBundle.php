@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\AdminMediaBundle;
+namespace Elcodi\Admin\AdminMediaBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

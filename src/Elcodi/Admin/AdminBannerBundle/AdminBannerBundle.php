@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\AdminBannerBundle;
+namespace Elcodi\Admin\AdminBannerBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

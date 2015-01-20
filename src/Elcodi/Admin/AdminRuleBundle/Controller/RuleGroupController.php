@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\AdminRuleBundle\Controller;
+namespace Elcodi\Admin\AdminRuleBundle\Controller;
 
 use Doctrine\ORM\Tools\Pagination\Paginator;
 use Exception;
@@ -31,7 +31,7 @@ use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
-use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
+use Elcodi\Admin\AdminCoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 use Elcodi\Component\Rule\Entity\Interfaces\RuleGroupInterface;
 

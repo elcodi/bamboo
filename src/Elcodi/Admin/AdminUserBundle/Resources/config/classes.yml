@@ -3,15 +3,15 @@ parameters:
     #
     # Event Listeners
     #
-    admin.user.event_listener.remember_password.class: Elcodi\AdminUserBundle\EventListener\RememberPasswordEventListener
+    admin.user.event_listener.remember_password.class: Elcodi\Admin\AdminUserBundle\EventListener\RememberPasswordEventListener
 
     #
     # Form Types
     #
-    admin.user.form_type.login.class: Elcodi\AdminUserBundle\Form\Type\LoginType
-    admin.user.form_type.register.class: Elcodi\AdminUserBundle\Form\Type\RegisterType
-    admin.user.form_type.profile.class: Elcodi\AdminUserBundle\Form\Type\ProfileType
-    admin.user.form_type.password_remember.class: Elcodi\AdminUserBundle\Form\Type\PasswordRememberType
-    admin.user.form_type.password_recover.class: Elcodi\AdminUserBundle\Form\Type\PasswordRecoverType
-    admin.user.form_type.customer.class: Elcodi\AdminUserBundle\Form\Type\CustomerType
-    admin.user.form_type.admin_user.class: Elcodi\AdminUserBundle\Form\Type\AdminUserType
+    admin.user.form_type.login.class: Elcodi\Admin\AdminUserBundle\Form\Type\LoginType
+    admin.user.form_type.register.class: Elcodi\Admin\AdminUserBundle\Form\Type\RegisterType
+    admin.user.form_type.profile.class: Elcodi\Admin\AdminUserBundle\Form\Type\ProfileType
+    admin.user.form_type.password_remember.class: Elcodi\Admin\AdminUserBundle\Form\Type\PasswordRememberType
+    admin.user.form_type.password_recover.class: Elcodi\Admin\AdminUserBundle\Form\Type\PasswordRecoverType
+    admin.user.form_type.customer.class: Elcodi\Admin\AdminUserBundle\Form\Type\CustomerType
+    admin.user.form_type.admin_user.class: Elcodi\Admin\AdminUserBundle\Form\Type\AdminUserType

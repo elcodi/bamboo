@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\AdminCartBundle\Controller\Stats;
+namespace Elcodi\Admin\AdminCartBundle\Controller\Stats;
 
 /**
  * Class OrderStatsController

@@ -14,13 +14,13 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\AdminProductBundle\Controller\Stats;
+namespace Elcodi\Admin\AdminProductBundle\Controller\Stats;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-use Elcodi\AdminCoreBundle\Controller\Abstracts\AbstractStatsController;
+use Elcodi\Admin\AdminCoreBundle\Controller\Abstracts\AbstractStatsController;
 
 /**
  * Class CategoryStatsController

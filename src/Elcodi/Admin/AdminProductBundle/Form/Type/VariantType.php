@@ -14,11 +14,11 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\AdminProductBundle\Form\Type;
+namespace Elcodi\Admin\AdminProductBundle\Form\Type;
 
 use Symfony\Component\Form\FormBuilderInterface;
 
-use Elcodi\AdminCurrencyBundle\Form\Type\Abstracts\AbstractPurchasableType;
+use Elcodi\Admin\AdminCurrencyBundle\Form\Type\Abstracts\AbstractPurchasableType;
 use Elcodi\Component\Attribute\Repository\ValueRepository;
 
 /**

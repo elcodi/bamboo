@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\AdminCoreBundle\Controller\Abstracts;
+namespace Elcodi\Admin\AdminCoreBundle\Controller\Abstracts;
 
 use Closure;
 use Doctrine\Common\Persistence\ObjectManager;

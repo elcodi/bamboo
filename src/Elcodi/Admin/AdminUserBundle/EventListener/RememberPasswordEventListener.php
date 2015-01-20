@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\AdminUserBundle\EventListener;
+namespace Elcodi\Admin\AdminUserBundle\EventListener;
 
 use Swift_Mailer;
 use Swift_Message;

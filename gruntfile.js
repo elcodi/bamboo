@@ -5,7 +5,7 @@ module.exports = function (grunt) {
 		compass: {
 			dist: {
 				options: {
-					config: 'src/Elcodi/Admin/CoreBundle/Resources/public/css/config.rb'
+					config: 'src/Elcodi/Admin/AdminCoreBundle/Resources/public/css/config.rb'
 				}
 			}
 		},
@@ -25,20 +25,20 @@ module.exports = function (grunt) {
 					console: true
 				}
 			},
-			dist: ['Gruntfile.js', 'src/Elcodi/Admin/CoreBundle/Resources/public/js/modules/**/*.js']
+			dist: ['Gruntfile.js', 'src/Elcodi/Admin/AdminCoreBundle/Resources/public/js/modules/**/*.js']
 
 		},
         jasmine: {
             main:{
                 src: [
-                    'src/Elcodi/Admin/CoreBundle/Resources/public/js/modules/*.js'
+                    'src/Elcodi/Admin/AdminCoreBundle/Resources/public/js/modules/*.js'
                 ],
                 options: {
-                    specs: 'src/Elcodi/Admin/CoreBundle/Resources/public/js/test/*.js',
+                    specs: 'src/Elcodi/Admin/AdminCoreBundle/Resources/public/js/test/*.js',
                     vendor :  [
-                        'src/Elcodi/Admin/CoreBundle/Resources/public/components/frontendcore-js/core.js',
-                        'src/Elcodi/Admin/CoreBundle/Resources/public/components/frontendcore-js/devices/desktop.js',
-                        'src/Elcodi/Admin/CoreBundle/Resources/public/components/frontendcore-js/ui/*.js'
+                        'src/Elcodi/Admin/AdminCoreBundle/Resources/public/components/frontendcore-js/core.js',
+                        'src/Elcodi/Admin/AdminCoreBundle/Resources/public/components/frontendcore-js/devices/desktop.js',
+                        'src/Elcodi/Admin/AdminCoreBundle/Resources/public/components/frontendcore-js/ui/*.js'
                     ],
                     outfile: 'js-specrunner.html',
                     keepRunner: false
@@ -62,11 +62,11 @@ module.exports = function (grunt) {
 		},
 		watch: {
 			scripts: {
-				files: ['src/Elcodi/Admin/CoreBundle/Resources/public/js/**/*.js', 'Gruntfile.js'],
+				files: ['src/Elcodi/Admin/AdminCoreBundle/Resources/public/js/**/*.js', 'Gruntfile.js'],
 				tasks: ['javascript']
 			},
 			scss: {
-				files: ['src/Elcodi/Admin/CoreBundle/Resources/public/css/**/*.scss'],
+				files: ['src/Elcodi/Admin/AdminCoreBundle/Resources/public/css/**/*.scss'],
 				tasks: ['scss']
 			}
 		}

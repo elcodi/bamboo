@@ -3,6 +3,6 @@ parameters:
     #
     # Entity classes
     #
-    elcodi.admin.currency.form_type.currency.class: Elcodi\AdminCurrencyBundle\Form\Type\CurrencyType
-    elcodi.admin.currency.form_type.currency_exchange_rate.class: Elcodi\AdminCurrencyBundle\Form\Type\CurrencyExchangeRateType
-    elcodi.admin.currency.form_type.money.class: Elcodi\AdminCurrencyBundle\Form\Type\MoneyType
+    elcodi.admin.currency.form_type.currency.class: Elcodi\Admin\AdminCurrencyBundle\Form\Type\CurrencyType
+    elcodi.admin.currency.form_type.currency_exchange_rate.class: Elcodi\Admin\AdminCurrencyBundle\Form\Type\CurrencyExchangeRateType
+    elcodi.admin.currency.form_type.money.class: Elcodi\Admin\AdminCurrencyBundle\Form\Type\MoneyType

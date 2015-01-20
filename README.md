@@ -1,7 +1,7 @@
-Bamboo Distribution
-===================
+Bamboo e-commerce
+=================
 
-Welcome to Bamboo - a fully-functional e-commerce application built using [Elcodi](https://github.com/elcodi/elcodi) components featuring a front-end shop and a backoffice administrator.
+Welcome to Bamboo e-commerce - a fully-functional e-commerce application built using [Elcodi](https://github.com/elcodi/elcodi) components featuring a front-end shop and a backoffice administrator.
 
 It is a Symfony application that packages [Bamboo Store](https://github.com/elcodi/bamboo-store) and [Bamboo Admin](https://github.com/elcodi/bamboo-admin) in a single code repository. They also can be used separately by cloning them from their respective splitted repositories.
 

@@ -3,4 +3,4 @@ parameters:
     #
     # Entity classes
     #
-    elcodi.admin.newsletter.form_type.newsletter_subscription.class: Elcodi\AdminNewsletterBundle\Form\Type\NewsletterSubscriptionType
+    elcodi.admin.newsletter.form_type.newsletter_subscription.class: Elcodi\Admin\AdminNewsletterBundle\Form\Type\NewsletterSubscriptionType
