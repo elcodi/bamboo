@@ -59,6 +59,7 @@ class AdminUserExtension extends AbstractExtension
             'classes',
             'formTypes',
             'eventListeners',
+            'services',
         ];
     }
 
