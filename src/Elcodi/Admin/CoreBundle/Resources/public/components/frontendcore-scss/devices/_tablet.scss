@@ -1,4 +1,4 @@
-@mixin table-core {
+@mixin tablet-core {
 	.desktop, .mobile {
 		& {
 			display:none;
@@ -18,6 +18,10 @@
 
 	td.tablet, th.tablet {
 		display: table-cell !important;
+	}
+
+	@if $object-boxes != false {
+		@include papa-boxes;
 	}
 
 	@include tablet-grid;

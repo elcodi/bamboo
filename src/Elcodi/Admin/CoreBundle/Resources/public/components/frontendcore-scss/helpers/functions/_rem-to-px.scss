@@ -5,6 +5,7 @@
  *
  * @param {string}	$rem-value (empty) - Desired REM value to convert
  * @return {string (Value in px) }
+ * @group fonts
  */
 
 @function rem-to-px($rem-value) {

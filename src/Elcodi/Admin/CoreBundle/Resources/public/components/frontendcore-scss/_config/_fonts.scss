@@ -1,11 +1,13 @@
 
 /**
  * Default font face, used in the body.
+ * @group fonts
  */
 $font-face-default: unquote(map-get($font-faces, default)) !global;
 
 /**
- * Font face used for titles, buttons and some other elements.
+ * Font face used for titles, buttons and some other elements
+ * @group fonts
  */
 $font-face-title: unquote(map-get($font-faces, title)) !global;
 

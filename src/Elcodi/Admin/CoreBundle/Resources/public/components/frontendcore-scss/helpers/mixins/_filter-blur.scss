@@ -6,6 +6,7 @@
  *
  * @param {Number}	$radius ($default-border-radius)	- Size in pixels of the blur effect
  * @param {Boolean}	$hardware (false)	- As blur requires a lot of ressources, with this variables a seemless 3d scale is applied to force hardware acceleration
+ * @group utilities
  */
 
 @mixin filter-blur( $radius: $default-border-radius, $hardware : false ) {
