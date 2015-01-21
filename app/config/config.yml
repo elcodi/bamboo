@@ -117,3 +117,8 @@ hwi_oauth:
 
 elcodi_bamboo:
     store_tracker: 7s89da7s8d9a
+
+elcodi_media:
+    images:
+        resize:
+            converter_bin_path: %imagick_convert_bin_path%
