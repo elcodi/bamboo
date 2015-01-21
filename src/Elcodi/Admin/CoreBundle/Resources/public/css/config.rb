@@ -1,6 +1,6 @@
 enviroment = :production
-css_dir = "/"
-sass_dir = "/"
+css_dir = "src/Elcodi/Admin/CoreBundle/Resources/public/css/"
+sass_dir = "src/Elcodi/Admin/CoreBundle/Resources/public/css/"
 
 output_style = :compressed
 line_comments = false

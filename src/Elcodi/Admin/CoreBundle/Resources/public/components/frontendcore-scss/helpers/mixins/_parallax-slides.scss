@@ -7,6 +7,7 @@
  * @param {String}	$slide-class ('slide') name fo the classes for divs.
  * @param {Array}	$slides-height (600px) Array of heights for each slide slides.
  * @param {Array}	$slides-bg-img (none)	Array of background images for the slides. Each background image passed will add an slide.
+ * @group utilities
  */
 
 @mixin parallax-slides(

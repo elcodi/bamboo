@@ -7,6 +7,7 @@
  * @param {Value}	$size-value (1.6) Size value of the font.
  * @param {Boolean}	$line-height (true) If false, line-height property is not added.
  * @param {Boolean} $force-line-height (false)	If true, force line height to be the same as first parameter passed.
+ * @group fonts
  */
 
 @mixin font-size( $size-value: 1.6, $line-height: true, $force-line-height: false ) {

@@ -2,6 +2,7 @@
  * Defines the design style of all the objects.
  * Posible values: flat (default), gradient
  * @type string
+ * @group objects
  */
 $object-style: map-get($objects, style) !global;
 
@@ -10,6 +11,7 @@ $object-style: map-get($objects, style) !global;
  * Posible values: default, tabbed, false
  * @type string
  * @link http://www.frontendcore.com/css/navigation.html
+ * @group objects
  */
 $object-navigation: map-get($objects, navigation) !global;
 
@@ -18,6 +20,7 @@ $object-navigation: map-get($objects, navigation) !global;
  * Posible values: default, tabbed, false
  * @type string
  * @link http://www.frontendcore.com/css/navigation.html
+ * @group objects
  */
 $object-navigation-sub: map-get($objects, navigation-sub) !global;
 
@@ -26,6 +29,7 @@ $object-navigation-sub: map-get($objects, navigation-sub) !global;
  * Posible values: default, false
  * @type string
  * @link http://www.frontendcore.com/css/boxes.html
+ * @group objects
  */
 $object-boxes: map-get($objects, boxes) !global;
 
@@ -34,6 +38,7 @@ $object-boxes: map-get($objects, boxes) !global;
  * Posible values: default, false
  * @type string
  * @link http://www.frontendcore.com/css/buttons.html
+ * @group objects
  */
 $object-buttons: map-get($objects, buttons) !global;
 
@@ -42,6 +47,7 @@ $object-buttons: map-get($objects, buttons) !global;
  * Posible values: default, false
  * @type string
  * @link http://www.frontendcore.com/css/filters.html
+ * @group objects
  */
 $object-filters: map-get($objects, filters) !global;
 
@@ -49,6 +55,7 @@ $object-filters: map-get($objects, filters) !global;
  * Defines the availability and style of the footer object. To avoid this object to be included in your scss set it to false.
  * Posible values: default, false
  * @type string
+ * @group objects
  */
 $object-footer: map-get($objects, footer) !global;
 
@@ -57,6 +64,7 @@ $object-footer: map-get($objects, footer) !global;
  * Posible values: default, false
  * @type string
  * @link http://www.frontendcore.com/css/forms.html
+ * @group objects
  */
 $object-form: map-get($objects, form) !global;
 
@@ -65,6 +73,7 @@ $object-form: map-get($objects, form) !global;
  * Posible values: default, false
  * @type string
  * @link http://www.frontendcore.com/css/forms.html
+ * @group objects
  */
 $object-form-search: map-get($objects, form-search) !global;
 
@@ -72,6 +81,7 @@ $object-form-search: map-get($objects, form-search) !global;
  * Defines the availability and style of the header object. To avoid this object to be included in your scss set it to false.
  * Posible values: default, false
  * @type string
+ * @group objects
  */
 $object-header: map-get($objects, header) !global;
 
@@ -80,6 +90,7 @@ $object-header: map-get($objects, header) !global;
  * Posible values: default, false
  * @type string
  * @link http://www.frontendcore.com/css/images.html
+ * @group objects
  */
 $object-image-circle: map-get($objects, image-circle) !global;
 
@@ -88,6 +99,7 @@ $object-image-circle: map-get($objects, image-circle) !global;
  * Posible values: default, false
  * @type string
  * @link http://www.frontendcore.com/css/images.html
+ * @group objects
  */
 $object-image-polaroid: map-get($objects, image-polaroid) !global;
 
@@ -96,6 +108,7 @@ $object-image-polaroid: map-get($objects, image-polaroid) !global;
  * Posible values: default, false
  * @type string
  * @link http://www.frontendcore.com/css/list.html
+ * @group objects
  */
 $object-lists: map-get($objects, lists) !global;
 
@@ -104,6 +117,7 @@ $object-lists: map-get($objects, lists) !global;
  * Posible values: default, false
  * @type string
  * @link http://www.frontendcore.com/css/messages.html
+ * @group objects
  */
 $object-messages: map-get($objects, messages) !global;
 
@@ -112,6 +126,7 @@ $object-messages: map-get($objects, messages) !global;
  * Posible values: default, false
  * @type string
  * @link http://www.frontendcore.com/css/pagination.html
+ * @group objects
  */
 $object-pagination: map-get($objects, pagination) !global;
 
@@ -120,6 +135,7 @@ $object-pagination: map-get($objects, pagination) !global;
  * Posible values: default, false
  * @type string
  * @link http://www.frontendcore.com/css/rating.html
+ * @group objects
  */
 $object-ratings: map-get($objects, ratings) !global;
 
@@ -128,6 +144,7 @@ $object-ratings: map-get($objects, ratings) !global;
  * Posible values: default, false
  * @type string
  * @link http://www.frontendcore.com/css/steps.html
+ * @group objects
  */
 $object-steps: map-get($objects, steps) !global;
 
@@ -136,6 +153,7 @@ $object-steps: map-get($objects, steps) !global;
  * Posible values: default, false
  * @type string
  * @link http://www.frontendcore.com/css/tabs.html
+ * @group objects
  */
 $object-tabs: map-get($objects, tabs) !global;
 
@@ -144,6 +162,7 @@ $object-tabs: map-get($objects, tabs) !global;
  * Posible values: default, false
  * @type string
  * @link http://www.frontendcore.com/css/tabs.html
+ * @group objects
  */
 $object-tags: map-get($objects, tags) !global;
 
@@ -152,5 +171,6 @@ $object-tags: map-get($objects, tags) !global;
  * Posible values: default, false
  * @type string
  * @link http://www.frontendcore.com/css/labels.html
+ * @group objects
  */
 $object-labels: map-get($objects, labels) !global;

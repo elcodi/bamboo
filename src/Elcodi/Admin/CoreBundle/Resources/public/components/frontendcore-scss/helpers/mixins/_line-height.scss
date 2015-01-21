@@ -5,6 +5,7 @@
  * @author Toni Pinel
  *
  * @param {Value}	$font-size ($font-size-default)	Font size
+ * @group fonts
  */
 
 @mixin line-height-standard( $font-size: $font-size-default ) {

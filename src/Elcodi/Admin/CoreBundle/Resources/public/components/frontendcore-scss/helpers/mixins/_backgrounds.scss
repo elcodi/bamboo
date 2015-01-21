@@ -7,6 +7,7 @@
  * @param {hex-color}	$bg-color ($color-text-background) 	- Background color
  * @param {number}	$opacity (0.7)	- Opacity from 0 to 1
  * @link https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient
+ * @group colors
  */
 
 @mixin background-transparent($bg-color: $color-background, $opacity:0.7) {
@@ -32,6 +33,7 @@
  * @param {hex-color}	$end-color ($color-box-light)	- End color
  * @param {string}		$orientation (vertical)	- vertical or horizontal orientation of the gradient
  * @link http://msdn.microsoft.com/en-us/library/ms532997(v=vs.85).aspx
+ * @group colors
  */
 
 @mixin background-gradient-ie-old( $start-color: $color-box-dark, $end-color: $color-box-light, $orientation: vertical){
