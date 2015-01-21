@@ -65,21 +65,13 @@ class RuleType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', 'text', array(
-                'required' => false,
+            ->add('name', 'string', array(
+                'required' => true,
                 'label'    => 'name',
             ))
-            ->add('code', 'text', array(
-                'required' => false,
+            ->add('expression', 'text', array(
+                'required' => true,
                 'label'    => 'code',
-            ))
-            ->add('enabled', 'checkbox', array(
-                'required' => false,
-                'label'    => 'enabled',
-            ))
-            ->add('expression', 'elcodi_admin_rule_form_type_expression', array(
-                'required' => false,
-                'label'    => 'expression',
             ));
     }
 
