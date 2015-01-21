@@ -3,6 +3,6 @@ module.exports = {
 		src: ['build']
 	},
 	temp: {
-		src: ['twig','temp']
+		src: ['temp']
 	}
 }

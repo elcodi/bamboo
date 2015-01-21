@@ -30,7 +30,8 @@ module.exports = function (grunt) {
 
 	var pkg = require('./package.json'),
 		bbdd = require('./database.json'),
-		fixtures = mergeJSON(pkg, bbdd);
+		store = require('./fixtures/store.json'),
+		fixtures = mergeJSON(store, bbdd);
 
 	require('load-grunt-config')(grunt, fixtures);
 

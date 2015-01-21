@@ -1,0 +1,18 @@
+{
+  "store": {
+    "name": "My Awesome Store",
+    "static": "./static/"
+  },
+  "products": {
+    "1": {
+      "name" : "Ibiza Lips English",
+      "slug" : "Iibiza-lips-en",
+      "description" : "Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.",
+      "metaTitle" : "Ibiza Lips English",
+      "metaDescription" : "Ibiza Lips English",
+      "metaKeywords" : "Ibiza Lips English",
+      "showInHome" : true,
+      "enable" : true
+    }
+  }
+}

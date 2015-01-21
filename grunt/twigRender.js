@@ -15,6 +15,14 @@ module.exports = function(grunt, fixtures) {
 						return value;
 					});
 
+					Twig.exports.extendFilter("resize", function (value) {
+						if (value === undefined || value === null) {
+							return;
+						}
+
+						return value;
+					});
+
 					Twig.exports.extendFilter("print_convert_money", function (value) {
 						if (value === undefined || value === null) {
 							return;
@@ -31,9 +39,13 @@ module.exports = function(grunt, fixtures) {
 						return '#';
 					});
 
-					Twig.exports.extendFunction("getConfiguration", function (path) {
-						return '#';
+					Twig.exports.extendFunction("getConfiguration", function ( sVar ) {
+
+						var sValue = sVar.replace('.', ' ')
+
+						return sValue;
 					});
+
 				}
 
 			]
@@ -41,10 +53,10 @@ module.exports = function(grunt, fixtures) {
 		dist: {
 			files: [
 				{
-					data: fixtures,
+					data: require('../fixtures/store.json'),
 					expand: true,
-					cwd: './twig/',
-					src: 'cart-checkout.html.twig',
+					cwd: './temp/',
+					src: 'home-view.html.twig',
 					//src: ['**/*.html.twig', '!**/_*.html.twig'],
 					dest: 'build/',
 					ext: '.html'
