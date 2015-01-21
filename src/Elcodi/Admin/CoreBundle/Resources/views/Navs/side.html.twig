@@ -5,23 +5,23 @@
     </a>
     <div class="sidebar-user-info">
         <a class="sidebar-title" href="{{ url("admin_homepage") }}">Elcodi Admin</a>
-        <a href="#sidebar-user-dropdown" data-tc-modules="toggle">{{ app.user.fullname }} <i class="icon-angle-down"></i> </a>
-        <ul id="sidebar-user-dropdown" class="sidebar-user-dropdown">
-            <li class="mobile">
-                <a href="{{ url("admin_admin_user_edit", {id: app.user.id }) }}" class="sidebar-user-avatar">
-                    <img src="{{ gravatar(app.user.email, 30) }}" alt="Avatar" class="image-circle">
-                </a>
-                <a href="{{ url("admin_admin_user_edit", {id: app.user.id }) }}" class="pt-m">{{ app.user.fullname }}</a>
-                <hr style="clear: both" />
-            </li>
-            <li>
-                <a href="{{ url('admin_admin_user_edit', {id: app.security.getToken().getUser().getId() }) }}">Profile</a>
-            </li>
-            <li>
-                <a href="{{ url("admin_logout") }}">Sign Out</a>
-            </li>
-        </ul>
+        <a href="#sidebar-user-dropdown" data-tc-modules="toggle">{{ app.user.username }} <i class="icon-angle-down"></i> </a>
     </div>
+    <ul id="sidebar-user-dropdown" class="sidebar-user-dropdown">
+        <li class="mobile">
+            <a href="{{ url("admin_admin_user_edit", {id: app.user.id }) }}" class="sidebar-user-avatar">
+                <img src="{{ gravatar(app.user.email, 30) }}" alt="Avatar" class="image-circle">
+            </a>
+            <a href="{{ url("admin_admin_user_edit", {id: app.user.id }) }}" class="pt-m">{{ app.user.fullname }}</a>
+            <hr style="clear: both" />
+        </li>
+        <li>
+            <a href="{{ url('admin_admin_user_edit', {id: app.security.getToken().getUser().getId() }) }}"> <i class="icon-user"></i> Profile</a>
+        </li>
+        <li>
+            <a href="{{ url("admin_logout") }}"><i class="icon-sign-out"></i> Sign Out</a>
+        </li>
+    </ul>
 </div>
 <nav class="navigation navigation-vertical">
     <ul id="main-menu">
