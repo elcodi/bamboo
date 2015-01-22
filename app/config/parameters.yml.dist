@@ -33,5 +33,6 @@ parameters:
     aws_region: us-east-1
 
     bamboo_bucket_name: fillme
+    bamboo_admin_prefix: admin
 
     imagick_convert_bin_path: /usr/bin/convert

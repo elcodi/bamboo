@@ -1,6 +1,6 @@
 <?php
 
-/**
+/*
  * This file is part of the Elcodi package.
  *
  * Copyright (c) 2014 Elcodi.com
@@ -17,7 +17,6 @@
 namespace Elcodi\Admin\AttributeBundle\Controller\Component;
 
 use Doctrine\ORM\Tools\Pagination\Paginator;
-use Elcodi\Component\Attribute\Entity\Interfaces\ValueInterface;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;

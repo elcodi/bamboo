@@ -1,0 +1,7 @@
+parameters:
+
+    #
+    # Event Listeners
+    #
+    store.core.event_listener.store_disabled.class: Elcodi\Store\CoreBundle\EventListener\StoreDisabledEventListener
+    store.core.event_listener.store_under_construction.class: Elcodi\Store\CoreBundle\EventListener\StoreUnderConstructionEventListener

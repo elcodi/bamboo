@@ -1,6 +1,6 @@
 <?php
 
-/**
+/*
  * This file is part of the Elcodi package.
  *
  * Copyright (c) 2014 Elcodi.com
@@ -16,7 +16,6 @@
 
 namespace Elcodi\Admin\AttributeBundle\Controller;
 
-use Elcodi\Component\Attribute\Entity\Interfaces\ValueInterface;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -27,8 +26,9 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 use Elcodi\Component\Attribute\Entity\Interfaces\AttributeInterface;
+use Elcodi\Component\Attribute\Entity\Interfaces\ValueInterface;
+use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 
 /**
  * Class Controller for Attribute
@@ -261,8 +261,7 @@ class AttributeController extends AbstractAdminController
     public function evaluateAttributeValues(AttributeInterface $attribute, array $values = [])
     {
         $actualValues = [];
-        $values = array_filter($values, function($value) {
-
+        $values = array_filter($values, function ($value) {
             return !empty($value);
         });
 

@@ -117,7 +117,6 @@ class AttributeData extends AbstractFixture
         $attributeValueObjectManager->persist($grayValue);
         $this->addReference('value-color-gray', $grayValue);
 
-
         $attributeObjectManager->flush();
         $attributeValueObjectManager->flush();
     }
