@@ -7,7 +7,7 @@ security:
 
         customer_secured_area:
             context: store_context
-            pattern: ^/(?!admin)
+            pattern: ^/(?!%bamboo_admin_prefix%)
             provider: customer
             anonymous: true
             security: true
@@ -37,18 +37,18 @@ security:
 
         login_area:
             #context: admin_context
-            pattern: ^/admin/login$
+            pattern: ^/%bamboo_admin_prefix%/login$
             anonymous: ~
 
         password_area:
             #context: admin_context
-            pattern: ^/admin/password.*$
+            pattern: ^/%bamboo_admin_prefix%/password.*$
             anonymous: ~
 
         admin_secured_area:
             #context: admin_context
             provider: adminuser
-            pattern: ^/admin?.*$
+            pattern: ^/%bamboo_admin_prefix%?.*$
             form_login:
                 login_path: admin_login
                 check_path: admin_login_check

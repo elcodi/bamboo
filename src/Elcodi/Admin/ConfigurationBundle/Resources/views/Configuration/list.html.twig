@@ -28,6 +28,22 @@
                 <div class="box">
                     <ol>
                         <li>
+                            <input id="url-store.enabled" type="hidden" value="{{ url("admin_configuration_update", {"name": "store.enabled"}) }}">
+                            <div class="switch">
+                                <input id="store.enabled" name="store.enabled" type="checkbox"{% if getConfiguration('store.enabled') %} checked="checked"{% endif %} />
+                                <label for="store.enabled"></label>
+                            </div>
+                            {% trans %}Store enabled{% endtrans %}
+                        </li>
+                        <li>
+                            <input id="url-store.under_construction" type="hidden" value="{{ url("admin_configuration_update", {"name": "store.under_construction"}) }}">
+                            <div class="switch">
+                                <input id="store.under_construction" name="store.under_construction" type="checkbox"{% if getConfiguration('store.under_construction') %} checked="checked"{% endif %} />
+                                <label for="store.under_construction"></label>
+                            </div>
+                            {% trans %}Store under construction{% endtrans %}
+                        </li>
+                        <li>
                             <label for="store.name">{{ 'Store Name'|trans }}</label>
                             <i class="icon-pencil"></i>
                             <input id="store.name" type="text" name="store.name" value="{{ getConfiguration('store.name') }}"/>

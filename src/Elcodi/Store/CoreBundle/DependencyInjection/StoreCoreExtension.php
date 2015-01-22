@@ -1,6 +1,6 @@
 <?php
 
-/**
+/*
  * This file is part of the Elcodi package.
  *
  * Copyright (c) 2014 Elcodi.com
@@ -56,7 +56,9 @@ class StoreCoreExtension extends AbstractExtension
     public function getConfigFiles(array $config)
     {
         return [
-            'services'
+            'classes',
+            'services',
+            'eventListeners',
         ];
     }
 
