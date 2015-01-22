@@ -2,12 +2,14 @@
 
 {% block content_title %}Welcome!{% endblock content_title %}
 
-{% block breadcrumb %}<p>You're just a few steps away to start selling...<p>{% endblock %}
+{% block breadcrumb %}<h1>Welcome!</h1>{% endblock %}
 
 {% block header_actions %}
+    {#
     <a href="#step1" class="button" data-tc-modules="toggle">1</a>
     <a href="#step2" class="button" data-tc-modules="toggle">2</a>
     <a href="#step3" class="button" data-tc-modules="toggle">3</a>
+    #}
 {% endblock %}
 
 {% block content %}
@@ -16,6 +18,8 @@
         'tracker': store_tracker,
         'event': 'page_view'
     })) }}
+
+    {#
 
     <!-- FIRST STEP  -->
 
@@ -121,4 +125,6 @@
             </div>
         </div>
     </div>
+
+    #}
 {% endblock content %}

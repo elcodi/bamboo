@@ -21,19 +21,9 @@
             }
         }
     } %}
-
 {% endblock breadcrumb %}
 
 {% block content %}
-
-    {% if product.id %}
-
-        {{ render(url('admin_metric_last_24_hours', {
-            'tracker': store_tracker,
-            'event': 'product_view_' ~ product.id
-        })) }}
-
-    {% endif %}
 
     {% if product.id %}
         {{ render(url("admin_product_edit_component", {
@@ -41,6 +31,14 @@
         })) }}
     {% else %}
         {{ render(url("admin_product_new_component")) }}
+    {% endif %}
+
+    {% if product.id %}
+        <br /><br />
+        {{ render(url('admin_metric_last_24_hours', {
+            'tracker': store_tracker,
+            'event': 'product_view_' ~ product.id
+        })) }}
     {% endif %}
 
 {% endblock content %}
