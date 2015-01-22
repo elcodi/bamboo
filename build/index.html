@@ -50,39 +50,56 @@
         <h1>Product</h1>
         <ul>
             <li>
-                <a href="home-view.html">Home View</a>
+                Home:
+                <ul>
+                    <li><a href="home-view.html">with products</a></li>
+                    <li><a href="home-view-empty.html">without products</a></li>
+                </ul>
             </li>
             <li>
-                <a href="category-view.html">Category View</a>
+                Category:
+                <ul>
+                    <li><a href="category-view.html">with products</a></li>
+                    <li><a href="category-view-empty.html">without products</a></li>
+                </ul>
             </li>
             <li>
-                <a href="product-view-item.html">Product View without variants</a>
+                Item:
+                <ul>
+                    <li><a href="product-view-item.html">without variants</a></li>
+                    <li><a href="product-view-variant.html">with variants</a></li>
+                </ul>
             </li>
             <li>
-                <a href="product-view-variant.html">Product View with variants</a>
+
+            </li>
+            <li>
+
             </li>
         </ul>
-        <!--
-        <h1>Order</h1>
+        <h1>Cart & Orders</h1>
         <ul>
             <li>
-                <a href="order-list.html">Order list</a>
-            </li>
-            <li>
-                <a href="cart-checkout-fail.html">Order view</a>
-            </li>
-        </ul>
-        -->
-        <h1>Cart</h1>
-        <ul>
-            <li>
-                <a href="cart-view.html">Cart view</a>
+                Cart:
+                <ul>
+                    <li><a href="cart-view.html">with products</a></li>
+                    <li><a href="cart-view-empty.html">without products</a></li>
+                </ul>
             </li>
             <!--
-            <li>
-                <a href="cart-checkout-fail.html">Checkout fail</a>
-            </li>
-            -->
+           <li>
+               Order:
+               <ul>
+                   <li><a href="order-list.html">List</a></li>
+                   <li><a href="order-view.html">View</a></li>
+               </ul>
+           </li>
+           -->
+           <!--
+           <li>
+               <a href="cart-checkout-fail.html">Checkout fail</a>
+           </li>
+           -->
         </ul>
     </section>
 
@@ -96,6 +113,13 @@
         }
         .list-pages ul {
             font-size: 18px;
+            list-style: disc;
+            padding-left: 18px;
+        }
+        .list-pages > ul > li {
+            display: block;
+            overflow: hidden;
+            padding-bottom: 16px;
         }
     </style>
                             <script>

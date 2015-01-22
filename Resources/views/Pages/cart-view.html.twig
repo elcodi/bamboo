@@ -34,8 +34,6 @@
 
                         {% for line in form.cartLines %}
 
-
-
                             {% include "@StoreTemplate/Modules/_cart-item.html.twig" with { "line": line } %}
 
                         {% endfor %}
@@ -58,9 +56,8 @@
                     <p class="actions">
                         <a class="btn btn-blank" href="{{ url('store_homepage') }}">{{ 'Continue shopping'|trans }}</a>
                         <a class="btn btn-blank" href="{{ url('store_cart_empty') }}">{{ 'Empty basket'|trans }}</a>
-                        {{ form_widget(form.update, { 'attr': {
-                            'class': "btn btn-blank"
-                        }}) }}
+
+                        {{ form_widget(form.update, { 'attr': {'class': 'btn btn-blank'} } ) }}
                         <a class="btn btn-primary" href="{{ url('store_checkout_payment') }}">{{ 'Checkout'|trans }}</a>
                     </p>
 

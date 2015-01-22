@@ -19,15 +19,12 @@
     <td class="qty">
         {{ form_row(line.quantity) }}
     </td>
-
     {% if purchasable.reducedPrice.amount > 0 %}
         {% set purchasablePrice = purchasable.ReducedPrice %}
     {% else %}
         {% set purchasablePrice = purchasable.price %}
     {% endif %}
-
     <td class="price">{{ purchasablePrice|print_convert_money() }}</td>
-
     <td class="total">{{ lineObject.amount|print_convert_money() }}</td>
     <td class="remove">
         <a href="{{ url('store_cartline_remove', { id: lineObject.id }) }}">

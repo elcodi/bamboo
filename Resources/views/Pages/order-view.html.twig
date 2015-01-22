@@ -9,7 +9,6 @@
 {% endblock content_title %}
 
 {% block content %}
-
     <div class="row">
         <div class="span12">
 
@@ -26,17 +25,13 @@
 
                 {% for line in order.orderLines %}
 
-                    {% include "@StoreTemplate/Modules/_order-item.html.twig" with {
-                        "line": line
-                    } %}
+                    {% include "@StoreTemplate/Modules/_order-item.html.twig" with {"line": line} %}
 
                 {% endfor %}
 
                 {% for orderCoupon in orderCoupons %}
 
-                    {% include "@StoreTemplate/Modules/_order-coupon-item.html.twig" with {
-                        "orderCoupon": orderCoupon
-                    } %}
+                    {% include "@StoreTemplate/Modules/_order-coupon-item.html.twig" with {"orderCoupon": orderCoupon} %}
 
                 {% endfor %}
 

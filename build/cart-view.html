@@ -57,38 +57,6 @@
     <ul class="top-nav">
 
         
-            <li>
-                <a href="#">
-
-                                            EUR
-                                    </a>
-            </li>
-
-        
-            <li>
-                <a href="#">
-
-                                            GBP
-                                    </a>
-            </li>
-
-        
-            <li>
-                <a href="#">
-
-                                            JPY
-                                    </a>
-            </li>
-
-        
-            <li>
-                <a href="#">
-
-                                            USD
-                                    </a>
-            </li>
-
-        
     </ul>
 </div>
 
@@ -149,7 +117,7 @@
                     <div class="span1">
     <p class="mini-basket-summary">
         Price<br />
-        <span>$45.00</span>
+        <span>$45</span>
     </p>
 </div>
 
@@ -176,12 +144,12 @@
 
 
             <ul class="main-nav clearfix">
-    <li class="active">
+    <li>
         <a href="#">New</a>
     </li>
 
     
-        <li>
+        <li class="active">
             <a href="#">Women's</a>
         </li>
 
@@ -243,8 +211,6 @@
                         <tbody>
 
                         
-
-
                             
 <tr>
     <td class="image">
@@ -256,13 +222,56 @@
         <a href="#">Ibiza Banana</a>
     </td>
     <td class="qty">
-        <input type="text">
+        <input type="number" value="2">
     </td>
+                    <td class="price">$10</td>
+    <td class="total">$20</td>
+    <td class="remove">
+        <a href="#">
+            <span class="entypo trash"></span>
+        </a>
+    </td>
+</tr>
 
-                
-    <td class="price"></td>
+                        
+                            
+<tr>
+    <td class="image">
+        <a href="#">
+            <img src="../fixtures/img/there.jpg" alt="I was There" />
+        </a>
+    </td>
+    <td class="title">
+        <a href="#">I was There</a>
+    </td>
+    <td class="qty">
+        <input type="number" value="1">
+    </td>
+                    <td class="price">$15</td>
+    <td class="total">$15</td>
+    <td class="remove">
+        <a href="#">
+            <span class="entypo trash"></span>
+        </a>
+    </td>
+</tr>
 
-    <td class="total"></td>
+                        
+                            
+<tr>
+    <td class="image">
+        <a href="#">
+            <img src="../fixtures/img/there.jpg" alt="A life Style" />
+        </a>
+    </td>
+    <td class="title">
+        <a href="#">A life Style</a>
+    </td>
+    <td class="qty">
+        <input type="number" value="1">
+    </td>
+                    <td class="price">$10</td>
+    <td class="total">$10</td>
     <td class="remove">
         <a href="#">
             <span class="entypo trash"></span>
@@ -277,14 +286,15 @@
 
                     <div class="clearfix">
 
-                        <p class="basket-total"><span>Total: </span>$45.00</p>
+                        <p class="basket-total"><span>Total: </span>$45</p>
 
                     </div>
 
                     <p class="actions">
                         <a class="btn btn-blank" href="#">Continue shopping</a>
                         <a class="btn btn-blank" href="#">Empty basket</a>
-                        [object Object]) }}
+
+                        <button type="submit" class="btn btn-blank">Update basket</button>
                         <a class="btn btn-primary" href="#">Checkout</a>
                     </p>
 
@@ -295,20 +305,14 @@
 
         <div class="row">
     <div class="span12">
-
         <form>
-
             <p class="actions">
-                [object Object]) }}
-                <input type="text">
+                <button type="submit" class="btn btn-blank">Apply coupon</button>
+                <input type="text" class="undefined" value="" />
             </p>
-
         </form>
-
-        <button>Apply</button>
     </div>
 </div>
-
         <!-- Related products -->
 
         <!-- Related Products -->
@@ -324,7 +328,7 @@
 <!-- Product Listing -->
 
     <div class="row">
-    
+        
 <div class="span4 product-listing">
 
     
@@ -357,9 +361,8 @@
 </div>
 
     
-
     
-    
+        
 <div class="span4 product-listing">
 
     
@@ -392,9 +395,8 @@
 </div>
 
     
-
     
-    
+        
 <div class="span4 product-listing">
 
     
@@ -427,7 +429,6 @@
 </div>
 
     </div>
-
     
                     <div class="row footer">
                 <div class="span6">

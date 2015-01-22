@@ -55,7 +55,7 @@ module.exports = {
 			},
 			{
 				from: "render url('store_coupon_view')",                   // string replacement
-				to: "include ('coupon-add.html.twig')"
+				to: "include ('coupon-add.html.twig')  with { 'form': form } "
 			},
 			{
 				from: 'src="//',                   // string replacement

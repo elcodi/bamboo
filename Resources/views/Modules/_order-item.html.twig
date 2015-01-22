@@ -1,8 +1,4 @@
-{% set productRoute = url('store_product_view', {
-    slug: line.product.slug,
-    id: line.product.id
-}) %}
-
+{% set productRoute = url('store_product_view', { slug: line.product.slug, id: line.product.id }) %}
 <tr>
     <td class="image">
         <a href="{{ productRoute }}">

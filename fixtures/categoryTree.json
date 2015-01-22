@@ -1,0 +1,18 @@
+{
+  "categoryTree" : {
+    "1" : {
+      "entity" : {
+        "id" : "1",
+        "slug" : "women",
+        "name" : "Women's"
+      }
+    },
+    "2" : {
+      "entity" : {
+        "id" : "2",
+        "slug" : "men",
+        "name" : "Men's"
+      }
+    }
+  }
+}
