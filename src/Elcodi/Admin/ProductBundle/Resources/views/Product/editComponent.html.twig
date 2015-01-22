@@ -101,9 +101,10 @@
                         <div class="box-none">
                             <h3 class="fw-n">{% trans %}Variants{% endtrans %}</h3>
                             <p>{% trans %}Variants are diferent versions of this product (color, size... ). Variants can have different prices or other attributes.{% endtrans %}</p>
-                            <a href="{{ url("admin_product_variant_new", {'productId': product.id}) }}" data-tc-modules="modal" data-tc-width="95%" data-tc-height="95%" class="button">
+                            <a href="{{ url("admin_product_variant_new", {'productId': product.id}) }}" data-tc-modules="modal-content" data-tc-width="95%" data-tc-height="95%" class="button">
                                 Create Variant
                             </a>
+                            <p><a href="{{ url("admin_attribute_new") }}" id="modal-attribute" class="button" data-tc-modules="modal-content">{{ "New atrribute"|trans }}</a> </p>
                         </div>
                     </div>
                     <div class="col-2-3" data-tc-modules="variants">
