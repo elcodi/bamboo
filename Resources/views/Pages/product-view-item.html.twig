@@ -1,7 +1,7 @@
 {#
  # Base view for a Product detail page with no variants.
  #}
-{% extends 'StoreTemplateBundle::/Layout/_layout.html.twig' %}
+{% extends 'StoreTemplateBundle::Layout/_layout.html.twig' %}
 
 
 {% block title %}Bamboo - {{ 'Product'|trans }} {{ product.name }}{% endblock title %}
@@ -30,13 +30,14 @@
              class="span4">
 
             {% block product_info_add_basket %}
-            <div class="add-basket-box clearfix">
+            <div class= "add-basket-box clearfix">
 
                 <img src="{{ product.principalImage ? product.principalImage|resize({
                     'width': 60,
                     'height': 47,
                     'type': 5
                 }) : 'http://placehold.it/60x47' }}" alt="{{ product.name }}"/>
+
 
                 {% if product.reducedPrice.amount > 0 %}
                     {% set product_price = product.reducedPrice %}
@@ -80,9 +81,7 @@
     </div>
     <!-- Related products -->
 
-    {% include "@StoreTemplate/Modules/_product-related.html.twig" with {
-        'products' : related_products
-    } %}
+    {% include "@StoreTemplate/Modules/_product-related.html.twig" with {'products' : related_products} %}
 {% endblock content %}
 
 

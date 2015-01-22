@@ -1,10 +1,7 @@
 {% set lineObject = line.vars.data %}
 {% set product = lineObject.product %}
 {% set purchasable = lineObject.purchasable %}
-{% set productRoute = url('store_product_view', {
-    slug: product.slug,
-    id: product.id
-}) %}
+{% set productRoute = url('store_product_view', { slug: product.slug, id: product.id }) %}
 
 <tr>
     <td class="image">
@@ -17,7 +14,7 @@
         </a>
     </td>
     <td class="title">
-        <a href="{{ productRoute }}">{{ purchasable|purchasable_name }}</a>
+        <a href="{{ productRoute }}">{{ product.name }}</a>
     </td>
     <td class="qty">
         {{ form_row(line.quantity) }}

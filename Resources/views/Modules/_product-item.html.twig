@@ -37,13 +37,22 @@
 
         {% endif %}
 
-        {% block pin_button_addcart %}
+        {% if product.hasVariants() %}
+        <a class="btn btn-selectvariant btn-primary"
+           title="Choose a model of {{ product.name }}"
+           href="{{ url('store_product_view', {
+               'slug': product.slug,
+               'id': product.id
+           }) }}#variant-add-to-cart">
+            <span class="entypo numbered-list"></span>
+        </a>
+        {% else %}
         <a class="btn btn-addcart btn-primary"
            href="{{ url('store_cart_add_product', { id: product.id }) }}"
            title="Add to cart {{ product.name }}">
             <span class="entypo cart"></span>
         </a>
-        {% endblock %}
+        {% endif %}
 
         {% block pin_button_view %}
         <a class="btn btn-view btn-grey"

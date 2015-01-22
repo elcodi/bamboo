@@ -3,10 +3,8 @@
 
     {% if loop.index0 % 3 == 0 %}<div class="row">{% endif %}
 
-    {% if product.hasVariants() %}
-        {% include '@StoreTemplate/Modules/_product-variant.html.twig' with {'product' : product} %}
-    {% else %}
-        {% include '@StoreTemplate/Modules/_product-item.html.twig' with {'product' : product} %}
-    {% endif %}
+    {% include '@StoreTemplate/Modules/_product-item.html.twig' with {'product' : product} %}
+
     {% if loop.index0 % 3 == 2 or loop.last %}</div>{% endif %}
+
 {% endfor %}

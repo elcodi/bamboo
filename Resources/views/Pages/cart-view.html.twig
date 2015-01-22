@@ -34,17 +34,15 @@
 
                         {% for line in form.cartLines %}
 
-                            {% include "@StoreTemplate/Modules/_cart-item.html.twig" with {
-                                "line": line,
-                            } %}
+
+
+                            {% include "@StoreTemplate/Modules/_cart-item.html.twig" with { "line": line } %}
 
                         {% endfor %}
 
                         {% for cartcoupon in cartcoupon %}
 
-                            {% include "@StoreTemplate/Modules/_coupon-item.html.twig" with {
-                                "coupon": cartcoupon.coupon,
-                            } %}
+                            {% include "@StoreTemplate/Modules/_coupon-item.html.twig" with { "coupon": cartcoupon.coupon } %}
 
                         {% endfor %}
 
@@ -71,13 +69,11 @@
             </div>
         </div>
 
-        {{ render(url("store_coupon_view")) }}
+        {% render url('store_coupon_view') %}
 
         <!-- Related products -->
 
-        {% include "@StoreTemplate/Modules/_product-related.html.twig" with {
-            'products' : related_products
-        } %}
+        {% include "@StoreTemplate/Modules/_product-related.html.twig" with { 'products' : related_products} %}
 
     {% endif %}
 

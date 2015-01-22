@@ -54,6 +54,10 @@ module.exports = {
 				to: "include ('category-list.html.twig')"
 			},
 			{
+				from: "render url('store_coupon_view')",                   // string replacement
+				to: "include ('coupon-add.html.twig')"
+			},
+			{
 				from: 'src="//',                   // string replacement
 				to: 'src="http://'
 			}]

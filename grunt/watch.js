@@ -1,20 +1,14 @@
 module.exports = {
-	watch: {
-		scripts: {
-			files: ['js/core/**/*.js', 'js/ui/**/*.js', 'js/libs/**/*.js', 'Gruntfile.js'],
-			tasks: ['js']
-		},
-		tests: {
-			files: ['tests/**/*.js'],
-			tasks: ['tests']
-		},
-		scss: {
-			files: ['css/**/*.scss'],
-			tasks: ['scss']
-		},
-		twig: {
-			files: ['twig/**/*.twig','database.json','twig/**/*.html'],
-			tasks: ['twig']
-		}
+	scripts: {
+		files: ['Resources/public/js/**/*.js','Gruntfile.js'],
+		tasks: ['js']
+	},
+	scss: {
+		files: ['Resources/public/scss/**/*.scss'],
+		tasks: ['scss']
+	},
+	default: {
+		files: ['Resources/views/**/*.twig','grunt/*.js','fixtures/store.json','fixtures/index.html.twig'],
+		tasks: ['default']
 	}
 }

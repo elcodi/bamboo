@@ -22,13 +22,22 @@ module.exports = function(grunt, fixtures) {
 
 						return value;
 					});
+					Twig.exports.extendFilter("purchasable_name", function (value) {
 
-					Twig.exports.extendFilter("print_convert_money", function (value) {
 						if (value === undefined || value === null) {
 							return;
 						}
 
 						return value;
+					});
+
+					Twig.exports.extendFilter("print_convert_money", function (value) {
+
+						if (value === undefined || value === null) {
+							return;
+						}
+
+						return '$' + value;
 					});
 
 					Twig.exports.extendFunction("asset", function (path) {
@@ -37,6 +46,38 @@ module.exports = function(grunt, fixtures) {
 
 					Twig.exports.extendFunction("url", function (path) {
 						return '#';
+					});
+
+					Twig.exports.extendFunction("available_options", function (product, attribute) {
+
+						var oOptions = {
+							"1" : {
+								"id" : "111",
+								"name" : "Large"
+							}
+						}
+
+						return product.attributes[attribute.id].available_options;
+					});
+
+					Twig.exports.extendFunction("form_start", function (product, attribute) {
+
+						return '<form>';
+					});
+
+					Twig.exports.extendFunction("form_row", function (form) {
+
+						return '<input type="text">';
+					});
+
+					Twig.exports.extendFunction("form_widget", function (form) {
+
+						return '<input type="text">';
+					});
+
+					Twig.exports.extendFunction("form_end", function (product, attribute) {
+
+						return '</form>';
 					});
 
 					Twig.exports.extendFunction("getConfiguration", function ( sVar ) {
@@ -56,7 +97,7 @@ module.exports = function(grunt, fixtures) {
 					data: require('../fixtures/store.json'),
 					expand: true,
 					cwd: './temp/',
-					src: 'home-view.html.twig',
+					src: ['*.html.twig','!_*.html.twig','index.html.twig'],
 					//src: ['**/*.html.twig', '!**/_*.html.twig'],
 					dest: 'build/',
 					ext: '.html'

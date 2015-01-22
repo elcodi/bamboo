@@ -1,0 +1,56 @@
+{% extends 'StoreTemplateBundle::Layout/_layout.html.twig' %}
+
+{% block container %}
+    <section class="list-pages">
+        <h1>Product</h1>
+        <ul>
+            <li>
+                <a href="home-view.html">Home View</a>
+            </li>
+            <li>
+                <a href="category-view.html">Category View</a>
+            </li>
+            <li>
+                <a href="product-view-item.html">Product View without variants</a>
+            </li>
+            <li>
+                <a href="product-view-variant.html">Product View with variants</a>
+            </li>
+        </ul>
+        <!--
+        <h1>Order</h1>
+        <ul>
+            <li>
+                <a href="order-list.html">Order list</a>
+            </li>
+            <li>
+                <a href="cart-checkout-fail.html">Order view</a>
+            </li>
+        </ul>
+        -->
+        <h1>Cart</h1>
+        <ul>
+            <li>
+                <a href="cart-view.html">Cart view</a>
+            </li>
+            <!--
+            <li>
+                <a href="cart-checkout-fail.html">Checkout fail</a>
+            </li>
+            -->
+        </ul>
+    </section>
+
+    <style type="text/css">
+        .list-pages {
+            max-width: 800px;
+            margin: 16px auto;
+            overflow: hidden;
+            background: #FFF;
+            padding: 0 16px 16px 16px;
+        }
+        .list-pages ul {
+            font-size: 18px;
+        }
+    </style>
+{% endblock container %}

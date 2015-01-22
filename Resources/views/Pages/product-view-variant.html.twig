@@ -3,15 +3,11 @@
  #}
 {% extends 'StoreTemplateBundle::Pages/product-view-item.html.twig' %}
 
-{% block product_info_add_basket %}{% endblock %}
-
 {#
  # The product_info_details should now display a form
  # to select the product variant
  #}
-{% block product_info_details %}
-    {{ parent() }}
-
+{% block product_info_add_basket %}
 <h4>Choose a model</h4>
 
 <p>This product has variants.</p>
@@ -22,6 +18,7 @@
     <input name="add-cart-is-variant" value="1" type="hidden">
 
     {% for attribute in product.attributes %}
+
 
     <label for="variant-option-for-attribute[{{ attribute.id }}]">{{ attribute.name }}</label>
 
