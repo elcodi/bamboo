@@ -16,11 +16,23 @@
 
 namespace Elcodi\Admin\PageBundle;
 
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+
+use Elcodi\Admin\PageBundle\DependencyInjection\AdminPageExtension;
 
 /**
  * Class AdminPageBundle
  */
 class AdminPageBundle extends Bundle
 {
+    /**
+     * Returns the bundle's container extension.
+     *
+     * @return ExtensionInterface The container extension
+     */
+    public function getContainerExtension()
+    {
+        return new AdminPageExtension();
+    }
 }

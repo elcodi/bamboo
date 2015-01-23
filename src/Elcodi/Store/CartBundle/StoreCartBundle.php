@@ -16,11 +16,23 @@
 
 namespace Elcodi\Store\CartBundle;
 
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+
+use Elcodi\Store\CartBundle\DependencyInjection\StoreCartExtension;
 
 /**
  * Class StoreCartBundle
  */
 class StoreCartBundle extends Bundle
 {
+    /**
+     * Returns the bundle's container extension.
+     *
+     * @return ExtensionInterface The container extension
+     */
+    public function getContainerExtension()
+    {
+        return new StoreCartExtension();
+    }
 }

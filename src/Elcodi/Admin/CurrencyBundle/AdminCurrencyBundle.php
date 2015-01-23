@@ -16,12 +16,23 @@
 
 namespace Elcodi\Admin\CurrencyBundle;
 
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+
+use Elcodi\Admin\CurrencyBundle\DependencyInjection\AdminCurrencyExtension;
 
 /**
  * Class AdminCurrencyBundle
  */
 class AdminCurrencyBundle extends Bundle
 {
-
+    /**
+     * Returns the bundle's container extension.
+     *
+     * @return ExtensionInterface The container extension
+     */
+    public function getContainerExtension()
+    {
+        return new AdminCurrencyExtension();
+    }
 }

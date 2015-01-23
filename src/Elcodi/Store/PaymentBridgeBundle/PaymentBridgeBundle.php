@@ -16,12 +16,23 @@
 
 namespace Elcodi\Store\PaymentBridgeBundle;
 
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+
+use Elcodi\Store\PaymentBridgeBundle\DependencyInjection\PaymentBridgeExtension;
 
 /**
  * Class PaymentBridgeBundle
  */
 class PaymentBridgeBundle extends Bundle
 {
-
+    /**
+     * Returns the bundle's container extension.
+     *
+     * @return ExtensionInterface The container extension
+     */
+    public function getContainerExtension()
+    {
+        return new PaymentBridgeExtension();
+    }
 }

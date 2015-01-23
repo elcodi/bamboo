@@ -16,12 +16,23 @@
 
 namespace Elcodi\Admin\RuleBundle;
 
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+
+use Elcodi\Admin\RuleBundle\DependencyInjection\AdminRuleExtension;
 
 /**
  * Class AdminRuleBundle
  */
 class AdminRuleBundle extends Bundle
 {
-
+    /**
+     * Returns the bundle's container extension.
+     *
+     * @return ExtensionInterface The container extension
+     */
+    public function getContainerExtension()
+    {
+        return new AdminRuleExtension();
+    }
 }

@@ -32,7 +32,8 @@
 
     <td>
         <a href="{{ url("admin_product_edit", {"id": entity.id}) }}"><strong>{{ entity.name }}</strong></a>
-        <p class="fz-s">/{{ entity.slug }}</p>
+        {% set path = url("store_product_view",{id: entity.id, slug: entity.slug}) %}
+        <p class="fz-s"><a target="_blank" href="{{ path }}">/{{ entity.slug }}</a></p>
         {% if entity.enabled %}<span class="label-ok fz-xs">Enabled</span>{% else %}<span class="label fz-xs">Disabled</span>{% endif %} {% if entity.showInHome %}<span class="label-info fz-xs">{{'Home'|trans}}</span>{% endif %} {% if entity.hasVariants %}<span class="label bg-secondary fz-xs">{{'Variants'|trans}}</span>{% endif %}
     </td>
     <td>
