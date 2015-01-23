@@ -4,6 +4,10 @@
     {{ 'Category Zone'|trans }}
 {% endblock content_title %}
 
+{% block header_actions %}
+    <a target="_blank" href="{{ url("store_category_products_list",{id: category.id, slug: category.slug}) }}" class="button-primary"><i class="icon-eye"></i> {{ 'View on your store'|trans }}</a>
+{% endblock header_actions %}
+
 {% block breadcrumb %}
 
     {% set entityHeader = category.id
