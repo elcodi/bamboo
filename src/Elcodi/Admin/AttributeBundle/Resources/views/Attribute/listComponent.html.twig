@@ -13,6 +13,7 @@
         rows: {
             "Name": {},
             "Values": {},
+            "Status" : {}
         },
         class: "attribute",
     } %}
@@ -23,12 +24,14 @@
 
     <td>
         <a href="{{ url("admin_attribute_edit", {"id": entity.id}) }}"><strong>{{ entity.name }}</strong></a>
-        {% if entity.enabled %}<span class="label-ok fz-xs">Enabled</span>{% else %}<span class="label fz-xs">Disabled</span>{% endif %} {% if entity.showInHome %}<span class="label-info fz-xs">{{'Home'|trans}}</span>{% endif %} {% if entity.hasVariants %}<span class="label bg-secondary fz-xs">{{'Variants'|trans}}</span>{% endif %}
     </td>
     <td>
         {% for value in entity.values %}
-            {{ value }},
+            {{ value }}{% if not loop.last %},{% endif %}
         {% endfor %}
+    </td>
+    <td>
+        {% if entity.enabled %}<span class="label-ok">Enabled</span>{% else %}<span class="label">Disabled</span>{% endif %}
     </td>
     {% include "@AdminCore/Tables/actions.html.twig" with {
         entity: entity,
