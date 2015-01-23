@@ -22,6 +22,7 @@
                 <div class="col-1-3">
                     <div class="box-none">
                         <h3 class="fw-n">{% trans %}Basic Details{% endtrans %}</h3>
+                        <p>{% trans %}Define the name of the attribute and the values (separated by comma).{% endtrans %}</p>
                     </div>
                 </div>
                 <div class="col-2-3">
@@ -29,11 +30,11 @@
                         <ol>
                             <li>
                                 <label>{{ 'Name'|trans }}</label>
-                                {{ form_widget(form.name) }}
+                                {{ form_widget(form.name, {'attr': {'placeholder':'e.g. Color'|trans}}) }}
                             </li>
                             <li>
                                 <label>{{ 'Values'|trans }}</label>
-                                <input required="required" name="values" data-tc-modules="tags" value="{{ attributeValues }}" data-tc-values="{{ allValues }}" />
+                                <input required="required" name="values" data-tc-modules="tags" value="{{ attributeValues }}" data-tc-values="{{ allValues }}" placeholder="{{ 'Add tags separated by comma'|trans }}" />
                             </li>
                         </ol>
                     </div>
