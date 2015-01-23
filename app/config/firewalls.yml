@@ -49,6 +49,8 @@ security:
             #context: admin_context
             provider: adminuser
             pattern: ^/%bamboo_admin_prefix%?.*$
+            simple-preauth:
+                authenticator: admin.user.security.one_time_login_authenticator
             form_login:
                 login_path: admin_login
                 check_path: admin_login_check

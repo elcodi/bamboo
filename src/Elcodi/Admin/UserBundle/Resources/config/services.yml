@@ -1,0 +1,10 @@
+services:
+
+    #
+    # Authenticator
+    #
+    admin.user.security.one_time_login_authenticator:
+        class: %admin.user.security.one_time_login_authenticator.class%
+        arguments:
+            - @elcodi.object_manager.admin_user
+            - @elcodi.repository.admin_user
