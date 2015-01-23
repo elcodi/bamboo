@@ -1,0 +1,21 @@
+.form-templates {
+	article {
+		& {
+			background: $color-background;
+			padding: $spacing;
+			@include border-radius;
+		}
+	}
+}
+
+@mixin papa-form-templates(){
+	.form-templates {
+		article {
+			& {
+				display: inline-block;
+				width: 31%;
+				margin-right: 2%;
+			}
+		}
+	}
+}
