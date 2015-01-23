@@ -9,17 +9,3 @@ services:
             entity: %elcodi.core.rule.entity.rule.class%
         tags:
             - { name: form.type, alias: elcodi_admin_rule_form_type_rule }
-
-    elcodi.admin.rule.form_type.rule_group:
-        class: %elcodi.admin.rule.form_type.rule_group.class%
-        arguments:
-            entity: %elcodi.core.rule.entity.rule_group.class%
-        tags:
-            - { name: form.type, alias: elcodi_admin_rule_form_type_rule_group }
-
-    elcodi.admin.rule.form_type.expression:
-        class: %elcodi.admin.rule.form_type.expression.class%
-        arguments:
-            entity: %elcodi.core.rule.entity.expression.class%
-        tags:
-            - { name: form.type, alias: elcodi_admin_rule_form_type_expression }
