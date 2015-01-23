@@ -7,13 +7,13 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Bamboo - Product Ibiza Lips</title>
+        <title>store name</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script type="text/javascript">document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/,'js');</script>
         <link href="favicon.ico" rel="icon" type="image/vnd.microsoft.icon">
         <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
         
-            <link rel="stylesheet" type="text/css" media="all" href="../Resources/public/css/main.css" />
+            <link rel="stylesheet" type="text/css" media="all" href="../css/main.css" />
 
 
     <!-- External Font assets -->
@@ -144,12 +144,12 @@
 
 
             <ul class="main-nav clearfix">
-    <li>
+    <li class="active">
         <a href="#">New</a>
     </li>
 
     
-        <li class="active">
+        <li>
             <a href="#">Women's</a>
         </li>
 
@@ -183,218 +183,57 @@
 
         <div class="row">
             <div class="span12">
-                <h1>Ibiza Lips</h1>
+                <h1>What's new</h1>
             </div>
         </div>
 
-            <!-- Product Detail -->
+        
+    <!-- Basket -->
+
     <div class="row">
 
-                <div class="span8">
-            <img class="product-image" src="../fixtures/img/lips.jpg" alt="Ibiza Lips"/>
+        <div class="span6">
+
+            <div class="checkout-box checkout-box-short">
+
+                <h2>Shipping method</h2>
+
+                <p class="radios">
+                    <input disabled="disabled" type="radio" id="field-standard" name="field-shipping" checked="checked" /> Standard - FREE<br />
+                    <input disabled="disabled" type="radio" id="field-express" name="field-shipping" /> Express - <br />
+                </p>
+
+            </div>
+
         </div>
-        
-                <div id="product-info"
-             data-variant-info-url="#"
-             class="span4">
 
-            <h4>Choose a model</h4>
+        <div class="span6">
 
-<p>This product has variants.</p>
+            <div class="checkout-box checkout-box-short">
 
-<form enctype="multipart/form-data" id="variant-add-to-cart" class="variant-add-to-cart"
-      data-action="add-to-cart" method="post" action="#">
+                <h2>Payment method</h2>
 
-    <input name="add-cart-is-variant" value="1" type="hidden">
+                <form id="form-payment-execute" action="" method="post">
 
-    
-    <label for="variant-option-for-attribute[1]">Size</label>
+                    <p class="payment radios">
+                        <input data-url="#" type="radio" id="field-card" name="field-method" checked="checked" /> Free<br />
+                        <input data-url="#" type="radio" id="field-paypal" name="field-method" /> Paypal<br />
+                        <input disabled="disabled" type="radio" id="field-card" name="field-method" /> Credit/Debit card<br />
+                    </p>
 
-    <select name="variant-option-for-attribute[1]" class="variant-option-select">
-        
-            <option value="1">
-                Large
-            </option>
+                    <p class="buttons">
+                        <button class="btn btn-primary" type="submit">Continue</button>
+                    </p>
 
-        
-            <option value="2">
-                Medium
-            </option>
+                </form>
 
-        
-            <option value="3">
-                Small
-            </option>
+            </div>
 
-            </select>
-
-    
-    <label for="variant-option-for-attribute[2]">Color</label>
-
-    <select name="variant-option-for-attribute[2]" class="variant-option-select">
-        
-            <option value="1">
-                White
-            </option>
-
-        
-            <option value="2">
-                Black
-            </option>
-
-            </select>
-
-    
-    <div id="add-basket-box-variant" class="add-basket-box clearfix">
-
-        <p>
-            <span class="box-product-name">Ibiza Lips</span> <br />
-            <span class="box-product-price"></span>
-        </p>
-        <p>
-            <label for="add-cart-quantity">Qty.</label>
-            <input name="add-cart-quantity" class="w60" value="1" type="number" min="1">
-        </p>
-        <p>
-            <input type="submit" class="btn btn-primary" value="Add to Cart">
-        </p>
-
-    </div>
-
-</form>
-
-
-                        <h3>Description</h3>
-            <p>Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.</p>
-
-            <h3>Stock</h3>
-
-                            <p>This item is in stock and ready to ship!</p>
-            
-            <h3>Delivery</h3>
-
-            <p>Free Delivery is available on this item</p>
-            <p>Usually dispatched within 24 hours</p>
-            
         </div>
-        
+
     </div>
-    <!-- Related products -->
 
-    <!-- Related Products -->
-
-<div class="row">
-    <div class="span12">
-        <h2>You May Also Like...</h2>
-    </div>
-</div>
-
-<!-- Product Listing -->
-
-<!-- Product Listing -->
-
-    <div class="row">
-        
-<div class="span4 product-listing">
-
-    
-        <p class="title">
-        <a href="#">A life Style</a>
-    </p>
-    
-        <a href="#">
-        <img class="image" src="../fixtures/img/there.jpg" alt="A life Style" />
-    </a>
-    
-    <p class="price">
-
-                            
-        $12.90
-
-        
-                <a class="btn btn-addcart btn-primary"
-           href="#"
-           title="Add to cart A life Style">
-            <span class="entypo cart"></span>
-        </a>
-        
-                <a class="btn btn-view btn-grey"
-           title="View details for A life Style"
-           href="#">
-            <span class="entypo search"></span>
-        </a>
-            </p>
-</div>
-
-    
-    
-        
-<div class="span4 product-listing">
-
-    
-        <p class="title">
-        <a href="#">A.M. Nesia Ibiza</a>
-    </p>
-    
-        <a href="#">
-        <img class="image" src="../fixtures/img/amnesia.jpg" alt="A.M. Nesia Ibiza" />
-    </a>
-    
-    <p class="price">
-
-                            
-        $11.90
-
-        
-                <a class="btn btn-addcart btn-primary"
-           href="#"
-           title="Add to cart A.M. Nesia Ibiza">
-            <span class="entypo cart"></span>
-        </a>
-        
-                <a class="btn btn-view btn-grey"
-           title="View details for A.M. Nesia Ibiza"
-           href="#">
-            <span class="entypo search"></span>
-        </a>
-            </p>
-</div>
-
-    
-    
-        
-<div class="span4 product-listing">
-
-    
-        <p class="title">
-        <a href="#">Amnesia Poem</a>
-    </p>
-    
-        <a href="#">
-        <img class="image" src="../fixtures/img/poem.jpg" alt="Amnesia Poem" />
-    </a>
-    
-    <p class="price">
-
-                            
-        $13.90
-
-        
-                <a class="btn btn-addcart btn-primary"
-           href="#"
-           title="Add to cart Amnesia Poem">
-            <span class="entypo cart"></span>
-        </a>
-        
-                <a class="btn btn-view btn-grey"
-           title="View details for Amnesia Poem"
-           href="#">
-            <span class="entypo search"></span>
-        </a>
-            </p>
-</div>
-
-    </div>                    <div class="row footer">
+                    <div class="row footer">
                 <div class="span6">
 
                     <ul class="footer-nav">
@@ -414,15 +253,36 @@
                 </div>
             </div>
             </div>
-                <script>
-        _etc.push(["", 'product_view_' + 1]);
-    </script>
-                    <script>
+                                <script>
                 _etc.push(["", 'page_view']);
             </script>
                     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="../Resources/public/js/bootstrap.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
 
-    <script src="bundles/storeproduct/js/variantproduct.js"></script>
+    <script type="application/javascript">
+
+        $(function() {
+
+            /* Setting payment execute URL to first selected
+            *  payment method from the radio-button choices */
+            var formPaymentExecute = $("#form-payment-execute");
+            var paymentRadioInput = $("p.payment input");
+            var selectedRadioInput = $("p.payment input:checked");
+            var selectedPaymentExecuteUrl = selectedRadioInput.data("url");
+
+            formPaymentExecute.attr("action", selectedPaymentExecuteUrl);
+
+            paymentRadioInput.change(function() {
+                /* We are storing the execute action url
+                 * into a data attribute which will be copied
+                 * to the form "action" when changing payment
+                 * method */
+                var executeUrl = $(this).data("url");
+
+                formPaymentExecute.attr("action", executeUrl);
+            });
+        });
+
+    </script>
     </body>
 </html>

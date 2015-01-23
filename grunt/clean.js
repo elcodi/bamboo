@@ -1,6 +1,6 @@
 module.exports = {
 	build: {
-		src: ['build']
+		src: ['Resources/public/preview/']
 	},
 	temp: {
 		src: ['temp']

@@ -76,7 +76,7 @@ module.exports = function(grunt, fixtures) {
 					});
 
 					Twig.exports.extendFunction("asset", function (path) {
-						return path.replace('bundles/storetemplate/', '../Resources/public/');
+						return path.replace('bundles/storetemplate/', '../');
 					});
 
 					Twig.exports.extendFunction("url", function (path) {
@@ -180,7 +180,7 @@ module.exports = function(grunt, fixtures) {
 					cwd: './temp/',
 					src: ['*.html.twig','!_*.html.twig','!cart*.html.twig','!recover-password.html.twig','!fields.html.twig','!user*.html.twig','!category*.html.twig','!coupon*.html.twig','!product*.html.twig','index.html.twig'],
 					//src: ['**/*.html.twig', '!**/_*.html.twig'],
-					dest: 'build/',
+					dest: 'Resources/public/preview/',
 					ext: '.html'
 				}
 			]
@@ -193,7 +193,7 @@ module.exports = function(grunt, fixtures) {
 					cwd: './temp/',
 					src: ['category*.html.twig','product*.html.twig'],
 					//src: ['**/*.html.twig', '!**/_*.html.twig'],
-					dest: 'build/',
+					dest: 'Resources/public/preview/',
 					ext: '.html'
 				}
 			]
@@ -206,7 +206,7 @@ module.exports = function(grunt, fixtures) {
 					cwd: './temp/',
 					src: ['home*.html.twig','category*.html.twig','product*.html.twig'],
 					//src: ['**/*.html.twig', '!**/_*.html.twig'],
-					dest: 'build/',
+					dest: 'Resources/public/preview/',
 					ext: '-empty.html'
 				}
 			]
@@ -219,7 +219,7 @@ module.exports = function(grunt, fixtures) {
 					cwd: './temp/',
 					src: ['cart-view.html.twig'],
 					//src: ['**/*.html.twig', '!**/_*.html.twig'],
-					dest: 'build/',
+					dest: 'Resources/public/preview/',
 					ext: '.html'
 				}
 			]
@@ -232,7 +232,7 @@ module.exports = function(grunt, fixtures) {
 					cwd: './temp/',
 					src: ['cart*.html.twig'],
 					//src: ['**/*.html.twig', '!**/_*.html.twig'],
-					dest: 'build/',
+					dest: 'Resources/public/preview/',
 					ext: '-empty.html'
 				}
 			]
