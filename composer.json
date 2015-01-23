@@ -96,7 +96,8 @@
         "elcodi/elcodi": "~0.4.0",
 
         "elcodi-templates/template": "~0.4.0",
-        "elcodi-templates/store-template-bundle": "~0.4.0"
+        "elcodi-templates/store-template-bundle": "~0.4.0",
+        "elcodi-templates/store-white-template-bundle": "~0.4.0"
     },
     "require-dev": {
         "mmoreram/php-formatter": "~1.0"
