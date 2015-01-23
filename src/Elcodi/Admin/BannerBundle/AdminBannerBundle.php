@@ -16,12 +16,23 @@
 
 namespace Elcodi\Admin\BannerBundle;
 
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+
+use Elcodi\Admin\BannerBundle\DependencyInjection\AdminBannerExtension;
 
 /**
  * Class AdminBannerBundle
  */
 class AdminBannerBundle extends Bundle
 {
-
+    /**
+     * Returns the bundle's container extension.
+     *
+     * @return ExtensionInterface The container extension
+     */
+    public function getContainerExtension()
+    {
+        return new AdminBannerExtension();
+    }
 }

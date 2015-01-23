@@ -16,12 +16,23 @@
 
 namespace Elcodi\Admin\NewsletterBundle;
 
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+
+use Elcodi\Admin\NewsletterBundle\DependencyInjection\AdminNewsletterExtension;
 
 /**
  * Class AdminNewsletterBundle
  */
 class AdminNewsletterBundle extends Bundle
 {
-
+    /**
+     * Returns the bundle's container extension.
+     *
+     * @return ExtensionInterface The container extension
+     */
+    public function getContainerExtension()
+    {
+        return new AdminNewsletterExtension();
+    }
 }

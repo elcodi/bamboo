@@ -16,12 +16,23 @@
 
 namespace Elcodi\Admin\UserBundle;
 
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+
+use Elcodi\Admin\UserBundle\DependencyInjection\AdminUserExtension;
 
 /**
  * Class AdminUserBundle
  */
 class AdminUserBundle extends Bundle
 {
-
+    /**
+     * Returns the bundle's container extension.
+     *
+     * @return ExtensionInterface The container extension
+     */
+    public function getContainerExtension()
+    {
+        return new AdminUserExtension();
+    }
 }

@@ -78,7 +78,7 @@ class CategoryController extends Controller
      *      name = "store_category_products_list",
      *      requirements = {
      *          "slug" = "[a-zA-Z0-9-]+",
-     *          "categoryId" = "\d+"
+     *          "id" = "\d+"
      *      },
      *      methods = {"GET"}
      * )

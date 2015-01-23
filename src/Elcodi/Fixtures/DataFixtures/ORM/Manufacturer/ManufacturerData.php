@@ -19,6 +19,7 @@ namespace Elcodi\Fixtures\DataFixtures\ORM\Category;
 use Doctrine\Common\Persistence\ObjectManager;
 
 use Elcodi\Bundle\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
+use Elcodi\Component\EntityTranslator\Services\Interfaces\EntityTranslatorInterface;
 use Elcodi\Component\Product\Entity\Interfaces\ManufacturerInterface;
 use Elcodi\Component\Product\Factory\ManufacturerFactory;
 
@@ -35,8 +36,8 @@ class ManufacturerData extends AbstractFixture
     public function load(ObjectManager $manager)
     {
         /**
-         * @var ManufacturerFactory $manufacturerFactory
-         * @var ObjectManager       $manufacturerObjectManager
+         * @var ManufacturerFactory       $manufacturerFactory
+         * @var ObjectManager             $manufacturerObjectManager
          * @var EntityTranslatorInterface $entityTranslator
          */
         $manufacturerFactory = $this->get('elcodi.factory.manufacturer');
@@ -61,28 +62,28 @@ class ManufacturerData extends AbstractFixture
 
         $entityTranslator->save($levisManufacturer, array(
             'en' => array(
-                'name' => 'Levis',
-                'description' => 'Levis',
-                'slug' => 'levis',
-                'metaTitle' => 'Levis',
+                'name'            => 'Levis',
+                'description'     => 'Levis',
+                'slug'            => 'levis',
+                'metaTitle'       => 'Levis',
                 'metaDescription' => 'Levis Manufacturer',
-                'metaKeywords' => 'Levis, Manufacturer',
+                'metaKeywords'    => 'Levis, Manufacturer',
             ),
             'es' => array(
-                'name' => 'Levis',
-                'description' => 'Levis',
-                'slug' => 'levis',
-                'metaTitle' => 'Levis',
+                'name'            => 'Levis',
+                'description'     => 'Levis',
+                'slug'            => 'levis',
+                'metaTitle'       => 'Levis',
                 'metaDescription' => 'Fabricante Levis',
-                'metaKeywords' => 'Levis, Fabricante',
+                'metaKeywords'    => 'Levis, Fabricante',
             ),
             'fr' => array(
-                'name' => 'Levis',
-                'description' => 'Levis',
-                'slug' => 'levis',
-                'metaTitle' => 'Levis',
+                'name'            => 'Levis',
+                'description'     => 'Levis',
+                'slug'            => 'levis',
+                'metaTitle'       => 'Levis',
                 'metaDescription' => 'Fabricant Levis',
-                'metaKeywords' => 'Levis, Fabricant',
+                'metaKeywords'    => 'Levis, Fabricant',
             )
         ));
     }

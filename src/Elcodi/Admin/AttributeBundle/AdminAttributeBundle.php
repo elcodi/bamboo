@@ -16,12 +16,23 @@
 
 namespace Elcodi\Admin\AttributeBundle;
 
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+
+use Elcodi\Admin\AttributeBundle\DependencyInjection\AdminAttributeExtension;
 
 /**
  * Class AdminAttributeBundle
  */
 class AdminAttributeBundle extends Bundle
 {
-
+    /**
+     * Returns the bundle's container extension.
+     *
+     * @return ExtensionInterface The container extension
+     */
+    public function getContainerExtension()
+    {
+        return new AdminAttributeExtension();
+    }
 }

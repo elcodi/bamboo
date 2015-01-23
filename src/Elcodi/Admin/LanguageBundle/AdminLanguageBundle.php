@@ -16,12 +16,23 @@
 
 namespace Elcodi\Admin\LanguageBundle;
 
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+
+use Elcodi\Admin\LanguageBundle\DependencyInjection\AdminLanguageExtension;
 
 /**
  * Class AdminLanguageBundle
  */
 class AdminLanguageBundle extends Bundle
 {
-
+    /**
+     * Returns the bundle's container extension.
+     *
+     * @return ExtensionInterface The container extension
+     */
+    public function getContainerExtension()
+    {
+        return new AdminLanguageExtension();
+    }
 }

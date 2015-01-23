@@ -37,7 +37,7 @@ class HomeController extends Controller
      * @return Response Response
      *
      * @Route(
-     *      path = "/",
+     *      path = "",
      *      name = "store_homepage",
      *      methods = {"GET"}
      * )

@@ -25,7 +25,8 @@
         <a href="{{ url("admin_category_edit", {"id": entity.id}) }}">
            <strong>{{ entity.name }}</strong>
         </a>
-        <p class="fz-s">/{{ entity.slug }}</p>
+        {% set path = url("store_category_products_list",{id: entity.id, slug: entity.slug}) %}
+        <p class="fz-s"><a target="_blank" href="{{ path }}">/{{ entity.slug }}</a></p>
     </td>
     <td>
         {% if entity.subCategories|length > 0 %}

@@ -23,5 +23,13 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  */
 class AdminTemplateBundle extends Bundle
 {
-
+    /**
+     * Returns the bundle's container extension.
+     *
+     * @return null
+     */
+    public function getContainerExtension()
+    {
+        return null;
+    }
 }

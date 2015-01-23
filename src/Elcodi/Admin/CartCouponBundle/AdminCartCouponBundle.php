@@ -16,12 +16,23 @@
 
 namespace Elcodi\Admin\CartCouponBundle;
 
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+
+use Elcodi\Admin\CartCouponBundle\DependencyInjection\AdminCartCouponExtension;
 
 /**
  * Class AdminCartCouponBundle
  */
 class AdminCartCouponBundle extends Bundle
 {
-
+    /**
+     * Returns the bundle's container extension.
+     *
+     * @return ExtensionInterface The container extension
+     */
+    public function getContainerExtension()
+    {
+        return new AdminCartCouponExtension();
+    }
 }

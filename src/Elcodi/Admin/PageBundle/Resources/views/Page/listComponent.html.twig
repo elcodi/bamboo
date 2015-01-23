@@ -9,10 +9,10 @@
 {% block table_head %}
     {% include "@AdminCore/Tables/head.html.twig" with {
         rows: {
-            "id": {width:"25"},
-            "title": {},
-            "path": {},
-            "enabled": {width:"25"},
+            "path": {sorting_disabled: true},
+            "title": {sorting_disabled: true},
+            "link": {sorting_disabled: true},
+            "enabled": {width:"25", sorting_disabled: true},
         },
         class: "page",
     } %}
@@ -22,14 +22,17 @@
 {% block table_body_row %}
     <td>
         <a href="{{ url("admin_page_edit", {"id": entity.id}) }}">
-            {{ entity.id }}
+            {{ entity.path }}
         </a>
     </td>
     <td>
         {{ entity.title|truncate(20, '…') }}
     </td>
     <td>
-        {{ entity.path }}
+        {% set path = url('store_homepage') ~ entity.path %}
+        <a target="_blank" href="{{ path }}">
+            {{ path }}
+        </a>
     </td>
     <td>
         {% if entity.enabled %}
