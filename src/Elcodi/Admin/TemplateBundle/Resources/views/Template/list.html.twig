@@ -20,23 +20,30 @@
 {% block content %}
 
     <form class="form-configuration" data-tc-modules="form-configuration">
-        <fieldset class="grid">
-            <ol>
-                {% for template in templates %}
+        {% for template in templates %}
 
-                    {% set templateBundle = template.bundle %}
-                    {% set assetPath = template.assetPath %}
+            {% set templateBundle = template.bundle %}
+            {% set assetPath = template.assetPath %}
 
-                    <li>
-                        <input type="hidden" id="url-{{ templateBundle }}-store.template" value="{{ url("admin_configuration_update", {"name": "store.template"}) }}" />
-                        <label for="{{ templateBundle }}-store.template">{{ templateBundle }}</label>
-                        <input type="radio" name="store.template" id="{{ templateBundle }}-store.template" value="{{ templateBundle }}"{% if getConfiguration('store.template') == templateBundle %} checked="checked"{% endif %} />
-                        <img src="{{ asset('bundles/' ~ assetPath ~ '/preview.jpg') }}" />
-                    </li>
+            <fieldset class="mb-n">
+                <div class="grid">
+                    <div class="col-1-3">
+                        <div class="box-none">
+                            <h3 class="fw-n">{{ templateBundle }}</h3>
+                            <li>
+                                <input type="hidden" id="url-{{ templateBundle }}-store.template" value="{{ url("admin_configuration_update", {"name": "store.template"}) }}" />
+                                <label for="{{ templateBundle }}-store.template" class="d-n">{{ templateBundle }}</label>
+                                <input type="radio" name="store.template" id="{{ templateBundle }}-store.template" value="{{ templateBundle }}"{% if getConfiguration('store.template') == templateBundle %} checked="checked"{% endif %} /> Click for enabling this template
+                            </li>
+                        </div>
+                    </div>
+                    <div class="col-2-3">
+                        <img width="100%" src="{{ asset('bundles/' ~ assetPath ~ '/preview.jpg') }}" />
+                    </div>
+                </div>
+            </fieldset>
 
-                {% endfor %}
-            </ol>
-        </fieldset>
+        {% endfor %}
     </form>
 
 {% endblock content %}
