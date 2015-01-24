@@ -32,7 +32,8 @@
     ],
     "require": {
         "php": ">=5.4",
-
+        "ext-redis": "*",
+        
         "symfony/symfony": "~2.6",
         "symfony/assetic-bundle": "~2.5",
         "symfony/swiftmailer-bundle": "~2.3",
