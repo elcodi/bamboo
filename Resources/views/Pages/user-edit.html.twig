@@ -1,7 +1,7 @@
-{% extends 'StoreTemplateBundle::Layout/_layout.html.twig' %}
+{% extends '@StoreTemplate/Layout/_layout.html.twig' %}
 
 
-{% form_theme form 'StoreTemplateBundle::fields.html.twig' %}
+{% form_theme form '@StoreTemplate/fields.html.twig' %}
 
 
 {% block content_title %}{{ app.user.name }}{% endblock content_title %}
