@@ -12,13 +12,13 @@
     {% endblock %}
 
     {% block pin_image %}
-    <a href="{{ productRoute }}">
-        <img class="image" src="{{ product.principalImage ? product.principalImage|resize({
-            'width': 372,
-            'height': 291,
-            'type': 5
-        }) : 'http://placehold.it/372x291' }}" alt="{{ product.name }}" />
-    </a>
+        <a href="{{ productRoute }}">
+            <img class="image" src="{{ product.images|length > 0 ? product.images.first|resize({
+                'width': 372,
+                'height': 291,
+                'type': 5
+            }) : 'http://placehold.it/372x291' }}" alt="{{ product.name }}" />
+        </a>
     {% endblock %}
 
     <p class="price">

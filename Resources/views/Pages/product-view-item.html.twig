@@ -16,7 +16,7 @@
 
         {% block product_image %}
         <div class="span8">
-            <img class="product-image" src="{{ product.principalImage ? product.principalImage|resize({
+            <img class="product-image" src="{{ product.images|length > 0 ? product.images.first|resize({
                 'width': 772,
                 'height': 604,
                 'type': 5
@@ -25,54 +25,50 @@
         {% endblock %}
 
         {% block product_info %}
-        <div id="product-info"
-             data-variant-info-url="{{ url('store_product_variant_info', {id: product.id}) }}"
-             class="span4">
+        <div id="product-info" data-variant-info-url="{{ url('store_product_variant_info', {id: product.id}) }}" class="span4">
 
             {% block product_info_add_basket %}
-            <div class= "add-basket-box clearfix">
+                <div class= "add-basket-box clearfix">
+                    <img src="{{ product.principalImage ? product.principalImage|resize({
+                        'width': 60,
+                        'height': 47,
+                        'type': 5
+                    }) : 'http://placehold.it/60x47' }}" alt="{{ product.name }}"/>
 
-                <img src="{{ product.principalImage ? product.principalImage|resize({
-                    'width': 60,
-                    'height': 47,
-                    'type': 5
-                }) : 'http://placehold.it/60x47' }}" alt="{{ product.name }}"/>
 
+                    {% if product.reducedPrice.amount > 0 %}
+                        {% set product_price = product.reducedPrice %}
+                    {% else %}
+                        {% set product_price = product.price %}
+                    {% endif %}
 
-                {% if product.reducedPrice.amount > 0 %}
-                    {% set product_price = product.reducedPrice %}
-                {% else %}
-                    {% set product_price = product.price %}
-                {% endif %}
-
-                <p>{{ product.name }}<br/>
-                    <span>{{ product_price|print_convert_money() }}</span>
-                </p>
-                <a title="Add {{ product|purchasable_name }} to cart"
-                   class="btn btn-addcart btn-primary"
-                   href="{{ url('store_cart_add_product', { id: product.id }) }}">
-                    <span class="entypo cart"></span>
-                </a>
-
-            </div>
+                    <p>{{ product.name }}<br/>
+                        <span>{{ product_price|print_convert_money() }}</span>
+                    </p>
+                    <a title="Add {{ product|purchasable_name }} to cart"
+                       class="btn btn-addcart btn-primary"
+                       href="{{ url('store_cart_add_product', { id: product.id }) }}">
+                        <span class="entypo cart"></span>
+                    </a>
+                </div>
             {% endblock %}
 
             {% block product_info_details %}
-            <h3>{{ 'Description'|trans }}</h3>
-            <p>{{ product.description }}</p>
+                <h3>{{ 'Description'|trans }}</h3>
+                <p>{{ product.description }}</p>
 
-            <h3>{{ 'Stock'|trans }}</h3>
+                <h3>{{ 'Stock'|trans }}</h3>
 
-            {% if product.stock %}
-                <p>{{ 'This item is in stock and ready to ship!'|trans }}</p>
-            {% else %}
-                <p>{{ 'This item is currently not available'|trans }}</p>
-            {% endif %}
+                {% if product.stock %}
+                    <p>{{ 'This item is in stock and ready to ship!'|trans }}</p>
+                {% else %}
+                    <p>{{ 'This item is currently not available'|trans }}</p>
+                {% endif %}
 
-            <h3>{{ 'Delivery'|trans }}</h3>
+                <h3>{{ 'Delivery'|trans }}</h3>
 
-            <p>{{ 'Free Delivery is available on this item'|trans }}</p>
-            <p>{{ 'Usually dispatched within 24 hours'|trans }}</p>
+                <p>{{ 'Free Delivery is available on this item'|trans }}</p>
+                <p>{{ 'Usually dispatched within 24 hours'|trans }}</p>
             {% endblock %}
 
         </div>

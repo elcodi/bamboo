@@ -10,52 +10,33 @@
 {% block product_info_add_basket %}
 <h4>Choose a model</h4>
 
-<p>This product has variants.</p>
+{% for variant in product.variants %}
 
-<form enctype="multipart/form-data" id="variant-add-to-cart" class="variant-add-to-cart"
-      data-action="add-to-cart" method="post" action="{{ url('store_cart_add_product', { id: product.id }) }}">
+    <div class= "add-basket-box clearfix">
+        <img src="{{ variant.images|length > 0 ? variant.images.first|resize({
+            'width': 60,
+            'height': 47,
+            'type': 5
+        }) : 'http://placehold.it/60x47' }}" alt="{{ variant.name }}"/>
 
-    <input name="add-cart-is-variant" value="1" type="hidden">
+        {% set variant_price = variant.reducedPrice.amount > 0
+            ? variant.reducedPrice
+            : variant.price
+        %}
 
-    {% for attribute in product.attributes %}
-
-    <label for="variant-option-for-attribute[{{ attribute.id }}]">{{ attribute.name }}</label>
-
-    <select name="variant-option-for-attribute[{{ attribute.id }}]" class="variant-option-select">
-        {% for attributeValue in available_options(product, attribute) %}
-
-            <option value="{{ attributeValue.id }}">
-                {{ attributeValue.name }}
-            </option>
-
-        {% endfor %}
-    </select>
-
-    {% endfor %}
-
-    <div id="add-basket-box-variant" class="add-basket-box clearfix">
-
-        <p>
-            <span class="box-product-name">{{ product.name }}</span> <br />
-            <span class="box-product-price"></span>
-        </p>
-        <p>
-            <label for="add-cart-quantity">Qty.</label>
-            <input name="add-cart-quantity" class="w60" value="1" type="number" min="1">
-        </p>
-        <p>
-            <input type="submit" class="btn btn-primary" value="Add to Cart">
+        <p>{{ variant|purchasable_name }}<br/>
+            <span>{{ variant_price|print_convert_money() }}</span>
         </p>
 
+        <a title="Add {{ variant|purchasable_name }} to cart"
+           class="btn btn-addcart btn-primary"
+           href="{{ url('store_cart_add_product_variant', { id: variant.id }) }}">
+            <span class="entypo cart"></span>
+        </a>
     </div>
 
-</form>
+{% endfor %}
 
-{% endblock %}
-
-{% block foot_script %}
-    {{ parent() }}
-    <script src="{{ asset('bundles/storeproduct/js/variantproduct.js') }}"></script>
 {% endblock %}
 
 
