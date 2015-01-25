@@ -106,7 +106,7 @@ class CartController extends Controller
     }
 
     /**
-     * Adds item into cart
+     * Adds product into cart
      *
      * @param Request          $request Request object
      * @param ProductInterface $product Product id
@@ -120,7 +120,7 @@ class CartController extends Controller
      *      path = "/product/{id}/add",
      *      name = "store_cart_add_product",
      *      requirements = {
-     *          "productId": "\d+"
+     *          "id": "\d+"
      *      },
      *      methods = {"GET", "POST"}
      * )
@@ -148,41 +148,76 @@ class CartController extends Controller
         CartInterface $cart
     )
     {
-        if ($request->request->get('add-cart-is-variant')) {
-
-            /**
-             * We are adding a Product with variant,
-             * we should identify the Variant given
-             * the submitted attribute/options
-             */
-            $optionIds = $request
-                ->request
-                ->get('variant-option-for-attribute', []);
-
-            $purchasable = $this
-                ->get('elcodi.repository.product_variant')
-                ->findByOptionIds($product, $optionIds);
-
-            if (!($purchasable instanceof VariantInterface)) {
-
-                throw new EntityNotFoundException($this
-                    ->container
-                    ->getParameter('elcodi.core.product.entity.product_variant.class'));
-            }
-
-        } else {
-            /**
-             * There is no variant, add the Product as is
-             */
-            $purchasable = $product;
-        }
+        $cartQuantity = (int)$request
+            ->request
+            ->get('add-cart-quantity', 1);
 
         $this
             ->get('elcodi.cart_manager')
             ->addProduct(
                 $cart,
-                $purchasable,
-                (int) $request->request->get('add-cart-quantity', 1)
+                $product,
+                $cartQuantity
+            );
+
+        return $this->redirect(
+            $this->generateUrl('store_cart_view')
+        );
+    }
+
+    /**
+     * Adds product variant into cart
+     *
+     * @param Request          $request Request object
+     * @param ProductInterface $product Product id
+     * @param CartInterface    $cart    Cart
+     *
+     * @return Response Redirect response
+     *
+     * @throws EntityNotFoundException product not found
+     *
+     * @Route(
+     *      path = "/product/variant/{id}/add",
+     *      name = "store_cart_add_product_variant",
+     *      requirements = {
+     *          "id": "\d+"
+     *      },
+     *      methods = {"GET", "POST"}
+     * )
+     *
+     * @AnnotationEntity(
+     *      class = "elcodi.core.product.entity.product_variant.class",
+     *      name = "variant",
+     *      mapping = {
+     *          "id" = "~id~",
+     *          "enabled" = true,
+     *      }
+     * )
+     * @AnnotationEntity(
+     *      class = {
+     *          "factory" = "elcodi.cart_wrapper",
+     *          "method" = "loadCart",
+     *          "static" = false,
+     *      },
+     *      name = "cart"
+     * )
+     */
+    public function addVariantAction(
+        Request $request,
+        VariantInterface $variant,
+        CartInterface $cart
+    )
+    {
+        $cartQuantity = (int)$request
+            ->request
+            ->get('add-cart-quantity', 1);
+
+        $this
+            ->get('elcodi.cart_manager')
+            ->addProduct(
+                $cart,
+                $variant,
+                $cartQuantity
             );
 
         return $this->redirect(

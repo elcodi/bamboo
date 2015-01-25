@@ -14,8 +14,8 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
+use Symfony\Component\HttpKernel\Kernel;
 
 /**
  * Class AppKernel
@@ -87,8 +87,8 @@ class AppKernel extends Kernel
             new \Elcodi\Store\UserBundle\StoreUserBundle(),
             new \Elcodi\Store\GeoBundle\StoreGeoBundle(),
             new \Elcodi\Store\CartBundle\StoreCartBundle(),
-            new \Elcodi\Store\CurrencyBundle\StoreCurrencyBundle,
-            new \Elcodi\Store\CartCouponBundle\StoreCartCouponBundle,
+            new \Elcodi\Store\CurrencyBundle\StoreCurrencyBundle(),
+            new \Elcodi\Store\CartCouponBundle\StoreCartCouponBundle(),
             new \Elcodi\Store\ConnectBundle\StoreConnectBundle(),
             new \Elcodi\Store\PaymentBridgeBundle\PaymentBridgeBundle(),
 
