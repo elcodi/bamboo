@@ -1,13 +1,19 @@
-TinyCore.AMD.define('form-configuration', ['devicePackage'], function () {
+TinyCore.AMD.define('form-save-on-edit', ['devicePackage'], function () {
 	return {
 		onStart: function () {
 
-			var $Targets = $('li','.form-configuration'),
+			var oContainer = $('[data-tc-modules="form-save-on-edit"]')[0],
+				$li = $('li', oContainer),
+				$Articles = $('article', oContainer),
 				self = this;
 
 			FC.trackEvent('JS_Libraries', 'call', 'form-configuration');
 
-			$Targets.each(function () {
+			$li.each(function () {
+				self.autobind(this);
+			});
+
+			$Articles.each(function () {
 				self.autobind(this);
 			});
 		},
@@ -54,9 +60,12 @@ TinyCore.AMD.define('form-configuration', ['devicePackage'], function () {
 				sId = oInput.id.replace('.', '_');
 
 
+
 			if (oInput.type === 'checkbox' || oInput.type === 'radio') {
 
 				$(oInput).change(function (e) {
+
+
 
 					var oData = {};
 					oData.value = $(oInput).is(':checked') || $(oInput).is(':selected') ? oInput.value : '';
