@@ -4,3 +4,8 @@ parameters:
     # Entity classes
     #
     elcodi.admin.page.form_type.page.class: Elcodi\Admin\PageBundle\Form\Type\PageType
+
+    #
+    # Event Listeners
+    #
+    elcodi.admin.page.form_event_listener.permanent_page.class: Elcodi\Admin\PageBundle\Form\EventListener\PermanentPageSubscriber

@@ -24,10 +24,12 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 use Elcodi\Component\Page\Entity\Interfaces\PageInterface;
+use Elcodi\Component\Page\Entity\Page;
 
 /**
  * Class Controller for Page
@@ -170,7 +172,7 @@ class PageController extends AbstractAdminController
      * Enable entity
      *
      * @param Request          $request Request
-     * @param EnabledInterface $entity  Entity to enable
+     * @param EnabledInterface $page    Entity to enable
      *
      * @return array Result
      *
@@ -189,12 +191,17 @@ class PageController extends AbstractAdminController
      */
     public function enableAction(
         Request $request,
-        EnabledInterface $entity
+        EnabledInterface $page
     )
     {
+        if ($page->isPersistent()) {
+            $exception = new AccessDeniedHttpException('This page can\'t be accessed for a permanent page');
+            return $this->getFailResponse($request, $exception);
+        }
+
         return parent::enableAction(
             $request,
-            $entity
+            $page
         );
     }
 
@@ -202,7 +209,7 @@ class PageController extends AbstractAdminController
      * Disable entity
      *
      * @param Request          $request Request
-     * @param EnabledInterface $entity  Entity to disable
+     * @param EnabledInterface $page    Entity to disable
      *
      * @return array Result
      *
@@ -221,12 +228,17 @@ class PageController extends AbstractAdminController
      */
     public function disableAction(
         Request $request,
-        EnabledInterface $entity
+        EnabledInterface $page
     )
     {
+        if ($page->isPersistent()) {
+            $exception = new AccessDeniedHttpException('This page can\'t be accessed for a permanent page');
+            return $this->getFailResponse($request, $exception);
+        }
+
         return parent::disableAction(
             $request,
-            $entity
+            $page
         );
     }
 
