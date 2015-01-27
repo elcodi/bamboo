@@ -44,6 +44,30 @@
 
 		}
 	}
+	.fc-wysiwyg-full-screen {
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 100% !important;
+		width: 100% !important;
+		z-index: 10000;
+		overflow: auto !important;
+	}
+	.fc-wysiwyg-switch {
+		position: absolute;
+		right: 0;
+		margin-top: -$spacing*2;
+		font-size: $font-size-default;
+		z-index: 10001;
+	}
+	.fc-wysiwyg-switch-full-screen {
+		position: fixed;
+		bottom: 0;
+	}
+	.fc-wysiwyg-html {
+		font-family: 'Courier New', Courier, mono;
+		font-size: $font-size-default;
+	}
 	.fc-wysiwyg-textarea {
 		padding: 0px !important;
 		background: transparent;
