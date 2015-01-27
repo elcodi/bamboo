@@ -1,6 +1,20 @@
 imports:
     - { resource: config_dev.yml }
 
+parameters:
+
+    database_driver: pdo_sqlite
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: bamboo_test
+    database_user: root
+    database_password: root
+    database_path: /tmp/Bamboo/bamboo.test
+    database_memory: false
+    locale: en
+    secret: keepcalmandengonga
+
+
 framework:
     test: ~
     session:
@@ -8,9 +22,32 @@ framework:
     profiler:
         collect: false
 
+doctrine:
+    dbal:
+        driver:   "%database_driver%"
+        host:     "%database_host%"
+        port:     "%database_port%"
+        dbname:   "%database_name%"
+        path:     "%database_path%"
+        user:     "%database_user%"
+        password: "%database_password%"
+        charset:  UTF8
+
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        auto_mapping: false
+
 web_profiler:
     toolbar: false
     intercept_redirects: false
 
 swiftmailer:
     disable_delivery: true
+
+elcodi_bamboo:
+    cache_prefix:         ''
+    store_name:           'Elcodi Store'
+    store_tracker:        '101010101010'
+    store_enabled:        true
+    store_under_construction:  false
+
