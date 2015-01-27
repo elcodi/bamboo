@@ -47,6 +47,7 @@
 	.fc-wysiwyg-full-screen {
 		position: fixed;
 		top: 0;
+		border-top:$spacing*2 solid $color-primary !important;
 		left: 0;
 		height: 100% !important;
 		width: 100% !important;
@@ -62,7 +63,8 @@
 	}
 	.fc-wysiwyg-switch-full-screen {
 		position: fixed;
-		bottom: 0;
+		top: 0;
+		margin-top: 0 !important;
 	}
 	.fc-wysiwyg-html {
 		font-family: 'Courier New', Courier, mono;
@@ -362,6 +364,10 @@
 		font-style: normal;
 	}
 	*/
+
+	.pen-menu-full-screen {
+		z-index: 10001 !important;
+	}
 
 	.pen-menu {
 		[class^="icon-"]:before, [class*=" icon-"]:before {
