@@ -1,10 +1,12 @@
-<div class="row">
-    <div class="span12">
-        {{ form_start(form) }}
-            <p class="actions">
-                {{ form_widget(form.apply, { 'attr':{ 'class':'btn btn-blank' } } ) }}
-                {{ form_widget( form.code ) }}
-            </p>
-        {{ form_end(form) }}
+{% if cart.coupons|length == 0 %}
+    <div class="row">
+        <div class="span12">
+            {{ form_start(form) }}
+                <p class="actions">
+                    {{ form_widget(form.apply, { 'attr':{ 'class':'btn btn-blank' } } ) }}
+                    {{ form_widget( form.code ) }}
+                </p>
+            {{ form_end(form) }}
+        </div>
     </div>
-</div>
+{% endif %}

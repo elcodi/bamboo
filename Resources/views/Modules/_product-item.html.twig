@@ -3,6 +3,10 @@
  #}
 <div class="span4 product-listing">
 
+    {{ elcodi_hook("store.product_pin_top", {
+        'product': product
+    }) }}
+
     {% set productRoute = url('store_product_view', { 'slug': product.slug, 'id': product.id }) %}
 
     {% block pin_title %}
@@ -62,4 +66,8 @@
         </a>
         {% endblock %}
     </p>
+
+    {{ elcodi_hook("store.product_pin_bottom", {
+        'product': product
+    }) }}
 </div>

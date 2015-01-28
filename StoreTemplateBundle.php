@@ -16,13 +16,13 @@
 
 namespace Elcodi\StoreTemplateBundle;
 
-use Elcodi\Bundle\BambooBundle\Interfaces\TemplateBundleInterface;
+use Elcodi\Component\Template\Interfaces\TemplateInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
  * Class StoreTemplateBundle
  */
-class StoreTemplateBundle extends Bundle implements TemplateBundleInterface
+class StoreTemplateBundle extends Bundle implements TemplateInterface
 {
     /**
      * Get the template bundle
