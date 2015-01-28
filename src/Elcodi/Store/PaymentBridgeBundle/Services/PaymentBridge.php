@@ -172,7 +172,7 @@ class PaymentBridge implements PaymentBridgeInterface
                     ->getPurchasable()
                     ->getName();
 
-                $orderLineArray['item_amount'] = $orderLine
+                $orderLineArray['amount'] = $orderLine
                     ->getAmount()
                     ->getAmount();
 
@@ -180,6 +180,8 @@ class PaymentBridge implements PaymentBridgeInterface
                     ->getAmount()
                     ->getCurrency()
                     ->getIso();
+
+                $orderLineArray['quantity'] = $orderLine->getQuantity();
 
                 $extraData['items'][$orderLine->getId()] = $orderLineArray;
             }
