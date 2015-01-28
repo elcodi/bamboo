@@ -26,6 +26,7 @@ services:
         arguments:
             category_factory: @elcodi.factory.category
             product_factory: @elcodi.factory.product
+            category_repository: @elcodi.repository.category
         calls:
             - [setEntityTranslatorFormEventListener, [@elcodi.entity_translator_form_event_listener]]
         tags:

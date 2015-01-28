@@ -17,6 +17,7 @@
 
 namespace Elcodi\Admin\ProductBundle\Form\Type;
 
+use Elcodi\Component\Product\Repository\CategoryRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -47,17 +48,28 @@ class CategoryType extends AbstractType
     protected $productFactory;
 
     /**
+     * @var CategoryRepository
+     *
+     * Category repository
+     */
+    protected $categoryRepository;
+
+    /**
      * Constructor
      *
-     * @param CategoryFactory $categoryFactory Category Factory
-     * @param ProductFactory  $productFactory  Product Factory
+     * @param CategoryFactory    $categoryFactory    Category Factory
+     * @param ProductFactory     $productFactory     Product Factory
+     * @param CategoryRepository $categoryRepository Category Repository
      */
     public function __construct(
         CategoryFactory $categoryFactory,
-        ProductFactory $productFactory
-    ) {
+        ProductFactory $productFactory,
+        CategoryRepository $categoryRepository
+    )
+    {
         $this->categoryFactory = $categoryFactory;
         $this->productFactory = $productFactory;
+        $this->categoryRepository = $categoryRepository;
     }
 
     /**
@@ -69,9 +81,9 @@ class CategoryType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'empty_data' => $this->categoryFactory->create(),
-        ));
+        ]);
     }
 
     /**
@@ -82,47 +94,60 @@ class CategoryType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $currentCategoryId = $builder->getData()->getId();
+        $parentEntityWhereClause = $currentCategoryId
+            ? "c.id <> $currentCategoryId AND c.root = 1"
+            : "c.root = 1";
+
         $builder
-            ->add('name', 'text', array(
+            ->add('name', 'text', [
                 'required' => true,
                 'label'    => 'name',
-            ))
-            ->add('slug', 'text', array(
+            ])
+            ->add('slug', 'text', [
                 'required' => false,
                 'label'    => 'slug',
-            ))
-            ->add('root', 'checkbox', array(
+            ])
+            ->add('root', 'checkbox', [
                 'required' => false,
                 'label'    => 'Root Category',
-            ))
-            ->add('enabled', 'checkbox', array(
+            ])
+            ->add('position', 'integer', [
+                'required' => false,
+                'label'    => 'Position',
+            ])
+            ->add('enabled', 'checkbox', [
                 'required' => false,
                 'label'    => 'Visible',
-            ))
-            ->add('metaTitle', 'text', array(
+            ])
+            ->add('metaTitle', 'text', [
                 'required' => false,
                 'label'    => 'metaTitle',
-            ))
-            ->add('metaDescription', 'text', array(
+            ])
+            ->add('metaDescription', 'text', [
                 'required' => false,
                 'label'    => 'metaDescription',
-            ))
-            ->add('metaKeywords', 'text', array(
+            ])
+            ->add('metaKeywords', 'text', [
                 'required' => false,
                 'label'    => 'metaKeywords',
-            ))
-            ->add('parent', 'entity', array(
-                'class'    => $this->categoryFactory->getEntityNamespace(),
-                'required' => false,
-                'label'    => 'parent',
-                'multiple' => false,
-            ))
-            ->add('products', 'entity', array(
+            ])
+            ->add('parent', 'entity', [
+                'class'         => $this->categoryFactory->getEntityNamespace(),
+                'query_builder' => $this
+                    ->categoryRepository
+                    ->createQueryBuilder('c')
+                    ->where($parentEntityWhereClause),
+                'required'      => false,
+                'label'         => 'parent',
+                'multiple'      => false,
+            ])
+            ->add('products', 'entity', [
                 'class'    => $this->productFactory->getEntityNamespace(),
                 'required' => false,
                 'label'    => false,
                 'multiple' => true,
-            ));
+            ]);
 
         $builder->addEventSubscriber($this->getEntityTranslatorFormEventListener());
     }
