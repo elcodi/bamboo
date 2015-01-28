@@ -78,6 +78,8 @@ class AppKernel extends Kernel
             new \Elcodi\Bundle\ConfigurationBundle\ElcodiConfigurationBundle(),
             new \Elcodi\Bundle\PageBundle\ElcodiPageBundle(),
             new \Elcodi\Bundle\MetricBundle\ElcodiMetricBundle(),
+            new \Elcodi\Bundle\PluginBundle\ElcodiPluginBundle(),
+            new \Elcodi\Bundle\TemplateBundle\ElcodiTemplateBundle(),
 
             /**
              * Elcodi store bundle
@@ -107,17 +109,23 @@ class AppKernel extends Kernel
             new \Elcodi\Admin\MediaBundle\AdminMediaBundle(),
             new \Elcodi\Admin\NewsletterBundle\AdminNewsletterBundle(),
             new \Elcodi\Admin\ProductBundle\AdminProductBundle(),
-            //new \Elcodi\Admin\RuleBundle\AdminRuleBundle(),
             new \Elcodi\Admin\ConfigurationBundle\AdminConfigurationBundle(),
             new \Elcodi\Admin\PageBundle\AdminPageBundle(),
             new \Elcodi\Admin\TemplateBundle\AdminTemplateBundle(),
             new \Elcodi\Admin\MetricBundle\AdminMetricBundle(),
+            new \Elcodi\Admin\PluginBundle\AdminPluginBundle(),
 
             /**
              * Elcodi Templates
              */
             new \Elcodi\StoreTemplateBundle\StoreTemplateBundle(),
             new \Elcodi\StoreWhiteTemplateBundle\StoreWhiteTemplateBundle(),
+
+            /**
+             * Elcodi Plugins
+             */
+            new \Elcodi\Plugin\GoogleAnalyticsBundle\ElcodiGoogleAnalyticsBundle(),
+            new \Elcodi\Plugin\PinterestBundle\ElcodiPinterestBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

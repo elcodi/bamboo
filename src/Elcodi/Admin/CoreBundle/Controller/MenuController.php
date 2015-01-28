@@ -69,8 +69,45 @@ class MenuController extends Controller
             }
         }
 
+        $this->appendPluginMenus($root);
+
         return [
             'menu_items' => $root
         ];
+    }
+
+    /**
+     * Append the plugin pages
+     *
+     * @param array $pluginsMenu Plugins menu built
+     *
+     * @return $this Self Object
+     */
+    protected function appendPluginMenus(array &$pluginsMenu)
+    {
+        $plugins = $this
+            ->get('elcodi.configuration_manager')
+            ->get('store.plugins');
+
+        foreach ($plugins as $plugin) {
+
+            if (!$plugin['enabled']) {
+
+                continue;
+            }
+
+            $menu = $this
+                ->get('elcodi.factory.menu_node')
+                ->create()
+                ->setName($plugin['name'])
+                ->setCode($plugin['fa_icon'])
+                ->setUrl($plugin['configuration_route']);
+
+            $pluginsMenu[] = $this
+                ->get('elcodi.menu_manager')
+                ->hydrateNode($menu);
+        }
+
+        return $this;
     }
 }

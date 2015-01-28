@@ -148,7 +148,7 @@ class CartController extends Controller
         CartInterface $cart
     )
     {
-        $cartQuantity = (int)$request
+        $cartQuantity = (int) $request
             ->request
             ->get('add-cart-quantity', 1);
 
@@ -208,7 +208,7 @@ class CartController extends Controller
         CartInterface $cart
     )
     {
-        $cartQuantity = (int)$request
+        $cartQuantity = (int) $request
             ->request
             ->get('add-cart-quantity', 1);
 
