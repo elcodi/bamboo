@@ -35,7 +35,7 @@ twig:
 
     globals:
         currency_wrapper: @elcodi.currency_wrapper
-        store_tracker: %elcodi.core.bamboo.store_tracker%
+        store_tracker: @elcodi.store_tracker
 
 # Doctrine Configuration
 doctrine:

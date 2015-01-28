@@ -22,7 +22,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
 
 /**
- * Class Controller for Category
+ * Class Controller for Templates
  *
  * @Route(
  *      path = "/template",

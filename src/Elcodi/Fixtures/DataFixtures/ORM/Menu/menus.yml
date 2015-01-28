@@ -156,6 +156,13 @@ menu_nodes:
         enabled: 1
         subnodes: ~
 
+    bambooadmin_plugins:
+        name: Plugins
+        code: gears
+        url: admin_plugin_list
+        enabled: 1
+        subnodes: ~
+
 menus:
     admin:
         code: admin
@@ -173,3 +180,4 @@ menus:
             - bambooadmin_currencies
             - bambooadmin_languages
             - bambooadmin_templates
+            - bambooadmin_plugins

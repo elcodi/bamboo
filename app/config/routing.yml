@@ -57,6 +57,10 @@ admin_templates:
     resource: "@AdminTemplateBundle/Resources/config/routing.yml"
     prefix: /%bamboo_admin_prefix%
 
+admin_plugins:
+    resource: "@AdminPluginBundle/Resources/config/routing.yml"
+    prefix: /%bamboo_admin_prefix%
+
 admin_metric:
     resource: "@AdminMetricBundle/Resources/config/routing.yml"
     prefix: /%bamboo_admin_prefix%
@@ -114,10 +118,21 @@ github_login:
 paypal_login:
     pattern: /login/check-paypal
 
-core_metric:
+#
+# Plugins routes
+#
+elcodi_plugin_pinterest:
+    resource: "@ElcodiPinterestBundle/Resources/config/routing.yml"
+    prefix: /%bamboo_admin_prefix%/plugin
+
+
+#
+# Elcodi routes
+#
+elcodi_metric:
     resource: "@ElcodiMetricBundle/Resources/config/routing.yml"
     prefix: /
 
-page_bundle:
+elcodi_page:
     resource: "@ElcodiPageBundle/Resources/config/routing.yml"
     prefix: /

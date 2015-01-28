@@ -1,0 +1,35 @@
+{% extends 'AdminCoreBundle::layout.html.twig' %}
+
+{% block breadcrumb %}
+    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
+        breadcrumb: {
+            "Template": {
+                "active" : true
+            }
+        }
+    } %}
+{% endblock breadcrumb %}
+
+
+{% block content %}
+
+    <form class="form-templates form-save-on-edit" data-tc-modules="form-save-on-edit">
+        {% for plugin in plugins %}
+            <article class="box-background">
+                <h4 class="fw-n">{{ plugin.name }}{{ plugin.version }}</h4>
+                <p>{{ plugin.author }}</p>
+
+                <input type="hidden" id="url-{{ plugin.name }}" value="{{ url("admin_plugin_enable", {"plugin": plugin.namespace}) }}" />
+                <div class="fl-r pt-s">
+                    Enable:
+                    <div class="switch">
+                        <input type="checkbox" id="{{ plugin.name }}"{% if plugin.enabled %} checked="checked"{% endif %} />
+                        <label for="{{ plugin.name }}" class="mr-n"></label>
+                    </div>
+                </div>
+
+            </article>
+        {% endfor %}
+    </form>
+
+{% endblock content %}
