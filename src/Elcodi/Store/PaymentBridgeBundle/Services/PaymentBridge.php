@@ -172,9 +172,13 @@ class PaymentBridge implements PaymentBridgeInterface
                     ->getPurchasable()
                     ->getName();
 
+                /*
+                 * Elcodi stores amounts in integer cents (10USD = 1000)
+                 * but Paypal expects decimal (10.00USD)
+                 */
                 $orderLineArray['amount'] = $orderLine
                     ->getAmount()
-                    ->getAmount();
+                    ->getAmount() / 100;
 
                 $orderLineArray['item_currency_code'] = $orderLine
                     ->getAmount()
