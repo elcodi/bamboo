@@ -1,4 +1,4 @@
-.form-templates {
+.form-grid {
 	article {
 		& {
 			background: $color-background;
@@ -8,8 +8,8 @@
 	}
 }
 
-@mixin papa-form-templates(){
-	.form-templates {
+@mixin papa-form-grid(){
+	.form-grid {
 		article {
 			& {
 				display: inline-block;
