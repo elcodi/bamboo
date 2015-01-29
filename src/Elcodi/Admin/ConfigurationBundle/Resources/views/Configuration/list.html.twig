@@ -66,6 +66,24 @@
         </fieldset>
         <fieldset class="grid">
             <div class="col-1-3">
+                <h2 class="fw-n">Analytics</h2>
+                <p>Store analytics setup.</p>
+            </div>
+            <div class="col-2-3">
+                <div class="box">
+                    <ol>
+                        <li>
+                            <label for="store.google_analytics_id">{{ 'Google analytics tracking ID'|trans }}</label>
+                            <i class="icon-pencil"></i>
+                            <input id="store.google_analytics_id" type="text" name="store.google_analytics_id" value="{{ getConfiguration('store.google_analytics_id') }}" placeholder="UA-XXXXXXXX-X" />
+                            <input id="url-store.google_analytics_id" type="hidden" value="{{ url("admin_configuration_update", {"name": "store.google_analytics_id"}) }}">
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="grid">
+            <div class="col-1-3">
                 <h2 class="fw-n">Products setup</h2>
                 <p>Set the Store data.</p>
             </div>
