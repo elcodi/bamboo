@@ -1,15 +1,19 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
+
 {% block content_title %}
     {{ 'Category Zone'|trans }}
 {% endblock content_title %}
 
+
 {% block header_actions %}
-    <a target="_blank" href="{{ url("store_category_products_list",{id: category.id, slug: category.slug}) }}" class="button-primary"><i class="icon-eye"></i> {{ 'View on your store'|trans }}</a>
+    {% if category.id > 0 %}
+        <a target="_blank" href="{{ url("store_category_products_list",{id: category.id, slug: category.slug}) }}" class="button-primary"><i class="icon-eye"></i> {{ 'View on your store'|trans }}</a>
+    {% endif %}
 {% endblock header_actions %}
 
-{% block breadcrumb %}
 
+{% block breadcrumb %}
     {% set entityHeader = category.id
         ? 'Edit ' ~ category.name
         : 'Create new Category'
@@ -25,11 +29,10 @@
             }
         }
     } %}
-
 {% endblock breadcrumb %}
 
-{% block content %}
 
+{% block content %}
     {% if category.id %}
         {{ render(url("admin_category_edit_component", {
             'id': category.id
@@ -37,5 +40,4 @@
     {% else %}
         {{ render(url("admin_category_new_component")) }}
     {% endif %}
-
 {% endblock content %}
