@@ -54,7 +54,8 @@ class PageData extends AbstractFixture
             ->setMetaTitle('About us')
             ->setMetaDescription('About us')
             ->setMetaKeywords('about,us')
-            ->setEnabled(true);
+            ->setEnabled(true)
+            ->setPersistent(true);
 
         $pageObjectManager->persist($aboutUsPage);
         $this->addReference('page-about-us', $aboutUsPage);
@@ -98,7 +99,8 @@ class PageData extends AbstractFixture
             ->setMetaTitle('Terms and conditions')
             ->setMetaDescription('Terms and conditions')
             ->setMetaKeywords('terms, conditions')
-            ->setEnabled(true);
+            ->setEnabled(true)
+            ->setPersistent(true);
 
         $pageObjectManager->persist($termsConditionsPage);
         $this->addReference('page-terms-and-conditions', $termsConditionsPage);

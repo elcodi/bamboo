@@ -16,9 +16,10 @@
 
 namespace Elcodi\Admin\PageBundle\Form\Type;
 
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-
+use Elcodi\Admin\PageBundle\Form\EventListener\PermanentPageSubscriber;
 use Elcodi\Component\EntityTranslator\EventListener\Traits\EntityTranslatableFormTrait;
 
 /**
@@ -29,6 +30,23 @@ class PageType extends AbstractType
     use EntityTranslatableFormTrait;
 
     /**
+     * A permanent page form event subscriber.
+     *
+     * @var EventSubscriberInterface
+     */
+    protected $permanentPageSubscriber;
+
+    /**
+     * Builds the page edit form.
+     *
+     * @param EventSubscriberInterface $permanentPageSubscriber A permanent page event subscriber.
+     */
+    public function __construct(EventSubscriberInterface $permanentPageSubscriber)
+    {
+        $this->permanentPageSubscriber = $permanentPageSubscriber;
+    }
+
+    /**
      * Buildform function
      *
      * @param FormBuilderInterface $builder the formBuilder
@@ -37,37 +55,38 @@ class PageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', 'text', array(
+            ->add('title', 'text', [
                 'required' => true,
                 'label'    => 'title',
-            ))
-            ->add('path', 'text', array(
+            ])
+            ->add('path', 'text', [
                 'required' => true,
                 'label'    => 'path',
-            ))
-            ->add('content', 'textarea', array(
+            ])
+            ->add('content', 'textarea', [
                 'required' => true,
                 'label'    => 'content',
-            ))
-            ->add('metaTitle', 'text', array(
+            ])
+            ->add('metaTitle', 'text', [
                 'required' => false,
                 'label'    => 'Metatitle',
-            ))
-            ->add('metaDescription', 'text', array(
+            ])
+            ->add('metaDescription', 'text', [
                 'required' => false,
                 'label'    => 'Metadescription',
-            ))
-            ->add('metaKeywords', 'text', array(
+            ])
+            ->add('metaKeywords', 'text', [
                 'required' => false,
                 'label'    => 'Metakeywords',
-            ))
-            ->add('enabled', 'checkbox', array(
+            ])
+            ->add('enabled', 'checkbox', [
                 'required' => false,
                 'label'    => 'enabled',
-            ))
+            ])
         ;
 
         $builder->addEventSubscriber($this->getEntityTranslatorFormEventListener());
+        $builder->addEventSubscriber($this->permanentPageSubscriber);
     }
 
     /**

@@ -7,5 +7,12 @@ services:
         class: %elcodi.admin.page.form_type.page.class%
         tags:
             - { name: form.type, alias: elcodi_admin_page_form_type_page }
+        arguments:
+            permanent_page_subscriber: @elcodi.admin.page.form_event_listener.permanent_page
         calls:
             - [setEntityTranslatorFormEventListener, [@elcodi.entity_translator_form_event_listener]]
+    #
+    # Event Listeners
+    #
+    elcodi.admin.page.form_event_listener.permanent_page:
+         class:  %elcodi.admin.page.form_event_listener.permanent_page.class%
