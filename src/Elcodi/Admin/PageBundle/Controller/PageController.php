@@ -196,6 +196,7 @@ class PageController extends AbstractAdminController
     {
         if ($page->isPersistent()) {
             $exception = new AccessDeniedHttpException('This page can\'t be accessed for a permanent page');
+
             return $this->getFailResponse($request, $exception);
         }
 
@@ -233,6 +234,7 @@ class PageController extends AbstractAdminController
     {
         if ($page->isPersistent()) {
             $exception = new AccessDeniedHttpException('This page can\'t be accessed for a permanent page');
+
             return $this->getFailResponse($request, $exception);
         }
 

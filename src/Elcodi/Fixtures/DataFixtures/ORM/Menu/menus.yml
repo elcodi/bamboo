@@ -163,6 +163,13 @@ menu_nodes:
         enabled: 1
         subnodes: ~
 
+    bambooadmin_reports:
+        name: Reports
+        code: bar-chart-o
+        url: admin_reports_view
+        enabled: 1
+        subnodes: ~
+
 menus:
     admin:
         code: admin
@@ -180,4 +187,5 @@ menus:
             - bambooadmin_currencies
             - bambooadmin_languages
             - bambooadmin_templates
+            - bambooadmin_reports
             - bambooadmin_plugins
