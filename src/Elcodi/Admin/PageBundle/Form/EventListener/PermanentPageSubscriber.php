@@ -20,6 +20,8 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 
+use Elcodi\Component\Page\Entity\Interfaces\PageInterface;
+
 /**
  * Class PermanentPageSubscriber checks if the page that's being handled by the form is persistent to modify the form
  * fields removing the options that are not present for persistent pages.
@@ -48,6 +50,7 @@ class PermanentPageSubscriber implements EventSubscriberInterface
         $form = $event->getForm();
 
         if (($page instanceof PageInterface) && $page->isPersistent()) {
+
             $form->remove('enabled');
         }
     }
