@@ -34,5 +34,7 @@ parameters:
 
     bamboo_bucket_name: fillme
     bamboo_admin_prefix: admin
+    bamboo_fixtures_orm_geo_enabled: false
 
     imagick_convert_bin_path: /usr/bin/convert
+

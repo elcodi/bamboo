@@ -72,9 +72,32 @@ class DoctrineContext extends AbstractElcodiContext
             'command'          => 'doctrine:fixtures:load',
             '--env'            => 'test',
             '--no-interaction' => false,
-            '--fixtures'       => $this->kernel->getRootDir() . '/../vendor/elcodi/bamboo-fixtures',
+            '--fixtures'       => $this->kernel->getRootDir() . '/../src/Elcodi/Fixtures',
             '--quiet'          => true,
         )));
+
+        $this->application->run(new ArrayInput(array(
+            'command'          => 'elcodi:templates:load',
+            '--env'            => 'test',
+            '--no-interaction' => false,
+            '--quiet'          => true,
+        )));
+
+        $this->application->run(new ArrayInput(array(
+            'command'          => 'elcodi:templates:enable',
+            'template'         => 'StoreTemplateBundle',
+            '--env'            => 'test',
+            '--no-interaction' => false,
+            '--quiet'          => true,
+        )));
+
+        $this->application->run(new ArrayInput(array(
+            'command'          => 'elcodi:plugins:load',
+            '--env'            => 'test',
+            '--no-interaction' => false,
+            '--quiet'          => true,
+        )));
+
     }
 
     /**
