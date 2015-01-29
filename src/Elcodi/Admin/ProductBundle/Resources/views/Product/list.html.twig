@@ -1,6 +1,11 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
 
+{% set elcodi_context = {
+    entity_type: 'product'
+} %}
+
+
 {% block content_title %}
     {{ 'Product Zone'|trans }}
 {% endblock content_title %}

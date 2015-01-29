@@ -129,6 +129,9 @@ elcodi_plugin_google_analytics:
     resource: "@ElcodiGoogleAnalyticsBundle/Resources/config/routing.yml"
     prefix: /%bamboo_admin_prefix%/plugin
 
+elcodi_plugin_product_csv:
+    resource: "@ElcodiProductCsvBundle/Resources/config/routing.yml"
+    prefix: /%bamboo_admin_prefix%/plugin
 
 #
 # Elcodi routes

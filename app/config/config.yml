@@ -34,6 +34,7 @@ twig:
     strict_variables: false
 
     globals:
+        elcodi_context: []
         currency_wrapper: @elcodi.currency_wrapper
         store_tracker: @elcodi.store_tracker
 

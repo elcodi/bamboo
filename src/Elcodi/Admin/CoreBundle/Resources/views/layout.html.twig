@@ -1,7 +1,7 @@
 {% extends 'AdminCoreBundle::base.html.twig' %}
 
-{% block head_style %}
 
+{% block head_style %}
     <link rel="stylesheet" type="text/css"  href="{{ asset('bundles/admincore/css/main.css') }}" media="all">
     <!--[if gte IE 9]>
     <link rel="stylesheet" type="text/css"  href="{{ asset('bundles/admincore/css/ie-new.css') }}" media="all">
@@ -10,8 +10,8 @@
     <script src="{{ asset('bundles/admincore/js/ie-old.js') }}"></script>
     <link rel="stylesheet" type="text/css"  href="{{ asset('bundles/admincore/css/ie-old.css') }}" media="all">
     <![endif]-->
-
 {% endblock head_style %}
+
 
 {% block body %}
     <nav class="topbar mobile">
@@ -22,11 +22,14 @@
     <div class="grid">
         <div class="col-4-5 pull-right">
             <header class="section-header">
-                <div class="buttons-group">{% block header_actions %}{% endblock %}</div>
-                {% block breadcrumb %}{% endblock %}
+                <div class="buttons-group">
+                    {{ elcodi_hook('admin.header_actions', elcodi_context) }}
+                    {% block header_actions '' %}
+                </div>
+                {% block breadcrumb '' %}
             </header>
             <div class="papa-air">
-                {% block content %}{% endblock content %}
+                {% block content '' %}
             </div>
         </div>
         <aside class="col-1-5 sidebar tablet desktop">
@@ -36,8 +39,7 @@
     {% include 'AdminCoreBundle::Common/flashMessages.html.twig' %}
 {% endblock body %}
 
+
 {% block foot_script %}
-
     {% include 'AdminCoreBundle::footscript.html.twig' %}
-
 {% endblock foot_script %}
