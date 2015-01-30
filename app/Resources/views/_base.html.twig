@@ -1,21 +1,19 @@
 {% block doctype_and_html %}
-
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html lang="{{ app.request.locale }}" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html lang="{{ app.request.locale }}" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="{{ app.request.locale }}" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html lang="{{ app.request.locale }}" class="no-js"> <!--<![endif]-->
-{% endblock doctype_and_html %}
+{% endblock %}
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>{% block title %}{{ getConfiguration('store.name') }}{% endblock title %}</title>
-        {% block meta_tags %}{% endblock meta_tags %}
+        <title>{% block title getConfiguration('store.name') %}</title>
+        {% block meta_tags "" %}
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script type="text/javascript">document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/,'js');</script>
         <link href="{{ asset('favicon.ico') }}" rel="icon" type="image/vnd.microsoft.icon">
         <link href="{{ asset('favicon.ico') }}" rel="shortcut icon" type="image/x-icon">
-        {#<meta name="robots" content="{{ follow }}">#}
         {% block head_style %}{% endblock head_style %}
         {% block head_script %}{% endblock head_script %}
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -26,7 +24,6 @@
         <![endif]-->
 
         <script>
-
             /**
              * Tracker generator for elcodi bamboo store
              */
@@ -45,21 +42,21 @@
         {{ elcodi_hook("store.head_bottom") }}
     </head>
 
-    <body {% block body_id %}{% endblock body_id %} {% block body_class %}{% endblock body_class %}>
+    <body {% block body_id "" %} {% block body_class "" %}>
 
         {{ elcodi_hook("store.body_top") }}
 
         <!--[if lt IE 8]>
             <!-- should warn for outdated browser -->
         <![endif]-->
-        {% block body %}{% endblock body %}
-        {% block pixels %}{% endblock %}
+        {% block body "" %}
+        {% block pixels "" %}
         {% block view_pixel %}
             <script>
                 _etc.push(["{{ store_tracker }}", 'page_view']);
             </script>
-        {% endblock view_pixel %}
-        {% block foot_script %}{% endblock foot_script %}
+        {% endblock %}
+        {% block foot_script "" %}
 
         {{ elcodi_hook("store.body_bottom") }}
     </body>
