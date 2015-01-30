@@ -6,19 +6,19 @@ services:
     store.core.event_listener.store_disabled:
         class: %store.core.event_listener.store_disabled.class%
         arguments:
-            twig: @templating
-            template_bundle: @=elcodi_config("store.template")
-            store_enabled: @=elcodi_config("store.enabled")
+            template_engine: @templating
+            template_path: %elcodi.core.bamboo.store_enabled.template_path%
+            is_available: @=elcodi_config("store.enabled")
             bamboo_admin_prefix: %bamboo_admin_prefix%
         tags:
-            - { name: kernel.event_listener, event: kernel.request, method: checkIfStoreIsDisabled, priority: 41 }
+            - { name: kernel.event_listener, event: kernel.request, method: redirectWhenUnavailable, priority: 41 }
 
     store.core.event_listener.store_under_construction:
         class: %store.core.event_listener.store_under_construction.class%
         arguments:
-            twig: @templating
-            template_bundle: @=elcodi_config("store.template")
-            store_enabled: @=elcodi_config("store.under_construction")
+            template_engine: @templating
+            template_path: %elcodi.core.bamboo.store_under_construction.template_path%
+            is_available: @=!elcodi_config("store.under_construction")
             bamboo_admin_prefix: %bamboo_admin_prefix%
         tags:
-            - { name: kernel.event_listener, event: kernel.request, method: checkIfStoreIsUnderConstruction, priority: 40 }
+            - { name: kernel.event_listener, event: kernel.request, method: redirectWhenUnavailable, priority: 40 }
