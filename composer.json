@@ -19,6 +19,14 @@
     ],
     "repositories": [
         {
+            "type": "vcs",
+            "url": "git@github.com:alch/PaypalWebCheckoutBundle.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:alch/PaymentSuite.git"
+        },
+        {
             "type": "package",
             "package": {
                 "name": "jquery/jquery",
@@ -60,10 +68,9 @@
 
         "mmoreram/controller-extra-bundle": "~1.0",
         "ornicar/gravatar-bundle" : "1.1.2",
-        "paymentsuite/payment-core-bundle": "1.3",
         "knplabs/knp-gaufrette-bundle": "~0.1.0",
-        "paymentsuite/free-payment-bundle": "~1.0@dev",
-        "paymentsuite/paypal-web-checkout-bundle": "dev-master",
+        "paymentsuite/paymentsuite": "dev-feature/correct-versioning",
+        "paymentsuite/paypal-web-checkout-bundle": "dev-feature/correct-versioning",
         "incenteev/composer-parameter-handler": "~2.0",
         "hwi/oauth-bundle": "0.4.*@dev",
         "snc/redis-bundle": "~1.1",

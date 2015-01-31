@@ -16,6 +16,8 @@
 
 namespace Elcodi\Store\PaymentBridgeBundle\Services;
 
+use Elcodi\Component\Cart\Entity\Interfaces\OrderInterface;
+use Elcodi\Component\Cart\Wrapper\CartWrapper;
 use PaymentSuite\PaymentCoreBundle\Services\Interfaces\PaymentBridgeInterface;
 
 use Elcodi\Component\Cart\Entity\Order;
@@ -43,11 +45,20 @@ class PaymentBridge implements PaymentBridgeInterface
     protected $orderRepository;
 
     /**
-     * @param OrderRepository $orderRepository Order repository
+     * @var CartWrapper
+     *
+     * Cart wrapper
      */
-    public function __construct(OrderRepository $orderRepository)
+    private $cartWrapper;
+
+    /**
+     * @param OrderRepository $orderRepository Order repository
+     * @param CartWrapper $cartWrapper
+     */
+    public function __construct(OrderRepository $orderRepository, CartWrapper $cartWrapper)
     {
         $this->orderRepository = $orderRepository;
+        $this->cartWrapper = $cartWrapper;
     }
 
     /**
@@ -105,6 +116,19 @@ class PaymentBridge implements PaymentBridgeInterface
      */
     public function getCurrency()
     {
+        /*
+         * If there is no order yet we have
+         * to pull the currency from the Cart
+         */
+        if (!$this->order instanceof OrderInterface) {
+            return $this
+                ->cartWrapper
+                ->loadCart()
+                ->getAmount()
+                ->getCurrency()
+                ->getIso();
+        }
+
         $amount = $this->order->getAmount();
 
         if ($amount instanceof Money) {
@@ -122,19 +146,39 @@ class PaymentBridge implements PaymentBridgeInterface
     }
 
     /**
-     * Get total order amount in cents
+     * Get total order amount.
+     *
+     * Money value-object amounts are stored as integers, representing
+     * CENTS, so we have to divide by 100 since PaymentBridgeInterface
+     * expects a decimal value
      *
      * @return integer
      */
     public function getAmount()
     {
+        /*
+         * Tweak to allow payment methods to access
+         * amount and currency when an order has not
+         * been created yet.
+         *
+         * If there is no order yet we have
+         * to pull the amount from the Cart
+         */
+        if (!$this->order instanceof OrderInterface) {
+            return $this
+                ->cartWrapper
+                ->loadCart()
+                ->getAmount()
+                ->getAmount() / 100;
+        }
+
         $amount = $this->order->getAmount();
 
         if ($amount instanceof Money) {
             return $this
                 ->order
                 ->getAmount()
-                ->getAmount();
+                ->getAmount() / 100;
         }
 
         throw new \LogicException(
@@ -160,6 +204,7 @@ class PaymentBridge implements PaymentBridgeInterface
     public function getExtraData()
     {
         $extraData = [];
+        $orderDescription = [];
 
         if ($this->order instanceof Order) {
             /**
@@ -168,23 +213,28 @@ class PaymentBridge implements PaymentBridgeInterface
             foreach ($this->order->getOrderLines() as $orderLine) {
 
                 $orderLineArray = [];
-                $orderLineArray['item_name'] = $orderLine
+
+                $orderLineName = $orderLine
                     ->getPurchasable()
                     ->getName();
+                $orderLineArray['item_name'] = $orderLineName;
 
                 $orderLineArray['amount'] = $orderLine
                     ->getAmount()
-                    ->getAmount();
+                    ->getAmount() / 100;
 
                 $orderLineArray['item_currency_code'] = $orderLine
                     ->getAmount()
                     ->getCurrency()
                     ->getIso();
 
+                $orderDescription[] = $orderLineName;
                 $orderLineArray['quantity'] = $orderLine->getQuantity();
 
                 $extraData['items'][$orderLine->getId()] = $orderLineArray;
             }
+
+            $extraData['order_description'] = implode(" - ", $orderDescription);
         }
 
         return $extraData;

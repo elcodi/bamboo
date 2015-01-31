@@ -12,8 +12,8 @@ fi
 HOME=$(pwd) sh -c 'composer install --no-interaction'
 
 # Creating database schema and tables
-/usr/bin/php app/console --no-interaction doc:dat:cre
-/usr/bin/php app/console --no-interaction doc:sch:cre
+/usr/bin/env php app/console --no-interaction doc:dat:cre
+/usr/bin/env php app/console --no-interaction doc:sch:cre
 
 # Allowed fixtures go here
 FIXTURES="AdminUser Category Country Currency Manufacturer Page Rates Attribute \
@@ -22,19 +22,19 @@ FIXTURES="AdminUser Category Country Currency Manufacturer Page Rates Attribute 
 for FIXTURE in ${FIXTURES}; do
      FIXTURES_OPTION="${FIXTURES_OPTION} --fixtures=src/Elcodi/Fixtures/DataFixtures/ORM/${FIXTURE}"
 done
-/usr/bin/php app/console --no-interaction doc:fix:load ${FIXTURES_OPTION}
+/usr/bin/env php app/console --no-interaction doc:fix:load ${FIXTURES_OPTION}
 
 # Load and enable templates. See Elcodi\Component\Template\Services\TemplateManager
-/usr/bin/php app/console el:tem:lo
-/usr/bin/php app/console el:tem:enable StoreTemplateBundle
+/usr/bin/env php app/console el:tem:lo
+/usr/bin/env php app/console el:tem:enable StoreTemplateBundle
 
 # Loads elcodi plugins. See Elcodi\Component\Plugin\Services\PluginManager
-/usr/bin/php app/console el:plu:lo
+/usr/bin/env php app/console el:plu:lo
 
 # Enables the store and makes it visible
-/usr/bin/php app/console el:con:set store.enabled 1
-/usr/bin/php app/console el:con:set store.under_construction 0
+/usr/bin/env php app/console el:con:set store.enabled 1
+/usr/bin/env php app/console el:con:set store.under_construction 0
 
 # Assets & Assetic
-/usr/bin/php app/console --no-interaction assets:install web --symlink
-/usr/bin/php app/console --no-interaction assetic:dump
+/usr/bin/env php app/console --no-interaction assets:install web --symlink
+/usr/bin/env php app/console --no-interaction assetic:dump

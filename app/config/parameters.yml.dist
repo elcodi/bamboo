@@ -28,6 +28,9 @@ parameters:
 
     paypal_web_checkout_recipient:          payment-test-facilitator@elcodi.com
 
+    paymill_public_key: 2476404399006243aa65bb1ccd6c43f4
+    paymill_private_key: 56ebd85ae7479627a4f05efa445365d3
+
     aws_access_key_id: fillme
     aws_secret_access_key: fillme
     aws_region: us-east-1
