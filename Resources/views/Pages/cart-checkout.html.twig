@@ -32,13 +32,17 @@
                     <p class="payment radios">
                         <input data-url="{{ url('freepayment_execute') }}" type="radio" id="field-card" name="field-method" checked="checked" /> {{ 'Free'|trans }}<br />
                         <input data-url="{{ url('paypal_web_checkout_execute') }}" type="radio" id="field-paypal" name="field-method" /> {{ 'Paypal'|trans }}<br />
-                        <input disabled="disabled" type="radio" id="field-card" name="field-method" /> {{ 'Credit/Debit card'|trans }}<br />
+                        <input data-url="" type="radio" id="field-paymill" name="field-method" /> {{ 'Credit/Debit card (via Paymill)'|trans }}<br />
                     </p>
 
                     <p class="buttons">
-                        <button class="btn btn-primary" type="submit">{{ 'Continue'|trans }}</button>
+                        <button id="form-payment-execute-submit" class="btn btn-primary" type="submit">{{ 'Continue'|trans }}</button>
                     </p>
 
+                </form>
+
+                <form id="paymill_form" class="hidden" action="{{ url('paymill_execute') }}" method="post">
+                    {{ paymill_render() }}
                 </form>
 
             </div>
@@ -50,7 +54,11 @@
 {% endblock %}
 
 {% block foot_script %}
+
     {{ parent() }}
+
+    {{ paymill_scripts() }}
+
     <script type="application/javascript">
 
         $(function() {
@@ -71,7 +79,18 @@
                  * method */
                 var executeUrl = $(this).data("url");
 
-                formPaymentExecute.attr("action", executeUrl);
+                if (executeUrl) {
+                    /* When no data-url is present in the radios,
+                     * it means we selected the "paymill" method */
+                    $("#form-payment-execute-submit").removeClass("hidden");
+                    $("#paymill_form").addClass("hidden");
+
+                    formPaymentExecute.attr("action", executeUrl);
+                } else {
+
+                    $("#form-payment-execute-submit").addClass("hidden");
+                    $("#paymill_form").removeClass("hidden");
+                }
             });
         });
 
