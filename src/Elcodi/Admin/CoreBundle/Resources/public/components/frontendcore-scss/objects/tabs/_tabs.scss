@@ -1,4 +1,4 @@
-@if $object-tabs != false {
+@if $object-tabs != false and $ui != true {
 	.tabs {
 		& {
 			overflow: hidden;
@@ -103,7 +103,7 @@
 	}
 }
 
-@if $object-tabs == default {
+@if $object-tabs == default and $ui != true {
 	.tabs {
 		& {
 			@include background-gradient-ie-old(transparent,$color-box);

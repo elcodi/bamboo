@@ -2,10 +2,10 @@ TinyCore.AMD.define('slug', ['devicePackage'], function () {
 	return {
 		onStart: function () {
 
-			var aTargets = FC.getDataModules('slug'),
+			var aTargets = oTools.getDataModules('slug'),
 				self = this;
 
-			FC.trackEvent('JS_Libraries', 'call', 'slug');
+			oTools.trackEvent('JS_Libraries', 'call', 'slug');
 
 			if (document.getElementById('breadcrumb').innerHTML.indexOf('Create new Category') !== -1) {
 				$(aTargets).each(function () {

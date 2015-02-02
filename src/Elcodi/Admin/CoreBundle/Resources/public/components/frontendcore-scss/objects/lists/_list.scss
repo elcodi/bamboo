@@ -1,8 +1,8 @@
-@if $object-lists != false {
+@if $object-lists != false and $ui != true {
 
 	ul[class*='list-'], ul.list {
 		& {
-			list-style: disc outside;
+			list-style: disc inside;
 			padding-left: $spacing;
 		}
 		ul {
@@ -13,7 +13,7 @@
 	}
 
 	ol.list, ol.list-horizontal {
-		list-style: decimal outside;
+		list-style: decimal inside;
 		padding-left: $spacing;
 	}
 

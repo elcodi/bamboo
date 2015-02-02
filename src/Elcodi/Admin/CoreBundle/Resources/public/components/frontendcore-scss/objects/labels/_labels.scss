@@ -1,4 +1,4 @@
-@if $object-labels != false {
+@if $object-labels != false and $ui != true {
 	[class*='label-'], .label {
 		display: inline-block;
 		position: relative;

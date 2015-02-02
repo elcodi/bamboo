@@ -1,0 +1,66 @@
+@if $ui-sortable == true and $ui == true {
+
+	.js-sortable {
+		& {
+			position: relative;
+		}
+		ol, ul {
+			min-height: $spacing/4;
+		}
+		& > li {
+			min-height: $spacing*2.2;
+			vertical-align: middle;
+			padding-top: $spacing/4;
+			border-bottom: 1px solid $color-box-dark;
+			margin-bottom: $spacing/4;
+		}
+		& > li > ol, & > li > ul {
+			overflow: hidden;
+		}
+		li {
+			display: block;
+			cursor: pointer;
+			z-index: 500;
+			padding: $spacing/4 $spacing/2;
+			background: rgba($color-box-dark, .2);
+			@include border-radius;
+			margin-bottom: 1px;
+		}
+		.placeholder {
+			& {
+				position: relative;
+				margin: 0;
+				padding: 0;
+				content: "(" attr(class) ")";
+				border: 0px none;
+				background-color: $color-primary;
+				opacity: .1;
+				min-height: $spacing*1.5;
+				margin-bottom: 2px;
+				color: contrast-color($color-primary);
+			}
+		}
+
+	}
+	body.dragging, body.dragging * {
+		cursor: move !important
+	}
+	.list {
+		.dragged {
+			padding-left: $spacing;
+		}
+	}
+	.dragged {
+		position: absolute;
+		display: block;
+		top: 0;
+		opacity: .5;
+		z-index: 2000;
+	}
+	.sortable-drop {
+		& > li, ol, ul {
+			position: relative;
+			z-index: 100;
+		}
+	}
+}

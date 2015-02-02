@@ -1,5 +1,7 @@
 @media screen and (min-width: 980px){
 
+	@debug $ui;
+
 	@include desktop-core;
 	@include papa-sidebar;
 	@include papa-section-header;

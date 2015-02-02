@@ -7,6 +7,7 @@ Mark the element with the desired text class.
 Complete acronym reference based on Emmet:
 
 FIRST TWO LETTERS
+va = vertical-align
 ta = text-align
 td = text-decoration
 
@@ -16,24 +17,39 @@ c = center
 r = right
 u = underline
 n = none
+m = middle
+t = top
+b = bottom
 */
 
-.ta-l {
-	text-align: left !important;
-}
+@if $ui != true {
 
-.ta-c {
-	text-align: center !important;
-}
+	.va-m {
+		vertical-align: middle !important;
+	}
+	.va-b {
+		vertical-align: bottom !important;
+	}
+	.va-t {
+		vertical-align: top !important;
+	}
+	.ta-l {
+		text-align: left !important;
+	}
 
-.ta-r {
-	text-align: right !important;
-}
+	.ta-c {
+		text-align: center !important;
+	}
 
-.td-u {
-	text-decoration:underline !important;
-}
+	.ta-r {
+		text-align: right !important;
+	}
 
-.td-n {
-	text-decoration:none !important;
+	.td-u {
+		text-decoration: underline !important;
+	}
+
+	.td-n {
+		text-decoration: none !important;
+	}
 }

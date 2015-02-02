@@ -1,32 +1,34 @@
 @mixin tablet-core {
-	.desktop, .mobile {
-		& {
-			display:none;
+	@if $ui != true {
+		.desktop, .mobile {
+			& {
+				display: none;
+			}
+			&.d-ib, &.d-b {
+				display: none !important;
+			}
 		}
-		&.d-ib, &.d-b {
-			display: none !important;
+		.tablet {
+			& {
+				display: block !important;
+			}
+			&.d-ib, &.inline-block {
+				display: inline-block !important;
+			}
 		}
-	}
-	.tablet {
-		& {
-			display:block !important;
+
+		td.tablet, th.tablet {
+			display: table-cell !important;
 		}
-		&.d-ib, &.inline-block {
-			display: inline-block !important;
+
+		@if $object-boxes != false {
+			@include papa-boxes;
 		}
+
+		@include tablet-grid;
+
+		@include mobile-tabs;
+
+		@include mobile-header;
 	}
-
-	td.tablet, th.tablet {
-		display: table-cell !important;
-	}
-
-	@if $object-boxes != false {
-		@include papa-boxes;
-	}
-
-	@include tablet-grid;
-
-	@include mobile-tabs;
-
-	@include mobile-header;
 }

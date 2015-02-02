@@ -1,4 +1,4 @@
-@if $ui-stats == true {
+@if $ui-stats == true and $ui == true {
 	/*plugin styles*/
 	.visualize {
 		& {
@@ -35,7 +35,7 @@
 			display:block;
 			color: $color-foreground;
 			margin-bottom:$spacing/8;
-			@extend .fz-h3;
+			@extend %fz-h3;
 			position:absolute;
 			top:$spacing/2;
 			left:0;

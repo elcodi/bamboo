@@ -1,4 +1,4 @@
-@if $object-form != false {
+@if $object-form != false and $ui != true {
 
 	[class^='form'] {
 		& {

@@ -1,4 +1,4 @@
-@if $ui-tags == true {
+@if $ui-tags == true and $ui == true {
 	/* AutoSuggest CSS - Version 1.2 */
 
 	ul.as-selections {

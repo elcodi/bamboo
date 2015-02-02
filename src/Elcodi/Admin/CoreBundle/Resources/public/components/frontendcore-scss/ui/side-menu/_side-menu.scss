@@ -1,4 +1,4 @@
-@if $ui-side-menu == true {
+@if $ui-side-menu == true and $ui == true {
 
 	.sidr {
 		&{

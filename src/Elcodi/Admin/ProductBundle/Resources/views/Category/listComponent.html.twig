@@ -1,26 +1,59 @@
 {% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
 
+{% block table_content %}
+    <div class="grid">
+        <div class="col-1-3">
+            <div class="box-none">
+                <h3 class="fw-n">{% trans %}Order & Edit{% endtrans %}</h3>
+                <p>{% trans %}Drag & Drop the categories to order or nest one inside others. (2 Level max).{% endtrans %}</p>
+                <p>{% trans %}Click on a category to edit.{% endtrans %}</p>
+                <p>{% trans %}Click on a the trash to delete a category.{% endtrans %}</p>
+            </div>
+        </div>
+        <div class="col-2-3">
+            <div class="box-background">
+            <ol id="categories-list" data-tc-modules="sortable" {#data-tc-url="#"#} data-tc-type="nested" data-tc-output="json" data-tc-depth="2">
+                {% for node in categories_list %}
+                    <li class="pr-n">
+                        <p class="fl-r fz-s pr-l">
+                            {% if node.entity.enabled %}<span class="label-ok fz-xs mr-l">Enabled</span>{% else %}<span class="label fz-xs mr-l">Disabled</span>{% endif %}
+                            {{ node.entity.products|length }} {{ 'Products inside'|trans }}
+                            <a class="icon-trash-o c-ko td-n fz-l ml-l" title="{{ 'delete'|trans }}" href="{{ url("admin_category_delete", {"id": node.entity.id}) }}" data-tc-modules="confirm" data-tc-name="{{ node.entity.name }}" data-tc-text="{{ "Are you sure you want to delete it?"|trans }}"></a>
+                        </p>
+                        <a href="{{ url("admin_category_edit", {"id": node.entity.id}) }}" class="fw-n va-b">
+                            {{ node.entity.name }}
+                        </a>
+                        {% if node.children|length > 0 %}
+                            <ol>
+                                {% for child in node.children %}
+                                    <li class="pr-n">
+                                        <p class="fl-r fz-s pr-l">
+                                            {% if child.entity.enabled %}<span class="label-ok fz-xs mr-l">Enabled</span>{% else %}<span class="label fz-xs mr-l">Disabled</span>{% endif %}
+                                            {{ child.entity.products|length }} {{ 'Products inside'|trans }}
+                                            <a class="icon-trash-o c-ko td-n fz-l ml-l" title="{{ 'delete'|trans }}" href="{{ url("admin_category_delete", {"id": child.entity.id}) }}" data-tc-modules="confirm" data-tc-name="{{ child.entity.name }}" data-tc-text="{{ "Are you sure you want to delete it?"|trans }}"></a>
+                                        </p>
+                                        <a href="{{ url("admin_category_edit", {"id": child.entity.id}) }}">
+                                            {{ child.entity.name }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ol>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ol>
+            </div>
+        </div>
+    </div>
+{% endblock table_content %}
+
 {% block no_items %}
     {{ lists.no_items('category','categories', url("admin_category_new")  ) }}
 {% endblock no_items %}
 
-{% block table_head %}
+{% block table_pagination %}{% endblock table_pagination %}
 
-    {% include "@AdminCore/Tables/head.html.twig" with {
-        rows: {
-            "Name & Slug": {},
-            "SubCategories": {sorting_disabled: true},
-            "Products": {width:"10", sorting_disabled: true},
-            "Root": {width:"10"},
-            "Position": {width:"10"},
-            "Enabled": {width:"5"},
-        },
-        class: "category",
-    } %}
-
-{% endblock table_head %}
-
-{% block table_body_row %}
+{% block none %}
     <td>
         <a href="{{ url("admin_category_edit", {"id": entity.id}) }}">
            <strong>{{ entity.name }}</strong>
@@ -59,12 +92,4 @@
         class: "category",
     } %}
 
-{% endblock table_body_row %}
-
-
-{% block table_paginator_links %}
-
-    {% set url = 'admin_category_list' %}
-    {{ parent() }}
-
-{% endblock table_paginator_links %}
+{% endblock none %}

@@ -1,4 +1,4 @@
-@if $object-buttons != false {
+@if $object-buttons != false and $ui != true {
 	[class*='button-'], .button {
 		& {
 			@extend %button;
@@ -49,7 +49,7 @@
 
 }
 
-@if $object-style == flat {
+@if $object-style == flat and $ui != true {
 
 	.button {
 		@include background-transparent($color-foreground, .25);
@@ -143,7 +143,7 @@
 	}
 }
 
-@if $object-style == gradient {
+@if $object-style == gradient and $ui != true {
 
 	.button {
 		@include background-image(linear-gradient($color-box 30%, $color-box-dark 70%));

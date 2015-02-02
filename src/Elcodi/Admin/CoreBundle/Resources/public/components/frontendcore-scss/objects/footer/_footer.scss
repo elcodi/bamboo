@@ -1,4 +1,4 @@
-@if $object-footer != false {
+@if $object-footer != false and $ui != true {
 
 	.footer {
 		@extend  %header-footer;

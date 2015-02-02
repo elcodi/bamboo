@@ -27,13 +27,16 @@ bg-ok
 
 $colors-list: 'foreground','background','primary','secondary','box','ko','ok','info','warning' ;
 
-@each $color in $colors-list {
+@if $ui != true {
 
-	.c-#{$color}, .c-#{$color}:before, .c-#{$color}:after {
-		color: map-get($colors, $color) !important;
-	}
+	@each $color in $colors-list {
 
-	.bg-#{$color}, .bg-#{$color}:before, .bg-#{$color}:after {
-		background-color: map-get($colors, $color) !important;
+		.c-#{$color}, .c-#{$color}:before, .c-#{$color}:after {
+			color: map-get($colors, $color) !important;
+		}
+
+		.bg-#{$color}, .bg-#{$color}:before, .bg-#{$color}:after {
+			background-color: map-get($colors, $color) !important;
+		}
 	}
 }

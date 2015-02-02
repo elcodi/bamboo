@@ -1,4 +1,4 @@
-@if $object-navigation != false {
+@if $object-navigation != false and $ui != true {
 
 	@if map-get($object-navigation-vars, style) == default {
 

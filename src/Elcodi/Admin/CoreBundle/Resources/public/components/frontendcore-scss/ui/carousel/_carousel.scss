@@ -1,4 +1,4 @@
-@if $ui-carousel == true {
+@if $ui-carousel == true and $ui == true {
 	.carousel {
 		.animated {
 			-webkit-animation-duration: 1000ms;

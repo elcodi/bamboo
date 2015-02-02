@@ -1,4 +1,4 @@
-@if $ui-tips == true {
+@if $ui-tips == true and $ui == true {
 	.opentip-container,
 	.opentip-container * {
 		@include box-sizing(border-box);
@@ -21,7 +21,7 @@
 			transform: translateX(0) translateY(0);
 		}
 		h1 {
-			@extend .fz-h4;
+			@extend %fz-h4;
 		}
 
 	}

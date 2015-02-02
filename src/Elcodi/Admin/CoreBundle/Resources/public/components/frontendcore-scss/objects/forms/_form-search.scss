@@ -1,4 +1,4 @@
-@if ($object-form != false) and ($object-form-search != false) {
+@if ($object-form != false) and ($object-form-search != false) and $ui != true {
 
 	.form-search {
 		& {

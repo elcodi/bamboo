@@ -1,4 +1,4 @@
-@if $object-steps != false {
+@if $object-steps != false and $ui != true {
 
 	$steps-color:contrast-color($color-primary, lighten($color-primary, 30%), darken($color-primary, 30%));
 

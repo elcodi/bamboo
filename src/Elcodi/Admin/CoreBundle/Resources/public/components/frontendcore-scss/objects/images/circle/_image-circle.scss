@@ -1,4 +1,4 @@
-@if $object-image-circle != false {
+@if $object-image-circle != false and $ui != true {
 
 	img.image-circle {
 		@extend %images-circle;

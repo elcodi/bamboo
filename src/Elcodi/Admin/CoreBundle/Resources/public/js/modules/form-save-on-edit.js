@@ -7,7 +7,7 @@ TinyCore.AMD.define('form-save-on-edit', ['devicePackage'], function () {
 				$Articles = $('article', oContainer),
 				self = this;
 
-			FC.trackEvent('JS_Libraries', 'call', 'form-configuration');
+			oTools.trackEvent('JS_Libraries', 'call', 'form-configuration');
 
 			$li.each(function () {
 				self.autobind(this);

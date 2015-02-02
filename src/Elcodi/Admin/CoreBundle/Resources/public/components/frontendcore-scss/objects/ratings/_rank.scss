@@ -1,4 +1,4 @@
-@if $object-ratings != false {
+@if $object-ratings != false and $ui != true {
 	@for $rank from 0 through $default-rank-max {
 		.rating-#{$rank}-5 {
 			@extend %rating;

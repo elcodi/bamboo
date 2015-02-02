@@ -1,4 +1,4 @@
-@if $ui-wysiwyg == true {
+@if $ui-wysiwyg == true and $ui == true {
 	.fc-wysiwyg {
 		& {
 			@extend %field;
@@ -548,7 +548,7 @@
 					color: #ddd;
 				}
 				&:after {
-					content: "](" attr(href) ")";
+					content: "(" attr(href) ")";
 					color: #ddd;
 				}
 			}
