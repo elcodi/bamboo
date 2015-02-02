@@ -58,6 +58,7 @@ class AdminProductExtension extends AbstractExtension
         return [
             'classes',
             'formTypes',
+            'eventListeners',
         ];
     }
 

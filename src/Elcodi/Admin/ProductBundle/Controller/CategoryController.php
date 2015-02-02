@@ -44,43 +44,18 @@ class CategoryController extends AbstractAdminController
      * This action is just a wrapper, so should never get any data,
      * as this is component responsibility
      *
-     * @param integer $page             Page
-     * @param integer $limit            Limit of items per page
-     * @param string  $orderByField     Field to order by
-     * @param string  $orderByDirection Direction to order by
-     *
      * @return array Result
      *
      * @Route(
-     *      path = "/categories/{page}/{limit}/{orderByField}/{orderByDirection}",
-     *      name = "admin_category_list",
-     *      requirements = {
-     *          "page" = "\d*",
-     *          "limit" = "\d*",
-     *      },
-     *      defaults = {
-     *          "page" = "1",
-     *          "limit" = "50",
-     *          "orderByField" = "id",
-     *          "orderByDirection" = "DESC",
-     *      },
+     *      path = "/categories",
+     *      name = "admin_category_list"
      * )
      * @Template
      * @Method({"GET"})
      */
-    public function listAction(
-        $page,
-        $limit,
-        $orderByField,
-        $orderByDirection
-    )
+    public function listAction()
     {
-        return [
-            'page'             => $page,
-            'limit'            => $limit,
-            'orderByField'     => $orderByField,
-            'orderByDirection' => $orderByDirection,
-        ];
+        return [];
     }
 
     /**

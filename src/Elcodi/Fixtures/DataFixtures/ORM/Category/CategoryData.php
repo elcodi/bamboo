@@ -57,7 +57,8 @@ class CategoryData extends AbstractFixture
             ->setMetaDescription('Women Shirts')
             ->setMetaKeywords('Women Shirts')
             ->setEnabled(true)
-            ->setRoot(true);
+            ->setRoot(true)
+            ->setPosition(0);
 
         $categoryObjectManager->persist($womenCategory);
         $this->addReference('category-women', $womenCategory);
@@ -100,7 +101,8 @@ class CategoryData extends AbstractFixture
             ->setMetaDescription('Men Shirts')
             ->setMetaKeywords('Men Shirts')
             ->setEnabled(true)
-            ->setRoot(true);
+            ->setRoot(true)
+            ->setPosition(1);
 
         $categoryObjectManager->persist($menCategory);
         $this->addReference('category-men', $menCategory);

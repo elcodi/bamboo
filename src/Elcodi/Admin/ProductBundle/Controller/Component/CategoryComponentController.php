@@ -17,6 +17,7 @@
 namespace Elcodi\Admin\ProductBundle\Controller\Component;
 
 use Doctrine\ORM\Tools\Pagination\Paginator;
+use Elcodi\Component\Product\Entity\Category;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Paginator as PaginatorAnnotation;
@@ -40,60 +41,21 @@ class CategoryComponentController extends AbstractAdminController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Paginator           $paginator           Paginator instance
-     * @param PaginatorAttributes $paginatorAttributes Paginator attributes
-     * @param integer             $page                Page
-     * @param integer             $limit               Limit of items per page
-     * @param string              $orderByField        Field to order by
-     * @param string              $orderByDirection    Direction to order by
-     *
      * @return array Result
      *
      * @Route(
-     *      path = "s/list/component/{page}/{limit}/{orderByField}/{orderByDirection}",
-     *      name = "admin_category_list_component",
-     *      requirements = {
-     *          "page" = "\d*",
-     *          "limit" = "\d*",
-     *      },
-     *      defaults = {
-     *          "page" = "1",
-     *          "limit" = "50",
-     *          "orderByField" = "id",
-     *          "orderByDirection" = "DESC",
-     *      },
+     *      path = "s/list/component",
+     *      name = "admin_category_list_component"
      * )
      * @Template("AdminProductBundle:Category:listComponent.html.twig")
      * @Method({"GET"})
-     *
-     * @PaginatorAnnotation(
-     *      attributes = "paginatorAttributes",
-     *      class = "elcodi.core.product.entity.category.class",
-     *      page = "~page~",
-     *      limit = "~limit~",
-     *      orderBy = {
-     *          {"x", "~orderByField~", "~orderByDirection~"}
-     *      }
-     * )
      */
-    public function listComponentAction(
-        Paginator $paginator,
-        PaginatorAttributes $paginatorAttributes,
-        $page,
-        $limit,
-        $orderByField,
-        $orderByDirection
-    )
+    public function listComponentAction()
     {
-        return [
-            'paginator'        => $paginator,
-            'page'             => $page,
-            'limit'            => $limit,
-            'orderByField'     => $orderByField,
-            'orderByDirection' => $orderByDirection,
-            'totalPages'       => $paginatorAttributes->getTotalPages(),
-            'totalElements'    => $paginatorAttributes->getTotalElements(),
-        ];
+        $category_manager = $this->get('elcodi.category_tree');
+        $category_tree   = $category_manager->buildCategoryTree();
+
+        return ['categories_list' => $category_tree];
     }
 
     /**
