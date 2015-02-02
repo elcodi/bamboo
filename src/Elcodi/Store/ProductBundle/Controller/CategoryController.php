@@ -20,7 +20,6 @@ use Mmoreram\ControllerExtraBundle\Annotation\Entity as AnnotationEntity;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
-
 use Elcodi\Component\Product\Entity\Interfaces\CategoryInterface;
 use Elcodi\Store\CoreBundle\Controller\Traits\TemplateRenderTrait;
 
@@ -54,7 +53,7 @@ class CategoryController extends Controller
             ->get('id');
 
         $categoryTree = $this
-            ->get('elcodi.core.product.service.category_manager')
+            ->get('store.product.service.store_category_tree')
             ->load();
 
         return $this->renderTemplate(

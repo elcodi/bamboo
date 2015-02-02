@@ -4,3 +4,4 @@ parameters:
     # services
     #
     store.product.service.product_collection_provider.class: Elcodi\Store\ProductBundle\Services\ProductCollectionProvider
+    store.product.service.store_category_tree.class: Elcodi\Store\ProductBundle\Services\StoreCategoryTree

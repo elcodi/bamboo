@@ -3,3 +3,13 @@ services:
     store.product.service.product_collection_provider:
         class: %store.product.service.product_collection_provider.class%
         parent: elcodi.core.product.service.product_collection_provider
+
+    store.product.service.store_category_tree:
+        class: %store.product.service.store_category_tree.class%
+        arguments:
+            category_tree_service: @elcodi.category_tree
+            load_only_categories_with_products: %elcodi.core.product.load_only_categories_with_products%
+            key: %elcodi.core.product.cache_key%
+        calls:
+            - [setCache, [@doctrine_cache.providers.elcodi_categories]]
+            - [setEncoder, [@elcodi.json_encoder]]
