@@ -134,11 +134,6 @@ $susy: (
 	.no-overflow {
 		overflow: visible;
 	}
-	.pull-right {
-		float: right;
-		margin-left:$spacing;
-		margin-right:0;
-	}
 
 }
 
@@ -176,4 +171,10 @@ $susy: (
 		padding-left:0;
 		padding-right:0;
 	}
+}
+
+.push-right {
+	float: right;
+	margin-left:$spacing;
+	margin-right:0;
 }
