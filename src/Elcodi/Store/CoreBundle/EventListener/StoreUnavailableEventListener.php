@@ -16,23 +16,15 @@
 
 namespace Elcodi\Store\CoreBundle\EventListener;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
-use Symfony\Component\Templating\EngineInterface;
+use Symfony\Component\HttpKernel\Exception\ServiceUnavailableHttpException;
+use Symfony\Component\Security\Http\Firewall\ListenerInterface;
 
 /**
  * Class StoreUnavailableEventListener
  */
-class StoreUnavailableEventListener
+class StoreUnavailableEventListener implements ListenerInterface
 {
-    /**
-     * @var EngineInterface
-     *
-     * Template engine
-     */
-    protected $templateEngine;
-
     /**
      * @var boolean
      *
@@ -43,81 +35,33 @@ class StoreUnavailableEventListener
     /**
      * @var string
      *
-     * Template
+     * Message string when not available
      */
-    protected $templatePath;
-
-    /**
-     * @var string
-     *
-     * Admin prefix
-     */
-    protected $adminPrefix;
+    protected $message;
 
     /**
      * Constructor
      *
-     * @param EngineInterface $templateEngine Template engine
-     * @param string          $templatePath   Template
-     * @param boolean         $isAvailable    Store is available
-     * @param string          $adminPrefix    Admin prefix
+     * @param boolean $isAvailable Store is available
+     * @param string  $message     Error message
      */
-    public function __construct(
-        EngineInterface $templateEngine,
-        $templatePath,
-        $isAvailable,
-        $adminPrefix
-    )
+    public function __construct($isAvailable, $message = '')
     {
-        $this->templateEngine = $templateEngine;
-        $this->templatePath = $templatePath;
         $this->isAvailable = $isAvailable;
-        $this->adminPrefix = $adminPrefix;
+        $this->message = $message;
     }
 
     /**
-     * Check if store is enabled
+     * This interface must be implemented by firewall listeners.
      *
-     * @param GetResponseEvent $event Event
-     *
-     * @return Response
+     * @param GetResponseEvent $event
      */
-    public function redirectWhenUnavailable(GetResponseEvent $event)
+    public function handle(GetResponseEvent $event)
     {
         if ($this->isAvailable) {
             return;
         }
 
-        $inStore = $this
-            ->inStore(
-                $event->getRequest(),
-                $this->adminPrefix
-            );
-
-        if (!$inStore) {
-            return;
-        }
-
-        $data = $this
-            ->templateEngine
-            ->render($this->templatePath);
-
-        $response = new Response($data, Response::HTTP_SERVICE_UNAVAILABLE);
-        $event->setResponse($response);
-    }
-
-    /**
-     * Check if current request is in store
-     *
-     * @param Request $request     Request
-     * @param string  $adminPrefix Admin prefix
-     *
-     * @return boolean In store
-     */
-    protected function inStore(Request $request, $adminPrefix)
-    {
-        $route = $request->getRequestUri();
-
-        return 0 === preg_match('(_(profiler|wdt)|css|images|js|' . $adminPrefix . ')', $route);
+        throw new ServiceUnavailableHttpException(null, $this->message);
     }
 }
