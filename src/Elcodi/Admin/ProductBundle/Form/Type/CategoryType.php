@@ -48,28 +48,18 @@ class CategoryType extends AbstractType
     protected $productFactory;
 
     /**
-     * @var CategoryRepository
-     *
-     * Category repository
-     */
-    protected $categoryRepository;
-
-    /**
      * Constructor
      *
      * @param CategoryFactory    $categoryFactory    Category Factory
      * @param ProductFactory     $productFactory     Product Factory
-     * @param CategoryRepository $categoryRepository Category Repository
      */
     public function __construct(
         CategoryFactory $categoryFactory,
-        ProductFactory $productFactory,
-        CategoryRepository $categoryRepository
+        ProductFactory $productFactory
     )
     {
         $this->categoryFactory = $categoryFactory;
         $this->productFactory = $productFactory;
-        $this->categoryRepository = $categoryRepository;
     }
 
     /**
@@ -95,9 +85,6 @@ class CategoryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $currentCategoryId = $builder->getData()->getId();
-        $parentEntityWhereClause = $currentCategoryId
-            ? "c.id <> $currentCategoryId AND c.root = 1"
-            : "c.root = 1";
 
         $builder
             ->add('name', 'text', [
@@ -134,10 +121,7 @@ class CategoryType extends AbstractType
             ])
             ->add('parent', 'entity', [
                 'class'         => $this->categoryFactory->getEntityNamespace(),
-                'query_builder' => $this
-                    ->categoryRepository
-                    ->createQueryBuilder('c')
-                    ->where($parentEntityWhereClause),
+                'query_builder' => $this->getAvailableCategories($currentCategoryId),
                 'required'      => false,
                 'label'         => 'parent',
                 'multiple'      => false,
@@ -150,6 +134,30 @@ class CategoryType extends AbstractType
             ]);
 
         $builder->addEventSubscriber($this->getEntityTranslatorFormEventListener());
+    }
+
+    /**
+     * This method returns a closure used to show only the valid categories to be selected as parent.
+     *
+     * @param integer|null $currentCategoryId The current category id
+     *
+     * @return callable
+     */
+    protected function getAvailableCategories($currentCategoryId)
+    {
+        return function (CategoryRepository $categoryRepository) use ($currentCategoryId) {
+            $queryBuilder = $categoryRepository
+                ->createQueryBuilder('c')
+                ->where('c.root = 1');
+
+            if ($currentCategoryId) {
+                $queryBuilder
+                    ->andWhere('c.id <> :parent_category')
+                    ->setParameter('parent_category', $currentCategoryId);
+            }
+
+            return $queryBuilder;
+        };
     }
 
     /**
