@@ -38,9 +38,10 @@ class CategoriesOrderChangeEventListener
     }
 
     /**
-     * This method is called every time that the categories order change, it reloads the categories tree.
+     * This method is called every time that some property that could affect the categories tree is changed and it
+     * reloads the full tree.
      */
-    public function onOrderChange()
+    public function onChange()
     {
         $this->storeCategoryTree->reload();
     }

@@ -101,7 +101,7 @@ class CategorySorter
         if ($this->sortCategoriesTree($categoriesOrder)) {
             $this->categoryObjectManager->flush();
 
-            $this->eventDispatcher->dispatch(ProductEvents::CATEGORIES_ONORDERCHANGE);
+            $this->eventDispatcher->dispatch(ProductEvents::CATEGORIES_ONCHANGE);
             return true;
         }
 
@@ -137,6 +137,7 @@ class CategorySorter
             } else {
                 $category->setPosition($counter);
                 $category->setRoot(true);
+                $category->setParent(null);
             }
 
             ++$counter;

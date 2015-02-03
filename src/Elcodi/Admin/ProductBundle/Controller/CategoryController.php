@@ -26,6 +26,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
+use Elcodi\Admin\ProductBundle\ProductEvents;
 use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 use Elcodi\Component\Product\Entity\Interfaces\CategoryInterface;
 
@@ -129,6 +130,8 @@ class CategoryController extends AbstractAdminController
             $this->flush($category);
 
             $this->addFlash('success','Changes saved');
+
+            $this->get('event_dispatcher')->dispatch(ProductEvents::CATEGORIES_ONCHANGE);
 
             return $this->redirectToRoute('admin_category_edit', [
                 'id' => $category->getId(),

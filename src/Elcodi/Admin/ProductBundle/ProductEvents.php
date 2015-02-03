@@ -26,5 +26,5 @@ final class ProductEvents
      *
      * event.name : categories.onorderchange
      */
-    const CATEGORIES_ONORDERCHANGE = 'categories.onorderchange';
+    const CATEGORIES_ONCHANGE = 'categories.onchange';
 }
