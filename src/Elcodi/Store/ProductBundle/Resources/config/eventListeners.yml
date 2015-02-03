@@ -8,4 +8,4 @@ services:
         arguments:
             store_category_tree: @store.product.service.store_category_tree
         tags:
-            - { name: kernel.event_listener, event: categories.onorderchange, method: onOrderChange }
+            - { name: kernel.event_listener, event: categories.onchange, method: onChange }
