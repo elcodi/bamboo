@@ -7,5 +7,6 @@ services:
         class: %store.user.event_listener.remember_password.class%
         arguments:
             - @security.context
+            - %bamboo_store_firewall%
         tags:
             - { name: kernel.event_listener, event: password.recover, method: onPasswordRecover }

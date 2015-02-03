@@ -9,6 +9,7 @@ services:
             mailer: @mailer
             templating: @templating
             security_context: @security.context
+            providerKey: %bamboo_store_firewall%
         tags:
             - { name: kernel.event_listener, event: password.remember, method: onPasswordRemember }
             - { name: kernel.event_listener, event: password.recover, method: onPasswordRecover }
