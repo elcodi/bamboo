@@ -6,7 +6,7 @@
 <tr>
     <td class="image">
         <a href="{{ productRoute }}">
-            <img src="{{ product.principalImage ? product.principalImage|resize({
+            <img src="{{ product.images|length > 0 ? product.images.first|resize({
                 width: 80,
                 height: 80,
                 type: 5 }) : 'http://placehold.it/80x80'

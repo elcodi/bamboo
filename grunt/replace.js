@@ -35,6 +35,10 @@ module.exports = {
 				to: ''
 			},
 			{
+				from: "'::",                   // string replacement
+				to: "'"
+			},
+			{
 				from: "render url('store_currency_nav')",                   // string replacement
 				to: "include ('currency-list.html.twig')"
 			},			{

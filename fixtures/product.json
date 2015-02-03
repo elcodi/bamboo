@@ -13,7 +13,10 @@
     "enable" : true,
     "price" : "7.99",
     "reducedPrice" : "1.99",
-    "principalImage" : "../fixtures/img/lips.jpg",
+    "principalImage" :  "../../../fixtures/img/lips.jpg",
+    "images" : {
+      "first" :  "../../../fixtures/img/lips.jpg"
+    },
     "attributes" : {
       "1" : {
         "id" : "1",

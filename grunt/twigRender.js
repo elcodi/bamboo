@@ -79,6 +79,16 @@ module.exports = function(grunt, fixtures) {
 						return path.replace('bundles/storetemplate/', '../');
 					});
 
+
+					Twig.exports.extendFunction("elcodi_hook", function (value) {
+
+						if (value === undefined || value === null) {
+							return;
+						}
+
+						return '';
+					});
+
 					Twig.exports.extendFunction("url", function (path) {
 						return '#';
 					});

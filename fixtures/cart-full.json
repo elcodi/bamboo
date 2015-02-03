@@ -32,7 +32,10 @@
               "showInHome" : true,
               "enable" : true,
               "price" : "10.00",
-              "principalImage" : "../fixtures/img/banana.jpg"
+              "principalImage" : "../fixtures/img/banana.jpg",
+              "images" : {
+                "first" :  "../../../fixtures/img/banana.jpg"
+              }
             },
             "purchasable" : {
               "price" : 10.00
@@ -56,7 +59,10 @@
               "showInHome" : true,
               "enable" : true,
               "price" : 15.00,
-              "principalImage" : "../fixtures/img/there.jpg"
+              "principalImage" : "../fixtures/img/there.jpg",
+              "images" : {
+                "first" :  "../../../fixtures/img/there.jpg"
+              }
             },
             "purchasable" : {
               "price" : 15.00
@@ -80,7 +86,10 @@
               "showInHome" : true,
               "enable" : true,
               "price" : 10.00,
-              "principalImage" : "../fixtures/img/there.jpg"
+              "principalImage" : "../fixtures/img/there.jpg",
+              "images" : {
+                "first" :  "../../../fixtures/img/there.jpg"
+              }
             },
             "purchasable" : {
               "price" : 10.00
