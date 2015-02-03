@@ -1,4 +1,4 @@
-@if $object-navigation != false {
+@if $object-navigation != false and $ui != true {
 
 	.navigation-dropdown {
 		& > a {
@@ -6,7 +6,7 @@
 			margin-bottom: 0;
 		}
 		&:after {
-			@extend .#{$fa-css-prefix};
+			@extend .#{$fa-css-prefix} !optional;
 			content: $fa-var-angle-down;
 			color: $color-background;
 			position: absolute;

@@ -2,10 +2,10 @@ TinyCore.AMD.define('confirm', ['devicePackage' ], function () {
     return {
         onStart: function () {
 
-            var aTargets = FC.getDataModules('confirm'),
+            var aTargets = oTools.getDataModules('confirm'),
                 self = this;
 
-            FC.trackEvent('JS_Libraries', 'call', 'slug');
+            oTools.trackEvent('JS_Libraries', 'call', 'slug');
 
             $(aTargets).each(function () {
                 self.autobind(this);

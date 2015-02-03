@@ -23,34 +23,37 @@ v = visible
 
 */
 
-.fl-n {
-	float: none !important;
-}
-.fl-l {
-	float: left !important;
-}
-.fl-r {
-	float: right !important;
-}
+@if $ui != true {
 
-//	Displays
-.d-n {
-	display: none !important;
-}
-.d-b {
-	display: block !important;
-}
-.d-i {
-	display: inline !important;
-}
-.d-ib {
-	display: inline-block !important;
-}
+	.fl-n {
+		float: none !important;
+	}
+	.fl-l {
+		float: left !important;
+	}
+	.fl-r {
+		float: right !important;
+	}
 
-.o-h {
-	overflow:hidden  !important;
-}
+	//	Displays
+	.d-n {
+		display: none !important;
+	}
+	.d-b {
+		display: block !important;
+	}
+	.d-i {
+		display: inline !important;
+	}
+	.d-ib {
+		display: inline-block !important;
+	}
 
-.o-v {
-	overflow:visible !important;
+	.o-h {
+		overflow: hidden !important;
+	}
+
+	.o-v {
+		overflow: visible !important;
+	}
 }

@@ -4,3 +4,9 @@ parameters:
     # services
     #
     store.product.service.product_collection_provider.class: Elcodi\Store\ProductBundle\Services\ProductCollectionProvider
+    store.product.service.store_category_tree.class: Elcodi\Store\ProductBundle\Services\StoreCategoryTree
+
+    #
+    # event listeners
+    #
+    store.product.event_listener.categories_order_change.class: Elcodi\Store\ProductBundle\EventListener\CategoriesOrderChangeEventListener

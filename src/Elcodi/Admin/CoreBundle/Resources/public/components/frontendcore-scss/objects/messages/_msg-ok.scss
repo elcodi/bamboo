@@ -1,4 +1,4 @@
-@if $object-messages != false {
+@if $object-messages != false and $ui != true {
 	.msg-ok {
 		& {
 			border-color: $color-ok;

@@ -16,17 +16,17 @@
 
 namespace Elcodi\Admin\ProductBundle\Controller\Component;
 
-use Doctrine\ORM\Tools\Pagination\Paginator;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
-use Mmoreram\ControllerExtraBundle\Annotation\Paginator as PaginatorAnnotation;
-use Mmoreram\ControllerExtraBundle\ValueObject\PaginatorAttributes;
+use Mmoreram\ControllerExtraBundle\Annotation\JsonResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormView;
+use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
+use Elcodi\Component\Product\Entity\Category;
 use Elcodi\Component\Product\Entity\Interfaces\CategoryInterface;
 
 /**
@@ -40,60 +40,21 @@ class CategoryComponentController extends AbstractAdminController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param Paginator           $paginator           Paginator instance
-     * @param PaginatorAttributes $paginatorAttributes Paginator attributes
-     * @param integer             $page                Page
-     * @param integer             $limit               Limit of items per page
-     * @param string              $orderByField        Field to order by
-     * @param string              $orderByDirection    Direction to order by
-     *
      * @return array Result
      *
      * @Route(
-     *      path = "s/list/component/{page}/{limit}/{orderByField}/{orderByDirection}",
-     *      name = "admin_category_list_component",
-     *      requirements = {
-     *          "page" = "\d*",
-     *          "limit" = "\d*",
-     *      },
-     *      defaults = {
-     *          "page" = "1",
-     *          "limit" = "50",
-     *          "orderByField" = "id",
-     *          "orderByDirection" = "DESC",
-     *      },
+     *      path = "s/list/component",
+     *      name = "admin_category_list_component"
      * )
      * @Template("AdminProductBundle:Category:listComponent.html.twig")
      * @Method({"GET"})
-     *
-     * @PaginatorAnnotation(
-     *      attributes = "paginatorAttributes",
-     *      class = "elcodi.core.product.entity.category.class",
-     *      page = "~page~",
-     *      limit = "~limit~",
-     *      orderBy = {
-     *          {"x", "~orderByField~", "~orderByDirection~"}
-     *      }
-     * )
      */
-    public function listComponentAction(
-        Paginator $paginator,
-        PaginatorAttributes $paginatorAttributes,
-        $page,
-        $limit,
-        $orderByField,
-        $orderByDirection
-    )
+    public function listComponentAction()
     {
-        return [
-            'paginator'        => $paginator,
-            'page'             => $page,
-            'limit'            => $limit,
-            'orderByField'     => $orderByField,
-            'orderByDirection' => $orderByDirection,
-            'totalPages'       => $paginatorAttributes->getTotalPages(),
-            'totalElements'    => $paginatorAttributes->getTotalElements(),
-        ];
+        $category_manager = $this->get('elcodi.category_tree');
+        $category_tree    = $category_manager->buildCategoryTree();
+
+        return ['categories_list' => $category_tree];
     }
 
     /**
@@ -146,11 +107,47 @@ class CategoryComponentController extends AbstractAdminController
     public function editComponentAction(
         FormView $formView,
         CategoryInterface $category
-    )
-    {
+    ) {
         return [
             'category' => $category,
             'form'     => $formView,
+        ];
+    }
+
+    /**
+     * Sorts the categories with the given orders.
+     *
+     * @param Request $request The user request.
+     *
+     * @return array Result
+     *
+     * @Route(
+     *      path = "/sort/component",
+     *      name = "admin_category_sort_component",
+     *      methods = {"POST"}
+     * )
+     *
+     * @JsonResponse
+     */
+    public function sortComponentAction(Request $request)
+    {
+        $categoriesOrder = json_decode($request->get('data'), true);
+
+        if (!is_null($categoriesOrder)) {
+            $orderResult = $this->get('elcodi.admin.product.services.category_sorter')
+                ->sort($categoriesOrder);
+
+            if ($orderResult) {
+                return [
+                    'result' => 'ok',
+                ];
+            }
+        }
+
+        return [
+            'result'  => 'ko',
+            'code'    => '400',
+            'message' => 'Invalid order received',
         ];
     }
 }

@@ -1,6 +1,8 @@
-/* @desc:normalize.css v2.0.1 | MIT License | git.io/normalize */
+@if $ui != true {
 
-/* @group HTML5 DISPLAY DEFINITIONS */
+	/* @desc:normalize.css v2.0.1 | MIT License | git.io/normalize */
+
+	/* @group HTML5 DISPLAY DEFINITIONS */
 
 	/* @desc:Corrects `block` display not defined in IE 8/9. */
 	article,
@@ -36,10 +38,9 @@
 		display: none;
 	}
 
-/* @endgroup HTML5 DISPLAY DEFINITIONS */
+	/* @endgroup HTML5 DISPLAY DEFINITIONS */
 
-
-/* @group BASE */
+	/* @group BASE */
 	/* @desc:.
 		1. Sets default font family to sans-serif.
 		2. Prevents iOS text size adjust after orientation change, without
@@ -55,10 +56,9 @@
 	body {
 		margin: 0;
 	}
-/* @endgroup BASE */
+	/* @endgroup BASE */
 
-
-/* @group LINKS */
+	/* @group LINKS */
 	/* @desc:Addresses `outline` inconsistency between Chrome and other browsers. */
 	a:focus {
 		outline: thin dotted;
@@ -68,10 +68,9 @@
 	a:active, a:hover {
 		outline: 0;
 	}
-/* @endgroup LINKS */
+	/* @endgroup LINKS */
 
-
-/* @group TYPOGRAPHY */
+	/* @group TYPOGRAPHY */
 	/* @desc:Addresses `h1` font sizes within `section` and `article`
 		in Firefox 4+, Safari 5, and Chrome. */
 	h1 {
@@ -139,10 +138,9 @@
 	sub {
 		bottom: -0.25em;
 	}
-/* @endgroup TYPOGRAPHY */
+	/* @endgroup TYPOGRAPHY */
 
-
-/* @group EMBEDDED CONTENT */
+	/* @group EMBEDDED CONTENT */
 	/* @desc:Removes border when inside `a` element in IE 8/9. */
 	img {
 		border: 0;
@@ -152,18 +150,16 @@
 	svg:not(:root) {
 		overflow: hidden;
 	}
-/* @endgroup EMBEDDED CONTENT */
+	/* @endgroup EMBEDDED CONTENT */
 
-
-/* @group FIGURES */
+	/* @group FIGURES */
 	/* @desc:Addresses margin not present in IE 8/9 and Safari 5. */
 	figure {
 		margin: 0;
 	}
-/* @endgroup FIGURES */
+	/* @endgroup FIGURES */
 
-
-/* @group FORMS */
+	/* @group FORMS */
 	/* @desc:Define consistent border, margin, and padding. */
 	fieldset {
 		border: 1px solid #C0C0C0;
@@ -264,13 +260,13 @@
 		overflow: auto; /* @desc:1 */
 		vertical-align: top; /* @desc:2 */
 	}
-/* @endgroup FORMS */
+	/* @endgroup FORMS */
 
-
-/* @endgroup TABLES */
+	/* @endgroup TABLES */
 	/* @desc:Remove most spacing between table cells. */
 	table {
 		border-collapse: collapse;
 		border-spacing: 0;
 	}
-/* @endgroup TABLES */
+	/* @endgroup TABLES */
+}

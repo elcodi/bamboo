@@ -1,4 +1,4 @@
-@if $ui-notifications == true {
+@if $ui-notifications == true and $ui == true {
 	#notification {
 		& {
 			@include box-sizing(border-box);

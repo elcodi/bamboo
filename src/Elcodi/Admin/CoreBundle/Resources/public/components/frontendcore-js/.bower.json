@@ -1,21 +1,13 @@
 {
   "name": "frontendcore-js",
-  "version": "1.3.14",
+  "version": "1.4.1",
   "authors": [
     "Toni Pinel <tonipinel@gmail.com>"
   ],
-  "description": "The all in one frontend framework based on components for the real life",
-  "main": "Gruntfile.js",
+  "main": "core.js",
   "moduleType": [
     "amd"
   ],
-  "keywords": [
-    "frontendcore",
-    "frontend",
-    "framework",
-    "component"
-  ],
-  "license": "MIT",
   "homepage": "http://www.frontendcore.com",
   "private": true,
   "ignore": [
@@ -23,11 +15,11 @@
     "bower_components",
     "tests"
   ],
-  "_release": "1.3.14",
+  "_release": "1.4.1",
   "_resolution": {
     "type": "version",
-    "tag": "1.3.14",
-    "commit": "ae2841e972823dbfe0a73434acfc634b01273760"
+    "tag": "1.4.1",
+    "commit": "b8a38ec8315d822d6e0cb6e2caadc806bd78186e"
   },
   "_source": "https://github.com/tonipinel/frontendcore-js.git",
   "_target": "*",

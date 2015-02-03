@@ -1,4 +1,4 @@
-@if $ui-modals == true {
+@if $ui-modals == true and $ui == true {
 	/*
 		Colorbox Core Style:
 		The following CSS is consistent between example themes and should not be altered.

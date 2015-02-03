@@ -1,4 +1,4 @@
-@if $object-buttons != false {
+@if $object-buttons != false and $ui != true {
 	.buttons-group {
 		& {
 			padding: 0;

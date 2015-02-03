@@ -2,16 +2,13 @@
 @import '_reset.scss';
 
 // common
-@import 'defaults';
+@import '_defaults.scss';
 
 // typography
-@import 'fonts';
+@import '_fonts.scss';
 
 // grid
-@import 'grid';
+@import '_grid.scss';
 
 // tables
-@import 'tables';
-
-// icons
-@import '_icons.scss';
+@import '_tables.scss';

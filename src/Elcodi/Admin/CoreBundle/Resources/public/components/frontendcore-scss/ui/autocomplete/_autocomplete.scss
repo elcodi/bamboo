@@ -1,4 +1,4 @@
-@if $ui-autocomplete == true {
+@if $ui-autocomplete == true and $ui == true {
 	.autocompleter {
 		width: 100%;
 		background: $color-background;

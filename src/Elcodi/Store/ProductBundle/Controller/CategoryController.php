@@ -53,15 +53,22 @@ class CategoryController extends Controller
             ->getMasterRequest()
             ->get('id');
 
+        $currentCategory = null;
+        if(!is_null($currentCategoryId)) {
+            $currentCategory = $this
+                ->get('elcodi.repository.category')
+                ->findOneBy(['id' => $currentCategoryId]);
+        }
+
         $categoryTree = $this
-            ->get('elcodi.core.product.service.category_manager')
+            ->get('store.product.service.store_category_tree')
             ->load();
 
         return $this->renderTemplate(
             'Subpages:category-list.html.twig',
             [
-                'currentCategoryId' => $currentCategoryId,
-                'categoryTree'      => $categoryTree,
+                'currentCategory' => $currentCategory,
+                'categoryTree'    => $categoryTree,
             ]
         );
     }

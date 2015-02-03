@@ -31,75 +31,97 @@ fz-h1
 	}
 }
 
-h1, .fz-h1 {
+%fz-h1 {
 	@include rem-fallback(font-size, $font-size-xxl*$font-title-exponential, true);
 	@extend %title;
 }
 
-h2, .fz-h2 {
+%fz-h2 {
 	@include rem-fallback(font-size, $font-size-xl*$font-title-exponential, true);
 	@extend %title;
 }
 
-h3, .fz-h3 {
+%fz-h3 {
 	@include rem-fallback(font-size, $font-size-l*$font-title-exponential, true);
 	@extend %title;
 }
 
-h4, .fz-h4 {
+%fz-h4 {
 	@include rem-fallback(font-size, $font-size-ml*$font-title-exponential, true);
 	@extend %title;
 }
 
-h5, .fz-h5 {
+%fz-h5 {
 	@include rem-fallback(font-size, $font-size-m*$font-title-exponential, true);
 	@extend %title;
 }
+@if $ui != true {
 
-.fz-xxxl {
-	@include rem-fallback(font-size, $font-size-xxxl, true);
-	line-height: $base-line-height;
-}
+	h1, .fz-h1 {
+		@extend %fz-h1;
+	}
 
-.fz-xxl {
-	@include rem-fallback(font-size, $font-size-xxl, true);
-	line-height: $base-line-height;
-}
+	h2, .fz-h2 {
+		@extend %fz-h2;
+	}
 
-.fz-xl {
-	@include rem-fallback(font-size, $font-size-xl, true);
-	line-height: $base-line-height;
-}
+	h3, .fz-h3 {
+		@extend %fz-h3;
+	}
 
-.fz-l {
-	@include rem-fallback(font-size, $font-size-l, true);
-	line-height: $base-line-height;
-}
+	h4, .fz-h4 {
+		@extend %fz-h4;
+	}
 
-.fz-m {
-	@include rem-fallback(font-size, $font-size-m, true);
-	line-height: $base-line-height;
-}
+	h5, .fz-h5 {
+		@extend %fz-h5;
+	}
 
-.fz-default {
-	@include rem-fallback(font-size, $font-size-default, true);
-	line-height: $base-line-height;
-}
+	.fz-xxxl {
+		@include rem-fallback(font-size, $font-size-xxxl, true);
+		line-height: $base-line-height;
+	}
 
-.fz-s {
-	@include rem-fallback(font-size, $font-size-xs, true);
-	line-height: $base-line-height;
-}
+	.fz-xxl {
+		@include rem-fallback(font-size, $font-size-xxl, true);
+		line-height: $base-line-height;
+	}
 
-.fz-xs {
-	@include rem-fallback(font-size, $font-size-xxs, true);
-	line-height: $base-line-height;
-}
+	.fz-xl {
+		@include rem-fallback(font-size, $font-size-xl, true);
+		line-height: $base-line-height;
+	}
 
-.fw-n {
-	font-weight: normal;
-}
+	.fz-l {
+		@include rem-fallback(font-size, $font-size-l, true);
+		line-height: $base-line-height;
+	}
 
-.fw-b {
-	font-weight: bold;
+	.fz-m {
+		@include rem-fallback(font-size, $font-size-m, true);
+		line-height: $base-line-height;
+	}
+
+	.fz-default {
+		@include rem-fallback(font-size, $font-size-default, true);
+		line-height: $base-line-height;
+	}
+
+	.fz-s {
+		@include rem-fallback(font-size, $font-size-xs, true);
+		line-height: $base-line-height;
+	}
+
+	.fz-xs {
+		@include rem-fallback(font-size, $font-size-xxs, true);
+		line-height: $base-line-height;
+	}
+
+	.fw-n {
+		font-weight: normal;
+	}
+
+	.fw-b {
+		font-weight: bold;
+	}
 }

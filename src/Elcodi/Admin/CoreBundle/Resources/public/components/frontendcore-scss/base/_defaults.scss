@@ -1,21 +1,23 @@
-html {
-	height: 100%;
-	overflow: auto;
-	background-color: $color-body;
-	color: $color-foreground;
-}
+@if $ui != true {
 
-a {
-	& {
-		color: $color-link;
-		text-decoration: none
+	html {
+		height: 100%;
+		overflow: auto;
+		background-color: $color-body;
+		color: $color-foreground;
 	}
-	&:hover {
-		text-decoration:underline;
-	}
-}
 
-/* @group SCROLLBAR */
+	a {
+		& {
+			color: $color-link;
+			text-decoration: none
+		}
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	/* @group SCROLLBAR */
 	.scroll::-webkit-scrollbar,
 	pre::-webkit-scrollbar,
 	textarea::-webkit-scrollbar {
@@ -24,32 +26,32 @@ a {
 		background: none;
 	}
 
-		pre::-webkit-scrollbar-button,
-		textarea::-webkit-scrollbar-button,
-		.scroll::-webkit-scrollbar-button {
-			display: none;
-			background: none;
-		}
+	pre::-webkit-scrollbar-button,
+	textarea::-webkit-scrollbar-button,
+	.scroll::-webkit-scrollbar-button {
+		display: none;
+		background: none;
+	}
 
-		pre::-webkit-scrollbar-track,
-		.scroll::-webkit-scrollbar-track {
-			margin: 20px;
-		}
+	pre::-webkit-scrollbar-track,
+	.scroll::-webkit-scrollbar-track {
+		margin: 20px;
+	}
 
-		pre::-webkit-scrollbar-thumb,
-		textarea::-webkit-scrollbar-thumb,
-		.scroll::-webkit-scrollbar-thumb {
-			background-color: #CCC;
-		}
+	pre::-webkit-scrollbar-thumb,
+	textarea::-webkit-scrollbar-thumb,
+	.scroll::-webkit-scrollbar-thumb {
+		background-color: #CCC;
+	}
 
-		pre::-webkit-scrollbar-thumb:hover,
-		textarea::-webkit-scrollbar-thumb:hover,
-		.scroll::-webkit-scrollbar-thumb:hover {
-			background-color: #AAA;
-		}
-/* @endgroup SCROLLBAR */
+	pre::-webkit-scrollbar-thumb:hover,
+	textarea::-webkit-scrollbar-thumb:hover,
+	.scroll::-webkit-scrollbar-thumb:hover {
+		background-color: #AAA;
+	}
+	/* @endgroup SCROLLBAR */
 
-/* @group HELPERS */
+	/* @group HELPERS */
 	.hidden {
 		display: none;
 	}
@@ -59,36 +61,36 @@ a {
 		height: auto;
 	}
 
-/* @endgroup HELPERS */
+	/* @endgroup HELPERS */
 
+	ul, ol {
+		padding-left: 0;
+		list-style: none;
+	}
 
-ul, ol {
-	padding-left: 0;
-	list-style: none;
-}
+	li > ul, li > ol {
+		margin-top: .5em;
+		margin-bottom: 0;
+	}
 
-li > ul, li > ol {
-	margin-top: .5em;
-	margin-bottom: 0;
-}
+	dd {
+		margin-left: 0;
+	}
 
-dd {
-	margin-left: 0;
-}
+	nav ul, .nav {
+		margin-bottom: 0;
+		letter-spacing: -0.31em;
+		word-spacing: -0.43em;
+	}
 
-nav ul, .nav {
-	margin-bottom: 0;
-	letter-spacing: -0.31em;
-	word-spacing: -0.43em;
-}
+	nav li, .nav li {
+		display: inline-block;
+		letter-spacing: normal;
+		word-spacing: normal;
+	}
 
-nav li, .nav li {
-	display: inline-block;
-	letter-spacing: normal;
-	word-spacing: normal;
-}
-
-small {
-	@include rem-fallback(font-size, $font-size-xxs, false);
-	line-height: $base-line-height;
+	small {
+		@include rem-fallback(font-size, $font-size-xxs, false);
+		line-height: $base-line-height;
+	}
 }

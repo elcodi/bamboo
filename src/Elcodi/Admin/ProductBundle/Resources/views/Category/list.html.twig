@@ -24,11 +24,6 @@
 
 {% block content %}
 
-    {{ render(url("admin_category_list_component", {
-        'page': page,
-        'limit': limit,
-        'orderByField': orderByField,
-        'orderByDirection': orderByDirection
-    })) }}
+    {{ render(url("admin_category_list_component"))}}
 
 {% endblock content %}

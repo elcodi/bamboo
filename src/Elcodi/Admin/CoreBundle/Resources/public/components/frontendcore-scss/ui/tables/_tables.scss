@@ -1,4 +1,4 @@
-@if $ui-tables == true {
+@if $ui-tables == true and $ui == true {
 
 	.dynatable-search {
 		& {
@@ -6,6 +6,7 @@
 			position: absolute;
 			margin: $spacing/4 $spacing/2;
 			min-width: 40%;
+			text-align: right;
 		}
 		&:before {
 			font-family: "FontAwesome";
@@ -15,9 +16,10 @@
 		}
 		input {
 			@extend %field;
+			display: inline-block;
 			padding-top: $spacing/4 !important;
 			padding-bottom: $spacing/4 !important;
-			width: 100%;
+			width: 70%;
 		}
 	}
 

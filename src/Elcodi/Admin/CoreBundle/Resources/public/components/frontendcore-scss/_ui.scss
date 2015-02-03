@@ -1,0 +1,11 @@
+$ui : true !global;
+
+@import 'skins/_index.scss';
+
+@import "external/_mock/__index.scss";
+
+@import '_basic-tools.scss';
+
+@import '_basic-objects.scss';
+
+@import 'devices/__index.scss';

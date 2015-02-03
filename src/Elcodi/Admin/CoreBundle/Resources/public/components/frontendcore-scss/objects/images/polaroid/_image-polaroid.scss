@@ -1,4 +1,4 @@
-@if $object-image-polaroid != false {
+@if $object-image-polaroid != false and $ui != true {
 
 	img.image-polaroid {
 		@extend %images-polaroid;

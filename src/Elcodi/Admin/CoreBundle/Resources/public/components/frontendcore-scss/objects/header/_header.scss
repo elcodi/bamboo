@@ -1,4 +1,4 @@
-@if $object-header != false {
+@if $object-header != false and $ui != true {
 
 	.header {
 		& {
@@ -25,7 +25,7 @@
 
 }
 
-@if $object-navigation == tabbed {
+@if $object-navigation == tabbed and $ui != true {
 	.header {
 		.menu {
 			& {

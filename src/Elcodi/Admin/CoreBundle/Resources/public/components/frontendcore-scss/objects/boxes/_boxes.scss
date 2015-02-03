@@ -1,4 +1,4 @@
-@if $object-boxes != false {
+@if $object-boxes != false and $ui != true {
 
 	[class*='box-'], .box {
 		@include box-sizing(border-box);

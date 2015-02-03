@@ -67,6 +67,7 @@ $objects-default: (
 	header: default,
 	image-circle: default,
 	image-polaroid: default,
+	image-thumbnail: default,
 	lists: default,
 	messages: default,
 	navigation: true,
@@ -77,7 +78,9 @@ $objects-default: (
 	steps: default,
 	tabs: default,
 	tags: default,
-	labels: default
+	labels: default,
+	switch: default,
+	animations: default,
 ) !global !default;
 
 $defaults-default: (
@@ -104,6 +107,22 @@ $grid-default: (
 	container-position: center,
 ) !global !default;
 
+$user-interface-default: (
+	autocomplete: true,
+	carousel: true,
+	cart: true,
+	code: true,
+	modals: true,
+	notifications: true,
+	side-menu: true,
+	sortable: true,
+	stats: true,
+	tables: true,
+	tags: true,
+	tips: true,
+	wysiwyg: true
+) !global !default;
+
 $font-line-height-custom: () !global !default;
 $font-faces-custom: () !global !default;
 $font-sizes-custom: () !global !default;
@@ -111,6 +130,7 @@ $colors-custom: () !global !default;
 $objects-custom: () !global !default;
 $defaults-custom: () !global !default;
 $grid-custom: () !global !default;
+$user-interface-custom: () !global !default;
 
 $font-line-height : map-merge($font-line-height-default, $font-line-height-custom) !global;
 $font-faces : map-merge($font-faces-default, $font-faces-custom) !global;
@@ -119,3 +139,4 @@ $colors : map-merge($colors-default, $colors-custom) !global;
 $objects : map-merge($objects-default, $objects-custom) !global;
 $defaults : map-merge($defaults-default, $defaults-custom) !global;
 $grid : map-merge($grid-default, $grid-custom) !global;
+$user-interface : map-merge($user-interface-default, $user-interface-custom) !global;

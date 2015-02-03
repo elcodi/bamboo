@@ -1,4 +1,4 @@
-@if $object-filters != false {
+@if $object-filters != false and $ui != true {
 
 	.filters {
 		& {

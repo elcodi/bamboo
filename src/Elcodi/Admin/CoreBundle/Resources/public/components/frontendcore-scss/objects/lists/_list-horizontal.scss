@@ -1,4 +1,4 @@
-@if $object-lists != false {
+@if $object-lists != false and $ui != true {
 	.list-horizontal {
 		& {
 			padding-left: 0 !important;

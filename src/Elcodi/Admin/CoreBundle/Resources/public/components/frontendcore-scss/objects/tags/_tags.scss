@@ -1,4 +1,4 @@
-@if $object-tags != false {
+@if $object-tags != false and $ui != true {
 	.tags {
 		& {
 			margin:0;
