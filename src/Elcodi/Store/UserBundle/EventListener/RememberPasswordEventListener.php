@@ -29,7 +29,7 @@ class RememberPasswordEventListener
     /**
      * @var TokenStorageInterface
      *
-     * SecurityContext
+     * Token storage
      */
     protected $tokenStorage;
 
