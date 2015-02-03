@@ -20,6 +20,7 @@ use Mmoreram\ControllerExtraBundle\Annotation\Entity as AnnotationEntity;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+
 use Elcodi\Component\Product\Entity\Interfaces\CategoryInterface;
 use Elcodi\Store\CoreBundle\Controller\Traits\TemplateRenderTrait;
 
@@ -52,6 +53,13 @@ class CategoryController extends Controller
             ->getMasterRequest()
             ->get('id');
 
+        $currentCategory = null;
+        if(!is_null($currentCategoryId)) {
+            $currentCategory = $this
+                ->get('elcodi.repository.category')
+                ->findOneBy(['id' => $currentCategoryId]);
+        }
+
         $categoryTree = $this
             ->get('store.product.service.store_category_tree')
             ->load();
@@ -59,8 +67,8 @@ class CategoryController extends Controller
         return $this->renderTemplate(
             'Subpages:category-list.html.twig',
             [
-                'currentCategoryId' => $currentCategoryId,
-                'categoryTree'      => $categoryTree,
+                'currentCategory' => $currentCategory,
+                'categoryTree'    => $categoryTree,
             ]
         );
     }

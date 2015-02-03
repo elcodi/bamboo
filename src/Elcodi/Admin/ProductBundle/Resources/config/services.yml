@@ -8,3 +8,4 @@ services:
         arguments:
             category_repository: @elcodi.repository.category
             category_object_manager: @elcodi.object_manager.category
+            event_dispatcher: @event_dispatcher

@@ -17,7 +17,9 @@
 namespace Elcodi\Admin\ProductBundle\Services;
 
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
+use Elcodi\Admin\ProductBundle\ProductEvents;
 use Elcodi\Component\Product\Entity\Category;
 use Elcodi\Component\Product\Repository\CategoryRepository;
 
@@ -41,17 +43,27 @@ class CategorySorter
     private $categoryObjectManager;
 
     /**
+     * @var EventDispatcherInterface
+     *
+     * An event dispatcher instance.
+     */
+    private $eventDispatcher;
+
+    /**
      * Builds a new category order service.
      *
-     * @param CategoryRepository $categoryRepository
-     * @param ObjectManager      $categoryObjectManager
+     * @param CategoryRepository       $categoryRepository    The category repository
+     * @param ObjectManager            $categoryObjectManager The category object manager
+     * @param EventDispatcherInterface $eventDispatcher       An event dispatcher instance
      */
     public function __construct(
         CategoryRepository $categoryRepository,
-        ObjectManager $categoryObjectManager
+        ObjectManager $categoryObjectManager,
+        EventDispatcherInterface $eventDispatcher
     ) {
         $this->categoryRepository    = $categoryRepository;
         $this->categoryObjectManager = $categoryObjectManager;
+        $this->eventDispatcher       = $eventDispatcher;
     }
 
     /**
@@ -89,6 +101,7 @@ class CategorySorter
         if ($this->sortCategoriesTree($categoriesOrder)) {
             $this->categoryObjectManager->flush();
 
+            $this->eventDispatcher->dispatch(ProductEvents::CATEGORIES_ONORDERCHANGE);
             return true;
         }
 

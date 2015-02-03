@@ -97,6 +97,7 @@ class StoreProductExtension extends AbstractExtension
         return [
             'classes',
             'services',
+            'eventListeners',
         ];
     }
 

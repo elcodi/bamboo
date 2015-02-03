@@ -3,7 +3,7 @@ services:
     #
     # Event listeners
     #
-    elcodi.core.category.event_listener.new_category_position:
+    elcodi.product.category.event_listener.new_category_position:
         class: %elcodi.admin.product.event_listener.new_category_position.class%
         tags:
             - { name: doctrine.event_listener, event: preFlush, method: preFlush }
