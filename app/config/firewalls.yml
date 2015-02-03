@@ -1,16 +1,40 @@
 security:
     firewalls:
-        dev:
-            context: store_context
-            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+        dev_area:
+            pattern:  ^/_(?:profiler|wdt)/
             security: false
 
-        customer_secured_area:
-            context: store_context
-            pattern: ^/(?!%bamboo_admin_prefix%)
+        public_area:
+            pattern:  ^/(?:css|images|js)/
+            security: false
+
+        admin_login_area:
+            pattern: ^/%bamboo_admin_prefix%/login$
+            anonymous: ~
+
+        admin_password_area:
+            pattern: ^/%bamboo_admin_prefix%/password/
+            anonymous: ~
+
+        admin_area:
+            provider: adminuser
+            pattern: ^/%bamboo_admin_prefix%/
+            simple-preauth:
+                authenticator: admin.user.security.one_time_login_authenticator
+            form_login:
+                login_path: admin_login
+                check_path: admin_login_check
+                username_parameter: elcodi_admin_user_form_type_login[email]
+                password_parameter: elcodi_admin_user_form_type_login[password]
+                default_target_path: admin_homepage
+            logout:
+                path:   admin_logout
+                target: admin_homepage
+                invalidate_session: false
+
+        store_area:
             provider: customer
             anonymous: true
-            security: true
             form_login:
                 login_path: store_login
                 check_path: store_login_check
@@ -29,35 +53,3 @@ security:
                 resource_owners:
                     github: /login/check-github
                     paypal: /login/check-paypal
-
-        dev:
-            #context: admin_context
-            pattern:  ^/(_(profiler|wdt)|css|images|js)/
-            security: false
-
-        login_area:
-            #context: admin_context
-            pattern: ^/%bamboo_admin_prefix%/login$
-            anonymous: ~
-
-        password_area:
-            #context: admin_context
-            pattern: ^/%bamboo_admin_prefix%/password.*$
-            anonymous: ~
-
-        admin_secured_area:
-            #context: admin_context
-            provider: adminuser
-            pattern: ^/%bamboo_admin_prefix%?.*$
-            simple-preauth:
-                authenticator: admin.user.security.one_time_login_authenticator
-            form_login:
-                login_path: admin_login
-                check_path: admin_login_check
-                username_parameter: elcodi_admin_user_form_type_login[email]
-                password_parameter: elcodi_admin_user_form_type_login[password]
-                default_target_path: admin_homepage
-            logout:
-                path:   admin_logout
-                target: admin_homepage
-                invalidate_session: false
