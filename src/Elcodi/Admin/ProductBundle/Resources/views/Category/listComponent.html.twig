@@ -12,9 +12,9 @@
         </div>
         <div class="col-2-3">
             <div class="box-background">
-            <ol id="categories-list" data-tc-modules="sortable" {#data-tc-url="#"#} data-tc-type="nested" data-tc-output="json" data-tc-depth="2">
+            <ol id="categories-list" data-tc-modules="sortable" data-tc-url="{{ url('admin_category_sort_component') }}" data-tc-type="nested" data-tc-output="json" data-tc-depth="2">
                 {% for node in categories_list %}
-                    <li class="pr-n">
+                    <li class="pr-n" data-tc-id="{{node.entity.id}}" data-tc-name="{{node.entity.name}}">
                         <p class="fl-r fz-s pr-l">
                             {% if node.entity.enabled %}<span class="label-ok fz-xs mr-l">Enabled</span>{% else %}<span class="label fz-xs mr-l">Disabled</span>{% endif %}
                             {{ node.entity.products|length }} {{ 'Products inside'|trans }}
@@ -26,7 +26,7 @@
                         {% if node.children|length > 0 %}
                             <ol>
                                 {% for child in node.children %}
-                                    <li class="pr-n">
+                                    <li class="pr-n" data-tc-id="{{child.entity.id}}" data-tc-name="{{child.entity.name}}">
                                         <p class="fl-r fz-s pr-l">
                                             {% if child.entity.enabled %}<span class="label-ok fz-xs mr-l">Enabled</span>{% else %}<span class="label fz-xs mr-l">Disabled</span>{% endif %}
                                             {{ child.entity.products|length }} {{ 'Products inside'|trans }}

@@ -12,3 +12,8 @@ parameters:
     # Event listeners
     #
     elcodi.admin.product.event_listener.new_category_position.class: Elcodi\Admin\ProductBundle\EventListener\NewCategoryPositionEventListener
+
+    #
+    # Services
+    #
+    elcodi.admin.product.services.category_sorter.class: Elcodi\Admin\ProductBundle\Services\CategorySorter
