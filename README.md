@@ -27,10 +27,10 @@ The twig templates are located at "Resources/views". In Bamboo we use [Twig](htt
 All the files are organized by type, because some templates are required and other are totally up to you, the initial organization is just a proposal.
 
 ### Email
-Here you can find the emails send by the store, so you are able to personalize them as you want. All templates inside this folder are required.
+Here you can find the emails sent by the store, so you are able to personalize them as you want. All templates inside this folder are required.
 
 ### Layout
-This files are called from other templates, so if you change the call from the other templates you can modify this as you want... except with one thing. You Layout must start {% extends '::_base.html.twig' %} and include the following blocks.
+This files is called from other templates, so if you change the call from the other templates you can modify this as you want... except with one thing. You Layout must start {% extends '::_base.html.twig' %} and include the following blocks.
 
 > #### {% block head_style %}
 > This blocks is in the head of the page, the idea is to include here all the css or stuff you need to define inside the <head>
@@ -51,7 +51,7 @@ All the files of this folder are required. This are the main files called from t
 > Page shown the user clicks on the checkout button.
 
 > #### cart-checkout-fail.html.twig
-> To be defined.
+> Page shown after something fails in the payment process.
 
 > #### cart-view.html.twig
 > List the products added to the cart.
@@ -63,16 +63,19 @@ All the files of this folder are required. This are the main files called from t
 > Homepage, list the products marked as shown in home.
 
 > #### order-list.html.twig
-> Historical list of orders done the user.
+> History list of orders done by the user.
 
 > #### order-view.html.twig
 > Details of one order.
 
 > #### product-view-item.html.twig
-> Detail of one product with or without variants. Take care that by default the block product_info_add_basket is mandatory if you don't edit the product-view-variant.html
+> Detail of one product without variants.
 
 > #### product-view-variant.html.twig
 > Detail of one product with variants. By default extends the product-view-item.html.twig and overwrites the block product_info_add_basket.
+
+> #### static.html.twig
+> Layout for the static pages. The static content will be rendered inside the block "content".
 
 > #### store-disable.html.twig
 > Page shown when the store is not configured as enabled.
