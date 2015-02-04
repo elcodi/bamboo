@@ -44,7 +44,7 @@
 
     {% include "@AdminCore/Tables/actions.html.twig" with {
         entity: entity,
-        delete: false,
+        delete: not entity.persistent,
         class: "page",
     } %}
 {% endblock table_body_row %}
