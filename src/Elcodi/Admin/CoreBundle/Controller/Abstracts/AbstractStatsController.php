@@ -81,8 +81,7 @@ abstract class AbstractStatsController extends Controller
         $entity,
         DateTime $from = null,
         DateTime $to = null
-    )
-    {
+    ) {
         $namespace = $this
             ->container
             ->getParameter($entity);
@@ -95,12 +94,10 @@ abstract class AbstractStatsController extends Controller
             ->from($namespace, 'x');
 
         if (is_null($to)) {
-
             $to = new DateTime();
         }
 
         if (!is_null($from)) {
-
             $queryBuilder
                 ->andWhere('x.createdAt >= ?1')
                 ->andWhere('x.createdAt <= ?2')

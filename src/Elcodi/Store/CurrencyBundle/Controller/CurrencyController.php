@@ -101,7 +101,6 @@ class CurrencyController extends Controller
             ]);
 
         if ($currency instanceof CurrencyInterface) {
-
             $this
                 ->get('elcodi.currency_session_manager')
                 ->set($currency);
@@ -112,5 +111,4 @@ class CurrencyController extends Controller
 
         return $this->redirect($referrer);
     }
-
 }

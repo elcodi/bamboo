@@ -80,8 +80,7 @@ class ImageController extends AbstractAdminController
     public function enableAction(
         Request $request,
         EnabledInterface $entity
-    )
-    {
+    ) {
         return parent::enableAction(
             $request,
             $entity
@@ -112,8 +111,7 @@ class ImageController extends AbstractAdminController
     public function disableAction(
         Request $request,
         EnabledInterface $entity
-    )
-    {
+    ) {
         return parent::disableAction(
             $request,
             $entity
@@ -146,8 +144,7 @@ class ImageController extends AbstractAdminController
         Request $request,
         $entity,
         $redirectUrl = null
-    )
-    {
+    ) {
         return parent::deleteAction(
             $request,
             $entity,
@@ -177,7 +174,6 @@ class ImageController extends AbstractAdminController
         $response = json_decode($jsonResponse, true);
 
         if ('ok' === $response['status']) {
-
             $routes = $this
                 ->get('router')
                 ->getRouteCollection();

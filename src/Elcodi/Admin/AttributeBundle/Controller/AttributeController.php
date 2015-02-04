@@ -125,10 +125,8 @@ class AttributeController extends AbstractAdminController
         FormInterface $form,
         AttributeInterface $attribute,
         $isValid
-    )
-    {
+    ) {
         if ($isValid) {
-
             $values = explode(',', $request
                 ->request
                 ->get('values'));
@@ -174,8 +172,7 @@ class AttributeController extends AbstractAdminController
     public function enableAction(
         Request $request,
         EnabledInterface $entity
-    )
-    {
+    ) {
         return parent::enableAction(
             $request,
             $entity
@@ -206,8 +203,7 @@ class AttributeController extends AbstractAdminController
     public function disableAction(
         Request $request,
         EnabledInterface $entity
-    )
-    {
+    ) {
         return parent::disableAction(
             $request,
             $entity
@@ -240,8 +236,7 @@ class AttributeController extends AbstractAdminController
         Request $request,
         $entity,
         $redirectUrl = null
-    )
-    {
+    ) {
         return parent::deleteAction(
             $request,
             $entity,
@@ -275,11 +270,9 @@ class AttributeController extends AbstractAdminController
 
                     $found = false;
                     if (in_array($value->getValue(), $values)) {
-
                         $actualValues[] = $value->getValue();
                         $found = true;
                     } else {
-
                         $attribute->removeValue($value);
                     }
 
@@ -290,7 +283,6 @@ class AttributeController extends AbstractAdminController
         $newValues = array_diff($values, $actualValues);
 
         foreach ($newValues as $newValue) {
-
             $value = $this
                 ->get('elcodi.factory.attribute_value')
                 ->create()

@@ -45,7 +45,7 @@ class RegisterType extends ProfileType
                 'required'       => true,
             ))
             ->add('send', 'submit', array(
-                'label' => 'Register'
+                'label' => 'Register',
             ));
     }
 

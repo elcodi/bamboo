@@ -79,8 +79,7 @@ class RuleGroupController extends AbstractAdminController
         $limit,
         $orderByField,
         $orderByDirection
-    )
-    {
+    ) {
         return [
             'page'             => $page,
             'limit'            => $limit,
@@ -137,8 +136,7 @@ class RuleGroupController extends AbstractAdminController
         $limit,
         $orderByField,
         $orderByDirection
-    )
-    {
+    ) {
         return [
             'paginator'        => $paginator,
             'page'             => $page,
@@ -304,8 +302,7 @@ class RuleGroupController extends AbstractAdminController
         RuleGroupInterface $entity,
         FormInterface $form,
         $isValid
-    )
-    {
+    ) {
         if ($isValid) {
             $this
                 ->get('elcodi.object_manager.rule_group')
@@ -374,8 +371,7 @@ class RuleGroupController extends AbstractAdminController
     public function editComponentAction(
         RuleGroupInterface $entity,
         FormView $formView
-    )
-    {
+    ) {
         return [
             'entity' => $entity,
             'form'   => $formView,
@@ -417,8 +413,7 @@ class RuleGroupController extends AbstractAdminController
         RuleGroupInterface $entity,
         FormInterface $form,
         $isValid
-    )
-    {
+    ) {
         if ($isValid) {
             $this
                 ->get('elcodi.object_manager.rule_group')
@@ -455,8 +450,7 @@ class RuleGroupController extends AbstractAdminController
     public function enableAction(
         Request $request,
         EnabledInterface $entity
-    )
-    {
+    ) {
         try {
             $this->enableEntity($entity);
 
@@ -497,8 +491,7 @@ class RuleGroupController extends AbstractAdminController
     public function disableAction(
         Request $request,
         EnabledInterface $entity
-    )
-    {
+    ) {
         try {
             $this->disableEntity($entity);
 
@@ -541,8 +534,7 @@ class RuleGroupController extends AbstractAdminController
         Request $request,
         $entity,
         $redirectUrl = null
-    )
-    {
+    ) {
         try {
             $this->deleteEntity($entity);
 

@@ -34,7 +34,7 @@ abstract class AbstractStoreEventListener
     protected function inStore(Request $request, $adminPrefix)
     {
         $route = $request->getRequestUri();
-        preg_match('(_(profiler|wdt)|css|images|js|' . $adminPrefix . ')', $route, $matched);
+        preg_match('(_(profiler|wdt)|css|images|js|'.$adminPrefix.')', $route, $matched);
 
         return empty($matched);
     }

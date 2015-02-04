@@ -73,8 +73,7 @@ class OAuthUserProvider implements OAuthAwareUserProviderInterface
         ObjectManager $authorizationManager,
         AbstractFactory $customerFactory,
         ObjectManager $customerObjectManager
-    )
-    {
+    ) {
         $this->userProvider = $provider;
         $this->authorizationRepository = $authorizationRepository;
         $this->authorizationManager = $authorizationManager;

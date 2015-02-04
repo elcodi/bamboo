@@ -123,13 +123,11 @@ class CategoryController extends AbstractAdminController
         FormInterface $form,
         CategoryInterface $category,
         $isValid
-    )
-    {
+    ) {
         if ($isValid) {
-
             $this->flush($category);
 
-            $this->addFlash('success','Changes saved');
+            $this->addFlash('success', 'Changes saved');
 
             $this->get('event_dispatcher')->dispatch(ProductEvents::CATEGORIES_ONCHANGE);
 
@@ -168,8 +166,7 @@ class CategoryController extends AbstractAdminController
     public function enableAction(
         Request $request,
         EnabledInterface $entity
-    )
-    {
+    ) {
         return parent::enableAction(
             $request,
             $entity
@@ -200,8 +197,7 @@ class CategoryController extends AbstractAdminController
     public function disableAction(
         Request $request,
         EnabledInterface $entity
-    )
-    {
+    ) {
         return parent::disableAction(
             $request,
             $entity
@@ -234,8 +230,7 @@ class CategoryController extends AbstractAdminController
         Request $request,
         $entity,
         $redirectUrl = null
-    )
-    {
+    ) {
         return parent::deleteAction(
             $request,
             $entity,

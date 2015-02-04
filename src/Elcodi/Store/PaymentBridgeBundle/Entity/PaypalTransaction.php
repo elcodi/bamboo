@@ -30,8 +30,7 @@ class PaypalTransaction
     IdentifiableInterface,
     DateTimeInterface
 {
-    use
-        IdentifiableTrait,
+    use IdentifiableTrait,
         DateTimeTrait;
 
     /**

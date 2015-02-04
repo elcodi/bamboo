@@ -62,8 +62,7 @@ class RememberPasswordEventListener
         Swift_Mailer $mailer,
         EngineInterface $templating,
         TokenStorageInterface $tokenStorage
-    )
-    {
+    ) {
         $this->mailer = $mailer;
         $this->templating = $templating;
         $this->tokenStorage = $tokenStorage;

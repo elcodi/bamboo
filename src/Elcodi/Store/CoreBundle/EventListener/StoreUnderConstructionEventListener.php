@@ -68,8 +68,7 @@ class StoreUnderConstructionEventListener extends AbstractStoreEventListener
         $templateBundle,
         $storeIsUnderConstruction,
         $adminPrefix
-    )
-    {
+    ) {
         $this->twig = $twig;
         $this->templateBundle = $templateBundle;
         $this->storeIsUnderConstruction = $storeIsUnderConstruction;
@@ -92,10 +91,9 @@ class StoreUnderConstructionEventListener extends AbstractStoreEventListener
             );
 
         if ($inStore && $this->storeIsUnderConstruction) {
-
             $data = $this
                 ->twig
-                ->render($this->templateBundle . ':Pages:store-under-construction.html.twig');
+                ->render($this->templateBundle.':Pages:store-under-construction.html.twig');
 
             $event->setResponse(new Response($data));
         }

@@ -94,8 +94,7 @@ class OrderComponentController extends AbstractAdminController
         $limit,
         $orderByField,
         $orderByDirection
-    )
-    {
+    ) {
         return [
             'paginator'        => $paginator,
             'page'             => $page,
@@ -210,8 +209,7 @@ class OrderComponentController extends AbstractAdminController
     public function editComponentAction(
         OrderInterface $entity,
         FormView $formView
-    )
-    {
+    ) {
         return [
             'entity' => $entity,
             'form'   => $formView,
@@ -248,7 +246,6 @@ class OrderComponentController extends AbstractAdminController
          * @var OrderLineInterface $orderLine
          */
         foreach ($entity->getOrderLines() as $orderLine) {
-
             $images = new ArrayCollection(array_merge(
                 $images->toArray(),
                 $orderLine->getProduct()->getImages()->toArray()

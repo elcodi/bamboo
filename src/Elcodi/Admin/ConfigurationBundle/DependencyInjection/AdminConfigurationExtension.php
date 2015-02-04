@@ -37,7 +37,7 @@ class AdminConfigurationExtension extends AbstractExtension
      */
     public function getConfigFilesLocation()
     {
-        return __DIR__ . '/../Resources/config';
+        return __DIR__.'/../Resources/config';
     }
 
     /**
@@ -57,7 +57,7 @@ class AdminConfigurationExtension extends AbstractExtension
     {
         return [
             'classes',
-            'formTypes'
+            'formTypes',
         ];
     }
 
