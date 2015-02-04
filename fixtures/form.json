@@ -1,0 +1,40 @@
+{
+  "form" : {
+    "email" : {
+      "label" : "Email <span class='mand'>*</span>",
+      "type" : "email"
+    },
+    "firstname" : {
+      "label" : "First Name <span class='mand'>*</span>",
+      "type" : "text"
+    },
+    "lastname" : {
+      "label" : "LastName <span class='mand'>*</span>",
+      "type" : "text"
+    },
+    "username" : {
+      "label" : "LastName <span class='mand'>*</span>",
+      "type" : "text"
+    },
+    "deliveryAddress" : {
+      "label" : "Delivery Address",
+      "type" : "text"
+    },
+    "password" : {
+      "label" : "Password <span class='mand'>*</span>",
+      "type" : "password",
+      "first" : {
+        "label" : "Password <span class='mand'>*</span>",
+        "type" : "password"
+      },
+      "second" : {
+        "label" : "Password <span class='mand'>*</span>",
+        "type" : "password"
+      }
+    },
+    "send" : {
+      "label" : "Send",
+      "type" : "submit"
+    }
+  }
+}

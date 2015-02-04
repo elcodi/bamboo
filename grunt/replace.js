@@ -62,6 +62,14 @@ module.exports = {
 				to: "include ('coupon-add.html.twig')  with { 'form': form } "
 			},
 			{
+				from: "{% render url('hwi_oauth_connect') %}",                   // string replacement
+				to: ""
+			},
+			{
+				from: "{% form_theme form 'fields.html.twig' %}",                   // string replacement
+				to: ""
+			},
+			{
 				from: 'src="//',                   // string replacement
 				to: 'src="http://'
 			}]
