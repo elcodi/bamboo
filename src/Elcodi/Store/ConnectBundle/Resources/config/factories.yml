@@ -1,0 +1,11 @@
+services:
+
+    #
+    # Factories
+    #
+
+    #
+    # Factory for Authorization entities
+    #
+    store.connect.factory.authorization:
+        class: %store.connect.factory.authorization.class%
