@@ -12,7 +12,10 @@
       "showInHome" : true,
       "enable" : true,
       "price" : "7.99",
-      "principalImage" : "../fixtures/img/lips.jpg"
+      "first" : "../../../fixtures/img/lips.jpg",
+      "images" : {
+        "first" :  "../../../fixtures/img/lips.jpg"
+      }
     },
     "2": {
       "id" : "2",
@@ -25,7 +28,10 @@
       "showInHome" : true,
       "enable" : true,
       "price" : "5.41",
-      "principalImage" : "../fixtures/img/banana.jpg"
+      "principalImage" : "../../../fixtures/img/banana.jpg",
+      "images" : {
+        "first" :  "../../../fixtures/img/banana.jpg"
+      }
     },
     "3": {
       "id" : "3",
@@ -38,7 +44,10 @@
       "showInHome" : true,
       "enable" : true,
       "price" : "21.05",
-      "principalImage" : "../fixtures/img/there.jpg"
+      "principalImage" : "../../../fixtures/img/there.jpg",
+      "images" : {
+        "first" :  "../../../fixtures/img/there.jpg"
+      }
     },
     "4": {
       "id" : "4",
@@ -51,7 +60,10 @@
       "showInHome" : true,
       "enable" : true,
       "price" : "12.90",
-      "principalImage" : "../fixtures/img/there.jpg"
+      "principalImage" : "../../../fixtures/img/there.jpg",
+      "images" : {
+        "first" :  "../../../fixtures/img/there.jpg"
+      }
     },
     "5": {
       "id" : "5",
@@ -64,7 +76,10 @@
       "showInHome" : true,
       "enable" : true,
       "price" : "11.90",
-      "principalImage" : "../fixtures/img/amnesia.jpg"
+      "principalImage" : "../../../fixtures/img/amnesia.jpg",
+      "images" : {
+        "first" :  "../../../fixtures/img/amnesia.jpg"
+      }
     },
     "6": {
       "id" : "6",
@@ -77,7 +92,10 @@
       "showInHome" : true,
       "enable" : true,
       "price" : "13.90",
-      "principalImage" : "../fixtures/img/poem.jpg"
+      "principalImage" : "../../../fixtures/img/poem.jpg",
+      "images" : {
+        "first" :  "../../../fixtures/img/poem.jpg"
+      }
     }
   }
 }

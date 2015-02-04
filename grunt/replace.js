@@ -35,6 +35,10 @@ module.exports = {
 				to: ''
 			},
 			{
+				from: "'::",                   // string replacement
+				to: "'"
+			},
+			{
 				from: "render url('store_currency_nav')",                   // string replacement
 				to: "include ('currency-list.html.twig')"
 			},			{
@@ -56,6 +60,14 @@ module.exports = {
 			{
 				from: "render url('store_coupon_view')",                   // string replacement
 				to: "include ('coupon-add.html.twig')  with { 'form': form } "
+			},
+			{
+				from: "{% render url('hwi_oauth_connect') %}",                   // string replacement
+				to: ""
+			},
+			{
+				from: "{% form_theme form 'fields.html.twig' %}",                   // string replacement
+				to: ""
 			},
 			{
 				from: 'src="//',                   // string replacement

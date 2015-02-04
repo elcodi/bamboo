@@ -4,10 +4,9 @@ module.exports = function (grunt) {
 
 	require('load-grunt-config')(grunt);
 
-	require('load-grunt-tasks')(grunt, {pattern: ['*', '!grunt-template-jasmine-requirejs', '!grunt-lib-phantomjs', '!bower', '!load-grunt-tasks', '!load-grunt-config']});
+	require('jit-grunt')(grunt);
 
     grunt.registerTask('js', ['jshint','jasmine']);
-	grunt.registerTask('tests', ['jasmine']);
 	grunt.registerTask('twig', ['twigRender']);
 	grunt.registerTask('scss', ['compass']);
 

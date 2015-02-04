@@ -1,6 +1,5 @@
 {% extends '@StoreTemplate/Layout/_layout.html.twig' %}
 
-
 {% form_theme form '@StoreTemplate/fields.html.twig' %}
 
 {% block content_title %}Login{% endblock %}
@@ -18,7 +17,7 @@
                         {{ form_row(form.password) }}
 
                         <p class="buttons">
-                            {{ form_row(form.send, {attr: {'class': 'btn btn-primary' }}) }}
+                            {{ form_row( form.send , { 'attr': {'class': 'btn btn-primary' } } ) }}
                             <a class="btn btn-blank" href="{{ url("store_password_remember") }}">
                                 Forgot your password?
                             </a>

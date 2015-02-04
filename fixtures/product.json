@@ -13,7 +13,24 @@
     "enable" : true,
     "price" : "7.99",
     "reducedPrice" : "1.99",
-    "principalImage" : "../fixtures/img/lips.jpg",
+    "principalImage" :  "../../../fixtures/img/lips.jpg",
+    "images" : {
+      "first" :  "../../../fixtures/img/lips.jpg"
+    },
+    "variants" : {
+      "0" : {
+        "id" : "0",
+        "enable" : true,
+        "price" : "7.99",
+        "name" : "Ibiza Lips",
+        "reducedPrice" : {
+          "ammount" : "0"
+        },
+        "images" : {
+          "first" :  "../../../fixtures/img/lips.jpg"
+        }
+      }
+    },
     "attributes" : {
       "1" : {
         "id" : "1",

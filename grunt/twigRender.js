@@ -32,10 +32,12 @@ function getFixtures( aFixturesNames ) {
 module.exports = function(grunt, fixtures) {
 
 
-	var oFullFixtures = getFixtures(['store','categoryTree','product','products','related_products','cart-empty','order','currencyCategoryId-null']),
-		oCategoryFullFixtures = getFixtures(['store','categoryTree','product','products','related_products','cart-empty','currencyCategoryId-1']);
-		oCategoryEmptyFixtures = getFixtures(['store','categoryTree','product','related_products','cart-empty','currencyCategoryId-1']);
-		oCartFullFixtures = getFixtures(['store','categoryTree','product','related_products','cart-full','currencyCategoryId-1']);
+	var oFullFixtures = getFixtures(['store','currencies','categoryTree','product','products','related_products','cart-empty','order','orders','currencyCategoryId-null']),
+		oCategoryFullFixtures = getFixtures(['store','currencies','categoryTree','product','products','related_products','cart-empty','currencyCategoryId-1']),
+		oCategoryEmptyFixtures = getFixtures(['store','currencies','categoryTree','product','related_products','cart-empty','currencyCategoryId-1']),
+		oCartFullFixtures = getFixtures(['store','currencies','categoryTree','product','related_products','order','orders','cart-full','currencyCategoryId-1']),
+		oUserForm = getFixtures(['store','currencies','categoryTree','product','related_products','order','orders','cart-full','form']),
+		oOrderEmtpyFixtures = getFixtures(['store','currencies','categoryTree','product','related_products','cart-full','currencyCategoryId-1']);
 
 	return {
 		options: {
@@ -43,6 +45,7 @@ module.exports = function(grunt, fixtures) {
 
 				function (Twig) {
 					Twig.exports.extendFilter("trans", function (value) {
+
 						if (value === undefined || value === null) {
 							return;
 						}
@@ -57,6 +60,7 @@ module.exports = function(grunt, fixtures) {
 
 						return value;
 					});
+
 					Twig.exports.extendFilter("purchasable_name", function (value) {
 
 						if (value === undefined || value === null) {
@@ -79,8 +83,22 @@ module.exports = function(grunt, fixtures) {
 						return path.replace('bundles/storetemplate/', '../');
 					});
 
+
+					Twig.exports.extendFunction("elcodi_hook", function (value) {
+
+						if (value === undefined || value === null) {
+							return;
+						}
+
+						return '';
+					});
+
 					Twig.exports.extendFunction("url", function (path) {
 						return '#';
+					});
+
+					Twig.exports.extendFunction("form_theme", function (path) {
+						return ;
 					});
 
 					Twig.exports.extendFunction("available_options", function (product, attribute) {
@@ -100,19 +118,58 @@ module.exports = function(grunt, fixtures) {
 						return '<form>';
 					});
 
-					Twig.exports.extendFunction("form_row", function (value) {
+					Twig.exports.extendFunction("form_row", function (oInput, oOptions) {
 
-						var sType = "text";
 
-						if (typeof value === 'number') {
-							sType = "number";
-						} else if (value.indexOf("@") !== -1 ) {
-							sType = "email";
+						if ( oInput === undefined)  {
+
+							return 'undefined';
+
+						} else {
+
+							if (oInput.label === undefined )  {
+								return 'undefined';
+							}
 						}
 
+						var sType = "text",
+							sCode = '',
+							sLabel = oInput,
+							sValue = oInput,
+							sClass = '';
 
+						if (oOptions !== undefined) {
+							sClass = oOptions.attr.class === undefined ? ' ' : oOptions.attr.class;
+						}
 
-						return '<input type="'+ sType + '" value="' + value +'">';
+						if ( oInput !== undefined && oInput !== null  ) {
+
+							if (typeof oInput === 'number') {
+								sType = "number"
+							} else if (typeof oInput === 'object') {
+								sType = oInput.type;
+								sLabel = oInput.label;
+								sValue = oInput.value == undefined ? '' : oInput.value;
+
+							} else if (oInput.indexOf("@") !== -1 ) {
+								sType = "email";
+							}
+
+						} else {
+							sLabel = '';
+							sValue = '';
+						}
+
+						if (sType !== 'submit') {
+							sCode += '<p>';
+							sCode += '<label class="required">' + sLabel + '</label>';
+							sCode += '<input class="'+ sClass +'" type="'+ sType + '" value="' + sValue +'">';
+							sCode += '</p>';
+						} else {
+							sCode += '<button type="' + sType + '" class="'+ sClass +'"> '+ sLabel + '</button>';
+						}
+
+						return sCode;
 					});
 
 					Twig.exports.extendFunction("form_widget", function (oInput, oOptions) {
@@ -179,7 +236,6 @@ module.exports = function(grunt, fixtures) {
 					expand: true,
 					cwd: './temp/',
 					src: ['*.html.twig','!_*.html.twig','!cart*.html.twig','!recover-password.html.twig','!fields.html.twig','!user*.html.twig','!category*.html.twig','!coupon*.html.twig','!product*.html.twig','index.html.twig'],
-					//src: ['**/*.html.twig', '!**/_*.html.twig'],
 					dest: 'Resources/public/preview/',
 					ext: '.html'
 				}
@@ -192,7 +248,6 @@ module.exports = function(grunt, fixtures) {
 					expand: true,
 					cwd: './temp/',
 					src: ['category*.html.twig','product*.html.twig'],
-					//src: ['**/*.html.twig', '!**/_*.html.twig'],
 					dest: 'Resources/public/preview/',
 					ext: '.html'
 				}
@@ -205,7 +260,6 @@ module.exports = function(grunt, fixtures) {
 					expand: true,
 					cwd: './temp/',
 					src: ['home*.html.twig','category*.html.twig','product*.html.twig'],
-					//src: ['**/*.html.twig', '!**/_*.html.twig'],
 					dest: 'Resources/public/preview/',
 					ext: '-empty.html'
 				}
@@ -217,8 +271,7 @@ module.exports = function(grunt, fixtures) {
 					data: oCartFullFixtures,
 					expand: true,
 					cwd: './temp/',
-					src: ['cart-view.html.twig'],
-					//src: ['**/*.html.twig', '!**/_*.html.twig'],
+					src: ['cart-*.html.twig'],
 					dest: 'Resources/public/preview/',
 					ext: '.html'
 				}
@@ -231,11 +284,35 @@ module.exports = function(grunt, fixtures) {
 					expand: true,
 					cwd: './temp/',
 					src: ['cart*.html.twig'],
-					//src: ['**/*.html.twig', '!**/_*.html.twig'],
 					dest: 'Resources/public/preview/',
 					ext: '-empty.html'
 				}
 			]
 		},
+		orderEmpty: {
+			files: [
+				{
+					data: oOrderEmtpyFixtures,
+					expand: true,
+					cwd: './temp/',
+					src: ['order*.html.twig'],
+					dest: 'Resources/public/preview/',
+					ext: '-empty.html'
+				}
+			]
+		},
+		userForm: {
+			files: [
+				{
+					data: oUserForm,
+					expand: true,
+					cwd: './temp/',
+					src: ['user-*.html.twig'],
+					dest: 'Resources/public/preview/',
+					ext: '.html'
+				}
+			]
+		}
+
 	}
 }

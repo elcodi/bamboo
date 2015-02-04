@@ -4,11 +4,15 @@ module.exports = {
 		tasks: ['js']
 	},
 	scss: {
-		files: ['Resources/public/scss/**/*.scss'],
+		files: ['Scss/**/*.scss'],
 		tasks: ['scss']
 	},
+	markdown: {
+		files: ['README.md'],
+		tasks: ['markdown']
+	},
 	default: {
-		files: ['Resources/views/**/*.twig','grunt/*.js','fixtures/store.json','fixtures/index.html.twig'],
+		files: ['Resources/views/**/*.twig','grunt/*.js','fixtures/store.json','fixtures/**/*.*'],
 		tasks: ['default']
 	}
 }
