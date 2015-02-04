@@ -2,11 +2,7 @@
 <tr>
     <td class="image">
         <a href="{{ productRoute }}">
-            <img src="{{ line.product.principalImage ? line.product.principalImage|resize({
-                width: 80,
-                height: 80,
-                type: 5 }) : 'http://placehold.it/80x80'
-            }}" alt="{{ line.purchasable|purchasable_name }}" />
+            <img src="{{ line.product.principalImage ? line.product.principalImage|resize({ width: 80,height: 80,type: 5 }) : 'http://placehold.it/80x80' }}" alt="{{ line.purchasable|purchasable_name }}" />
         </a>
     </td>
     <td class="title">

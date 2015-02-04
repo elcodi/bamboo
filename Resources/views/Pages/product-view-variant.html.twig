@@ -19,10 +19,7 @@
             'type': 5
         }) : 'http://placehold.it/60x47' }}" alt="{{ variant.name }}"/>
 
-        {% set variant_price = variant.reducedPrice.amount > 0
-            ? variant.reducedPrice
-            : variant.price
-        %}
+        {% set variant_price = variant.reducedPrice.amount > 0 ? variant.reducedPrice : variant.price %}
 
         <p>{{ variant|purchasable_name }}<br/>
             <span>{{ variant_price|print_convert_money() }}</span>

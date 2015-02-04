@@ -7,6 +7,10 @@ module.exports = {
 		files: ['Scss/**/*.scss'],
 		tasks: ['scss']
 	},
+	markdown: {
+		files: ['README.md'],
+		tasks: ['markdown']
+	},
 	default: {
 		files: ['Resources/views/**/*.twig','grunt/*.js','fixtures/store.json','fixtures/**/*.*'],
 		tasks: ['default']

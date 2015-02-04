@@ -32,10 +32,11 @@ function getFixtures( aFixturesNames ) {
 module.exports = function(grunt, fixtures) {
 
 
-	var oFullFixtures = getFixtures(['store','categoryTree','product','products','related_products','cart-empty','order','currencyCategoryId-null']),
-		oCategoryFullFixtures = getFixtures(['store','categoryTree','product','products','related_products','cart-empty','currencyCategoryId-1']);
-		oCategoryEmptyFixtures = getFixtures(['store','categoryTree','product','related_products','cart-empty','currencyCategoryId-1']);
-		oCartFullFixtures = getFixtures(['store','categoryTree','product','related_products','cart-full','currencyCategoryId-1']);
+	var oFullFixtures = getFixtures(['store','categoryTree','product','products','related_products','cart-empty','order','orders','currencyCategoryId-null']),
+		oCategoryFullFixtures = getFixtures(['store','categoryTree','product','products','related_products','cart-empty','currencyCategoryId-1']),
+		oCategoryEmptyFixtures = getFixtures(['store','categoryTree','product','related_products','cart-empty','currencyCategoryId-1']),
+		oCartFullFixtures = getFixtures(['store','categoryTree','product','related_products','order','orders','cart-full','currencyCategoryId-1']),
+		oOrderEmtpyFixtures = getFixtures(['store','categoryTree','product','related_products','cart-full','currencyCategoryId-1']);
 
 	return {
 		options: {
@@ -43,6 +44,7 @@ module.exports = function(grunt, fixtures) {
 
 				function (Twig) {
 					Twig.exports.extendFilter("trans", function (value) {
+
 						if (value === undefined || value === null) {
 							return;
 						}
@@ -57,6 +59,7 @@ module.exports = function(grunt, fixtures) {
 
 						return value;
 					});
+
 					Twig.exports.extendFilter("purchasable_name", function (value) {
 
 						if (value === undefined || value === null) {
@@ -227,7 +230,7 @@ module.exports = function(grunt, fixtures) {
 					data: oCartFullFixtures,
 					expand: true,
 					cwd: './temp/',
-					src: ['cart-view.html.twig'],
+					src: ['cart-*.html.twig'],
 					//src: ['**/*.html.twig', '!**/_*.html.twig'],
 					dest: 'Resources/public/preview/',
 					ext: '.html'
@@ -247,5 +250,19 @@ module.exports = function(grunt, fixtures) {
 				}
 			]
 		},
+		orderEmpty: {
+			files: [
+				{
+					data: oOrderEmtpyFixtures,
+					expand: true,
+					cwd: './temp/',
+					src: ['order*.html.twig'],
+					//src: ['**/*.html.twig', '!**/_*.html.twig'],
+					dest: 'Resources/public/preview/',
+					ext: '-empty.html'
+				}
+			]
+		},
+
 	}
 }
