@@ -131,7 +131,9 @@ class CategoryController extends AbstractAdminController
 
             $this->addFlash('success','Changes saved');
 
-            $this->get('event_dispatcher')->dispatch(ProductEvents::CATEGORIES_ONCHANGE);
+            $this
+                ->get('event_dispatcher')
+                ->dispatch(ProductEvents::CATEGORIES_ONCHANGE);
 
             return $this->redirectToRoute('admin_category_edit', [
                 'id' => $category->getId(),
