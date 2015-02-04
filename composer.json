@@ -102,7 +102,9 @@
         "mmoreram/php-formatter": "~1.0",
         "behat/symfony2-extension": "~2.0@dev",
         "behat/mink-extension": "~2.0@dev",
-        "behat/mink-browserkit-driver": "~1.1@dev"
+        "behat/mink-browserkit-driver": "~1.1@dev",
+        "mmoreram/php-formatter": "1.0.4",
+        "fabpot/php-cs-fixer": "1.4.2"
     },
     "scripts": {
         "post-install-cmd": [
