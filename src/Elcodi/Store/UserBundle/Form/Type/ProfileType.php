@@ -76,11 +76,11 @@ class ProfileType extends AbstractType
             ])
             ->add('email', 'email', [
                 'required' => true,
-                'label'    => 'Email'
+                'label'    => 'Email',
             ])
             ->add('deliveryAddress', 'store_geo_form_type_address', [
                 'required' => true,
-                'label'    => false
+                'label'    => false,
             ])
             ->add('password', 'repeated', [
                 'type'           => 'password',

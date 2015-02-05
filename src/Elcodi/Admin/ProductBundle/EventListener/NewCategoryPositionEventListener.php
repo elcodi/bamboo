@@ -16,11 +16,9 @@
 
 namespace Elcodi\Admin\ProductBundle\EventListener;
 
-use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
 use Doctrine\ORM\Event\PreFlushEventArgs;
 
 use Elcodi\Component\Product\Entity\Category;
-use Elcodi\Component\Product\Repository\CategoryRepository;
 
 /**
  * Class NewCategoryPositionEventListener sets the position for new categories when these are inserted.

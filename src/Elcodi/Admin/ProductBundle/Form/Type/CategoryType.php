@@ -54,8 +54,7 @@ class CategoryType extends AbstractType
     public function __construct(
         CategoryFactory $categoryFactory,
         ProductFactory $productFactory
-    )
-    {
+    ) {
         $this->categoryFactory = $categoryFactory;
         $this->productFactory = $productFactory;
     }

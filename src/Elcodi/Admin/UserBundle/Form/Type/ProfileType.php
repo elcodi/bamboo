@@ -76,15 +76,15 @@ class ProfileType extends AbstractType
             ))
             ->add('email', 'email', array(
                 'required' => true,
-                'label'    => 'Email'
+                'label'    => 'Email',
             ))
             ->add('deliveryAddress', 'store_user_form_type_address', array(
                 'required' => true,
-                'label'    => 'Delivery Address'
+                'label'    => 'Delivery Address',
             ))
             ->add('invoiceAddress', 'store_user_form_type_address', array(
                 'required' => true,
-                'label'    => 'Invoice Address'
+                'label'    => 'Invoice Address',
             ))
             ->add('password', 'repeated', array(
                 'type'           => 'password',

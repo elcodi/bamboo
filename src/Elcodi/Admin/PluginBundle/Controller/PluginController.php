@@ -82,7 +82,7 @@ class PluginController extends AbstractAdminController
             'status' => 200,
             'response' => [
                 'Plugin status saved',
-            ]
+            ],
         ];
     }
 }

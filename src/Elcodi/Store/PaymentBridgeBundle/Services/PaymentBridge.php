@@ -166,7 +166,6 @@ class PaymentBridge implements PaymentBridgeInterface
              * @var OrderLine $orderLine
              */
             foreach ($this->order->getOrderLines() as $orderLine) {
-
                 $orderLineArray = [];
                 $orderLineArray['item_name'] = $orderLine
                     ->getPurchasable()

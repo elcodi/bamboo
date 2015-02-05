@@ -23,5 +23,4 @@ use Elcodi\Store\CoreBundle\Behat\abstracts\AbstractElcodiContext;
  */
 class Context extends AbstractElcodiContext
 {
-
 }

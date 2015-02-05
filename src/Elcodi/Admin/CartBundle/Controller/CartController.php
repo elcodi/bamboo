@@ -89,8 +89,7 @@ class CartController extends AbstractAdminController
         $limit,
         $orderByField,
         $orderByDirection
-    )
-    {
+    ) {
         return [
             'page'             => $page,
             'limit'            => $limit,
@@ -185,8 +184,7 @@ class CartController extends AbstractAdminController
         CartInterface $entity,
         FormInterface $form,
         $isValid
-    )
-    {
+    ) {
         if ($isValid) {
             $this
                 ->get('elcodi.object_manager.cart')
@@ -227,8 +225,7 @@ class CartController extends AbstractAdminController
         Request $request,
         $entity,
         $redirectUrl = null
-    )
-    {
+    ) {
         return parent::deleteAction(
             $request,
             $entity,
@@ -274,7 +271,7 @@ class CartController extends AbstractAdminController
 
         return $this->redirect(
             $this->generateUrl("admin_order_view", [
-                "id" => $order->getId()
+                "id" => $order->getId(),
             ])
         );
     }

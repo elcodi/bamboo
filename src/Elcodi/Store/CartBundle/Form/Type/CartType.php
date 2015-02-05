@@ -84,7 +84,7 @@ class CartType extends AbstractType
             ->add('cartLines', 'collection', [
                 'type'     => 'store_cart_form_type_cart_line',
                 'required' => true,
-                'label'    => false
+                'label'    => false,
             ])
             ->add('update', 'submit', [
                 'label' => 'Update basket',

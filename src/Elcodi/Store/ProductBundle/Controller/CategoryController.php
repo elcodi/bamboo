@@ -54,7 +54,7 @@ class CategoryController extends Controller
             ->get('id');
 
         $currentCategory = null;
-        if(!is_null($currentCategoryId)) {
+        if (!is_null($currentCategoryId)) {
             $currentCategory = $this
                 ->get('elcodi.repository.category')
                 ->findOneBy(['id' => $currentCategoryId]);

@@ -55,7 +55,6 @@ class Context extends AbstractElcodiContext
             ->findAll('xpath', '//div[contains(@class, "product-listing")]');
 
         if (count($elements) <= $numberOfProducts) {
-
             throw new Exception(
                 sprintf(
                     'Displayed %d products, minimum expected %d',
@@ -77,7 +76,6 @@ class Context extends AbstractElcodiContext
             ->findAll('xpath', '//div[contains(@class, "product-listing")]');
 
         if (count($elements) >= $numberOfProducts) {
-
             throw new Exception(
                 sprintf(
                     'Displayed %d products, maximum expected %d',
@@ -99,7 +97,6 @@ class Context extends AbstractElcodiContext
             ->findAll('xpath', '//div[contains(@class, "product-listing")]');
 
         if (count($elements) != $numberOfProducts) {
-
             throw new Exception(
                 sprintf(
                     'Displayed %d products, expected %d',
@@ -120,10 +117,9 @@ class Context extends AbstractElcodiContext
         $elements = $this
             ->getSession()
             ->getPage()
-            ->findAll('xpath', '//h1[contains(., "' . $product->getName() . '")]');
+            ->findAll('xpath', '//h1[contains(., "'.$product->getName().'")]');
 
         if (count($elements) != 1) {
-
             throw new Exception(
                 sprintf(
                     'Product with id %d found %d times. expected 1',
@@ -139,7 +135,6 @@ class Context extends AbstractElcodiContext
     public function iShouldSeeCategoryMenuItem(TableNode $table)
     {
         foreach ($table as $node) {
-
             $categoryName = $node['name'];
             $active = $node['active'];
 
@@ -152,11 +147,10 @@ class Context extends AbstractElcodiContext
                 ->getPage()
                 ->find(
                     'xpath',
-                    '//ul[contains(@class, "main-nav")]/' . $activeXpath . '/a[text()="' . $categoryName . '"]'
+                    '//ul[contains(@class, "main-nav")]/'.$activeXpath.'/a[text()="'.$categoryName.'"]'
                 );
 
             if (is_null($element)) {
-
                 $activeExpression = $active
                     ? 'active'
                     : 'non active';
@@ -190,7 +184,6 @@ class Context extends AbstractElcodiContext
             ->find($productId);
 
         if (!($product instanceof ProductInterface)) {
-
             throw new EntityNotFoundException(
                 sprintf(
                     'Product with id %d was not found',
@@ -220,7 +213,6 @@ class Context extends AbstractElcodiContext
             ->find($categoryId);
 
         if (!($category instanceof ProductInterface)) {
-
             throw new EntityNotFoundException(
                 sprintf(
                     'Category with id %d was not found',

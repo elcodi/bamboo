@@ -110,10 +110,8 @@ class UserController extends Controller
         CustomerInterface $customer,
         FormView $formView,
         $isValid
-    )
-    {
+    ) {
         if ($isValid) {
-
             $this
                 ->get('elcodi.object_manager.customer')
                 ->flush($customer);

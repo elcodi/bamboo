@@ -37,7 +37,7 @@ class PaymentBridgeExtension extends AbstractExtension
      */
     public function getConfigFilesLocation()
     {
-        return __DIR__ . '/../Resources/config';
+        return __DIR__.'/../Resources/config';
     }
 
     /**
@@ -58,7 +58,7 @@ class PaymentBridgeExtension extends AbstractExtension
         return [
             'classes',
             'services',
-            'eventListeners'
+            'eventListeners',
         ];
     }
 

@@ -21,5 +21,4 @@ namespace Elcodi\Admin\CartBundle\Controller\Stats;
  */
 class OrderStatsController
 {
-
 }

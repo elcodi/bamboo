@@ -95,13 +95,11 @@ class CartComponentController extends AbstractAdminController
         $limit,
         $orderByField,
         $orderByDirection
-    )
-    {
+    ) {
         /**
          * @var CartInterface $cart
          */
         foreach ($paginator as $cart) {
-
             $this
                 ->get('elcodi.cart_event_dispatcher')
                 ->dispatchCartOnLoadEvent($cart);
@@ -225,8 +223,7 @@ class CartComponentController extends AbstractAdminController
     public function editComponentAction(
         CartInterface $entity,
         FormView $formView
-    )
-    {
+    ) {
         return [
             'entity' => $entity,
             'form'   => $formView,
@@ -263,7 +260,6 @@ class CartComponentController extends AbstractAdminController
          * @var CartLineInterface $cartLine
          */
         foreach ($entity->getCartLines() as $cartLine) {
-
             $images = new ArrayCollection(array_merge(
                 $images->toArray(),
                 $cartLine->getProduct()->getImages()->toArray()

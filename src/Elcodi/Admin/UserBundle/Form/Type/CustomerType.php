@@ -52,8 +52,7 @@ class CustomerType extends AbstractType
     public function __construct(
         CustomerFactory $customerFactory,
         LanguageFactory $languageFactory
-    )
-    {
+    ) {
         $this->customerFactory = $customerFactory;
         $this->languageFactory = $languageFactory;
     }
@@ -84,19 +83,19 @@ class CustomerType extends AbstractType
             ->setMethod('POST')
             ->add('username', 'text', array(
                 'required' => true,
-                'label'    => 'Username'
+                'label'    => 'Username',
             ))
             ->add('email', 'email', array(
                 'required' => true,
-                'label'    => 'Email'
+                'label'    => 'Email',
             ))
             ->add('firstname', 'text', array(
                 'required' => true,
-                'label'    => 'Firstname'
+                'label'    => 'Firstname',
             ))
             ->add('lastname', 'text', array(
                 'required' => true,
-                'label'    => 'Lastname'
+                'label'    => 'Lastname',
             ))
             ->add('gender', 'choice', array(
                 'choices'  => array(
@@ -104,7 +103,7 @@ class CustomerType extends AbstractType
                     ElcodiUserProperties::GENDER_FEMALE => 'Female',
                 ),
                 'required' => true,
-                'label'    => 'Gender'
+                'label'    => 'Gender',
             ))
             ->add('language', 'entity', array(
                 'class'    => $this->languageFactory->getEntityNamespace(),
@@ -128,15 +127,15 @@ class CustomerType extends AbstractType
             ))
             ->add('guest', 'checkbox', array(
                 'required' => false,
-                'label'    => 'Guest'
+                'label'    => 'Guest',
             ))
             ->add('newsletter', 'checkbox', array(
                 'required' => false,
-                'label'    => 'Newsletter'
+                'label'    => 'Newsletter',
             ))
             ->add('enabled', 'checkbox', array(
                 'required' => false,
-                'label'    => 'Status'
+                'label'    => 'Status',
             ));
     }
 

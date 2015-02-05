@@ -87,8 +87,7 @@ class ManufacturerComponentController extends AbstractAdminController
         $limit,
         $orderByField,
         $orderByDirection
-    )
-    {
+    ) {
         return [
             'paginator'        => $paginator,
             'page'             => $page,
@@ -150,8 +149,7 @@ class ManufacturerComponentController extends AbstractAdminController
     public function editComponentAction(
         FormView $formView,
         ManufacturerInterface $manufacturer
-    )
-    {
+    ) {
         return [
             'manufacturer' => $manufacturer,
             'form'     => $formView,

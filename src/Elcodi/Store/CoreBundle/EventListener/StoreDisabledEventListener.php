@@ -68,8 +68,7 @@ class StoreDisabledEventListener extends AbstractStoreEventListener
         $templateBundle,
         $storeIsEnabled,
         $adminPrefix
-    )
-    {
+    ) {
         $this->twig = $twig;
         $this->templateBundle = $templateBundle;
         $this->storeIsEnabled = $storeIsEnabled;
@@ -92,10 +91,9 @@ class StoreDisabledEventListener extends AbstractStoreEventListener
             );
 
         if ($inStore && !$this->storeIsEnabled) {
-
             $data = $this
                 ->twig
-                ->render($this->templateBundle . ':Pages:store-disabled.html.twig');
+                ->render($this->templateBundle.':Pages:store-disabled.html.twig');
 
             $event->setResponse(new Response($data));
         }

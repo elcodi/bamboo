@@ -61,8 +61,7 @@ class PaymentEventListener
         CartWrapper $cartWrapper,
         CartOrderTransformer $cartOrderTransformer,
         MachineManager $orderStateTransitionMachineManager
-    )
-    {
+    ) {
         $this->cartWrapper = $cartWrapper;
         $this->cartOrderTransformer = $cartOrderTransformer;
         $this->orderStateTransitionMachineManager = $orderStateTransitionMachineManager;
@@ -116,5 +115,4 @@ class PaymentEventListener
                 'Order paid'
             );
     }
-
 }

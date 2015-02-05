@@ -30,6 +30,6 @@ class AdminPluginBundle extends Bundle
      */
     public function getContainerExtension()
     {
-        return null;
+        return;
     }
 }

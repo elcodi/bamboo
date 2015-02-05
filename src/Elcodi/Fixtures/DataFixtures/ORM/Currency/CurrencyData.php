@@ -38,13 +38,12 @@ class CurrencyData extends AbstractFixture
          * @var ObjectManager   $currencyObjectManager
          * @var CurrencyFactory $currencyFactory
          */
-        $currencies = $this->parseYaml(dirname(__FILE__) . '/currencies.yml');
+        $currencies = $this->parseYaml(dirname(__FILE__).'/currencies.yml');
         $currencyObjectManager = $this->get('elcodi.object_manager.currency');
         $currencyFactory = $this->get('elcodi.factory.currency');
         $currencyEntities = [];
 
         foreach ($currencies as $currencyIso => $currencyData) {
-
             $currency = $currencyFactory
                 ->create()
                 ->setIso($currencyIso)
@@ -52,7 +51,7 @@ class CurrencyData extends AbstractFixture
                 ->setSymbol($currencyData['symbol'])
                 ->setEnabled((boolean) $currencyData['enabled']);
 
-            $this->setReference('currency-' . $currencyIso, $currency);
+            $this->setReference('currency-'.$currencyIso, $currency);
             $currencyObjectManager->persist($currency);
             $currencyEntities[] = $currency;
         }

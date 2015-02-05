@@ -50,7 +50,6 @@ class PermanentPageSubscriber implements EventSubscriberInterface
         $form = $event->getForm();
 
         if (($page instanceof PageInterface) && $page->isPersistent()) {
-
             $form->remove('enabled');
         }
     }

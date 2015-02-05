@@ -46,8 +46,7 @@ abstract class AbstractPurchasableType extends AbstractType
     public function __construct(
         $entityNamespace,
         AbstractFactory $purchasableFactory
-    )
-    {
+    ) {
         $this->entityNamespace = $entityNamespace;
         $this->purchasableFactory = $purchasableFactory;
     }
@@ -64,7 +63,7 @@ abstract class AbstractPurchasableType extends AbstractType
         $purchasable = $this->purchasableFactory->create();
 
         $resolver->setDefaults(array(
-            'empty_data' => $purchasable
+            'empty_data' => $purchasable,
         ));
     }
 }

@@ -75,8 +75,7 @@ class PageController extends AbstractAdminController
         $limit,
         $orderByField,
         $orderByDirection
-    )
-    {
+    ) {
         return [
             'page'             => $page,
             'limit'            => $limit,
@@ -149,13 +148,11 @@ class PageController extends AbstractAdminController
         FormInterface $form,
         PageInterface $page,
         $isValid
-    )
-    {
+    ) {
         if ($isValid) {
-
             $this->flush($page);
 
-            $this->addFlash('success','Changes saved');
+            $this->addFlash('success', 'Changes saved');
 
             return $this->redirectToRoute('admin_page_edit', [
                 'id' => $page->getId(),
@@ -192,8 +189,7 @@ class PageController extends AbstractAdminController
     public function enableAction(
         Request $request,
         EnabledInterface $page
-    )
-    {
+    ) {
         if ($page->isPersistent()) {
             $exception = new AccessDeniedHttpException('This page can\'t be accessed for a permanent page');
 
@@ -230,8 +226,7 @@ class PageController extends AbstractAdminController
     public function disableAction(
         Request $request,
         EnabledInterface $page
-    )
-    {
+    ) {
         if ($page->isPersistent()) {
             $exception = new AccessDeniedHttpException('This page can\'t be accessed for a permanent page');
 
@@ -270,8 +265,7 @@ class PageController extends AbstractAdminController
         Request $request,
         $entity,
         $redirectUrl = null
-    )
-    {
+    ) {
         return parent::deleteAction(
             $request,
             $entity,
