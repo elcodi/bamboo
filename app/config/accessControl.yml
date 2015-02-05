@@ -3,26 +3,26 @@ security:
 
         # admin
         login_area:
-            path: ^/admin/login.*
+            path: ^/admin/login
             roles: IS_AUTHENTICATED_ANONYMOUSLY
 
         password_area:
-            path: ^/admin/password.*
+            path: ^/admin/password
             roles: IS_AUTHENTICATED_ANONYMOUSLY
 
         admin_area:
-            path: ^/admin/.*
+            path: ^/admin/
             roles: ROLE_ADMIN
 
         # store
         customer_area:
-            path: /user/.*
+            path: ^/user/
             roles: ROLE_CUSTOMER
 
         checkout_area:
-            path: /checkout/.*
+            path: ^/checkout/
             roles: ROLE_CUSTOMER
 
         public_area:
-            path: /.*
+            path: ^/
             roles: IS_AUTHENTICATED_ANONYMOUSLY

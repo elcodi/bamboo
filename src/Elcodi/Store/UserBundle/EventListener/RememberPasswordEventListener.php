@@ -29,18 +29,27 @@ class RememberPasswordEventListener
     /**
      * @var TokenStorageInterface
      *
-     * SecurityContext
+     * Token storage
      */
     protected $tokenStorage;
+
+    /**
+     * @var string
+     *
+     * Provider key
+     */
+    protected $providerKey;
 
     /**
      * Build method
      *
      * @param TokenStorageInterface $tokenStorage Token storage
+     * @param string                $providerKey  Provider key
      */
-    public function __construct(TokenStorageInterface $tokenStorage)
+    public function __construct(TokenStorageInterface $tokenStorage, $providerKey)
     {
         $this->tokenStorage = $tokenStorage;
+        $this->providerKey = $providerKey;
     }
 
     /**
@@ -59,7 +68,7 @@ class RememberPasswordEventListener
         $token = new UsernamePasswordToken(
             $user,
             null,
-            'customer_secured_area',
+            $this->providerKey,
             $user->getRoles()
         );
 

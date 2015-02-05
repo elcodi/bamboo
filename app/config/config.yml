@@ -103,7 +103,7 @@ paypal_web_checkout:
         order_append_field: id
 
 hwi_oauth:
-    firewall_name: customer_secured_area
+    firewall_name: %bamboo_store_firewall%
     resource_owners:
         github:
             type: github

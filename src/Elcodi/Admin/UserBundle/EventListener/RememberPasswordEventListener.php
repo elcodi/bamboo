@@ -52,21 +52,31 @@ class RememberPasswordEventListener
     protected $tokenStorage;
 
     /**
+     * @var string
+     *
+     * Provider key
+     */
+    protected $providerKey;
+
+    /**
      * Build method
      *
      * @param Swift_Mailer          $mailer       Mailer
      * @param EngineInterface       $templating   Templating
      * @param TokenStorageInterface $tokenStorage Token storage
+     * @param string                $providerKey  Provider key
      */
     public function __construct(
         Swift_Mailer $mailer,
         EngineInterface $templating,
-        TokenStorageInterface $tokenStorage
+        TokenStorageInterface $tokenStorage,
+        $providerKey
     )
     {
         $this->mailer = $mailer;
         $this->templating = $templating;
         $this->tokenStorage = $tokenStorage;
+        $this->providerKey = $providerKey;
     }
 
     /**
@@ -112,7 +122,7 @@ class RememberPasswordEventListener
         $token = new UsernamePasswordToken(
             $user,
             null,
-            'customer_secured_area',
+            $this->providerKey,
             $user->getRoles()
         );
 
