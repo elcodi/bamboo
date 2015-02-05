@@ -67,7 +67,7 @@ module.exports = function(grunt, fixtures) {
 							return;
 						}
 
-						return value;
+						return value.name;
 					});
 
 					Twig.exports.extendFilter("print_convert_money", function (value) {

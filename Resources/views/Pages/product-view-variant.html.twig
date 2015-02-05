@@ -11,20 +11,20 @@
 <h4>Choose a model</h4>
 
 {% for variant in product.variants %}
-
     <div class= "add-basket-box clearfix">
-        <img src="{{ variant.images|length > 0 ? variant.images.first|resize({
-            'width': 60,
-            'height': 47,
-            'type': 5
-        }) : 'http://placehold.it/60x47' }}" alt="{{ variant.name }}"/>
-
         {% set variant_price = variant.reducedPrice.amount > 0 ? variant.reducedPrice : variant.price %}
-
-        <p>{{ variant|purchasable_name }}<br/>
+        <p>
+            {% if variant.images|length > 0  %}
+            <img align="right" hspace="10" src="{{ variant.images.first|resize({
+                'width': 60,
+                'height': 47,
+                'type': 5
+            }) }}" alt="{{ variant.name }}"/>
+            {% endif %}
+            {{ variant|purchasable_name }}<br/>
             <span>{{ variant_price|print_convert_money() }}</span>
         </p>
-
+        <br/>
         <a title="Add {{ variant|purchasable_name }} to cart"
            class="btn btn-addcart btn-primary"
            href="{{ url('store_cart_add_product_variant', { id: variant.id }) }}">
