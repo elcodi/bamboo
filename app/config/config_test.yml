@@ -1,5 +1,6 @@
 imports:
     - { resource: config_dev.yml }
+    - { resource: @ElcodiBambooBundle/Resources/config/cache.test.yml }
 
 parameters:
 

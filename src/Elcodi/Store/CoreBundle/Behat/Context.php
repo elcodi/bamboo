@@ -23,5 +23,20 @@ use Elcodi\Store\CoreBundle\Behat\abstracts\AbstractElcodiContext;
  */
 class Context extends AbstractElcodiContext
 {
+    /**
+     * @Given /^the store is disabled$/
+     */
+    public function theStoreIsDisabled()
+    {
 
+        $this->setConfiguration('store.enabled', false);
+    }
+
+    /**
+     * @Given /^the store is under construction$/
+     */
+    public function theStoreIsUnderConstruction()
+    {
+        $this->setConfiguration('store.under_construction', true);
+    }
 }

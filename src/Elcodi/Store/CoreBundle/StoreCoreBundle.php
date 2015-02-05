@@ -16,9 +16,11 @@
 
 namespace Elcodi\Store\CoreBundle;
 
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
+use Elcodi\Store\CoreBundle\CompilerPass\FirewallListenerCompilerPass;
 use Elcodi\Store\CoreBundle\DependencyInjection\StoreCoreExtension;
 
 /**
@@ -26,6 +28,16 @@ use Elcodi\Store\CoreBundle\DependencyInjection\StoreCoreExtension;
  */
 class StoreCoreBundle extends Bundle
 {
+    /**
+     * @param ContainerBuilder $container
+     */
+    public function build(ContainerBuilder $container)
+    {
+        parent::build($container);
+
+        $container->addCompilerPass(new FirewallListenerCompilerPass());
+    }
+
     /**
      * Returns the bundle's container extension.
      *
