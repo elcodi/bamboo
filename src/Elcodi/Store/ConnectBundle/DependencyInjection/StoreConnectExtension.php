@@ -73,6 +73,7 @@ class StoreConnectExtension extends AbstractExtension implements EntitiesOverrid
     {
         return [
             'classes',
+            'factories',
             'objectManagers',
             'repositories',
             'services',

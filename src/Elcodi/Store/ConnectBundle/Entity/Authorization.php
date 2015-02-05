@@ -16,6 +16,7 @@
 
 namespace Elcodi\Store\ConnectBundle\Entity;
 
+use DateTime;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 use Elcodi\Component\Core\Entity\Traits\IdentifiableTrait;
@@ -33,41 +34,43 @@ class Authorization implements AuthorizationInterface
     use IdentifiableTrait;
 
     /**
-     * Name of the resource owner
-     *
      * @var string
+     *
+     * Name of the resource owner
      */
     protected $resourceOwnerName;
 
     /**
-     * Username in the remote system
-     *
      * @var string
+     *
+     * Username in the remote system
      */
     protected $username;
 
     /**
-     * Authorization token, when it suits
-     *
      * @var string
+     *
+     * Authorization token, when it suits
      */
     protected $authorizationToken;
 
     /**
-     * Expiration date
+     * @var DateTime
      *
-     * @var \DateTime
+     * Expiration date
      */
     protected $expirationDate;
 
     /**
-     * User
-     *
      * @var UserInterface
+     *
+     * User
      */
     protected $user;
 
     /**
+     * Get authorization token
+     *
      * @return string
      */
     public function getAuthorizationToken()
@@ -76,9 +79,11 @@ class Authorization implements AuthorizationInterface
     }
 
     /**
-     * @param string $authorizationToken
+     * Set current authorization token
      *
-     * @return self
+     * @param string $authorizationToken New authorization token
+     *
+     * @return $this Self object
      */
     public function setAuthorizationToken($authorizationToken)
     {
@@ -88,7 +93,9 @@ class Authorization implements AuthorizationInterface
     }
 
     /**
-     * @return \DateTime
+     * Get expiration date
+     *
+     * @return DateTime
      */
     public function getExpirationDate()
     {
@@ -96,11 +103,13 @@ class Authorization implements AuthorizationInterface
     }
 
     /**
-     * @param \DateTime $expirationDate
+     * Set expiration date
      *
-     * @return self
+     * @param DateTime $expirationDate
+     *
+     * @return $this Self object
      */
-    public function setExpirationDate($expirationDate)
+    public function setExpirationDate(DateTime $expirationDate)
     {
         $this->expirationDate = $expirationDate;
 
@@ -108,6 +117,8 @@ class Authorization implements AuthorizationInterface
     }
 
     /**
+     * Get resource owner name
+     *
      * @return string
      */
     public function getResourceOwnerName()
@@ -116,9 +127,11 @@ class Authorization implements AuthorizationInterface
     }
 
     /**
-     * @param string $resourceOwnerName
+     * Set resource owner name
      *
-     * @return self
+     * @param string $resourceOwnerName Resource owner name
+     *
+     * @return $this Self object
      */
     public function setResourceOwnerName($resourceOwnerName)
     {
@@ -128,6 +141,8 @@ class Authorization implements AuthorizationInterface
     }
 
     /**
+     * Get current username
+     *
      * @return string
      */
     public function getUsername()
@@ -136,6 +151,8 @@ class Authorization implements AuthorizationInterface
     }
 
     /**
+     * Set username
+     *
      * @param string $username
      *
      * @return self
@@ -148,6 +165,8 @@ class Authorization implements AuthorizationInterface
     }
 
     /**
+     * Get user
+     *
      * @return UserInterface
      */
     public function getUser()
@@ -156,9 +175,11 @@ class Authorization implements AuthorizationInterface
     }
 
     /**
-     * @param UserInterface $user
+     * Set user
      *
-     * @return self
+     * @param UserInterface $user New user
+     *
+     * @return $this Self object
      */
     public function setUser(UserInterface $user)
     {
@@ -174,7 +195,7 @@ class Authorization implements AuthorizationInterface
      */
     public function __toString()
     {
-        $date = $this->expirationDate->format(\DateTime::ATOM);
+        $date = $this->expirationDate->format(DateTime::ATOM);
 
         return "{$this->resourceOwnerName}#{$this->username}#{$date}";
     }

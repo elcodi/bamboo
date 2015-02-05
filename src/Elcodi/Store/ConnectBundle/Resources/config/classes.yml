@@ -1,9 +1,9 @@
 parameters:
 
     #
-    # Repositories
+    # Factories
     #
-    store.connect.repository.authorization.class: Doctrine\ORM\EntityRepository
+    store.connect.factory.authorization.class: Elcodi\Store\ConnectBundle\Factory\AuthorizationFactory
 
     #
     # Services

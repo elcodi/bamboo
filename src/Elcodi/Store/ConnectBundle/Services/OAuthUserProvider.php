@@ -16,6 +16,7 @@
 
 namespace Elcodi\Store\ConnectBundle\Services;
 
+use DateTime;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\Persistence\ObjectRepository;
 use HWI\Bundle\OAuthBundle\OAuth\Response\UserResponseInterface;
@@ -37,55 +38,79 @@ class OAuthUserProvider implements OAuthAwareUserProviderInterface
 {
     /**
      * @var UserProviderInterface
+     *
+     * Where to search for valid users
      */
     protected $userProvider;
 
     /**
+     * @var AbstractFactory
+     *
+     * Authorization factory
+     */
+    protected $authorizationFactory;
+
+    /**
      * @var ObjectRepository
+     *
+     * Authorization repository
      */
     protected $authorizationRepository;
 
     /**
      * @var ObjectManager
+     *
+     * Authorization manager
      */
     protected $authorizationManager;
 
     /**
      * @var AbstractFactory
+     *
+     * Customer factory
      */
     private $customerFactory;
 
     /**
      * @var ObjectManager
+     *
+     * Customer manager
      */
-    private $customerObjectManager;
+    private $customerManager;
 
     /**
-     * @param UserProviderInterface $provider
-     * @param ObjectRepository      $authorizationRepository
-     * @param ObjectManager         $authorizationManager
-     * @param AbstractFactory       $customerFactory
-     * @param ObjectManager         $customerObjectManager
+     * @param UserProviderInterface $userProvider            User provider
+     * @param AbstractFactory       $authorizationFactory    Authorization factory
+     * @param ObjectRepository      $authorizationRepository Authorization repository
+     * @param ObjectManager         $authorizationManager    Authorization manager
+     * @param AbstractFactory       $customerFactory         Customer factory
+     * @param ObjectManager         $customerManager         Customer manager
      */
     public function __construct(
-        UserProviderInterface $provider,
+        UserProviderInterface $userProvider,
+        AbstractFactory $authorizationFactory,
         ObjectRepository $authorizationRepository,
         ObjectManager $authorizationManager,
         AbstractFactory $customerFactory,
-        ObjectManager $customerObjectManager
+        ObjectManager $customerManager
     )
     {
-        $this->userProvider = $provider;
+        $this->userProvider = $userProvider;
+        $this->authorizationFactory = $authorizationFactory;
         $this->authorizationRepository = $authorizationRepository;
         $this->authorizationManager = $authorizationManager;
         $this->customerFactory = $customerFactory;
-        $this->customerObjectManager = $customerObjectManager;
+        $this->customerManager = $customerManager;
     }
 
     /**
+     * Loads the user by a given UserResponseInterface object.
+     *
      * @param UserResponseInterface $response
      *
      * @return UserInterface
+     *
+     * @throws UsernameNotFoundException if the user is not found
      */
     public function loadUserByOAuthUserResponse(UserResponseInterface $response)
     {
@@ -102,57 +127,79 @@ class OAuthUserProvider implements OAuthAwareUserProviderInterface
     }
 
     /**
-     * @param UserResponseInterface $response
+     * Checks if a valid authorization exists for a given user
      *
-     * @return Authorization
+     * @param UserResponseInterface $response Response of the ResourceOwner
+     *
+     * @return Authorization|null
      */
     protected function findAuthorization(UserResponseInterface $response)
     {
-        $authorization = $this->authorizationRepository->findOneBy([
-            'resourceOwnerName' => $response->getResourceOwner()->getName(),
-            'username' => $response->getUsername(),
-        ]);
+        $resourceOwnerName = $response
+            ->getResourceOwner()
+            ->getName();
 
-        return $authorization;
+        $username = $response->getUsername();
+
+        return $this
+            ->authorizationRepository
+            ->findOneBy([
+                'resourceOwnerName' => $resourceOwnerName,
+                'username' => $username,
+            ]);
     }
 
     /**
-     * @param UserResponseInterface $response
-     * @param UserInterface         $user
+     * Creates an authorization for a given user
+     *
+     * @param UserResponseInterface $response Response of the resource owner
+     * @param UserInterface         $user     User
      *
      * @return Authorization
      */
     protected function createAuthorization(UserResponseInterface $response, UserInterface $user)
     {
-        $authorization = new Authorization();
+        $resourceOwnerName = $response
+            ->getResourceOwner()
+            ->getName();
+
+        $username = $response->getUsername();
+
+        $authorization = $this
+            ->authorizationFactory
+            ->create();
+
         $authorization
             ->setUser($user)
-            ->setResourceOwnerName($response->getResourceOwner()->getName())
-            ->setUsername($response->getUsername())
-        ;
+            ->setResourceOwnerName($resourceOwnerName)
+            ->setUsername($username);
 
         return $authorization;
     }
 
     /**
-     * @param Authorization         $authorization
-     * @param UserResponseInterface $response
+     * Updates an existing authorization with data from the resource owner
+     *
+     * @param Authorization         $authorization Authorization
+     * @param UserResponseInterface $response      Response of the resource owner
      *
      * @return Authorization
      */
     protected function updateAuthorization(Authorization $authorization, UserResponseInterface $response)
     {
         $expirationDate = $this->getExpirationDate($response->getExpiresIn());
+
         $authorization
             ->setAuthorizationToken($response->getAccessToken())
-            ->setExpirationDate($expirationDate)
-        ;
+            ->setExpirationDate($expirationDate);
 
         return $authorization;
     }
 
     /**
-     * @param Authorization $authorization
+     * Persist an authorization
+     *
+     * @param Authorization $authorization Authorization to persist
      */
     protected function save(Authorization $authorization)
     {
@@ -163,21 +210,26 @@ class OAuthUserProvider implements OAuthAwareUserProviderInterface
     }
 
     /**
-     * @param UserResponseInterface $response
+     * Find or creates a user related to a given response of the resource owner
+     *
+     * @param UserResponseInterface $response Response of the resource owner
      *
      * @return UserInterface
      */
     protected function findOrCreateUser(UserResponseInterface $response)
     {
         $user = $this->findUser($response);
-        if (null === $user) {
-            $user = $this->createUser($response);
+        if ($user instanceof UserInterface) {
+
+            return $user;
         }
 
-        return $user;
+        return $this->createUser($response);
     }
 
     /**
+     * Find the user related to the response of the resource owner
+     *
      * @param UserResponseInterface $response
      *
      * @return UserInterface
@@ -187,15 +239,20 @@ class OAuthUserProvider implements OAuthAwareUserProviderInterface
         $username = $response->getEmail();
 
         try {
-            $user = $this->userProvider->loadUserByUsername($username);
-        } catch (UsernameNotFoundException $e) {
-            $user = null;
-        }
 
-        return $user;
+            return $this
+                ->userProvider
+                ->loadUserByUsername($username);
+
+        } catch (UsernameNotFoundException $e) {
+
+            return null;
+        }
     }
 
     /**
+     * Create a new user from a response
+     *
      * @param UserResponseInterface $response
      *
      * @return UserInterface
@@ -206,11 +263,11 @@ class OAuthUserProvider implements OAuthAwareUserProviderInterface
          * @var CustomerInterface $customer
          */
         $customer = $this->customerFactory->create();
+
         $customer
             ->setEmail($response->getEmail())
             ->setFirstname($response->getRealName())
-            ->setUsername($response->getNickname())
-        ;
+            ->setUsername($response->getNickname());
 
         $this->authorizationManager->persist($customer);
         $this->authorizationManager->flush($customer);
@@ -223,10 +280,10 @@ class OAuthUserProvider implements OAuthAwareUserProviderInterface
      *
      * @param integer $secondsToExpiration
      *
-     * @return \DateTime
+     * @return DateTime
      */
     protected function getExpirationDate($secondsToExpiration)
     {
-        return new \DateTime(sprintf('now +%d seconds', $secondsToExpiration));
+        return new DateTime(sprintf('now +%d seconds', $secondsToExpiration));
     }
 }

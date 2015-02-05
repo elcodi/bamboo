@@ -4,8 +4,5 @@ services:
     # Object Managers
     #
     store.connect.object_manager.authorization:
-        class: Doctrine\Common\Persistence\ObjectManager
-        factory_service: elcodi.manager_provider
-        factory_method: getManagerByEntityNamespace
-        arguments:
-            attribute_namespace: %store.connect.entity.authorization.class%
+        parent: elcodi.abstract_manager
+        arguments: [ %store.connect.entity.authorization.class% ]
