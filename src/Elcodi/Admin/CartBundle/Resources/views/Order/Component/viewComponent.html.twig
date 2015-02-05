@@ -9,8 +9,6 @@
 {% block view_buttons %}
     <div class="spacer spacer-bottom">
         <a href="{{ url("admin_order_list") }}" class="btn">{{ 'View all'|trans }}</a>
-        <a href="{{ url("admin_order_edit", {"id": entity.id}) }}" class="btn btn-primary">{{ 'Edit'|trans }}</a>
-        <a href="{{ url("admin_order_delete", {"id": entity.id}) }}" class="btn btn-danger">{{ 'Delete'|trans }}</a>
     </div>
 {% endblock view_buttons %}
 
