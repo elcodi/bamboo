@@ -23,5 +23,15 @@ use Elcodi\Store\CoreBundle\Behat\abstracts\AbstractElcodiContext;
  */
 class Context extends AbstractElcodiContext
 {
+    /**
+     * @Given /^the store is disabled$/
+     */
+    public function theStoreIsDisabled()
+    {
+        $configurationManager = $this
+            ->getContainer()
+            ->get('elcodi.configuration_manager');
 
+        $configurationManager->set('store.enabled', false);
+    }
 }

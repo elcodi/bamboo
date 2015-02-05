@@ -5,7 +5,7 @@ default:
                 path: app/AppKernel.php
                 class: AppKernel
                 env: test
-                debug: true
+                debug: false
         Behat\MinkExtension:
             sessions:
                 symfony2:
