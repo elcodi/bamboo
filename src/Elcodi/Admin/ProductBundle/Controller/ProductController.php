@@ -94,6 +94,14 @@ class ProductController extends AbstractAdminController
      *
      * @Route(
      *      path = "/{id}",
+     *      name = "admin_product_view",
+     *      requirements = {
+     *          "id" = "\d+",
+     *      },
+     *      methods = {"GET"}
+     * )
+     * @Route(
+     *      path = "/{id}/edit",
      *      name = "admin_product_edit",
      *      requirements = {
      *          "id" = "\d+",

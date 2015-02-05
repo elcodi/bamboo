@@ -94,6 +94,14 @@ class CustomerController extends AbstractAdminController
      *
      * @Route(
      *      path = "/{id}",
+     *      name = "admin_customer_view",
+     *      requirements = {
+     *          "id" = "\d+",
+     *      },
+     *      methods = {"GET"}
+     * )
+     * @Route(
+     *      path = "/{id}/edit",
      *      name = "admin_customer_edit",
      *      requirements = {
      *          "id" = "\d+",
