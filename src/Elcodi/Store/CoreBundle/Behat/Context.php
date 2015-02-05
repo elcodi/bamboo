@@ -28,10 +28,15 @@ class Context extends AbstractElcodiContext
      */
     public function theStoreIsDisabled()
     {
-        $configurationManager = $this
-            ->getContainer()
-            ->get('elcodi.configuration_manager');
 
-        $configurationManager->set('store.enabled', false);
+        $this->setConfiguration('store.enabled', false);
+    }
+
+    /**
+     * @Given /^the store is under construction$/
+     */
+    public function theStoreIsUnderConstruction()
+    {
+        $this->setConfiguration('store.under_construction', true);
     }
 }

@@ -10,3 +10,10 @@ Feature: store is unavailable
     When I am on "/"
     Then the response status code should be 503
     Then I should see "Store is disabled"
+
+  @view
+  Scenario: Store is under construction
+    Given the store is under construction
+    When I am on "/"
+    Then the response status code should be 503
+    Then I should see "Store is under construction"
