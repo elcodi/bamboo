@@ -91,7 +91,7 @@ class Context extends AbstractElcodiContext
     /**
      * @Then ~^I should see exactly (\d+) products$~
      */
-    public function iShouldSeeExactlyThanXProducts($numberOfProducts)
+    public function iShouldSeeExactlyXProducts($numberOfProducts)
     {
         $elements = $this
             ->getSession()
@@ -127,6 +127,7 @@ class Context extends AbstractElcodiContext
             throw new Exception(
                 sprintf(
                     'Product with id %d found %d times. expected 1',
+                    $product->getId(),
                     count($elements)
                 )
             );
