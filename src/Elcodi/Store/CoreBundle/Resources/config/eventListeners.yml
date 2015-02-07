@@ -3,6 +3,13 @@ services:
     #
     # Event Listeners
     #
+    elcodi.security.firewall.abstract_listener:
+        class: Elcodi\Store\CoreBundle\EventListener\FirewallListener
+        abstract: true
+        arguments:
+            - @event_dispatcher
+            - []
+
     store.core.event_listener.store_disabled:
         class: %store.core.event_listener.store_disabled.class%
         arguments:

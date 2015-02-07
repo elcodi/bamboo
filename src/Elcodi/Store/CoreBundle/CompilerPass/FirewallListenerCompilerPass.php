@@ -19,6 +19,7 @@ namespace Elcodi\Store\CoreBundle\CompilerPass;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\DefinitionDecorator;
 use Symfony\Component\DependencyInjection\Reference;
 
 /**
@@ -54,15 +55,59 @@ class FirewallListenerCompilerPass implements CompilerPassInterface
             return;
         }
 
-        $listenersByContext = $this->collectListenersByContext($container);
+        $listenersByContext = $this->collectListenersByProviderKey($container);
 
-        foreach ($listenersByContext as $context_id => $listeners) {
-            $context_definition = $container->findDefinition($context_id);
+        foreach ($listenersByContext as $providerKey => $listenersByType) {
+            if (isset($listenersByType['event'])) {
+                $listenerId = $this->attachEvents($container, $providerKey, $listenersByType['event']);
+                $listenersByType['firewall'][0][] = new Reference($listenerId);
+            }
 
-            $arguments = $context_definition->getArgument(0);
-            $arguments = array_merge($arguments, $listeners);
-            $context_definition->replaceArgument(0, $arguments);
+            if (isset($listenersByType['firewall'])) {
+                $this->attachListeners($container, $providerKey, $listenersByType['firewall']);
+            }
         }
+    }
+
+    /**
+     * Sort listeners by priority and then attach them to the firewall
+     *
+     * @param ContainerBuilder $container
+     * @param string           $providerKey
+     *
+     * @param array $listeners
+     */
+    protected function attachListeners(ContainerBuilder $container, $providerKey, array $listeners)
+    {
+        krsort($listeners);
+        $listeners = call_user_func_array('array_merge', $listeners);
+        $contextId = 'security.firewall.map.context.'.$providerKey;
+
+        $definition = $container->findDefinition($contextId);
+
+        $argument = $definition->getArgument(0);
+        $argument = array_merge($argument, $listeners);
+        $definition->replaceArgument(0, $argument);
+    }
+
+    /**
+     * Add event listeners to be attached by demand on firewall activation
+     *
+     * @param ContainerBuilder $container
+     * @param string           $provider_key
+     * @param array            $events
+     *
+     * @return string
+     */
+    protected function attachEvents(ContainerBuilder $container, $provider_key, array $events)
+    {
+        $listenerId = 'elcodi.security.firewall.listener.'.$provider_key;
+
+        $definition = new DefinitionDecorator('elcodi.security.firewall.abstract_listener');
+        $definition->replaceArgument(1, $events);
+        $container->setDefinition($listenerId, $definition);
+
+        return $listenerId;
     }
 
     /**
@@ -70,53 +115,99 @@ class FirewallListenerCompilerPass implements CompilerPassInterface
      *
      * @return array
      */
-    protected function collectListenersByContext(ContainerBuilder $container)
+    protected function collectListenersByProviderKey(ContainerBuilder $container)
     {
-        $listenersByContext = array();
+        $providerKeys = array();
+
         $taggedListeners = $container->findTaggedServiceIds($this->tagName);
-        foreach ($taggedListeners as $listener_id => $tags) {
+        foreach ($taggedListeners as $listenerId => $tags) {
             foreach ($tags as $tag) {
-                $firewall_id = $this->getFirewallId($tag, $container);
-                if (null === $firewall_id) {
-                    throw new \RuntimeException(sprintf(
-                        'Must define "firewall" or "context" in "%s" tag for %s.',
+                $providerKey = $this->getProviderKey($container, $tag, $listenerId);
+                $priority = isset($tag['priority']) ? $tag['priority'] : 0;
+
+                if (isset($tag['event'])) {
+                    $listener = $this->processEvent($container, $listenerId, $tag, $priority);
+                    $providerKeys[$providerKey]['event'][] = $listener;
+                } elseif (isset($tag['method'])) {
+                    throw new \InvalidArgumentException(sprintf(
+                        'The "method" attribute does nothing in "%s" tags if "event" is not set in "%s" definition.',
                         $this->tagName,
-                        $listener_id
+                        $listenerId
                     ));
+                } else {
+                    $providerKeys[$providerKey]['firewall'][$priority][] = new Reference($listenerId);
                 }
-
-                $context_id = 'security.firewall.map.context.'.$firewall_id;
-                if (!$container->has($context_id)) {
-                    throw new \RuntimeException(sprintf(
-                        'Context for firewall "%s" can not be found in "%s" definition.',
-                        $firewall_id,
-                        $listener_id
-                    ));
-                }
-
-                $listenersByContext[$context_id][] = new Reference($listener_id);
             }
         }
 
-        return $listenersByContext;
+        return $providerKeys;
     }
 
     /**
-     * Get the firewall attribute from a tag if it can found one
+     * Get the firewall provider key from a tag attribute, if it can found one
      *
-     * @param array            $tag       tag to search for the firewall key
-     * @param ContainerBuilder $container container to resolve parameters
+     * @param ContainerBuilder $container  Container to resolve parameters
+     * @param array            $tag        Tag to search for the firewall key
+     * @param string           $listenerId Name of the service
      *
      * @return string
      */
-    protected function getFirewallId(array $tag, ContainerBuilder $container)
+    protected function getProviderKey(ContainerBuilder $container, array $tag, $listenerId)
     {
         if (!isset($tag['firewall'])) {
-            return;
+            throw new \RuntimeException(sprintf(
+                'Must define "firewall" or "context" in "%s" tag for %s.',
+                $this->tagName,
+                $listenerId
+            ));
         }
 
         return $container
             ->getParameterBag()
             ->resolveValue($tag['firewall']);
+    }
+
+    /**
+     * Process an event and generates injection for the listener
+     *
+     * @param ContainerBuilder $container
+     * @param string           $listenerId
+     * @param array            $tag
+     * @param $priority
+     *
+     * @return array
+     */
+    private function processEvent($container, $listenerId, array $tag, $priority)
+    {
+        $definition = $container->getDefinition($listenerId);
+
+        if (!$definition->isPublic()) {
+            throw new \InvalidArgumentException(sprintf(
+                'The service "%s" must be public as event listeners are lazy-loaded.',
+                $listenerId
+            ));
+        }
+
+        if ($definition->isAbstract()) {
+            throw new \InvalidArgumentException(sprintf(
+                'The service "%s" must not be abstract as event listeners are lazy-loaded.',
+                $listenerId
+            ));
+        }
+
+        if (!isset($tag['method'])) {
+            $tag['method'] = 'on'.preg_replace_callback(array(
+                    '/(?<=\b)[a-z]/i',
+                    '/[^a-z0-9]/i',
+                ), function ($matches) { return strtoupper($matches[0]); }, $tag['event']);
+
+            $tag['method'] = preg_replace('/[^a-z0-9]/i', '', $tag['method']);
+        }
+
+        return array(
+            'eventName' => $tag['event'],
+            'callback' => array($listenerId, $tag['method']),
+            'priority' => $priority,
+        );
     }
 }
