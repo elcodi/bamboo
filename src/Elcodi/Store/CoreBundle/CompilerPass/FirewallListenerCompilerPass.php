@@ -29,6 +29,19 @@ use Symfony\Component\DependencyInjection\Reference;
 class FirewallListenerCompilerPass implements CompilerPassInterface
 {
     /**
+     * @var string
+     */
+    protected $tagName;
+
+    /**
+     * @param string $tagName
+     */
+    public function __construct($tagName = 'firewall_listener')
+    {
+        $this->tagName = $tagName;
+    }
+
+    /**
      * You can modify the container here before it is dumped to PHP code.
      *
      * @param ContainerBuilder $container
@@ -60,13 +73,14 @@ class FirewallListenerCompilerPass implements CompilerPassInterface
     protected function collectListenersByContext(ContainerBuilder $container)
     {
         $listenersByContext = array();
-        $taggedListeners = $container->findTaggedServiceIds('firewall_listener');
+        $taggedListeners = $container->findTaggedServiceIds($this->tagName);
         foreach ($taggedListeners as $listener_id => $tags) {
             foreach ($tags as $tag) {
                 $firewall_id = $this->getFirewallId($tag, $container);
                 if (null === $firewall_id) {
                     throw new \RuntimeException(sprintf(
-                        'Must define "firewall" or "context" in "firewall_listener" tag for %s.',
+                        'Must define "firewall" or "context" in "%s" tag for %s.',
+                        $this->tagName,
                         $listener_id
                     ));
                 }
