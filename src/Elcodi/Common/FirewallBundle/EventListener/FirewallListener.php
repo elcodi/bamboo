@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\Store\CoreBundle\EventListener;
+namespace Elcodi\Common\FirewallBundle\EventListener;
 
 use Symfony\Component\EventDispatcher\ContainerAwareEventDispatcher;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -36,7 +36,9 @@ class FirewallListener implements ListenerInterface
     protected $listenerIds = [];
 
     /**
-     * @var EventDispatcherInterface
+     * @var ContainerAwareEventDispatcher
+     *
+     * Event dispatcher
      */
     protected $dispatcher;
 
@@ -57,6 +59,7 @@ class FirewallListener implements ListenerInterface
      */
     public function handle(GetResponseEvent $event)
     {
+        // It may be a `TraceableEventDispatcher` in debug mode, so no hard check in type
         if (!is_callable(array($this->dispatcher, 'addListenerService'))) {
             return;
         }

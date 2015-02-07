@@ -82,6 +82,7 @@ class AppKernel extends Kernel
             new \Elcodi\Bundle\PluginBundle\ElcodiPluginBundle(),
             new \Elcodi\Bundle\TemplateBundle\ElcodiTemplateBundle(),
             new \Elcodi\Bundle\CommentBundle\ElcodiCommentBundle(),
+            new \Elcodi\Common\FirewallBundle\ElcodiFirewallBundle(),
 
             /**
              * Elcodi store bundle

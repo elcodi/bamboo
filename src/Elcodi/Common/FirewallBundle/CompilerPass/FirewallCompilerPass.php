@@ -15,27 +15,33 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-namespace Elcodi\Store\CoreBundle\CompilerPass;
+namespace Elcodi\Common\FirewallBundle\CompilerPass;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\DefinitionDecorator;
+use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Reference;
 
 /**
- * Class FirewallListenerCompilerPass
+ * Class FirewallCompilerPass
+ *
+ * Collect services marked with a tag and connects them to firewall listeners
  *
  * @author Berny Cantos <be@rny.cc>
  */
-class FirewallListenerCompilerPass implements CompilerPassInterface
+class FirewallCompilerPass implements CompilerPassInterface
 {
     /**
      * @var string
+     *
+     * Name of the tag to collect
      */
     protected $tagName;
 
     /**
-     * @param string $tagName
+     * Constructor
+     *
+     * @param string $tagName Name of the tag to collect
      */
     public function __construct($tagName = 'firewall_listener')
     {
@@ -43,11 +49,9 @@ class FirewallListenerCompilerPass implements CompilerPassInterface
     }
 
     /**
-     * You can modify the container here before it is dumped to PHP code.
+     * Attach event listeners and firewall listeners to firewalls
      *
      * @param ContainerBuilder $container
-     *
-     * @api
      */
     public function process(ContainerBuilder $container)
     {
@@ -101,17 +105,19 @@ class FirewallListenerCompilerPass implements CompilerPassInterface
      */
     protected function attachEvents(ContainerBuilder $container, $provider_key, array $events)
     {
-        $listenerId = 'elcodi.security.firewall.listener.'.$provider_key;
+        $listenerId = 'elcodi.firewall.listener.'.$provider_key;
 
-        $definition = new DefinitionDecorator('elcodi.security.firewall.abstract_listener');
-        $definition->replaceArgument(1, $events);
+        $definition = new Definition('Elcodi\Common\FirewallBundle\EventListener\FirewallListener');
+        $definition->setArguments(array(new Reference('event_dispatcher'), $events));
         $container->setDefinition($listenerId, $definition);
 
         return $listenerId;
     }
 
     /**
-     * @param ContainerBuilder $container
+     * Group listeners by provider key, type and priority (when needed)
+     *
+     * @param ContainerBuilder $container Container to search services
      *
      * @return array
      */
