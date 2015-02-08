@@ -5,25 +5,35 @@
 {% endblock content_title %}
 
 {% block breadcrumb %}
+
+    {% set entityHeader = order.id
+        ? 'Edit ' ~ order.name
+        : 'Create new Order'
+    %}
+
     {% include "@AdminCore/Common/breadcrumb.html.twig" with {
         breadcrumb: {
             "Orders": {
                 "url": url('admin_order_list')
             },
-            ("Edit #" ~ id): {
+            ("#" ~ order.id): {
                 "active" : true
             }
         }
     } %}
+
 {% endblock breadcrumb %}
 
 {% block content %}
 
-    <div class="row">
-        <div class="col-md-12">
+    <div class="grid">
+        <div class="col-8-12">
             {{ render(url("admin_order_edit_component", {
-                'id': id
+                'id': order.id
             })) }}
+        </div>
+        <div class="col-4-12">
+            Address
         </div>
     </div>
 

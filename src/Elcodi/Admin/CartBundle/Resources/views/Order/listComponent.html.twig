@@ -1,0 +1,51 @@
+{% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
+
+
+{% block no_items %}
+    {{ lists.no_items('order','orders', url("admin_order_new") ) }}
+{% endblock no_items %}
+
+
+{% block title %}
+    {{ 'Order list'|trans }}
+{% endblock title %}
+
+
+{% block table_head %}
+    {% include "@AdminCore/Tables/head.html.twig" with {
+        rows: {
+            "Order": {sorting_disabled: true},
+            "Date": {sorting_disabled: true},
+            "Customer": {sorting_disabled: true},
+            "Status": {sorting_disabled: true},
+            "Total": {sorting_disabled: true},
+        },
+        class: "order",
+    } %}
+{% endblock table_head %}
+
+
+{% block table_body_row %}
+    <td>
+        <a href="{{ url("admin_order_edit",{"id": entity.id}) }}">#{{ entity.id }}</a>
+    </td>
+
+    <td>
+        {{ entity.createdAt|date("M d, G:ia") }}
+    </td>
+    <td>
+        {{ entity.customer }}
+    </td>
+    <td>
+        hola
+    </td>
+    <td>
+        {{ entity.amount|print_money }}
+    </td>
+{% endblock table_body_row %}
+
+
+{% block table_paginator_links %}
+    {% set url = 'admin_order_list' %}
+    {{ parent() }}
+{% endblock table_paginator_links %}

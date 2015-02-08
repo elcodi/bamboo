@@ -1,7 +1,7 @@
 security:
     firewalls:
         dev_area:
-            pattern:  ^/_(?:profiler|wdt)/
+            pattern:  ^/_(?:profiler|wdt|error)/
             security: false
 
         public_area:

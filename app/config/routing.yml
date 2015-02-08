@@ -140,6 +140,10 @@ elcodi_metric:
     resource: "@ElcodiMetricBundle/Resources/config/routing.yml"
     prefix: /
 
+elcodi_comment:
+    resource: "@ElcodiCommentBundle/Resources/config/routing.yml"
+    prefix: /api
+
 elcodi_page:
     resource: "@ElcodiPageBundle/Resources/config/routing.yml"
     prefix: /

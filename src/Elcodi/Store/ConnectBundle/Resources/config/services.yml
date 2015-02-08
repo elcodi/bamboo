@@ -10,5 +10,5 @@ services:
             - @store.connect.factory.authorization
             - @store.connect.repository.authorization
             - @store.connect.object_manager.authorization
-            - @elcodi.core.user.factory.customer
+            - @elcodi.factory.customer
             - @elcodi.object_manager.customer

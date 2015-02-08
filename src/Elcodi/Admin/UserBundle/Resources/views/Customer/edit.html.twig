@@ -23,6 +23,7 @@
             }
         }
     } %}
+
 {% endblock breadcrumb %}
 
 
@@ -34,6 +35,27 @@
         })) }}
     {% else %}
         {{ render(url("admin_customer_new_component")) }}
+    {% endif %}
+
+    {% if customer.id %}
+
+        {% set author_token = app.user.token %}
+        {% set context = "admin" %}
+        {% set source = "customer-" ~ customer.id %}
+
+        <div
+            class="boxpopuli-box"
+            data-tc-modules="boxpopuli"
+            data-token="{{ author_token }}"
+            data-author-name="{{ app.user.fullname }}"
+            data-author-email="{{ app.user.email }}"
+            data-context="{{ context }}"
+            data-source="{{ source }}"
+            data-route-list="{{ url("elcodi_comments_list", {"source": source, "context": context}) }}"
+            data-route-add="{{ url("elcodi_comments_add", {"source": source, "context": context, "authorToken": author_token}) }}"
+
+        ></div>
+
     {% endif %}
 
 {% endblock content %}

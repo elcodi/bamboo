@@ -103,7 +103,7 @@ class AbstractElcodiContext extends RawMinkContext implements Context, KernelAwa
      * Set a value in the configuration manager
      *
      * @param string $identifier Name of the setting in configuration
-     * @param mixed  $newValue      New value
+     * @param mixed  $newValue   New value
      *
      * @throws ConfigurationNotEditableException
      */
