@@ -27,6 +27,7 @@ use Elcodi\Component\Coupon\Entity\Interfaces\CouponInterface;
 use Elcodi\Component\Coupon\Factory\CouponFactory;
 use Elcodi\Component\Currency\Entity\Interfaces\CurrencyInterface;
 use Elcodi\Component\Currency\Entity\Money;
+use Elcodi\Component\Rule\Entity\Interfaces\RuleInterface;
 
 /**
  * Class CouponData
@@ -47,42 +48,33 @@ class CouponData extends AbstractFixture implements DependentFixtureInterface
         $currencyDollar = $this->getReference('currency-USD');
         $currencyEuro = $this->getReference('currency-EUR');
 
-        $zeroEuros = Money::create(0, $currencyEuro);
-
         /**
          * Coupon with 12% of discount
          *
-         * Valid from now without expire time
+         * Valid from now, no expiration time
          *
          * Customer only can redeem it 5 times in all life
-         *
-         * Only 100 available
          *
          * @var CouponInterface $couponPercent
          */
         $couponPercent = $couponFactory->create();
         $couponPercent
             ->setCode('percent')
-            ->setName('10 percent discount')
+            ->setName('12 percent discount')
             ->setType(ElcodiCouponTypes::TYPE_PERCENT)
             ->setDiscount(12)
-            ->setCount(100)
-            ->setPrice($zeroEuros)
-            ->setMinimumPurchase($zeroEuros)
+            ->setCount(5)
             ->setEnabled(true)
-            ->setValidFrom(new DateTime())
-            ->setValidTo(new DateTime('next month'));
+        ;
         $manager->persist($couponPercent);
         $this->addReference('coupon-percent', $couponPercent);
 
         /**
          * Coupon with 5 euros of discount
          *
-         * Valid from now without expire time
+         * Valid from now, no expiration time
          *
-         * Customer only can redeem it n times in all life
-         *
-         * Only 20 available
+         * Can be redeemed many times
          *
          * @var CouponInterface $couponAmountEuro
          */
@@ -92,20 +84,15 @@ class CouponData extends AbstractFixture implements DependentFixtureInterface
             ->setName('5 euros discount')
             ->setType(ElcodiCouponTypes::TYPE_AMOUNT)
             ->setPrice(Money::create(500, $currencyEuro))
-            ->setCount(20)
-            ->setPrice($zeroEuros)
-            ->setMinimumPurchase($zeroEuros)
             ->setEnabled(true)
-            ->setValidFrom(new DateTime());
+        ;
         $manager->persist($couponAmountEuro);
         $this->addReference('coupon-amount-euro', $couponAmountEuro);
 
         /**
          * Coupon with 5 euros of discount
          *
-         * Valid from now without expire time
-         *
-         * Customer only can redeem it n times in all life
+         * Valid from now, no expiration time
          *
          * Only 20 available
          *
@@ -117,12 +104,37 @@ class CouponData extends AbstractFixture implements DependentFixtureInterface
             ->setName('10 dollars discount')
             ->setType(ElcodiCouponTypes::TYPE_AMOUNT)
             ->setPrice(Money::create(1000, $currencyDollar))
-            ->setMinimumPurchase($zeroEuros)
             ->setCount(20)
             ->setEnabled(true)
-            ->setValidFrom(new DateTime());
+        ;
         $manager->persist($couponAmountDollar);
         $this->addReference('coupon-amount-dollar', $couponAmountDollar);
+
+        /**
+         * Automatic coupon applies 50% to big spenders
+         *
+         * Valid from now, no expiration time
+         *
+         * @var CouponInterface $couponBigSpenders
+         */
+        $couponBigSpenders = $couponFactory->create();
+
+        /**
+         * @var RuleInterface $ruleBigSpenders
+         */
+        $ruleBigSpenders = $this->getReference('rule-big-spender');
+
+        $couponBigSpenders
+            ->setCode('bigspender')
+            ->setName('50% discount')
+            ->setType(ElcodiCouponTypes::TYPE_PERCENT)
+            ->setDiscount(50)
+            ->setRule($ruleBigSpenders)
+            ->setEnforcement(ElcodiCouponTypes::ENFORCEMENT_AUTOMATIC)
+            ->setEnabled(true)
+        ;
+        $manager->persist($couponBigSpenders);
+        $this->addReference('coupon-big-spender', $couponBigSpenders);
 
         $manager->flush();
     }
@@ -137,6 +149,7 @@ class CouponData extends AbstractFixture implements DependentFixtureInterface
     {
         return [
             'Elcodi\Fixtures\DataFixtures\ORM\Currency\CurrencyData',
+            'Elcodi\Fixtures\DataFixtures\ORM\Rule\RuleData',
         ];
     }
 }
