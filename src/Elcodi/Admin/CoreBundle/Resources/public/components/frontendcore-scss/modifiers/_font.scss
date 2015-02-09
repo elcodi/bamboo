@@ -23,6 +23,7 @@ fz-h1
 	& {
 		font-family:$font-face-title;
 		line-height: map-get($font-line-height, title);
+		font-weight: map-get($font-faces, title-weight);;
 		margin-bottom: $spacing/4;
 	}
 	small {

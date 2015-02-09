@@ -10,7 +10,10 @@ $susy: (
 	flow: map-get($grid, flow),
 	container-position: map-get($grid, container-position),
 	columns: 12,
-	gutters: map-get($grid, gutters)
+	gutters: map-get($grid, gutters),
+	use-custom: (
+			box-sizing: false,
+	)
 );
 
 @if $ui != true {
@@ -135,6 +138,12 @@ $susy: (
 		overflow: visible;
 	}
 
+	.push-right {
+		float: right;
+		margin-left:$spacing;
+		margin-right:0;
+	}
+
 }
 
 @mixin tablet-grid() {
@@ -171,10 +180,4 @@ $susy: (
 		padding-left:0;
 		padding-right:0;
 	}
-}
-
-.push-right {
-	float: right;
-	margin-left:$spacing;
-	margin-right:0;
 }

@@ -137,14 +137,22 @@
 
 	@each $color in $colors-list {
 
-		.tabs-#{$color} {
-			li.active a {
+		.tabs-#{$color} > nav li.active > a, .tabs-#{$color} > ul li.active > a {
 				background-color: map-get($colors, $color) !important;
-				color: contrast-color(map-get($colors, $color));
-			}
+				color: contrast-color(map-get($colors, $color)) !important;
 		}
 	}
 
+	.tabs-darken > nav li.active > a  {
+			@include background-transparent($color-foreground, .3);
+			color: $color-background;
+	}
+
+	.tabs-lighten > nav li.active > a {
+		@include background-transparent($color-background, .3);
+		color: $color-foreground;
+		@include box-shadow(none);
+	}
 
 }
 @mixin desktop-tabs {

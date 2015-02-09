@@ -1,6 +1,7 @@
-TinyCore.AMD.define('boxpopuli', ['md5'], function () {
+TinyCore.AMD.define('boxpopuli', ['md5','wysiwyg'], function () {
     return {
         md5 : TinyCore.Module.instantiate( 'md5' ),
+        wysiwyg : TinyCore.Module.instantiate( 'wysiwyg' ),
         token: '',
         authorName: '',
         authorEmail: '',
@@ -27,6 +28,8 @@ TinyCore.AMD.define('boxpopuli', ['md5'], function () {
             this.routeAdd = $bxp.data('route-add');
 
             this.createCommentLayout($bxp);
+
+            this.wysiwyg.onStart();
         },
         /**
          * Create comment area in given wrapper object
@@ -41,17 +44,19 @@ TinyCore.AMD.define('boxpopuli', ['md5'], function () {
 
             $newCommentContainer.html(
                 '<div class="grid">' +
-                '<form class="form">' +
-                '<div class="col-1-12">' +
-                '<img class="thumbnail" src="' + this.authorGravatar + '" />' +
-                '</div>' +
-                '<div class="col-10-12">' +
-                '<textarea data-tc-modules="wysiwyg" data-tc-fullscreen="false" data-tc-html="false"></textarea>' +
-                '</div>' +
-                '<div class="col-1-12 ta-c">' +
-                '<button type="submit" class="bxp-add-button button-ok button-fat button-icon icon-download"></button>' +
-                '</div>' +
-                '</form>' +
+                    '<form class="form box-lighten">' +
+                        '<div class="col-1-12 tablet desktop">' +
+                            '<img class="thumbnail" src="' + this.authorGravatar + '" />' +
+                        '</div>' +
+                        '<div class="col-11-12">' +
+                            '<ol>' +
+                                '<li class="mb-n">' +
+                                    '<textarea data-tc-modules="wysiwyg" data-tc-fullscreen="false" data-tc-html="false"></textarea>' +
+                                '</li><li>' +
+                                    '<button type="submit" class="bxp-add-button button-primary">Comment</button>' +
+                                '</li>' +
+                            '</div>' +
+                    '</form>' +
                 '</div>');
         },
         /**
@@ -96,7 +101,7 @@ TinyCore.AMD.define('boxpopuli', ['md5'], function () {
 
             $o.append('<div class="bxp-wrapper" data-comment-id="' + commentId + '">' +
             '<div class="bxp-comment"></div>' +
-            '<div class="bxp-response-block" style="margin-left:50px">' +
+            '<div class="bxp-response-block" style="margin-left:20px">' +
             '<div class="bxp-new-response"></div>' +
             '<div class="bxp-responses">' +
             '</div>' +
@@ -130,7 +135,7 @@ TinyCore.AMD.define('boxpopuli', ['md5'], function () {
                 }
 
                 var parentCommentId = $commentWrapper.data('comment-id');
-                parentCommentId = parseInt( parentCommentId, 1000 );
+                parentCommentId = parseInt( parentCommentId, 10 );
 
                 $.ajax({
                     type: "POST",
@@ -232,9 +237,7 @@ TinyCore.AMD.define('boxpopuli', ['md5'], function () {
                 '<div class="bxp-actions">' +
                 'Done by ' + entity.authorName + ' - ' +
                 entity.createdAt + ' - ' +
-                '<a href="#" class="bxp-vote-up"><i class="icon-thumbs-up"></i></a>' +
-                '<a href="#" class="bxp-vote-down"><i class="icon-thumbs-down"></i></a>' +
-                '<a href="#" class="bxp-add-response"><i class="icon-comment"></i></a>' +
+                '<a href="#" class="bxp-add-response"><i class="icon-comment"></i> Reply</a>' +
                 '</div>' +
                 '' + entity.content + '' +
                 '</div>' +
@@ -259,6 +262,8 @@ TinyCore.AMD.define('boxpopuli', ['md5'], function () {
 
                 var $commentWrapper = $(this).closest('.bxp-wrapper');
                 self.createCommentNewArea($commentWrapper);
+
+                self.wysiwyg.onStart();
 
                 return false;
             });

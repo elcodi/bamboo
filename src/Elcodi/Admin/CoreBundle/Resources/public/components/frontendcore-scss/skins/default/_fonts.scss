@@ -1,0 +1,28 @@
+$font-line-height-default: (
+		base: 1.5em,
+		title: 1.2em
+) !global !default;
+
+$font-faces-default: (
+		default: "'Helvetica Neue', Helvetica, Helvetica, Arial, sans-serif",
+		title: "'Open Sans Condensed','Arial Narrow', Tahoma, sans-serif",
+		title-weight: bold,
+		icons: true
+) !global !default;
+
+$font-sizes-default: (
+		base: 15px,
+		xxxl: 2.2rem,
+		xxl: 1.7rem,
+		xl: 1.4rem,
+		l: 1.3rem,
+		ml: 1.2rem,
+		m: 1.1rem,
+		default: 1rem,
+		s: .9rem,
+		xs: .8rem,
+		xxs: .75rem,
+		xxxs: .7rem,
+		xxxxs: .6rem,
+		title-exponential: 1.5
+) !global !default;
