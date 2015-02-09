@@ -114,6 +114,10 @@ class StorePageNotFoundListener
             return false;
         }
 
+        if ($event->getRequest()->getRequestFormat() !== 'html') {
+            return false;
+        }
+
         $exception = $event->getException();
         if (!$exception instanceof HttpExceptionInterface) {
             return false;
