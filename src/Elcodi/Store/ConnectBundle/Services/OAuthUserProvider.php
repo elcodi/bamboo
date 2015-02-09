@@ -220,7 +220,6 @@ class OAuthUserProvider implements OAuthAwareUserProviderInterface
     {
         $user = $this->findUser($response);
         if ($user instanceof UserInterface) {
-
             return $user;
         }
 
@@ -239,13 +238,11 @@ class OAuthUserProvider implements OAuthAwareUserProviderInterface
         $username = $response->getEmail();
 
         try {
-
             return $this
                 ->userProvider
                 ->loadUserByUsername($username);
 
         } catch (UsernameNotFoundException $e) {
-
             return null;
         }
     }

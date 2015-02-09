@@ -40,6 +40,7 @@
     ],
     "require": {
         "php": ">=5.4",
+        "ext-openssl": "*",
 
         "symfony/symfony": "~2.6",
         "symfony/assetic-bundle": "~2.5",

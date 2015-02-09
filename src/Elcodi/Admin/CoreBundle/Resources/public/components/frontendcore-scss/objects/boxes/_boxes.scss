@@ -43,17 +43,17 @@
 
 	.box-ko {
 		background: $color-ko;
-		color: contrast-color($color-ko);
+		color: contrast-color($color-ko, $color-foreground, $color-background, 40%);
 	}
 
 	.box-info {
 		background: $color-info;
-		color: contrast-color($color-info);
+		color: contrast-color($color-info, $color-foreground, $color-background, 40%);
 	}
 
 	.box-warning {
 		background: $color-warning;
-		color: contrast-color($color-warning);
+		color: contrast-color($color-warning, $color-foreground, $color-background, 40%);
 	}
 
 	.box-darken {
@@ -71,10 +71,10 @@
 	.box-primary {
 		& {
 			background: $color-primary;
-			color: contrast-color($color-primary);
+			color: contrast-color($color-primary, $color-foreground, $color-background, 40%);
 		}
 		a {
-			color: contrast-color($color-primary);
+			color: contrast-color($color-primary, $color-foreground, $color-background, 40%);
 		}
 	}
 

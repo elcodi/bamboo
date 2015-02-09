@@ -1,4 +1,5 @@
 /* @group vars */
+
 $object-navigation-vars-default : (
 
 	// Background  first level:
@@ -11,7 +12,7 @@ $object-navigation-vars-default : (
 	background-color-light: $color-primary-light,
 
 	// Link color
-	color: contrast-color($color-primary),
+	color: contrast-color($color-primary, $color-foreground, $color-background, 30%),
 
 	// Border Radius
 	border-radius: $default-border-radius,
@@ -41,8 +42,8 @@ $object-navigation-vars-default : (
 	style: default
 
 ) !global !default;
-/* @group vars */
 
+/* @endgroup vars */
 
 $object-navigation-vars-custom: () !global !default;
 

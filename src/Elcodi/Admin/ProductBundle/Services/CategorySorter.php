@@ -102,6 +102,7 @@ class CategorySorter
             $this->categoryObjectManager->flush();
 
             $this->eventDispatcher->dispatch(ProductEvents::CATEGORIES_ONCHANGE);
+
             return true;
         }
 

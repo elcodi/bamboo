@@ -1,6 +1,8 @@
 @if $ui != true {
   html {
     font-family: $font-face-default;
+    font-size: $font-size-default;
+    text-rendering: optimizelegibility;
   }
 
   /* @group FONT-FAMILIES */

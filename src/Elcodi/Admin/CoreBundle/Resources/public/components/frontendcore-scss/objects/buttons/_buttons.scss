@@ -176,7 +176,7 @@
 		@include background-image(linear-gradient(lighten($color-ko, 10%) 20%, $color-ko 80%));
 		@include background-gradient-ie-old(lighten($color-ko, 10%), $color-ko);
 		border: 1px solid $color-ko;
-		color: $color-background;
+		color: contrast-color($color-ko);
 	}
 
 

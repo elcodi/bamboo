@@ -15,6 +15,7 @@
  */
 
 namespace Elcodi\Store\CoreBundle\CompilerPass;
+
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
@@ -51,7 +52,7 @@ class FirewallListenerCompilerPass implements CompilerPassInterface
     }
 
     /**
-     * @param  ContainerBuilder $container
+     * @param ContainerBuilder $container
      *
      * @return array
      */

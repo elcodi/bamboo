@@ -17,20 +17,15 @@
 namespace Elcodi\Admin\CartBundle\Controller;
 
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
-use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Symfony\Component\Form\FormInterface;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\Component\Cart\Entity\Interfaces\OrderInterface;
-use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 
 /**
- * Class Controller for Cart
+ * Class Controller for Order
  *
  * @Route(
  *      path = "/order",
@@ -84,29 +79,35 @@ class OrderController extends AbstractAdminController
     }
 
     /**
-     * View element action.
+     * Edit and Saves order
      *
-     * This action is just a wrapper, so should never get any data,
-     * as this is component responsibility
+     * @param OrderInterface $order Order
      *
-     * @param integer $id Entity id
-     *
-     * @return array Result
+     * @return array Data
      *
      * @Route(
      *      path = "/{id}",
-     *      name = "admin_order_view",
+     *      name = "admin_order_edit",
      *      requirements = {
-     *          "id" = "\d*",
+     *          "id" = "\d+",
+     *      },
+     *      methods = {"GET"}
+     * )
+     *
+     * @Template
+     *
+     * @EntityAnnotation(
+     *      class = "elcodi.core.cart.entity.order.class",
+     *      name = "order",
+     *      mapping = {
+     *          "id" = "~id~"
      *      }
      * )
-     * @Template
-     * @Method({"GET"})
      */
-    public function viewAction($id)
+    public function editAction(OrderInterface $order)
     {
         return [
-            'id' => $id,
+            'order' => $order
         ];
     }
 }

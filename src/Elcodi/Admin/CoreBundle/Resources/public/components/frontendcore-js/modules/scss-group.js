@@ -5,10 +5,10 @@ TinyCore.AMD.define('scss-group', ['devicePackage'], function () {
 		},
 		onStart: function () {
 
-			var aTargets = FC.getDataModules('scss-group'),
+			var aTargets = oTools.getDataModules('scss-group'),
 				self = this;
 
-			FC.trackEvent('JS_Libraries', 'call', 'scss-group' );
+			oTools.trackEvent('JS_Libraries', 'call', 'scss-group' );
 
 			$(aTargets).each(function () {
 				self.autobind(this);
@@ -16,11 +16,20 @@ TinyCore.AMD.define('scss-group', ['devicePackage'], function () {
 		},
 		autobind: function (oTarget) {
 
-			var sHtml = oTarget.innerHTML.replace('-default :', '-custom :'),
+			var sHtml = oTarget.innerHTML.replace('-default :', '-custom :').replace('<span class="hljs-keyword">default</span>','<span class="hljs-keyword">custom</span>'),
 				sGroup = oTarget.getAttribute('data-tc-group'),
-				aHtml = sHtml.split('/* @group ' + sGroup + ' */');
+				cleanHtml = sHtml.split('<span class="hljs-comment">/*<span class="hljs-phpdoc"> @group</span> '+ sGroup + ' */</span>').pop();
 
-			oTarget.innerHTML = aHtml[1];
+			cleanHtml = cleanHtml.substring(0, cleanHtml.indexOf('<span class="hljs-comment">/*<span class="hljs-phpdoc"> @endgroup</span> '+ sGroup + ' */</span>'));
+
+
+			if (sGroup === '') {
+				sReturn = sHtml;
+			} else {
+				sReturn = cleanHtml;
+			}
+
+			oTarget.innerHTML = sReturn;
 
 		},
 		onStop: function () {

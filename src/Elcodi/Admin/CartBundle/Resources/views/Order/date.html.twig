@@ -1,0 +1,9 @@
+{% if entity.createdAt|date("dmy") == "now"|date("dmy") %}
+    {{ 'Today at'|trans }} {{ entity.createdAt|date("G:ia", "Europe/Paris") }}
+{% elseif entity.createdAt|date("dmy")|number_format == "now"|date("dmy") -1 %}
+    {{ 'Yesterday at'|trans }} {{ entity.createdAt|date("G:ia", "Europe/Paris") }}
+{% elseif entity.createdAt|date("d")|number_format  > "now"|date("dmy") - 5 and  entity.createdAt|date("my")|number_format == "now"|date("my")%}
+    {{ entity.createdAt|date("l d \\a\\t G:ia", "Europe/Paris") }}
+{% else %}
+    {{ entity.createdAt|date("M d \\a\\t G:ia", "Europe/Paris") }}
+{% endif %}

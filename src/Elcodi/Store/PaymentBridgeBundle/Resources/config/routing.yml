@@ -10,4 +10,3 @@ paymentsuite_paymill_bundle:
     resource: .
     type:     paymill
     prefix:   /
-

@@ -1,6 +1,20 @@
 menu_nodes:
+    bambooadmin_dashboard:
+        name: Dashboard
+        code: home
+        url: admin_home
+        enabled: 1
+        subnodes: ~
+
+    bambooadmin_orders:
+        name: Orders
+        code: shopping-cart
+        url: admin_order_list
+        enabled: 1
+        subnodes: ~
+
     bambooadmin_admin_users:
-        name: Admin users
+        name: Administrators
         code: ~
         url: admin_admin_user_list
         enabled: 1
@@ -61,29 +75,6 @@ menu_nodes:
             - bambooadmin_categories
             - bambooadmin_manufacturers
 
-    bambooadmin_carts:
-        name: Carts
-        code: ~
-        url: admin_cart_list
-        enabled: 1
-        subnodes: ~
-
-    bambooadmin_orders:
-        name: Orders
-        code: ~
-        url: admin_order_list
-        enabled: 1
-        subnodes: ~
-
-    bambooadmin_purchases:
-        name: Purchases
-        code: shopping-cart
-        url: ~
-        enabled: 1
-        subnodes:
-            - bambooadmin_carts
-            - bambooadmin_orders
-
     bambooadmin_medias:
         name: Medias
         code: picture-o
@@ -115,7 +106,7 @@ menu_nodes:
             - bambooadmin_banners
 
     bambooadmin_coupons:
-        name: Coupons
+        name: Discounts
         code: ~
         url: admin_coupon_list
         enabled: 1
@@ -129,7 +120,7 @@ menu_nodes:
         subnodes: ~
 
     bambooadmin_configurations:
-        name: Configuration
+        name: Settings
         code: gear
         url: admin_configuration_list
         enabled: 1
@@ -144,7 +135,7 @@ menu_nodes:
 
     bambooadmin_languages:
         name: Languages
-        code: ~
+        code: comments
         url: admin_language_list
         enabled: 1
         subnodes: ~
@@ -176,16 +167,17 @@ menus:
         description: Admin menu
         enabled: 1
         subnodes:
+            - bambooadmin_dashboard
+            - bambooadmin_orders
             - bambooadmin_users
             - bambooadmin_catalog
-            - bambooadmin_purchases
             - bambooadmin_medias
             - bambooadmin_banner_server
             - bambooadmin_coupons
+            - bambooadmin_reports
             - bambooadmin_pages
             - bambooadmin_configurations
             - bambooadmin_currencies
             - bambooadmin_languages
             - bambooadmin_templates
-            - bambooadmin_reports
             - bambooadmin_plugins

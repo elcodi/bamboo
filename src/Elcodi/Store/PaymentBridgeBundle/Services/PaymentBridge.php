@@ -16,13 +16,13 @@
 
 namespace Elcodi\Store\PaymentBridgeBundle\Services;
 
-use Elcodi\Component\Cart\Entity\Interfaces\OrderInterface;
-use Elcodi\Component\Cart\Wrapper\CartWrapper;
 use PaymentSuite\PaymentCoreBundle\Services\Interfaces\PaymentBridgeInterface;
 
+use Elcodi\Component\Cart\Entity\Interfaces\OrderInterface;
 use Elcodi\Component\Cart\Entity\Order;
 use Elcodi\Component\Cart\Entity\OrderLine;
 use Elcodi\Component\Cart\Repository\OrderRepository;
+use Elcodi\Component\Cart\Wrapper\CartWrapper;
 use Elcodi\Component\Currency\Entity\Money;
 
 /**
@@ -53,7 +53,7 @@ class PaymentBridge implements PaymentBridgeInterface
 
     /**
      * @param OrderRepository $orderRepository Order repository
-     * @param CartWrapper $cartWrapper
+     * @param CartWrapper     $cartWrapper
      */
     public function __construct(OrderRepository $orderRepository, CartWrapper $cartWrapper)
     {

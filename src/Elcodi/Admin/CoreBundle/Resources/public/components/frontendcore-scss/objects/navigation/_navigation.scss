@@ -27,7 +27,7 @@
 					@include border-radius(map-get($object-navigation-vars, border-radius));
 				}
 				&:hover {
-					@include background-transparent(contrast-color(map-get($object-navigation-vars, background-color)), .2);
+					@include background-transparent(contrast-color(map-get($object-navigation-vars, background-color),$color-foreground, $color-background, 30%), .2);
 				}
 			}
 			& > ul {
@@ -36,8 +36,8 @@
 						margin:0 $spacing/4 0 0;
 					}
 					&.active a, &.active a:hover {
-						@include background-transparent(contrast-color(map-get($object-navigation-vars, background-color)), .2);
-						color: contrast-color(map-get($object-navigation-vars, background-color));
+						@include background-transparent(contrast-color(map-get($object-navigation-vars, background-color),$color-foreground, $color-background, 30%), .2);
+						color: contrast-color(map-get($object-navigation-vars, background-color),$color-foreground, $color-background, 30%);
 						@include text-shadow( 0 0 5px rgba(0,0,0,0.2) );
 						border-top-color:rgba(255,255,255,.1);
 						border-bottom-color: rgba(0,0,0,.1);
@@ -72,7 +72,7 @@
 				}
 				& > ul > li {
 					@if (map-get($object-navigation-vars, vertical-separator) == true) {
-						border-bottom: 1px solid rgba(contrast-color(map-get($object-navigation-vars, background-color)),.2);
+						border-bottom: 1px solid rgba(contrast-color(map-get($object-navigation-vars, background-color),$color-foreground, $color-background, 30%),.2);
 					}
 				}
 			}

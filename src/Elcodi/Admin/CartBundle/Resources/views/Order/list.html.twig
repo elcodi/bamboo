@@ -1,10 +1,13 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
+
 {% block content_title %}
     {{ 'Order Zone'|trans }}
 {% endblock content_title %}
 
+
 {% block breadcrumb %}
+
     {% include "@AdminCore/Common/breadcrumb.html.twig" with {
         breadcrumb: {
             "Orders": {
@@ -12,19 +15,17 @@
             }
         }
     } %}
+
 {% endblock breadcrumb %}
+
 
 {% block content %}
 
-    <div class="row">
-        <div class="col-md-12">
-            {{ render(url("admin_order_list_component", {
-                'page': page,
-                'limit': limit,
-                'orderByField': orderByField,
-                'orderByDirection': orderByDirection
-            })) }}
-        </div>
-    </div>
+    {{ render(url("admin_order_list_component", {
+        'page': page,
+        'limit': limit,
+        'orderByField': orderByField,
+        'orderByDirection': orderByDirection
+    })) }}
 
 {% endblock content %}

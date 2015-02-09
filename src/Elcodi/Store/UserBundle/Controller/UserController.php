@@ -48,7 +48,7 @@ class UserController extends Controller
     public function navAction()
     {
         $customer = $this
-            ->get('elcodi.core.user.wrapper.customer_wrapper')
+            ->get('elcodi.customer_wrapper')
             ->loadCustomer();
 
         return $this->renderTemplate(
