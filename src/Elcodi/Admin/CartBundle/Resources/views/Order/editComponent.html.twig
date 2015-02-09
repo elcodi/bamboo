@@ -1,14 +1,50 @@
 {% extends 'AdminCoreBundle::Common/formComponent.html.twig' %}
 
 
-{% block title %}
-    {{ 'Order'|trans }} - {{ entity.id }}
-{% endblock title %}
-
-
 {% block content %}
-
-Order
-
-
+<div class="box-background">
+    <p class="fl-r fz-s"><i class="icon-calendar-o"></i> {% include "@AdminCart/Order/date.html.twig" %}</p>
+    <h3 class="fw-n">Details</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>{{ "Item"|trans }}</th>
+                <th class="w-10 ta-r">{{ "Units"|trans }}</th>
+                <th class="w-15 ta-r">{{ "Price"|trans }}</th>
+                <th class="w-15 ta-r">{{ "Total"|trans }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for line in order.orderLines %}
+            <tr>
+                <td>
+                    <a href="{{ url("admin_product_edit", {"id": line.product.id}) }}">{{ line.product.name }}</a>
+                    <p class="fz-s">ID: {{ line.product.id }}<br/> 1 unfulfilled</p>
+                </td>
+                <td class="ta-r">{{ line.quantity }}</td>
+                <td class="ta-r">{{ line.product.price|print_money }}</td>
+                <td class="ta-r">{{ line.amount|print_money }}</td>
+            </tr>
+            {% endfor %}
+            {% if order.couponAmount is not null %}
+            <tr>
+                <td colspan="3" class="ta-r">Discount (COUPONCODE)</td>
+                <td class="ta-r">XXX</td>
+            </tr>
+            {% endif %}
+            <tr>
+                <td colspan="3" class="ta-r">Subtotal</td>
+                <td class="ta-r">{{ order.productAmount|print_money }}</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="ta-r">Shipping (Type)</td>
+                <td class="ta-r">XXX</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="ta-r fw-b">Total</td>
+                <td class="ta-r fw-b">{{ order.amount|print_convert_money }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 {% endblock content %}

@@ -4,6 +4,12 @@
     {{ 'Order Zone'|trans }}
 {% endblock content_title %}
 
+{% block header_actions %}
+    <a href="#" class="button">{{ "Cancel"|trans }}</a>
+    <a href="#" class="button-secondary">{{ "Mark as paid"|trans }}</a>
+    <a href="#" class="button-ok">{{ "Mark as Send"|trans }}</a>
+{% endblock header_actions %}
+
 {% block breadcrumb %}
 
     {% set entityHeader = order.id
@@ -21,19 +27,59 @@
             }
         }
     } %}
-
 {% endblock breadcrumb %}
 
 {% block content %}
 
     <div class="grid">
-        <div class="col-8-12">
+        <div class="col-8-12 pr-l">
             {{ render(url("admin_order_edit_component", {
                 'id': order.id
             })) }}
+
+            <div class="box-background">
+                <h3 class="fw-n">History</h3>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td><i class="icon-money mr-s"></i> {{ 'Order was paid'|trans }} </td>
+                            <td class="ta-r">{% include "@AdminCart/Order/date.html.twig" %}</td>
+                        </tr>
+                        <tr>
+                            <td><i class="icon-shopping-cart mr-s"></i> {{ 'Order was placed'|trans }} </td>
+                            <td class="ta-r">{% include "@AdminCart/Order/date.html.twig" %}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="col-4-12">
-            Address
+            <div class="box pt-s ph-n">
+                <h3 class="fw-n ph-m"><a href="{{ url("admin_customer_edit", {"id": order.customer.id}) }}">{{ order.customer.username }}</a></h3>
+                <hr class="mb-n"/>
+                <a href="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=es&amp;q=Instituto+de+Cardiologia+y+Medicina+Interna+Barcelona" target="_blank">
+                    <img id="CM_Map_map" src="http://maps.google.com/maps/api/staticmap?size=350x150&amp;zoom=15.5&amp;sensor=false&amp;center=Instituto+de+Cardiologia+y+Medicina+Interna+Barcelona&amp;markers=color:blue|Instituto+de+Cardiologia+y+Medicina+Interna+Barcelona">
+                </a>
+                <div class="box-none pb-n">
+
+                    <a href="#" class="fl-r">Edit</a>
+                    <p><i class="icon-home"></i> <strong>{{ order.customer.fullName }}</strong></p>
+                    <p>{{ order.customer.deliveryAddress }}</p>
+
+                    {% if order.customer.phone is not null %}
+                        <p><i class="icon-phone"></i> {{ order.customer.phone }} </p>
+                    {% endif %}
+                </div>
+                <hr class="mb-n"/>
+                <div class="box-none pb-n">
+                    <a href="#" class="fl-r">Edit</a>
+                    <i class="icon-envelope"></i> <a href="mailto:{{ order.customer.email }}"> {{ order.customer.email }}</a>
+                </div>
+                <hr class="mb-n"/>
+                <div class="box-none pb-n">
+                    <i class="icon-truck"></i> Carrier
+                </div>
+            </div>
         </div>
     </div>
 

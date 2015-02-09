@@ -27,19 +27,10 @@
 
 {% block table_body_row %}
     <td>
-        <a href="{{ url("admin_order_edit",{"id": entity.id}) }}">#{{ entity.id  + 1000 }}</a>
+        <a href="{{ url("admin_order_edit",{"id": entity.id}) }}">Order #{{ entity.id }}</a>
     </td>
-
     <td>
-        {% if entity.createdAt|date("dmy") == "now"|date("dmy") %}
-            {{ 'Today at'|trans }} {{ entity.createdAt|date("G:ia") }}
-        {% elseif entity.createdAt|date("dmy")|number_format == "now"|date("dmy") -1 %}
-            {{ 'Yesterday at'|trans }} {{ entity.createdAt|date("G:ia") }}
-        {% elseif entity.createdAt|date("d")|number_format  > "now"|date("dmy") - 5 and  entity.createdAt|date("my")|number_format == "now"|date("my")%}
-            {{ entity.createdAt|date("l d \\a\\t G:ia") }}
-        {% else %}
-            {{ entity.createdAt|date("M d \\a\\t G:ia") }}
-        {% endif %}
+        {% include "@AdminCart/Order/date.html.twig" %}
     </td>
     <td>
         <a href="{{ url("admin_customer_edit", {"id": entity.customer.id}) }}">
