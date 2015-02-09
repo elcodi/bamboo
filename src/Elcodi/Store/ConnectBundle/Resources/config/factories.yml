@@ -9,3 +9,5 @@ services:
     #
     store.connect.factory.authorization:
         class: %store.connect.factory.authorization.class%
+	calls:
+            - [setEntityNamespace, ["%store.connect.entity.authorization.class%"]]
