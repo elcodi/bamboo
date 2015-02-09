@@ -5,3 +5,9 @@ freepayment_payment_routes:
 paypal_web_chckout_payment_routes:
     resource: .
     type: paypal_web_checkout
+
+paymentsuite_paymill_bundle:
+    resource: .
+    type:     paymill
+    prefix:   /
+

@@ -50,6 +50,7 @@ class AppKernel extends Kernel
             new \PaymentSuite\PaymentCoreBundle\PaymentCoreBundle(),
             new \PaymentSuite\FreePaymentBundle\FreePaymentBundle(),
             new \PaymentSuite\PaypalWebCheckoutBundle\PaypalWebCheckoutBundle(),
+            new \PaymentSuite\PaymillBundle\PaymillBundle(),
             new \HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
             new Snc\RedisBundle\SncRedisBundle(),
 

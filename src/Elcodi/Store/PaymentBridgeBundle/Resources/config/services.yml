@@ -7,6 +7,7 @@ services:
         class: %store.payment.service.payment_bridge.class%
         arguments:
             order_repository: @elcodi.repository.order
+            cart_wrapper: @elcodi.cart_wrapper
 
     payment.bridge:
         alias: store.payment.service.payment_bridge
