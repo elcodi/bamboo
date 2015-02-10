@@ -1,0 +1,6 @@
+.button-primary {
+	& {
+		background: $color-primary;
+		color: $color-background;
+	}
+}

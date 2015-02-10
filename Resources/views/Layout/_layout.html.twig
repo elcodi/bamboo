@@ -9,13 +9,16 @@
 {% endblock head_style %}
 
 {% block body %}
+    {% block header %}
+
+        {% include '@StoreTemplate/Modules/_header.html.twig' %}
+
+    {% endblock header %}
+
+
+
+
     {% block container %}
-    <div class="container">
-        {% block header %}
-
-            {% include '@StoreTemplate/Modules/_header.html.twig' %}
-
-        {% endblock header %}
 
         {% block messages %}
             <div class="row pad-top-10">
@@ -25,36 +28,16 @@
             </div>
         {% endblock messages %}
 
-        <!-- Body -->
-
-        <div class="row">
-            <div class="span12">
-                <h1>{% block content_title %}{{ 'What\'s new'|trans }}{% endblock %}</h1>
+        <div class="grid grid-pad">
+            <div class="col-1-1">
+                {% block content %}{% endblock content %}
             </div>
         </div>
-
-        {% block content %}{% endblock content %}
         {%  block footer %}
-            <div class="row footer">
-                <div class="span6">
 
-                    <ul class="footer-nav">
-                        <li><a href="{{ url('store_static_content') }}">Terms &amp; Conditions</a></li>
-                        <li><a href="{{ url('store_static_content') }}">Delivery Information</a></li>
-                        <li><a href="{{ url('store_static_content') }}">Contact</a></li>
-                    </ul>
+        {% include '@StoreTemplate/Modules/_footer.html.twig' %}
 
-                </div>
-
-                <div class="span6 footer-right">
-
-                    <p>
-                        &copy; Bamboo
-                    </p>
-
-                </div>
-            </div>
-        {% endblock footer %}
+        {%  endblock footer %}
     </div>
     {% endblock container %}
 {% endblock body %}

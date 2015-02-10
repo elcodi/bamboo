@@ -1,0 +1,26 @@
+.footer {
+	& {
+		text-align: left;
+		background: $color-primary;
+		box-shadow: 0 0 2px rgba($color-foreground, .1);
+	}
+
+	a {
+		color: $color-background;
+	}
+
+	.logo {
+		& {
+			float: right;
+			font-family: $font-face-logo;
+			font-size: $font-size-xxl;
+			display: inline-block;
+			padding: 0 $spacing/2;
+			color: $color-background;
+			text-shadow: 1px 1px $color-foreground;
+		}
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}

@@ -1,0 +1,36 @@
+.product-item {
+	padding: $spacing/2;
+}
+
+.product-title {
+	font-family: $font-face-title;
+	font-size: $font-size-xl;
+	margin: 0 0 $spacing/4;
+	font-weight: normal;
+}
+
+.product-thumbnail {
+	& {
+		line-height: 0;
+		display: inline-block;
+		border: solid $spacing/4 $color-background;
+		max-width: 100%;
+		box-shadow: 0 0 2px 1px rgba($color-foreground, 0.2);
+		transition: all 200ms ease-out;
+	}
+	&:hover {
+		opacity: .9;
+		box-shadow: 0 0 2px 1px rgba($color-link, 0.4);
+	}
+	img {
+		max-width: 100%;
+	}
+}
+
+.product-pricing {
+
+}
+
+.product-actions {
+	float: right;
+}

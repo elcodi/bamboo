@@ -1,4 +1,4 @@
-<!-- Product Listing -->
+<div class="product-list">
 {% for product in products %}
 
     {% if loop.index0 % 3 == 0 %}<div class="row">{% endif %}
@@ -9,3 +9,4 @@
 {% else %}
     <p>{{ 'There are no products.'|trans}}</p>
 {% endfor %}
+</div>

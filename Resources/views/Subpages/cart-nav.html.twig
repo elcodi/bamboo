@@ -1,13 +1,13 @@
-<div class="span1">
-    <p class="mini-basket-summary">
-        {{ 'Price'|trans }}<br />
-        <span>{{ cart.amount|print_convert_money() }}</span>
-    </p>
-</div>
-
-<div class="span1">
-    <p class="mini-basket-summary">
-        {{ 'Items'|trans }}<br />
-        <span>{{ cart.totalItemNumber }}</span>
-    </p>
-</div>
+<ul class="cart-nav">
+    <li>
+        <small>{{ 'Amount'|trans }}</small>
+        <strong>{{ cart.amount|print_convert_money() }}</strong>
+    </li>
+    <li>
+        <small>{{ 'Items'|trans }}</small>
+        <strong>{{ cart.totalItemNumber }}</strong>
+    </li>
+    <li>
+        <a href="{{ url('store_cart_view') }}" class="fa fa-shopping-cart fa-2x"></a>
+    </li>
+</ul>

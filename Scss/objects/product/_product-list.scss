@@ -1,0 +1,16 @@
+.product-list {
+
+}
+
+@mixin product-list-desktop {
+	.product-list {
+		& {
+			overflow: hidden;
+		}
+		.product-item {
+			float: left;
+			width: 33%;
+			box-sizing: border-box;
+		}
+	}
+}
