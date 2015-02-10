@@ -48,6 +48,7 @@ class CustomerData extends AbstractFixture
             ->setFirstName('Homer')
             ->setLastName('Simpson')
             ->setGender(ElcodiUserProperties::GENDER_MALE)
+            ->setToken(sha1(microtime()))
             ->setEnabled(true);
 
         $manager->persist($customer);
