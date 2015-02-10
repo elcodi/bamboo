@@ -12,6 +12,7 @@
  *
  * @author Marc Morera <yuhu@mmoreram.com>
  * @author Aldo Chiecchia <zimage@tiscali.it>
+ * @author Elcodi Team <tech@elcodi.com>
  */
 
 header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
