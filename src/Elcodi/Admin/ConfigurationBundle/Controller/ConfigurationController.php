@@ -51,13 +51,13 @@ class ConfigurationController extends AbstractAdminController
         $currencies = $this
             ->get('elcodi.repository.currency')
             ->findBy([
-                'enabled' => true
+                'enabled' => true,
             ]);
 
         $languages = $this
             ->get('elcodi.repository.language')
             ->findBy([
-                'enabled' => true
+                'enabled' => true,
             ]);
 
         return [
@@ -96,7 +96,7 @@ class ConfigurationController extends AbstractAdminController
             'status' => 200,
             'response' => [
                 'Configuration saved',
-            ]
+            ],
         ];
     }
 }

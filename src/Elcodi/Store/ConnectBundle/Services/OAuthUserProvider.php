@@ -94,8 +94,7 @@ class OAuthUserProvider implements OAuthAwareUserProviderInterface
         ObjectManager $authorizationManager,
         AbstractFactory $customerFactory,
         ObjectManager $customerManager
-    )
-    {
+    ) {
         $this->userProvider = $userProvider;
         $this->authorizationFactory = $authorizationFactory;
         $this->authorizationRepository = $authorizationRepository;
@@ -242,9 +241,8 @@ class OAuthUserProvider implements OAuthAwareUserProviderInterface
             return $this
                 ->userProvider
                 ->loadUserByUsername($username);
-
         } catch (UsernameNotFoundException $e) {
-            return null;
+            return;
         }
     }
 

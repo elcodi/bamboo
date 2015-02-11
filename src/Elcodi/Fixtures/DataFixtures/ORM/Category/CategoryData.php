@@ -86,7 +86,7 @@ class CategoryData extends AbstractFixture
                 'metaTitle' => 'Chemises de femme',
                 'metaDescription' => 'Chemises de femme',
                 'metaKeywords' => 'Chemises de femme',
-            )
+            ),
         ));
 
         /**
@@ -130,7 +130,7 @@ class CategoryData extends AbstractFixture
                 'metaTitle' => 'Chemises de homme',
                 'metaDescription' => 'Chemises de homme',
                 'metaKeywords' => 'Chemises de homme',
-            )
+            ),
         ));
     }
 }

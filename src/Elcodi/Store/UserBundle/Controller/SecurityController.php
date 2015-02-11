@@ -68,7 +68,6 @@ class SecurityController extends Controller
          * Checking for authentication errors in session
          */
         if ($this->get('session')->has(SecurityContext::AUTHENTICATION_ERROR)) {
-
             $this->get('session')
                 ->getFlashBag()
                 ->add('error', 'Wrong Email and password combination.');
@@ -116,8 +115,7 @@ class SecurityController extends Controller
         CustomerInterface $customer,
         FormView $registerFormView,
         $isValid
-    )
-    {
+    ) {
         if ($isValid) {
 
             /**

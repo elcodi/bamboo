@@ -72,8 +72,7 @@ class OrderController extends AbstractAdminController
         $limit,
         $orderByField,
         $orderByDirection
-    )
-    {
+    ) {
         return [
             'page'             => $page,
             'limit'            => $limit,
@@ -183,8 +182,7 @@ class OrderController extends AbstractAdminController
         Request $request,
         OrderInterface $order,
         $transition
-    )
-    {
+    ) {
         $stateLineStack = $this
             ->get('elcodi.order.payment_states_machine.manager')
             ->transition(
@@ -230,8 +228,7 @@ class OrderController extends AbstractAdminController
         Request $request,
         OrderInterface $order,
         $transition
-    )
-    {
+    ) {
         $stateLineStack = $this
             ->get('elcodi.order.shipping_states_machine.manager')
             ->transition(

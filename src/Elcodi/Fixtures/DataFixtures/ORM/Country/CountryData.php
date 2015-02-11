@@ -277,7 +277,7 @@ class CountryData extends AbstractFixture
             ["GF","French Guiana"],
             ["PF","French Polynesia"],
             ["TF","French Southern Territories"],
-            ["AX","Åland Islands"]
+            ["AX","Åland Islands"],
         ];
 
         foreach ($countries as $country) {
@@ -295,7 +295,7 @@ class CountryData extends AbstractFixture
                 ->setName(ucfirst($country[1]));
 
             $manager->persist($countryInstance);
-            $this->setReference('country-' . $countryInstance->getCode(), $countryInstance);
+            $this->setReference('country-'.$countryInstance->getCode(), $countryInstance);
         }
 
         $manager->flush();

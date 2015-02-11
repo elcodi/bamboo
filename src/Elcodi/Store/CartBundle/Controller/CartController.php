@@ -76,19 +76,16 @@ class CartController extends Controller
     public function viewAction(
         FormView $formView,
         CartInterface $cart
-    )
-    {
+    ) {
         $relatedProducts = [];
 
         if ($cart->getCartLines()->count()) {
-
             $relatedProducts = $this
                 ->get('store.product.service.product_collection_provider')
                 ->getRelatedProducts($cart
                         ->getCartLines()
                         ->first()
-                        ->getProduct()
-                    , 3);
+                        ->getProduct(), 3);
         }
 
         $cartCoupons = $this
@@ -101,7 +98,7 @@ class CartController extends Controller
                 'cart'             => $cart,
                 'cartcoupon'       => $cartCoupons,
                 'form'             => $formView,
-                'related_products' => $relatedProducts
+                'related_products' => $relatedProducts,
             ]
         );
     }
@@ -147,8 +144,7 @@ class CartController extends Controller
         Request $request,
         ProductInterface $product,
         CartInterface $cart
-    )
-    {
+    ) {
         $cartQuantity = (int) $request
             ->request
             ->get('add-cart-quantity', 1);
@@ -207,8 +203,7 @@ class CartController extends Controller
         Request $request,
         VariantInterface $variant,
         CartInterface $cart
-    )
-    {
+    ) {
         $cartQuantity = (int) $request
             ->request
             ->get('add-cart-quantity', 1);
@@ -293,10 +288,8 @@ class CartController extends Controller
         FormInterface $form,
         CartInterface $cart,
         $isValid
-    )
-    {
+    ) {
         if ($isValid) {
-
             $this
                 ->get('elcodi.object_manager.cart')
                 ->flush();
@@ -340,8 +333,7 @@ class CartController extends Controller
     public function removeCartLineAction(
         CartInterface $cart,
         CartLineInterface $cartLine
-    )
-    {
+    ) {
         $this
             ->get('elcodi.cart_manager')
             ->removeLine(

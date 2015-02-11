@@ -31,6 +31,6 @@ class AdminTemplateBundle extends Bundle
      */
     public function getContainerExtension()
     {
-        return null;
+        return;
     }
 }

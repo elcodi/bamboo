@@ -88,8 +88,7 @@ class AdminUserComponentController extends AbstractAdminController
         $limit,
         $orderByField,
         $orderByDirection
-    )
-    {
+    ) {
         return [
             'paginator'        => $paginator,
             'page'             => $page,
@@ -151,8 +150,7 @@ class AdminUserComponentController extends AbstractAdminController
     public function editComponentAction(
         FormView $formView,
         AdminUserInterface $adminUser
-    )
-    {
+    ) {
         return [
             'adminUser' => $adminUser,
             'form'      => $formView,

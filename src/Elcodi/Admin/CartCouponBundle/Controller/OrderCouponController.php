@@ -80,8 +80,7 @@ class OrderCouponController extends AbstractAdminController
         $limit,
         $orderByField,
         $orderByDirection
-    )
-    {
+    ) {
         return [
             'page'             => $page,
             'limit'            => $limit,
@@ -137,8 +136,7 @@ class OrderCouponController extends AbstractAdminController
         $limit,
         $orderByField,
         $orderByDirection
-    )
-    {
+    ) {
         $paginatorFields = $this
             ->container
             ->getParameter('elcodi.admin.cartcoupon.pagination.order_coupon.fields');
@@ -308,8 +306,7 @@ class OrderCouponController extends AbstractAdminController
         OrderCouponInterface $entity,
         FormInterface $form,
         $isValid
-    )
-    {
+    ) {
         if ($isValid) {
             $this
                 ->get('elcodi.object_manager.order_coupon')
@@ -378,8 +375,7 @@ class OrderCouponController extends AbstractAdminController
     public function editComponentAction(
         OrderCouponInterface $entity,
         FormView $formView
-    )
-    {
+    ) {
         return [
             'entity' => $entity,
             'form'   => $formView,
@@ -422,8 +418,7 @@ class OrderCouponController extends AbstractAdminController
         OrderCouponInterface $entity,
         FormInterface $form,
         $isValid
-    )
-    {
+    ) {
         if ($isValid) {
             $this
                 ->get('elcodi.object_manager.order_coupon')
@@ -460,8 +455,7 @@ class OrderCouponController extends AbstractAdminController
     public function enableAction(
         Request $request,
         EnabledInterface $entity
-    )
-    {
+    ) {
         try {
             $this->enableEntity($entity);
 
@@ -502,8 +496,7 @@ class OrderCouponController extends AbstractAdminController
     public function disableAction(
         Request $request,
         EnabledInterface $entity
-    )
-    {
+    ) {
         try {
             $this->disableEntity($entity);
 
@@ -546,8 +539,7 @@ class OrderCouponController extends AbstractAdminController
         Request $request,
         $entity,
         $redirectUrl = null
-    )
-    {
+    ) {
         try {
             $this->deleteEntity($entity);
 

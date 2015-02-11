@@ -88,8 +88,7 @@ class CustomerComponentController extends AbstractAdminController
         $limit,
         $orderByField,
         $orderByDirection
-    )
-    {
+    ) {
         return [
             'paginator'        => $paginator,
             'page'             => $page,
@@ -151,8 +150,7 @@ class CustomerComponentController extends AbstractAdminController
     public function editComponentAction(
         FormView $formView,
         CustomerInterface $customer
-    )
-    {
+    ) {
         return [
             'customer' => $customer,
             'form'     => $formView,

@@ -73,11 +73,10 @@ class VariantComponentController extends AbstractAdminController
     public function listComponentAction(
         Paginator $paginator,
         $productId
-    )
-    {
+    ) {
         return [
             'paginator' => $paginator,
-            'productId' => $productId
+            'productId' => $productId,
         ];
     }
 
@@ -143,8 +142,7 @@ class VariantComponentController extends AbstractAdminController
         FormView $formView,
         ProductInterface $product,
         VariantInterface $variant
-    )
-    {
+    ) {
         return [
             'variant' => $variant,
             'product' => $product,

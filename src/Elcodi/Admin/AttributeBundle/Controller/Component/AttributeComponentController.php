@@ -59,7 +59,7 @@ class AttributeComponentController extends AbstractAdminController
             ->findAll();
 
         return [
-            'paginator' => $attributes
+            'paginator' => $attributes,
         ];
     }
 
@@ -112,8 +112,7 @@ class AttributeComponentController extends AbstractAdminController
     public function editComponentAction(
         FormView $formView,
         AttributeInterface $attribute
-    )
-    {
+    ) {
         $allAvailableValues = $this
             ->get('elcodi.repository.attribute_value')
             ->findAll();

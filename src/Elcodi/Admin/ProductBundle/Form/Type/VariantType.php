@@ -42,13 +42,12 @@ class VariantType extends AbstractPurchasableType
                 'label'    => 'Select one or more attributes:',
                 'multiple' => true,
                 'group_by' => 'attribute',
-                'query_builder' =>
-                    function (ValueRepository $valueRepository) {
+                'query_builder' => function (ValueRepository $valueRepository) {
                         return $valueRepository
                             ->createQueryBuilder('v')
                             ->join('v.attribute', 'a');
                     },
-                'property' => 'value'
+                'property' => 'value',
             ))
             ->add('imagesSort', 'text', array(
                 'required' => false,
@@ -75,7 +74,7 @@ class VariantType extends AbstractPurchasableType
             ))
             ->add('enabled', 'checkbox', array(
                 'required' => false,
-                'label'    => 'Visible'
+                'label'    => 'Visible',
             ));
     }
 

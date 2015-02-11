@@ -72,8 +72,7 @@ class RememberPasswordEventListener
         EngineInterface $templating,
         TokenStorageInterface $tokenStorage,
         $providerKey
-    )
-    {
+    ) {
         $this->mailer = $mailer;
         $this->templating = $templating;
         $this->tokenStorage = $tokenStorage;

@@ -39,20 +39,19 @@ class LanguageData extends AbstractFixture
          * @var ObjectManager   $languageObjectManager
          * @var LanguageFactory $languageFactory
          */
-        $currencies = $this->parseYaml(dirname(__FILE__) . '/languages.yml');
+        $currencies = $this->parseYaml(dirname(__FILE__).'/languages.yml');
         $languageObjectManager = $this->get('elcodi.object_manager.language');
         $languageFactory = $this->get('elcodi.factory.language');
         $languageEntities = [];
 
         foreach ($currencies as $languageIso => $languageData) {
-
             $language = $languageFactory
                 ->create()
                 ->setIso($languageIso)
                 ->setName($languageData['name'])
                 ->setEnabled((boolean) $languageData['enabled']);
 
-            $this->setReference('language-' . $languageIso, $language);
+            $this->setReference('language-'.$languageIso, $language);
             $languageObjectManager->persist($language);
             $languageEntities[] = $language;
         }

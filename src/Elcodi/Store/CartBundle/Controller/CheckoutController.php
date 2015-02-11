@@ -72,7 +72,7 @@ class CheckoutController extends Controller
             'Pages:cart-checkout.html.twig',
             [
                 'shippingPrice' => $shippingPrice,
-                'cart'          => $cart
+                'cart'          => $cart,
             ]
         );
     }
@@ -111,21 +111,19 @@ class CheckoutController extends Controller
     public function paymentFailAction(
         CustomerInterface $customer,
         OrderInterface $order
-    )
-    {
+    ) {
         /**
          * Checking if logged user has permission to see
          * this page
          */
         if ($order->getCustomer() != $customer) {
-
             throw($this->createNotFoundException());
         }
 
         return $this->renderTemplate(
             'Pages:cart-checkout-fail.html.twig',
             [
-                'order' => $order
+                'order' => $order,
             ]
         );
     }

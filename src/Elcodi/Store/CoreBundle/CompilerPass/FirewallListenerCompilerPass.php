@@ -63,7 +63,6 @@ class FirewallListenerCompilerPass implements CompilerPassInterface
         $taggedListeners = $container->findTaggedServiceIds('firewall_listener');
         foreach ($taggedListeners as $listener_id => $tags) {
             foreach ($tags as $tag) {
-
                 $firewall_id = $this->getFirewallId($tag, $container);
                 if (null === $firewall_id) {
                     throw new \RuntimeException(sprintf(
@@ -72,7 +71,7 @@ class FirewallListenerCompilerPass implements CompilerPassInterface
                     ));
                 }
 
-                $context_id = 'security.firewall.map.context.' . $firewall_id;
+                $context_id = 'security.firewall.map.context.'.$firewall_id;
                 if (!$container->has($context_id)) {
                     throw new \RuntimeException(sprintf(
                         'Context for firewall "%s" can not be found in "%s" definition.',
@@ -99,7 +98,7 @@ class FirewallListenerCompilerPass implements CompilerPassInterface
     protected function getFirewallId(array $tag, ContainerBuilder $container)
     {
         if (!isset($tag['firewall'])) {
-            return null;
+            return;
         }
 
         return $container

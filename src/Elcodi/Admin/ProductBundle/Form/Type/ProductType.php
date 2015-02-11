@@ -40,7 +40,7 @@ class ProductType extends AbstractPurchasableType
         $builder
             ->add('name', 'text', array(
                 'required' => true,
-                'label'    => 'Title'
+                'label'    => 'Title',
             ))
             ->add('slug', 'text', array(
                 'required' => true,

@@ -74,8 +74,7 @@ class ProductController extends AbstractAdminController
         $limit,
         $orderByField,
         $orderByDirection
-    )
-    {
+    ) {
         return [
             'page'             => $page,
             'limit'            => $limit,
@@ -156,13 +155,11 @@ class ProductController extends AbstractAdminController
         FormInterface $form,
         ProductInterface $product,
         $isValid
-    )
-    {
+    ) {
         if ($isValid) {
-
             $this->flush($product);
 
-            $this->addFlash('success','Changes saved');
+            $this->addFlash('success', 'Changes saved');
 
             return $this->redirectToRoute('admin_product_edit', [
                 'id' => $product->getId(),
@@ -199,8 +196,7 @@ class ProductController extends AbstractAdminController
     public function enableAction(
         Request $request,
         EnabledInterface $entity
-    )
-    {
+    ) {
         return parent::enableAction(
             $request,
             $entity
@@ -231,8 +227,7 @@ class ProductController extends AbstractAdminController
     public function disableAction(
         Request $request,
         EnabledInterface $entity
-    )
-    {
+    ) {
         return parent::disableAction(
             $request,
             $entity
@@ -265,8 +260,7 @@ class ProductController extends AbstractAdminController
         Request $request,
         $entity,
         $redirectUrl = null
-    )
-    {
+    ) {
         return parent::deleteAction(
             $request,
             $entity,

@@ -17,7 +17,6 @@
 
 namespace Elcodi\Store\PaymentBridgeBundle\Services;
 
-use Elcodi\Component\Currency\Services\CurrencyConverter;
 use PaymentSuite\PaymentCoreBundle\Services\Interfaces\PaymentBridgeInterface;
 
 use Elcodi\Component\Cart\Entity\Interfaces\OrderInterface;
@@ -26,6 +25,7 @@ use Elcodi\Component\Cart\Entity\OrderLine;
 use Elcodi\Component\Cart\Repository\OrderRepository;
 use Elcodi\Component\Cart\Wrapper\CartWrapper;
 use Elcodi\Component\Currency\Entity\Money;
+use Elcodi\Component\Currency\Services\CurrencyConverter;
 
 /**
  * Class PaymentBridge
@@ -228,7 +228,6 @@ class PaymentBridge implements PaymentBridgeInterface
              * currency
              */
             foreach ($this->order->getOrderLines() as $orderLine) {
-
                 $orderLineArray = [];
 
                 $orderLineName = $orderLine

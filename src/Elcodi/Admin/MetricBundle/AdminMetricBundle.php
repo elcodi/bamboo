@@ -31,6 +31,6 @@ class AdminMetricBundle extends Bundle
      */
     public function getContainerExtension()
     {
-        return null;
+        return;
     }
 }

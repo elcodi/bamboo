@@ -50,8 +50,7 @@ class CartPaidEventListener
     public function __construct(
         CartWrapper $cartWrapper,
         CartOrderTransformer $cartOrderTransformer
-    )
-    {
+    ) {
         $this->cartWrapper = $cartWrapper;
         $this->cartOrderTransformer = $cartOrderTransformer;
     }

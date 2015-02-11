@@ -41,9 +41,8 @@ class MetricController
     {
         $timeElements = [];
         for ($i = 11; $i >= 0; $i--) {
-
             $time = new DateTime();
-            $time->sub(new DateInterval('PT' . $i . 'H'));
+            $time->sub(new DateInterval('PT'.$i.'H'));
             $timeElements[] = $time;
         }
 

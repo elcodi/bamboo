@@ -80,8 +80,7 @@ class CartCouponController extends AbstractAdminController
         $limit,
         $orderByField,
         $orderByDirection
-    )
-    {
+    ) {
         return [
             'page'             => $page,
             'limit'            => $limit,
@@ -138,8 +137,7 @@ class CartCouponController extends AbstractAdminController
         $limit,
         $orderByField,
         $orderByDirection
-    )
-    {
+    ) {
         return [
             'paginator'        => $paginator,
             'page'             => $page,
@@ -305,8 +303,7 @@ class CartCouponController extends AbstractAdminController
         CartCouponInterface $entity,
         FormInterface $form,
         $isValid
-    )
-    {
+    ) {
         if ($isValid) {
             $this
                 ->get('elcodi.object_manager.cart_coupon')
@@ -375,8 +372,7 @@ class CartCouponController extends AbstractAdminController
     public function editComponentAction(
         CartCouponInterface $entity,
         FormView $formView
-    )
-    {
+    ) {
         return [
             'entity' => $entity,
             'form'   => $formView,
@@ -418,8 +414,7 @@ class CartCouponController extends AbstractAdminController
         CartCouponInterface $entity,
         FormInterface $form,
         $isValid
-    )
-    {
+    ) {
         if ($isValid) {
             $this
                 ->get('elcodi.object_manager.cart_coupon')
@@ -456,8 +451,7 @@ class CartCouponController extends AbstractAdminController
     public function enableAction(
         Request $request,
         EnabledInterface $entity
-    )
-    {
+    ) {
         try {
             $this->enableEntity($entity);
 
@@ -498,8 +492,7 @@ class CartCouponController extends AbstractAdminController
     public function disableAction(
         Request $request,
         EnabledInterface $entity
-    )
-    {
+    ) {
         try {
             $this->disableEntity($entity);
 
@@ -542,8 +535,7 @@ class CartCouponController extends AbstractAdminController
         Request $request,
         $entity,
         $redirectUrl = null
-    )
-    {
+    ) {
         try {
             $this->deleteEntity($entity);
 

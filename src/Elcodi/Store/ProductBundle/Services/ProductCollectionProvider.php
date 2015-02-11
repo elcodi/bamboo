@@ -44,7 +44,6 @@ class ProductCollectionProvider extends BaseProductCollectionProvider
         $principalCategory = $product->getPrincipalCategory();
 
         if ($principalCategory instanceof CategoryInterface) {
-
             $relatedProducts = $this
                 ->productRepository
                 ->createQueryBuilder('p')
@@ -55,7 +54,7 @@ class ProductCollectionProvider extends BaseProductCollectionProvider
                 ->andWhere('p.enabled = :enabled')
                 ->setParameters([
                     'principalCategory' => $principalCategory,
-                    'enabled' => true
+                    'enabled' => true,
                 ])
                 ->getQuery()
                 ->getResult();

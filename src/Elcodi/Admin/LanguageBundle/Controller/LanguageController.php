@@ -80,8 +80,7 @@ class LanguageController extends AbstractAdminController
     public function enableAction(
         Request $request,
         EnabledInterface $entity
-    )
-    {
+    ) {
         return parent::enableAction(
             $request,
             $entity
@@ -112,8 +111,7 @@ class LanguageController extends AbstractAdminController
     public function disableAction(
         Request $request,
         EnabledInterface $entity
-    )
-    {
+    ) {
         return parent::disableAction(
             $request,
             $entity

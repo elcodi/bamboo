@@ -1377,9 +1377,8 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
         fileIdentifierTransformer $fileIdentifierTransformer,
         ProductInterface $product,
         $imageName
-    )
-    {
-        $imagePath = realpath(dirname(__FILE__) . '/images/' . $imageName);
+    ) {
+        $imagePath = realpath(dirname(__FILE__).'/images/'.$imageName);
         $image = $imageManager->createImage(new File($imagePath));
         $imageObjectManager->persist($image);
         $imageObjectManager->flush($image);

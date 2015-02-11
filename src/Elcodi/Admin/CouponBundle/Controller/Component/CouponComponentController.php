@@ -88,8 +88,7 @@ class CouponComponentController extends AbstractAdminController
         $limit,
         $orderByField,
         $orderByDirection
-    )
-    {
+    ) {
         return [
             'paginator'        => $paginator,
             'page'             => $page,
@@ -205,8 +204,7 @@ class CouponComponentController extends AbstractAdminController
     public function editComponentAction(
         CouponInterface $entity,
         FormView $formView
-    )
-    {
+    ) {
         return [
             'entity' => $entity,
             'form'   => $formView,

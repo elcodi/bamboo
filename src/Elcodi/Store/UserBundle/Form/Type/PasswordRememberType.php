@@ -37,7 +37,7 @@ class PasswordRememberType extends AbstractType
             ->setMethod('POST')
             ->add('email', 'email', [
                 'required' => true,
-                'label' =>  'Email'
+                'label' =>  'Email',
             ])
             ->add('send', 'submit', [
                 'label' =>  'Remember',

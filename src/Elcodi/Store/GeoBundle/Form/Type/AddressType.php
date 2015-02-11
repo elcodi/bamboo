@@ -51,8 +51,7 @@ class AddressType extends AbstractType
     public function __construct(
         AddressFactory $addressFactory,
         $countryNamespace
-    )
-    {
+    ) {
         $this->addressFactory = $addressFactory;
         $this->countryNamespace = $countryNamespace;
     }

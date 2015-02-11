@@ -60,8 +60,7 @@ class OrderToPaidEventListener
         MachineManager $paymentMachineManager,
         ObjectManager $orderObjectManager,
         ObjectManager $stateLineObjectManager
-    )
-    {
+    ) {
         $this->paymentMachineManager = $paymentMachineManager;
         $this->orderObjectManager = $orderObjectManager;
         $this->stateLineObjectManager = $stateLineObjectManager;
@@ -95,7 +94,7 @@ class OrderToPaidEventListener
                 $order,
                 $order->getPaymentStateLineStack(),
                 'pay',
-                'Order paid using ' . $event
+                'Order paid using '.$event
                     ->getPaymentMethod()
                     ->getPaymentName()
             );

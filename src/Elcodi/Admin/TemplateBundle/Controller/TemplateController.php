@@ -51,7 +51,6 @@ class TemplateController extends AbstractAdminController
         $currentTemplate = $configurationManager->get('store.template');
 
         foreach ($templates as $position => $template) {
-
             $assetPath = str_replace('bundle', '', strtolower($template['bundle']));
             $templates[$position]['assetPath'] = $assetPath;
         }
