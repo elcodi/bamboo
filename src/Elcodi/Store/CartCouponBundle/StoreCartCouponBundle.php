@@ -19,6 +19,7 @@ namespace Elcodi\Store\CartCouponBundle;
 
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+
 use Elcodi\Store\CartCouponBundle\DependencyInjection\StoreCartCouponExtension;
 
 /**

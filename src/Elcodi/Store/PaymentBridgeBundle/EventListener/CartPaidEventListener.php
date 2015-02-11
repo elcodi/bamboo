@@ -18,6 +18,7 @@
 namespace Elcodi\Store\PaymentBridgeBundle\EventListener;
 
 use PaymentSuite\PaymentCoreBundle\Event\PaymentOrderLoadEvent;
+
 use Elcodi\Component\Cart\Transformer\CartOrderTransformer;
 use Elcodi\Component\Cart\Wrapper\CartWrapper;
 

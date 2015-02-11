@@ -22,6 +22,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Gaufrette\Adapter;
 use Gaufrette\Filesystem;
 use Symfony\Component\HttpFoundation\File\File;
+
 use Elcodi\Bundle\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
 use Elcodi\Component\Currency\Entity\Interfaces\CurrencyInterface;
 use Elcodi\Component\Currency\Entity\Money;

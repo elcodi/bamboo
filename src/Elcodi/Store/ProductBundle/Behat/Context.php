@@ -20,6 +20,7 @@ namespace Elcodi\Store\ProductBundle\Behat;
 use Behat\Gherkin\Node\TableNode;
 use Doctrine\ORM\EntityNotFoundException;
 use Exception;
+
 use Elcodi\Component\Product\Entity\Interfaces\CategoryInterface;
 use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
 use Elcodi\Store\CoreBundle\Behat\abstracts\AbstractElcodiContext;

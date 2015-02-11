@@ -19,6 +19,7 @@ namespace Elcodi\Admin\TemplateBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+
 use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
 
 /**

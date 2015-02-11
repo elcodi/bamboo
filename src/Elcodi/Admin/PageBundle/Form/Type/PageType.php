@@ -20,6 +20,7 @@ namespace Elcodi\Admin\PageBundle\Form\Type;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+
 use Elcodi\Admin\PageBundle\Form\EventListener\PermanentPageSubscriber;
 use Elcodi\Component\EntityTranslator\EventListener\Traits\EntityTranslatableFormTrait;
 

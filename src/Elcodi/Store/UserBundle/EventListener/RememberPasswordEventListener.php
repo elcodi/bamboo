@@ -19,6 +19,7 @@ namespace Elcodi\Store\UserBundle\EventListener;
 
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+
 use Elcodi\Component\User\Event\PasswordRecoverEvent;
 
 /**

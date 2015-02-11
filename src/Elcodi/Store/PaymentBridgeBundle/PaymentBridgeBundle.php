@@ -19,6 +19,7 @@ namespace Elcodi\Store\PaymentBridgeBundle;
 
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+
 use Elcodi\Store\PaymentBridgeBundle\DependencyInjection\PaymentBridgeExtension;
 
 /**

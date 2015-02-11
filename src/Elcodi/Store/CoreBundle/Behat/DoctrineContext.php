@@ -20,6 +20,7 @@ namespace Elcodi\Store\CoreBundle\Behat;
 use Behat\Behat\Hook\Scope\AfterScenarioScope;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Symfony\Component\Console\Input\ArrayInput;
+
 use Elcodi\Store\CoreBundle\Behat\abstracts\AbstractElcodiContext;
 
 /**

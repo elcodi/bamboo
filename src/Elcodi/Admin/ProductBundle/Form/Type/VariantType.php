@@ -18,6 +18,7 @@
 namespace Elcodi\Admin\ProductBundle\Form\Type;
 
 use Symfony\Component\Form\FormBuilderInterface;
+
 use Elcodi\Admin\CurrencyBundle\Form\Type\Abstracts\AbstractPurchasableType;
 use Elcodi\Component\Attribute\Repository\ValueRepository;
 

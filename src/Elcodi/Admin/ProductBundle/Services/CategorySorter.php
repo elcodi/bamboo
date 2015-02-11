@@ -19,6 +19,7 @@ namespace Elcodi\Admin\ProductBundle\Services;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+
 use Elcodi\Admin\ProductBundle\ProductEvents;
 use Elcodi\Component\Product\Entity\Category;
 use Elcodi\Component\Product\Repository\CategoryRepository;

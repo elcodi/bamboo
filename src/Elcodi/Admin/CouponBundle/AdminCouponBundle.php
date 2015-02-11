@@ -19,6 +19,7 @@ namespace Elcodi\Admin\CouponBundle;
 
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+
 use Elcodi\Admin\CouponBundle\DependencyInjection\AdminCouponExtension;
 
 /**

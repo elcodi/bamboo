@@ -19,6 +19,7 @@ namespace Elcodi\Admin\CurrencyBundle\Form\Type\Abstracts;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+
 use Elcodi\Component\Core\Factory\Abstracts\AbstractFactory;
 
 abstract class AbstractPurchasableType extends AbstractType

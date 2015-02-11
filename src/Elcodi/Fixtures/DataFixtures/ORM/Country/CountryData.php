@@ -18,6 +18,7 @@
 namespace Elcodi\Fixtures\DataFixtures\ORM\Country;
 
 use Doctrine\Common\Persistence\ObjectManager;
+
 use Elcodi\Bundle\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
 use Elcodi\Component\Geo\Entity\Country;
 

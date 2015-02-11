@@ -18,6 +18,7 @@
 namespace Elcodi\Fixtures\DataFixtures\ORM\Page;
 
 use Doctrine\Common\Persistence\ObjectManager;
+
 use Elcodi\Bundle\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
 use Elcodi\Component\EntityTranslator\Services\Interfaces\EntityTranslatorInterface;
 use Elcodi\Component\Page\Factory\PageFactory;

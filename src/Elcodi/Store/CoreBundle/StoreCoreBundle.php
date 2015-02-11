@@ -20,6 +20,7 @@ namespace Elcodi\Store\CoreBundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+
 use Elcodi\Store\CoreBundle\CompilerPass\FirewallListenerCompilerPass;
 use Elcodi\Store\CoreBundle\DependencyInjection\StoreCoreExtension;
 
