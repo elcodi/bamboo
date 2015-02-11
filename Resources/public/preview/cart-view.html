@@ -157,132 +157,91 @@
         <div class="grid grid-pad">
             <div class="col-1-1">
                 
-    <!-- Basket -->
+    <form>
 
-    
-        <div class="row">
-            <div class="span12">
-
-                <form>
-
-                    <table class="basket-table">
-                        <thead>
-                        <tr>
-                            <th colspan="2">Item</th>
-                            <th>Qty</th>
-                            <th>Price</th>
-                            <th colspan="2">Total</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-
-                        
+            <div class="cart-list">
                             
-<tr>
-    <td class="image">
+<dl class="cart-item">
+    <dt class="cart-item-image">Image</dt>
+    <dd class="cart-item-image">
         <a href="#">
-            <img src="../../../fixtures/img/banana.jpg" alt="Ibiza Banana" />
+            <img src="../../../fixtures/img/banana.jpg" alt="Ibiza Banana" class="product-thumbnail" />
         </a>
-    </td>
-    <td class="title">
-        <a href="#">Ibiza Banana</a>
-    </td>
-    <td class="qty">
-        undefined
-    </td>
-                    <td class="price">$10</td>
-    <td class="total">$20</td>
-    <td class="remove">
-        <a href="#">
-            <span class="entypo trash"></span>
-        </a>
-    </td>
-</tr>
-
-                        
+    </dd>
+    <dt class="cart-item-name">Item</dt>
+    <dd class="cart-item-name"><a href="#" class="product-title">Ibiza Banana</a></dd>
+    <dt class="cart-item-units">Units</dt>
+    <dd class="cart-item-units">undefined</dd>
+                <dt class="cart-item-price">Price</dt>
+    <dd class="cart-item-price">$10</dd>
+    <dt class="cart-item-total">Total</dt>
+    <dd class="cart-item-total">$20</dd>
+        <dt class="cart-item-remove">Remove</dt>
+    <dd class="cart-item-remove"><a href="#" class="fa fa-trash-o button"></a></dd>
+</dl>
                             
-<tr>
-    <td class="image">
+<dl class="cart-item">
+    <dt class="cart-item-image">Image</dt>
+    <dd class="cart-item-image">
         <a href="#">
-            <img src="../../../fixtures/img/there.jpg" alt="I was There" />
+            <img src="../../../fixtures/img/there.jpg" alt="I was There" class="product-thumbnail" />
         </a>
-    </td>
-    <td class="title">
-        <a href="#">I was There</a>
-    </td>
-    <td class="qty">
-        undefined
-    </td>
-                    <td class="price">$15</td>
-    <td class="total">$15</td>
-    <td class="remove">
-        <a href="#">
-            <span class="entypo trash"></span>
-        </a>
-    </td>
-</tr>
-
-                        
+    </dd>
+    <dt class="cart-item-name">Item</dt>
+    <dd class="cart-item-name"><a href="#" class="product-title">I was There</a></dd>
+    <dt class="cart-item-units">Units</dt>
+    <dd class="cart-item-units">undefined</dd>
+                <dt class="cart-item-price">Price</dt>
+    <dd class="cart-item-price">$15</dd>
+    <dt class="cart-item-total">Total</dt>
+    <dd class="cart-item-total">$15</dd>
+        <dt class="cart-item-remove">Remove</dt>
+    <dd class="cart-item-remove"><a href="#" class="fa fa-trash-o button"></a></dd>
+</dl>
                             
-<tr>
-    <td class="image">
+<dl class="cart-item">
+    <dt class="cart-item-image">Image</dt>
+    <dd class="cart-item-image">
         <a href="#">
-            <img src="../../../fixtures/img/there.jpg" alt="A life Style" />
+            <img src="../../../fixtures/img/there.jpg" alt="A life Style" class="product-thumbnail" />
         </a>
-    </td>
-    <td class="title">
-        <a href="#">A life Style</a>
-    </td>
-    <td class="qty">
-        undefined
-    </td>
-                    <td class="price">$10</td>
-    <td class="total">$10</td>
-    <td class="remove">
-        <a href="#">
-            <span class="entypo trash"></span>
-        </a>
-    </td>
-</tr>
-
-                        
-                        
-                        </tbody>
-                    </table>
-
-                    <div class="clearfix">
-
-                        <p class="basket-total"><span>Total: </span>$45</p>
-
+    </dd>
+    <dt class="cart-item-name">Item</dt>
+    <dd class="cart-item-name"><a href="#" class="product-title">A life Style</a></dd>
+    <dt class="cart-item-units">Units</dt>
+    <dd class="cart-item-units">undefined</dd>
+                <dt class="cart-item-price">Price</dt>
+    <dd class="cart-item-price">$10</dd>
+    <dt class="cart-item-total">Total</dt>
+    <dd class="cart-item-total">$10</dd>
+        <dt class="cart-item-remove">Remove</dt>
+    <dd class="cart-item-remove"><a href="#" class="fa fa-trash-o button"></a></dd>
+</dl>
                     </div>
-
-                    <p class="actions">
-                        <a class="btn btn-blank" href="#">Continue shopping</a>
-                        <a class="btn btn-blank" href="#">Empty basket</a>
-
-                        <button type="submit" class="btn btn-blank">Update basket</button>
-                        <a class="btn btn-primary" href="#">Checkout</a>
-                    </p>
-
-                </form>
-
-            </div>
+        <div class="coupon-list">
+                    </div>
+        <p class="cart-total"><span>Total </span>$45</p>
+        <div class="cart-actions">
+            <a class="button button-secondary" href="#">Checkout &nbsp;<i class="fa fa-arrow-right"></i> </a>
+            <button type="submit" class="button button-empty fa fa-refresh">Update basket</button>
+            <a class="button button-empty" href="#"><i class="fa fa-trash-o"></i> Empty basket</a>
+            <a class="button button-empty cart-actions-continue" href="#"><i class="fa fa-arrow-left"></i> Continue shopping</a>
         </div>
+        </form>
 
-            <div class="row">
-        <div class="span12">
-            <form>
-                <p class="actions">
-                    <button type="submit" class="btn btn-blank">Apply coupon</button>
-                    <input type="text" class="undefined" value="" />
-                </p>
-            </form>
-        </div>
+            <div class="coupon-add">
+        <form>
+                <input type="text" class="undefined" value="" />
+                <button type="submit" class="button button-primary">Apply coupon</button>
+        </form>
     </div>
 
         <!-- Related products -->
 
-        <div class="product-related">
+    
+            </div>
+        </div>
+            <div class="product-related">
     <div class="grid">
         <div class="col-1-1">
             <h2 class="product-title">You May Also Like...</h2>
@@ -402,11 +361,7 @@
         </div>
     </div>
 </div>
-
-    
-            </div>
-        </div>
-                
+        
         <div id="mobile-menu" class="grid mobile">
     <ul class="category-nav">
     <li>
