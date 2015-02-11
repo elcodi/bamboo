@@ -84,7 +84,7 @@ class PasswordController extends Controller
         }
 
         return $this->renderTemplate(
-            'User/password-remember.html.twig',
+            'Modules:_user-password-remember.html.twig',
             [
                 'form' => $passwordRememberForm->createView()
             ]
