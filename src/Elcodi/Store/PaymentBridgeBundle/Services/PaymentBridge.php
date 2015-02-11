@@ -17,6 +17,7 @@
 
 namespace Elcodi\Store\PaymentBridgeBundle\Services;
 
+use Elcodi\Component\Currency\Services\CurrencyConverter;
 use PaymentSuite\PaymentCoreBundle\Services\Interfaces\PaymentBridgeInterface;
 
 use Elcodi\Component\Cart\Entity\Interfaces\OrderInterface;
@@ -50,16 +51,27 @@ class PaymentBridge implements PaymentBridgeInterface
      *
      * Cart wrapper
      */
-    private $cartWrapper;
+    protected $cartWrapper;
+
+    /**
+     * @var CurrencyConverter
+     *
+     * Currency converter
+     */
+    protected $currencyConverter;
 
     /**
      * @param OrderRepository $orderRepository Order repository
      * @param CartWrapper     $cartWrapper
      */
-    public function __construct(OrderRepository $orderRepository, CartWrapper $cartWrapper)
+    public function __construct(
+        OrderRepository $orderRepository,
+        CartWrapper $cartWrapper,
+        CurrencyConverter $currencyConverter)
     {
         $this->orderRepository = $orderRepository;
         $this->cartWrapper = $cartWrapper;
+        $this->currencyConverter = $currencyConverter;
     }
 
     /**
@@ -210,6 +222,10 @@ class PaymentBridge implements PaymentBridgeInterface
         if ($this->order instanceof Order) {
             /**
              * @var OrderLine $orderLine
+             *
+             * Line prices must be converted to the currency
+             * of the Cart when they are defined in another
+             * currency
              */
             foreach ($this->order->getOrderLines() as $orderLine) {
 
@@ -220,14 +236,31 @@ class PaymentBridge implements PaymentBridgeInterface
                     ->getName();
                 $orderLineArray['item_name'] = $orderLineName;
 
-                $orderLineArray['amount'] = $orderLine
-                    ->getAmount()
+                $lineAmount = $orderLine
+                    ->getAmount();
+
+                /*
+                 * We need to convert any price to match
+                 * currenct order currency
+                 */
+                $convertedAmount = $this
+                    ->currencyConverter
+                    ->convertMoney(
+                        $lineAmount,
+                        $this
+                            ->order
+                            ->getAmount()
+                            ->getCurrency()
+                    );
+
+                $orderLineArray['amount'] = $convertedAmount
                     ->getAmount() / 100;
 
-                $orderLineArray['item_currency_code'] = $orderLine
-                    ->getAmount()
-                    ->getCurrency()
-                    ->getIso();
+                /**
+                 * Line items currency should always match
+                 * the one from the order
+                 */
+                $orderLineArray['item_currency_code'] = $this->getCurrency();
 
                 $orderDescription[] = $orderLineName;
                 $orderLineArray['quantity'] = $orderLine->getQuantity();
