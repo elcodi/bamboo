@@ -21,9 +21,12 @@ use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\Component\Cart\Entity\Interfaces\OrderInterface;
+use Elcodi\Component\StateTransitionMachine\Entity\Interfaces\StateLineInterface;
 
 /**
  * Class Controller for Order
@@ -107,8 +110,140 @@ class OrderController extends AbstractAdminController
      */
     public function editAction(OrderInterface $order)
     {
+        $nextPaymentTransitions = $this
+            ->get('elcodi.order.payment_states_machine')
+            ->getAvailableStates(
+                $order
+                    ->getPaymentStateLineStack()
+                    ->getLastStateLine()
+                    ->getName()
+            );
+
+        $nextShippingTransitions = $this
+            ->get('elcodi.order.shipping_states_machine')
+            ->getAvailableStates(
+                $order
+                    ->getShippingStateLineStack()
+                    ->getLastStateLine()
+                    ->getName()
+            );
+
+        $allStates = array_merge(
+            $order
+                ->getPaymentStateLineStack()
+                ->getStateLines()
+                ->toArray(),
+            $order
+                ->getShippingStateLineStack()
+                ->getStateLines()
+                ->toArray()
+        );
+
+        usort($allStates, function (StateLineInterface $a, StateLineInterface $b) {
+            return $a->getCreatedAt() == $b->getCreatedAt()
+                ? $a->getId() > $b->getId()
+                : $a->getCreatedAt() > $b->getCreatedAt();
+        });
+
         return [
-            'order' => $order
+            'order'                   => $order,
+            'nextPaymentTransitions'  => $nextPaymentTransitions,
+            'nextShippingTransitions' => $nextShippingTransitions,
+            'allStates'               => $allStates,
         ];
+    }
+
+    /**
+     * Change payment state
+     *
+     * @param Request        $request    Request
+     * @param OrderInterface $order      Order
+     * @param string         $transition Verb to apply
+     *
+     * @return RedirectResponse Back to referrer
+     *
+     * @Route(
+     *      path = "/{id}/payment/{transition}",
+     *      name = "admin_order_change_payment_state",
+     *      requirements = {
+     *          "id" = "\d+",
+     *      },
+     *      methods = {"GET"}
+     * )
+     *
+     * @EntityAnnotation(
+     *      class = "elcodi.core.cart.entity.order.class",
+     *      name = "order",
+     *      mapping = {
+     *          "id" = "~id~"
+     *      }
+     * )
+     */
+    public function changePaymentStateAction(
+        Request $request,
+        OrderInterface $order,
+        $transition
+    )
+    {
+        $stateLineStack = $this
+            ->get('elcodi.order.payment_states_machine.manager')
+            ->transition(
+                $order,
+                $order->getPaymentStateLineStack(),
+                $transition,
+                ''
+            );
+
+        $order->setPaymentStateLineStack($stateLineStack);
+        $this->flush($order);
+
+        return $this->redirect($request->headers->get('referer'));
+    }
+
+    /**
+     * Change shipping state
+     *
+     * @param Request        $request    Request
+     * @param OrderInterface $order      Order
+     * @param string         $transition Verb to apply
+     *
+     * @return RedirectResponse Back to referrer
+     *
+     * @Route(
+     *      path = "/{id}/shipping/{transition}",
+     *      name = "admin_order_change_shipping_state",
+     *      requirements = {
+     *          "id" = "\d+",
+     *      },
+     *      methods = {"GET"}
+     * )
+     *
+     * @EntityAnnotation(
+     *      class = "elcodi.core.cart.entity.order.class",
+     *      name = "order",
+     *      mapping = {
+     *          "id" = "~id~"
+     *      }
+     * )
+     */
+    public function changeShippingStateAction(
+        Request $request,
+        OrderInterface $order,
+        $transition
+    )
+    {
+        $stateLineStack = $this
+            ->get('elcodi.order.shipping_states_machine.manager')
+            ->transition(
+                $order,
+                $order->getShippingStateLineStack(),
+                $transition,
+                ''
+            );
+
+        $order->setShippingStateLineStack($stateLineStack);
+        $this->flush($order);
+
+        return $this->redirect($request->headers->get('referer'));
     }
 }

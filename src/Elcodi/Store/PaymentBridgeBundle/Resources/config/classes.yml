@@ -8,4 +8,5 @@ parameters:
     #
     # Event Listeners
     #
-    store.payment.event_listener.payment.class: Elcodi\Store\PaymentBridgeBundle\EventListener\PaymentEventListener
+    store.payment.event_listener.cart_paid.class: Elcodi\Store\PaymentBridgeBundle\EventListener\CartPaidEventListener
+    store.payment.event_listener.order_to_paid.class: Elcodi\Store\PaymentBridgeBundle\EventListener\OrderToPaidEventListener

@@ -3,12 +3,19 @@ services:
     #
     # Event Listeners
     #
-    store.payment.event_listener.payment:
-        class: %store.payment.event_listener.payment.class%
+    store.payment.event_listener.cart_paid:
+        class: %store.payment.event_listener.cart_paid.class%
         arguments:
             cart_wrapper: @elcodi.cart_wrapper
-            cart_order_transformer: @elcodi.cart_order_transformer
-            order_state_transition_machine: @elcodi.order_state_transition_machine
+            cart_order_transformer: @elcodi.transformer.cart_order
         tags:
-            - { name: kernel.event_listener, event: payment.order.load, method: onPaymentOrderLoad }
-            - { name: kernel.event_listener, event: payment.order.success, method: onPaymentOrderSuccess }
+            - { name: kernel.event_listener, event: payment.order.load, method: transformCartToOrder }
+
+    store.payment.event_listener.order_to_paid:
+        class: %store.payment.event_listener.order_to_paid.class%
+        arguments:
+            payment_machine_manager: @elcodi.order.payment_states_machine.manager
+            order_object_manager: @elcodi.object_manager.order
+            cart_line_object_manager: @elcodi.object_manager.state_transition_machine_state_line
+        tags:
+            - { name: kernel.event_listener, event: payment.order.success, method: setOrderToPaid }

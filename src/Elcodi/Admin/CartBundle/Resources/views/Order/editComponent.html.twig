@@ -26,12 +26,14 @@
                 <td class="ta-r">{{ line.amount|print_money }}</td>
             </tr>
             {% endfor %}
+
             {% if order.couponAmount is not null %}
-            <tr>
-                <td colspan="3" class="ta-r">Discount (COUPONCODE)</td>
-                <td class="ta-r">XXX</td>
-            </tr>
+                <tr>
+                    <td colspan="3" class="ta-r">{{ "Coupon Discount"|trans }}</td>
+                    <td class="ta-r">{{ order.couponAmount|print_money }}</td>
+                </tr>
             {% endif %}
+
             <tr>
                 <td colspan="3" class="ta-r">Subtotal</td>
                 <td class="ta-r">{{ order.productAmount|print_money }}</td>
@@ -42,7 +44,7 @@
             </tr>
             <tr>
                 <td colspan="3" class="ta-r fw-b">Total</td>
-                <td class="ta-r fw-b">{{ order.amount|print_convert_money }}</td>
+                <td class="ta-r fw-b">{{ order.amount|print_money }}</td>
             </tr>
         </tbody>
     </table>
