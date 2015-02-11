@@ -27,7 +27,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-
 use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 use Elcodi\Component\User\Entity\Interfaces\AdminUserInterface;
@@ -76,8 +75,7 @@ class AdminUserController extends AbstractAdminController
         $limit,
         $orderByField,
         $orderByDirection
-    )
-    {
+    ) {
         return [
             'page'             => $page,
             'limit'            => $limit,
@@ -150,13 +148,11 @@ class AdminUserController extends AbstractAdminController
         FormInterface $form,
         AdminUserInterface $adminUser,
         $isValid
-    )
-    {
+    ) {
         if ($isValid) {
-
             $this->flush($adminUser);
 
-            $this->addFlash('success','Changes saved');
+            $this->addFlash('success', 'Changes saved');
 
             return $this->redirectToRoute('admin_admin_user_edit', [
                 'id' => $adminUser->getId(),
@@ -194,8 +190,7 @@ class AdminUserController extends AbstractAdminController
     public function enableAction(
         Request $request,
         EnabledInterface $entity
-    )
-    {
+    ) {
         try {
             $this->enableEntity($entity);
 
@@ -236,8 +231,7 @@ class AdminUserController extends AbstractAdminController
     public function disableAction(
         Request $request,
         EnabledInterface $entity
-    )
-    {
+    ) {
         try {
             $this->disableEntity($entity);
 
@@ -280,8 +274,7 @@ class AdminUserController extends AbstractAdminController
         Request $request,
         $entity,
         $redirectUrl = null
-    )
-    {
+    ) {
         try {
             $this->deleteEntity($entity);
 

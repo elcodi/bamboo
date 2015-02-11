@@ -24,7 +24,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-
 use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 
 /**
@@ -43,8 +42,7 @@ class AbstractAdminController extends Controller
     public function enableAction(
         Request $request,
         EnabledInterface $entity
-    )
-    {
+    ) {
         return $this->getResponse($request, function () use ($entity) {
 
             /**
@@ -67,8 +65,7 @@ class AbstractAdminController extends Controller
     public function disableAction(
         Request $request,
         EnabledInterface $entity
-    )
-    {
+    ) {
         return $this->getResponse($request, function () use ($entity) {
 
             /**
@@ -93,8 +90,7 @@ class AbstractAdminController extends Controller
         Request $request,
         $entity,
         $redirectUrl = null
-    )
-    {
+    ) {
         return $this->getResponse($request, function () use ($entity) {
 
             /**
@@ -144,8 +140,7 @@ class AbstractAdminController extends Controller
         Request $request,
         Closure $closure,
         $redirectUrl = null
-    )
-    {
+    ) {
         try {
             $closure();
 
@@ -169,10 +164,8 @@ class AbstractAdminController extends Controller
     {
         if (null === $redirectUrl) {
             $redirectRoute = $request->headers->get('referer');
-
         } elseif ($redirectUrl instanceof Closure) {
             $redirectRoute = $redirectUrl();
-
         } else {
             $redirectRoute = $this->generateUrl($redirectUrl);
         }
@@ -201,7 +194,6 @@ class AbstractAdminController extends Controller
     protected function getFailResponse(Request $request, Exception $exception)
     {
         if ('GET' === $request->getMethod()) {
-
             throw $exception;
         }
 

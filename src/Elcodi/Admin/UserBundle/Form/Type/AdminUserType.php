@@ -20,7 +20,6 @@ namespace Elcodi\Admin\UserBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-
 use Elcodi\Component\User\ElcodiUserProperties;
 use Elcodi\Component\User\Factory\AdminUserFactory;
 
@@ -43,8 +42,7 @@ class AdminUserType extends AbstractType
      */
     public function __construct(
         AdminUserFactory $adminUserFactory
-    )
-    {
+    ) {
         $this->adminUserFactory = $adminUserFactory;
     }
 
@@ -74,19 +72,19 @@ class AdminUserType extends AbstractType
             ->setMethod('POST')
             ->add('username', 'text', array(
                 'required' => true,
-                'label'    => 'Username'
+                'label'    => 'Username',
             ))
             ->add('email', 'email', array(
                 'required' => true,
-                'label'    => 'Email'
+                'label'    => 'Email',
             ))
             ->add('firstname', 'text', array(
                 'required' => false,
-                'label'    => 'Firstname'
+                'label'    => 'Firstname',
             ))
             ->add('lastname', 'text', array(
                 'required' => false,
-                'label'    => 'Lastname'
+                'label'    => 'Lastname',
             ))
             ->add('gender', 'choice', array(
                 'choices'   => array(
@@ -94,7 +92,7 @@ class AdminUserType extends AbstractType
                     ElcodiUserProperties::GENDER_FEMALE => 'Female',
                 ),
                 'required' => true,
-                'label'    => 'Gender'
+                'label'    => 'Gender',
             ))
             ->add('birthday', 'date', array(
                 'required' => false,
@@ -104,7 +102,7 @@ class AdminUserType extends AbstractType
             ))
             ->add('enabled', 'checkbox', array(
                 'required' => false,
-                'label'    => 'Status'
+                'label'    => 'Status',
             ));
     }
 

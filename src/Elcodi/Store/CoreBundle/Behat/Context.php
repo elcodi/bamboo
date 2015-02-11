@@ -29,7 +29,6 @@ class Context extends AbstractElcodiContext
      */
     public function theStoreIsDisabled()
     {
-
         $this->setConfiguration('store.enabled', false);
     }
 

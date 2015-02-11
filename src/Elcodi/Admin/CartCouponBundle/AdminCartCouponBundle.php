@@ -19,7 +19,6 @@ namespace Elcodi\Admin\CartCouponBundle;
 
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-
 use Elcodi\Admin\CartCouponBundle\DependencyInjection\AdminCartCouponExtension;
 
 /**

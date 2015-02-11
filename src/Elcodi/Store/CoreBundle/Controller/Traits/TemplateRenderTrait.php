@@ -38,7 +38,7 @@ trait TemplateRenderTrait
 
         return $this
             ->render(
-                $templateBundle . ':' . $path,
+                $templateBundle.':'.$path,
                 $param
             );
     }

@@ -26,7 +26,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormView;
-
 use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\Component\Product\Entity\Interfaces\ManufacturerInterface;
 
@@ -88,8 +87,7 @@ class ManufacturerComponentController extends AbstractAdminController
         $limit,
         $orderByField,
         $orderByDirection
-    )
-    {
+    ) {
         return [
             'paginator'        => $paginator,
             'page'             => $page,
@@ -151,8 +149,7 @@ class ManufacturerComponentController extends AbstractAdminController
     public function editComponentAction(
         FormView $formView,
         ManufacturerInterface $manufacturer
-    )
-    {
+    ) {
         return [
             'manufacturer' => $manufacturer,
             'form'     => $formView,

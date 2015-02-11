@@ -19,7 +19,6 @@ namespace Elcodi\Admin\MediaBundle;
 
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-
 use Elcodi\Admin\MediaBundle\DependencyInjection\AdminMediaExtension;
 
 /**

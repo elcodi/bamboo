@@ -19,7 +19,6 @@ namespace Elcodi\Admin\BannerBundle;
 
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-
 use Elcodi\Admin\BannerBundle\DependencyInjection\AdminBannerExtension;
 
 /**

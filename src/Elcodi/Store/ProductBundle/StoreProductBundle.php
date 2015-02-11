@@ -19,7 +19,6 @@ namespace Elcodi\Store\ProductBundle;
 
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-
 use Elcodi\Store\ProductBundle\DependencyInjection\StoreProductExtension;
 
 /**

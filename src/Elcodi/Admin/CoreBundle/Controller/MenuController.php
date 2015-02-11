@@ -55,11 +55,9 @@ class MenuController extends Controller
          * master request and the route from the menu
          */
         foreach ($root as &$menuItems) {
-
             $menuItems['active'] = ($currentRoute == $menuItems['url']);
 
             if (count($menuItems['subnodes'])) {
-
                 foreach ($menuItems['subnodes'] as &$menuItem) {
                     $menuItem['active'] = $currentRoute == $menuItem['url'];
 
@@ -73,7 +71,7 @@ class MenuController extends Controller
         $this->appendPluginMenus($root);
 
         return [
-            'menu_items' => $root
+            'menu_items' => $root,
         ];
     }
 
@@ -91,9 +89,7 @@ class MenuController extends Controller
             ->get('store.plugins');
 
         foreach ($plugins as $plugin) {
-
             if (!$plugin['enabled']) {
-
                 continue;
             }
 

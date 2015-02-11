@@ -72,7 +72,7 @@ class CartLineType extends AbstractType
                 'rounding_mode' => IntegerToLocalizedStringTransformer::ROUND_FLOOR,
                 'required'      => true,
                 'label'         => false,
-                'attr'          => array('min' => 0)
+                'attr'          => array('min' => 0),
             ]);
     }
 

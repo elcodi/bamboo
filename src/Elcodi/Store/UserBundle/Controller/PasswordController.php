@@ -23,7 +23,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
-
 use Elcodi\Component\User\Entity\Abstracts\AbstractUser;
 use Elcodi\Store\CoreBundle\Controller\Traits\TemplateRenderTrait;
 
@@ -62,7 +61,6 @@ class PasswordController extends Controller
     public function rememberAction(Form $passwordRememberForm, $isValid)
     {
         if ($isValid) {
-
             $customerRepository = $this
                 ->get('elcodi.repository_provider')
                 ->getRepositoryByEntityParameter('elcodi.core.user.entity.customer.class');
@@ -86,7 +84,7 @@ class PasswordController extends Controller
         return $this->renderTemplate(
             'Modules:_user-password-remember.html.twig',
             [
-                'form' => $passwordRememberForm->createView()
+                'form' => $passwordRememberForm->createView(),
             ]
         );
     }
@@ -142,7 +140,6 @@ class PasswordController extends Controller
     public function recoverAction(Form $passwordRecoverForm, $isValid, $hash)
     {
         if ($isValid) {
-
             $customer = $this
                 ->get('elcodi.repository_provider')
                 ->getRepositoryByEntityParameter('elcodi.core.user.entity.customer.class')
@@ -151,7 +148,6 @@ class PasswordController extends Controller
                 ]);
 
             if ($customer instanceof AbstractUser) {
-
                 $password = $passwordRecoverForm->getData()['password'];
 
                 $this
@@ -165,7 +161,7 @@ class PasswordController extends Controller
         return $this->renderTemplate(
             'Pages/user-password-recover.html.twig',
             [
-                'form' => $passwordRecoverForm->createView()
+                'form' => $passwordRecoverForm->createView(),
             ]
         );
     }

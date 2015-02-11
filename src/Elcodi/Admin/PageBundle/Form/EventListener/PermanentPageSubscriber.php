@@ -20,7 +20,6 @@ namespace Elcodi\Admin\PageBundle\Form\EventListener;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
-
 use Elcodi\Component\Page\Entity\Interfaces\PageInterface;
 
 /**
@@ -51,7 +50,6 @@ class PermanentPageSubscriber implements EventSubscriberInterface
         $form = $event->getForm();
 
         if (($page instanceof PageInterface) && $page->isPersistent()) {
-
             $form->remove('enabled');
         }
     }

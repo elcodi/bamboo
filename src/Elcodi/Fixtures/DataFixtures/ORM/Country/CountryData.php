@@ -18,7 +18,6 @@
 namespace Elcodi\Fixtures\DataFixtures\ORM\Country;
 
 use Doctrine\Common\Persistence\ObjectManager;
-
 use Elcodi\Bundle\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
 use Elcodi\Component\Geo\Entity\Country;
 
@@ -277,7 +276,7 @@ class CountryData extends AbstractFixture
             ["GF","French Guiana"],
             ["PF","French Polynesia"],
             ["TF","French Southern Territories"],
-            ["AX","Åland Islands"]
+            ["AX","Åland Islands"],
         ];
 
         foreach ($countries as $country) {
@@ -295,7 +294,7 @@ class CountryData extends AbstractFixture
                 ->setName(ucfirst($country[1]));
 
             $manager->persist($countryInstance);
-            $this->setReference('country-' . $countryInstance->getCode(), $countryInstance);
+            $this->setReference('country-'.$countryInstance->getCode(), $countryInstance);
         }
 
         $manager->flush();

@@ -19,7 +19,6 @@ namespace Elcodi\Store\ConnectBundle\Entity;
 
 use DateTime;
 use Symfony\Component\Security\Core\User\UserInterface;
-
 use Elcodi\Component\Core\Entity\Traits\IdentifiableTrait;
 use Elcodi\Store\ConnectBundle\Entity\Interfaces\AuthorizationInterface;
 

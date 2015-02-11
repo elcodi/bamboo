@@ -19,7 +19,6 @@ namespace Elcodi\Store\CartBundle;
 
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-
 use Elcodi\Store\CartBundle\DependencyInjection\StoreCartExtension;
 
 /**

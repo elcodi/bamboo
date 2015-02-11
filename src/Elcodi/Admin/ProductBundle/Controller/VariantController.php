@@ -25,7 +25,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-
 use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\Component\Attribute\Entity\Attribute;
 use Elcodi\Component\Attribute\Entity\Value;
@@ -124,8 +123,7 @@ class VariantController extends AbstractAdminController
         ProductInterface $product,
         VariantInterface $variant,
         $isValid
-    )
-    {
+    ) {
         if ($isValid) {
 
             /**
@@ -196,8 +194,7 @@ class VariantController extends AbstractAdminController
     public function enableAction(
         Request $request,
         EnabledInterface $variant
-    )
-    {
+    ) {
         return parent::enableAction(
             $request,
             $variant
@@ -228,8 +225,7 @@ class VariantController extends AbstractAdminController
     public function disableAction(
         Request $request,
         EnabledInterface $entity
-    )
-    {
+    ) {
         return parent::disableAction(
             $request,
             $entity
@@ -270,8 +266,7 @@ class VariantController extends AbstractAdminController
         Request $request,
         $variant,
         $redirectUrl = null
-    )
-    {
+    ) {
         /**
          * @var Product $product
          * @var Variant $variant
@@ -284,7 +279,7 @@ class VariantController extends AbstractAdminController
          * since a Variant should *not* have more than one
          * option with the same Attribute
          */
-        $variantAttributes = $this->getUniqueAttributesFromVariant($variant);;
+        $variantAttributes = $this->getUniqueAttributesFromVariant($variant);
 
         $notRemovableAttributes = [];
 
@@ -314,7 +309,6 @@ class VariantController extends AbstractAdminController
                 $notRemovableAttributes,
                 $this->getUniqueAttributesFromVariant($iteratedVariant)
             );
-
         }
 
         /**
@@ -325,7 +319,6 @@ class VariantController extends AbstractAdminController
          * from parent product Attribute collection
          */
         foreach ($variantAttributes as $variantAttribute) {
-
             if (in_array($variantAttribute, $notRemovableAttributes)) {
                 continue;
             }
@@ -370,5 +363,4 @@ class VariantController extends AbstractAdminController
 
         return $variantAttributes;
     }
-
 }

@@ -18,7 +18,6 @@
 namespace Elcodi\Fixtures\DataFixtures\ORM\Configuration;
 
 use Doctrine\Common\Persistence\ObjectManager;
-
 use Elcodi\Bundle\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
 
 /**
@@ -33,7 +32,7 @@ class ConfigurationData extends AbstractFixture
      */
     public function load(ObjectManager $manager)
     {
-        $configurations = $this->parseYaml(dirname(__FILE__) . '/configuration.yml');
+        $configurations = $this->parseYaml(dirname(__FILE__).'/configuration.yml');
 
         /**
          * @var ObjectManager $configurationObjectManager
@@ -44,7 +43,6 @@ class ConfigurationData extends AbstractFixture
         $configurationEntities = [];
 
         foreach ($configurations as $configuration) {
-
             $configuration = $configurationFactory
                 ->create()
                 ->setKey($configuration['key'])

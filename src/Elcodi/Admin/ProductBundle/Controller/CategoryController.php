@@ -25,7 +25,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-
 use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\Admin\ProductBundle\ProductEvents;
 use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
@@ -124,13 +123,11 @@ class CategoryController extends AbstractAdminController
         FormInterface $form,
         CategoryInterface $category,
         $isValid
-    )
-    {
+    ) {
         if ($isValid) {
-
             $this->flush($category);
 
-            $this->addFlash('success','Changes saved');
+            $this->addFlash('success', 'Changes saved');
 
             $this
                 ->get('event_dispatcher')
@@ -171,8 +168,7 @@ class CategoryController extends AbstractAdminController
     public function enableAction(
         Request $request,
         EnabledInterface $entity
-    )
-    {
+    ) {
         return parent::enableAction(
             $request,
             $entity
@@ -203,8 +199,7 @@ class CategoryController extends AbstractAdminController
     public function disableAction(
         Request $request,
         EnabledInterface $entity
-    )
-    {
+    ) {
         return parent::disableAction(
             $request,
             $entity
@@ -237,8 +232,7 @@ class CategoryController extends AbstractAdminController
         Request $request,
         $entity,
         $redirectUrl = null
-    )
-    {
+    ) {
         return parent::deleteAction(
             $request,
             $entity,

@@ -19,7 +19,6 @@ namespace Elcodi\Store\GeoBundle;
 
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-
 use Elcodi\Store\GeoBundle\DependencyInjection\StoreGeoExtension;
 
 /**

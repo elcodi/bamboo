@@ -18,7 +18,6 @@
 namespace Elcodi\Admin\ProductBundle\EventListener;
 
 use Doctrine\ORM\Event\PreFlushEventArgs;
-
 use Elcodi\Component\Product\Entity\Category;
 
 /**

@@ -25,7 +25,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormView;
-
 use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
 use Elcodi\Component\Product\Entity\Interfaces\VariantInterface;
@@ -73,11 +72,10 @@ class VariantComponentController extends AbstractAdminController
     public function listComponentAction(
         Paginator $paginator,
         $productId
-    )
-    {
+    ) {
         return [
             'paginator' => $paginator,
-            'productId' => $productId
+            'productId' => $productId,
         ];
     }
 
@@ -143,8 +141,7 @@ class VariantComponentController extends AbstractAdminController
         FormView $formView,
         ProductInterface $product,
         VariantInterface $variant
-    )
-    {
+    ) {
         return [
             'variant' => $variant,
             'product' => $product,

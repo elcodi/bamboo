@@ -20,7 +20,6 @@ namespace Elcodi\Store\GeoBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-
 use Elcodi\Component\geo\Factory\AddressFactory;
 
 /**
@@ -51,8 +50,7 @@ class AddressType extends AbstractType
     public function __construct(
         AddressFactory $addressFactory,
         $countryNamespace
-    )
-    {
+    ) {
         $this->addressFactory = $addressFactory;
         $this->countryNamespace = $countryNamespace;
     }

@@ -20,7 +20,6 @@ namespace Elcodi\Store\ConnectBundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-
 use Elcodi\Store\ConnectBundle\CompilerPass\MappingCompilerPass;
 use Elcodi\Store\ConnectBundle\DependencyInjection\StoreConnectExtension;
 

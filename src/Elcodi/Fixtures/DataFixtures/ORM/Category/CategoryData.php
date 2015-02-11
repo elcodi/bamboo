@@ -18,7 +18,6 @@
 namespace Elcodi\Fixtures\DataFixtures\ORM\Category;
 
 use Doctrine\Common\Persistence\ObjectManager;
-
 use Elcodi\Bundle\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
 use Elcodi\Component\EntityTranslator\Services\Interfaces\EntityTranslatorInterface;
 use Elcodi\Component\Product\Entity\Interfaces\CategoryInterface;
@@ -86,7 +85,7 @@ class CategoryData extends AbstractFixture
                 'metaTitle' => 'Chemises de femme',
                 'metaDescription' => 'Chemises de femme',
                 'metaKeywords' => 'Chemises de femme',
-            )
+            ),
         ));
 
         /**
@@ -130,7 +129,7 @@ class CategoryData extends AbstractFixture
                 'metaTitle' => 'Chemises de homme',
                 'metaDescription' => 'Chemises de homme',
                 'metaKeywords' => 'Chemises de homme',
-            )
+            ),
         ));
     }
 }

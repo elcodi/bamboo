@@ -19,7 +19,6 @@ namespace Elcodi\Admin\ConfigurationBundle;
 
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-
 use Elcodi\Admin\ConfigurationBundle\DependencyInjection\AdminConfigurationExtension;
 
 /**

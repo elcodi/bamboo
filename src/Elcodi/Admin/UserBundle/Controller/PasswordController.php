@@ -23,7 +23,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-
 use Elcodi\Component\User\Entity\Abstracts\AbstractUser;
 
 /**
@@ -59,7 +58,6 @@ class PasswordController extends Controller
     public function rememberAction(Form $passwordRememberForm, $isValid)
     {
         if ($isValid) {
-
             $adminUserRepository = $this
                 ->get('elcodi.repository_provider')
                 ->getRepositoryByEntityParameter('elcodi.core.user.entity.admin_user.class');
@@ -136,7 +134,6 @@ class PasswordController extends Controller
     public function recoverAction(Form $passwordRecoverForm, $isValid, $hash)
     {
         if ($isValid) {
-
             $customer = $this
                 ->get('elcodi.repository.admin_user')
                 ->findOneBy(array(
@@ -144,7 +141,6 @@ class PasswordController extends Controller
                 ));
 
             if ($customer instanceof AbstractUser) {
-
                 $password = $passwordRecoverForm->getData()['password'];
 
                 $this
@@ -156,7 +152,7 @@ class PasswordController extends Controller
         }
 
         return array(
-            'form' => $passwordRecoverForm->createView()
+            'form' => $passwordRecoverForm->createView(),
         );
     }
 }

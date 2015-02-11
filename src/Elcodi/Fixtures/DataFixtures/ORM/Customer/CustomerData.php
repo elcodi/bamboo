@@ -18,7 +18,6 @@
 namespace Elcodi\Fixtures\DataFixtures\ORM\Customer;
 
 use Doctrine\Common\Persistence\ObjectManager;
-
 use Elcodi\Bundle\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
 use Elcodi\Component\User\ElcodiUserProperties;
 use Elcodi\Component\User\Entity\Interfaces\CustomerInterface;

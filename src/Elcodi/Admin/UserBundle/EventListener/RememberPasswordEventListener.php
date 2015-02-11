@@ -22,7 +22,6 @@ use Swift_Message;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Templating\EngineInterface;
-
 use Elcodi\Component\User\Event\PasswordRecoverEvent;
 use Elcodi\Component\User\Event\PasswordRememberEvent;
 
@@ -72,8 +71,7 @@ class RememberPasswordEventListener
         EngineInterface $templating,
         TokenStorageInterface $tokenStorage,
         $providerKey
-    )
-    {
+    ) {
         $this->mailer = $mailer;
         $this->templating = $templating;
         $this->tokenStorage = $tokenStorage;

@@ -22,7 +22,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-
 use Elcodi\Component\Cart\Entity\Interfaces\OrderInterface;
 use Elcodi\Component\Cart\Entity\Order;
 use Elcodi\Component\Currency\Entity\Money;
@@ -72,7 +71,7 @@ class CheckoutController extends Controller
             'Pages:cart-checkout.html.twig',
             [
                 'shippingPrice' => $shippingPrice,
-                'cart'          => $cart
+                'cart'          => $cart,
             ]
         );
     }
@@ -111,21 +110,19 @@ class CheckoutController extends Controller
     public function paymentFailAction(
         CustomerInterface $customer,
         OrderInterface $order
-    )
-    {
+    ) {
         /**
          * Checking if logged user has permission to see
          * this page
          */
         if ($order->getCustomer() != $customer) {
-
             throw($this->createNotFoundException());
         }
 
         return $this->renderTemplate(
             'Pages:cart-checkout-fail.html.twig',
             [
-                'order' => $order
+                'order' => $order,
             ]
         );
     }

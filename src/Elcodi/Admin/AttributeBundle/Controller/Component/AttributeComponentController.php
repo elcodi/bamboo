@@ -24,7 +24,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormView;
-
 use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\Component\Attribute\Entity\Interfaces\AttributeInterface;
 
@@ -59,7 +58,7 @@ class AttributeComponentController extends AbstractAdminController
             ->findAll();
 
         return [
-            'paginator' => $attributes
+            'paginator' => $attributes,
         ];
     }
 
@@ -112,8 +111,7 @@ class AttributeComponentController extends AbstractAdminController
     public function editComponentAction(
         FormView $formView,
         AttributeInterface $attribute
-    )
-    {
+    ) {
         $allAvailableValues = $this
             ->get('elcodi.repository.attribute_value')
             ->findAll();

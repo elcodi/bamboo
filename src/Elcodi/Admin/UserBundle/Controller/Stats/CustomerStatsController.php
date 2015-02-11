@@ -20,7 +20,6 @@ namespace Elcodi\Admin\UserBundle\Controller\Stats;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-
 use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractStatsController;
 
 /**

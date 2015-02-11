@@ -25,7 +25,6 @@ use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\SecurityContext;
-
 use Elcodi\Component\Core\Services\ManagerProvider;
 use Elcodi\Component\User\Entity\Interfaces\CustomerInterface;
 use Elcodi\Store\CoreBundle\Controller\Traits\TemplateRenderTrait;
@@ -68,7 +67,6 @@ class SecurityController extends Controller
          * Checking for authentication errors in session
          */
         if ($this->get('session')->has(SecurityContext::AUTHENTICATION_ERROR)) {
-
             $this->get('session')
                 ->getFlashBag()
                 ->add('error', 'Wrong Email and password combination.');
@@ -116,8 +114,7 @@ class SecurityController extends Controller
         CustomerInterface $customer,
         FormView $registerFormView,
         $isValid
-    )
-    {
+    ) {
         if ($isValid) {
 
             /**

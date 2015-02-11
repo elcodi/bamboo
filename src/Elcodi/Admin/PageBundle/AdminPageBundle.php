@@ -19,7 +19,6 @@ namespace Elcodi\Admin\PageBundle;
 
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-
 use Elcodi\Admin\PageBundle\DependencyInjection\AdminPageExtension;
 
 /**

@@ -18,7 +18,6 @@
 namespace Elcodi\Store\PaymentBridgeBundle\EventListener;
 
 use PaymentSuite\PaymentCoreBundle\Event\PaymentOrderLoadEvent;
-
 use Elcodi\Component\Cart\Transformer\CartOrderTransformer;
 use Elcodi\Component\Cart\Wrapper\CartWrapper;
 
@@ -50,8 +49,7 @@ class CartPaidEventListener
     public function __construct(
         CartWrapper $cartWrapper,
         CartOrderTransformer $cartOrderTransformer
-    )
-    {
+    ) {
         $this->cartWrapper = $cartWrapper;
         $this->cartOrderTransformer = $cartOrderTransformer;
     }

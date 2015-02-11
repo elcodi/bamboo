@@ -19,7 +19,6 @@ namespace Elcodi\Admin\CurrencyBundle;
 
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-
 use Elcodi\Admin\CurrencyBundle\DependencyInjection\AdminCurrencyExtension;
 
 /**

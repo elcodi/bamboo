@@ -22,7 +22,6 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Gaufrette\Adapter;
 use Gaufrette\Filesystem;
 use Symfony\Component\HttpFoundation\File\File;
-
 use Elcodi\Bundle\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
 use Elcodi\Component\Currency\Entity\Interfaces\CurrencyInterface;
 use Elcodi\Component\Currency\Entity\Money;
@@ -1377,9 +1376,8 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
         fileIdentifierTransformer $fileIdentifierTransformer,
         ProductInterface $product,
         $imageName
-    )
-    {
-        $imagePath = realpath(dirname(__FILE__) . '/images/' . $imageName);
+    ) {
+        $imagePath = realpath(dirname(__FILE__).'/images/'.$imageName);
         $image = $imageManager->createImage(new File($imagePath));
         $imageObjectManager->persist($image);
         $imageObjectManager->flush($image);

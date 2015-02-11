@@ -36,7 +36,7 @@ $policy = base64_encode(json_encode(array(
         // One more field to take into account: Filename - gets silently sent by FileReference.upload() in Flash
         // http://docs.amazonwebservices.com/AmazonS3/latest/dev/HTTPPOSTFlash.html
         array('starts-with', '$Filename', ''),
-    )
+    ),
 )));
 
 // sign policy

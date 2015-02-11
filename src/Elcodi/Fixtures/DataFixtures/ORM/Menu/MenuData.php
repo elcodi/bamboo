@@ -18,7 +18,6 @@
 namespace Elcodi\Fixtures\DataFixtures\ORM\Menu;
 
 use Doctrine\Common\Persistence\ObjectManager;
-
 use Elcodi\Bundle\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
 use Elcodi\Component\Menu\Factory\MenuFactory;
 use Elcodi\Component\Menu\Factory\NodeFactory;
@@ -37,7 +36,7 @@ class MenuData extends AbstractFixture
      */
     public function load(ObjectManager $manager)
     {
-        $menuConfiguration = $this->parseYaml(dirname(__FILE__) . '/menus.yml');
+        $menuConfiguration = $this->parseYaml(dirname(__FILE__).'/menus.yml');
 
         /**
          * Menu nodes population
@@ -53,7 +52,6 @@ class MenuData extends AbstractFixture
         $menuNodeEntities = [];
 
         foreach ($menuConfiguration['menu_nodes'] as $menuNodeAlias => $menuNodeData) {
-
             $menuNode = $menuNodeFactory
                 ->create()
                 ->setName($menuNodeData['name'])
@@ -62,16 +60,14 @@ class MenuData extends AbstractFixture
                 ->setEnabled((boolean) $menuNodeData['enabled']);
 
             if (is_array($menuNodeData['subnodes'])) {
-
                 foreach ($menuNodeData['subnodes'] as $subnode) {
-
                     $menuNode->addSubnode(
-                        $this->getReference('menu-node-' . $subnode)
+                        $this->getReference('menu-node-'.$subnode)
                     );
                 }
             }
 
-            $this->setReference('menu-node-' . $menuNodeAlias, $menuNode);
+            $this->setReference('menu-node-'.$menuNodeAlias, $menuNode);
             $menuNodeObjectManager->persist($menuNode);
             $menuNodeEntities[] = $menuNode;
         }
@@ -92,7 +88,6 @@ class MenuData extends AbstractFixture
         $menuEntities = [];
 
         foreach ($menuConfiguration['menus'] as $menuAlias => $menuData) {
-
             $menu = $menuFactory
                 ->create()
                 ->setCode($menuData['code'])
@@ -100,16 +95,14 @@ class MenuData extends AbstractFixture
                 ->setEnabled((boolean) $menuData['enabled']);
 
             if (is_array($menuData['subnodes'])) {
-
                 foreach ($menuData['subnodes'] as $subnode) {
-
                     $menu->addSubnode(
-                        $this->getReference('menu-node-' . $subnode)
+                        $this->getReference('menu-node-'.$subnode)
                     );
                 }
             }
 
-            $this->setReference('menu-' . $menuData['code'], $menu);
+            $this->setReference('menu-'.$menuData['code'], $menu);
             $menuObjectManager->persist($menu);
             $menuEntities[] = $menu;
         }

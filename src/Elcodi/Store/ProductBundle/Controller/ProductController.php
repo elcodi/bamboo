@@ -22,7 +22,6 @@ use Mmoreram\ControllerExtraBundle\Annotation\JsonResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-
 use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
 use Elcodi\Component\Product\Entity\Interfaces\VariantInterface;
 use Elcodi\Component\Product\Twig\ProductExtension;
@@ -77,9 +76,8 @@ class ProductController extends Controller
 
         return $this->renderTemplate($template, [
             'product'          => $product,
-            'related_products' => $relatedProducts
+            'related_products' => $relatedProducts,
         ]);
-
     }
 
     /**
@@ -111,8 +109,7 @@ class ProductController extends Controller
     public function variantInfoAction(
         Request $request,
         ProductInterface $product
-    )
-    {
+    ) {
         $optionIds = $request
             ->query
             ->get('variant-option-for-attribute');
@@ -126,7 +123,7 @@ class ProductController extends Controller
                 'id'         => null,
                 'name'       => null,
                 'parentName' => $product->getName(),
-                'price'      => null
+                'price'      => null,
             ];
         }
 
@@ -138,7 +135,7 @@ class ProductController extends Controller
         return [
             'id'    => $variant->getId(),
             'name'  => $variantName,
-            'price' => $variantPrice
+            'price' => $variantPrice,
         ];
     }
 }

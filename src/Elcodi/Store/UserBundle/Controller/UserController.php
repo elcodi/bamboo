@@ -24,7 +24,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Form;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\Response;
-
 use Elcodi\Component\User\Entity\Interfaces\CustomerInterface;
 use Elcodi\Store\CoreBundle\Controller\Traits\TemplateRenderTrait;
 
@@ -111,10 +110,8 @@ class UserController extends Controller
         CustomerInterface $customer,
         FormView $formView,
         $isValid
-    )
-    {
+    ) {
         if ($isValid) {
-
             $this
                 ->get('elcodi.object_manager.customer')
                 ->flush($customer);

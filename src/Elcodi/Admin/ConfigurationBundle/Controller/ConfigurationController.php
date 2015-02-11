@@ -22,7 +22,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
-
 use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
 
 /**
@@ -51,13 +50,13 @@ class ConfigurationController extends AbstractAdminController
         $currencies = $this
             ->get('elcodi.repository.currency')
             ->findBy([
-                'enabled' => true
+                'enabled' => true,
             ]);
 
         $languages = $this
             ->get('elcodi.repository.language')
             ->findBy([
-                'enabled' => true
+                'enabled' => true,
             ]);
 
         return [
@@ -96,7 +95,7 @@ class ConfigurationController extends AbstractAdminController
             'status' => 200,
             'response' => [
                 'Configuration saved',
-            ]
+            ],
         ];
     }
 }

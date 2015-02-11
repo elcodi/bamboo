@@ -18,7 +18,6 @@
 namespace Elcodi\Store\ProductBundle\Services;
 
 use Doctrine\Common\Collections\ArrayCollection;
-
 use Elcodi\Component\Product\Entity\Interfaces\CategoryInterface;
 use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
 use Elcodi\Component\Product\Services\ProductCollectionProvider as BaseProductCollectionProvider;
@@ -44,7 +43,6 @@ class ProductCollectionProvider extends BaseProductCollectionProvider
         $principalCategory = $product->getPrincipalCategory();
 
         if ($principalCategory instanceof CategoryInterface) {
-
             $relatedProducts = $this
                 ->productRepository
                 ->createQueryBuilder('p')
@@ -55,7 +53,7 @@ class ProductCollectionProvider extends BaseProductCollectionProvider
                 ->andWhere('p.enabled = :enabled')
                 ->setParameters([
                     'principalCategory' => $principalCategory,
-                    'enabled' => true
+                    'enabled' => true,
                 ])
                 ->getQuery()
                 ->getResult();

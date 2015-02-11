@@ -19,7 +19,6 @@ namespace Elcodi\Store\UserBundle;
 
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-
 use Elcodi\Store\UserBundle\DependencyInjection\StoreUserExtension;
 
 /**
