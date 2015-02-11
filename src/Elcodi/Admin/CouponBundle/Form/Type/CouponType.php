@@ -72,7 +72,7 @@ class CouponType extends AbstractPurchasableType
                 'required' => false,
                 'label'    => 'count',
             ))
-            ->add('used', 'checkbox', array(
+            ->add('used', 'integer', array(
                 'required' => false,
                 'label'    => 'used',
             ))

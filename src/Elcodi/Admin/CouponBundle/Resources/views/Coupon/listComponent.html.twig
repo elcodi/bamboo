@@ -14,14 +14,14 @@
             "name": {},
             "Enabled": {width:"25"},
         },
-        class: "manufacturer",
+        class: "coupon",
     } %}
 {% endblock table_head %}
 
 
 {% block table_body_row %}
     <td>
-        <a href="{{ url("admin_coupon_view", {"id": entity.id}) }}">
+        <a href="{{ url("admin_coupon_edit", {"id": entity.id}) }}">
             {{ entity.id }}
         </a>
     </td>
@@ -50,8 +50,3 @@
     {% set url = 'admin_coupon_list' %}
     {{ parent() }}
 {% endblock table_paginator_links %}
-
-
-{% block table_buttons %}
-    <a href="{{ url("admin_coupon_new") }}"type="button" class="btn btn-success">{{ "New Coupon"|trans }}</a>
-{% endblock table_buttons %}

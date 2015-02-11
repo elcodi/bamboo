@@ -10,10 +10,15 @@
 
 
 {% block content %}
-    {{ form_start(form, {'action': url('admin_coupon_update', {
-        'id': entity.id
-    })}) }}
 
+    {% set formAction = coupon.id
+        ? url('admin_coupon_update', {
+            'id': coupon.id
+        })
+        : url('admin_coupon_save')
+    %}
+
+    {{ form_start(form, {'action': formAction}) }}
         {{ form_row(form.code) }}
         {{ form_row(form.name) }}
         {{ form_row(form.type) }}
@@ -30,12 +35,7 @@
         {{ form_row(form.createdAt) }}
         {{ form_row(form.updatedAt) }}
 
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-primary">{{ 'Update'|trans }}</button>
-                <a href="{{ path('admin_coupon_list') }}" class="btn btn-default">{{ 'Cancel'|trans }}</a>
-            </div>
-        </div>
-
+        <button type="submit" class="button-primary">{{ 'Save'|trans }}</button>
+        <a href="{{ path('admin_coupon_list') }}" class="button">{{ 'Cancel'|trans }}</a>
     {{ form_end(form) }}
 {% endblock content %}

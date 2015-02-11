@@ -5,6 +5,7 @@
     {{ 'Coupon Zone'|trans }}
 {% endblock content_title %}
 
+
 {% block breadcrumb %}
     {% include "@AdminCore/Common/breadcrumb.html.twig" with {
         breadcrumb: {
@@ -14,6 +15,12 @@
         }
     } %}
 {% endblock %}
+
+
+{% block header_actions %}
+    <a href="{{ url("admin_coupon_new") }}" class="button-primary"><i class="icon-plus"></i> {{ "New coupon"|trans }}</a>
+{% endblock header_actions %}
+
 
 {% block content %}
     <div class="row">
