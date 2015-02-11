@@ -28,6 +28,23 @@ use Elcodi\Component\Coupon\ElcodiCouponTypes;
 class CouponType extends AbstractPurchasableType
 {
     /**
+     * @var string
+     *
+     * Namespace for the rule class
+     */
+    protected $ruleNamespace;
+
+    /**
+     * Set namespace for relationship with rules
+     *
+     * @param string $ruleNamespace rule namespace
+     */
+    public function setRuleNamespace($ruleNamespace)
+    {
+        $this->ruleNamespace = $ruleNamespace;
+    }
+
+    /**
      * Buildform function
      *
      * @param FormBuilderInterface $builder the formBuilder
@@ -83,6 +100,14 @@ class CouponType extends AbstractPurchasableType
             ->add('minimumPurchase', 'money_object', array(
                 'required' => false,
                 'label'    => 'Minimum purchase',
+            ))
+            ->add('rule', 'entity', array(
+                'class'       => $this->ruleNamespace,
+                'required'    => false,
+                'label'       => 'Rule',
+                'property'    => 'name',
+                'placeholder' => 'No rule',
+                'empty_data'  => null,
             ))
             ->add('validFrom', 'datetime', array(
                 'widget'   => 'single_text',

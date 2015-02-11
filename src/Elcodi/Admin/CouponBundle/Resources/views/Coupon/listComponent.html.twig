@@ -12,6 +12,7 @@
             "id": {width:"25"},
             "code": {},
             "name": {},
+            "rule": {},
             "Enabled": {width:"25"},
         },
         class: "coupon",
@@ -30,6 +31,13 @@
     </td>
     <td>
         {{ entity.name }}
+    </td>
+    <td>
+        {% if entity.rule %}
+            <span class="label label-info">{{ entity.rule.name }}</span>
+        {% else %}
+            <span class="label label-default">no rule</span>
+        {% endif %}
     </td>
     <td>
         {% if entity.enabled %}

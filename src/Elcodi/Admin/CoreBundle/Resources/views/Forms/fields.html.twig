@@ -42,31 +42,6 @@
 {% endblock form_widget_simple %}
 
 
-{% block choice_widget_collapsed %}
-{% spaceless %}
-    {% if multiple %}
-        <div id="ms-custom-headers">
-            <select multiple="multiple" {{ block('widget_attributes') }}>
-                {% if empty_value %}
-                    <option value="">{{ empty_value }}</option>
-                {% endif %}
-                {% set options = choices %}
-                {{ block('choice_widget_options') }}
-            </select>
-        </div>
-    {% else %}
-        <select class="oneselect" {{ block('widget_attributes') }}>
-            {% if empty_value %}
-                <option value="">{{ empty_value }}</option>
-            {% endif %}
-            {% set options = choices %}
-            {{ block('choice_widget_options') }}
-        </select>
-    {% endif %}
-{% endspaceless %}
-{% endblock choice_widget_collapsed %}
-
-
 {% block money_object_widget %}
 {% spaceless %}
     <div class="d-ib mr-m">
