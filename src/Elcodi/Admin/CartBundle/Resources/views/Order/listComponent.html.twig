@@ -30,7 +30,7 @@
         <a href="{{ url("admin_order_edit",{"id": entity.id}) }}">Order #{{ entity.id }}</a>
     </td>
     <td>
-        {% include "@AdminCart/Order/date.html.twig" %}
+        {% include "AdminCartBundle:Order:date.html.twig" %}
     </td>
     <td>
         <a href="{{ url("admin_customer_edit", {"id": entity.customer.id}) }}">
@@ -38,7 +38,8 @@
         </a>
     </td>
     <td>
-        <span class="label label-warning">{{ "Pending"|trans }}</span>
+        <span class="label label-warning">{{ entity.paymentStateLineStack.lastStateLine.name|trans }}</span>
+        <span class="label label-info">{{ entity.shippingStateLineStack.lastStateLine.name|trans }}</span>
     </td>
     <td>
         {{ entity.amount|print_money }}

@@ -4,11 +4,25 @@
     {{ 'Order Zone'|trans }}
 {% endblock content_title %}
 
+
 {% block header_actions %}
-    <a href="#" class="button">{{ "Cancel"|trans }}</a>
-    <a href="#" class="button-secondary">{{ "Mark as paid"|trans }}</a>
-    <a href="#" class="button-ok">{{ "Mark as Send"|trans }}</a>
+
+    {% for paymentTransition in nextPaymentTransitions %}
+        <a href="{{ url("admin_order_change_payment_state", {
+            "id": order.id,
+            "transition": paymentTransition.name
+        }) }}" class="button-primary">{{ paymentTransition.name|trans }}</a>
+    {% endfor %}
+
+    {% for shippingTransition in nextShippingTransitions %}
+        <a href="{{ url("admin_order_change_shipping_state", {
+            "id": order.id,
+            "transition": shippingTransition.name
+        }) }}" class="button-primary">{{ shippingTransition.name|trans }}</a>
+    {% endfor %}
+
 {% endblock header_actions %}
+
 
 {% block breadcrumb %}
 
@@ -29,6 +43,7 @@
     } %}
 {% endblock breadcrumb %}
 
+
 {% block content %}
 
     <div class="grid">
@@ -41,14 +56,14 @@
                 <h3 class="fw-n">History</h3>
                 <table class="table">
                     <tbody>
-                        <tr>
-                            <td><i class="icon-money mr-s"></i> {{ 'Order was paid'|trans }} </td>
-                            <td class="ta-r">{% include "@AdminCart/Order/date.html.twig" %}</td>
-                        </tr>
-                        <tr>
-                            <td><i class="icon-shopping-cart mr-s"></i> {{ 'Order was placed'|trans }} </td>
-                            <td class="ta-r">{% include "@AdminCart/Order/date.html.twig" %}</td>
-                        </tr>
+                        {% for stateLine in allStates %}
+                             <tr>
+                                 <td><i class="icon-money mr-s"></i> {{ stateLine.name|trans }} </td>
+                                 <td class="ta-r">{% include "AdminCartBundle:Order:date.html.twig" with {
+                                        'date': stateLine.createdAt
+                                    } %}</td>
+                            </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
