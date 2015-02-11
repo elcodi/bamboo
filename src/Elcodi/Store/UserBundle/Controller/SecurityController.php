@@ -100,7 +100,7 @@ class SecurityController extends Controller
      * @Entity(
      *      name     = "customer",
      *      class    = {
-     *          "factory"  = "elcodi.core.user.factory.customer"
+     *          "factory"  = "elcodi.factory.customer"
      *      },
      *      persist  = false
      * )

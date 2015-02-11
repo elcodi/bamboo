@@ -6,4 +6,4 @@ Feature: password recover
 
   Scenario: Access recover my password
     Given I am on "/password/remember"
-    Then I should see "Recover password"
+    Then the response status code should be 200

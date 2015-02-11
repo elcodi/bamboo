@@ -6,4 +6,4 @@ Feature: user registration
 
   Scenario: Access register
     Given I am on "/register"
-    Then I should see "Register"
+    Then the response status code should be 200
