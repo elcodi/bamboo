@@ -4,7 +4,7 @@
 		width: 100%;
 		overflow: hidden;
 		background: rgba($color-background, .5);
-		margin-bottom: $spacing/8;
+		margin: 0 0 $spacing/8 0;
 		padding: $spacing/2;
 	}
 	dt {
@@ -103,7 +103,7 @@
 
 	dd.cart-item-remove {  width: 10%;  }
 
-	.cart-item-price, .cart-item-total, .cart-item-remove {
+	.cart-item-units, .cart-item-price, .cart-item-total, .cart-item-remove {
 		text-align: right;
 	}
 }

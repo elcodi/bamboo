@@ -2,23 +2,18 @@
     {% if customer.id %}
         <li>
             <a href="{{ url("store_user") }}">
-                {{ "Hello"|trans }} {{ customer.firstname }}
+                <strong>{{ customer.firstname }}</strong>
             </a>
         </li>
         <li>
-            <a href="{{ url("store_logout") }}">Logout</a>
+            <a href="{{ url("store_logout") }}"><i class="fa fa-sign-out"></i> Logout</a>
         </li>
     {% else %}
         <li>
-            <a href="{{ url("store_login") }}">Login</a>
+            <a href="{{ url("store_login") }}"><i class="fa fa-sign-in"></i> Login</a>
         </li>
         <li>
-            <a href="{{ url("store_register") }}">Registration</a>
-        </li>
-        <li>
-            <a href="{{ url("store_password_remember") }}">
-                {{ 'Lost your password?'|trans }}
-            </a>
+            <a href="{{ url("store_register") }}"><strong><i class="fa fa-user"></i> Create new account</strong></a>
         </li>
     {% endif %}
 </ul>

@@ -13,3 +13,10 @@ input[type="text"] {
 	@extend %input;
 }
 
+input[type="email"] {
+	@extend %input;
+}
+
+input[type="password"] {
+	@extend %input;
+}

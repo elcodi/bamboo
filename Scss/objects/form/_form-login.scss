@@ -1,0 +1,17 @@
+.form-login {
+	& {
+		padding-bottom: $spacing*2;
+	}
+	.button-empty {
+		float: right;
+		padding-right: 0;
+	}
+	.col-1-2:last-of-type {
+		& {
+			text-align: right;
+		}
+		legend {
+			width: 100%;
+		}
+	}
+}
