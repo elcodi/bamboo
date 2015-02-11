@@ -1,11 +1,8 @@
-<!-- Related Products -->
-
-<div class="row">
-    <div class="span12">
-        <h2>You May Also Like...</h2>
+<div class="product-related">
+    <div class="grid">
+        <div class="col-1-1">
+            <h2 class="product-title">You May Also Like...</h2>
+            {% include "@StoreTemplate/Modules/_product-list.html.twig" with {'products' : products} %}
+        </div>
     </div>
 </div>
-
-<!-- Product Listing -->
-
-{% include "@StoreTemplate/Modules/_product-list.html.twig" with {'products' : products} %}

@@ -1,5 +1,7 @@
 .product-list {
-
+	.product-item {
+		min-height: 300px;
+	}
 }
 
 @mixin product-list-desktop {
