@@ -22,11 +22,9 @@ use Mmoreram\ControllerExtraBundle\Annotation\Form as AnnotationForm;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\FormView;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Security\Core\SecurityContext;
+use Symfony\Component\Security\Core\Security;
 
-use Elcodi\Component\Core\Services\ManagerProvider;
 use Elcodi\Component\User\Entity\Interfaces\CustomerInterface;
 use Elcodi\Store\CoreBundle\Controller\Traits\TemplateRenderTrait;
 
@@ -60,15 +58,19 @@ class SecurityController extends Controller
         /**
          * If user is already logged, go to redirect url
          */
-        if ($this->get('security.context')->isGranted('ROLE_CUSTOMER')) {
-            return new RedirectResponse($this->generateUrl('store_homepage'));
+        $authorizationChecker = $this->get('security.authorization_checker');
+        if ($authorizationChecker->isGranted('ROLE_CUSTOMER')) {
+
+            return $this->redirectToRoute('store_homepage');
         }
 
         /**
          * Checking for authentication errors in session
          */
-        if ($this->get('session')->has(SecurityContext::AUTHENTICATION_ERROR)) {
-            $this->get('session')
+        $session = $this->get('session');
+        if ($session->has(Security::AUTHENTICATION_ERROR)) {
+
+            $session
                 ->getFlashBag()
                 ->add('error', 'Wrong Email and password combination.');
         }
@@ -118,11 +120,7 @@ class SecurityController extends Controller
     ) {
         if ($isValid) {
 
-            /**
-             * @var ManagerProvider $managerProvider
-             */
-            $managerProvider = $this->get('elcodi.manager_provider');
-            $customerManager = $managerProvider->getManagerByEntityParameter('elcodi.core.user.entity.customer.class');
+            $customerManager = $this->get('elcodi.object_manager.customer');
             $customerManager->persist($customer);
             $customerManager->flush($customer);
 
@@ -134,7 +132,7 @@ class SecurityController extends Controller
                 ->get('elcodi.customer_manager')
                 ->register($customer, $providerKey);
 
-            return $this->redirect($this->generateUrl('store_homepage'));
+            return $this->redirectToRoute('store_homepage');
         }
 
         return $this->renderTemplate(
