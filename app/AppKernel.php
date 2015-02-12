@@ -104,7 +104,6 @@ class AppKernel extends Kernel
             new \Elcodi\Admin\AttributeBundle\AdminAttributeBundle(),
             new \Elcodi\Admin\BannerBundle\AdminBannerBundle(),
             new \Elcodi\Admin\CartBundle\AdminCartBundle(),
-            new \Elcodi\Admin\CartCouponBundle\AdminCartCouponBundle(),
             new \Elcodi\Admin\CouponBundle\AdminCouponBundle(),
             new \Elcodi\Admin\CurrencyBundle\AdminCurrencyBundle(),
             new \Elcodi\Admin\LanguageBundle\AdminLanguageBundle(),
