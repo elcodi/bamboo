@@ -226,6 +226,7 @@ class Context extends AbstractElcodiContext
             ->getSession()
             ->getPage()
             ->findAll('xpath', '//div[contains(@class, "product-item")]');
+
         return $elements;
     }
 }
