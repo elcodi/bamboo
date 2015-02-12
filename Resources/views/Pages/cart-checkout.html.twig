@@ -4,42 +4,51 @@
 
 {% block prefooter %}
 <div class="form form-checkout">
-    <form id="form-payment-execute" action="" method="post">
         <div class="grid">
-            <div class="col-1-2">
-                <legend>{{ 'Shipping method'|trans }}</legend>
-                <label>
-                    <input type="radio" name="field-shipping" value="free" checked="checked" />
-                    {{ 'Standard - FREE'|trans }}
-                </label>
-                <label>
-                    <input type="radio" name="field-shipping"  value="express" />
-                    {{ 'Express'|trans }} - {{ shippingPrice|print_convert_money() }}
-                </label>
+            <div class="col-2-3 ">
+                {{ paymill_render(
+                "@StoreTemplate/Modules/_payment-paymill.html.twig"
+                ) }}
             </div>
-            <div class="col-1-2 payment">
-                <legend>{{ 'Payment method'|trans }}</legend>
-                <label>
-                    <input data-url="{{ url('freepayment_execute') }}" type="radio" id="field-card" name="field-method" checked="checked" />
-                    {{ 'Free'|trans }}
-                </label>
-                <label>
-                    <input data-url="{{ url('paypal_web_checkout_execute') }}" type="radio" id="field-paypal" name="field-method" />
-                    {{ 'Paypal'|trans }}
-                </label>
-                <label>
-                    <input data-url="" type="radio" id="field-paymill" name="field-method" />
-                    {{ 'Credit/Debit card (via Paymill)'|trans }}
-                </label>
-                <button id="form-payment-execute-submit" class="button button-secondary" type="submit">{{ 'Continue'|trans }}</button>
+            <div class="col-1-3 payment">
+                <form id="form-payment-execute" action="" method="post">
+                    <legend>{{ 'Shipping method'|trans }}</legend>
+                    <label>
+                        <input type="radio" name="field-shipping" value="free" checked="checked" />
+                        {{ 'Standard - FREE'|trans }}
+                    </label>
+                    <label>
+                        <input type="radio" name="field-shipping"  value="express" />
+                        {{ 'Express'|trans }} - {{ shippingPrice|print_convert_money() }}
+                    </label>
+                    <legend>{{ 'Payment method'|trans }}</legend>
+                    <label>
+                        <input data-url="{{ url('freepayment_execute') }}" type="radio" id="field-card" name="field-method"  />
+                        {{ 'Free'|trans }}
+                    </label>
+                    <label>
+                        <input data-url="{{ url('paypal_web_checkout_execute') }}" type="radio" id="field-paypal" name="field-method" />
+                        {{ 'Paypal'|trans }}
+                    </label>
+                    <label>
+                        <input data-url="" type="radio" id="field-paymill" name="field-method" checked="checked" />
+                        {{ 'Credit/Debit card'|trans }}
+                    </label>
+                    <div id="form-payment-execute-submit">
+                        <p>{{ 'Click continue to finish your purchase.'|trans }}</p>
+                        <button class="button button-secondary" type="submit">{{ 'Continue'|trans }}</button>
+                    </div>
+
+                </form>
             </div>
+
         </div>
-    </form>
+
     <div class="grid">
-        <div class="col-1-1">
-            <form id="paymill_form" class="hidden" action="{{ url('paymill_execute') }}" method="post">
-                {{ paymill_render() }}
-            </form>
+        <div class="col-1-2 desktop">&nbsp;</div>
+        <div class="col-1-2">
+
+
         </div>
     </div>
 

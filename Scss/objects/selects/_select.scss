@@ -1,0 +1,9 @@
+select {
+	@extend %input;
+	border-radius: 0;
+	background-color: $color-background;
+	padding:$spacing/4;
+	border-radius: 0;
+	line-height: normal;
+	height: $spacing*1.9;
+}

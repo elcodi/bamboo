@@ -1,0 +1,33 @@
+{% block payment_form %}
+    <div class="form form-card">
+        <ul id="paymill_payment_error" class="message message-ko"></ul>
+        {{ form_start(paymill_form, { 'attr': {'id': 'paymill_form' } }) }}
+        {{ form_row(paymill_form.credit_card_owner) }}
+
+        <div class="form-card-numbers">
+            <label>{{ 'Credit card numbers' }}</label>
+            {{ form_widget(paymill_form.credit_card_1) }}
+            {{ form_widget(paymill_form.credit_card_2) }}
+            {{ form_widget(paymill_form.credit_card_3) }}
+            {{ form_widget(paymill_form.credit_card_4) }}
+        </div>
+
+        <div class="form-card-month">
+            <label>{{ 'Month' }}</label>
+            {{ form_widget(paymill_form.credit_card_expiration_month) }}
+        </div>
+
+        <div class=form-card-year">
+            <label>{{ 'Year' }}</label>
+            {{ form_widget(paymill_form.credit_card_expiration_year) }}
+        </div>
+
+        <div class="form-card-security">
+            <label>{{ 'Security code' }}</label>
+            {{ form_widget(paymill_form.credit_card_security) }}
+        </div>
+            {{ form_row(paymill_form.submit, { 'attr': {'class': 'button button-secondary' } } ) }}
+
+        {{ form_end(paymill_form) }}
+    </div>
+{% endblock payment_form %}
