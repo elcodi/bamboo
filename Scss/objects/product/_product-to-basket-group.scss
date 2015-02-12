@@ -1,0 +1,20 @@
+.product-to-basket-group {
+	& {
+		overflow: hidden;
+		margin-bottom: $spacing;
+	}
+}
+
+@mixin product-to-basket-group-desktop () {
+	.product-to-basket-group {
+		.product-to-basket {
+			width: 48%;
+			margin: 0 1% 1% 0;
+			float: left;
+			min-height: 125px;
+		}
+		p {
+			text-align: right;
+		}
+	}
+}

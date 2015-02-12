@@ -1,0 +1,28 @@
+@media handheld, only screen and (max-width: 767px) {
+	.desktop {
+		& {
+			display: none;
+		}
+		&.d-ib, &.d-b {
+			display: none !important;
+		}
+	}
+	.mobile {
+		& {
+			display: block !important;
+		}
+		&.d-ib, &.inline-block {
+			display: inline-block !important;
+		}
+	}
+
+	td.mobile, th.mobile {
+		display: table-cell !important;
+	}
+
+	@include category-nav-mobile;
+	@include cart-item-mobile;
+	@include order-item-mobile;
+	@include cart-actions-mobile;
+	@include coupon-add-mobile;
+}

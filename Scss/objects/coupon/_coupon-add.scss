@@ -1,0 +1,37 @@
+.coupon-add {
+	& {
+		position: absolute;
+		padding: $spacing/2 0;
+		margin-top: -444px;
+		width: 93%;
+	}
+
+}
+
+@mixin coupon-add-mobile(){
+	.coupon-add {
+		input {
+			width: 60%;
+		}
+		button {
+			width: 38%;
+
+		}
+	}
+}
+
+@mixin coupon-add-desktop(){
+	.coupon-add {
+		max-width: 50%;
+		margin-top: -230px;
+		padding: $spacing/2;
+		margin-left: -1px;
+		background: $color-body;
+	}
+	input {
+		width: auto;
+	}
+	button {
+		width: auto;
+	}
+}

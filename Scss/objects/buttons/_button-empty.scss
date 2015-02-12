@@ -1,0 +1,10 @@
+.button-empty {
+	& {
+		background: transparent;
+		color: $color-link;
+	}
+	&:hover {
+		background: transparent;
+		text-decoration: underline;
+	}
+}

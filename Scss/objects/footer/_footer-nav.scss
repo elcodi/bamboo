@@ -1,0 +1,19 @@
+.footer-nav {
+	& {
+		display: block;
+		margin: $spacing/2 0;
+		overflow: hidden;
+	}
+	li {
+		display: inline-block;
+		margin: 0 $spacing/2 $spacing/2 0;
+		padding-right: $spacing/2;
+		border-right: 1px solid $color-background;
+	}
+	li:last-child {
+		border-right: 0px none;
+		margin-right: 0;
+		padding-right: 0;
+	}
+}
+

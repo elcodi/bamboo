@@ -1,0 +1,9 @@
+.message-info {
+	& {
+		border-color:$color-info;
+		background: rgba($color-info, .1);
+	}
+	i {
+		color: $color-info;
+	}
+}

@@ -1,0 +1,129 @@
+@mixin category-nav-mobile() {
+	.category-nav {
+		& {
+			display: block;
+			overflow: hidden;
+		}
+		li {
+			& {
+				display: block;
+				overflow: hidden;
+				padding: 0;
+				text-align: center;
+				margin-bottom: 1px;
+			}
+			a {
+				& {
+					display: block;
+					padding: $spacing/2;
+					background: $color-background;
+					color: $color-link;
+				}
+				&:hover {
+					text-decoration: none;
+					background: $color-link;
+					color: $color-background;
+				}
+				&.active {
+					border-color: $color-link;
+					background: $color-link;
+					color: $color-background;
+				}
+			}
+		}
+		li > ul {
+			margin-left: $spacing;
+		}
+	}
+
+}
+
+@mixin category-nav-desktop() {
+	.category-nav {
+		& {
+			display: block;
+			position: relative;
+			margin: 0;
+			padding-bottom: 2px;
+			overflow: visible;
+		}
+		li {
+			& {
+				display: inline-block;
+				margin: $spacing/2 $spacing/4 0 0;
+				vertical-align: top;
+			}
+			&.expand {
+				& {
+					margin-bottom: $spacing*2.5;
+				}
+				a {
+					& {
+						border-color: $color-background;
+						position: relative;
+					}
+					&:hover {
+						text-decoration: none;
+						color: $color-background;
+						background: $color-primary;
+					}
+					&.active {
+						background: $color-link;
+						color: $color-background;
+					}
+				}
+			}
+		}
+		a {
+			& {
+				background: $color-background;
+				display: inline-block;
+				padding: $spacing/2;
+
+			}
+			&.active {
+				border-color: $color-link;
+				background: $color-link;
+				color: $color-background;
+			}
+			&:hover {
+				text-decoration: none;
+				color: $color-background;
+				background: $color-primary;
+			}
+		}
+		li > ul {
+			& {
+				background: $color-background;
+				box-shadow: 0 2px 2px rgba($color-foreground, .2);
+				position: absolute;
+				overflow: hidden;
+				width: 100%;
+				left: 0;
+			}
+			li {
+				margin: 0;
+
+			}
+			a {
+				& {
+					border: 0px none;
+					padding: $spacing/4;
+					margin: $spacing/4;
+					color: $color-link;
+				}
+				&.active {
+					border-color: $color-link;
+					background: $color-link;
+					color: $color-background;
+				}
+				&:hover {
+					border-color: $color-background;
+					text-decoration: none;
+					color: $color-background;
+					background: $color-foreground;
+				}
+			}
+		}
+	}
+}
