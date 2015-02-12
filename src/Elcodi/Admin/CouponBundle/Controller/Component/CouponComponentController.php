@@ -122,7 +122,7 @@ class CouponComponentController extends AbstractAdminController
      *
      * @EntityAnnotation(
      *      class = {
-     *          "factory" = "elcodi.core.coupon.factory.coupon",
+     *          "factory" = "elcodi.factory.coupon",
      *      },
      *      mapping = {
      *          "id" = "~id~"
@@ -155,7 +155,7 @@ class CouponComponentController extends AbstractAdminController
      *
      * @EntityAnnotation(
      *      class = {
-     *          "factory" = "elcodi.core.coupon.factory.coupon",
+     *          "factory" = "elcodi.factory.coupon",
      *      }
      * )
      * @FormAnnotation(
