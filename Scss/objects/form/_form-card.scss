@@ -1,0 +1,44 @@
+.form-card {
+	& {
+		padding: $spacing;
+	}
+}
+
+.form .form-card-numbers {
+	& {
+		padding: $spacing 0 $spacing;
+	}
+	input {
+		width: 23.8%;
+	}
+}
+
+.form-card-security {
+	& {
+		clear: both;
+		padding-bottom: $spacing;
+	}
+	input {
+		max-width: 70px;
+	}
+}
+
+.form-card-month, .form-card-year {
+	float: left;
+	padding-bottom: $spacing;
+	margin-right: $spacing;
+}
+
+#paymill_payment_error {
+	& {
+		min-height: 0px;
+		padding: 0;
+		border-bottom: 0px none;
+	}
+	li {
+		padding: $spacing/2;
+	}
+	li:last-of-type {
+		border-bottom: 4px solid $color-ko;
+	}
+}
