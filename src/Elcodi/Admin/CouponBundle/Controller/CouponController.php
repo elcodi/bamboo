@@ -166,7 +166,7 @@ class CouponController extends AbstractAdminController
      *
      * @EntityAnnotation(
      *      class = {
-     *          "factory" = "elcodi.core.coupon.factory.coupon",
+     *          "factory" = "elcodi.factory.coupon",
      *      },
      *      persist = true
      * )
