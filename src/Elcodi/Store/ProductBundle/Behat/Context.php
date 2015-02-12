@@ -50,10 +50,7 @@ class Context extends AbstractElcodiContext
      */
     public function iShouldSeeMoreThanXProducts($numberOfProducts)
     {
-        $elements = $this
-            ->getSession()
-            ->getPage()
-            ->findAll('xpath', '//div[contains(@class, "product-listing")]');
+        $elements = $this->getItemElements();
 
         if (count($elements) <= $numberOfProducts) {
             throw new Exception(
@@ -71,10 +68,7 @@ class Context extends AbstractElcodiContext
      */
     public function iShouldSeeLessThanXProducts($numberOfProducts)
     {
-        $elements = $this
-            ->getSession()
-            ->getPage()
-            ->findAll('xpath', '//div[contains(@class, "product-listing")]');
+        $elements = $this->getItemElements();
 
         if (count($elements) >= $numberOfProducts) {
             throw new Exception(
@@ -92,10 +86,7 @@ class Context extends AbstractElcodiContext
      */
     public function iShouldSeeExactlyXProducts($numberOfProducts)
     {
-        $elements = $this
-            ->getSession()
-            ->getPage()
-            ->findAll('xpath', '//div[contains(@class, "product-listing")]');
+        $elements = $this->getItemElements();
 
         if (count($elements) != $numberOfProducts) {
             throw new Exception(
@@ -141,15 +132,15 @@ class Context extends AbstractElcodiContext
             $active = $node['active'];
 
             $activeXpath = $active == 'true'
-                ? 'li[contains(@class, "active")]'
-                : 'li[not(contains(@class, "active"))]';
+                ? 'a[contains(@class, "active")]'
+                : 'a[not(contains(@class, "active"))]';
 
             $element = $this
                 ->getSession()
                 ->getPage()
                 ->find(
                     'xpath',
-                    '//ul[contains(@class, "main-nav")]/'.$activeXpath.'/a[text()="'.$categoryName.'"]'
+                    '//ul[contains(@class, "category-nav")]/li/'.$activeXpath.'[contains(text(), "'.$categoryName.'")]'
                 );
 
             if (is_null($element)) {
@@ -224,5 +215,17 @@ class Context extends AbstractElcodiContext
         }
 
         return $category;
+    }
+
+    /**
+     * @return \Behat\Mink\Element\NodeElement[]
+     */
+    protected function getItemElements()
+    {
+        $elements = $this
+            ->getSession()
+            ->getPage()
+            ->findAll('xpath', '//div[contains(@class, "product-item")]');
+        return $elements;
     }
 }
