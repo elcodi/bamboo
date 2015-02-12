@@ -15,26 +15,19 @@
                 {{ form_row(form.firstname) }}
             </div>
             <div class="col-1-2">
-                    {{ form_row(form.lastname) }}
+                {{ form_row(form.email) }}
             </div>
             <div class="col-1-2">
-                    {{ form_row(form.email) }}
+                {{ form_row(form.password.first) }}
             </div>
             <div class="col-1-2">
-                    {{ form_row(form.username) }}
+                {{ form_row(form.password.second) }}
             </div>
-            <div class="col-1-2">
-                    {{ form_row(form.password.first) }}
-            </div>
-            <div class="col-1-2">
-                    {{ form_row(form.password.second) }}
-            </div>
-                <p class="buttons">
-                    {{ form_row( form.send , { 'attr': {'class': 'button button-secondary' } } ) }}
-                </p>
+            <p class="buttons">
+                {{ form_row( form.send , { 'attr': {'class': 'button button-secondary' } } ) }}
+            </p>
 
-                {{ form_end(form) }}
-            </div>
+            {{ form_end(form) }}
         </div>
     </div>
 {% endblock prefooter %}
