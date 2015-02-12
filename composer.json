@@ -99,7 +99,8 @@
     },
     "require-dev": {
         "elcodi/elcodi": "~0.4.18",
-        "mmoreram/php-formatter": "~1.0",
+        "elcodi/test-common-bundle": "~0.4.0",
+        "doctrine/data-fixtures": "~1.0",
         "behat/symfony2-extension": "~2.0@dev",
         "behat/mink-extension": "~2.0@dev",
         "behat/mink-browserkit-driver": "~1.1@dev",

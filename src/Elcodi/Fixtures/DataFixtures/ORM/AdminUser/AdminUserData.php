@@ -42,7 +42,6 @@ class AdminUserData extends AbstractFixture
             ->container
             ->get('elcodi.factory.admin_user')
             ->create()
-            ->setUsername('johnwayne')
             ->setPassword('1234')
             ->setEmail('admin@admin.com')
             ->setFirstName('John')

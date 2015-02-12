@@ -42,7 +42,6 @@ class CustomerData extends AbstractFixture
             ->container
             ->get('elcodi.factory.customer')
             ->create()
-            ->setUsername('customer')
             ->setPassword('1234')
             ->setEmail('customer@customer.com')
             ->setFirstName('Homer')
