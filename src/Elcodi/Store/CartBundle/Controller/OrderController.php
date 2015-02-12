@@ -17,7 +17,6 @@
 
 namespace Elcodi\Store\CartBundle\Controller;
 
-use Mmoreram\ControllerExtraBundle\Annotation\Entity as AnnotationEntity;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
@@ -39,8 +38,8 @@ class OrderController extends Controller
     /**
      * Order view
      *
-     * @param OrderInterface $order  Order id
-     * @param boolean        $thanks Thanks
+     * @param integer $id     Order id
+     * @param boolean $thanks Thanks
      *
      * @return Response Response
      *
@@ -66,17 +65,20 @@ class OrderController extends Controller
      *      },
      *      methods = {"GET"}
      * )
-     *
-     * @AnnotationEntity(
-     *      class = "elcodi.core.cart.entity.order.class",
-     *      name = "order",
-     *      mapping = {
-     *          "id" = "~id~",
-     *      }
-     * )
      */
-    public function viewAction(OrderInterface $order, $thanks)
+    public function viewAction($id, $thanks)
     {
+        $order = $this
+            ->get('elcodi.repository.order')
+            ->findOneBy([
+                'id'       => $id,
+                'customer' => $this->getUser(),
+            ]);
+
+        if (!($order instanceof OrderInterface)) {
+            throw $this->createNotFoundException('Order not found');
+        }
+
         $orderCoupons = $this
             ->get('elcodi.order_coupon_manager')
             ->getOrderCoupons($order);

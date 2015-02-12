@@ -41,17 +41,9 @@ class RegisterType extends AbstractType
                 'required' => true,
                 'label'    => 'Firstname',
             ])
-            ->add('lastname', 'text', [
-                'required' => true,
-                'label'    => 'Lastname',
-            ])
             ->add('email', 'email', [
                 'required' => true,
                 'label'    => 'Email',
-            ])
-            ->add('username', 'text', [
-                'required' => true,
-                'label'    => 'Username',
             ])
             ->add('password', 'repeated', [
                 'type'           => 'password',
@@ -61,7 +53,7 @@ class RegisterType extends AbstractType
                 'second_options' => [
                     'label' => 'Repeat Password',
                 ],
-                'required'       => false,
+                'required'       => true,
             ])
             ->add('send', 'submit', [
                 'label' => 'Register',
