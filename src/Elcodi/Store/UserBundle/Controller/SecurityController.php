@@ -60,7 +60,6 @@ class SecurityController extends Controller
          */
         $authorizationChecker = $this->get('security.authorization_checker');
         if ($authorizationChecker->isGranted('ROLE_CUSTOMER')) {
-
             return $this->redirectToRoute('store_homepage');
         }
 
@@ -69,7 +68,6 @@ class SecurityController extends Controller
          */
         $session = $this->get('session');
         if ($session->has(Security::AUTHENTICATION_ERROR)) {
-
             $session
                 ->getFlashBag()
                 ->add('error', 'Wrong Email and password combination.');
@@ -119,7 +117,6 @@ class SecurityController extends Controller
         $isValid
     ) {
         if ($isValid) {
-
             $customerManager = $this->get('elcodi.object_manager.customer');
             $customerManager->persist($customer);
             $customerManager->flush($customer);

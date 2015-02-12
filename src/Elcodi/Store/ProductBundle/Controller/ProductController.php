@@ -43,6 +43,7 @@ class ProductController extends Controller
      * Product view
      *
      * @param ProductInterface $product Product
+     * @param string           $slug    Product slug
      *
      * @return array
      *
@@ -65,8 +66,19 @@ class ProductController extends Controller
      *      }
      * )
      */
-    public function viewAction(ProductInterface $product)
+    public function viewAction(ProductInterface $product, $slug)
     {
+        /**
+         * We must check that the product slug is right. Otherwise we must
+         * return a Redirection 301 to the right url
+         */
+        if ($slug !== $product->getSlug()) {
+            return $this->redirectToRoute('store_product_view', [
+                'id'   => $product->getId(),
+                'slug' => $product->getSlug(),
+            ]);
+        }
+
         $relatedProducts = $this
             ->get('store.product.service.product_collection_provider')
             ->getRelatedProducts($product, 3);
