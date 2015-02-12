@@ -18,10 +18,8 @@
 namespace Elcodi\Admin\RuleBundle\Controller;
 
 use Doctrine\ORM\Tools\Pagination\Paginator;
-use Exception;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
-use Mmoreram\ControllerExtraBundle\Annotation\JsonResponse;
 use Mmoreram\ControllerExtraBundle\Annotation\Paginator as PaginatorAnnotation;
 use Mmoreram\ControllerExtraBundle\ValueObject\PaginatorAttributes;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -438,7 +436,7 @@ class RuleGroupController extends AbstractAdminController
      *      path = "/{id}/enable",
      *      name = "admin_rule_group_enable"
      * )
-     * @Method({"POST"})
+     * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.rule.entity.rule_group.class",
@@ -446,25 +444,15 @@ class RuleGroupController extends AbstractAdminController
      *          "id" = "~id~"
      *      }
      * )
-     * @JsonResponse
      */
     public function enableAction(
         Request $request,
         EnabledInterface $entity
     ) {
-        try {
-            $this->enableEntity($entity);
-
-            return [
-                'result' => 'ok',
-            ];
-        } catch (Exception $e) {
-            return [
-                'result'  => 'ko',
-                'code'    => $e->getCode(),
-                'message' => $e->getMessage(),
-            ];
-        }
+        return parent::enableAction(
+            $request,
+            $entity
+        );
     }
 
     /**
@@ -479,7 +467,7 @@ class RuleGroupController extends AbstractAdminController
      *      path = "/{id}/disable",
      *      name = "admin_rule_group_disable"
      * )
-     * @Method({"POST"})
+     * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.rule.entity.rule_group.class",
@@ -487,25 +475,15 @@ class RuleGroupController extends AbstractAdminController
      *          "id" = "~id~"
      *      }
      * )
-     * @JsonResponse
      */
     public function disableAction(
         Request $request,
         EnabledInterface $entity
     ) {
-        try {
-            $this->disableEntity($entity);
-
-            return [
-                'result' => 'ok',
-            ];
-        } catch (Exception $e) {
-            return [
-                'result'  => 'ko',
-                'code'    => $e->getCode(),
-                'message' => $e->getMessage(),
-            ];
-        }
+        return parent::disableAction(
+            $request,
+            $entity
+        );
     }
 
     /**
@@ -521,7 +499,7 @@ class RuleGroupController extends AbstractAdminController
      *      path = "/{id}/delete",
      *      name = "admin_rule_group_delete"
      * )
-     * @Method({"GET"})
+     * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.rule.entity.rule_group.class",
@@ -529,25 +507,16 @@ class RuleGroupController extends AbstractAdminController
      *          "id" = "~id~"
      *      }
      * )
-     * @JsonResponse
      */
     public function deleteAction(
         Request $request,
         $entity,
         $redirectUrl = null
     ) {
-        try {
-            $this->deleteEntity($entity);
-
-            return [
-                'result' => 'ok',
-            ];
-        } catch (Exception $e) {
-            return [
-                'result'  => 'ko',
-                'code'    => $e->getCode(),
-                'message' => $e->getMessage(),
-            ];
-        }
+        return parent::deleteAction(
+            $request,
+            $entity,
+            'admin_rule_group_list'
+        );
     }
 }

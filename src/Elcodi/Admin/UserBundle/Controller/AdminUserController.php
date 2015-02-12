@@ -17,10 +17,8 @@
 
 namespace Elcodi\Admin\UserBundle\Controller;
 
-use Exception;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
-use Mmoreram\ControllerExtraBundle\Annotation\JsonResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -178,7 +176,7 @@ class AdminUserController extends AbstractAdminController
      *      path = "/{id}/enable",
      *      name = "admin_admin_user_enable"
      * )
-     * @Method({"POST"})
+     * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.user.entity.admin_user.class",
@@ -186,25 +184,15 @@ class AdminUserController extends AbstractAdminController
      *          "id" = "~id~"
      *      }
      * )
-     * @JsonResponse
      */
     public function enableAction(
         Request $request,
         EnabledInterface $entity
     ) {
-        try {
-            $this->enableEntity($entity);
-
-            return [
-                'result' => 'ok',
-            ];
-        } catch (Exception $e) {
-            return [
-                'result'  => 'ko',
-                'code'    => $e->getCode(),
-                'message' => $e->getMessage(),
-            ];
-        }
+        return parent::enableAction(
+            $request,
+            $entity
+        );
     }
 
     /**
@@ -219,7 +207,7 @@ class AdminUserController extends AbstractAdminController
      *      path = "/{id}/disable",
      *      name = "admin_admin_user_disable"
      * )
-     * @Method({"POST"})
+     * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.user.entity.admin_user.class",
@@ -227,25 +215,15 @@ class AdminUserController extends AbstractAdminController
      *          "id" = "~id~"
      *      }
      * )
-     * @JsonResponse
      */
     public function disableAction(
         Request $request,
         EnabledInterface $entity
     ) {
-        try {
-            $this->disableEntity($entity);
-
-            return [
-                'result' => 'ok',
-            ];
-        } catch (Exception $e) {
-            return [
-                'result'  => 'ko',
-                'code'    => $e->getCode(),
-                'message' => $e->getMessage(),
-            ];
-        }
+        return parent::disableAction(
+            $request,
+            $entity
+        );
     }
 
     /**
@@ -261,7 +239,7 @@ class AdminUserController extends AbstractAdminController
      *      path = "/{id}/delete",
      *      name = "admin_admin_user_delete"
      * )
-     * @Method({"GET"})
+     * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.user.entity.admin_user.class",
@@ -269,25 +247,16 @@ class AdminUserController extends AbstractAdminController
      *          "id" = "~id~"
      *      }
      * )
-     * @JsonResponse
      */
     public function deleteAction(
         Request $request,
         $entity,
         $redirectUrl = null
     ) {
-        try {
-            $this->deleteEntity($entity);
-
-            return [
-                'result' => 'ok',
-            ];
-        } catch (Exception $e) {
-            return [
-                'result'  => 'ko',
-                'code'    => $e->getCode(),
-                'message' => $e->getMessage(),
-            ];
-        }
+        return parent::deleteAction(
+            $request,
+            $entity,
+            'admin_admin_user_list'
+        );
     }
 }

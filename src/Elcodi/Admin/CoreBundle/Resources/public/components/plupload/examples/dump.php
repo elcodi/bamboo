@@ -22,7 +22,8 @@
 		<td><?php echo htmlentities(stripslashes($name)) ?></td>
 		<td><?php echo nl2br(htmlentities(stripslashes($value))) ?></td>
 	</tr>
-	<?php 
+	<?php
+
  } ?>
 </table>
 
