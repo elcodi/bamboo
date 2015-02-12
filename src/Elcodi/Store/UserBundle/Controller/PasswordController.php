@@ -17,14 +17,15 @@
 
 namespace Elcodi\Store\UserBundle\Controller;
 
+use Doctrine\Common\Persistence\ObjectRepository;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as AnnotationForm;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Form;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 
 use Elcodi\Component\User\Entity\Abstracts\AbstractUser;
+use Elcodi\Component\User\Repository\Interfaces\UserEmaileableInterface;
 use Elcodi\Store\CoreBundle\Controller\Traits\TemplateRenderTrait;
 
 /**
@@ -49,7 +50,7 @@ class PasswordController extends Controller
      * @Route(
      *      path = "/remember",
      *      name = "store_password_remember",
-     *      methods = {"GET"}
+     *      methods = {"GET", "POST"}
      * )
      *
      * @AnnotationForm(
@@ -62,13 +63,14 @@ class PasswordController extends Controller
     public function rememberAction(Form $passwordRememberForm, $isValid)
     {
         if ($isValid) {
-            $customerRepository = $this
-                ->get('elcodi.repository_provider')
-                ->getRepositoryByEntityParameter('elcodi.core.user.entity.customer.class');
+            $customerRepository = $this->getCustomerRepository();
 
-            $email = $passwordRememberForm->getData()['email'];
+            $email = $passwordRememberForm
+                ->get('email')
+                ->getData();
+
             $emailFound = $this
-                ->get('elcodi.core.user.service.password_manager')
+                ->get('elcodi.password_manager')
                 ->rememberPasswordByEmail(
                     $customerRepository,
                     $email,
@@ -76,14 +78,12 @@ class PasswordController extends Controller
                 );
 
             if ($emailFound) {
-                return new RedirectResponse(
-                    $this->generateUrl('store_password_recover_sent')
-                );
+                return $this->redirectToRoute('store_password_recover_sent');
             }
         }
 
         return $this->renderTemplate(
-            'Modules:_user-password-remember.html.twig',
+            'Pages:user-password-recover.html.twig',
             [
                 'form' => $passwordRememberForm->createView(),
             ]
@@ -106,11 +106,11 @@ class PasswordController extends Controller
         /**
          * If user is already logged, go to redirect url
          */
-        if ($this->get('security.context')->isGranted('ROLE_CUSTOMER')) {
-            return new RedirectResponse($this->generateUrl('store_homepage'));
+        if ($this->isGranted('ROLE_CUSTOMER')) {
+            return $this->redirectToRoute('store_homepage');
         }
 
-        return $this->renderTemplate('Pages/user-password-sent.html.twig');
+        return $this->renderTemplate('Pages:user-password-sent.html.twig');
     }
 
     /**
@@ -128,7 +128,7 @@ class PasswordController extends Controller
      *      requirements = {
      *          "hash" = "[\dA-Fa-f]+"
      *      },
-     *      methods = {"GET"}
+     *      methods = {"GET", "POST"}
      * )
      *
      * @AnnotationForm(
@@ -142,28 +142,41 @@ class PasswordController extends Controller
     {
         if ($isValid) {
             $customer = $this
-                ->get('elcodi.repository_provider')
-                ->getRepositoryByEntityParameter('elcodi.core.user.entity.customer.class')
+                ->getCustomerRepository()
                 ->findOneBy([
                     'recoveryHash' => $hash,
                 ]);
 
             if ($customer instanceof AbstractUser) {
-                $password = $passwordRecoverForm->getData()['password'];
+                $password = $passwordRecoverForm
+                    ->get('password')
+                    ->getData();
 
                 $this
-                    ->get('elcodi.core.user.service.password_manager')
+                    ->get('elcodi.password_manager')
                     ->recoverPassword($customer, $hash, $password);
 
-                return new RedirectResponse($this->generateUrl('store_homepage'));
+                return $this->redirectToRoute('store_homepage');
             }
         }
 
         return $this->renderTemplate(
-            'Pages/user-password-recover.html.twig',
+            'Pages:user-password-change.html.twig',
             [
                 'form' => $passwordRecoverForm->createView(),
             ]
         );
+    }
+
+    /**
+     * Get customer repository
+     *
+     * @return ObjectRepository|UserEmaileableInterface
+     */
+    protected function getCustomerRepository()
+    {
+        return $this
+            ->get('elcodi.repository_provider')
+            ->getRepositoryByEntityParameter('elcodi.core.user.entity.customer.class');
     }
 }
