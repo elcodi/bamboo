@@ -16,8 +16,8 @@
 				& {
 					display: block;
 					padding: $spacing/2;
-					background: $color-foreground;
-					color: $color-background;
+					background: $color-background;
+					color: $color-link;
 				}
 				&:hover {
 					text-decoration: none;
@@ -55,19 +55,17 @@
 			}
 			&.expand {
 				& {
-					margin-bottom: $spacing*1.5;
-					min-height: $spacing*2.5;
-					background: $color-background;
+					margin-bottom: $spacing*2.5;
 				}
 				a {
 					& {
 						border-color: $color-background;
+						position: relative;
 					}
 					&:hover {
-						border-color: $color-background;
 						text-decoration: none;
 						color: $color-background;
-						background: $color-foreground;
+						background: $color-primary;
 					}
 					&.active {
 						background: $color-link;
@@ -78,7 +76,7 @@
 		}
 		a {
 			& {
-				border: 1px solid $color-background;
+				background: $color-background;
 				display: inline-block;
 				padding: $spacing/2;
 
@@ -89,9 +87,9 @@
 				color: $color-background;
 			}
 			&:hover {
-				border-color: $color-background;
 				text-decoration: none;
-				background: $color-background;
+				color: $color-background;
+				background: $color-primary;
 			}
 		}
 		li > ul {

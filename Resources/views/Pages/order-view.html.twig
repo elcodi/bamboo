@@ -1,11 +1,14 @@
 {% extends '@StoreTemplate/Layout/_layout.html.twig' %}
 
 {% block content %}
-    <h1>    {% if thanks %}
-            Thank You For Your Order!
+        {% if thanks %}
+            <div class="message message-ok">
+                <p><i class="fa fa-check"></i> <strong>{{ 'CONGRATULATIONS!'|trans }}</strong></p>
+                <p>{{ ' Thank you for your order! We are going to work to send you as fast as possible.'|trans }}</p>
+            </div>
         {% else %}
-            Order #{{ order.id }}
-        {% endif %}</h1>
+            <h1>Order #{{ order.id }}</h1>
+        {% endif %}
     <p class="cart-total"><span>Status: </span>{{ order.lastStateLine.name }}</p>
     <div class="cart-list">
         {% for line in order.orderLines %}

@@ -1,0 +1,9 @@
+.message-ko {
+	& {
+		border-color:$color-ko;
+		background: rgba($color-ko, .1);
+	}
+	i {
+		color: $color-ko;
+	}
+}
