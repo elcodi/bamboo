@@ -47,12 +47,18 @@
     {% if multiple %}
         <div id="ms-custom-headers">
             <select multiple="multiple" {{ block('widget_attributes') }}>
+                {% if empty_value %}
+                    <option value="">{{ empty_value }}</option>
+                {% endif %}
                 {% set options = choices %}
                 {{ block('choice_widget_options') }}
             </select>
         </div>
     {% else %}
         <select class="oneselect" {{ block('widget_attributes') }}>
+            {% if empty_value %}
+                <option value="">{{ empty_value }}</option>
+            {% endif %}
             {% set options = choices %}
             {{ block('choice_widget_options') }}
         </select>
