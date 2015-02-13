@@ -1,0 +1,16 @@
+services:
+
+    #
+    # Event listener for Not found 404 errors
+    #
+    store.core.event_listener.not_found:
+        class: Elcodi\Store\CoreBundle\EventListener\StorePageNotFoundListener
+        arguments:
+            - @templating
+            - %store.core.errors.not_found.template%
+        tags:
+            -
+              name: firewall_listener
+              firewall: %bamboo_store_firewall%
+              event: kernel.exception
+              priority: -127
