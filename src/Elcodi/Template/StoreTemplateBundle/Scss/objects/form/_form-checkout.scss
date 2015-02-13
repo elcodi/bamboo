@@ -1,0 +1,13 @@
+.form-checkout {
+	& {
+		padding-bottom: $spacing*2;
+		position: relative;
+	}
+}
+
+#form-payment-execute-submit {
+	display: none;
+	position: absolute;
+	left: $spacing;
+	top: $spacing;
+}

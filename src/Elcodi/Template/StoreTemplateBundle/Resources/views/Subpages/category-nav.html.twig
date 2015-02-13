@@ -1,0 +1,25 @@
+<ul class="category-nav">
+    <li>
+        <a href="{{ url('store_homepage') }}" {% if not currentCategory %} class="active"{% endif %}>New</a>
+    </li>
+    {% for category in categoryTree %}
+        <li {% if ( currentCategory.id == category.entity.id or currentCategory.parent.id == category.entity.id ) and category.children|length > 0 %} class="expand" {% endif %}>
+            <a href="{{ url('store_category_products_list', { slug: category.entity.slug, id: category.entity.id }) }}"
+                {% if currentCategory.id == category.entity.id %}class="active"{% endif %}>
+                {{ category.entity.name }}
+            </a>
+            {% if currentCategory.id == category.entity.id or currentCategory.parent.id == category.entity.id  %}
+                <ul>
+                    {% for subCategory in category.children %}
+                        <li>
+                            <a href="{{ url('store_category_products_list', {
+                                slug: subCategory.entity.slug,
+                                id: subCategory.entity.id
+                            }) }}" {% if currentCategory.id == subCategory.entity.id %} class="active"{% endif %}>{{ subCategory.entity.name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

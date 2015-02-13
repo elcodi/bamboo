@@ -1,0 +1,6 @@
+{
+  "store": {
+    "name": "My Awesome Store",
+    "static": "./static/"
+  }
+}

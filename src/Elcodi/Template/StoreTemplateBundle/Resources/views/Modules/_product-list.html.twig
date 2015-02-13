@@ -1,0 +1,15 @@
+<div class="product-list">
+{% for product in products %}
+
+    {% if loop.index0 % 3 == 0 %}<div class="row">{% endif %}
+
+        {% include '@StoreTemplate/Modules/_product-item.html.twig' with {'product' : product} %}
+
+    {% if loop.index0 % 3 == 2 or loop.last %}</div>{% endif %}
+{% else %}
+    <div class="product-empty">
+        <i class="fa fa-frown-o fa-3x"></i>
+        <h2 class="product-title">{{ "Sorry, we don't have products for this category"|trans}}</h2>
+    </div>
+{% endfor %}
+</div>

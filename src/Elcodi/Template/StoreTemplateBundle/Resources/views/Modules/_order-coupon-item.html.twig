@@ -1,0 +1,10 @@
+<tr>
+    <td class="title" colspan="2">
+        {{ orderCoupon.name }} ({{ orderCoupon.code }})
+    </td>
+    <td class="qty">
+        1
+    </td>
+    <td class="price">- {{ orderCoupon.amount|print_convert_money }}</td>
+    <td class="total">- {{ orderCoupon.amount|print_convert_money }}</td>
+</tr>

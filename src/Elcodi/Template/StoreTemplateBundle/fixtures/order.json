@@ -1,0 +1,79 @@
+{
+  "order" : {
+    "id" : "1",
+    "lastStateLine" : {
+      "name" : "Closed"
+    },
+    "lastOrderHistory" : {
+      "state" : "Closed"
+    },
+    "amount" : 35.96,
+    "createdAt" : 1353027834,
+    "orderLines" : {
+      "first" : {
+        "purchasable" : "Ibiza Lips",
+        "quantity" : 1,
+        "amount" : 15.99,
+        "product" : {
+          "id" : "1",
+          "stock" : "1",
+          "name" : "Ibiza Lips",
+          "slug" : "ibiza-lips-en",
+          "enable" : true,
+          "price" : "7.99",
+          "reducedPrice" : "1.99",
+          "principalImage" :  "../../../fixtures/img/lips.jpg",
+          "images" : {
+            "first" :  "../../../fixtures/img/lips.jpg"
+          }
+        }
+      },
+      "2" : {
+        "purchasable" : "Banana",
+        "quantity" : 1,
+        "amount" :9.99,
+        "product" : {
+          "id" : "1",
+          "stock" : "1",
+          "name" : "Banana",
+          "slug" : "ibiza-lips-en",
+          "enable" : true,
+          "price" : "7.99",
+          "reducedPrice" : "1.99",
+          "principalImage" :  "../../../fixtures/img/banana.jpg",
+          "images" : {
+            "first" :  "../../../fixtures/img/lips.jpg"
+          }
+        }
+      },
+      "3" : {
+        "purchasable" : "Amnesia",
+        "quantity" : 2,
+        "amount" : 9.99,
+        "product" : {
+          "id" : "1",
+          "stock" : "1",
+          "name" : "Amnesia",
+          "slug" : "ibiza-lips-en",
+          "enable" : true,
+          "price" : "7.99",
+          "reducedPrice" : "1.99",
+          "principalImage" :  "../../../fixtures/img/amnesia.jpg",
+          "images" : {
+            "first" :  "../../../fixtures/img/lips.jpg"
+          }
+        }
+      }
+    },
+    "orderCoupons" : {
+
+    }
+  },
+  "orderCoupons" : {
+    "0" : {
+      "name" : "$10 discount",
+      "code" : "15015",
+      "amount" : 10
+    }
+  }
+}

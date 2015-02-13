@@ -1,0 +1,23 @@
+{% extends '@StoreTemplate/Layout/_layout.html.twig' %}
+
+
+{% block content_title %}{{ "Profile Managements"|trans }}{% endblock content_title %}
+
+
+{% block content %}
+    <h1>{{ 'Dashboard'|trans }}</h1>
+    <div class="grid grid-pad user-home">
+        <div class="col-1-4">
+            <a href="{{ url("store_user_edit") }}">
+                <i class="fa fa-user fa-3x"></i>
+                {{ "Profile"|trans }}
+            </a>
+        </div>
+        <div class="col-1-4">
+            <a href="{{ url("store_order_list") }}">
+                <i class="fa fa-files-o fa-3x"></i>
+                {{ "My orders"|trans }}
+            </a>
+        </div>
+    </div>
+{% endblock content %}

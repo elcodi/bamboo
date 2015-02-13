@@ -1,0 +1,24 @@
+{# Notice message (yellow) #}
+{% for flashMessage in app.session.flashbag.get('notice') %}
+    {% include "@StoreTemplate/Modules/_message-item.html.twig" with {flashMessage: flashMessage, class: ''} %}
+{% endfor %}
+
+{# Success message (green) #}
+{% for flashMessage in app.session.flashbag.get('success') %}
+    {% include "@StoreTemplate/Modules/_message-item.html.twig" with {flashMessage: flashMessage, class: 'alert-success'} %}
+{% endfor %}
+
+{# Info message (blue) #}
+{% for flashMessage in app.session.flashbag.get('notification') %}
+    {% include "@StoreTemplate/Modules/_message-item.html.twig" with {flashMessage: flashMessage, class: 'alert-info'} %}
+{% endfor %}
+
+{# Warning message (yellow) #}
+{% for flashMessage in app.session.flashbag.get('alert') %}
+    {% include "@StoreTemplate/Modules/_message-item.html.twig" with {flashMessage: flashMessage, class: ''} %}
+{% endfor %}
+
+{# Error message (red) #}
+{% for flashMessage in app.session.flashbag.get('error') %}
+    {% include "@StoreTemplate/Modules/_message-item.html.twig" with {flashMessage: flashMessage, class: 'alert-error'} %}
+{% endfor %}

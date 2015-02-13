@@ -1,0 +1,124 @@
+{% extends 'StoreTemplateBundle::Layout/_layout.html.twig' %}
+
+{% block container %}
+    <section class="list-pages">
+        <h1>Product</h1>
+        <ul>
+            <li>
+                Home:
+                <ul>
+                    <li><a href="home-view.html">with products</a></li>
+                    <li><a href="home-view-empty.html">without products</a></li>
+                </ul>
+            </li>
+            <li>
+                Category:
+                <ul>
+                    <li><a href="category-view.html">with products</a></li>
+                    <li><a href="category-view-empty.html">without products</a></li>
+                </ul>
+            </li>
+            <li>
+                Item:
+                <ul>
+                    <li><a href="product-view-item.html">without variants</a></li>
+                    <li><a href="product-view-variant.html">with variants</a></li>
+                </ul>
+            </li>
+            <li>
+
+            </li>
+            <li>
+
+            </li>
+        </ul>
+        <h1>Cart & Checkout</h1>
+        <ul>
+            <li>
+                Cart:
+                <ul>
+                    <li><a href="cart-view.html">with products</a></li>
+                    <li><a href="cart-view-empty.html">without products</a></li>
+                </ul>
+            </li>
+            <li>
+                Checkout:
+                <ul>
+                    <li><a href="cart-checkout.html">Checkout</a></li>
+                    <li><a href="cart-checkout-fail.html">Checkout fail</a></li>
+                </ul>
+            </li>
+        </ul>
+        <h1>Orders</h1>
+        <ul>
+           <li>
+               Order list:
+               <ul>
+                   <li><a href="order-list.html">with orders</a></li>
+                   <li><a href="order-list-empty.html">without orders</a></li>
+               </ul>
+           </li>
+            <li>
+                Order view:
+                <ul>
+                    <li><a href="order-view.html">with products</a></li>
+                    <li><a href="order-view-empty.html">without products</a></li>
+                </ul>
+            </li>
+        </ul>
+        <h1>User</h1>
+        <ul>
+            <li>
+                Not login required
+                <ul>
+                    <li><a href="user-login.html">Login</a></li>
+                    <li><a href="user-password-recover.html">Password recover</a></li>
+                    <li><a href="user-register.html">Register</a></li>
+                </ul>
+            </li>
+            <li>
+                Login Required
+                <ul>
+                    <li><a href="user-home.html">User home</a></li>
+                    <li><a href="user-edit.html">Edit</a></li>
+                </ul>
+            </li>
+        </ul>
+        <h1>Store</h1>
+        <ul>
+            <li>
+                Status
+                <ul>
+                    <li><a href="store-disabled.html">Disabled</a></li>
+                    <li><a href="store-under-construction.html">Under construction</a></li>
+                </ul>
+            </li>
+            <li>
+                Other
+                <ul>
+                    <li><a href="static.html">Static pages</a></li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <style type="text/css">
+        .list-pages {
+            max-width: 800px;
+            margin: 16px auto;
+            overflow: hidden;
+            background: #FFF;
+            padding: 0 16px 16px 16px;
+        }
+        .list-pages ul {
+            font-size: 18px;
+            list-style: disc;
+            padding-left: 18px;
+        }
+        .list-pages > ul > li {
+            display: block;
+            overflow: hidden;
+            padding-bottom: 16px;
+        }
+    </style>
+{% endblock container %}

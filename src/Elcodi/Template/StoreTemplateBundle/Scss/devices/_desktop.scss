@@ -1,0 +1,32 @@
+@media screen and (min-width: 768px){
+	.mobile {
+		& {
+			display:none;
+		}
+		&.d-ib, &.d-b {
+			display: none !important;
+		}
+	}
+	.desktop {
+		& {
+			display:block !important;
+		}
+		&.d-ib, &.inline-block {
+			display: inline-block !important;
+		}
+
+	}
+
+	td.desktop, th.desktop {
+		display: table-cell !important;
+	}
+
+	@include header-desktop;
+	@include category-nav-desktop;
+	@include product-list-desktop;
+	@include product-to-basket-group-desktop;
+	@include cart-item-desktop;
+	@include order-item-desktop;
+	@include cart-actions-desktop;
+	@include coupon-add-desktop;
+}

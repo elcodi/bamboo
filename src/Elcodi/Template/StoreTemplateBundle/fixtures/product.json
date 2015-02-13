@@ -1,0 +1,69 @@
+{
+  "product": {
+    "hasVariants" : true,
+    "id" : "1",
+    "stock" : "1",
+    "name" : "Ibiza Lips",
+    "slug" : "ibiza-lips-en",
+    "description" : "Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.",
+    "metaTitle" : "Ibiza Lips English",
+    "metaDescription" : "Ibiza Lips English",
+    "metaKeywords" : "Ibiza Lips English",
+    "showInHome" : true,
+    "enable" : true,
+    "price" : "7.99",
+    "reducedPrice" : "1.99",
+    "principalImage" :  "../../../fixtures/img/lips.jpg",
+    "images" : {
+      "first" :  "../../../fixtures/img/lips.jpg"
+    },
+    "variants" : {
+      "0" : {
+        "id" : "0",
+        "enable" : true,
+        "price" : "7.99",
+        "name" : "Ibiza Lips",
+        "reducedPrice" : {
+          "ammount" : "0"
+        },
+        "images" : {
+          "first" :  "../../../fixtures/img/lips.jpg"
+        }
+      }
+    },
+    "attributes" : {
+      "1" : {
+        "id" : "1",
+        "name" : "Size",
+        "available_options" : {
+          "1" : {
+            "id" : "1",
+            "name" : "Large"
+          },
+          "2" : {
+            "id" : "2",
+            "name" : "Medium"
+          },
+          "3" : {
+            "id" : "3",
+            "name" : "Small"
+          }
+        }
+      },
+      "2" : {
+        "id" : "2",
+        "name" : "Color",
+        "available_options" : {
+          "1" : {
+            "id" : "1",
+            "name" : "White"
+          },
+          "2" : {
+            "id" : "2",
+            "name" : "Black"
+          }
+        }
+      }
+    }
+  }
+}

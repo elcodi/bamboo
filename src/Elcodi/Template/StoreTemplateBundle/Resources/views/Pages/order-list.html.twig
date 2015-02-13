@@ -1,0 +1,36 @@
+{% extends '@StoreTemplate/Layout/_layout.html.twig' %}
+
+{% block content %}
+    <div class="order-list">
+        <h1>{{ 'Orders'|trans }}</h1>
+        {% for order in orders %}
+        <dl class="order-item">
+            <dt class="order-item-image">
+                {{ 'Image'|trans }}
+            </dt>
+            <dd class="order-item-image">
+                <img src="{{ order.orderLines.first.product.principalImage|resize({
+                    width: 80,
+                    height: 80,
+                    type: 5 })
+                }}" alt="{{ line.product.name }}" class="product-thumbnail" />
+            </dd>
+            <dt class="order-item-id">
+                {{ 'Number of order'|trans }}
+            </dt>
+            <dd class="order-item-id">
+                <a href="{{ url('store_order_view', { id: order.id }) }}" class="order-title">{{ 'Order #'|trans }}{{ order.id }}</a>
+            </dd>
+            <dt class="order-item-state">{{ 'State'|trans }}</dt>
+            <dd class="order-item-state">{{ order.lastOrderHistory.state }}</dd>
+            <dt class="order-item-date">{{ 'Date'|trans }}</dt>
+            <dd class="order-item-date">{{ order.createdAt|date('d.m.Y') }}</dd>
+            <dt class="order-item-total">{{ 'Total'|trans }}</dt>
+            <dd class="order-item-total">{{ order.amount|print_convert_money() }}</dd>
+        </dl>
+        {% else %}
+            There are no orders
+        {% endfor %}
+    </div>
+
+{% endblock %}

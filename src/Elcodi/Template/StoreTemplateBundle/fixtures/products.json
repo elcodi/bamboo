@@ -1,0 +1,101 @@
+{
+  "products": {
+    "1": {
+      "hasVariants" : true,
+      "id" : "1",
+      "name" : "Ibiza Lips",
+      "slug" : "ibiza-lips-en",
+      "description" : "Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.",
+      "metaTitle" : "Ibiza Lips English",
+      "metaDescription" : "Ibiza Lips English",
+      "metaKeywords" : "Ibiza Lips English",
+      "showInHome" : true,
+      "enable" : true,
+      "price" : "7.99",
+      "first" : "../../../fixtures/img/lips.jpg",
+      "images" : {
+        "first" :  "../../../fixtures/img/lips.jpg"
+      }
+    },
+    "2": {
+      "id" : "2",
+      "name" : "Ibiza Banana",
+      "slug" : "ibiza-banana-en",
+      "description" : "Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.",
+      "metaTitle" : "Ibiza Banana",
+      "metaDescription" : "Ibiza Banana",
+      "metaKeywords" : "Ibiza Banana",
+      "showInHome" : true,
+      "enable" : true,
+      "price" : "5.41",
+      "principalImage" : "../../../fixtures/img/banana.jpg",
+      "images" : {
+        "first" :  "../../../fixtures/img/banana.jpg"
+      }
+    },
+    "3": {
+      "id" : "3",
+      "name" : "I was There",
+      "slug" : "ibiza-was-there-en",
+      "description" : "Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.",
+      "metaTitle" : "I was There",
+      "metaDescription" : "I was There",
+      "metaKeywords" : "I was There",
+      "showInHome" : true,
+      "enable" : true,
+      "price" : "21.05",
+      "principalImage" : "../../../fixtures/img/there.jpg",
+      "images" : {
+        "first" :  "../../../fixtures/img/there.jpg"
+      }
+    },
+    "4": {
+      "id" : "4",
+      "name" : "A life Style",
+      "slug" : "ibiza-was-there-en",
+      "description" : "Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.",
+      "metaTitle" : "A life Style",
+      "metaDescription" : "A life Style",
+      "metaKeywords" : "A life Style",
+      "showInHome" : true,
+      "enable" : true,
+      "price" : "12.90",
+      "principalImage" : "../../../fixtures/img/there.jpg",
+      "images" : {
+        "first" :  "../../../fixtures/img/there.jpg"
+      }
+    },
+    "5": {
+      "id" : "5",
+      "name" : "A.M. Nesia Ibiza",
+      "slug" : "ibiza-was-there-en",
+      "description" : "Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.",
+      "metaTitle" : "A.M. Nesia Ibiza",
+      "metaDescription" : "A.M. Nesia Ibiza",
+      "metaKeywords" : "A.M. Nesia Ibiza",
+      "showInHome" : true,
+      "enable" : true,
+      "price" : "11.90",
+      "principalImage" : "../../../fixtures/img/amnesia.jpg",
+      "images" : {
+        "first" :  "../../../fixtures/img/amnesia.jpg"
+      }
+    },
+    "6": {
+      "id" : "6",
+      "name" : "Amnesia Poem",
+      "slug" : "ibiza-was-there-en",
+      "description" : "Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.",
+      "metaTitle" : "Amnesia Poem",
+      "metaDescription" : "Amnesia Poem",
+      "metaKeywords" : "Amnesia Poem",
+      "showInHome" : true,
+      "enable" : true,
+      "price" : "13.90",
+      "principalImage" : "../../../fixtures/img/poem.jpg",
+      "images" : {
+        "first" :  "../../../fixtures/img/poem.jpg"
+      }
+    }
+  }
+}

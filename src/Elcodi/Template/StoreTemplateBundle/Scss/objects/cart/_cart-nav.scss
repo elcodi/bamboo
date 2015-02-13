@@ -1,0 +1,48 @@
+.cart-nav {
+	& {
+		display: block;
+		text-align: right;
+		overflow: hidden;
+		margin: 0;
+		padding: 0;
+		background: $color-background;
+		color: $color-foreground;
+		margin: 0 auto;
+		max-width: 400px;
+		box-shadow: 0 2px 2px rgba($color-foreground, .2);
+		z-index: 100;
+	}
+	li {
+		& {
+			display: inline-block;
+			padding: 0 0;
+			width: 32%;
+			text-align: center;
+			vertical-align: middle;
+			line-height: 120%;
+		}
+		&:last-child {
+			& {
+				padding: 0;
+			}
+			a {
+				& {
+					background: $color-foreground;
+					width: 100%;
+					padding: $spacing/4 0;
+					color: $color-background;
+				}
+				&:hover {
+					background: $color-link;
+					text-decoration: none;
+				}
+			}
+		}
+		small {
+			display: block;
+		}
+		strong {
+			color: $color-secondary;
+		}
+	}
+}

@@ -1,0 +1,90 @@
+{#
+ # Base view for a Product detail page with no variants.
+ #}
+{% extends '@StoreTemplate/Layout/_layout.html.twig' %}
+
+
+{% block title %}Bamboo - {{ 'Product'|trans }} {{ product.name }}{% endblock title %}
+
+
+{% block content %}
+<div class="product-view">
+   <h1 class="product-title">{{ product.name }}</h1>
+   <div class="grid">
+       <div class="col-1-2">
+        {% block product_image %}
+           <img class="product-thumbnail" src="{{ product.images|length > 0 ? product.images.first|resize({
+               'width': 772,
+               'height': 604,
+               'type': 5
+           }) : 'http://placehold.it/772x604' }}" alt="{{ product.name }}"/>
+        {% endblock %}
+       </div>
+       <div class="col-1-2">
+           {% block product_info %}
+                   <h3 class="product-title desktop">{{ 'Pricing'|trans }}</h3>
+                   {% block product_info_add_basket %}
+                       <div class= "product-to-basket">
+
+                           <img src="{{ product.principalImage ? product.principalImage|resize({
+                               'width': 60,
+                               'height': 47,
+                               'type': 5
+                           }) : 'http://placehold.it/60x47' }}" alt="{{ product.name }}" align="left" class="desktop"/>
+
+
+                           {% if product.reducedPrice.amount > 0 %}
+                               {% set product_price = product.reducedPrice %}
+                           {% else %}
+                               {% set product_price = product.price %}
+                           {% endif %}
+
+                           <h5 class="product-title desktop">{{ product.name }}</h5>
+                           <p>{{ product_price|print_convert_money() }}
+                               <a title="Add {{ product|purchasable_name }} to cart"
+                                  class="fa fa-shopping-cart button button-secondary"
+                                  href="{{ url('store_cart_add_product', { id: product.id }) }}"> {{ 'Add to cart'|trans }}</a>
+                           </p>
+
+                       </div>
+                   {% endblock %}
+
+                   {% block product_info_details %}
+                       <h3 class="product-title">{{ 'Description'|trans }}</h3>
+                       <p>{{ product.description }}</p>
+
+                       <h3 class="product-title">{{ 'Stock'|trans }}</h3>
+
+                       {% if product.stock %}
+                           <p><i class="fa fa-check"></i> {{ 'This item is in stock and ready to ship!'|trans }}</p>
+                       {% else %}
+                           <p><i class="fa fa-times"></i>{{ 'This item is currently not available'|trans }}</p>
+                       {% endif %}
+
+                       <h3 class="product-title">{{ 'Delivery'|trans }}</h3>
+
+                       <p><i class="fa fa-check"></i> {{ 'Free Delivery is available on this item'|trans }}</p>
+                       <p><i class="fa fa-truck"></i> {{ 'Usually dispatched within 24 hours'|trans }}</p>
+                   {% endblock %}
+           {% endblock %}
+       </div>
+   </div>
+</div>
+<div class="grid">
+    <div class="col-1-1">
+
+    </div>
+</div>
+
+
+{% endblock content %}
+
+{% block prefooter %}
+{% include "@StoreTemplate/Modules/_product-related.html.twig" with {'products' : related_products} %}
+{% endblock prefooter %}
+
+{% block pixels %}
+    <script>
+        _etc.push(["{{ store_tracker }}", 'product_view_' + {{ product.id }}]);
+    </script>
+{% endblock %}

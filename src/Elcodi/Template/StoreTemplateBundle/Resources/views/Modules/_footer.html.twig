@@ -1,0 +1,19 @@
+<div id="mobile-menu" class="grid mobile">
+    {% render url('store_categories_nav') %}
+</div>
+<footer class="footer">
+    <div class="grid">
+        <div class="col-2-3">
+            <ul class="footer-nav">
+                <li><a href="{{ url('store_static_content') }}">Terms &amp; Conditions</a></li>
+                <li><a href="{{ url('store_static_content') }}">Delivery Information</a></li>
+                <li><a href="{{ url('store_static_content') }}">Contact</a></li>
+            </ul>
+        </div>
+        <div class="col-1-3">
+            <a href="{{ url('store_homepage') }}" class="logo">
+                {{ getConfiguration('store.name') }}
+            </a>
+        </div>
+    </div>
+</footer>

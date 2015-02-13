@@ -1,0 +1,49 @@
+{% extends '::_base.html.twig' %}
+
+{% block head_style %}
+    <link rel="stylesheet" type="text/css" media="all" href="{{ asset('bundles/storetemplate/css/main.css') }}" />
+
+
+    <!-- External Font assets -->
+    <link href="http://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet" type="text/css" />
+{% endblock head_style %}
+
+{% block body %}
+    {% block header %}
+
+        {% include '@StoreTemplate/Modules/_header.html.twig' %}
+
+    {% endblock header %}
+
+
+
+
+    {% block container %}
+
+        {% block messages %}
+            <div class="row pad-top-10">
+                <div class="span12">
+                    {% include "@StoreTemplate/Modules/_message-list.html.twig" %}
+                </div>
+            </div>
+        {% endblock messages %}
+
+        <div class="grid grid-pad">
+            <div class="col-1-1">
+                {% block content %}{% endblock content %}
+            </div>
+        </div>
+        {% block prefooter %}{% endblock prefooter %}
+        {%  block footer %}
+
+        {% include '@StoreTemplate/Modules/_footer.html.twig' %}
+
+        {%  endblock footer %}
+    </div>
+    {% endblock container %}
+{% endblock body %}
+
+{% block foot_script %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="{{ asset('bundles/storetemplate/js/bootstrap.min.js') }}"></script>
+{% endblock foot_script %}
