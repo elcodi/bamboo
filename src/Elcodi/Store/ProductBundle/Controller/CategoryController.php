@@ -20,6 +20,7 @@ namespace Elcodi\Store\ProductBundle\Controller;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as AnnotationEntity;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 use Elcodi\Component\Product\Entity\Interfaces\CategoryInterface;
@@ -49,24 +50,18 @@ class CategoryController extends Controller
      */
     public function navAction()
     {
-        $currentCategoryId = $this
+        $masterRequest = $this
             ->get('request_stack')
-            ->getMasterRequest()
-            ->get('id');
+            ->getMasterRequest();
 
-        $currentCategory = null;
-        if (!is_null($currentCategoryId)) {
-            $currentCategory = $this
-                ->get('elcodi.repository.category')
-                ->findOneBy(['id' => $currentCategoryId]);
-        }
+        $currentCategory = $this->getCurrentCategoryGivenRequest($masterRequest);
 
         $categoryTree = $this
             ->get('store.product.service.store_category_tree')
             ->load();
 
         return $this->renderTemplate(
-            'Subpages:category-list.html.twig',
+            'Subpages:category-nav.html.twig',
             [
                 'currentCategory' => $currentCategory,
                 'categoryTree'    => $categoryTree,
@@ -102,7 +97,11 @@ class CategoryController extends Controller
      */
     public function viewAction(CategoryInterface $category)
     {
-        $products = $category->getProducts();
+        $products = $this
+            ->get('elcodi.repository.product')
+            ->findBy([
+                'principalCategory' => $category,
+            ]);
 
         return $this->renderTemplate(
             'Pages:category-view.html.twig',
@@ -111,5 +110,31 @@ class CategoryController extends Controller
                 'category' => $category,
             ]
         );
+    }
+
+    /**
+     * Given a request, return the current highlight-able category
+     *
+     * @param Request $request Request
+     *
+     * @return CategoryInterface|null
+     */
+    protected function getCurrentCategoryGivenRequest(Request $request)
+    {
+        $masterRoute = $request->get('_route');
+        $category = null;
+
+        if ($masterRoute === 'store_product_view') {
+            $productId = $request->get('id');
+            $productRepository = $this->get('elcodi.repository.product');
+            $product = $productRepository->find($productId);
+            $category = $product->getPrincipalCategory();
+        } elseif ($masterRoute === 'store_category_products_list') {
+            $categoryId = $request->get('id');
+            $categoryRepository = $this->get('elcodi.repository.category');
+            $category = $categoryRepository->find($categoryId);
+        }
+
+        return $category;
     }
 }
