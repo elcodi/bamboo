@@ -8,6 +8,10 @@ security:
             pattern:  ^/(?:css|images|js)/
             security: false
 
+        api_area:
+            pattern:  ^/api/
+            security: false
+
         admin_login_area:
             pattern: ^/%bamboo_admin_prefix%/login$
             anonymous: ~
