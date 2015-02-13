@@ -1,0 +1,11 @@
+.cart-empty {
+	& {
+		background: rgba($color-background, .5);
+		text-align: center;
+		padding: $spacing*2 ;
+		margin: $spacing 0 $spacing*2;
+	}
+	.button {
+		margin: $spacing 0;
+	}
+}

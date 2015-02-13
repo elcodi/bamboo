@@ -1,0 +1,33 @@
+.currency-nav {
+	& {
+		display: block;
+		text-align: center;
+		overflow: hidden;
+		margin: 0;
+		background: rgba($color-foreground, .2);
+		font-size: $font-size-xxs;
+	}
+	ul {
+		margin: $spacing/8 0;
+		overflow: hidden;
+	}
+	li {
+		float: left;
+	}
+	a {
+		& {
+			border-left: 1px solid rgba($color-background, .2);
+			padding: $spacing/4 $spacing/2;
+			opacity: .8;
+		}
+		&.active {
+			font-weight: bold;
+			opacity: 1;
+		}
+		&:hover {
+			text-decoration: none;
+			background: rgba($color-foreground, .2);
+			opacity: 1;
+		}
+	}
+}

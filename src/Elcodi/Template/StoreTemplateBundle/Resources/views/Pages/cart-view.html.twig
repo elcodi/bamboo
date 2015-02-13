@@ -1,0 +1,53 @@
+{% extends '@StoreTemplate/Layout/_layout.html.twig' %}
+
+{% block content_title %}
+
+    {% if cart.totalItemNumber > 0 %}
+        {{ 'Your basket'|trans }}
+    {% else %}
+        {{ 'Your basket is empty!'|trans }}
+    {% endif %}
+
+{% endblock content_title %}
+
+{% block content %}
+
+    {{ form_start(form) }}
+
+    {% if cart.totalItemNumber > 0 %}
+        <div class="cart-list">
+            {% for line in form.cartLines %}
+                {% include "@StoreTemplate/Modules/_cart-item.html.twig" with { "line": line } %}
+            {% endfor %}
+        </div>
+        <div class="coupon-list">
+            {% for cartcoupon in cartcoupon %}
+                {% include "@StoreTemplate/Modules/_coupon-item.html.twig" with { "coupon": cartcoupon.coupon } %}
+            {% endfor %}
+        </div>
+        <p class="cart-total"><span>{{ 'Total'|trans }} </span>{{ cart.amount|print_convert_money() }}</p>
+        <div class="cart-actions">
+            <a class="button button-secondary" href="{{ url('store_checkout_payment') }}">{{ 'Checkout'|trans }} &nbsp;<i class="fa fa-arrow-right"></i> </a>
+            {{ form_widget(form.update, { 'attr': {'class': 'button button-empty fa fa-refresh'} } ) }}
+            <a class="button button-empty" href="{{ url('store_cart_empty') }}"><i class="fa fa-trash-o"></i> {{ 'Empty basket'|trans }}</a>
+            <a class="button button-empty cart-actions-continue" href="{{ url('store_homepage') }}"><i class="fa fa-arrow-left"></i> {{ 'Continue shopping'|trans }}</a>
+        </div>
+        {{ form_end(form) }}
+
+        {% render url('store_coupon_view') %}
+
+        <!-- Related products -->
+
+    {% else %}
+        <div class="cart-empty">
+            <i class="fa fa-shopping-cart fa-3x"></i>
+            <h2 class="product-title">{{ "Your cart is empty"|trans}}</h2>
+            <a class="button button-secondary" href="{{ url('store_homepage') }}">{{ 'Continue shopping'|trans }} <i class="fa fa-arrow-right"></i></a>
+        </div>
+    {% endif %}
+
+{% endblock %}
+
+{% block prefooter %}
+    {% include "@StoreTemplate/Modules/_product-related.html.twig" with { 'products' : related_products} %}
+{% endblock prefooter %}

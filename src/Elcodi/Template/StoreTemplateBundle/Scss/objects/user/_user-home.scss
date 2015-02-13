@@ -1,0 +1,23 @@
+.user-home {
+	& {
+		padding-bottom: $spacing*4;
+	}
+	a {
+		& {
+			background: $color-background;
+			padding: $spacing;
+			text-align: center;
+			display: block;
+			font-family: $font-face-title;
+			font-size: $font-size-xl;
+		}
+		&:hover {
+			background: $color-link;
+			color: $color-background;
+			text-decoration: none;
+		}
+	}
+	i {
+		display: block;
+	}
+}

@@ -1,0 +1,46 @@
+{
+  "orders" : {
+    "0" : {
+      "id" : "1",
+      "lastOrderHistory" : {
+        "state" : "Closed"
+      },
+      "amount" : 45.99,
+      "createdAt" : 1353027834,
+      "orderLines" : {
+        "first" : {
+          "product" : {
+            "principalImage" : "../../../fixtures/img/lips.jpg"
+          }
+        },
+        "1" : {
+
+        }
+      },
+      "orderCoupons" : {
+
+      }
+    },
+    "1" : {
+      "id" : "2",
+      "lastOrderHistory" : {
+        "state" : "Pending"
+      },
+      "amount" : 15.99,
+      "createdAt" : 1423047834,
+      "orderLines" : {
+        "first" : {
+          "product" : {
+            "principalImage" : "../../../fixtures/img/banana.jpg"
+          }
+        },
+        "1" : {
+
+        }
+      },
+      "orderCoupons" : {
+
+      }
+    }
+  }
+}

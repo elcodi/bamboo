@@ -1,0 +1,18 @@
+.button {
+	& {
+		padding: $spacing/2 $spacing;
+		display: inline-block;
+		background: $color-foreground;
+		color: $color-background;
+		text-align: center;
+		min-width: $spacing*1.5;
+		border: 0px none;
+	}
+	&:hover {
+		text-decoration: none;
+		opacity: .8;
+	}
+	&.fa {
+		padding: $spacing/4;
+	}
+}

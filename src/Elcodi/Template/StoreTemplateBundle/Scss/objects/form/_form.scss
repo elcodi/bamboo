@@ -1,0 +1,21 @@
+.form {
+	& {
+		background: rgba($color-background, .5);
+		overflow: hidden;
+		margin-bottom: $spacing*2;
+	}
+	legend {
+		font-family: $font-face-title;
+		font-size: $font-size-xl;
+		color: $color-primary;
+		padding: $spacing 0 $spacing/2;
+		margin: 0;
+	}
+	label {
+		display: block;
+		padding-bottom: $spacing/2;
+	}
+	input[type="number"], input[type="text"], input[type="email"],input[type="password"] {
+		width: 100%;
+	}
+}

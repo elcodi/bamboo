@@ -1,0 +1,46 @@
+{#
+ # View for a Product detail page with variants.
+ #}
+{% extends '@StoreTemplate/Pages/product-view-item.html.twig' %}
+
+{#
+ # The product_info_details should now display a form
+ # to select the product variant
+ #}
+{% block product_info_add_basket %}
+<div class= "product-to-basket-group">
+{% for variant in product.variants %}
+    <div class= "product-to-basket">
+        {% set variant_price = variant.reducedPrice.amount > 0 ? variant.reducedPrice : variant.price %}
+            {% if variant.images|length > 0  %}
+            <img align="right" hspace="10" src="{{ variant.images.first|resize({
+                'width': 60,
+                'height': 47,
+                'type': 5
+            }) }}" alt="{{ variant.name }}" align="left"/>
+            {% else %}
+                <img src="{{ product.principalImage ? product.principalImage|resize({
+                    'width': 60,
+                    'height': 47,
+                    'type': 5
+                }) : 'http://placehold.it/60x47' }}" alt="{{ product.name }}" align="left"/>
+            {% endif %}
+
+        <h5 class="product-title">{{ variant|purchasable_name }}</h5>
+        <p>{{ variant_price|print_convert_money() }}
+            <a title="Add {{ variant|purchasable_name }} to cart"
+               class="fa fa-shopping-cart button button-secondary"
+               href="{{ url('store_cart_add_product_variant', { id: variant.id }) }}"></a>
+        </p>
+    </div>
+
+{% endfor %}
+</div>
+{% endblock %}
+
+
+{% block pixels %}
+    <script>
+        _etc.push(["{{ store_tracker }}", 'product_view_' + {{ product.id }}]);
+    </script>
+{% endblock %}

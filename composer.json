@@ -91,18 +91,20 @@
         "elcodi/page-bundle": "~0.4.0",
         "elcodi/configuration-bundle": "~0.4.0",
         "elcodi/metric-bundle": "~0.4.0",
-        "elcodi/sitemap-bundle": "~0.4.0",
-
-        "elcodi-templates/template": "~0.4.0",
-        "elcodi-templates/store-template-bundle": "~0.4.0"
+        "elcodi/sitemap-bundle": "~0.4.0"
+    },
+    "replace": {
+        "elcodi-templates/template": "self.version",
+        "elcodi-templates/store-template-bundle": "self.version"
     },
     "require-dev": {
         "elcodi/elcodi": "~0.4.18",
         "elcodi/test-common-bundle": "~0.4.0",
         "doctrine/data-fixtures": "~1.0",
-        "behat/symfony2-extension": "~2.0@dev",
-        "behat/mink-extension": "~2.0@dev",
-        "behat/mink-browserkit-driver": "~1.1@dev",
+        "behat/behat": "~3.0",
+        "behat/symfony2-extension": "~2.0",
+        "behat/mink-extension": "~2.0",
+        "behat/mink-browserkit-driver": "~1.1",
         "fabpot/php-cs-fixer": "1.4.2",
         "mmoreram/php-formatter": "1.0.4"
     },

@@ -1,0 +1,35 @@
+{% extends '@StoreTemplate/Layout/_layout.html.twig' %}
+
+{% form_theme form '@StoreTemplate/fields.html.twig' %}
+
+{% block content %}{% endblock content %}
+
+{% block prefooter %}
+<div class="form form-login">
+    <div class="grid">
+        <div class="col-1-2">
+                <legend><i class="fa fa-sign-in"></i> {{ "Login with your account"|trans }}</legend>
+                {{ form_start(form) }}
+                {{ form_row(form.email) }}
+                {{ form_row(form.password) }}
+                <p class="buttons">
+                    {{ form_row( form.send , { 'attr': {'class': 'button button-secondary' } } ) }}
+                    <a class="button button-empty" href="{{ url("store_password_remember") }}">
+                        Forgot your password?
+                    </a>
+                </p>
+                {{ form_end(form) }}
+        </div>
+        <div class="col-1-2">
+            <legend>{{ "Unregistered?"|trans }}</legend>
+            <a class="button button-primary" href="{{ url("store_register") }}">
+                Create new account
+            </a>
+            <legend>{{ "Login with your social accounts"|trans }}</legend>
+            <div class="login-social">
+                {% render url('hwi_oauth_connect') %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock prefooter %}

@@ -1,0 +1,23 @@
+.product-title {
+	font-family: $font-face-title;
+	font-size: $font-size-xxl;
+	margin: 0 0 $spacing/4;
+	font-weight: normal;
+}
+
+h1.product-title {
+	font-size: $font-size-xxxl;
+}
+
+h3.product-title {
+	color: $color-primary;
+}
+
+h4.product-title {
+	margin: 0;
+}
+
+h5.product-title {
+	margin: 0 0 $spacing/4;
+	font-size: $font-size-m;
+}

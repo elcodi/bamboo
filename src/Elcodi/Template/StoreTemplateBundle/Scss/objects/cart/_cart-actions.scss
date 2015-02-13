@@ -1,0 +1,40 @@
+.cart-actions {
+	& {
+		overflow: hidden;
+		margin-bottom: 100px;
+	}
+	.button-empty {
+		color: $color-primary;
+	}
+	.fa-refresh {
+		&:before {
+			margin-right: $spacing/4;
+		}
+	}
+}
+
+@mixin cart-actions-mobile {
+	.cart-actions {
+		& {
+			padding-top: $spacing*2.5;
+		}
+		.button {
+			display: block;
+			width: 100%;
+			margin-bottom: $spacing;
+		}
+	}
+}
+
+@mixin cart-actions-desktop {
+	.cart-actions {
+		.button {
+			padding: $spacing/2 $spacing;
+			margin-left: $spacing/2;
+			float: right;
+		}
+		.cart-actions-continue {
+			float: left;
+		}
+	}
+}

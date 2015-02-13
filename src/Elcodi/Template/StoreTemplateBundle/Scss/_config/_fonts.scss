@@ -1,0 +1,82 @@
+
+/**
+ * Default font face, used in the body.
+ * @group fonts
+ */
+$font-face-default: 'Helvetica Neue', Helvetica, Helvetica, Arial, sans-serif !global;
+
+
+@import "http://fonts.googleapis.com/css?family=Pacifico";
+@import "http://fonts.googleapis.com/css?family=Open+Sans:300,600";
+
+/**
+ * Font face used for titles, buttons and some other elements
+ * @group fonts
+ */
+$font-face-title: 'Open Sans', Tahoma, sans-serif;
+
+$font-face-logo: 'Pacifico','Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
+
+$px-to-em-proportion: 16px !global;
+
+/**
+ * @group fonts
+ */
+$font-size-xxxl: 2.8rem !global;
+
+/**
+ * @group fonts
+ */
+$font-size-xxl: 1.7rem !global;
+
+/**
+ * @group fonts
+ */
+$font-size-xl: 1.4rem!global;
+
+/**
+ * @group fonts
+ */
+$font-size-l: 1.3rem !global;
+
+/**
+ * @group fonts
+ */
+$font-size-ml: 1.2rem !global;
+
+/**
+ * @group fonts
+ */
+$font-size-m: 1.1rem !global;
+
+/**
+ * @group fonts
+ */
+$font-size-default: 1rem !global;
+
+/**
+ * @group fonts
+ */
+$font-size-s: .95rem !global;
+
+/**
+ * @group fonts
+ */
+$font-size-xs: .9rem !global;
+
+/**
+ * @group fonts
+ */
+$font-size-xxs: .8rem !global;
+
+/**
+ * @group fonts
+ */
+$font-size-xxxs: .75rem !global;
+
+/**
+ * @group fonts
+ */
+$font-size-xxxxs: .7rem !global;
+
+$line-height-default: 1.5em;

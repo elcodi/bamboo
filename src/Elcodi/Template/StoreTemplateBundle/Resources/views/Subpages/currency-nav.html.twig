@@ -1,0 +1,15 @@
+{% if currencies|length > 1 %}
+    <nav class="currency-nav">
+        <div class="grid">
+            <ul>
+                {% for currency in currencies %}
+                    <li>
+                        <a href="{{ url("store_currency_switch", {'iso': currency.iso}) }}" {% if currency == activeCurrency %} class="active" {% endif %}>
+                            {{ currency.iso }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </nav>
+{% endif %}

@@ -1,0 +1,101 @@
+{% extends '@StoreTemplate/Layout/_layout.html.twig' %}
+
+{% block content %}{% endblock content %}
+
+{% block prefooter %}
+<div class="form form-checkout">
+        <div class="grid">
+            <div class="col-2-3 ">
+                {{ paymill_render(
+                "@StoreTemplate/Modules/_payment-paymill.html.twig"
+                ) }}
+            </div>
+            <div class="col-1-3 payment">
+                <form id="form-payment-execute" action="" method="post">
+                    <legend>{{ 'Shipping method'|trans }}</legend>
+                    <label>
+                        <input type="radio" name="field-shipping" value="free" checked="checked" />
+                        {{ 'Standard - FREE'|trans }}
+                    </label>
+                    <label>
+                        <input type="radio" name="field-shipping"  value="express" />
+                        {{ 'Express'|trans }} - {{ shippingPrice|print_convert_money() }}
+                    </label>
+                    <legend>{{ 'Payment method'|trans }}</legend>
+                    <label>
+                        <input data-url="{{ url('freepayment_execute') }}" type="radio" id="field-card" name="field-method"  />
+                        {{ 'Free'|trans }}
+                    </label>
+                    <label>
+                        <input data-url="{{ url('paypal_web_checkout_execute') }}" type="radio" id="field-paypal" name="field-method" />
+                        {{ 'Paypal'|trans }}
+                    </label>
+                    <label>
+                        <input data-url="" type="radio" id="field-paymill" name="field-method" checked="checked" />
+                        {{ 'Credit/Debit card'|trans }}
+                    </label>
+                    <div id="form-payment-execute-submit">
+                        <p>{{ 'Click continue to finish your purchase.'|trans }}</p>
+                        <button class="button button-secondary" type="submit">{{ 'Continue'|trans }}</button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+
+    <div class="grid">
+        <div class="col-1-2 desktop">&nbsp;</div>
+        <div class="col-1-2">
+
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock prefooter %}
+
+{% block foot_script %}
+
+    {{ parent() }}
+
+    {{ paymill_scripts() }}
+
+    <script type="application/javascript">
+
+        $(function() {
+
+            /* Setting payment execute URL to first selected
+            *  payment method from the radio-button choices */
+            var formPaymentExecute = $("#form-payment-execute");
+            var paymentRadioInput = $("input[name=field-method]");
+            var selectedRadioInput = $("input[name=field-method]:checked");
+            var selectedPaymentExecuteUrl = selectedRadioInput.data("url");
+
+            formPaymentExecute.attr("action", selectedPaymentExecuteUrl);
+
+            paymentRadioInput.change(function() {
+                /* We are storing the execute action url
+                 * into a data attribute which will be copied
+                 * to the form "action" when changing payment
+                 * method */
+                var executeUrl = $(this).data("url");
+
+                if (executeUrl) {
+                    /* When no data-url is present in the radios,
+                     * it means we selected the "paymill" method */
+                    $("#form-payment-execute-submit").show();
+                    $("#paymill_form").addClass("hidden");
+
+                    formPaymentExecute.attr("action", executeUrl);
+                } else {
+
+                    $("#form-payment-execute-submit").hide();
+                    $("#paymill_form").removeClass("hidden");
+                }
+            });
+        });
+
+    </script>
+{% endblock %}

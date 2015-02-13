@@ -1,0 +1,32 @@
+{% set lineObject = line.vars.data %}
+{% set product = lineObject.product %}
+{% set purchasable = lineObject.purchasable %}
+{% set productRoute = url('store_product_view', { slug: product.slug, id: product.id }) %}
+
+<dl class="cart-item">
+    <dt class="cart-item-image">{{ 'Image'|trans }}</dt>
+    <dd class="cart-item-image">
+        <a href="{{ productRoute }}">
+            <img src="{{ product.images|length > 0 ? product.images.first|resize({
+                width: 150,
+                height: 150,
+                type: 5 }) : 'http://placehold.it/80x80'
+            }}" alt="{{ product.name }}" class="product-thumbnail" />
+        </a>
+    </dd>
+    <dt class="cart-item-name">{{ 'Item'|trans }}</dt>
+    <dd class="cart-item-name"><a href="{{ productRoute }}" class="product-title">{{ product.name }}</a></dd>
+    <dt class="cart-item-units">{{ 'Units'|trans }}</dt>
+    <dd class="cart-item-units">{{ form_row(line.quantity) }}</dd>
+    {% if purchasable.reducedPrice.amount > 0 %}
+        {% set purchasablePrice = purchasable.ReducedPrice %}
+    {% else %}
+        {% set purchasablePrice = purchasable.price %}
+    <dt class="cart-item-price">{{ 'Price'|trans }}</dt>
+    <dd class="cart-item-price">{{ purchasablePrice|print_convert_money() }}</dd>
+    <dt class="cart-item-total">{{ 'Total'|trans }}</dt>
+    <dd class="cart-item-total">{{ lineObject.amount|print_convert_money() }}</dd>
+    {% endif %}
+    <dt class="cart-item-remove">{{ 'Remove'|trans }}</dt>
+    <dd class="cart-item-remove"><a href="{{ url('store_cartline_remove', { id: lineObject.id }) }}" class="fa fa-trash-o button"></a></dd>
+</dl>

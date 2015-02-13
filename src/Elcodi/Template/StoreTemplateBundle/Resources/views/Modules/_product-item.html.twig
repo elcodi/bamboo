@@ -1,0 +1,72 @@
+{#
+ # Base display block for a Product with no variants in listing page.
+ #}
+<div class="product-item">
+
+    {{ elcodi_hook("store.product_pin_top", {
+        'product': product
+    }) }}
+
+    {% set productRoute = url('store_product_view', { 'slug': product.slug, 'id': product.id }) %}
+
+    {% block pin_title %}
+    <h4 class="product-title">
+        <a href="{{ productRoute }}">{{ product.name }}</a>
+    </h4>
+    {% endblock %}
+
+    {% block pin_image %}
+        <a href="{{ productRoute }}" class="product-thumbnail">
+            <img class="image" src="{{ product.images|length > 0 ? product.images.first|resize({
+                'width': 372,
+                'height': 291,
+                'type': 5
+            }) : 'http://placehold.it/372x291' }}" alt="{{ product.name }}" />
+        </a>
+    {% endblock %}
+    <p class="product-actions">
+        {% if product.hasVariants() %}
+        <a class="fa fa-list button button-secondary"
+           title="Choose a model of {{ product.name }}"
+           href="{{ url('store_product_view', {
+               'slug': product.slug,
+               'id': product.id
+           }) }}#variant-add-to-cart">
+            <span class="entypo numbered-list"></span>
+        </a>
+        {% else %}
+        <a class="fa fa-shopping-cart button button-secondary"
+           href="{{ url('store_cart_add_product', { id: product.id }) }}"
+           title="Add to cart {{ product.name }}">
+            <span class="entypo cart"></span>
+        </a>
+        {% endif %}
+
+        {% block pin_button_view %}
+        <a class="fa fa-search button button"
+           title="View details for {{ product.name }}"
+           href="{{ productRoute }}">
+            <span class="entypo search"></span>
+        </a>
+        {% endblock %}
+    </p>
+    <p class="product-pricing">
+
+        {% if product.reducedPrice.amount > 0 %}
+            {% set product_price = product.reducedPrice %}
+        {% else %}
+            {% set product_price = product.price %}
+        {% endif %}
+
+        {{ product_price|print_convert_money() }}
+
+        {% if product_price.currency.id != app.session.get('currency_id') %}
+
+            - <span class="original-price">({{ product_price|print_money() }})</span>
+
+        {% endif %}
+    </p>
+    {{ elcodi_hook("store.product_pin_bottom", {
+        'product': product
+    }) }}
+</div>

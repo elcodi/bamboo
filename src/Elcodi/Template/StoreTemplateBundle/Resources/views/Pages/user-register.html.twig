@@ -1,0 +1,33 @@
+{% extends '@StoreTemplate/Layout/_layout.html.twig' %}
+
+
+{% form_theme form '@StoreTemplate/fields.html.twig' %}
+
+
+{% block content %}{% endblock content %}
+
+{% block prefooter %}
+    <div class="form">
+        {{ form_start(form) }}
+        <div class="grid">
+            <legend><i class="fa fa-user"></i> {{ "Register"|trans }}</legend>
+            <div class="col-1-2">
+                {{ form_row(form.firstname) }}
+            </div>
+            <div class="col-1-2">
+                {{ form_row(form.email) }}
+            </div>
+            <div class="col-1-2">
+                {{ form_row(form.password.first) }}
+            </div>
+            <div class="col-1-2">
+                {{ form_row(form.password.second) }}
+            </div>
+            <p class="buttons">
+                {{ form_row( form.send , { 'attr': {'class': 'button button-secondary' } } ) }}
+            </p>
+
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock prefooter %}

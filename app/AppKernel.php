@@ -119,7 +119,7 @@ class AppKernel extends Kernel
             /**
              * Elcodi Templates
              */
-            new \Elcodi\StoreTemplateBundle\StoreTemplateBundle(),
+            new \Elcodi\Template\StoreTemplateBundle\StoreTemplateBundle(),
 
             /**
              * Elcodi Plugins

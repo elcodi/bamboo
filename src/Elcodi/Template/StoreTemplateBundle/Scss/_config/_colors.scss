@@ -1,0 +1,105 @@
+/**
+ * Color used for foreground elements, such as text.
+ * TIP: color-foreground can be used as background in a box with color-background for the text to create elements in negative
+ * @group colors
+ */
+$color-foreground: #999 !global;
+
+/**
+ * Light variant of $color-foreground.
+ * By Default is set to auto, so it should use lighten or darken functions (depends on the brightness) to create the variant.
+ * You can specify a color in your $colors map to avoid the auto color.
+ * @group colors
+ */
+$color-foreground-light: #CCC !global;
+
+/**
+ * Dark variant of $color-foreground.
+ * By Default is set to auto, so it should use lighten or darken functions (depends on the brightness) to create the variant.
+ * You can specify a color in your $colors map to avoid the auto color.
+ * @group colors
+ */
+$color-foreground-dark: #000 !global;
+
+/**
+ * Color used for background elements, for  as box-text.
+ * TIP: color-background can be used as color for the text in a box with color-foreground as background to create elements in negative.
+ * @group colors
+ */
+$color-background: #FFF !global;
+
+/**
+ * Color used for the html body element background.
+ * @group colors
+ */
+$color-body: #EDEDED !global;
+
+/**
+ * Primary color used for the objects. It should be your brand primary color.
+ * @group colors
+ */
+$color-primary:  #66CCCC !global;
+
+/**
+ * Secondary color used for the objects. It should be your brand secondary color. If you don't have one, a black or grey could be a great alternative.
+ * @group colors
+ */
+$color-secondary: #ff884c !global;
+
+/**
+ * Color used for the links.
+ * @group colors
+ */
+$color-link: #ff884c !global;
+
+/**
+ * Color used for the default box. Grey can be a great candidate here.
+ * @group colors
+ */
+$color-box: #CCC !global;
+
+/**
+ * Light variant of $color-box.
+ * By Default is set to auto, so it should use lighten or darken functions (depends on the brightness) to create the variant.
+ * You can specify a color in your $colors map to avoid the auto color.
+ * @group colors
+ */
+$color-box-light: #EDEDED !global;
+
+/**
+ * Dark variant of $color-box.
+ * By Default is set to auto, so it should use lighten or darken functions (depends on the brightness) to create the variant.
+ * You can specify a color in your $colors map to avoid the auto color.
+ * @group colors
+ */
+$color-box-dark: #BBBBBB !global;
+
+/**
+ * Background color for the header.
+ * @group colors
+ */
+$color-header: #000;
+
+/**
+ * Color for the info message boxes.
+ * @group colors
+ */
+$color-info: #1E72A6 !global;
+
+/**
+ * Color for the success objects, such as msg-ok boxes.
+ * @group colors
+ */
+$color-ok: #6A932C !global;
+
+/**
+ * Color for the error objects, such as msg-ko boxes.
+ * @group colors
+ */
+$color-ko : #EE3728 !global;
+
+/**
+ * Color for the warning objects, such as msg-warning boxes.
+ * @group colors
+ */
+$color-warning: #DFB84F !global;

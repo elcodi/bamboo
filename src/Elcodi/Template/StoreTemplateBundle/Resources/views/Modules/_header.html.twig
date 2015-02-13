@@ -1,0 +1,18 @@
+<header class="header">
+    {% render url('store_currency_nav') %}
+    <div class="grid">
+        <div class="col-1-2">
+            <a href="{{ url('store_homepage') }}" class="logo">
+                {{ getConfiguration('store.name') }}
+            </a>
+        </div>
+        <div class="col-1-2">
+            {% render url('store_user_nav') %}
+            {% render url('store_cart_nav') %}
+        </div>
+    </div>
+</header>
+<div class="grid desktop">
+    {% render url('store_categories_nav') %}
+</div>
+<a href="#mobile-menu" class="button mobile"><i class="fa fa-arrow-down"></i> {{ 'Menu'|trans }}</a>

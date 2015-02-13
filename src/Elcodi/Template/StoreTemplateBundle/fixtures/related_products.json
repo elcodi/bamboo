@@ -1,0 +1,52 @@
+{
+  "related_products": {
+    "4": {
+      "id" : "4",
+      "name" : "A life Style",
+      "slug" : "ibiza-was-there-en",
+      "description" : "Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.",
+      "metaTitle" : "A life Style",
+      "metaDescription" : "A life Style",
+      "metaKeywords" : "A life Style",
+      "showInHome" : true,
+      "enable" : true,
+      "price" : "12.90",
+      "principalImage" : "../fixtures/img/there.jpg",
+      "images" : {
+        "first" :  "../../../fixtures/img/there.jpg"
+      }
+    },
+    "5": {
+      "id" : "5",
+      "name" : "A.M. Nesia Ibiza",
+      "slug" : "ibiza-was-there-en",
+      "description" : "Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.",
+      "metaTitle" : "A.M. Nesia Ibiza",
+      "metaDescription" : "A.M. Nesia Ibiza",
+      "metaKeywords" : "A.M. Nesia Ibiza",
+      "showInHome" : true,
+      "enable" : true,
+      "price" : "11.90",
+      "principalImage" : "../fixtures/img/amnesia.jpg",
+      "images" : {
+        "first" :  "../../../fixtures/img/amnesia.jpg"
+      }
+    },
+    "6": {
+      "id" : "6",
+      "name" : "Amnesia Poem",
+      "slug" : "ibiza-was-there-en",
+      "description" : "Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.",
+      "metaTitle" : "Amnesia Poem",
+      "metaDescription" : "Amnesia Poem",
+      "metaKeywords" : "Amnesia Poem",
+      "showInHome" : true,
+      "enable" : true,
+      "price" : "13.90",
+      "principalImage" : "../fixtures/img/poem.jpg",
+      "images" : {
+        "first" :  "../../../fixtures/img/poem.jpg"
+      }
+    }
+  }
+}

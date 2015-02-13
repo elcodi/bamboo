@@ -1,0 +1,27 @@
+.product-to-basket {
+	& {
+		background: rgba($color-foreground, .1);
+		padding: $spacing/4;
+		margin-bottom: $spacing/4;
+	}
+	img {
+		margin: $spacing/8 $spacing/2 0 $spacing/2;
+		position: relative;
+		z-index: 100;
+		border: 1px solid $color-primary;
+		max-width: 60px;
+	}
+	p {
+		background: $color-background;
+		box-shadow: 0 2px 2px rgba($color-foreground, .2);
+		padding: $spacing/4 $spacing*2 $spacing/4 $spacing/4;
+		position: relative;
+		text-align: left;
+		margin-bottom: 0;
+	}
+	a {
+		position: absolute;
+		top: 1px;
+		right: 1px;
+	}
+}
