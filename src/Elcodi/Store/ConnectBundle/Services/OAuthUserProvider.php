@@ -266,8 +266,7 @@ class OAuthUserProvider implements OAuthAwareUserProviderInterface
 
         $customer
             ->setEmail($response->getEmail())
-            ->setFirstname($response->getRealName())
-            ->setUsername($response->getNickname());
+            ->setFirstname($response->getRealName());
 
         $this->authorizationManager->persist($customer);
         $this->authorizationManager->flush($customer);
