@@ -14,7 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\StoreTemplateBundle;
+namespace Elcodi\Template\StoreTemplateBundle;
 
 use Elcodi\Component\Template\Interfaces\TemplateInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;

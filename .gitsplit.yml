@@ -1,2 +1,3 @@
 split:
     # Split definition for http://gitsplit.com
+    src/Elcodi/Template/*: git@github.com:elcodi-templates/$i.git
