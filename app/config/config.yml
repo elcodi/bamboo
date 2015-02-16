@@ -43,17 +43,33 @@ twig:
 # Doctrine Configuration
 doctrine:
     dbal:
-        driver:   "%database_driver%"
-        host:     "%database_host%"
-        port:     "%database_port%"
-        dbname:   "%database_name%"
-        user:     "%database_user%"
-        password: "%database_password%"
-        charset:  UTF8
+        connections:
+            default:
+                driver:   "%database_driver%"
+                host:     "%database_host%"
+                port:     "%database_port%"
+                dbname:   "%database_name%"
+                user:     "%database_user%"
+                password: "%database_password%"
+                charset:  UTF8
+            location:
+                driver:   "%location_database_driver%"
+                host:     "%location_database_host%"
+                port:     "%location_database_port%"
+                dbname:   "%location_database_name%"
+                user:     "%location_database_user%"
+                password: "%location_database_password%"
+                charset:  UTF8
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
-        auto_mapping: false
+        entity_managers:
+            default:
+                connection: default
+                auto_mapping: false
+            location:
+                connection: location
+                auto_mapping: false
 
 # Assetic Configuration
 assetic:
@@ -133,6 +149,10 @@ hwi_oauth:
             options:
                 sandbox: %bamboo_social_paypal_client_is_sandbox%
 
+#
+# Elcodi related configuration
+#
+
 elcodi_bamboo:
     store_tracker: 7s89da7s8d9a
 
@@ -140,3 +160,8 @@ elcodi_media:
     images:
         resize:
             converter_bin_path: %imagick_convert_bin_path%
+
+elcodi_geo:
+    mapping:
+        location:
+            manager: location
