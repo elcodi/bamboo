@@ -36,24 +36,13 @@ class AddressType extends AbstractType
     protected $addressFactory;
 
     /**
-     * @var string
-     *
-     * Country namespace
-     */
-    protected $countryNamespace;
-
-    /**
      * Constructor
      *
-     * @param AddressFactory $addressFactory   Address factory
-     * @param string         $countryNamespace Country namespace
+     * @param AddressFactory $addressFactory Address factory
      */
-    public function __construct(
-        AddressFactory $addressFactory,
-        $countryNamespace
-    ) {
+    public function __construct(AddressFactory $addressFactory)
+    {
         $this->addressFactory = $addressFactory;
-        $this->countryNamespace = $countryNamespace;
     }
 
     /**
@@ -116,11 +105,9 @@ class AddressType extends AbstractType
                 'required' => true,
                 'label'    => 'State',
             ])
-            ->add('country', 'entity', [
-                'class' => $this->countryNamespace,
+            ->add('country', 'text', [
                 'required' => true,
-                'label'    => 'Country',
-                'property' => 'name',
+                'label'    => 'State',
             ])
             ->add('phone', 'text', [
                 'required' => true,
