@@ -60,6 +60,7 @@ assetic:
     bundles:
         - AdminCoreBundle
         - StoreCoreBundle
+        - StoreTemplateBundle
     debug:          "%kernel.debug%"
     use_controller: false
     filters:

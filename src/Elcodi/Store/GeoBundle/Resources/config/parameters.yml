@@ -1,0 +1,6 @@
+parameters:
+
+    #
+    # Location provider active
+    #
+    elcodi.location_provider: "elcodi.location_provider.service"

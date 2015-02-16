@@ -71,6 +71,9 @@ admin_login_check:
 admin_logout:
     path: /%bamboo_admin_prefix%/logout
 
+store_address:
+    resource: "@StoreGeoBundle/Resources/config/routing.yml"
+
 #
 # Store routes
 #
