@@ -2,7 +2,7 @@ menu_nodes:
     bambooadmin_dashboard:
         name: Dashboard
         code: home
-        url: admin_home
+        url: admin_homepage
         enabled: 1
         subnodes: ~
 
