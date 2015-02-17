@@ -1,6 +1,9 @@
 
 // function to get the brightness of a color
+
+@import "lin2log";
 @import "brightness";
+@import "contrast-color";
 
 @import "rem-to-px";
 

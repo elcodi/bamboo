@@ -1,0 +1,30 @@
+@if $ui-charts == true and $ui == true {
+	.doughnut-legend, .line-legend, .pie-legend, .bar-legend {
+		& {
+			display: block;
+			overflow: hidden;
+		}
+		li {
+			display: inline-block;
+			margin: $spacing/2 $spacing $spacing/2;
+			font-size: $font-size-default;
+		}
+		span {
+			display: inline-block;
+			width: $font-size-default;
+			height: $font-size-default;
+			vertical-align: middle;
+			margin-right: $spacing/4;
+			@include border-radius;
+		}
+	}
+
+	.doughnut-legend, .pie-legend {
+		text-align: center;
+	}
+
+	.line-legend, .bar-legend {
+		text-align: left;
+	}
+
+}

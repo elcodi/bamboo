@@ -16,7 +16,7 @@ TinyCore.AMD.define('scss-group', ['devicePackage'], function () {
 		},
 		autobind: function (oTarget) {
 
-			var sHtml = oTarget.innerHTML.replace('-default :', '-custom :').replace('<span class="hljs-keyword">default</span>','<span class="hljs-keyword">custom</span>'),
+			var sHtml = oTarget.innerHTML.replace('-default', '-custom').replace('<span class="hljs-keyword">default</span>','<span class="hljs-keyword">custom</span>'),
 				sGroup = oTarget.getAttribute('data-tc-group'),
 				cleanHtml = sHtml.split('<span class="hljs-comment">/*<span class="hljs-phpdoc"> @group</span> '+ sGroup + ' */</span>').pop();
 

@@ -1,0 +1,42 @@
+$object-navigation-sub-vars-default: (
+
+	/* Background  first level: */
+		background-color: $color-background,
+
+	/* Background second level: */
+		background-color-dark: $color-box,
+
+	/* Background gradients (from background-color to background-color-light) */
+		background-color-light: $color-primary-light,
+
+	/* Link color */
+		color: $color-primary,
+
+	/* Border Radius */
+		border-radius: $default-border-radius,
+
+	/* Font family first level */
+		font-family: $font-face-default,
+
+	/* Font weight default */
+		font-weight: normal,
+
+	/* Font weight Active element */
+		font-weight-active: bold,
+
+	/* Font size first level */
+		font-size: $font-size-m,
+
+	/* Font family inner levels */
+		inner-font-family: $font-face-default,
+
+	/* Font weight inner levels */
+		inner-font-weight: normal,
+
+	/* Font size inner levels */
+		inner-font-size: $font-size-s,
+
+	/* Object style (Default or tabbed) */
+		style: default
+
+) !global !default;

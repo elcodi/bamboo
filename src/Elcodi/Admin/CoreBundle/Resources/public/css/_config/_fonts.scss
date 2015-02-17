@@ -1,28 +1,26 @@
 @import "http://fonts.googleapis.com/css?family=Open+Sans:700,300";
 
-$font-line-height-custom: (
-	base: 1.5em,
-	title: 1.2em
-) !global;
 
-$font-faces-custom: (
-	default: 'Tahoma, Arial, Verdana, sans-serif',
-	title: "'Open Sans', Tahoma, sans-serif",
-	icons: true
-) !global;
-
-$font-sizes-custom: (
-	base: 14px,
-	xxxl: 3rem,
-	xxl: 2.2rem,
-	xl: 1.4rem,
-	l: 1.2rem,
-	ml: 1.1rem,
-	m: 1rem,
-	default: .9rem,
-	s: .85rem,
-	xs: .75rem,
-	xxs: .7rem,
-	xxxs: .6rem,
-	xxxxs: .5rem
-) !global;
+$fonts-custom: (
+		line-height-base: 1.5em,
+		line-height-title: 1.2em,
+		face-default: 'Tahoma, Arial, Verdana, sans-serif',
+		face-title: "'Open Sans', Tahoma, sans-serif",
+		weight-default: normal,
+		weight-title: normal,
+		icons: true,
+		size-base: 14px,
+		size-xxxl: 3rem,
+		size-xxl: 2.2rem,
+		size-xl: 1.4rem,
+		size-l: 1.2rem,
+		size-ml: 1.1rem,
+		size-m: 1rem,
+		size-default: .9rem,
+		size-s: .85rem,
+		size-xs: .80rem,
+		size-xxs: .75rem,
+		size-xxxs: .7rem,
+		size-xxxxs: .6rem,
+		size-title-exponential: 1.5
+) !global !default;

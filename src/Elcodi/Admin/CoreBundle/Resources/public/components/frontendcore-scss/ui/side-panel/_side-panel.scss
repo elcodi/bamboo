@@ -1,0 +1,36 @@
+@if $ui-side-panel == true and $ui == true {
+	.side-panel-default {
+		& {
+			position: fixed;
+			z-index: 100;
+			overflow-y: auto;
+		}
+		a[data-tc-modules="side-panel"] {
+			& {
+				display: block;
+				position: absolute;
+				top: 50%;
+				padding: $spacing/2;
+				@include border-radius($default-border-radius $default-border-radius 0 0);
+				background: $color-link;
+				color: contrast-color($color-link, $color-foreground, $color-background);
+				box-sizing: border-box;
+				text-align: center;
+			}
+			&:hover {
+				text-decoration: none;
+				@include opacity(.9);
+			}
+		}
+		&.side-panel-left {
+			a[data-tc-modules="side-panel"] {
+				margin-right: -$spacing;
+			}
+		}
+		&.side-panel-right {
+			a[data-tc-modules="side-panel"] {
+				margin-left: -$spacing;
+			}
+		}
+	}
+}

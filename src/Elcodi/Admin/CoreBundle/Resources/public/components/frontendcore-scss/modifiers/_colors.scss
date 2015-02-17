@@ -17,6 +17,9 @@ secondary
 box
 ok
 ko
+foreground
+background
+foreground-light
 
 EXAMPLES
 c-secondary
@@ -25,7 +28,7 @@ bg-primary
 bg-ok
 */
 
-$colors-list: 'foreground','background','primary','secondary','box','ko','ok','info','warning' ;
+$colors-list: 'foreground','background','foreground-light','primary','secondary','box','ko','ok','info','warning' ;
 
 @if $ui != true {
 
@@ -40,3 +43,4 @@ $colors-list: 'foreground','background','primary','secondary','box','ko','ok','i
 		}
 	}
 }
+

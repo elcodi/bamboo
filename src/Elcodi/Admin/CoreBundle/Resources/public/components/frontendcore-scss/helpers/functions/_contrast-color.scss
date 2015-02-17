@@ -1,35 +1,13 @@
-/**
- * **Function to get contrasted color**
- * Get the best color based on two options (Dark & light) to contrast in a background color
- *
- * @author Toni Pinel
- *
- * @param {hex-color}	$bg-color ($color-background) - Background color
- * @param {hex-color}	$dark-text (#000) 	- Dark option color
- * @param {hex-color}	$light-text (#FFF) 	- Light option color
- * @param {number}		$threshold (50%)	- Opacity from 0 to 1
- * @return {hex-color}
- * @group colors
- */
+// Compares contrast of a given color to the light/dark arguments and returns whichever is most "contrasty"
+@function contrast-color($color, $dark: #000, $light: #FFF) {
+	@if $color == null {
+		@return null;
+	}
+	@else {
+		$color-brightness: brightness($color);
+		$light-text-brightness: brightness($light);
+		$dark-text-brightness: brightness($dark);
 
-@function contrast-color(
-  $bg-color: $color-background,
-  $dark-text: #000,
-  $light-text: #FFF,
-  $threshold: 50%
-  ) {
-
-  $color-brightness:    round((red($bg-color) * 299) + (green($bg-color) * 587) + (blue($bg-color) * 114) / 1000);
-
-  $light-text-brightness: round((red($light-text) * 299) + (green($light-text) * 587) + (blue($light-text) * 114) / 1000);
-
-  $dark-text-brightness: round((red($dark-text) * 299) + (green($dark-text) * 587) + (blue($dark-text) * 114) / 1000);
-
-  @if ( abs($color-brightness - $light-text-brightness) > abs($color-brightness - $dark-text-brightness) ) {
-	@return $light-text;
-  }
-  @else {
-	@return $dark-text;
-  }
+		@return if(abs($color-brightness - $light-text-brightness) > abs($color-brightness - $dark-text-brightness), $light, $dark);
+	}
 }
-
