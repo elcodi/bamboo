@@ -65,7 +65,7 @@ class CheckoutController extends Controller
         );
 
         $cart = $this
-            ->get('elcodi.cart_wrapper')
+            ->get('elcodi.wrapper.cart')
             ->loadCart();
 
         return $this->renderTemplate(
@@ -94,7 +94,7 @@ class CheckoutController extends Controller
      *
      * @EntityAnnotation(
      *      class = {
-     *          "factory" = "elcodi.customer_wrapper",
+     *          "factory" = "elcodi.wrapper.customer",
      *          "method" = "loadCustomer",
      *          "static" = false
      *      },

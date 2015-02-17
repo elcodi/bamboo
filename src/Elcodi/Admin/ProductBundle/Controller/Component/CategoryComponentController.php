@@ -52,7 +52,7 @@ class CategoryComponentController extends AbstractAdminController
      */
     public function listComponentAction()
     {
-        $category_manager = $this->get('elcodi.category_tree');
+        $category_manager = $this->get('elcodi.provider.category_tree');
         $category_tree    = $category_manager->buildCategoryTree();
 
         return ['categories_list' => $category_tree];

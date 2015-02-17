@@ -58,7 +58,7 @@ class AddressController extends Controller
         $locationProvider = $this->get('elcodi.location_provider');
 
         $addresses = $this
-            ->get('elcodi.customer_wrapper')
+            ->get('elcodi.wrapper.customer')
             ->loadCustomer()
             ->getAddresses();
 
@@ -175,7 +175,7 @@ class AddressController extends Controller
             $addressManager->flush();
 
             $this
-                ->get('elcodi.customer_wrapper')
+                ->get('elcodi.wrapper.customer')
                 ->loadCustomer()
                 ->addAddress($address);
 

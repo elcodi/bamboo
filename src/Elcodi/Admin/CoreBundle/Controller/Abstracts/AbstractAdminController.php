@@ -243,7 +243,7 @@ class AbstractAdminController extends Controller
     private function getManagerForClass($entity)
     {
         return $this
-            ->get('elcodi.manager_provider')
+            ->get('elcodi.provider.manager')
             ->getManagerByEntityNamespace(get_class($entity));
     }
 
@@ -257,7 +257,7 @@ class AbstractAdminController extends Controller
     private function getRepositoryForClass($entity)
     {
         return $this
-            ->get('elcodi.repository_provider')
+            ->get('elcodi.provider.repository')
             ->getRepositoryByEntityNamespace(get_class($entity));
     }
 }

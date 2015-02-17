@@ -169,7 +169,7 @@ class ImageController extends AbstractAdminController
     public function uploadAction()
     {
         $jsonResponse = $this
-            ->forward('elcodi.core.media.controller.image_upload:uploadAction')
+            ->forward('elcodi.controller.media_image_upload:uploadAction')
             ->getContent();
 
         $response = json_decode($jsonResponse, true);

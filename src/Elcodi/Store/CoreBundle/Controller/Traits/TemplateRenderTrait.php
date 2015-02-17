@@ -33,7 +33,7 @@ trait TemplateRenderTrait
     protected function renderTemplate($path, $param = [])
     {
         $templateBundle = $this
-            ->get('elcodi.configuration_manager')
+            ->get('elcodi.manager.configuration')
             ->get('store.template');
 
         return $this

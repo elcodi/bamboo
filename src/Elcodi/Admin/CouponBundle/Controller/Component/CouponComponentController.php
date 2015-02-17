@@ -73,7 +73,7 @@ class CouponComponentController extends AbstractAdminController
      *
      * @PaginatorAnnotation(
      *      attributes = "paginatorAttributes",
-     *      class = "elcodi.core.coupon.entity.coupon.class",
+     *      class = "elcodi.entity.coupon.class",
      *      page = "~page~",
      *      limit = "~limit~",
      *      orderBy = {

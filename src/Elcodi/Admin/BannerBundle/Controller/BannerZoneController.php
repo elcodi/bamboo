@@ -197,7 +197,7 @@ class BannerZoneController extends AbstractAdminController
      *
      * @EntityAnnotation(
      *      class = {
-     *          "factory" = "elcodi.core.banner.factory.banner_zone",
+     *          "factory" = "elcodi.factory.banner_zone",
      *      },
      *      mapping = {
      *          "id" = "~id~"
@@ -250,7 +250,7 @@ class BannerZoneController extends AbstractAdminController
      *
      * @EntityAnnotation(
      *      class = {
-     *          "factory" = "elcodi.core.banner.factory.banner_zone",
+     *          "factory" = "elcodi.factory.banner_zone",
      *      }
      * )
      * @FormAnnotation(
@@ -285,7 +285,7 @@ class BannerZoneController extends AbstractAdminController
      *
      * @EntityAnnotation(
      *      class = {
-     *          "factory" = "elcodi.core.banner.factory.banner_zone",
+     *          "factory" = "elcodi.factory.banner_zone",
      *      },
      *      persist = true
      * )

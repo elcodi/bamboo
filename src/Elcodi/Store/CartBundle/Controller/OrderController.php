@@ -80,7 +80,7 @@ class OrderController extends Controller
         }
 
         $orderCoupons = $this
-            ->get('elcodi.order_coupon_manager')
+            ->get('elcodi.manager.order_coupon')
             ->getOrderCoupons($order);
 
         return $this->renderTemplate(
@@ -107,7 +107,7 @@ class OrderController extends Controller
     public function listAction()
     {
         $orders = $this
-            ->get('elcodi.customer_wrapper')
+            ->get('elcodi.wrapper.customer')
             ->loadCustomer()
             ->getOrders();
 

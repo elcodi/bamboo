@@ -58,6 +58,7 @@ class StoreCartCouponExtension extends AbstractExtension
     {
         return [
             'classes',
+            'eventListeners',
             'formTypes',
         ];
     }

@@ -178,7 +178,7 @@ class CouponController extends AbstractAdminController
      * )
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.coupon.entity.coupon.class",
+     *      class = "elcodi.entity.coupon.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }
@@ -209,7 +209,7 @@ class CouponController extends AbstractAdminController
      * )
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.coupon.entity.coupon.class",
+     *      class = "elcodi.entity.coupon.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }
@@ -241,7 +241,7 @@ class CouponController extends AbstractAdminController
      * )
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.coupon.entity.coupon.class",
+     *      class = "elcodi.entity.coupon.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }

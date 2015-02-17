@@ -49,7 +49,7 @@ class UserController extends Controller
     public function navAction()
     {
         $customer = $this
-            ->get('elcodi.customer_wrapper')
+            ->get('elcodi.wrapper.customer')
             ->loadCustomer();
 
         return $this->renderTemplate(
@@ -93,7 +93,7 @@ class UserController extends Controller
      *
      * @EntityAnnotation(
      *      class = {
-     *          "factory" = "elcodi.customer_wrapper",
+     *          "factory" = "elcodi.wrapper.customer",
      *          "method" = "loadCustomer",
      *          "static" = false
      *      },

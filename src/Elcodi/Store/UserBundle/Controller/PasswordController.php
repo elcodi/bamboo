@@ -70,7 +70,7 @@ class PasswordController extends Controller
                 ->getData();
 
             $emailFound = $this
-                ->get('elcodi.password_manager')
+                ->get('elcodi.manager.password')
                 ->rememberPasswordByEmail(
                     $customerRepository,
                     $email,
@@ -153,7 +153,7 @@ class PasswordController extends Controller
                     ->getData();
 
                 $this
-                    ->get('elcodi.password_manager')
+                    ->get('elcodi.manager.password')
                     ->recoverPassword($customer, $hash, $password);
 
                 return $this->redirectToRoute('store_homepage');
@@ -176,7 +176,7 @@ class PasswordController extends Controller
     protected function getCustomerRepository()
     {
         return $this
-            ->get('elcodi.repository_provider')
+            ->get('elcodi.provider.repository')
             ->getRepositoryByEntityParameter('elcodi.core.user.entity.customer.class');
     }
 }

@@ -41,7 +41,7 @@ class MenuController extends Controller
     {
         $root = $this
             ->container
-            ->get('elcodi.core.menu.service.menu_manager')
+            ->get('elcodi.manager.menu')
             ->loadMenuByCode('admin');
 
         $currentRoute = $this
@@ -85,7 +85,7 @@ class MenuController extends Controller
     protected function appendPluginMenus(array &$pluginsMenu)
     {
         $plugins = $this
-            ->get('elcodi.configuration_manager')
+            ->get('elcodi.manager.configuration')
             ->get('store.plugins');
 
         foreach ($plugins as $plugin) {
@@ -101,7 +101,7 @@ class MenuController extends Controller
                 ->setUrl($plugin['configuration_route']);
 
             $pluginsMenu[] = $this
-                ->get('elcodi.menu_manager')
+                ->get('elcodi.manager.menu')
                 ->hydrateNode($menu);
         }
 

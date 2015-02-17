@@ -7,6 +7,7 @@ services:
         class: %elcodi.admin.attribute.form_type.attribute.class%
         tags:
             - { name: form.type, alias: elcodi_admin_attribute_form_type_attribute }
+
     elcodi.admin.attribute.form_type.value:
         class: %elcodi.admin.attribute.form_type.value.class%
         tags:

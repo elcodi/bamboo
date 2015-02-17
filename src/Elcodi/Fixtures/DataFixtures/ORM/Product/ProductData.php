@@ -52,11 +52,11 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
          * @var CategoryInterface         $womenCategory
          * @var CurrencyInterface         $currency
          */
-        $imageManager = $this->container->get('elcodi.image_manager');
+        $imageManager = $this->container->get('elcodi.manager.media_image');
         $productFactory = $this->container->get('elcodi.factory.product');
         $variantFactory = $this->container->get('elcodi.factory.product_variant');
         $filesystem = $this->container->get('elcodi.core.media.filesystem.default');
-        $fileIdentifierTransformer = $this->container->get('elcodi.file_identifier_transformer');
+        $fileIdentifierTransformer = $this->container->get('elcodi.transformer.media_file_identifier');
         $menCategory = $this->getReference('category-men');
         $womenCategory = $this->getReference('category-women');
         $currency = $this->getReference('currency-USD');

@@ -66,7 +66,7 @@ class CurrencyController extends Controller
         }
 
         $activeCurrency = $this
-            ->get('elcodi.currency_wrapper')
+            ->get('elcodi.wrapper.currency')
             ->loadCurrency();
 
         return $this->renderTemplate(
@@ -103,7 +103,7 @@ class CurrencyController extends Controller
 
         if ($currency instanceof CurrencyInterface) {
             $this
-                ->get('elcodi.currency_session_manager')
+                ->get('elcodi.session_manager.currency')
                 ->set($currency);
         }
 
