@@ -1,5 +1,4 @@
-
-<div class="sidebar-user">
+<div class="sidebar-user tablet desktop">
     <a href="{{ url("admin_admin_user_edit", {id: app.user.id }) }}" class="sidebar-user-avatar desktop">
         <img src="{{ gravatar(app.user.email, 40) }}" alt="Avatar" class="image-circle">
     </a>
@@ -23,16 +22,15 @@
         </li>
     </ul>
 </div>
-<nav class="navigation navigation-vertical">
-    <ul id="main-menu">
-        {% block side_menu %}
-            {% for menu_item in menu_items %}
-                <li {% if menu_item.subnodes|length %}class="parent"{% endif %}>
-                        {% if generate_url(menu_item.url) != '' %}
-                            <a href="{{ generate_url(menu_item.url) }}">
-                        {% else %}
-                            <a href="#{{ menu_item.id }}" data-tc-modules="toggle">
-                            <i class="icon-angle-down fl-r"></i>
+<nav id="menu" class="navigation navigation-vertical desktop">
+    <ul>
+        {% for menu_item in menu_items %}
+            <li {% if menu_item.subnodes|length %}class="parent"{% endif %}>
+                {% if generate_url(menu_item.url) != '' %}
+                <a href="{{ generate_url(menu_item.url) }}">
+                    {% else %}
+                    <a href="#{{ menu_item.id }}" data-tc-modules="toggle">
+                        <i class="icon-angle-down fl-r"></i>
                         {% endif %}
                         <i class="icon-{{ menu_item.code|default("folder") }}"></i>
                         <span>{{ menu_item.name|trans }}</span>
@@ -48,11 +46,7 @@
                             </ul>
                         {% endif %}
                     {% endfor %}
-                </li>
-
-            {% endfor %}
-
-        {% endblock %}
-
+            </li>
+        {% endfor %}
     </ul>
 </nav>

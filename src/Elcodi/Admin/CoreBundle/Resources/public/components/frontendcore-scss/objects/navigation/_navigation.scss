@@ -47,6 +47,8 @@
 				& {
 					margin-top: 0;
 					background: map-get($object-navigation-vars, background-color-dark);
+					position: relative;
+					z-index: 1;
 				}
 				li {
 					a {

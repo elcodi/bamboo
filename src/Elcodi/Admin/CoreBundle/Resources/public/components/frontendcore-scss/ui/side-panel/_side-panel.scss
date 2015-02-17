@@ -1,9 +1,42 @@
 @if $ui-side-panel == true and $ui == true {
+	.navigation {
+		a.slide-panel-close {
+			@include border-radius(0);
+			padding: $spacing/8 $spacing/2;
+		}
+	}
+
+	.slide-panel-close {
+		& {
+			display: block;
+			font-family: "FontAwesome" !important;
+			position: absolute;
+			top: 0;
+			left: 0;
+			padding: $spacing/8 $spacing/2;
+			width: 100%;
+			background: rgba($color-foreground, .2);
+		}
+		&:hover {
+			background: $color-link;
+			color: contrast-color($color-link);
+			text-decoration: none;
+		}
+	}
+
+	.has-slide-panel-close {
+		padding-top: $spacing;
+	}
+
 	.side-panel-default {
 		& {
 			position: fixed;
-			z-index: 100;
+			z-index: 1000;
 			overflow-y: auto;
+			border-radius: 0 !important;
+		}
+		&.hidden, &.desktop, &.mobile, &.tablet {
+			display: block !important;
 		}
 		a[data-tc-modules="side-panel"] {
 			& {
