@@ -3,17 +3,68 @@
 </div>
 <footer class="footer">
     <div class="grid">
-        <div class="col-2-3">
-            <ul class="footer-nav">
-                <li><a href="{{ url('store_static_content') }}">Terms &amp; Conditions</a></li>
-                <li><a href="{{ url('store_static_content') }}">Delivery Information</a></li>
-                <li><a href="{{ url('store_static_content') }}">Contact</a></li>
+        <div class="col-1-1">
+            <p><strong>{{ getConfiguration('store.leitmotiv') }}</strong></p>
+        </div>
+    </div>
+    <div class="grid">
+        <div class="col-1-4">
+            <ul>
+                <li><strong>{{ 'Shopping with us'|trans }}</strong></li>
+                <li><a href="#">{{ "Terms &amp; Conditions"|trans }}</a></li>
+                <li><a href="#">{{ "Delivery Information"|trans }}</a></li>
+                <li><a href="#">{{ "Secure payment"|trans }}</a></li>
+                <li><a href="#">{{ "Contact"|trans }}</a></li>
             </ul>
         </div>
-        <div class="col-1-3">
-            <a href="{{ url('store_homepage') }}" class="logo">
-                {{ getConfiguration('store.name') }}
-            </a>
+        <div class="col-1-4">
+            <ul>
+                <li><strong>{{ 'Selling with us'|trans }}</strong></li>
+                <li><a href="#">{{ "Why join"|trans }} {{ getConfiguration('store.name') }}</a></li>
+            </ul>
+        </div>
+        <div class="col-1-4">
+            <ul>
+                <li><strong>{{ 'About us'|trans }}</strong></li>
+                <li><a href="#">{{ "Who we are"|trans }}</a></li>
+                <li><a href="#">{{ getConfiguration('store.name') }} {{ "in the press"|trans }}</a></li>
+                <li><a href="#">{{ "Blog"|trans }}</a></li>
+            </ul>
+        </div>
+        <div class="col-1-4">
+            <ul>
+                <li><strong>{{ 'Service'|trans }}</strong></li>
+                <li><a href="#">{{ "Contact us"|trans }}</a></li>
+                <li><a href="#">{{ getConfiguration('store.phone') }}</a></li>
+                <li><a href="#">{{ getConfiguration('store.email') }}</a></li>
+            </ul>
+        </div>
+    </div>
+    <hr />
+    <div class="grid">
+        <div class="col-1-4">
+            <ul>
+                <li>{{ 'NEED HELP?'|trans }}</li>
+                <li>Call {{ getConfiguration('store.phone') }}</li>
+            </ul>
+        </div>
+        <div class="col-1-4">
+            <ul>
+                <li>{{ 'QUICK DELIVERY'|trans }}</li>
+                <li>{{ "Why join"|trans }} {{ getConfiguration('store.name') }}</li>
+            </ul>
+        </div>
+        <div class="col-1-4">
+            <ul>
+                <li>{{ 'FREE RETURNS'|trans }}</li>
+                <li>{{ 'Within 15 days'|trans }}</li>
+            </ul>
+        </div>
+        <div class="col-1-4">
+            <ul>
+                <li>{{ 'SECURE'|trans }}</li>
+                <li>{{ 'PAYMENT'|trans }}</li>
+            </ul>
         </div>
     </div>
 </footer>

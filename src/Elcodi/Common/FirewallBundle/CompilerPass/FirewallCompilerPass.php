@@ -81,7 +81,11 @@ class FirewallCompilerPass implements CompilerPassInterface
      *
      * @param array $listeners
      */
-    protected function attachListeners(ContainerBuilder $container, $providerKey, array $listeners)
+    protected function attachListeners(
+        ContainerBuilder $container,
+        $providerKey,
+        array $listeners
+    )
     {
         krsort($listeners);
         $listeners = call_user_func_array('array_merge', $listeners);
@@ -103,7 +107,11 @@ class FirewallCompilerPass implements CompilerPassInterface
      *
      * @return string
      */
-    protected function attachEvents(ContainerBuilder $container, $provider_key, array $events)
+    protected function attachEvents(
+        ContainerBuilder $container,
+        $provider_key,
+        array $events
+    )
     {
         $listenerId = 'elcodi.firewall.listener.'.$provider_key;
 
@@ -156,7 +164,7 @@ class FirewallCompilerPass implements CompilerPassInterface
      * @param array            $tag        Tag to search for the firewall key
      * @param string           $listenerId Name of the service
      *
-     * @return string
+     * @return string The firewall provider key
      */
     protected function getProviderKey(ContainerBuilder $container, array $tag, $listenerId)
     {

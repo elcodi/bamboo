@@ -50,6 +50,24 @@
                             <input id="url-store.name" type="hidden" value="{{ url("admin_configuration_update", {"name": "store.name"}) }}">
                         </li>
                         <li>
+                            <label for="store.leitmotiv">{{ 'Store Leitmotiv'|trans }}</label>
+                            <i class="icon-pencil"></i>
+                            <input id="store.leitmotiv" type="text" name="store.leitmotiv" value="{{ getConfiguration('store.leitmotiv') }}"/>
+                            <input id="url-store.leitmotiv" type="hidden" value="{{ url("admin_configuration_update", {"name": "store.leitmotiv"}) }}">
+                        </li>
+                        <li>
+                            <label for="store.phone">{{ 'Store Phone'|trans }}</label>
+                            <i class="icon-pencil"></i>
+                            <input id="store.phone" type="text" name="store.phone" value="{{ getConfiguration('store.phone') }}"/>
+                            <input id="url-store.phone" type="hidden" value="{{ url("admin_configuration_update", {"name": "store.phone"}) }}">
+                        </li>
+                        <li>
+                            <label for="store.email">{{ 'Store Email'|trans }}</label>
+                            <i class="icon-pencil"></i>
+                            <input id="store.email" type="text" name="store.email" value="{{ getConfiguration('store.email') }}"/>
+                            <input id="url-store.email" type="hidden" value="{{ url("admin_configuration_update", {"name": "store.email"}) }}">
+                        </li>
+                        <li>
                             <label for="currency.default_currency">{{ 'Currency configuration'|trans }}</label>
                             <i class="icon-pencil"></i>
                             {% set defaultCurrency = getConfiguration('currency.default_currency') %}
