@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This file is part of the Elcodi package.
  *
@@ -13,6 +14,7 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  * @author Elcodi Team <tech@elcodi.com>
  */
+
 namespace Elcodi\Store\GeoBundle\Controller;
 
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
@@ -24,6 +26,7 @@ use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
 use Elcodi\Component\Geo\Entity\Interfaces\AddressInterface;
 use Elcodi\Component\User\Entity\Interfaces\CustomerInterface;
 use Elcodi\Store\CoreBundle\Controller\Traits\TemplateRenderTrait;
@@ -71,7 +74,7 @@ class AddressController extends Controller
             'Pages:address-list.html.twig',
             [
                 'addresses'   => $addresses,
-                'cities_info' => $cities_info
+                'cities_info' => $cities_info,
             ]
         );
     }
@@ -112,6 +115,7 @@ class AddressController extends Controller
             $entityManager->flush($address);
 
             $this->addFlash('success', 'Address saved');
+
             return $this->redirect(
                 $this->generateUrl('store_address_list')
             );
@@ -123,7 +127,7 @@ class AddressController extends Controller
             'Pages:address-edit.html.twig',
             [
                 'address' => $address,
-                'form'    => $form->createView()
+                'form'    => $form->createView(),
             ]
         );
     }
@@ -131,9 +135,9 @@ class AddressController extends Controller
     /**
      * New address
      *
-     * @param AddressInterface $address      $address A new address entity
-     * @param FormView         $formView     The form view
-     * @param boolean          $isValid      If the form is valid
+     * @param AddressInterface $address  $address A new address entity
+     * @param FormView         $formView The form view
+     * @param boolean          $isValid  If the form is valid
      *
      * @return Response Response
      *

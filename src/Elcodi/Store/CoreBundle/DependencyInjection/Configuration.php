@@ -12,14 +12,16 @@
  *
  * @author Marc Morera <yuhu@mmoreram.com>
  * @author Aldo Chiecchia <zimage@tiscali.it>
+ * @author Elcodi Team <tech@elcodi.com>
  */
 
 namespace Elcodi\Store\CoreBundle\DependencyInjection;
 
-use Elcodi\Bundle\CoreBundle\DependencyInjection\Abstracts\AbstractConfiguration;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\NodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
+
+use Elcodi\Bundle\CoreBundle\DependencyInjection\Abstracts\AbstractConfiguration;
 
 /**
  * Class Configuration
@@ -50,7 +52,7 @@ class Configuration extends AbstractConfiguration
     /**
      * Create a node to define a template
      *
-     * @param string $name Node name
+     * @param string $name     Node name
      * @param string $template Default template path
      *
      * @return ArrayNodeDefinition|NodeDefinition

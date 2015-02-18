@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This file is part of the Elcodi package.
  *
@@ -13,11 +14,13 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  * @author Elcodi Team <tech@elcodi.com>
  */
+
 namespace Elcodi\Store\GeoBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+
 use Elcodi\Store\CoreBundle\Controller\Traits\TemplateRenderTrait;
 
 /**
@@ -57,7 +60,6 @@ class LocationController extends Controller
     public function showCitySelectorAction(
         $locationId
     ) {
-
         $citySelectorBuilder = $this->get(
             'elcodi.store.geo.form.location_selector_builder'
         );
@@ -71,7 +73,7 @@ class LocationController extends Controller
             'Subpages:location-selector.html.twig',
             [
                 'selects'         => $selects,
-                'maxLocationType' => $this->maxLocationType
+                'maxLocationType' => $this->maxLocationType,
             ]
         );
     }
