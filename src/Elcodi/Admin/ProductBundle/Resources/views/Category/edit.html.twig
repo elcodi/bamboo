@@ -8,7 +8,7 @@
 
 {% block header_actions %}
     {% if category.id > 0 %}
-        <a target="_blank" href="{{ url("store_category_products_list",{id: category.id, slug: category.slug}) }}" class="button-primary"><i class="icon-eye"></i> {{ 'View on your store'|trans }}</a>
+        <a target="_blank" href="{{ url("store_category_products_list",{id: category.id, slug: category.slug}) }}" class="button-primary"><i class="icon-eye"></i> <span>{{ 'View on your store'|trans }}</span></a>
     {% endif %}
 {% endblock header_actions %}
 

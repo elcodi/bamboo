@@ -28,7 +28,7 @@ $ui-code: map-get($user-interface, code) !global;
  * @link http://www.frontendcore.com/navigation/side-menu.html
  * @group User Interface
  */
-$ui-side-menu: map-get($user-interface, side-menu) !global;
+$ui-side-panel: map-get($user-interface, side-panel) !global;
 
 /**
  * Includes the classes at main css for Stats tables UI
@@ -36,7 +36,7 @@ $ui-side-menu: map-get($user-interface, side-menu) !global;
  * @link http://www.frontendcore.com/tables/stats-tables.html
  * @group User Interface
  */
-$ui-stats: map-get($user-interface, stats ) !global;
+$ui-charts: map-get($user-interface, charts ) !global;
 
 /**
  * Includes the classes at main css for autocomplete UI

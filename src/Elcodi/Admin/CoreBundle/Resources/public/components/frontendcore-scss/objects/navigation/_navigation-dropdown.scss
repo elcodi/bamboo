@@ -36,13 +36,11 @@
 			}
 			a {
 				& {
-					color: contrast-color( map-get($object-navigation-vars, background-color));
 					margin: 0;
 					@include border-radius(0);
 				}
 				&:hover {
 					background: contrast-color(map-get($object-navigation-vars, background-color));
-					color: map-get($object-navigation-vars, background-color);
 				}
 			}
 		}

@@ -1,3 +1,7 @@
-@function brightness($color) {
-  @return round((red($color) * 299) + (green($color) * 587) + (blue($color) * 114) / 1000);
+// sRGB BT-709 BRIGHTNESS
+@function brightness($c) {
+  $rlin: log2lin(red($c)/255);
+  $glin: log2lin(green($c)/255);
+  $blin: log2lin(blue($c)/255);
+  @return lin2log(0.2126 * $rlin + 0.7152 * $glin + 0.0722 * $blin) * 100;
 }

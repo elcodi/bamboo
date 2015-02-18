@@ -1,0 +1,3 @@
+// LINEAR to LOGARITHMIC and vicev-ersa
+@function lin2log($n) { @if $n <= 0.0031308 { @return $n * 12.92; } @else { @return 1.055 * pow($n,1/2.4) - 0.055; } }
+@function log2lin($n) { @if $n <= 0.04045 { @return $n / 12.92; } @else { @return pow((($n + 0.055)/1.055),2.4); } }

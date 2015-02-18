@@ -1,19 +1,10 @@
-<table class="table" data-tc-modules="stats" data-tc-type="line">
-    <caption>Page Views Stats</caption>
-    <thead>
-    <tr>
-        <td></td>
-        {% for timeElement in timeElements %}
-            <th scope="col">{{ timeElement|date('d.H') }}</th>
-        {% endfor %}
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <th scope="row">Visits</th>
-        {% for timeElement in timeElements %}
-            <td>{{ metric_count(tracker, event, timeElement|date('Y.m.d.H')) }}</td>
-        {% endfor %}
-    </tr>
-    </tbody>
-</table>
+<div class="grid">
+    <div class="col-1-1 box-background pb-n">
+        <h2>{{ 'Visits last hours' }}</h2>
+        <div class="box-none pa-n">
+            <canvas height="200" data-tc-modules="charts" data-tc-type="line" data-tc-labels-x="{% for timeElement in timeElements %}{{ timeElement|date('d.H') }},{% endfor %}">
+                <input name="{{ 'Visits' }}" type="hidden" value="{% for timeElement in timeElements %}{{ metric_count(tracker, event, timeElement|date('Y.m.d.H')) }},{% endfor %}" />
+            </canvas>
+        </div>
+    </div>
+</div>

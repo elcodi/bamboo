@@ -10,7 +10,6 @@
 		}
 	}
 
-
 	@if map-get($object-navigation-vars, style) == default {
 		.navigation {
 			& {
@@ -27,7 +26,7 @@
 					@include border-radius(map-get($object-navigation-vars, border-radius));
 				}
 				&:hover {
-					@include background-transparent(contrast-color(map-get($object-navigation-vars, background-color),$color-foreground, $color-background, 30%), .2);
+					@include background-transparent(contrast-color(map-get($object-navigation-vars, background-color),$color-foreground, $color-background), .2);
 				}
 			}
 			& > ul {
@@ -36,8 +35,8 @@
 						margin:0 $spacing/4 0 0;
 					}
 					&.active a, &.active a:hover {
-						@include background-transparent(contrast-color(map-get($object-navigation-vars, background-color),$color-foreground, $color-background, 30%), .2);
-						color: contrast-color(map-get($object-navigation-vars, background-color),$color-foreground, $color-background, 30%);
+						@include background-transparent(contrast-color(map-get($object-navigation-vars, background-color),$color-foreground, $color-background), .2);
+						color: contrast-color(map-get($object-navigation-vars, background-color),$color-foreground, $color-background);
 						@include text-shadow( 0 0 5px rgba(0,0,0,0.2) );
 						border-top-color:rgba(255,255,255,.1);
 						border-bottom-color: rgba(0,0,0,.1);
@@ -48,6 +47,8 @@
 				& {
 					margin-top: 0;
 					background: map-get($object-navigation-vars, background-color-dark);
+					position: relative;
+					z-index: 1;
 				}
 				li {
 					a {
@@ -72,7 +73,7 @@
 				}
 				& > ul > li {
 					@if (map-get($object-navigation-vars, vertical-separator) == true) {
-						border-bottom: 1px solid rgba(contrast-color(map-get($object-navigation-vars, background-color),$color-foreground, $color-background, 30%),.2);
+						border-bottom: 1px solid rgba(contrast-color(map-get($object-navigation-vars, background-color),$color-foreground, $color-background),.2);
 					}
 				}
 			}

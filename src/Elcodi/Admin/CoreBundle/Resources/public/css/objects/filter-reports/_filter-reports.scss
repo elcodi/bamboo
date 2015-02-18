@@ -1,0 +1,24 @@
+.filter-reports {
+	& {
+		margin-bottom: $spacing/2;
+	}
+
+	.filters {
+		padding-top: $spacing/3;
+	}
+
+}
+
+@mixin papa-filter-reports(){
+	.filter-reports {
+		.col-2-3 {
+			text-align: right;
+		}
+		.ms-ctn {
+			display: inline-block;
+			vertical-align: middle;
+			min-width: 400px;
+			margin-left: $spacing/4;
+		}
+	}
+}

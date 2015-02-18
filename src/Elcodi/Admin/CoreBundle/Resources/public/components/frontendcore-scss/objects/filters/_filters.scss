@@ -4,6 +4,7 @@
 		& {
 			@extend ul[class*='list-'], ul.list;
 			@extend .list-horizontal;
+			background: map-get($object-filters-vars, background-color);
 		}
 		li {
 			& {
@@ -13,17 +14,16 @@
 			}
 			&:hover {
 				a {
-					color: $color-link;
+					color: rgba(map-get($object-filters-vars, color), .9);
 					text-decoration: underline;
 				}
 			}
 			a {
-				color: $color-link;
+				font-weight: map-get($object-filters-vars, font-weight);
+				font-size: map-get($object-filters-vars, font-size);
+				color:  map-get($object-filters-vars, color);
 			}
 			&.active {
-				& {
-					font-weight: bold;
-				}
 				&:after {
 					border: 8px solid transparent;
 					border-style: outset outset solid outset;
@@ -37,11 +37,12 @@
 					top: 50%;
 					border-width: 6px;
 					margin-top: -6px;
-					border-bottom-color: $color-primary;
+					border-bottom-color: map-get($object-filters-vars, color );
 				}
 				a {
 					& {
-						color: $color-foreground;
+						font-weight: map-get($object-filters-vars, font-weight-active);
+						color: map-get($object-filters-vars, color-active);
 						text-decoration: none;
 					}
 					&:hover {

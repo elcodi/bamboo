@@ -28,6 +28,6 @@ $object-navigation-vars-custom : (
 	background-color: #354051,
 	background-color-dark: #2E3847,
 	color: #FFF,
-	font-family: unquote( map_get($font-faces-custom, title) ),
+	font-family: unquote( map_get($fonts-custom, face-title) ),
 
 ) !global !default;

@@ -1,17 +1,17 @@
 @if $object-navigation != false and $ui != true {
 
-	@if map-get($object-navigation-vars, style) == default {
+	@if map-get($object-navigation-sub-vars, style) == default {
 
 		.navigation-sub {
 			& {
-				@include background-gradient-ie-old($color-background, $color-box);
-				@include background-image(linear-gradient($color-background 75%, $color-box));
+				@include background-gradient-ie-old(map-get($object-navigation-sub-vars, background-color), map-get($object-navigation-sub-vars, background-color-dark));
+				@include background-image(linear-gradient(map-get($object-navigation-sub-vars, background-color) 75%, map-get($object-navigation-sub-vars, background-color-dark)));
 				@include border-radius(0);
 			}
 			a {
 				& {
-					font-family: map-get($object-navigation-vars, font-family);
-					font-size: map-get($object-navigation-vars, font-size);
+					font-family: map-get($object-navigation-sub-vars, font-family);
+					font-size: map-get($object-navigation-sub-vars, font-size);
 					color: $color-foreground;
 					text-rendering: optimizeLegibility;
 					margin: 0;
@@ -24,7 +24,7 @@
 				.active {
 					a {
 						& {
-							border-bottom: 2px solid map-get($object-navigation-vars, background-color);
+							border-bottom: 2px solid map-get($object-navigation-sub-vars, color);
 						}
 						&:before {
 							border: $spacing/3 solid transparent;
@@ -37,11 +37,18 @@
 							position: absolute;
 							width: 0;
 							background: transparent;
-							border-bottom-color: map-get($object-navigation-vars, background-color);
+							border-bottom-color: map-get($object-navigation-sub-vars, color);
 							bottom: -2px;
 							z-index: 100;
 						}
 					}
+				}
+			}
+			ul ul {
+				a {
+					font-family: map-get($object-navigation-sub-vars, inner-font-family);
+					font-weight: map-get($object-navigation-sub-vars, inner-font-weight);
+					font-size: map-get($object-navigation-sub-vars, inner-font-size);
 				}
 			}
 		}
@@ -58,9 +65,9 @@
 					a {
 						& {
 							border-bottom: 0px none;
-							background: map-get($object-navigation-vars, background-color);
-							color: contrast-color(map-get($object-navigation-vars, background-color));
-							border-left: 2px solid map-get($object-navigation-vars, background-color);
+							background: map-get($object-navigation-sub-vars, background-color);
+							color: contrast-color(map-get($object-navigation-sub-vars, background-color));
+							border-left: 2px solid map-get($object-navigation-sub-vars, background-color);
 							@include border-radius;
 						}
 						&:before {
@@ -73,8 +80,8 @@
 					}
 					ul {
 						margin: 0;
-						@include background-gradient-ie-old($color-background, $color-box);
-						@include background-image(linear-gradient($color-background 75%, $color-box));
+						@include background-gradient-ie-old(map-get($object-navigation-sub-vars, background-color), map-get($object-navigation-sub-vars, background-color-dark));
+						@include background-image(linear-gradient(map-get($object-navigation-sub-vars, background-color) 75%, map-get($object-navigation-sub-vars, background-color-dark)));
 					}
 					li {
 						a {
@@ -95,7 +102,7 @@
 						&.active {
 							a {
 								& {
-									font-weight: bold;
+									font-weight: map-get($object-navigation-sub-vars, font-weight-active);
 								}
 								&:before {
 									display: block;
@@ -112,21 +119,21 @@
 		}
 	}
 
-	@if map-get($object-navigation-vars, style) == tabbed {
+	@if map-get($object-navigation-sub-vars, style) == tabbed {
 		.navigation-sub {
 
 			$arrow-size: 8px;
 
 			& {
-				@include background-gradient-ie-old($color-background, $color-box);
-				@include background-image(linear-gradient($color-background 45%, $color-box 152%));
+				@include background-gradient-ie-old(map-get($object-navigation-sub-vars, background-color), map-get($object-navigation-sub-vars, background-color-dark));
+				@include background-image(linear-gradient(map-get($object-navigation-sub-vars, background-color) 45%, map-get($object-navigation-sub-vars, background-color-dark) 152%));
 			}
 			a {
 				& {
-					font-family: map-get($object-navigation-vars, font-family);
+					font-family: map-get($object-navigation-sub-vars, font-family);
 					margin: 0;
 					padding: $spacing/2 $spacing;
-					@include rem-fallback(font-size, map-get($object-navigation-vars, font-size));
+					@include rem-fallback(font-size, map-get($object-navigation-sub-vars, font-size));
 				}
 				&:hover {
 					text-decoration: underline;
@@ -142,7 +149,7 @@
 				a {
 					& {
 						color: $color-foreground;
-						font-weight: bold;
+						font-weight: map-get($object-navigation-sub-vars, font-weight-active);
 					}
 					&:hover {
 						text-decoration: none;
@@ -158,7 +165,7 @@
 						position: absolute;
 						width: 0;
 						background: transparent;
-						border-bottom-color: $color-background;
+						border-bottom-color: map-get($object-navigation-sub-vars, background-color);
 						bottom: -2px;
 						z-index: 100;
 					}
@@ -170,7 +177,7 @@
 				}
 				.active {
 					a {
-						font-weight: bold;
+						font-weight: map-get($object-navigation-sub-vars, font-weight-active);
 					}
 				}
 			}
@@ -190,26 +197,26 @@
 						font-family: $font-face-title;
 						@include rem-fallback(font-size, $font-size-m, true);
 						@if $object-style == gradient {
-							@include background-image(linear-gradient(map-get($object-navigation-vars, background-color-light), map-get($object-navigation-vars, background-color)));
-							@include background-gradient-ie-old(map-get($object-navigation-vars, background-color-light), map-get($object-navigation-vars, background-color));
-							@include box-shadow(inset 0 1px 2px rgba($color-background, .5));
-							border-top: 1px solid map-get($object-navigation-vars, background-color);
-							border-bottom: 1px solid map-get($object-navigation-vars, background-color);
+							@include background-image(linear-gradient(map-get($object-navigation-sub-vars, background-color-light), map-get($object-navigation-sub-vars, background-color)));
+							@include background-gradient-ie-old(map-get($object-navigation-sub-vars, background-color-light), map-get($object-navigation-sub-vars, background-color));
+							@include box-shadow(inset 0 1px 2px rgba(map-get($object-navigation-sub-vars, background-color), .5));
+							border-top: 1px solid map-get($object-navigation-sub-vars, background-color);
+							border-bottom: 1px solid map-get($object-navigation-sub-vars, background-color);
 						} @else {
-							background: map-get($object-navigation-vars, background-color);
+							background: map-get($object-navigation-sub-vars, background-color);
 						}
 
-						color: $color-background;
+						color: map-get($object-navigation-sub-vars, background-color);
 						padding: $spacing/4 $spacing/2;
-						@include border-radius;
+						@include border-radius(map-get($object-navigation-sub-vars, border-radius));
 					}
 					&:hover {
 						text-decoration: none;
 						@if $object-style == gradient {
-							@include background-image(linear-gradient(map-get($object-navigation-vars, background-color-light), lighten(map-get($object-navigation-vars, background-color-light), 5%)));
-							@include background-gradient-ie-old(map-get($object-navigation-vars, background-color-light), lighten(map-get($object-navigation-vars, background-color-light), 5%));
+							@include background-image(linear-gradient(map-get($object-navigation-sub-vars, background-color-light), lighten(map-get($object-navigation-sub-vars, background-color-light), 5%)));
+							@include background-gradient-ie-old(map-get($object-navigation-sub-vars, background-color-light), lighten(map-get($object-navigation-sub-vars, background-color-light), 5%));
 						} @else {
-							background: map-get($object-navigation-vars, background-color-light);
+							background: map-get($object-navigation-sub-vars, background-color-light);
 						}
 					}
 					&:after {
@@ -244,14 +251,14 @@
 						margin: 0 $spacing/2 $spacing/2;
 						@include background-transparent($color-foreground, .05);
 						@include border-radius(0 0 $default-border-radius $default-border-radius);
-						border: 1px solid darken($color-box, 5%);
+						border: 1px solid darken(map-get($object-navigation-sub-vars, background-color-dark), 5%);
 					}
 					li {
 						& {
 							padding: $spacing/4 $spacing/2;
 							margin-bottom: 0;
-							border-bottom: 1px solid lighten($color-box, 5%);
-							border-top: 1px solid darken($color-box, 5%);
+							border-bottom: 1px solid lighten(map-get($object-navigation-sub-vars, background-color-dark), 5%);
+							border-top: 1px solid darken(map-get($object-navigation-sub-vars, background-color-dark), 5%);
 						}
 						a {
 							&, &:hover {
@@ -284,7 +291,7 @@
 				.active {
 					a {
 						& {
-							font-weight: bold;
+							font-weight: map-get($object-navigation-sub-vars, font-weight-active);
 							color: $color-foreground;
 						}
 						&:before {
