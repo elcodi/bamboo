@@ -19,6 +19,7 @@ namespace Elcodi\Store\CoreBundle;
 
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+
 use Elcodi\Store\CoreBundle\DependencyInjection\StoreCoreExtension;
 
 /**

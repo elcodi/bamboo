@@ -1,0 +1,27 @@
+{% extends '@StoreTemplate/Layout/_layout.html.twig' %}
+
+{% block content_title %}{{ "All my addresses"|trans }}{% endblock content_title %}
+
+{% block content %}
+    <a href="{{ url('store_address_new') }}">Add new address</a>
+    <ul>
+        {% for address in addresses %}
+            <li>
+                <ul>
+                    <li><strong>{{ address.name }}</strong></li>
+                    <li>{{ address.recipientName }} {{ address.recipientSurname }}</li>
+                    <li>{{ address.address }}<br/>{{ address.address_more }}</li>
+                    <li>{{ address.phone }} / {{ address.mobile }}</li>
+                    {% for locationData in cities_info[address.city] %}
+                        <li>{{ locationData.name }}</li>
+                    {% endfor %}
+                    <li>{{ address.comments }}</li>
+                    <li>
+                        <a href="{{ url('store_address_edit',{id:address.id}) }}">Edit</a>
+                        <a href="{{ url('store_address_delete',{id:address.id}) }}">Delete</a>
+                    </li>
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

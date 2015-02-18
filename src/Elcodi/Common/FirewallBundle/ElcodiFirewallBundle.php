@@ -12,12 +12,14 @@
  *
  * @author Marc Morera <yuhu@mmoreram.com>
  * @author Aldo Chiecchia <zimage@tiscali.it>
+ * @author Elcodi Team <tech@elcodi.com>
  */
 
 namespace Elcodi\Common\FirewallBundle;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+
 use Elcodi\Common\FirewallBundle\CompilerPass\FirewallCompilerPass;
 
 /**

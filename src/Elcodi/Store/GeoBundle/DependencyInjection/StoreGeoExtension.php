@@ -59,6 +59,8 @@ class StoreGeoExtension extends AbstractExtension
         return [
             'classes',
             'formTypes',
+            'services',
+            'parameters',
         ];
     }
 

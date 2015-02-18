@@ -1,0 +1,20 @@
+{###############################################################################
+#   IMPORTANT: To make this work with JS you have to keep:                     #
+#       - The identifier "js-location-selectors" wrapping the selectors        #
+#       - The "data-url" attribute                                             #
+#       - In each selector the "if" telling us if is the max location we can   #
+#         choose                                                               #
+###############################################################################}
+<div id="js-location-selectors" data-url="{{ url('location_selectors') }}">
+    {% for select in selects %}
+        <label for="{{ select.type }}">{{ select.type|capitalize|trans }}</label>
+        <select{% if select.type == maxLocationType %} data-max-type{% endif %}>
+            <option>Select one</option>
+            {% for key, value in select.options %}
+                <option value="{{ key }}"{% if key == select.selected %} selected{% endif %}>
+                    {{ value }}
+                </option>
+            {% endfor%}
+        </select>
+    {% endfor %}
+</div>

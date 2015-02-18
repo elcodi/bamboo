@@ -1,0 +1,12 @@
+services:
+
+    #
+    # Services
+    #
+    elcodi.location_provider:
+        alias: elcodi.location_provider.service
+
+    elcodi.store.geo.form.location_selector_builder:
+            class: %elcodi.store.geo.form.location_selector_builder.class%
+            arguments:
+                location_provider: @elcodi.location_provider

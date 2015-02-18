@@ -71,6 +71,9 @@ admin_login_check:
 admin_logout:
     path: /%bamboo_admin_prefix%/logout
 
+store_address:
+    resource: "@StoreGeoBundle/Resources/config/routing.yml"
+
 #
 # Store routes
 #
@@ -143,6 +146,10 @@ elcodi_metric:
 elcodi_comment:
     resource: "@ElcodiCommentBundle/Resources/config/routing.yml"
     prefix: /api
+
+elcodi_location:
+    resource: "@ElcodiGeoBundle/Resources/config/routing.yml"
+    prefix: %elcodi.route.location_api.prefix%
 
 elcodi_page:
     resource: "@ElcodiPageBundle/Resources/config/routing.yml"

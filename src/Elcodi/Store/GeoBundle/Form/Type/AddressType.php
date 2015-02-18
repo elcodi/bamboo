@@ -36,24 +36,13 @@ class AddressType extends AbstractType
     protected $addressFactory;
 
     /**
-     * @var string
-     *
-     * Country namespace
-     */
-    protected $countryNamespace;
-
-    /**
      * Constructor
      *
-     * @param AddressFactory $addressFactory   Address factory
-     * @param string         $countryNamespace Country namespace
+     * @param AddressFactory $addressFactory Address factory
      */
-    public function __construct(
-        AddressFactory $addressFactory,
-        $countryNamespace
-    ) {
+    public function __construct(AddressFactory $addressFactory)
+    {
         $this->addressFactory = $addressFactory;
-        $this->countryNamespace = $countryNamespace;
     }
 
     /**
@@ -80,6 +69,9 @@ class AddressType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('city', 'hidden', [
+                'required' => true,
+            ])
             ->add('name', 'text', [
                 'required' => true,
                 'label'    => 'Name',
@@ -104,24 +96,6 @@ class AddressType extends AbstractType
                 'required' => true,
                 'label'    => 'Postalcode',
             ])
-            ->add('city', 'text', [
-                'required' => true,
-                'label'    => 'City',
-            ])
-            ->add('province', 'text', [
-                'required' => true,
-                'label'    => 'Province',
-            ])
-            ->add('state', 'text', [
-                'required' => true,
-                'label'    => 'State',
-            ])
-            ->add('country', 'entity', [
-                'class' => $this->countryNamespace,
-                'required' => true,
-                'label'    => 'Country',
-                'property' => 'name',
-            ])
             ->add('phone', 'text', [
                 'required' => true,
                 'label'    => 'Phone',
@@ -133,7 +107,10 @@ class AddressType extends AbstractType
             ->add('comments', 'textarea', [
                 'required' => false,
                 'label'    => 'Comments',
-            ]);
+            ])
+            ->add('send', 'submit', array(
+                'label' => 'Save address',
+            ));
     }
 
     /**

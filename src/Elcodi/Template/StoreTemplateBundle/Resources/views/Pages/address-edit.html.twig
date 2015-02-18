@@ -1,0 +1,22 @@
+{% extends '@StoreTemplate/Layout/_layout.html.twig' %}
+
+{% block content_title %}{{ "Edit address"|trans }} {{ address.name }}{% endblock content_title %}
+
+{% block content %}
+    <a href="{{ url('store_address_list') }}">View all</a>
+
+    {% render url('location_selectors',{locationId:address.city}) %}
+
+    {###########################################################################
+    #   IMPORTANT This JS is used on the location-selector to make the city    #
+    #   selectors work. If you remove this you should implement the same       #
+    #   functionality by yourself                                              #
+    ###########################################################################}
+    {% javascripts '@StoreGeoBundle/Resources/public/js/LocationSelectors.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    <div class="form">
+        {{ form(form) }}
+    </div>
+{% endblock content %}
