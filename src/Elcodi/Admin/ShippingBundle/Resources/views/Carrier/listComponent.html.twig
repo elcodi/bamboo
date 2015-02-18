@@ -1,0 +1,36 @@
+{% extends 'AdminCoreBundle::Common/component.html.twig' %}
+
+{% block title %}
+    {{ 'Product list'|trans }}
+{% endblock title %}
+
+
+{% block component %}
+
+    {% for carrier in carriers %}
+
+        <div class="grid">
+            <div class="col-1-3">
+                <div class="box-none">
+                    <h3 class="fw-n">{{ carrier.name }}</h3>
+                    <p>{{ carrier.description }}</p>
+                    <p>{{ carrier.tax.value }}% Tax</p>
+                </div>
+            </div>
+            <div class="col-2-3">
+                <div class="box">
+                    <a href="{{ url('admin_shipping_range_new', {
+                        'carrierId': carrier.id
+                    }) }}">Add range</a>
+
+                    {{ render(url("admin_shipping_range_list_component", {
+                        'carrierId': carrier.id
+                    })) }}
+                </div>
+            </div>
+        </div>
+
+
+    {% endfor %}
+
+{% endblock component %}

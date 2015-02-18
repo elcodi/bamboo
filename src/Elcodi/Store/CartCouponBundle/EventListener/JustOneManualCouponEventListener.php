@@ -12,6 +12,7 @@
  *
  * @author Marc Morera <yuhu@mmoreram.com>
  * @author Aldo Chiecchia <zimage@tiscali.it>
+ * @author Elcodi Team <tech@elcodi.com>
  */
 
 namespace Elcodi\Store\CartCouponBundle\EventListener;
@@ -69,7 +70,6 @@ class JustOneManualCouponEventListener
 
         foreach ($cartCoupons as $cartCoupon) {
             if ($this->isManual($cartCoupon->getCoupon())) {
-
                 throw new CouponIncompatibleException();
             }
         }

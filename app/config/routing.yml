@@ -33,6 +33,10 @@ admin_product:
     resource: "@AdminProductBundle/Resources/config/routing.yml"
     prefix: /%bamboo_admin_prefix%
 
+admin_shipping:
+    resource: "@AdminShippingBundle/Resources/config/routing.yml"
+    prefix: /%bamboo_admin_prefix%
+
 admin_language:
     resource: "@AdminLanguageBundle/Resources/config/routing.yml"
     prefix: /%bamboo_admin_prefix%

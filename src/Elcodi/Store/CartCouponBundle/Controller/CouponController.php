@@ -100,15 +100,12 @@ class CouponController extends Controller
             ->loadCart();
 
         try {
-
             $this
                 ->get('elcodi.manager.cart_coupon')
                 ->addCouponByCode($cart, $couponCode);
 
             $this->addFlash('info', 'Coupon applied successfully');
-
         } catch (AbstractCouponException $e) {
-
             $this->addFlash('error', 'Could not apply coupon');
         }
 

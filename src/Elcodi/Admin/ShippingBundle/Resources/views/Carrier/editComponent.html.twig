@@ -1,0 +1,21 @@
+{% extends 'AdminCoreBundle::Common/formComponent.html.twig' %}
+
+{% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
+
+{% block title %}
+    {{ 'Edit Carrier'|trans }} - {{ carrier.id }} - {{ carrier.name }}
+{% endblock title %}
+
+{% block content %}
+
+    {% set formAction = carrier.id
+        ? url('admin_carrier_update', {
+            'id': carrier.id
+        })
+        : url('admin_carrier_save')
+
+     %}
+
+    {{ form(form, {'action': formAction}) }}
+
+{% endblock content %}

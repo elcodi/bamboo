@@ -82,6 +82,8 @@ class AppKernel extends Kernel
             new \Elcodi\Bundle\PluginBundle\ElcodiPluginBundle(),
             new \Elcodi\Bundle\TemplateBundle\ElcodiTemplateBundle(),
             new \Elcodi\Bundle\CommentBundle\ElcodiCommentBundle(),
+            new \Elcodi\Bundle\ZoneBundle\ElcodiZoneBundle(),
+            new \Elcodi\Bundle\ShippingBundle\ElcodiShippingBundle(),
             new \Elcodi\Common\FirewallBundle\ElcodiFirewallBundle(),
 
             /**
@@ -116,6 +118,7 @@ class AppKernel extends Kernel
             new \Elcodi\Admin\TemplateBundle\AdminTemplateBundle(),
             new \Elcodi\Admin\MetricBundle\AdminMetricBundle(),
             new \Elcodi\Admin\PluginBundle\AdminPluginBundle(),
+            new \Elcodi\Admin\ShippingBundle\AdminShippingBundle(),
 
             /**
              * Elcodi Templates

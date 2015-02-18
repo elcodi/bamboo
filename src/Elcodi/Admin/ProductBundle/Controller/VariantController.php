@@ -27,13 +27,11 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\Component\Attribute\Entity\Attribute;
-use Elcodi\Component\Attribute\Entity\Value;
+use Elcodi\Component\Attribute\Entity\Interfaces\AttributeInterface;
+use Elcodi\Component\Attribute\Entity\Interfaces\ValueInterface;
 use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
 use Elcodi\Component\Product\Entity\Interfaces\VariantInterface;
-use Elcodi\Component\Product\Entity\Product;
-use Elcodi\Component\Product\Entity\Variant;
 
 /**
  * Class Controller for Variant
@@ -128,12 +126,12 @@ class VariantController extends AbstractAdminController
         if ($isValid) {
 
             /**
-             * @var Variant $entity
+             * @var VariantInterface $entity
              */
             $variant->setProduct($product);
 
             /**
-             * @var Value $option
+             * @var ValueInterface $option
              */
             foreach ($variant->getOptions() as $option) {
 
@@ -269,8 +267,8 @@ class VariantController extends AbstractAdminController
         $redirectUrl = null
     ) {
         /**
-         * @var Product $product
-         * @var Variant $variant
+         * @var ProductInterface $product
+         * @var VariantInterface $variant
          */
         $product = $variant->getProduct();
 
@@ -285,7 +283,7 @@ class VariantController extends AbstractAdminController
         $notRemovableAttributes = [];
 
         /**
-         * @var Variant $iteratedVariant
+         * @var VariantInterface $iteratedVariant
          *
          * Getting all the Attributes by iterating over the parent
          * product Variants (except for the Variant being deleted)
@@ -313,7 +311,7 @@ class VariantController extends AbstractAdminController
         }
 
         /**
-         * @var Attribute $variantAttribute
+         * @var AttributeInterface $variantAttribute
          *
          * Checking whether we can safely de-associate
          * Attributes from the Variant we are deleting
@@ -342,18 +340,18 @@ class VariantController extends AbstractAdminController
      * The Attribute is fetched from the "options" relation. In theory
      * each option in a Variant should belong to a different Attribute.
      *
-     * @param Variant $variant
+     * @param VariantInterface $variant
      *
      * @return array
      */
-    protected function getUniqueAttributesFromVariant(Variant $variant)
+    protected function getUniqueAttributesFromVariant(VariantInterface $variant)
     {
         $variantAttributes = [];
 
         foreach ($variant->getOptions() as $option) {
 
             /**
-             * @var Attribute $attribute
+             * @var AttributeInterface $attribute
              */
             $attribute = $option->getAttribute();
 

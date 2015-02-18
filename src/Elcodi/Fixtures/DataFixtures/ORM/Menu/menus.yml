@@ -162,6 +162,13 @@ menu_nodes:
         enabled: 1
         subnodes: ~
 
+    bambooadmin_shipping_ranges:
+        name: Shipping
+        code: truck
+        url: admin_shipping_range_list
+        enabled: 1
+        subnodes: ~
+
     bambooadmin_currencies:
         name: Currencies
         code: ~
@@ -183,6 +190,7 @@ menu_nodes:
         enabled: 1
         subnodes:
           - bambooadmin_configurations
+          - bambooadmin_shipping_ranges
           - bambooadmin_currencies
           - bambooadmin_languages
 

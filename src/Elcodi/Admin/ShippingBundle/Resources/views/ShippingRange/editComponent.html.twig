@@ -1,0 +1,24 @@
+{% extends 'AdminCoreBundle::Common/formComponent.html.twig' %}
+
+{% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
+
+{% block title %}
+    {{ 'Edit Range'|trans }} - {{ shippingRange.id }} - {{ shippingRange.name }}
+{% endblock title %}
+
+{% block content %}
+
+    {% set formAction = product.id
+        ? url('admin_shipping_range_update', {
+            'carrierId': carrier.id,
+            'id': product.id
+        })
+        : url('admin_shipping_range_save', {
+            'carrierId': carrier.id
+        })
+
+     %}
+
+    {{ form(form, {'action': formAction}) }}
+
+{% endblock content %}

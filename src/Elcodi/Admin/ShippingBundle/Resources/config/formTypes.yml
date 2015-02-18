@@ -1,0 +1,18 @@
+services:
+
+    #
+    # Form Types
+    #
+    elcodi.admin.shipping.form_type.shipping_range:
+        class: %elcodi.admin.shipping.form_type.shipping_range.class%
+        arguments:
+            zone_namespace: %elcodi.entity.zone.class%
+        tags:
+            - { name: form.type, alias: elcodi_admin_shipping_form_type_shipping_range }
+
+    elcodi.admin.shipping.form_type.carrier:
+        class: %elcodi.admin.shipping.form_type.carrier.class%
+        arguments:
+            zone_namespace: %elcodi.entity.tax.class%
+        tags:
+            - { name: form.type, alias: elcodi_admin_shipping_form_type_carrier }

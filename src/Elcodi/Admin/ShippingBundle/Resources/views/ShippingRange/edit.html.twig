@@ -1,0 +1,29 @@
+{% extends 'AdminCoreBundle::layout.html.twig' %}
+
+{% block content_title %}
+    {{ 'Shipping Zone'|trans }}
+{% endblock content_title %}
+
+{% block breadcrumb %}
+
+    {% set entityHeader = shippingRange.id
+        ? 'Edit ' ~ shippingRange.name
+        : 'Create new Range'
+    %}
+
+{% endblock breadcrumb %}
+
+{% block content %}
+
+    {% if shippingRange.id %}
+        {{ render(url("admin_shipping_range_edit_component", {
+            'carrierId': carrier.id,
+            'id': shippingRange.id
+        })) }}
+    {% else %}
+        {{ render(url("admin_shipping_range_new_component", {
+            'carrierId': carrier.id
+        })) }}
+    {% endif %}
+
+{% endblock content %}
