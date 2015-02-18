@@ -26,37 +26,9 @@
 	}
 }
 
-.sidebar-user-dropdown{
+.sidebar-user-dropdown {
 	& {
-		display: none;
 		clear: both;
-		background: $color-box;
-		@include border-radius;
-		@include box-shadow;
-		padding: 0;
-		margin: 0 0 $spacing/4 0;
-		overflow: hidden;
-
-	}
-	li {
-		&:last-of-type {
-			a {
-				border-bottom: 0 none;
-			}
-		}
-	}
-	a {
-		& {
-			color: $color-foreground;
-			display: block;
-			position: relative;
-			padding: $spacing/4 $spacing/2;
-			border-bottom: 1px dotted rgba($color-foreground, .5);
-		}
-		&:hover {
-			text-decoration: none;
-			background: rgba($color-foreground, .1);
-		}
-
+		margin-bottom: $spacing/4 !important;
 	}
 }
