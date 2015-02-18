@@ -110,28 +110,18 @@ class CouponType extends AbstractPurchasableType
                 'empty_data'  => null,
             ))
             ->add('validFrom', 'datetime', array(
-                'widget'   => 'single_text',
-                'format'   => 'yyyy-MM-dd - HH:mm:ss',
-                'required' => false,
-                'label'    => 'From',
+                'date_widget'  => 'single_text',
+                'date_format'  => 'yyyy-MM-dd',
+                'time_widget'  => 'single_text',
+                'required'     => false,
+                'label'        => 'From',
             ))
             ->add('validTo', 'datetime', array(
-                'widget'   => 'single_text',
-                'format'   => 'yyyy-MM-dd - HH:mm:ss',
-                'required' => false,
-                'label'    => 'to',
-            ))
-            ->add('createdAt', 'datetime', array(
-                'widget'   => 'single_text',
-                'format'   => 'yyyy-MM-dd - HH:mm:ss',
-                'required' => false,
-                'label'    => 'createdAt',
-            ))
-            ->add('updatedAt', 'datetime', array(
-                'widget'   => 'single_text',
-                'format'   => 'yyyy-MM-dd - HH:mm:ss',
-                'required' => false,
-                'label'    => 'updatedAt',
+                'date_widget'  => 'single_text',
+                'date_format'  => 'yyyy-MM-dd',
+                'time_widget'  => 'single_text',
+                'required'     => false,
+                'label'        => 'to',
             ))
             ->add('enabled', 'checkbox', array(
                 'required' => false,

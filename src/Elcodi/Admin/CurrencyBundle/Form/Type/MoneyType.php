@@ -64,7 +64,10 @@ class MoneyType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('amount', 'integer')
+            ->add('amount', 'money', [
+                'divisor' => 100,
+                'currency' => false,
+            ])
             ->add('currency', 'entity', [
                 'class'         => 'Elcodi\Component\Currency\Entity\Currency',
                 'query_builder' => function (EntityRepository $repository) {

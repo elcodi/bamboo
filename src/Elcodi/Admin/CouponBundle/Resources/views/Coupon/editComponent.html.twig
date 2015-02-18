@@ -17,6 +17,7 @@
         })
         : url('admin_coupon_save')
     %}
+
     {{ form_start(form, {'action': formAction}) }}
     <fieldset data-tc-modules="form-coupons">
         <div class="grid">
@@ -148,10 +149,6 @@
                     </ol>
                 </div>
             </div>
-        </div>
-        <div class="d-n">
-            {{ form_row(form.createdAt) }}
-            {{ form_row(form.updatedAt) }}
         </div>
         <div class="grid">
             <div class="col-1-3">
