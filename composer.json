@@ -39,11 +39,14 @@
         "symfony/swiftmailer-bundle": "~2.3",
         "symfony/monolog-bundle": "~2.6",
         "symfony/proxy-manager-bridge": "~2.6, >=2.6.3",
+        "symfony/dependency-injection": "~2.6, >=2.6.3",
 
         "ocramius/proxy-manager": "~1.0",
         "doctrine/orm": "~2.4",
         "doctrine/doctrine-bundle": "~1.2",
+        "doctrine/annotations": "~1.0, >=1.2",
 
+        "twig/twig": "~1.16",
         "twig/extensions": "~1.0",
         "doctrine/doctrine-fixtures-bundle": "v2.2.0",
         "sensio/distribution-bundle": "~2.3",
@@ -60,7 +63,8 @@
         "amazonwebservices/aws-sdk-for-php": "1.6.2",
         "guzzlehttp/guzzle": "~5.2",
 
-        "mmoreram/controller-extra-bundle": "~1.0",
+        "mmoreram/controller-extra-bundle": "~1.0, >=1.1.10",
+        "mmoreram/extractor": "~1.0, >=1.1.1",
         "ornicar/gravatar-bundle" : "1.1.2",
         "knplabs/knp-gaufrette-bundle": "~0.1.0",
         "paymentsuite/paymentsuite": "~1.4.0",
@@ -99,7 +103,7 @@
         "elcodi-templates/store-template-bundle": "self.version"
     },
     "require-dev": {
-        "elcodi/elcodi": "~0.4.18",
+        "elcodi/elcodi": "~0.4.27",
         "elcodi/test-common-bundle": "~0.4.0",
         "doctrine/data-fixtures": "~1.0",
         "behat/behat": "~3.0",
