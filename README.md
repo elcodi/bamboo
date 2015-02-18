@@ -10,7 +10,7 @@ framework agnostic, that is, they only depend on the Symfony components.
 
 Why should I use Symfony?
 That's simple, to sell. We provide you with an interface to sell and to manage
-your atore. You only have to focus on offering a good product, we take care of
+your store. You only have to focus on offering a good product, we take care of
 the rest.
 
 Requirements
@@ -36,11 +36,11 @@ For more info just visit their
 [instalation page](http://php.net/manual/en/imagick.setup.php)
 
 > On the installation step you will be asked to provide the Imagick installation
-> path. Ensure to configuer the paremeter **imagick_convert_bin_path** right
+> path. Ensure to configure the parameter **imagick_convert_bin_path** right
 
 ### MySQL
 And, where do you save your data? By default we use MySQL, remember to install
-it as well as it's extenson for PHP
+it as well as its extension for PHP
 
 For more info just visit their
 [instalation page](http://dev.mysql.com/doc/refman/5.1/en/installing.html)
@@ -173,7 +173,7 @@ You can report any issue on [Bamboo](https://github.com/elcodi/bamboo/issues) or
 Need help
 ------------------
 
-If you need any help with the instalation or understanding elcodi or bamboo you
+If you need any help with the installation or understanding elcodi or bamboo you
 can contact us on [gitter](https://gitter.im/elcodi/elcodi).
 We will be glad of helping you, just ask for help.
 
