@@ -6,6 +6,7 @@
 <div class="form form-checkout">
         <div class="grid">
             <div class="col-2-3 ">
+                <a class="button button-secondary fa fa-arrow-left" href="{{ url('store_checkout_address') }}"> Back</a>
                 {{ paymill_render(
                 "@StoreTemplate/Modules/_payment-paymill.html.twig"
                 ) }}

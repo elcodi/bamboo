@@ -1,0 +1,53 @@
+{% extends '@StoreTemplate/Layout/_layout.html.twig' %}
+
+{% block content_title %}{{ "Select shipping and billing address"|trans }}{% endblock content_title %}
+
+{% block content %}
+    <h1>{{ "Select shipping and billing address"|trans }}</h1>
+
+    <a class="button button-secondary fa fa-arrow-left" href="{{ url('store_cart_view') }}"> Back</a>
+
+    {% if addresses is not empty %}
+    <form method="post" action="{{ url('store_checkout_address_save') }}">
+        <ul>
+            {% for address in addresses %}
+                <li>
+                    <ul>
+                        <li><strong>{{ address.name }}</strong></li>
+                        <li>{{ address.recipientName }} {{ address.recipientSurname }}</li>
+                        <li>{{ address.address }}<br/>{{ address.address_more }}</li>
+                        <li>{{ address.phone }} / {{ address.mobile }}</li>
+                        {% for locationData in cities_info[address.city] %}
+                            <li>{{ locationData.name }}</li>
+                        {% endfor %}
+                        <li>{{ address.comments }}</li>
+                        <li>
+                            <input id="billing-{{ address.id }}" type="radio" name="billing[]" value="{{ address.id }}">
+                            <label for="billing-{{ address.id }}">Billing</label>
+                            <input id="shipping-{{ address.id }}" type="radio" name="shipping[]" value="{{ address.id }}">
+                            <label for="shipping-{{ address.id }}">Shipping</label>
+                        </li>
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <input class="button button-secondary" name="payment" type="submit" value="Payment">
+    </form>
+    {% else %}
+    <strong>Add your first address</strong>
+    {% endif %}
+
+    {% render url('location_selectors') %}
+
+    {###########################################################################
+    #   IMPORTANT This JS is used on the location-selector to make the city    #
+    #   selectors work. If you remove this you should implement the same       #
+    #   functionality by yourself                                              #
+    ###########################################################################}
+    {% javascripts '@StoreGeoBundle/Resources/public/js/LocationSelectors.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    {% include '@StoreTemplate/Modules/_address-new.html.twig' with {'form' : form} %}
+{% endblock content %}

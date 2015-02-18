@@ -16,7 +16,7 @@ security:
 
         # store
         customer_area:
-            path: ^/user/
+            path: ^/user(/|$)
             roles: ROLE_CUSTOMER
 
         checkout_area:

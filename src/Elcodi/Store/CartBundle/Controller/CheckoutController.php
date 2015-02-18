@@ -17,9 +17,12 @@
 
 namespace Elcodi\Store\CartBundle\Controller;
 
+use Elcodi\Component\Geo\Entity\Interfaces\AddressInterface;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
+use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -28,6 +31,7 @@ use Elcodi\Component\Cart\Entity\Order;
 use Elcodi\Component\Currency\Entity\Money;
 use Elcodi\Component\User\Entity\Interfaces\CustomerInterface;
 use Elcodi\Store\CoreBundle\Controller\Traits\TemplateRenderTrait;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class CheckoutController
@@ -39,6 +43,136 @@ use Elcodi\Store\CoreBundle\Controller\Traits\TemplateRenderTrait;
 class CheckoutController extends Controller
 {
     use TemplateRenderTrait;
+
+    /**
+     * Checkout address step
+     *
+     * @param AddressInterface $address  The address being added
+     * @param FormView         $formView The form
+     * @param boolean          $isValid  If the processed form si valid
+     *
+     * @return Response
+     *
+     * @Route(
+     *      path = "/address",
+     *      name = "store_checkout_address",
+     *      methods = {"GET","POST"}
+     * )
+     *
+     * @EntityAnnotation(
+     *      class = {
+     *          "factory" = "elcodi.factory.address",
+     *          "method" = "create",
+     *          "static" = false
+     *      },
+     *      name = "address",
+     *      persist = false
+     * )
+     * @FormAnnotation(
+     *      class         = "store_geo_form_type_address",
+     *      name          = "formView",
+     *      entity        = "address",
+     *      handleRequest = true,
+     *      validate      = "isValid"
+     * )
+     */
+    public function addressAction(
+        AddressInterface $address,
+        FormView $formView,
+        $isValid
+    ) {
+        if ($isValid) {
+
+            // User is adding a new address
+            $addressManager = $this->get('elcodi.object_manager.address');
+            $addressManager->persist($address);
+            $addressManager->flush();
+
+            $this
+                ->get('elcodi.customer_wrapper')
+                ->loadCustomer()
+                ->addAddress($address);
+
+            $this->get('elcodi.object_manager.customer')
+                ->flush();
+
+            $this->addFlash('success', 'Address saved');
+
+            return $this->redirect(
+                $this->generateUrl('store_checkout_address')
+            );
+        }
+
+        $locationProvider = $this->get('elcodi.location_provider');
+
+        $addresses = $this
+            ->get('elcodi.customer_wrapper')
+            ->loadCustomer()
+            ->getAddresses();
+
+        $cities_info = [];
+        foreach ($addresses as $address) {
+            $cities_info[$address->getCity()] =
+                $locationProvider->getHierarchy(
+                    $address->getCity()
+                );
+        }
+
+        return $this->renderTemplate(
+            'Pages:checkout-address.html.twig',
+            [
+                'addresses'   => $addresses,
+                'cities_info' => $cities_info,
+                'form'        => $formView,
+            ]
+        );
+    }
+
+    /**
+     * Saves the billing and shipping address and redirects to the next page
+     *
+     * @param Request $request The current request
+     *
+     * @return Response
+     *
+     * @Route(
+     *      path = "/address/save",
+     *      name = "store_checkout_address_save",
+     *      methods = {"POST"}
+     * )
+     */
+    public function saveAddressAction(
+        Request $request
+    ) {
+        $billingAddressId = $request
+            ->request
+            ->get('billing', false);
+
+        $shippingAddressId = $request
+            ->request
+            ->get('shipping', false);
+
+        $saveCheckoutAddress = function ($value, $type) {
+            if ($value) {
+                // Save value
+            } else {
+                $this->addFlash('success', "Select a $type address");
+            }
+        };
+
+        $saveCheckoutAddress($billingAddressId, 'billing');
+        $saveCheckoutAddress($shippingAddressId, 'shipping');
+
+        if ($billingAddressId && $shippingAddressId) {
+            return $this->redirect(
+                $this->generateUrl('store_checkout_payment')
+            );
+        } else {
+            return $this->redirect(
+                $this->generateUrl('store_checkout_address')
+            );
+        }
+    }
 
     /**
      * Checkout payment step
@@ -69,7 +203,7 @@ class CheckoutController extends Controller
             ->loadCart();
 
         return $this->renderTemplate(
-            'Pages:cart-checkout.html.twig',
+            'Pages:checkout-payment.html.twig',
             [
                 'shippingPrice' => $shippingPrice,
                 'cart'          => $cart,
@@ -121,7 +255,7 @@ class CheckoutController extends Controller
         }
 
         return $this->renderTemplate(
-            'Pages:cart-checkout-fail.html.twig',
+            'Pages:checkout-payment-fail.html.twig',
             [
                 'order' => $order,
             ]
