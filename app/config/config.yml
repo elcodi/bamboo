@@ -52,23 +52,12 @@ doctrine:
                 user:     "%database_user%"
                 password: "%database_password%"
                 charset:  UTF8
-            location:
-                driver:   "%location_database_driver%"
-                host:     "%location_database_host%"
-                port:     "%location_database_port%"
-                dbname:   "%location_database_name%"
-                user:     "%location_database_user%"
-                password: "%location_database_password%"
-                charset:  UTF8
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         entity_managers:
             default:
                 connection: default
-                auto_mapping: false
-            location:
-                connection: location
                 auto_mapping: false
 
 # Assetic Configuration
@@ -161,7 +150,12 @@ elcodi_media:
         resize:
             converter_bin_path: %imagick_convert_bin_path%
 
+#
+# Location manager. If your location is going to be managed through another
+# entity manager, be sure to change this value with the name of it. By default,
+# the "default" entity manager will be used
+#
 elcodi_geo:
     mapping:
         location:
-            manager: location
+            manager: default
