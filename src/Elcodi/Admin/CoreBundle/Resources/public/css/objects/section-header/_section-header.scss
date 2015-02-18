@@ -29,13 +29,20 @@
 	.buttons-group {
 		float: right;
 		margin-bottom: 0;
+		min-width: 30%;
+		text-align: right;
 	}
 
-	.button-primary {
-		width: $spacing*1.4;
-		height: $spacing*1.4;
-		padding: $spacing/4;
-		overflow: hidden;
+	[class^='button'] {
+		& {
+			width: $spacing*1.4;
+			height: $spacing*1.4;
+			padding: $spacing/4;
+		}
+		span {
+			display: none;
+		}
+
 	}
 
 }
@@ -50,11 +57,15 @@
 			font-size: $font-size-xxl;
 			padding-top: 0;
 		}
-		.button-primary {
-			width: auto;
-			height: auto;
-			padding: $spacing/4 $spacing/2;
-			overflow: visible;
+		[class^='button'] {
+			& {
+				width: auto;
+				height: auto;
+				padding: $spacing/4 $spacing/2;
+			}
+			span {
+				display: inline-block;
+			}
 		}
 	}
 
