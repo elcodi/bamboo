@@ -152,6 +152,25 @@ menu_nodes:
         name: separator_2
         code: separator
         url: ~
+
+    bambooadmin_coupons:
+        name: Discounts
+        code: truck
+        url: admin_coupon_list
+        enabled: 1
+        subnodes: ~
+
+    bambooadmin_shipping_ranges:
+        name: Shipping
+        code: truck
+        url: admin_shipping_range_list
+        enabled: 1
+        subnodes: ~
+
+    bambooadmin_pages:
+        name: Pages
+        code: file-text-o
+        url: admin_page_list
         enabled: 1
         subnodes: ~
 
