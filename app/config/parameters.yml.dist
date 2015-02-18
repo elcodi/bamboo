@@ -8,14 +8,6 @@ parameters:
     database_user: root
     database_password: root
 
-    # Locations Database
-    location_database_driver: pdo_mysql
-    location_database_host: 127.0.0.1
-    location_database_port: ~
-    location_database_name: bamboo
-    location_database_user: root
-    location_database_password: root
-
     # Mailer
     mailer_transport: smtp
     mailer_host: 127.0.0.1
