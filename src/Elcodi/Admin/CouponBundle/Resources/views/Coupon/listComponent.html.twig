@@ -12,16 +12,17 @@
             "id": {width:"25"},
             "code": {},
             "name": {},
+            "rule": {},
             "Enabled": {width:"25"},
         },
-        class: "manufacturer",
+        class: "coupon",
     } %}
 {% endblock table_head %}
 
 
 {% block table_body_row %}
     <td>
-        <a href="{{ url("admin_coupon_view", {"id": entity.id}) }}">
+        <a href="{{ url("admin_coupon_edit", {"id": entity.id}) }}">
             {{ entity.id }}
         </a>
     </td>
@@ -30,6 +31,13 @@
     </td>
     <td>
         {{ entity.name }}
+    </td>
+    <td>
+        {% if entity.rule %}
+            <span class="label label-info">{{ entity.rule.name }}</span>
+        {% else %}
+            <span class="label label-default">no rule</span>
+        {% endif %}
     </td>
     <td>
         {% if entity.enabled %}
@@ -50,8 +58,3 @@
     {% set url = 'admin_coupon_list' %}
     {{ parent() }}
 {% endblock table_paginator_links %}
-
-
-{% block table_buttons %}
-    <a href="{{ url("admin_coupon_new") }}"type="button" class="btn btn-success">{{ "New Coupon"|trans }}</a>
-{% endblock table_buttons %}

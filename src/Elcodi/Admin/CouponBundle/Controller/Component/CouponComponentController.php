@@ -22,7 +22,6 @@ use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Paginator as PaginatorAnnotation;
 use Mmoreram\ControllerExtraBundle\ValueObject\PaginatorAttributes;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormView;
@@ -67,13 +66,14 @@ class CouponComponentController extends AbstractAdminController
      *          "orderByField" = "id",
      *          "orderByDirection" = "DESC",
      *      },
+     *      methods = {"GET"}
      * )
-     * @Template("AdminCouponBundle:Coupon/Component:listComponent.html.twig")
-     * @Method({"GET"})
+     *
+     * @Template("AdminCouponBundle:Coupon:listComponent.html.twig")
      *
      * @PaginatorAnnotation(
      *      attributes = "paginatorAttributes",
-     *      class = "elcodi.core.coupon.entity.coupon.class",
+     *      class = "elcodi.entity.coupon.class",
      *      page = "~page~",
      *      limit = "~limit~",
      *      orderBy = {
@@ -101,112 +101,51 @@ class CouponComponentController extends AbstractAdminController
     }
 
     /**
-     * Component for entity view
-     *
-     * As a component, this action should not return all the html macro, but
-     * only the specific component
-     *
-     * @param CouponInterface $entity Entity to view
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/component/{id}",
-     *      name = "admin_coupon_view_component",
-     *      requirements = {
-     *          "id" = "\d*",
-     *      }
-     * )
-     * @Template("AdminCouponBundle:Coupon/Component:viewComponent.html.twig")
-     * @Method({"GET"})
-     *
-     * @EntityAnnotation(
-     *      class = {
-     *          "factory" = "elcodi.factory.coupon",
-     *      },
-     *      mapping = {
-     *          "id" = "~id~"
-     *      }
-     * )
-     */
-    public function viewComponentAction(CouponInterface $entity)
-    {
-        return [
-            'entity' => $entity,
-        ];
-    }
-
-    /**
-     * New element action
-     *
-     * As a component, this action should not return all the html macro, but
-     * only the specific component
-     *
-     * @param FormView $formView Form view
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/new/component",
-     *      name = "admin_coupon_new_component"
-     * )
-     * @Template("AdminCouponBundle:Coupon/Component:newComponent.html.twig")
-     * @Method({"GET"})
-     *
-     * @EntityAnnotation(
-     *      class = {
-     *          "factory" = "elcodi.factory.coupon",
-     *      }
-     * )
-     * @FormAnnotation(
-     *      class = "elcodi_admin_coupon_form_type_coupon",
-     *      name  = "formView",
-     *      entity = "entity"
-     * )
-     */
-    public function newComponentAction(FormView $formView)
-    {
-        return [
-            'form' => $formView,
-        ];
-    }
-
-    /**
      * New element component action
      *
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
-     * @param CouponInterface $entity   Entity
+     * @param CouponInterface $coupon   Entity
      * @param FormView        $formView Form view
      *
      * @return array Result
      *
      * @Route(
      *      path = "/{id}/edit/component",
-     *      name = "admin_coupon_edit_component"
+     *      name = "admin_coupon_edit_component",
+     *      methods = {"GET"}
      * )
-     * @Template("AdminCouponBundle:Coupon/Component:editComponent.html.twig")
-     * @Method({"GET"})
+     * @Route(
+     *      path = "/new/component",
+     *      name = "admin_coupon_new_component",
+     *      methods = {"GET"}
+     * )
+     *
+     * @Template("AdminCouponBundle:Coupon:editComponent.html.twig")
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.coupon.entity.coupon.class",
+     *      class = {
+     *          "factory" = "elcodi.factory.coupon",
+     *      },
+     *      name = "coupon",
      *      mapping = {
      *          "id": "~id~",
-     *      }
+     *      },
+     *      mappingFallback = true,
      * )
      * @FormAnnotation(
      *      class = "elcodi_admin_coupon_form_type_coupon",
      *      name  = "formView",
-     *      entity = "entity"
+     *      entity = "coupon"
      * )
      */
     public function editComponentAction(
-        CouponInterface $entity,
+        CouponInterface $coupon,
         FormView $formView
     ) {
         return [
-            'entity' => $entity,
+            'coupon' => $coupon,
             'form'   => $formView,
         ];
     }

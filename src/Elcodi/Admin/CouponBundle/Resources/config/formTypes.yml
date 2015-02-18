@@ -6,7 +6,9 @@ services:
     elcodi.admin.product.form_type.coupon:
         class: %elcodi.admin.coupon.form_type.coupon.class%
         arguments:
-            entity: %elcodi.core.coupon.entity.coupon.class%
+            entity: %elcodi.entity.coupon.class%
             coupon_factory: @elcodi.factory.coupon
+        calls:
+            - [setRuleNamespace, [%elcodi.core.rule.entity.rule.class%]]
         tags:
             - { name: form.type, alias: elcodi_admin_coupon_form_type_coupon }

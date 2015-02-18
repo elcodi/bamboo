@@ -142,7 +142,7 @@ class ProductController extends Controller
 
         $variantName = (new ProductExtension())->getPurchasableName($variant);
         $variantPrice = $this
-            ->get('elcodi.core.currency.twig_extension.print_money')
+            ->get('elcodi.twig_extension.print_money')
             ->printConvertMoney($variant->getPrice());
 
         return [

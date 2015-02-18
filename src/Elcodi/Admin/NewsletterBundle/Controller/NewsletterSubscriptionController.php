@@ -150,7 +150,7 @@ class NewsletterSubscriptionController extends AbstractAdminController
      *
      * @EntityAnnotation(
      *      class = {
-     *          "factory" = "elcodi.core.newsletter.factory.newsletter_subscription",
+     *          "factory" = "elcodi.factory.newsletter_subscription",
      *      },
      *      persist = true
      * )

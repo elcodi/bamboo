@@ -4,3 +4,8 @@ parameters:
     # Form Types
     #
     store.cart_coupon.form_type.coupon_apply.class: Elcodi\Store\CartCouponBundle\Form\Type\CouponApplyType
+
+    #
+    # Event listeners
+    #
+    store.cart_coupon.event_listener.just_one_manual.class: Elcodi\Store\CartCouponBundle\EventListener\JustOneManualCouponEventListener

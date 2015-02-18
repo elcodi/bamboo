@@ -61,7 +61,7 @@ class CartController extends Controller
      *
      * @AnnotationEntity(
      *      class = {
-     *          "factory" = "elcodi.cart_wrapper",
+     *          "factory" = "elcodi.wrapper.cart",
      *          "method" = "loadCart",
      *          "static" = false,
      *      },
@@ -89,7 +89,7 @@ class CartController extends Controller
         }
 
         $cartCoupons = $this
-            ->get('elcodi.cart_coupon_manager')
+            ->get('elcodi.manager.cart_coupon')
             ->getCartCoupons($cart);
 
         return $this->renderTemplate(
@@ -133,7 +133,7 @@ class CartController extends Controller
      * )
      * @AnnotationEntity(
      *      class = {
-     *          "factory" = "elcodi.cart_wrapper",
+     *          "factory" = "elcodi.wrapper.cart",
      *          "method" = "loadCart",
      *          "static" = false,
      *      },
@@ -150,7 +150,7 @@ class CartController extends Controller
             ->get('add-cart-quantity', 1);
 
         $this
-            ->get('elcodi.cart_manager')
+            ->get('elcodi.cart.manager')
             ->addProduct(
                 $cart,
                 $product,
@@ -192,7 +192,7 @@ class CartController extends Controller
      * )
      * @AnnotationEntity(
      *      class = {
-     *          "factory" = "elcodi.cart_wrapper",
+     *          "factory" = "elcodi.wrapper.cart",
      *          "method" = "loadCart",
      *          "static" = false,
      *      },
@@ -209,7 +209,7 @@ class CartController extends Controller
             ->get('add-cart-quantity', 1);
 
         $this
-            ->get('elcodi.cart_manager')
+            ->get('elcodi.cart.manager')
             ->addProduct(
                 $cart,
                 $variant,
@@ -236,7 +236,7 @@ class CartController extends Controller
      *
      * @AnnotationEntity(
      *      class = {
-     *          "factory" = "elcodi.cart_wrapper",
+     *          "factory" = "elcodi.wrapper.cart",
      *          "method" = "loadCart",
      *          "static" = false,
      *      },
@@ -246,7 +246,7 @@ class CartController extends Controller
     public function emptyCartAction(CartInterface $cart)
     {
         $this
-            ->get('elcodi.cart_manager')
+            ->get('elcodi.cart.manager')
             ->emptyLines($cart);
 
         return $this->redirect(
@@ -271,7 +271,7 @@ class CartController extends Controller
      *
      * @AnnotationEntity(
      *      class = {
-     *          "factory" = "elcodi.cart_wrapper",
+     *          "factory" = "elcodi.wrapper.cart",
      *          "method" = "loadCart",
      *          "static" = false,
      *      },
@@ -316,7 +316,7 @@ class CartController extends Controller
      *
      * @AnnotationEntity(
      *      class = {
-     *          "factory" = "elcodi.cart_wrapper",
+     *          "factory" = "elcodi.wrapper.cart",
      *          "method" = "loadCart",
      *          "static" = false,
      *      },
@@ -335,7 +335,7 @@ class CartController extends Controller
         CartLineInterface $cartLine
     ) {
         $this
-            ->get('elcodi.cart_manager')
+            ->get('elcodi.cart.manager')
             ->removeLine(
                 $cart,
                 $cartLine
@@ -361,7 +361,7 @@ class CartController extends Controller
      *
      * @AnnotationEntity(
      *      class = {
-     *          "factory" = "elcodi.cart_wrapper",
+     *          "factory" = "elcodi.wrapper.cart",
      *          "method" = "loadCart",
      *          "static" = false,
      *      },

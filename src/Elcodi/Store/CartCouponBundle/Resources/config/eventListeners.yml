@@ -1,0 +1,11 @@
+services:
+
+    #
+    # Event listeners
+    #
+    store.cart_coupon.event_listener.just_one_manual:
+        class: %store.cart_coupon.event_listener.just_one_manual.class%
+        arguments:
+            - @elcodi.repository.cart_coupon
+        tags:
+            - { name: kernel.event_listener, event: cart_coupon.onapply, method: assertJustOneManualCoupon, priority: 16 }

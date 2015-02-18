@@ -45,7 +45,7 @@ class TemplateController extends AbstractAdminController
      */
     public function listAction()
     {
-        $configurationManager = $this->get('elcodi.configuration_manager');
+        $configurationManager = $this->get('elcodi.manager.configuration');
 
         $templates = $configurationManager->get('store.templates');
         $currentTemplate = $configurationManager->get('store.template');

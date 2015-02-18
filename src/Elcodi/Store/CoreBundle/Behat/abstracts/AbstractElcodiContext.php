@@ -124,7 +124,7 @@ class AbstractElcodiContext extends RawMinkContext implements Context, KernelAwa
     {
         $manager = $this
             ->getContainer()
-            ->get('elcodi.configuration_manager');
+            ->get('elcodi.manager.configuration');
 
         return $manager;
     }

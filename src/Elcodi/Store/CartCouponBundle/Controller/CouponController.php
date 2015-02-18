@@ -25,6 +25,7 @@ use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\Response;
 
 use Elcodi\Component\Cart\Entity\Interfaces\CartInterface;
+use Elcodi\Component\Coupon\Exception\Abstracts\AbstractCouponException;
 use Elcodi\Store\CoreBundle\Controller\Traits\TemplateRenderTrait;
 
 /**
@@ -87,20 +88,31 @@ class CouponController extends Controller
      */
     public function applyAction(Form $couponApplyFormType)
     {
-        $couponCode = $couponApplyFormType->getData()['code'];
+        $couponCode = $couponApplyFormType
+            ->get('code')
+            ->getData();
 
         /**
          * @var CartInterface $cart
          */
         $cart = $this
-            ->get('elcodi.cart_wrapper')
+            ->get('elcodi.wrapper.cart')
             ->loadCart();
 
-        $this
-            ->get('elcodi.cart_coupon_manager')
-            ->addCouponByCode($cart, $couponCode);
+        try {
 
-        return $this->redirect($this->generateUrl('store_cart_view'));
+            $this
+                ->get('elcodi.manager.cart_coupon')
+                ->addCouponByCode($cart, $couponCode);
+
+            $this->addFlash('info', 'Coupon applied successfully');
+
+        } catch (AbstractCouponException $e) {
+
+            $this->addFlash('error', 'Could not apply coupon');
+        }
+
+        return $this->redirectToRoute('store_cart_view');
     }
 
     /**
@@ -122,13 +134,13 @@ class CouponController extends Controller
          * @var CartInterface $cart
          */
         $cart = $this
-            ->get('elcodi.cart_wrapper')
+            ->get('elcodi.wrapper.cart')
             ->loadCart();
 
         $this
-            ->get('elcodi.cart_coupon_manager')
+            ->get('elcodi.manager.cart_coupon')
             ->removeCouponByCode($cart, $code);
 
-        return $this->redirect($this->generateUrl('store_cart_view'));
+        return $this->redirectToRoute('store_cart_view');
     }
 }

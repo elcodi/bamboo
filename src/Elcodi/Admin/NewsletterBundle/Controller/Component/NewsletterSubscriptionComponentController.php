@@ -120,7 +120,7 @@ class NewsletterSubscriptionComponentController
      *
      * @EntityAnnotation(
      *      class = {
-     *          "factory" = "elcodi.core.newsletter.factory.newsletter_subscription",
+     *          "factory" = "elcodi.factory.newsletter_subscription",
      *      },
      *      mapping = {
      *          "id" = "~id~"
@@ -153,7 +153,7 @@ class NewsletterSubscriptionComponentController
      *
      * @EntityAnnotation(
      *      class = {
-     *          "factory" = "elcodi.core.newsletter.factory.newsletter_subscription",
+     *          "factory" = "elcodi.factory.newsletter_subscription",
      *      }
      * )
      * @FormAnnotation(

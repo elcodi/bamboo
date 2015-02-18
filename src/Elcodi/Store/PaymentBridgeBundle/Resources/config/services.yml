@@ -7,8 +7,8 @@ services:
         class: %store.payment.service.payment_bridge.class%
         arguments:
             order_repository: @elcodi.repository.order
-            cart_wrapper: @elcodi.cart_wrapper
-            currency_converter: @elcodi.currency_converter
+            cart_wrapper: @elcodi.wrapper.cart
+            currency_converter: @elcodi.converter.currency
 
     payment.bridge:
         alias: store.payment.service.payment_bridge
