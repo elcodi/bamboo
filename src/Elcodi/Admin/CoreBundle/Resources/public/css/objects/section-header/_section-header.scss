@@ -1,7 +1,6 @@
 .section-header {
 	& {
 		display: block;
-		overflow: hidden;
 		background: $color-background;
 		padding: $spacing/2 $spacing/2 $spacing/4 $spacing/1.5;
 
@@ -32,11 +31,9 @@
 		min-width: 30%;
 		text-align: right;
 	}
-
 	[class^='button'] {
 		& {
-			width: $spacing*1.4;
-			height: $spacing*1.4;
+			min-width: $spacing*1.4;
 			padding: $spacing/4;
 		}
 		span {
@@ -59,8 +56,7 @@
 		}
 		[class^='button'] {
 			& {
-				width: auto;
-				height: auto;
+				min-width: inherit;
 				padding: $spacing/4 $spacing/2;
 			}
 			span {
