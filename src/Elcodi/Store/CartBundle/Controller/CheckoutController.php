@@ -105,6 +105,10 @@ class CheckoutController extends Controller
 
         $locationProvider = $this->get('elcodi.location_provider');
 
+        $cart = $this
+            ->get('elcodi.cart_wrapper')
+            ->loadCart();
+
         $addresses = $this
             ->get('elcodi.customer_wrapper')
             ->loadCustomer()
@@ -121,6 +125,7 @@ class CheckoutController extends Controller
         return $this->renderTemplate(
             'Pages:checkout-address.html.twig',
             [
+                'cart'        => $cart,
                 'addresses'   => $addresses,
                 'cities_info' => $cities_info,
                 'form'        => $formView,
@@ -129,7 +134,7 @@ class CheckoutController extends Controller
     }
 
     /**
-     * Saves the billing and shipping address and redirects to the next page
+     * Saves the billing and delivery address and redirects to the next page
      *
      * @param Request $request The current request
      *
@@ -148,30 +153,65 @@ class CheckoutController extends Controller
             ->request
             ->get('billing', false);
 
-        $shippingAddressId = $request
+        $deliveryAddressId = $request
             ->request
-            ->get('shipping', false);
+            ->get('delivery', false);
 
-        $saveCheckoutAddress = function ($value, $type) {
-            if ($value) {
-                // Save value
+        $saveCheckoutAddress = function (
+            $addressId,
+            $addressType,
+            $setMethodName
+        ) {
+            if ($addressId) {
+
+                $address = $this
+                    ->get('elcodi.repository.address')
+                    ->findOneBy(['id' => $addressId]);
+
+                $customerAddresses = $this
+                    ->getUser()
+                    ->getAddresses();
+
+                if ($customerAddresses->contains($address)) {
+                    $cart = $this
+                        ->get('elcodi.cart_wrapper')
+                        ->loadCart();
+
+                    $cart->$setMethodName($address);
+
+                    $cartObjectManager = $this
+                        ->get('elcodi.object_manager.cart');
+                    $cartObjectManager->persist($cart);
+                    $cartObjectManager->flush();
+                }
+
             } else {
-                $this->addFlash('success', "Select a $type address");
+                $this->addFlash(
+                    'success',
+                    "Select a $addressType address"
+                );
             }
         };
 
-        $saveCheckoutAddress($billingAddressId, 'billing');
-        $saveCheckoutAddress($shippingAddressId, 'shipping');
+        $saveCheckoutAddress(
+            $deliveryAddressId,
+            'delivery',
+            'setDeliveryAddress'
+        );
 
-        if ($billingAddressId && $shippingAddressId) {
-            return $this->redirect(
-                $this->generateUrl('store_checkout_payment')
-            );
-        } else {
-            return $this->redirect(
-                $this->generateUrl('store_checkout_address')
-            );
-        }
+        $saveCheckoutAddress(
+            $billingAddressId,
+            'billing',
+            'setBillingAddress'
+        );
+
+        $redirectionUrl = ($billingAddressId && $deliveryAddressId)
+            ? 'store_checkout_payment'
+            : 'store_checkout_address';
+
+        return $this->redirect(
+            $this->generateUrl($redirectionUrl)
+        );
     }
 
     /**

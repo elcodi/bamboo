@@ -1,9 +1,9 @@
 {% extends '@StoreTemplate/Layout/_layout.html.twig' %}
 
-{% block content_title %}{{ "Select shipping and billing address"|trans }}{% endblock content_title %}
+{% block content_title %}{{ "Select delivery and billing address"|trans }}{% endblock content_title %}
 
 {% block content %}
-    <h1>{{ "Select shipping and billing address"|trans }}</h1>
+    <h1>{{ "Select delivery and billing address"|trans }}</h1>
 
     <a class="button button-secondary fa fa-arrow-left" href="{{ url('store_cart_view') }}"> Back</a>
 
@@ -22,10 +22,22 @@
                         {% endfor %}
                         <li>{{ address.comments }}</li>
                         <li>
-                            <input id="billing-{{ address.id }}" type="radio" name="billing[]" value="{{ address.id }}">
+                            <input
+                                id="billing-{{ address.id }}"
+                                type="radio"
+                                name="billing"
+                                value="{{ address.id }}"
+                                {% if address.id == cart.billingAddress.id %} checked{% endif %}>
                             <label for="billing-{{ address.id }}">Billing</label>
-                            <input id="shipping-{{ address.id }}" type="radio" name="shipping[]" value="{{ address.id }}">
-                            <label for="shipping-{{ address.id }}">Shipping</label>
+
+                            <input
+                                id="delivery-{{ address.id }}"
+                                type="radio"
+                                name="delivery"
+                                value="{{ address.id }}"
+                                {% if address.id == cart.deliveryAddress.id %} checked{% endif %}>
+                            <label for="delivery-{{ address.id }}">Delivery</label>
+
                         </li>
                     </ul>
                 </li>
