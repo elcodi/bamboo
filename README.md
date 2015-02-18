@@ -92,6 +92,17 @@ We also load some fixtures to show on our store
     --no-interaction
 ```
 
+You can also add the geo information for any country. Just find the two letters
+[ISO code](http://en.wikipedia.org/wiki/ISO_3166-1#Current_codes) for the
+country you want to load and launch the following command changing ES with your
+code
+
+```bash
+    $ php app/console elcodi:locations:populate ES
+```
+
+> This could take several minutes per country, be patient
+
 ### 3. Load and enable the template
 
 Hey, we have some templates for you! Be sure to load 'em all!
