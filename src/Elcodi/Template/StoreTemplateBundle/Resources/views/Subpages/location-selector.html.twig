@@ -5,16 +5,20 @@
 #       - In each selector the "if" telling us if is the max location we can   #
 #         choose                                                               #
 ###############################################################################}
-<div id="js-location-selectors" data-url="{{ url('location_selectors') }}">
+<div id="js-location-selectors" data-url="{{ url('location_selectors') }}" class="grid">
+    <div class="col-1-1">
     {% for select in selects %}
-        <label for="{{ select.type }}">{{ select.type|capitalize|trans }}</label>
-        <select{% if select.type == maxLocationType %} data-max-type{% endif %}>
-            <option>Select one</option>
-            {% for key, value in select.options %}
-                <option value="{{ key }}"{% if key == select.selected %} selected{% endif %}>
-                    {{ value }}
-                </option>
-            {% endfor%}
-        </select>
+        <div class="form-inline">
+            <label for="{{ select.type }}">{{ select.type|capitalize|trans }}</label>
+            <select{% if select.type == maxLocationType %} data-max-type{% endif %}>
+                <option>Select one</option>
+                {% for key, value in select.options %}
+                    <option value="{{ key }}"{% if key == select.selected %} selected{% endif %}>
+                        {{ value }}
+                    </option>
+                {% endfor%}
+            </select>
+        </div>
     {% endfor %}
+    </div>
 </div>

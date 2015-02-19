@@ -20,3 +20,8 @@ input[type="email"] {
 input[type="password"] {
 	@extend %input;
 }
+
+textarea {
+	width: 100%;
+	@extend %input;
+}
