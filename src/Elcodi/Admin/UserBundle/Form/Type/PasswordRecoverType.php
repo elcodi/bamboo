@@ -35,6 +35,10 @@ class PasswordRecoverType extends AbstractType
     {
         $builder
             ->setMethod('POST')
+            ->add('email', 'email', array(
+                'label' => false,
+                'required' => true,
+            ))
             ->add('password', 'repeated', array(
                 'type'           => 'password',
                 'first_options'  => array(

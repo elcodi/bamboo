@@ -134,6 +134,7 @@ class PasswordController extends Controller
                 ->get('elcodi.repository.admin_user')
                 ->findOneBy(array(
                     'recoveryHash' => $hash,
+                    'email' => $form->get('email')->getData(),
                 ));
 
             if ($customer instanceof AbstractUser) {

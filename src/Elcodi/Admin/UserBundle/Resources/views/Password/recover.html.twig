@@ -12,6 +12,14 @@
         <legend>{{ 'New password'|trans }}</legend>
         <ul>
             <li>
+                {{ form_row(form.email, {
+                    "attr": {
+                        "class": "form-control",
+                        "placeholder": "Enter your mail"|trans
+                    }
+                }) }}
+            </li>
+            <li>
                 {{ form_errors(form.password) }}
                 {{ form_row(form.password.first, {
                     "attr": {
