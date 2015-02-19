@@ -22,7 +22,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Form;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 
 use Elcodi\Component\User\Entity\Abstracts\AbstractUser;
 
@@ -98,7 +97,6 @@ class PasswordController extends Controller
      */
     public function sentAction()
     {
-
         return [];
     }
 
@@ -146,8 +144,12 @@ class PasswordController extends Controller
                     ->get('elcodi.manager.password')
                     ->recoverPassword($customer, $hash, $password);
 
-                return $this->redirectToRoute($this->generateUrl('admin_homepage'));
+                $this->addFlash('info', 'Password successfully changed');
+            } else {
+                $this->addFlash('error', 'Error changing password');
             }
+
+            return $this->redirectToRoute('admin_homepage');
         }
 
         return array(
