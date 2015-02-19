@@ -89,7 +89,7 @@ class CheckoutController extends Controller
             $addressManager->flush();
 
             $this
-                ->get('elcodi.customer_wrapper')
+                ->get('elcodi.wrapper.customer')
                 ->loadCustomer()
                 ->addAddress($address);
 
@@ -106,11 +106,11 @@ class CheckoutController extends Controller
         $locationProvider = $this->get('elcodi.location_provider');
 
         $cart = $this
-            ->get('elcodi.cart_wrapper')
+            ->get('elcodi.wrapper.cart')
             ->loadCart();
 
         $addresses = $this
-            ->get('elcodi.customer_wrapper')
+            ->get('elcodi.wrapper.customer')
             ->loadCustomer()
             ->getAddresses();
 
@@ -174,7 +174,7 @@ class CheckoutController extends Controller
 
                 if ($customerAddresses->contains($address)) {
                     $cart = $this
-                        ->get('elcodi.cart_wrapper')
+                        ->get('elcodi.wrapper.cart')
                         ->loadCart();
 
                     $cart->$setMethodName($address);

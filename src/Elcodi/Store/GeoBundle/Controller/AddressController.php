@@ -112,7 +112,18 @@ class AddressController extends Controller
 
         $entityManager = $this->get('elcodi.object_manager.address');
         if ($form->isValid()) {
-            $entityManager->flush($address);
+
+            $addressToSave = $this
+                ->get('elcodi.manager.address')
+                ->saveAddress($address)
+                ->getSavedAddress();
+
+            $customerEntityManager = $this
+                ->get('elcodi.object_manager.customer');
+            $customer              = $this->getUser();
+            $customer->removeAddress($address);
+            $customer->addAddress($addressToSave);
+            $customerEntityManager->flush($customer);
 
             $this->addFlash('success', 'Address saved');
 
