@@ -1,0 +1,11 @@
+#
+# Per-project route definitions
+#
+# You can add your specific routes or ovverride Elcodi's
+#
+
+## Example
+#
+#store_user:
+#     resource: "@StoreUserBundle/Resources/config/routing.yml"
+#     schemes: [ "HTTPS" ]
