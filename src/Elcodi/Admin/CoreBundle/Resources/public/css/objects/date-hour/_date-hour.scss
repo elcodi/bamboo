@@ -1,0 +1,22 @@
+.date-hour {
+	& {
+		margin-bottom: 0;
+	}
+	input {
+		display: inline-block !important;
+
+	}
+	input[type='date'] {
+		width: 50%;
+		min-width: 150px;
+		max-height: $spacing*1.7;
+		margin: 0 $spacing/2 $spacing/2 0;
+	}
+	input[type='time'] {
+		@extend %field;
+		width: 37%;
+		min-width: 100px;
+		max-height: $spacing*1.5;
+		margin-bottom: $spacing/2;
+	}
+}

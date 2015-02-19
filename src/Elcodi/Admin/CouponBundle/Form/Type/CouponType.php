@@ -121,7 +121,7 @@ class CouponType extends AbstractPurchasableType
                 'date_format'  => 'yyyy-MM-dd',
                 'time_widget'  => 'single_text',
                 'required'     => false,
-                'label'        => 'to',
+                'label'        => 'To',
             ))
             ->add('enabled', 'checkbox', array(
                 'required' => false,
