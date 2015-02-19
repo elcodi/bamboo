@@ -1,10 +1,11 @@
-<div class="sidebar-user tablet desktop">
-    <a href="{{ url("admin_admin_user_edit", {id: app.user.id }) }}" class="sidebar-user-avatar desktop">
-        <img src="{{ gravatar(app.user.email, 40) }}" alt="Avatar" class="image-circle">
-    </a>
-    <div class="sidebar-user-info">
-        <a class="sidebar-title" href="{{ url("admin_homepage") }}">Elcodi Admin</a>
-        <a href="#sidebar-user-dropdown" data-tc-modules="toggle">{{ app.user.username }} <i class="icon-angle-down"></i> </a>
+<div class="sidebar-user">
+    <div class="ta-c">
+        <a href="{{ url("admin_admin_user_edit", {id: app.user.id }) }}" class="sidebar-user-avatar">
+            <img src="{{ gravatar(app.user.email, 20) }}" alt="Avatar" class="image-circle">
+        </a>
+        <div class="sidebar-user-info">
+            <a href="#sidebar-user-dropdown" data-tc-modules="toggle" class="c-foreground-light">{{ app.user.username }} <i class="icon-caret-down"></i> </a>
+        </div>
     </div>
     <nav id="sidebar-user-dropdown" class="navigation navigation-vertical sidebar-user-dropdown hidden">
         <ul>
@@ -20,14 +21,16 @@
 <nav id="menu" class="navigation navigation-vertical desktop tablet">
     <ul>
         {% for menu_item in menu_items %}
-            <li {% if menu_item.subnodes|length %}class="parent"{% endif %}>
+
+        {% if menu_item.code != 'separator' %}
+            <li class="{% if menu_item.active %}active{% endif %}{% if menu_item.subnodes|length %}parent{% endif %}">
                 {% if generate_url(menu_item.url) != '' %}
                 <a href="{{ generate_url(menu_item.url) }}">
                     {% else %}
                     <a href="#{{ menu_item.id }}" data-tc-modules="toggle">
-                        <i class="icon-angle-down fl-r"></i>
+                        <i class="icon-caret-down fl-r"></i>
                         {% endif %}
-                        <i class="icon-{{ menu_item.code|default("folder") }}"></i>
+                        <i class="icon-{{ menu_item.code|default("folder") }} mr-m"></i>
                         <span>{{ menu_item.name|trans }}</span>
                     </a>
                     {% for submenu_item in menu_item.subnodes %}
@@ -42,6 +45,11 @@
                         {% endif %}
                     {% endfor %}
             </li>
+        {% else %}
+            <li class="pt-s">
+                <hr />
+            </li>
+        {% endif %}
         {% endfor %}
     </ul>
 </nav>

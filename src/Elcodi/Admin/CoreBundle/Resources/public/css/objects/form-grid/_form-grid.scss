@@ -4,6 +4,8 @@
 			background: $color-background;
 			padding: $spacing;
 			@include border-radius;
+			vertical-align: top;
+			min-height: 200px;
 		}
 	}
 }

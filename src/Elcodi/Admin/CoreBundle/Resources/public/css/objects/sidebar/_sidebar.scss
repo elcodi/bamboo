@@ -4,7 +4,12 @@
 		overflow: hidden;
 		@include text-shadow(1px 1px 0 rgba($color-foreground,.2))
 	}
-
+	hr {
+		border-width: 1px 0 0 0;
+		border-style:solid;
+		border-color: rgba($color-background, .1);
+		height: 1px;
+	}
 }
 
 .sidebar-title {
@@ -12,7 +17,7 @@
 	color: $color-background;
 	font-family: $font-face-title;
 	font-weight: 400;
-	font-size: $font-size-xl;
+	font-size: $font-size-l;
 }
 
 @mixin papa-sidebar(){

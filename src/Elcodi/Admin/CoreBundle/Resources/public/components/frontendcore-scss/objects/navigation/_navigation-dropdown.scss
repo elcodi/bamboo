@@ -23,7 +23,7 @@
 		}
 		ul {
 			display: none;
-			position: absolute;
+			position: absolute !important;
 			right: 0;
 			margin-top: 0;
 			background: map-get($object-navigation-vars, background-color);

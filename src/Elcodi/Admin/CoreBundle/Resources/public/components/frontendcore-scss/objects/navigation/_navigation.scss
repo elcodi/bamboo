@@ -1,4 +1,4 @@
-@if $object-navigation != false or $ui == true {
+@if $object-navigation != false and $ui != true {
 
 	[class^='navigation'] {
 		@extend %navigation;

@@ -22,7 +22,7 @@
         <a data-tc-modules="side-panel" data-tc-clone="true" data-tc-close="false" data-tc-position="right" data-tc-class="navigation navigation-vertical" href="#sidebar-user-dropdown" class="icon-user button button-icon topbar-user-menu"></a>
     </nav>
     <div class="grid">
-        <div class="col-4-5 push-right">
+        <div class="col-10-12 push-right">
             <header class="section-header">
                 <div class="buttons-group">
                     {{ elcodi_hook('admin.header_actions', elcodi_context) }}
@@ -34,7 +34,7 @@
                 {% block content '' %}
             </div>
         </div>
-        <aside class="col-1-5 sidebar">
+        <aside class="col-2-12 sidebar">
             {% render url('admin_menu_side') %}
         </aside>
     </div>
