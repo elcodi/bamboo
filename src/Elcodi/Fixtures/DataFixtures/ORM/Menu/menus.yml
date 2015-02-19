@@ -194,6 +194,7 @@ menu_nodes:
           - bambooadmin_currencies
           - bambooadmin_languages
 
+
 menus:
     admin:
         code: admin
