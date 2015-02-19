@@ -65,7 +65,7 @@ class PasswordController extends Controller
 
             $email = $passwordRememberForm->getData()['email'];
             $emailFound = $this
-                ->get('elcodi.core.user.service.password_manager')
+                ->get('elcodi.manager.password')
                 ->rememberPasswordByEmail(
                     $adminUserRepository,
                     $email,
@@ -145,7 +145,7 @@ class PasswordController extends Controller
                 $password = $passwordRecoverForm->getData()['password'];
 
                 $this
-                    ->get('elcodi.core.user.service.password_manager')
+                    ->get('elcodi.manager.password')
                     ->recoverPassword($customer, $hash, $password);
 
                 return new RedirectResponse($this->generateUrl('admin_homepage'));
