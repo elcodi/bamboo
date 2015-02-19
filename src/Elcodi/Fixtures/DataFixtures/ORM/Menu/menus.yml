@@ -100,8 +100,8 @@ menu_nodes:
     bambooadmin_separator_1:
         name: separator_1
         code: separator
-        url: ~
         enabled: 1
+        url: ~
         subnodes: ~
 
     bambooadmin_pages:
@@ -151,7 +151,9 @@ menu_nodes:
     bambooadmin_separator_2:
         name: separator_2
         code: separator
+        enabled: 1
         url: ~
+        subnodes: ~
 
     bambooadmin_coupons:
         name: Discounts
@@ -210,6 +212,7 @@ menu_nodes:
         subnodes:
           - bambooadmin_configurations
           - bambooadmin_shipping_ranges
+          - bambooadmin_carriers
           - bambooadmin_currencies
           - bambooadmin_languages
 

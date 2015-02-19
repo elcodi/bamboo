@@ -33,13 +33,15 @@ class JustOneManualCouponEventListener
 {
     /**
      * @var CartCouponRepository
+     *
+     * CartCoupon repository
      */
     protected $cartCouponRepository;
 
     /**
      * Constructor
      *
-     * @param CartCouponRepository $cartCouponRepository
+     * @param CartCouponRepository $cartCouponRepository CartCoupon Repository
      */
     public function __construct(CartCouponRepository $cartCouponRepository)
     {

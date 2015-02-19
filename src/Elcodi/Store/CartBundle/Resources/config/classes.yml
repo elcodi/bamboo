@@ -5,3 +5,8 @@ parameters:
     #
     store.cart.form_type.cart.class: Elcodi\Store\CartBundle\Form\Type\CartType
     store.cart.form_type.cart_line.class: Elcodi\Store\CartBundle\Form\Type\CartLineType
+
+    #
+    # Event listeners
+    #
+    store.cart.event_listener.check_shipping_method.class: Elcodi\Store\CartBundle\EventListener\CheckShippingMethodEventListener

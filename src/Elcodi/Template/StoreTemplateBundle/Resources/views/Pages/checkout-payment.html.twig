@@ -1,9 +1,29 @@
 {% extends '@StoreTemplate/Layout/_layout.html.twig' %}
 
-{% block content %}{% endblock content %}
-
 {% block prefooter %}
-<div class="form form-checkout">
+
+    <div class="form form-checkout">
+        <div class="grid">
+            <div class="col-1-1">
+                <div class="cart-list">
+                    {% for line in cart.cartLines %}
+                        {% include "@StoreTemplate/Modules/_order-item.html.twig" with {"line": line} %}
+                    {% endfor %}
+                </div>
+                <div class="coupon-list">
+                    {% for cartCoupon in cartCoupons %}
+                        {% include "@StoreTemplate/Modules/_coupon-item.html.twig" with { "coupon": cartCoupon.coupon } %}
+                    {% endfor %}
+                </div>
+                <div class="shipping-list">
+                    {% include "@StoreTemplate/Modules/_shipping-item.html.twig" with {
+                        "shippingRange": cart.shippingRange,
+                        "shippingAmount": cart.shippingAmount
+                    } %}
+                </div>
+                <p class="cart-total"><span>{{ 'Total'|trans }} </span>{{ cart.amount|print_convert_money() }}</p>
+            </div>
+        </div>
         <div class="grid">
             <div class="col-2-3 ">
                 <a class="button button-secondary fa fa-arrow-left" href="{{ url('store_checkout_address') }}"> Back</a>
@@ -13,15 +33,26 @@
             </div>
             <div class="col-1-3 payment">
                 <form id="form-payment-execute" action="" method="post">
-                    <legend>{{ 'Shipping method'|trans }}</legend>
-                    <label>
-                        <input type="radio" name="field-shipping" value="free" checked="checked" />
-                        {{ 'Standard - FREE'|trans }}
-                    </label>
-                    <label>
-                        <input type="radio" name="field-shipping"  value="express" />
-                        {{ 'Express'|trans }} - {{ shippingPrice|print_convert_money() }}
-                    </label>
+                    {% if shippingRanges|length > 0 %}
+                        <legend>{{ 'Shipping method'|trans }}</legend>
+
+                        {% set actualShippingRange = cart.shippingRange.id %}
+                        {% for shippingRange in shippingRanges %}
+                            <label>
+                                {% if shippingRange.id == actualShippingRange %}
+
+                                    {{ shippingRange.carrier.name }} - {{ shippingRange.price|print_convert_money }}
+                                {% else %}
+                                    <a href="{{ url("store_checkout_shipping_range_apply", {
+                                        'rangeId': shippingRange.id
+                                    }) }}">
+                                        {{ shippingRange.carrier.name }} - {{ shippingRange.price|print_convert_money }}
+                                    </a>
+                                {% endif %}
+
+                            </label>
+                        {% endfor %}
+                    {% endif %}
                     <legend>{{ 'Payment method'|trans }}</legend>
                     <label>
                         <input data-url="{{ url('freepayment_execute') }}" type="radio" id="field-card" name="field-method"  />
@@ -45,17 +76,16 @@
 
         </div>
 
-    <div class="grid">
-        <div class="col-1-2 desktop">&nbsp;</div>
-        <div class="col-1-2">
+        <div class="grid">
+            <div class="col-1-2 desktop">&nbsp;</div>
+            <div class="col-1-2">
 
-
+            </div>
         </div>
     </div>
 
-</div>
-
 {% endblock prefooter %}
+
 
 {% block foot_script %}
 

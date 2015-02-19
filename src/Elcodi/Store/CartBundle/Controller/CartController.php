@@ -83,9 +83,9 @@ class CartController extends Controller
             $relatedProducts = $this
                 ->get('store.product.service.product_collection_provider')
                 ->getRelatedProducts($cart
-                        ->getCartLines()
-                        ->first()
-                        ->getProduct(), 3);
+                    ->getCartLines()
+                    ->first()
+                    ->getProduct(), 3);
         }
 
         $cartCoupons = $this
@@ -96,7 +96,7 @@ class CartController extends Controller
             'Pages:cart-view.html.twig',
             [
                 'cart'             => $cart,
-                'cartcoupon'       => $cartCoupons,
+                'cartCoupons'      => $cartCoupons,
                 'form'             => $formView,
                 'related_products' => $relatedProducts,
             ]

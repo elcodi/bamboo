@@ -54,7 +54,15 @@ class CarrierController extends AbstractAdminController
      */
     public function listAction()
     {
-        return [];
+        $enabledCarriers = $this
+            ->get('elcodi.repository.carrier')
+            ->findBy([
+                'enabled' => true,
+            ]);
+
+        return [
+            'noEnabledCarriers' => empty($enabledCarriers),
+        ];
     }
 
     /**

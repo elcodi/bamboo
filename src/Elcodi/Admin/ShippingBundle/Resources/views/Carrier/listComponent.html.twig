@@ -1,7 +1,7 @@
 {% extends 'AdminCoreBundle::Common/component.html.twig' %}
 
 {% block title %}
-    {{ 'Product list'|trans }}
+    {{ 'Carrier list'|trans }}
 {% endblock title %}
 
 
@@ -13,6 +13,16 @@
             <div class="col-1-3">
                 <div class="box-none">
                     <h3 class="fw-n">{{ carrier.name }}</h3>
+                    <a href="{{ url("admin_carrier_edit", {
+                        'id': carrier.id
+                    }) }}">Edit</a>
+
+                    {% if carrier.enabled %}
+                        <span class="label">{{ "enabled"|trans }}</span>
+                    {% else %}
+                        <span class="label">{{ "disabled"|trans }}</span>
+                    {% endif %}
+
                     <p>{{ carrier.description }}</p>
                     <p>{{ carrier.tax.value }}% Tax</p>
                 </div>

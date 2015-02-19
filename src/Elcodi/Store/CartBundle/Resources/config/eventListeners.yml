@@ -1,0 +1,12 @@
+services:
+
+    #
+    # Event listeners
+    #
+    store.cart.event_listener.check_shipping_method:
+        class: %store.cart.event_listener.check_shipping_method.class%
+        arguments:
+            - @elcodi.object_manager.cart
+            - @elcodi.provider.shipping_range
+        tags:
+            - { name: kernel.event_listener, event: cart.onload, method: removeInvalidShippingRange, priority: 8 }

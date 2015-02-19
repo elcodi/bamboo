@@ -27,20 +27,20 @@
             </tr>
             {% endfor %}
 
-            {% if order.couponAmount is not null %}
-                <tr>
-                    <td colspan="3" class="ta-r">{{ "Coupon Discount"|trans }}</td>
-                    <td class="ta-r">{{ order.couponAmount|print_money }}</td>
-                </tr>
-            {% endif %}
-
             <tr>
                 <td colspan="3" class="ta-r">Subtotal</td>
                 <td class="ta-r">{{ order.productAmount|print_money }}</td>
             </tr>
+
+            {% if order.couponAmount is not null %}
+                <tr>
+                    <td colspan="3" class="ta-r">{{ "Coupon Discount"|trans }}</td>
+                    <td class="ta-r">-{{ order.couponAmount|print_money }}</td>
+                </tr>
+            {% endif %}
             <tr>
-                <td colspan="3" class="ta-r">Shipping (Type)</td>
-                <td class="ta-r">XXX</td>
+                <td colspan="3" class="ta-r">Shipping</td>
+                <td class="ta-r">{{ order.shippingAmount|print_money }}</td>
             </tr>
             <tr>
                 <td colspan="3" class="ta-r fw-b">Total</td>

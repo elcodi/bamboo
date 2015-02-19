@@ -69,6 +69,7 @@ class CarrierType extends AbstractType
             ))
             ->add('enabled', 'checkbox', array(
                 'label'    => 'Enabled',
+                'required' => false,
             ));
     }
 

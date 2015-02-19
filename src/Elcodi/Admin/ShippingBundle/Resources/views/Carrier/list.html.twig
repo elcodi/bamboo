@@ -31,6 +31,10 @@
 
 {% block content %}
 
+    {% if noEnabledCarriers %}
+        <p class="msg-warning">{{ "Warning! You have no active carrier"|trans }}</p>
+    {% endif %}
+
     {{ render(url("admin_carrier_list_component")) }}
 
 {% endblock content %}

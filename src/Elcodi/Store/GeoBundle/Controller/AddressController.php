@@ -72,7 +72,7 @@ class AddressController extends Controller
         return $this->renderTemplate(
             'Pages:address-list.html.twig',
             [
-                'addresses'   => $addressesFormatted
+                'addresses'   => $addressesFormatted,
             ]
         );
     }
@@ -110,7 +110,6 @@ class AddressController extends Controller
 
         $entityManager = $this->get('elcodi.object_manager.address');
         if ($form->isValid()) {
-
             $addressToSave = $this
                 ->get('elcodi.manager.address')
                 ->saveAddress($address)
