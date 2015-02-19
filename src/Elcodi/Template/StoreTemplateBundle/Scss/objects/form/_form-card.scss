@@ -1,6 +1,10 @@
 .form-card {
 	& {
-		padding: $spacing;
+		padding: 0 $spacing $spacing;
+	}
+	.message {
+		border: 0px none;
+		margin-bottom: $spacing;
 	}
 }
 

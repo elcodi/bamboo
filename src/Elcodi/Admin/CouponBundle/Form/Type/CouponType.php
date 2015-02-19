@@ -54,24 +54,24 @@ class CouponType extends AbstractPurchasableType
     {
         $builder
             ->add('code', 'text', array(
-                'required' => false,
-                'label'    => 'code',
+                'required' => true,
+                'label'    => 'Code',
             ))
             ->add('name', 'text', array(
                 'required' => false,
-                'label'    => 'name',
+                'label'    => 'Description',
             ))
             ->add('type', 'choice', array(
                 'required' => true,
-                'label'    => 'type',
+                'label'    => 'Type',
                 'choices'  => [
-                    ElcodiCouponTypes::TYPE_AMOUNT  => 'Amount',
-                    ElcodiCouponTypes::TYPE_PERCENT => 'Percent',
+                    ElcodiCouponTypes::TYPE_AMOUNT  => 'Fixed amount',
+                    ElcodiCouponTypes::TYPE_PERCENT => 'Percent amount',
                 ],
             ))
             ->add('enforcement', 'choice', array(
                 'required' => true,
-                'label'    => 'type',
+                'label'    => 'Mode',
                 'choices'  => [
                     ElcodiCouponTypes::ENFORCEMENT_MANUAL    => 'Manual application',
                     ElcodiCouponTypes::ENFORCEMENT_AUTOMATIC => 'Automatic application',
@@ -79,15 +79,15 @@ class CouponType extends AbstractPurchasableType
             ))
             ->add('price', 'money_object', array(
                 'required' => false,
-                'label'    => 'priceAmount',
+                'label'    => 'Amount',
             ))
             ->add('discount', 'integer', array(
                 'required' => false,
-                'label'    => 'discount',
+                'label'    => '% Amount',
             ))
             ->add('count', 'integer', array(
                 'required' => false,
-                'label'    => 'count',
+                'label'    => 'Usage Limit',
             ))
             ->add('used', 'integer', array(
                 'required' => false,
@@ -113,13 +113,13 @@ class CouponType extends AbstractPurchasableType
                 'widget'   => 'single_text',
                 'format'   => 'yyyy-MM-dd - HH:mm:ss',
                 'required' => false,
-                'label'    => 'validFrom',
+                'label'    => 'From',
             ))
             ->add('validTo', 'datetime', array(
                 'widget'   => 'single_text',
                 'format'   => 'yyyy-MM-dd - HH:mm:ss',
                 'required' => false,
-                'label'    => 'validTo',
+                'label'    => 'to',
             ))
             ->add('createdAt', 'datetime', array(
                 'widget'   => 'single_text',
@@ -135,7 +135,7 @@ class CouponType extends AbstractPurchasableType
             ))
             ->add('enabled', 'checkbox', array(
                 'required' => false,
-                'label'    => 'enabled',
+                'label'    => 'Status',
             ));
     }
 

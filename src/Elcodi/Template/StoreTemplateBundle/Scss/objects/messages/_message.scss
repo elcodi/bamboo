@@ -1,14 +1,12 @@
 .message {
 	& {
 		padding: $spacing/1.5 $spacing $spacing/2 $spacing;
-		margin: 0 0 $spacing;
+		margin: 0 0 $spacing/2;
 		color: $color-foreground;
 		overflow: hidden;
-		border-style: solid;
-		border-width: 0 0 3px 0;
+		border: $spacing/4 dotted $color-body;
 		background: $color-background;
 		position: relative;
 		min-height: 54px;
-		box-shadow: 0 2px 2px rgba($color-foreground, .2);
 	}
 }

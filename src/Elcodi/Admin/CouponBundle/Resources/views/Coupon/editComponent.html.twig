@@ -17,26 +17,152 @@
         })
         : url('admin_coupon_save')
     %}
-
     {{ form_start(form, {'action': formAction}) }}
-        {{ form_row(form.code) }}
-        {{ form_row(form.name) }}
-        {{ form_row(form.type) }}
-        {{ form_row(form.enforcement) }}
-        {{ form_row(form.price) }}
-        {{ form_row(form.discount) }}
-        {{ form_row(form.count) }}
-        {{ form_row(form.used) }}
-        {{ form_row(form.priority) }}
-        {{ form_row(form.minimumPurchase) }}
-        {{ form_row(form.rule) }}
-        {{ form_row(form.validFrom) }}
-        {{ form_row(form.validTo) }}
-        {{ form_row(form.enabled) }}
-        {{ form_row(form.createdAt) }}
-        {{ form_row(form.updatedAt) }}
+    <fieldset data-tc-modules="form-coupons">
+        <div class="grid">
+            <div class="col-1-3">
+                <div class="box-none">
+                    <h3 class="fw-n">{% trans %}Basic data{% endtrans %}</h3>
+                    <p>{% trans %}Set the code name (what users should type in the cart to activate the coupon).{% endtrans %}</p>
+                    <p>{% trans %}Set also the description to identify the coupon, the type and the mode to be applied.{% endtrans %}</p>
+                </div>
+            </div>
+            <div class="col-2-3">
+                <div class="box">
+                    <ol>
+                        <li>
+                            {{ form_row(form.code, {'attr': {'placeholder':'e.g. MYCODE'}} ) }}
+                        </li>
+                        <li>
+                            {{ form_row(form.name, {'attr': {'placeholder':'e.g. 10% Discount code'}}) }}
+                        </li>
+                    </ol>
+                    <ol class="grid">
+                        <li class="col-1-2 pr-l">
+                            {{ form_row(form.type) }}
+                        </li>
+                        <li class="col-1-2">
+                            {{ form_row(form.enforcement) }}
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div id="fixed-amount" class="grid">
+            <div class="col-1-3">
+                <div class="box-none">
+                    <h3 class="fw-n">{% trans %}Fixed amount{% endtrans %}</h3>
+                    <p>{% trans %}Set the fixed amount to discount directly in the cart.{% endtrans %}</p>
+                </div>
+            </div>
+            <div class="col-2-3">
+                <div class="box">
+                    <ol>
+                        <li>
+                            {{ form_row(form.price) }}
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div id="percent-amount" class="grid">
+            <div class="col-1-3">
+                <div class="box-none">
+                    <h3 class="fw-n">{% trans %}Percent amount{% endtrans %}</h3>
+                    <p>{% trans %}Set the percentage amount to discount directly in the cart.{% endtrans %}</p>
+                </div>
+            </div>
+            <div class="col-2-3">
+                <div class="box">
+                    <ol>
+                        <li>
+                            {{ form_row(form.discount) }}
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="col-1-3">
+                <div class="box-none">
+                    <h3 class="fw-n">{% trans %}Rules{% endtrans %}</h3>
+                    <p>{% trans %}Select the rule the coupon will use and a minimum purchase necessary to apply the coupon (optional).{% endtrans %}</p>
+                </div>
+            </div>
+            <div class="col-2-3">
+                <div class="box">
+                    <ol>
+                        <li>
+                            {{ form_row(form.rule) }}
+                        </li>
+                        <li class="d-n">
+                            {{ form_row(form.priority) }}
+                        </li>
+                    </ol>
+                    <ol>
+                        <li class="col-1-2">
+                            {{ form_row(form.minimumPurchase) }}
+                        </li>
+                        <li class="col-1-2">
+                            {{ form_row(form.count) }}
+                            <div class="d-n">
+                                {{ form_row(form.used,{'attr': {'readonly':'readonly'}}) }}
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="col-1-3">
+                <div class="box-none">
+                    <h3 class="fw-n">{% trans %}Validity{% endtrans %}</h3>
+                    <p>{% trans %}Set the time validity of the coupon and the status.{% endtrans %}</p>
+                </div>
+            </div>
+            <div class="col-2-3">
+                <div class="box">
+                    <ol class="grid">
+                        <li class="col-1-2 pr-l">
+                            {{ form_row(form.validFrom) }}
+                        </li>
+                        <li  class="col-1-2">
+                            {{ form_row(form.validTo) }}
+                        </li>
+                    </ol>
+                    <ol class="grid">
+                        <li class="col-1-2 pr-l">
+                            {{ form_row(form.enabled, {'attr': {'type':'checkbox'}}) }}
+                        </li>
+                        <li class="col-1-2">
+                            {{ form_row(form.used) }}
+                        </li>
+                    </ol>
+                    <ol class="grid">
+                        <li class="col-1-2 pr-l">
+                            {{ form_row(form.priority) }}
+                        </li>
+                        <li class="col-1-2">
+                            {{ form_row(form.minimumPurchase) }}
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="d-n">
+            {{ form_row(form.createdAt) }}
+            {{ form_row(form.updatedAt) }}
+        </div>
+        <div class="grid">
+            <div class="col-1-3">
+                &nbsp;
+            </div>
+            <div class="col-2-3">
+                <button type="submit" class="button-primary">{{ 'Save'|trans }}</button>
+                <a href="{{ path('admin_coupon_list') }}" id="cancel-button" class="button">{{ 'Cancel'|trans }}</a>
 
-        <button type="submit" class="button-primary">{{ 'Save'|trans }}</button>
-        <a href="{{ path('admin_coupon_list') }}" class="button">{{ 'Cancel'|trans }}</a>
+            </div>
+        </div>
+    </fieldset>
     {{ form_end(form) }}
 {% endblock content %}

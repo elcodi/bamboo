@@ -9,11 +9,10 @@
 {% block table_head %}
     {% include "@AdminCore/Tables/head.html.twig" with {
         rows: {
-            "id": {width:"25"},
-            "code": {},
-            "name": {},
-            "rule": {},
-            "Enabled": {width:"25"},
+            "Code": {},
+            "Description": {width:"40"},
+            "rule": {width:"20"},
+            "Status": {width:"10"},
         },
         class: "coupon",
     } %}
@@ -23,28 +22,21 @@
 {% block table_body_row %}
     <td>
         <a href="{{ url("admin_coupon_edit", {"id": entity.id}) }}">
-            {{ entity.id }}
+            <strong>{{ entity.code }}</strong>
         </a>
-    </td>
-    <td>
-        {{ entity.code }}
     </td>
     <td>
         {{ entity.name }}
     </td>
     <td>
         {% if entity.rule %}
-            <span class="label label-info">{{ entity.rule.name }}</span>
+            {{ entity.rule.name }}
         {% else %}
-            <span class="label label-default">no rule</span>
+            -
         {% endif %}
     </td>
     <td>
-        {% if entity.enabled %}
-            <span class="label label-success">true</span>
-        {% else %}
-            <span class="label label-danger">false</span>
-        {% endif %}
+        {% if entity.enabled %}<span class="label-ok">Enabled</span>{% else %}<span class="label">Disabled</span>{% endif %}
     </td>
 
     {% include "@AdminCore/Tables/actions.html.twig" with {

@@ -1,6 +1,5 @@
 {% if flashMessage %}
-    <div class="alert {{ class }}">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <div class="message {{ class }}">
         {{ flashMessage | raw }}
     </div>
 {% endif %}

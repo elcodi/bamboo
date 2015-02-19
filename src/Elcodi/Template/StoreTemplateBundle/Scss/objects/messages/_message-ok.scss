@@ -1,6 +1,6 @@
 .message-ok {
 	& {
-		border-color:$color-ok;
+		color: $color-ok;
 		background: rgba($color-ok, .1);
 	}
 	i {
