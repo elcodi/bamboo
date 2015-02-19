@@ -144,11 +144,20 @@ class OrderController extends AbstractAdminController
                 : $a->getCreatedAt() > $b->getCreatedAt();
         });
 
+        $addressFormatter = $this->get('elcodi.formatter.address');
+        $deliveryAddress  = $order->getDeliveryAddress();
+        $deliveryInfo     = $addressFormatter->toArray($deliveryAddress);
+
+        $billingAddress   = $order->getBillingAddress();
+        $billingInfo      = $addressFormatter->toArray($billingAddress);
+
         return [
             'order'                   => $order,
             'nextPaymentTransitions'  => $nextPaymentTransitions,
             'nextShippingTransitions' => $nextShippingTransitions,
             'allStates'               => $allStates,
+            'deliveryInfo'            => $deliveryInfo,
+            'billingInfo'             => $billingInfo,
         ];
     }
 

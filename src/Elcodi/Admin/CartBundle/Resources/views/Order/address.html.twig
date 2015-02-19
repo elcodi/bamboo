@@ -1,0 +1,29 @@
+<div class="box-none pb-n">
+    <h4>{{ title }}</h4>
+    <p><i class="icon-home"></i> <strong>{{ addressInfo.recipientName }} {{ addressInfo.recipientSurname }}</strong></p>
+    <ul>
+        <li>
+            <strong>Address:</strong>
+            {{ addressInfo.address }} {{addressInfo.addressMore }}
+        </li>
+        <li>
+            <strong>Phones:</strong>
+            {{ addressInfo.phone }} / {{ addressInfo.mobile }}
+        </li>
+        <li>
+            <strong>City:</strong>
+        </li>
+        {% for cityLocation in addressInfo.city %}
+            <li>{{ cityLocation }}</li>
+        {% endfor %}
+        <li>{{ addressInfo.postalCode }}</li>
+        <li>
+            <strong>Comment:</strong>
+            {{ addressInfo.comment }}
+        </li>
+    </ul>
+
+    {% if order.customer.phone is not null %}
+        <p><i class="icon-phone"></i> {{ order.customer.phone }} </p>
+    {% endif %}
+</div>

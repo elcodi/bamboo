@@ -70,24 +70,34 @@
         </div>
         <div class="col-4-12">
             <div class="box pt-s ph-n">
-                <h3 class="fw-n ph-m"><a href="{{ url("admin_customer_edit", {"id": order.customer.id}) }}">{{ order.customer.username }}</a></h3>
+                <h3 class="fw-n ph-m">
+                    {{  order.customer.fullName }}</br>
+                    <a href="{{ url("admin_customer_edit", {"id": order.customer.id}) }}">{{ order.customer.username }}</a>
+                </h3>
                 <hr class="mb-n"/>
-                <a href="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=es&amp;q=Instituto+de+Cardiologia+y+Medicina+Interna+Barcelona" target="_blank">
-                    <img id="CM_Map_map" src="http://maps.google.com/maps/api/staticmap?size=350x150&amp;zoom=15.5&amp;sensor=false&amp;center=Instituto+de+Cardiologia+y+Medicina+Interna+Barcelona&amp;markers=color:blue|Instituto+de+Cardiologia+y+Medicina+Interna+Barcelona">
+                <a href="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=es&amp;q={{ deliveryInfo.fullAddress|url_encode }}" target="_blank">
+                    <img id="CM_Map_map" src="http://maps.google.com/maps/api/staticmap?size=500x150&amp;zoom=15.5&amp;sensor=false&amp;center={{ deliveryInfo.fullAddress|url_encode }}&amp;markers=color:blue|{{ deliveryInfo.fullAddress|url_encode }}">
                 </a>
-                <div class="box-none pb-n">
 
-                    <a href="#" class="fl-r">Edit</a>
-                    <p><i class="icon-home"></i> <strong>{{ order.customer.fullName }}</strong></p>
-                    <p>{{ order.customer.deliveryAddress }}</p>
+                {% if deliveryInfo.id == billingInfo.id %}
+                    {% include "AdminCartBundle:Order:address.html.twig" with {
+                        'title': 'Delivery & Billing address',
+                        'addressInfo': deliveryInfo
+                    } %}
+                {% else %}
+                    {% include "AdminCartBundle:Order:address.html.twig" with {
+                        'title': 'Delivery address',
+                        'addressInfo': deliveryInfo
+                    } %}
 
-                    {% if order.customer.phone is not null %}
-                        <p><i class="icon-phone"></i> {{ order.customer.phone }} </p>
-                    {% endif %}
-                </div>
+                    {% include "AdminCartBundle:Order:address.html.twig" with {
+                        'title': 'Billing address',
+                        'addressInfo': deliveryInfo
+                    } %}
+                {% endif %}
+
                 <hr class="mb-n"/>
                 <div class="box-none pb-n">
-                    <a href="#" class="fl-r">Edit</a>
                     <i class="icon-envelope"></i> <a href="mailto:{{ order.customer.email }}"> {{ order.customer.email }}</a>
                 </div>
                 <hr class="mb-n"/>

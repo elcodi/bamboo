@@ -55,26 +55,24 @@ class AddressController extends Controller
      */
     public function listAction()
     {
-        $locationProvider = $this->get('elcodi.location_provider');
+        $addressFormatter = $this->get('elcodi.formatter.address');
 
         $addresses = $this
             ->get('elcodi.wrapper.customer')
             ->loadCustomer()
             ->getAddresses();
 
-        $cities_info = [];
+        $addressesFormatted = [];
         foreach ($addresses as $address) {
-            $cities_info[$address->getCity()] =
-                $locationProvider->getHierarchy(
-                    $address->getCity()
-                );
+            $addressesFormatted[] =
+                $addressFormatter
+                    ->toArray($address);
         }
 
         return $this->renderTemplate(
             'Pages:address-list.html.twig',
             [
-                'addresses'   => $addresses,
-                'cities_info' => $cities_info,
+                'addresses'   => $addressesFormatted
             ]
         );
     }
