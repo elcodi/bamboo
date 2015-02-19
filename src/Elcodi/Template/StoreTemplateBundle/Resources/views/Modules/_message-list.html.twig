@@ -1,3 +1,5 @@
+<div class="grid grid-pad">
+    <div class="col-1-1">
 {# Notice message (yellow) #}
 {% for flashMessage in app.session.flashbag.get('notice') %}
     {% include "@StoreTemplate/Modules/_message-item.html.twig" with {flashMessage: flashMessage, class: ''} %}
@@ -5,20 +7,22 @@
 
 {# Success message (green) #}
 {% for flashMessage in app.session.flashbag.get('success') %}
-    {% include "@StoreTemplate/Modules/_message-item.html.twig" with {flashMessage: flashMessage, class: 'alert-success'} %}
+    {% include "@StoreTemplate/Modules/_message-item.html.twig" with {flashMessage: flashMessage, class: 'message-ok'} %}
 {% endfor %}
 
 {# Info message (blue) #}
 {% for flashMessage in app.session.flashbag.get('notification') %}
-    {% include "@StoreTemplate/Modules/_message-item.html.twig" with {flashMessage: flashMessage, class: 'alert-info'} %}
+    {% include "@StoreTemplate/Modules/_message-item.html.twig" with {flashMessage: flashMessage, class: 'message-info'} %}
 {% endfor %}
 
 {# Warning message (yellow) #}
 {% for flashMessage in app.session.flashbag.get('alert') %}
-    {% include "@StoreTemplate/Modules/_message-item.html.twig" with {flashMessage: flashMessage, class: ''} %}
+    {% include "@StoreTemplate/Modules/_message-item.html.twig" with {flashMessage: flashMessage, class: 'message-warning'} %}
 {% endfor %}
 
 {# Error message (red) #}
 {% for flashMessage in app.session.flashbag.get('error') %}
-    {% include "@StoreTemplate/Modules/_message-item.html.twig" with {flashMessage: flashMessage, class: 'alert-error'} %}
+    {% include "@StoreTemplate/Modules/_message-item.html.twig" with {flashMessage: flashMessage, class: 'message-ko'} %}
 {% endfor %}
+    </div>
+</div>

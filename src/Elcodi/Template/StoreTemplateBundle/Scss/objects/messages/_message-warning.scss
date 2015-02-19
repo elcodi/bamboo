@@ -1,6 +1,6 @@
 .message-warning {
 	& {
-		border-color:$color-warning;
+		color: $color-warning;
 		background: rgba($color-warning, .1);
 	}
 	i {

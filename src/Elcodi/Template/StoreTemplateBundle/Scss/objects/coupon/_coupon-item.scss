@@ -1,0 +1,98 @@
+.coupon-item {
+	& {
+		display: block;
+		width: 100%;
+		overflow: hidden;
+		background: rgba($color-background, .5);
+		margin: 0 0 $spacing/2 0;
+		padding: $spacing/2;
+		border: $spacing/4 dotted $color-body;
+	}
+	dt {
+		display: none;
+		opacity: .5;
+	}
+	dd {
+		padding-bottom: $spacing/2;
+	}
+}
+
+@mixin coupon-item-mobile() {
+
+	dt.coupon-item-value, dt.coupon-item-total, dt.coupon-item-units {
+		display: block;
+		float: left;
+		padding-right: $spacing/2;
+	}
+
+	.coupon-item-value, .coupon-item-total {
+		float: left;
+		padding-right: $spacing;
+	}
+
+	.coupon-item-units {
+		& {
+			max-width: 80px;
+			overflow: hidden;
+		}
+	}
+
+	.coupon-item-remove {
+		& {
+			clear: both;
+			width: 100%;
+		}
+		a {
+			width: 100%;
+		}
+	}
+
+}
+
+@mixin coupon-item-desktop() {
+	.coupon-item {
+		& {
+			position: relative;
+			min-height: 80px;
+		}
+		dt {
+			display: block;
+			position: absolute;
+			top: $spacing/2;
+			padding: 0;
+		}
+		dd {
+			position: relative;
+			display: inline-block;
+			vertical-align: middle;
+			padding: $spacing/1.5 0 0 0;
+		}
+	}
+	.product-thumbnail {
+		margin-bottom: 0;
+		min-height: 80px;
+		width: 100%;
+	}
+
+	dt.coupon-item-remove {  display: none;  }
+
+	dd.coupon-item-code { width: 12.5%; }
+
+	dt.coupon-item-name {  left: 14%;  }
+	dd.coupon-item-name {  width: 50%;  }
+
+	dt.coupon-item-units {  left: 64%;  }
+	dd.coupon-item-units {  width: 5%; text-align: center  }
+
+	dt.coupon-item-value {	left: 68%; }
+	.coupon-item-value {	width: 10%; }
+
+	dt.coupon-item-total { left: 78%;  }
+	.coupon-item-total { width: 10%;  }
+
+	dd.coupon-item-remove {  width: 9%;  }
+
+	.coupon-item-units, .coupon-item-value, .coupon-item-total, .coupon-item-remove {
+		text-align: right;
+	}
+}
