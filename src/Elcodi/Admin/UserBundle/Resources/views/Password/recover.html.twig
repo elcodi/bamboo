@@ -1,9 +1,35 @@
-{% extends 'AdminCoreBundle::layout.html.twig' %}
+{% extends 'AdminCoreBundle::layouts/center_box.html.twig' %}
 
 
-{% block body_class %}texture{% endblock body_class %}
-
-
-{% block body %}
-
-{% endblock body %}
+{% block content %}
+    {{ form_start(form, {
+        "attr": {
+            "class": "form-horizontal",
+            "style": "margin-bottom: 0px !important;"
+        }
+    }) }}
+    <fieldset>
+        <legend>{{ 'New password'|trans }}</legend>
+        <ul>
+            <li>
+                {{ form_errors(form.password) }}
+                {{ form_row(form.password.first, {
+                    "attr": {
+                        "class": "form-control",
+                        "placeholder": "Password"|trans
+                    }
+                }) }}
+            </li>
+            <li>
+                {{ form_row(form.password.second, {
+                    "attr": {
+                        "class": "form-control",
+                        "placeholder": "Repeat password"|trans
+                    }
+                }) }}
+            </li>
+        </ul>
+        <button type="submit" class="button-primary">{{ "Save"|trans }}</button>
+    </fieldset>
+    {{ form_end(form) }}
+{% endblock content %}
