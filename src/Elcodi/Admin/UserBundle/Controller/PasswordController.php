@@ -22,7 +22,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Form;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 
 use Elcodi\Component\User\Entity\Abstracts\AbstractUser;
 
@@ -63,9 +62,12 @@ class PasswordController extends Controller
                 ->get('elcodi.provider.repository')
                 ->getRepositoryByEntityParameter('elcodi.core.user.entity.admin_user.class');
 
-            $email = $passwordRememberForm->getData()['email'];
+            $email = $passwordRememberForm
+                ->get('email')
+                ->getData();
+
             $emailFound = $this
-                ->get('elcodi.core.user.service.password_manager')
+                ->get('elcodi.manager.password')
                 ->rememberPasswordByEmail(
                     $adminUserRepository,
                     $email,
@@ -73,9 +75,7 @@ class PasswordController extends Controller
                 );
 
             if ($emailFound) {
-                return new RedirectResponse(
-                    $this->generateUrl('admin_password_recover_sent')
-                );
+                return $this->redirectToRoute('admin_password_recover_sent');
             }
         }
 
@@ -97,13 +97,6 @@ class PasswordController extends Controller
      */
     public function sentAction()
     {
-        /**
-         * If user is already logged, go to redirect url
-         */
-        if ($this->get('security.context')->isGranted('ROLE_ADMIN')) {
-            return new RedirectResponse($this->generateUrl('admin_homepage'));
-        }
-
         return [];
     }
 
@@ -139,17 +132,24 @@ class PasswordController extends Controller
                 ->get('elcodi.repository.admin_user')
                 ->findOneBy(array(
                     'recoveryHash' => $hash,
+                    'email' => $form->get('email')->getData(),
                 ));
 
             if ($customer instanceof AbstractUser) {
-                $password = $passwordRecoverForm->getData()['password'];
+                $password = $passwordRecoverForm
+                    ->get('password')
+                    ->getData();
 
                 $this
-                    ->get('elcodi.core.user.service.password_manager')
+                    ->get('elcodi.manager.password')
                     ->recoverPassword($customer, $hash, $password);
 
-                return new RedirectResponse($this->generateUrl('admin_homepage'));
+                $this->addFlash('info', 'Password successfully changed');
+            } else {
+                $this->addFlash('error', 'Error changing password');
             }
+
+            return $this->redirectToRoute('admin_homepage');
         }
 
         return array(

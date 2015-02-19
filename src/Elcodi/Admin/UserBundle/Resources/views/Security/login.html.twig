@@ -1,5 +1,12 @@
 {% extends 'AdminCoreBundle::layouts/center_box.html.twig' %}
 
+
+{% block body %}
+    {{ include('@AdminCore/Common/flashMessages.html.twig') }}
+    {{ parent() }}
+{% endblock body %}
+
+
 {% block content %}
 
                 {{ form_start(form, {
