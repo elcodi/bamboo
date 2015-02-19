@@ -98,12 +98,6 @@ class PasswordController extends Controller
      */
     public function sentAction()
     {
-        /**
-         * If user is already logged, go to redirect url
-         */
-        if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
-            return $this->redirectToRoute('admin_homepage');
-        }
 
         return [];
     }
