@@ -63,7 +63,10 @@ class PasswordController extends Controller
                 ->get('elcodi.provider.repository')
                 ->getRepositoryByEntityParameter('elcodi.core.user.entity.admin_user.class');
 
-            $email = $passwordRememberForm->getData()['email'];
+            $email = $passwordRememberForm
+                ->get('email')
+                ->getData();
+
             $emailFound = $this
                 ->get('elcodi.manager.password')
                 ->rememberPasswordByEmail(
@@ -73,9 +76,7 @@ class PasswordController extends Controller
                 );
 
             if ($emailFound) {
-                return new RedirectResponse(
-                    $this->generateUrl('admin_password_recover_sent')
-                );
+                return $this->redirectToRoute('admin_password_recover_sent');
             }
         }
 
@@ -100,8 +101,8 @@ class PasswordController extends Controller
         /**
          * If user is already logged, go to redirect url
          */
-        if ($this->get('security.context')->isGranted('ROLE_ADMIN')) {
-            return new RedirectResponse($this->generateUrl('admin_homepage'));
+        if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+            return $this->redirectToRoute('admin_homepage');
         }
 
         return [];
@@ -142,13 +143,15 @@ class PasswordController extends Controller
                 ));
 
             if ($customer instanceof AbstractUser) {
-                $password = $passwordRecoverForm->getData()['password'];
+                $password = $passwordRecoverForm
+                    ->get('password')
+                    ->getData();
 
                 $this
                     ->get('elcodi.manager.password')
                     ->recoverPassword($customer, $hash, $password);
 
-                return new RedirectResponse($this->generateUrl('admin_homepage'));
+                return $this->redirectToRoute($this->generateUrl('admin_homepage'));
             }
         }
 
