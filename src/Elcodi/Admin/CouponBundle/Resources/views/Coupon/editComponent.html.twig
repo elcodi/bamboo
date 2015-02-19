@@ -123,28 +123,19 @@
             </div>
             <div class="col-2-3">
                 <div class="box">
+                    <h5>{{ 'Date & Time'|trans }}</h5>
                     <ol class="grid">
-                        <li class="col-1-2 pr-l">
+                        <li class="col-1-2 pr-l date-hour">
                             {{ form_row(form.validFrom) }}
                         </li>
-                        <li  class="col-1-2">
+                        <li  class="col-1-2 date-hour">
                             {{ form_row(form.validTo) }}
                         </li>
                     </ol>
-                    <ol class="grid">
-                        <li class="col-1-2 pr-l">
+                    <hr />
+                    <ol>
+                        <li>
                             {{ form_row(form.enabled, {'attr': {'type':'checkbox'}}) }}
-                        </li>
-                        <li class="col-1-2">
-                            {{ form_row(form.used) }}
-                        </li>
-                    </ol>
-                    <ol class="grid">
-                        <li class="col-1-2 pr-l">
-                            {{ form_row(form.priority) }}
-                        </li>
-                        <li class="col-1-2">
-                            {{ form_row(form.minimumPurchase) }}
                         </li>
                     </ol>
                 </div>

@@ -5,8 +5,13 @@
     <dd class="coupon-item-name">{{ coupon.name }}</dd>
     <dt class="coupon-item-units">{{ 'Units'|trans }}</dt>
     <dd class="coupon-item-units">1</dd>
+    {% if coupon.type == '2'%}
+        {% set couponValue =  coupon.discount ~ '%' %}
+    {% else %}
+        {% set couponValue =  '-' ~ coupon.absolutePrice|print_convert_money() %}
+    {% endif %}
     <dt class="coupon-item-value">{{ 'Value'|trans }}</dt>
-    <dd class="coupon-item-value">-{{ coupon.absolutePrice|print_convert_money() }}</dd>
+    <dd class="coupon-item-value">{{ couponValue }}</dd>
     <dt class="coupon-item-total">{{ 'Total'|trans }}</dt>
     <dd class="coupon-item-total">-{{ coupon.absolutePrice|print_convert_money() }}</dd>
     <dt class="coupon-item-remove">{{ 'Remove'|trans }}</dt>
