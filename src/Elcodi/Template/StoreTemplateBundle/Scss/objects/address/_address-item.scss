@@ -1,0 +1,38 @@
+.address-item {
+	& {
+		display: block;
+		background: $color-background;
+		overflow: hidden;
+		padding: $spacing;
+	}
+	dt, dd {
+		float: left;
+		padding-bottom: $spacing/2;
+	}
+	dt {
+		opacity: .5;
+		min-width: 50%;
+		clear:left;
+		text-align: right;
+		padding-right: $spacing/2;
+	}
+	dd {
+		max-width: 50%;
+	}
+	dt.address-item-actions {
+		display: none;
+	}
+	dd.address-item-actions {
+		& {
+			max-width: 100%;
+			padding-top: $spacing/2;
+			clear: both;
+			display: block;
+			float: none;
+			text-align: center;
+		}
+		.button-primary {
+			margin-right: $spacing/4;
+		}
+	}
+}

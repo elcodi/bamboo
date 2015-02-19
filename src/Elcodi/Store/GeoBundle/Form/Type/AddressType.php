@@ -74,7 +74,7 @@ class AddressType extends AbstractType
             ])
             ->add('name', 'text', [
                 'required' => true,
-                'label'    => 'Name',
+                'label'    => 'Address name',
             ])
             ->add('recipientName', 'text', [
                 'required' => true,
@@ -90,7 +90,7 @@ class AddressType extends AbstractType
             ])
             ->add('addressMore', 'text', [
                 'required' => false,
-                'label'    => 'Address more',
+                'label'    => 'Address more (optional)',
             ])
             ->add('postalcode', 'text', [
                 'required' => true,

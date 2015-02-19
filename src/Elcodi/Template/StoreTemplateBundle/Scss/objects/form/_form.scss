@@ -19,3 +19,15 @@
 		width: 100%;
 	}
 }
+
+.form-row {
+	display: block;
+	overflow: hidden;
+	padding-bottom: $spacing;
+}
+
+.form-inline {
+	display: inline-block;
+	overflow: hidden;
+	padding:0 $spacing $spacing 0;
+}

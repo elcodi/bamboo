@@ -1,0 +1,17 @@
+.address-list {
+	& {
+		overflow: hidden;
+		padding-bottom: $spacing*3;
+	}
+}
+
+@mixin address-list-desktop {
+	.address-list {
+		.address-item {
+			width: 47%;
+			display: inline-block;
+			vertical-align: top;
+			margin: 0 1% $spacing;
+		}
+	}
+}
