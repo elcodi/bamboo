@@ -1,6 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: config_local.yml, ignore_errors: true }
     - { resource: @ElcodiBambooBundle/Resources/config/translations.yml }
     - { resource: @ElcodiBambooBundle/Resources/config/mapping.yml }
     - { resource: @ElcodiBambooBundle/Resources/config/filesystem.yml }
@@ -159,3 +160,4 @@ elcodi_geo:
     mapping:
         location:
             manager: default
+
