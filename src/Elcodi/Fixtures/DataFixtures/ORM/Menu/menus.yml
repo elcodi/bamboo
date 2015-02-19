@@ -36,13 +36,6 @@ menu_nodes:
             - bambooadmin_admin_users
             - bambooadmin_customers
 
-    bambooadmin_attributes:
-        name: Attribute
-        code: ~
-        url: admin_attribute_list
-        enabled: 1
-        subnodes: ~
-
     bambooadmin_products:
         name: Products
         code: ~
@@ -64,21 +57,71 @@ menu_nodes:
         enabled: 1
         subnodes: ~
 
+    bambooadmin_attributes:
+        name: Attributes
+        code: ~
+        url: admin_attribute_list
+        enabled: 1
+        subnodes: ~
+
+    bambooadmin_medias:
+        name: Medias
+        code: picture-o
+        url: admin_image_list
+        enabled: 1
+        subnodes: ~
+
     bambooadmin_catalog:
         name: Catalog
         code: tags
         url: ~
         enabled: 1
         subnodes:
-            - bambooadmin_attributes
             - bambooadmin_products
-            - bambooadmin_categories
+            - bambooadmin_attributes
             - bambooadmin_manufacturers
+            - bambooadmin_categories
+            - bambooadmin_medias
 
-    bambooadmin_medias:
-        name: Medias
-        code: picture-o
-        url: admin_image_list
+    bambooadmin_coupons:
+        name: Coupons
+        code: ticket
+        url: admin_coupon_list
+        enabled: 1
+        subnodes: ~
+
+    bambooadmin_reports:
+        name: Reports
+        code: bar-chart-o
+        url: admin_reports_view
+        enabled: 1
+        subnodes: ~
+
+    bambooadmin_separator_1:
+        name: separator_1
+        code: separator
+        url: ~
+        enabled: 1
+        subnodes: ~
+
+    bambooadmin_pages:
+        name: Pages
+        code: file-text-o
+        url: admin_page_list
+        enabled: 1
+        subnodes: ~
+
+    bambooadmin_templates:
+        name: Themes
+        code: adjust
+        url: admin_template_list
+        enabled: 1
+        subnodes: ~
+
+    bambooadmin_plugins:
+        name: Apps
+        code: puzzle-piece
+        url: admin_plugin_list
         enabled: 1
         subnodes: ~
 
@@ -105,61 +148,43 @@ menu_nodes:
             - bambooadmin_bannerzones
             - bambooadmin_banners
 
-    bambooadmin_coupons:
-        name: Discounts
-        code: ~
-        url: admin_coupon_list
-        enabled: 1
-        subnodes: ~
-
-    bambooadmin_pages:
-        name: Pages
-        code: file-text-o
-        url: admin_page_list
+    bambooadmin_separator_2:
+        name: separator_2
+        code: separator
+        url: ~
         enabled: 1
         subnodes: ~
 
     bambooadmin_configurations:
-        name: Settings
-        code: gear
+        name: General
+        code: ~
         url: admin_configuration_list
         enabled: 1
         subnodes: ~
 
     bambooadmin_currencies:
         name: Currencies
-        code: btc
+        code: ~
         url: admin_currency_list
         enabled: 1
         subnodes: ~
 
     bambooadmin_languages:
         name: Languages
-        code: comments
+        code: ~
         url: admin_language_list
         enabled: 1
         subnodes: ~
 
-    bambooadmin_templates:
-        name: Templates
-        code: ~
-        url: admin_template_list
+    bambooadmin_settings:
+        name: Settings
+        code: gear
+        url: ~
         enabled: 1
-        subnodes: ~
-
-    bambooadmin_plugins:
-        name: Plugins
-        code: gears
-        url: admin_plugin_list
-        enabled: 1
-        subnodes: ~
-
-    bambooadmin_reports:
-        name: Reports
-        code: bar-chart-o
-        url: admin_reports_view
-        enabled: 1
-        subnodes: ~
+        subnodes:
+          - bambooadmin_configurations
+          - bambooadmin_currencies
+          - bambooadmin_languages
 
 menus:
     admin:
@@ -171,13 +196,10 @@ menus:
             - bambooadmin_orders
             - bambooadmin_users
             - bambooadmin_catalog
-            - bambooadmin_medias
-            - bambooadmin_banner_server
             - bambooadmin_coupons
             - bambooadmin_reports
+            - bambooadmin_separator_1
+            - bambooadmin_separator_2
             - bambooadmin_pages
-            - bambooadmin_configurations
-            - bambooadmin_currencies
-            - bambooadmin_languages
-            - bambooadmin_templates
             - bambooadmin_plugins
+            - bambooadmin_settings
