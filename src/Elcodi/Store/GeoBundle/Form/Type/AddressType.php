@@ -17,11 +17,17 @@
 
 namespace Elcodi\Store\GeoBundle\Form\Type;
 
+use Doctrine\ORM\EntityNotFoundException;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Validator\Constraints\Callback as AssertCallback;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
+use Elcodi\Component\Geo\Entity\Interfaces\AddressInterface;
 use Elcodi\Component\geo\Factory\AddressFactory;
+use Elcodi\Component\Geo\Services\Interfaces\LocationProviderInterface;
+use Elcodi\Component\Geo\ValueObject\LocationData;
 
 /**
  * Class AddressType
@@ -36,13 +42,24 @@ class AddressType extends AbstractType
     protected $addressFactory;
 
     /**
+     * @var LocationProviderInterface
+     *
+     * Location provider
+     */
+    private $locationProvider;
+
+    /**
      * Constructor
      *
-     * @param AddressFactory $addressFactory Address factory
+     * @param AddressFactory            $addressFactory   Address factory
+     * @param LocationProviderInterface $locationProvider Location provider
      */
-    public function __construct(AddressFactory $addressFactory)
-    {
+    public function __construct(
+        AddressFactory $addressFactory,
+        LocationProviderInterface $locationProvider
+    ) {
         $this->addressFactory = $addressFactory;
+        $this->locationProvider = $locationProvider;
     }
 
     /**
@@ -55,8 +72,11 @@ class AddressType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => $this->addressFactory->getEntityNamespace(),
-            'empty_data' => $this->addressFactory->create(),
+            'data_class'  => $this->addressFactory->getEntityNamespace(),
+            'empty_data'  => $this->addressFactory->create(),
+            'constraints' => [
+                new AssertCallback([[$this, 'validateCityExists']]),
+            ],
         ]);
     }
 
@@ -111,6 +131,38 @@ class AddressType extends AbstractType
             ->add('send', 'submit', array(
                 'label' => 'Save address',
             ));
+    }
+
+    /**
+     * Validate city exists.
+     *
+     * @param AddressInterface          $object  The address edited
+     * @param ExecutionContextInterface $context the execution context
+     */
+    public function validateCityExists(
+        AddressInterface $object,
+        ExecutionContextInterface $context
+    ) {
+        /**
+         * @var LocationData $location
+         */
+        try {
+            $location = $this->locationProvider->getLocation(
+                $object->getCity()
+            );
+        } catch (EntityNotFoundException $e) {
+            $location = null;
+        }
+
+        if (
+            empty($location) ||
+            'city' != $location->getType()
+        ) {
+            $context
+                ->buildViolation('Select a city')
+                ->atPath('city')
+                ->addViolation();
+        }
     }
 
     /**

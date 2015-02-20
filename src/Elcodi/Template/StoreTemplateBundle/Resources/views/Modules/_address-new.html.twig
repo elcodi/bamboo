@@ -1,5 +1,10 @@
 <div class="form form-address">
     {{ form_start(form) }}
+    {% if form_errors(form) %}
+        <div class="message message-ko">
+            {{ form_errors(form) }}
+        </div>
+    {% endif %}
     <div class="grid">
         <div class="col-1-1">
             <div class="form-row">{{ form_row(form.name, { 'attr': {'placeholder':'e.g. My default address'|trans }} ) }}</div>

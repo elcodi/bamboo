@@ -17,6 +17,8 @@
 
 namespace Elcodi\Store\GeoBundle\Form;
 
+use Symfony\Component\HttpKernel\Exception\HttpException;
+
 use Elcodi\Component\Geo\Services\Interfaces\LocationProviderInterface;
 use Elcodi\Component\Geo\ValueObject\LocationData;
 
@@ -95,6 +97,14 @@ class LocationSelectorBuilder
         $rootLocations   = $this
             ->locationProvider
             ->getRootLocations();
+
+        if (empty($rootLocations)) {
+            throw new HttpException(
+                500,
+                'No locations loaded, please populate your locations'
+            );
+        }
+
         $locationExample = reset($rootLocations);
 
         $this->selects[] = $this->formatSelector(

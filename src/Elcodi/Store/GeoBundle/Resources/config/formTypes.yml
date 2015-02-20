@@ -7,5 +7,6 @@ services:
         class: %store.geo.form_type.address.class%
         arguments:
             address_factory: @elcodi.factory.address
+            location_provider: @elcodi.location_provider
         tags:
             - { name: form.type, alias: store_geo_form_type_address }
