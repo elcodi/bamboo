@@ -45,7 +45,7 @@ class Carriers extends AbstractFixture implements DependentFixtureInterface
             ->setName('default')
             ->setTax($this->getReference('tax-vat-21'))
             ->setDescription('Default carrier')
-            ->setEnabled('true');
+            ->setEnabled(true);
 
         $this->setReference('carrier-default', $carrier);
         $carrierDirector->save($carrier);
