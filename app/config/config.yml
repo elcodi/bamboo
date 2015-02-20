@@ -160,3 +160,10 @@ elcodi_geo:
         location:
             manager: default
 
+#
+# This should be the last section in the config file,
+# since we want config_local.yml to override the default
+# settings
+#
+imports:
+    - { resource: config_local.yml, ignore_errors: true }
