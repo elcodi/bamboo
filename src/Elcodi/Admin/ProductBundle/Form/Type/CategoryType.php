@@ -99,10 +99,6 @@ class CategoryType extends AbstractType
                 'required' => false,
                 'label'    => 'Root Category',
             ])
-            ->add('position', 'integer', [
-                'required' => false,
-                'label'    => 'Position',
-            ])
             ->add('enabled', 'checkbox', [
                 'required' => false,
                 'label'    => 'Visible',
