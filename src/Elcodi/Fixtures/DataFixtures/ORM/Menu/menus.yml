@@ -155,27 +155,6 @@ menu_nodes:
         url: ~
         subnodes: ~
 
-    bambooadmin_coupons:
-        name: Discounts
-        code: truck
-        url: admin_coupon_list
-        enabled: 1
-        subnodes: ~
-
-    bambooadmin_shipping_ranges:
-        name: Shipping
-        code: truck
-        url: admin_shipping_range_list
-        enabled: 1
-        subnodes: ~
-
-    bambooadmin_pages:
-        name: Pages
-        code: file-text-o
-        url: admin_page_list
-        enabled: 1
-        subnodes: ~
-
     bambooadmin_configurations:
         name: General
         code: ~
@@ -183,10 +162,10 @@ menu_nodes:
         enabled: 1
         subnodes: ~
 
-    bambooadmin_shipping_ranges:
+    bambooadmin_carriers:
         name: Shipping
         code: truck
-        url: admin_shipping_range_list
+        url: admin_carrier_list
         enabled: 1
         subnodes: ~
 
@@ -211,7 +190,6 @@ menu_nodes:
         enabled: 1
         subnodes:
           - bambooadmin_configurations
-          - bambooadmin_shipping_ranges
           - bambooadmin_carriers
           - bambooadmin_currencies
           - bambooadmin_languages
@@ -232,5 +210,6 @@ menus:
             - bambooadmin_separator_1
             - bambooadmin_separator_2
             - bambooadmin_pages
+            - bambooadmin_templates
             - bambooadmin_plugins
             - bambooadmin_settings
