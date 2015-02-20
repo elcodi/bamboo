@@ -27,15 +27,26 @@
                                 type="radio"
                                 name="billing"
                                 value="{{ address.id }}"
-                                {% if address.id == cart.billingAddress.id %} checked{% endif %}>
+                                {% if
+                                    address.id == cart.billingAddress.id or
+                                    (
+                                        cart.billingAddress.id is null and
+                                        loop.index0 == 0
+                                    )
+                                %} checked="checked"{% endif %}>
                             <label for="billing-{{ address.id }}">Billing</label>
-
                             <input
                                 id="delivery-{{ address.id }}"
                                 type="radio"
                                 name="delivery"
                                 value="{{ address.id }}"
-                                {% if address.id == cart.deliveryAddress.id %} checked{% endif %}>
+                                {% if
+                                    address.id == cart.deliveryAddress.id or
+                                    (
+                                        cart.deliveryAddress.id is null and
+                                        loop.index0 == 0
+                                    )
+                                %} checked="checked"{% endif %}>
                             <label for="delivery-{{ address.id }}">Delivery</label>
 
                         </li>
