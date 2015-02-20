@@ -151,6 +151,16 @@ elcodi_location:
     resource: "@ElcodiGeoBundle/Resources/config/routing.yml"
     prefix: %elcodi.route.location_api.prefix%
 
+#
+# Per project routes
+# Add your routes in this file
+#
+elcodi_custom_routes:
+    resource: "routing_local.yml"
+
+#
+# Must be the last route!
+#
 elcodi_page:
     resource: "@ElcodiPageBundle/Resources/config/routing.yml"
     prefix: /
