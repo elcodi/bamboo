@@ -20,20 +20,20 @@ Requirements
 To use Bamboo and Elcodi you need a PHP version not less than **5.4**
 
 For more info just visit their
-[instalation page](http://php.net/manual/en/install.php)
+[installation page](http://php.net/manual/en/install.php)
 
 ### Redis
 Bamboo uses redis to make the app lighter and to minimize the response time.
 
 For more info just visit their
-[instalation page](http://redis.io/topics/quickstart)
+[installation page](http://redis.io/topics/quickstart)
 
 ### Imagick
 The images are a really important part of an store. Bamboo uses Imagick to
 resize and optimize all the product images
 
 For more info just visit their
-[instalation page](http://php.net/manual/en/imagick.setup.php)
+[installation page](http://php.net/manual/en/imagick.setup.php)
 
 > On the installation step you will be asked to provide the Imagick installation
 > path. Ensure to configure the parameter **imagick_convert_bin_path** right
@@ -43,7 +43,7 @@ And, where do you save your data? By default we use MySQL, remember to install
 it as well as its extension for PHP
 
 For more info just visit their
-[instalation page](http://dev.mysql.com/doc/refman/5.1/en/installing.html)
+[installation page](http://dev.mysql.com/doc/refman/5.1/en/installing.html)
 
 ### Composer
 [Composer] is required to manage dependencies.
@@ -56,7 +56,7 @@ command:
     $ curl -s http://getcomposer.org/installer | php
 ```
 
-Instalation
+Installation
 ------------------
 
 ### 1. Install the project
