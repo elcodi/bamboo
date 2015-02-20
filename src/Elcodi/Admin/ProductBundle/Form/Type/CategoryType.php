@@ -118,7 +118,7 @@ class CategoryType extends AbstractType
             ->add('parent', 'entity', [
                 'class'         => $this->categoryFactory->getEntityNamespace(),
                 'query_builder' => $this->getAvailableCategories($currentCategoryId),
-                'required'      => false,
+                'required'      => true,
                 'label'         => 'parent',
                 'multiple'      => false,
             ])
