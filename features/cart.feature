@@ -21,9 +21,9 @@ Feature: cart
     When I am on "/checkout/payment"
     Then I should be on "/login"
 
-  @cart @now
+  @cart
   Scenario: See the cart checkout being logged in
     Given I am logged as "customer@customer.com" - "1234"
     And I am on "/cart/product/10/add"
     When I go to "/checkout/payment"
-    Then I should be on "/login"
+    Then I should be on "/checkout/address"
