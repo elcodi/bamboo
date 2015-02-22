@@ -21,6 +21,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 
 use Elcodi\Component\Cart\Event\CartOnLoadEvent;
 use Elcodi\Component\Cart\EventDispatcher\CartEventDispatcher;
+use Elcodi\Component\Geo\Entity\Interfaces\AddressInterface;
 use Elcodi\Component\Shipping\Entity\Interfaces\ShippingRangeInterface;
 use Elcodi\Component\Shipping\Provider\ShippingRangeProvider;
 use Elcodi\Component\Shipping\Resolver\ShippingRangeResolver;
@@ -114,7 +115,10 @@ class ShippingApplianceEventListener
         $cart = $event->getCart();
         $shippingRange = $cart->getShippingRange();
 
-        if ($shippingRange instanceof ShippingRangeInterface) {
+        if (
+            ($shippingRange instanceof ShippingRangeInterface) ||
+            !($cart->getDeliveryAddress() instanceof AddressInterface)
+        ) {
             return;
         }
 

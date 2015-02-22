@@ -11,4 +11,4 @@ services:
             - @elcodi.resolver.shipping_range
         tags:
             - { name: kernel.event_listener, event: cart.onload, method: removeInvalidShippingRange, priority: 8 }
-            - { name: kernel.event_listener, event: cart.onload, method: loadCheapestShippingRange, priority: 9 }
+            - { name: kernel.event_listener, event: cart.onload, method: loadCheapestShippingRange, priority: 7 }
