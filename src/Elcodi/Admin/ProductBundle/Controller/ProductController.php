@@ -161,9 +161,7 @@ class ProductController extends AbstractAdminController
 
             $this->addFlash('success', 'Changes saved');
 
-            return $this->redirectToRoute('admin_product_edit', [
-                'id' => $product->getId(),
-            ]);
+            return $this->redirectToRoute('admin_product_list');
         }
 
         return [
