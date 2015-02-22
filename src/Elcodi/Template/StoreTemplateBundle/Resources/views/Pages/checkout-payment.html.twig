@@ -1,29 +1,9 @@
-{% extends '@StoreTemplate/Layout/_layout.html.twig' %}
+{% extends '@StoreTemplate/Layout/_checkout.html.twig' %}
 
-{% block prefooter %}
+{% block content_checkout %}
 
     <div class="form form-checkout">
-        <div class="grid">
-            <div class="col-1-1">
-                <div class="cart-list">
-                    {% for line in cart.cartLines %}
-                        {% include "@StoreTemplate/Modules/_order-item.html.twig" with {"line": line} %}
-                    {% endfor %}
-                </div>
-                <div class="coupon-list">
-                    {% for cartCoupon in cartCoupons %}
-                        {% include "@StoreTemplate/Modules/_coupon-item.html.twig" with { "coupon": cartCoupon.coupon } %}
-                    {% endfor %}
-                </div>
-                <div class="shipping-list">
-                    {% include "@StoreTemplate/Modules/_shipping-item.html.twig" with {
-                        "shippingRange": cart.shippingRange,
-                        "shippingAmount": cart.shippingAmount
-                    } %}
-                </div>
-                <p class="cart-total"><span>{{ 'Total'|trans }} </span>{{ cart.amount|print_convert_money() }}</p>
-            </div>
-        </div>
+
         <div class="grid">
             <div class="col-2-3 ">
                 <a class="button button-secondary fa fa-arrow-left" href="{{ url('store_checkout_address') }}"> Back</a>
@@ -84,7 +64,7 @@
         </div>
     </div>
 
-{% endblock prefooter %}
+{% endblock content_checkout %}
 
 
 {% block foot_script %}

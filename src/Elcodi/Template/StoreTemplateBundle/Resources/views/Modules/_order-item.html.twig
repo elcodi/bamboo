@@ -1,5 +1,5 @@
 {% set productRoute = url('store_product_view', { slug: line.product.slug, id: line.product.id }) %}
-<dl class="cart-item">
+<dl class="{{ class|default('cart-item') }}">
     <dt class="cart-item-image">{{ 'Image'|trans }}</dt>
     <dd class="cart-item-image">
         <a href="{{ productRoute }}">

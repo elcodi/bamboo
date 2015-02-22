@@ -1,76 +1,47 @@
-{% extends '@StoreTemplate/Layout/_layout.html.twig' %}
+{% extends '@StoreTemplate/Layout/_checkout.html.twig' %}
 
 {% block content_title %}{{ "Select delivery and billing address"|trans }}{% endblock content_title %}
 
-{% block content %}
-    <h1>{{ "Select delivery and billing address"|trans }}</h1>
+{% block content_checkout %}
 
-    <a class="button button-secondary fa fa-arrow-left" href="{{ url('store_cart_view') }}"> Back</a>
+    <h1 class="checkout-title">{{ "Select delivery and billing address"|trans }}</h1>
 
     {% if addresses is not empty %}
-    <form method="post" action="{{ url('store_checkout_address_save') }}">
-        <ul>
+    <form method="post" action="{{ url('store_checkout_address_save') }}" {% if addresses|length > 1 %}class="address-list" {% endif %}>
+        <p class="checkout-actions checkout-actions-top">
+            <button type="submit" name="payment" class="button button-secondary desktop"> {{ 'Payment'|trans }} <i class="fa fa-arrow-right"></i></button>
+            <a class="button desktop" href="{{ url('store_cart_view') }}"> <i class="fa fa-arrow-left"></i> {{ 'Back' }}</a>
+            {% include "@StoreTemplate/Modules/_checkout-progress.html.twig" with {"step": "2"} %}
+        </p>
             {% for address in addresses %}
-                <li>
-                    <ul>
-                        <li><strong>{{ address.name }}</strong></li>
-                        <li>{{ address.recipientName }} {{ address.recipientSurname }}</li>
-                        <li>{{ address.address }}<br/>{{ address.address_more }}</li>
-                        <li>{{ address.phone }} / {{ address.mobile }}</li>
-                        {% for locationData in cities_info[address.city] %}
-                            <li>{{ locationData.name }}</li>
-                        {% endfor %}
-                        <li>{{ address.comments }}</li>
-                        <li>
-                            <input
-                                id="billing-{{ address.id }}"
-                                type="radio"
-                                name="billing"
-                                value="{{ address.id }}"
-                                {% if
-                                    address.id == cart.billingAddress.id or
-                                    (
-                                        cart.billingAddress.id is null and
-                                        loop.index0 == 0
-                                    )
-                                %} checked="checked"{% endif %}>
-                            <label for="billing-{{ address.id }}">Billing</label>
-                            <input
-                                id="delivery-{{ address.id }}"
-                                type="radio"
-                                name="delivery"
-                                value="{{ address.id }}"
-                                {% if
-                                    address.id == cart.deliveryAddress.id or
-                                    (
-                                        cart.deliveryAddress.id is null and
-                                        loop.index0 == 0
-                                    )
-                                %} checked="checked"{% endif %}>
-                            <label for="delivery-{{ address.id }}">Delivery</label>
 
-                        </li>
-                    </ul>
-                </li>
+                {% include "@StoreTemplate/Modules/_address-item.html.twig" with {"address": address} %}
+
             {% endfor %}
-        </ul>
 
-        <input class="button button-secondary" name="payment" type="submit" value="Payment">
+        <p class="checkout-actions checkout-actions-bottom">
+            <button type="submit" name="payment" class="button button-secondary"> {{ 'Payment'|trans }} <i class="fa fa-arrow-right"></i></button>
+            <a class="button" href="{{ url('store_cart_view') }}"> <i class="fa fa-arrow-left"></i> {{ 'Back' }}</a>
+        </p>
+
     </form>
+
     {% else %}
     <strong>Add your first address</strong>
     {% endif %}
 
-    {% render url('location_selectors') %}
+        <h1 class="checkout-title">{{ "Add New Address"|trans }}</h1>
 
-    {###########################################################################
+        {###########################################################################
     #   IMPORTANT This JS is used on the location-selector to make the city    #
     #   selectors work. If you remove this you should implement the same       #
     #   functionality by yourself                                              #
     ###########################################################################}
-    {% javascripts '@StoreGeoBundle/Resources/public/js/LocationSelectors.js' %}
-    <script src="{{ asset_url }}"></script>
-    {% endjavascripts %}
+        {% javascripts '@StoreGeoBundle/Resources/public/js/LocationSelectors.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
 
-    {% include '@StoreTemplate/Modules/_address-new.html.twig' with {'form' : form} %}
-{% endblock content %}
+        {% include '@StoreTemplate/Modules/_address-new.html.twig' with {'form' : form} %}
+
+
+{% endblock content_checkout %}

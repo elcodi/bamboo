@@ -8,56 +8,9 @@
     {% else %}
         <h2>{{ 'Add new address'|trans }}</h2>
     {% endif %}
-    <div class="form form-address">
-        {{ form_start(form) }}
-        <div class="grid">
-            <div class="col-1-1">
-                <div class="form-row">{{ form_row(form.name, { 'attr': {'placeholder':'e.g. My default address'|trans }} ) }}</div>
-                <hr class="rule" />
-            </div>
-        </div>
-        <div class="grid">
-            <div class="col-1-2 form-row">
-                {{ form_row(form.recipientName, { 'attr': {'placeholder':'e.g. John'|trans }}) }}
-            </div>
-            <div class="col-1-2 form-row">
-                {{ form_row(form.recipientSurname, { 'attr': {'placeholder':'e.g. Doe'|trans }}) }}
-            </div>
-        </div>
-        <div class="grid">
-            <div class="col-1-1 form-row">
-                {{ form_row(form.address, { 'attr' : {'placeholder':'e.g. Awesome Street, 21'|trans }}) }}
-            </div>
-        </div>
-        <div class="grid">
-            <div class="col-2-3 form-row">
-                {{ form_row(form.addressMore, { 'attr' : {'placeholder':'e.g. Doe Enterprises '|trans }} ) }}
-            </div>
-            <div class="col-1-3 form-row">
-                {{ form_row(form.postalcode, { 'attr' : {'placeholder':'e.g. 08080'|trans }} ) }}
-            </div>
-        </div>
-        {% render url('location_selectors',{locationId:address.city}) %}
-        {{ form_row(form.city) }}
-        <div class="grid">
-            <div class="col-1-2 form-row">
-                {{ form_row(form.phone, { 'attr': {'placeholder':'e.g. 935 555 555'|trans }}) }}
-            </div>
-            <div class="col-1-2 form-row">
-                {{ form_row(form.mobile, { 'attr': {'placeholder':'e.g. 555 555 555'|trans }}) }}
-            </div>
-        </div>
-        <div class="grid">
-            <div class="col-1-1 form-row">
-                {{ form_row(form.comments, { 'attr' : {'placeholder': "e.g. It's a house"|trans }}) }}
-            </div>
-        </div>
-        <div class="form-row">
-            {{ form_widget(form.send, { 'attr': {'class': 'button button-primary' } }) }}
-            <a href="{{ url('store_address_list') }}" class="button">Cancel</a>
-        </div>
-        {{ form_end(form) }}
-    </div>
+
+    {% include '@StoreTemplate/Modules/_address-new.html.twig' with {'form' : form} %}
+
 
 {###########################################################################
 #   IMPORTANT This JS is used on the location-selector to make the city    #

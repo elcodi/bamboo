@@ -1,29 +1,15 @@
 {% if shippingRange is null %}
     {% if app.user is null %}
-        <span>{{ "You have to be logged in"|trans }}</span>
+        <p class="message message-info">{{ "After you login or add your shipping address the shipping costs will be calculated."|trans }}</p>
     {% else %}
         {% if cart.cheapestShippingRange is not null %}
             {% set shippingRange = cart.cheapestShippingRange %}
-            <dl class="coupon-item">
-                <dt class="coupon-item-carrier">{{ 'Carrier'|trans }}</dt>
-                <dd class="coupon-item-carrier">
-                    <strong>{{ shippingRange.carrier.name }}</strong></dd>
-                <dt class="coupon-item-total">{{ 'Total'|trans }}</dt>
-                <dd class="coupon-item-total">{{ "from"|trans }} {{ shippingRange.price|print_convert_money() }}</dd>
-            </dl>
+            <p class="cart-shipping"><span>{{ 'Carrier'|trans }} ({{ shippingRange.carrier.name }}) </span>{{ shippingAmount|print_convert_money() }}</p>
         {% else %}
-            <span>{{ "No shipping matching"|trans }}</span>
+            <p class="message message-ko">{{ "No shipping matching. Please contact us before finish your shipping."|trans }}</p>
         {% endif %}
     {% endif %}
 
 {% else %}
-
-    <dl class="coupon-item">
-        <dt class="coupon-item-carrier">{{ 'Carrier'|trans }}</dt>
-        <dd class="coupon-item-carrier">
-            <strong>{{ shippingRange.carrier.name }}</strong></dd>
-        <dt class="coupon-item-total">{{ 'Total'|trans }}</dt>
-        <dd class="coupon-item-total">{{ shippingAmount|print_convert_money() }}</dd>
-    </dl>
-
+    <p class="cart-shipping"><span>{{ 'Carrier'|trans }} ({{ shippingRange.carrier.name }}) {{ "from"|trans }} </span> {{ shippingAmount|print_convert_money() }}</p>
 {% endif %}

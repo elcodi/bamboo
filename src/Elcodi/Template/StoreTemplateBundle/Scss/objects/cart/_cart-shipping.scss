@@ -1,0 +1,18 @@
+.cart-shipping {
+	& {
+		text-align: right;
+		padding: $spacing/2;
+		margin-bottom: $spacing/2;
+		background: $color-background;
+		font-family: $font-face-title;
+		font-size: $font-size-xl;
+		font-weight: bold;
+		color: $color-foreground;
+	}
+	span {
+		display: inline-block;
+		margin-right: $spacing;
+		opacity: .5;
+		color: $color-foreground;
+	}
+}

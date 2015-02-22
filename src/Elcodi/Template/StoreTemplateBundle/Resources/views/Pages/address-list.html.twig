@@ -7,27 +7,7 @@
     {% if addresses|length > 0 %}
     <div class="address-list">
         {% for address in addresses %}
-            <dl class="address-item">
-                <dt>{{ 'Address name'|trans }}</dt>
-                <dd><strong>{{ address.name }}</strong></dd>
-                <dt>{{ 'Recipient name & surnmae'|trans }}</dt>
-                <dd>{{ address.recipientName }} {{ address.recipientSurname }}</dd>
-                <dt>{{ 'Address'|trans }}</dt>
-                <dd>{{ address.address }}<br/>{{ address.address_more }}</dd>
-                <dt>{{ 'Phone / Mobile Phone'|trans }}</dt>
-                <dd>{{ address.phone }} / {{ address.mobile }}</dd>
-                <dt>{{ 'City'|trans }}</dt>
-                <dd>{% for locationData in cities_info[address.city] %}{{ locationData.name }}, {% endfor %}</dd>
-                <dt>{{ 'Postalcode'|trans }}</dt>
-                <dd>{{ address.postalCode }}</dd>
-                <dt>{{ 'Comment'|trans }}</dt>
-                <dd>{{ address.comments }}</dd>
-                <dt class="address-item-actions">{{ 'Actions'|trans }}</dt>
-                <dd class="address-item-actions">
-                    <a href="{{ url('store_address_edit',{id:address.id}) }}" class="button button-primary"><i class="fa fa-pencil"></i> {{ 'Edit'|trans }}</a>
-                    <a href="{{ url('store_address_delete',{id:address.id}) }}" class="button button-ko"><i class="fa fa-trash-o"></i> {{ 'Remove'|trans }}</a>
-                </dd>
-            </dl>
+            {% include "@StoreTemplate/Modules/_address-item.html.twig" with {"address": address} %}
         {% endfor %}
     </div>
     {% else %}
