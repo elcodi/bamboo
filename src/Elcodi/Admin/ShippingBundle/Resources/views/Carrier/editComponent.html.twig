@@ -16,6 +16,85 @@
 
      %}
 
-    {{ form(form, {'action': formAction}) }}
+    {{ form_start(form, {'action': formAction}) }}
+        <div class="grid">
+            <div class="col-1-3">
+                <div class="box-none">
+                    <h3 class="fw-n">{% trans %}Basic Details{% endtrans %}</h3>
+                    <p>{% trans %}Provide the name of the carrier and an internal description if needed.{% endtrans %}</p>
+                </div>
+            </div>
+            <div class="col-2-3">
+                <div class="box">
+                    <ol>
+                        <li>
+                            {{ form_row(form.name, {'attr':{'placeholder':'e.g. AwesomeCarrier'}}) }}
+                        </li>
+                        <li>
+                            {{ form_row(form.description, {'attr':{'placeholder':'e.g. Best option for local shipping'}}) }}
+                        </li>
+                        <li class="w-30">
+                            {{ form_row(form.tax) }}
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="col-1-3">
+                <div class="box-none">
+                    <h3 class="fw-n">{% trans %}Shipping Rates{% endtrans %}</h3>
+                    <p>{% trans %}Add the shipping rates{% endtrans %}</p>
+                    {% if carrier.id %}
+                    <a href="{{ url('admin_shipping_range_new', {
+                        'carrierId': carrier.id
+                    }) }}" class="button">Add range</a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-2-3">
+                <div class="box">
+                    {% if carrier.id %}
+                    {{ render(url("admin_shipping_range_list_component", {
+                        'carrierId': carrier.id
+                    })) }}
+                    {% else %}
+                        <div class="box-background pa-n">
+                            <p class="msg-info ma-n">{{ 'You will be able to add shipping rates after save the carrier'|trans }}</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="col-1-3">
+                <div class="box-none mb-n pb-m">
+                    <h3 class="fw-n">{% trans %}Visibility{% endtrans %}</h3>
+                    <p>{% trans %}Set this carrier as enabled or disabled.{% endtrans %}</p>
+                </div>
+            </div>
+            <div class="col-2-3">
+                <div class="box mb-n pb-n">
+                    <ol class="grid pt-m">
+                        <li class="col-1-2">
+                            {{ form_row(form.enabled, {'attr': {'type':'checkbox'}}) }}
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="col-1-3">
+                &nbsp;
+            </div>
+            <div class="col-2-3">
+                {{ form_widget(form.save, {'attr': {'class':'button-primary'}} ) }}
+                <a href="{{ path('admin_carrier_list') }}" class="button">{{ 'Cancel'|trans }}</a>
+            </div>
+        </div>
 
+
+
+
+    {{ form_end(form) }}
 {% endblock content %}

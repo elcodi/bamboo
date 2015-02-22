@@ -54,21 +54,21 @@ class CarrierType extends AbstractType
             ->add('save', 'submit')
             ->add('name', 'text', array(
                 'required' => true,
-                'label'    => 'name',
+                'label'    => 'Name',
             ))
-            ->add('description', 'textarea', array(
+            ->add('description', 'text', array(
                 'required' => true,
-                'label'    => 'name',
+                'label'    => 'Internal description',
             ))
             ->add('tax', 'entity', array(
                 'class'    => $this->taxNamespace,
                 'required' => true,
-                'label'    => 'tax',
+                'label'    => 'Taxes',
                 'property' => 'name',
                 'multiple' => false,
             ))
             ->add('enabled', 'checkbox', array(
-                'label'    => 'Enabled',
+                'label'    => 'Status',
                 'required' => false,
             ));
     }

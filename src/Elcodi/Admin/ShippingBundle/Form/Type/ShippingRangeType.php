@@ -56,7 +56,7 @@ class ShippingRangeType extends AbstractType
             ->add('save', 'submit')
             ->add('name', 'text', array(
                 'required' => true,
-                'label'    => 'name',
+                'label'    => 'Shipping rate name',
             ))
             ->add('price', 'money_object', array(
                 'required' => true,
@@ -68,22 +68,22 @@ class ShippingRangeType extends AbstractType
                     ElcodiShippingRangeTypes::TYPE_WEIGHT => 'Based on order weight',
                 ),
                 'required' => true,
-                'label'    => 'From weight',
+                'label'    => 'Price will be calculated...',
             ))
             ->add('fromWeight', 'number', array(
-                'required' => true,
+                'required' => false,
                 'label'    => 'From weight',
             ))
             ->add('toWeight', 'number', array(
-                'required' => true,
+                'required' => false,
                 'label'    => 'To weight',
             ))
             ->add('fromPrice', 'money_object', array(
-                'required' => true,
+                'required' => false,
                 'label'    => 'From price',
             ))
             ->add('toPrice', 'money_object', array(
-                'required' => true,
+                'required' => false,
                 'label'    => 'To price',
             ))
             ->add('toZone', 'entity', array(
@@ -91,8 +91,7 @@ class ShippingRangeType extends AbstractType
                 'required' => true,
                 'label'    => 'Zone',
                 'property' => 'name',
-                'multiple' => false,
-                'expanded' => true,
+                'multiple' => false
             ));
     }
 
