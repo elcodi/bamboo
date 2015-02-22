@@ -91,7 +91,7 @@ class ShippingRangeType extends AbstractType
                 'required' => true,
                 'label'    => 'Zone',
                 'property' => 'name',
-                'multiple' => false
+                'multiple' => false,
             ));
     }
 

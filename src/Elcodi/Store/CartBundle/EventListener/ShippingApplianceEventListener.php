@@ -17,8 +17,6 @@
 
 namespace Elcodi\Store\CartBundle\EventListener;
 
-use Doctrine\Common\Persistence\ObjectManager;
-
 use Elcodi\Component\Cart\Event\CartOnLoadEvent;
 use Elcodi\Component\Cart\EventDispatcher\CartEventDispatcher;
 use Elcodi\Component\Geo\Entity\Interfaces\AddressInterface;
@@ -63,8 +61,7 @@ class ShippingApplianceEventListener
         CartEventDispatcher $cartEventDispatcher,
         ShippingRangeProvider $shippingRangeProvider,
         ShippingRangeResolver $shippingRangeResolver
-    )
-    {
+    ) {
         $this->cartEventDispatcher = $cartEventDispatcher;
         $this->shippingRangeProvider = $shippingRangeProvider;
         $this->shippingRangeResolver = $shippingRangeResolver;
