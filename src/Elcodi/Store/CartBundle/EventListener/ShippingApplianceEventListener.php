@@ -20,20 +20,22 @@ namespace Elcodi\Store\CartBundle\EventListener;
 use Doctrine\Common\Persistence\ObjectManager;
 
 use Elcodi\Component\Cart\Event\CartOnLoadEvent;
+use Elcodi\Component\Cart\EventDispatcher\CartEventDispatcher;
 use Elcodi\Component\Shipping\Entity\Interfaces\ShippingRangeInterface;
 use Elcodi\Component\Shipping\Provider\ShippingRangeProvider;
+use Elcodi\Component\Shipping\Resolver\ShippingRangeResolver;
 
 /**
- * Class CheckShippingMethodEventListener
+ * Class ShippingApplianceEventListener
  */
-class CheckShippingMethodEventListener
+class ShippingApplianceEventListener
 {
     /**
-     * @var ObjectManager
+     * @var CartEventDispatcher
      *
-     * Cart Object Manager
+     * Cart Event Dispatcher
      */
-    protected $cartObjectManager;
+    protected $cartEventDispatcher;
 
     /**
      * @var ShippingRangeProvider
@@ -43,17 +45,28 @@ class CheckShippingMethodEventListener
     protected $shippingRangeProvider;
 
     /**
+     * @var ShippingRangeResolver
+     *
+     * Shipping Range Resolver
+     */
+    protected $shippingRangeResolver;
+
+    /**
      * Construct
      *
-     * @param ObjectManager         $cartObjectManager     Cart Object Manager
+     * @param CartEventDispatcher   $cartEventDispatcher   Cart Event Dispatcher
      * @param ShippingRangeProvider $shippingRangeProvider Carrier provider
+     * @param ShippingRangeResolver $shippingRangeResolver Shipping range resolver
      */
     public function __construct(
-        ObjectManager $cartObjectManager,
-        ShippingRangeProvider $shippingRangeProvider
-    ) {
-        $this->cartObjectManager = $cartObjectManager;
+        CartEventDispatcher $cartEventDispatcher,
+        ShippingRangeProvider $shippingRangeProvider,
+        ShippingRangeResolver $shippingRangeResolver
+    )
+    {
+        $this->cartEventDispatcher = $cartEventDispatcher;
         $this->shippingRangeProvider = $shippingRangeProvider;
+        $this->shippingRangeResolver = $shippingRangeResolver;
     }
 
     /**
@@ -80,9 +93,40 @@ class CheckShippingMethodEventListener
         if (!isset($validCarrierRanges[$shippingRangeId])) {
             $cart->setShippingRange(null);
             $this
-                ->cartObjectManager
-                ->flush($cart);
+                ->cartEventDispatcher
+                ->dispatchCartLoadEvents($cart);
+
+            $event->stopPropagation();
         }
+
+        return;
+    }
+
+    /**
+     * Loads cheapest shipping range if exists
+     *
+     * @param CartOnLoadEvent $event Event
+     *
+     * @return void
+     */
+    public function loadCheapestShippingRange(CartOnLoadEvent $event)
+    {
+        $cart = $event->getCart();
+        $shippingRange = $cart->getShippingRange();
+
+        if ($shippingRange instanceof ShippingRangeInterface) {
+            return;
+        }
+
+        $validCarrierRanges = $this
+            ->shippingRangeProvider
+            ->getValidShippingRangesSatisfiedWithCart($cart);
+
+        $cheapestCarrierRange = $this
+            ->shippingRangeResolver
+            ->getShippingRangeWithLowestPrice($validCarrierRanges);
+
+        $cart->setCheapestShippingRange($cheapestCarrierRange);
 
         return;
     }

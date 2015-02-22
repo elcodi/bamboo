@@ -9,4 +9,4 @@ parameters:
     #
     # Event listeners
     #
-    store.cart.event_listener.check_shipping_method.class: Elcodi\Store\CartBundle\EventListener\CheckShippingMethodEventListener
+    store.cart.event_listener.shipping_appliance.class: Elcodi\Store\CartBundle\EventListener\ShippingApplianceEventListener

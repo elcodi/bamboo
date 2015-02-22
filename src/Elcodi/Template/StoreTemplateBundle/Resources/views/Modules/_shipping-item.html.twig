@@ -1,12 +1,27 @@
 {% if shippingRange is null %}
-
-    <span>{{ "You need to specify a delivery Address"|trans }}</span>
+    {% if app.user is null %}
+        <span>{{ "You have to be logged in"|trans }}</span>
+    {% else %}
+        {% if cart.cheapestShippingRange is not null %}
+            {% set shippingRange = cart.cheapestShippingRange %}
+            <dl class="coupon-item">
+                <dt class="coupon-item-carrier">{{ 'Carrier'|trans }}</dt>
+                <dd class="coupon-item-carrier">
+                    <strong>{{ shippingRange.carrier.name }}</strong></dd>
+                <dt class="coupon-item-total">{{ 'Total'|trans }}</dt>
+                <dd class="coupon-item-total">{{ "from"|trans }} {{ shippingRange.price|print_convert_money() }}</dd>
+            </dl>
+        {% else %}
+            <span>{{ "No shipping matching"|trans }}</span>
+        {% endif %}
+    {% endif %}
 
 {% else %}
 
     <dl class="coupon-item">
         <dt class="coupon-item-carrier">{{ 'Carrier'|trans }}</dt>
-        <dd class="coupon-item-carrier"><strong>{{ shippingRange.carrier.name }}</strong></dd>
+        <dd class="coupon-item-carrier">
+            <strong>{{ shippingRange.carrier.name }}</strong></dd>
         <dt class="coupon-item-total">{{ 'Total'|trans }}</dt>
         <dd class="coupon-item-total">{{ shippingAmount|print_convert_money() }}</dd>
     </dl>
