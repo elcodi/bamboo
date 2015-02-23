@@ -236,10 +236,9 @@ class AddressController extends Controller
             throw new NotFoundHttpException('Address not found');
         }
 
+        $customerManager = $this->get('elcodi.object_manager.customer');
         $customer->removeAddress($address);
-        $addressManager = $this->get('elcodi.object_manager.address');
-        $addressManager->remove($address);
-        $addressManager->flush();
+        $customerManager->flush($customer);
 
         $this->addFlash('success', 'Address removed');
 
