@@ -17,16 +17,18 @@
 
 namespace Elcodi\Fixtures\DataFixtures\ORM\Customer;
 
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
 use Elcodi\Bundle\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
+use Elcodi\Component\Geo\Entity\Interfaces\AddressInterface;
 use Elcodi\Component\User\ElcodiUserProperties;
 use Elcodi\Component\User\Entity\Interfaces\CustomerInterface;
 
 /**
  * Class CustomerData
  */
-class CustomerData extends AbstractFixture
+class CustomerData extends AbstractFixture implements DependentFixtureInterface
 {
     /**
      * Load data fixtures with the passed EntityManager
@@ -35,6 +37,16 @@ class CustomerData extends AbstractFixture
      */
     public function load(ObjectManager $manager)
     {
+        /**
+         * @var $homeAddress AddressInterface
+         */
+        $homeAddress = $this->getReference('home_address');
+
+        /**
+         * @var $workAddress AddressInterface
+         */
+        $workAddress = $this->getReference('work_address');
+
         /**
          * @var CustomerInterface $customer
          */
@@ -47,11 +59,26 @@ class CustomerData extends AbstractFixture
             ->setFirstName('Homer')
             ->setLastName('Simpson')
             ->setGender(ElcodiUserProperties::GENDER_MALE)
+            ->addAddress($homeAddress)
+            ->addAddress($workAddress)
             ->setEnabled(true);
 
         $manager->persist($customer);
         $this->addReference('customer', $customer);
 
         $manager->flush();
+    }
+
+    /**
+     * This method must return an array of fixtures classes
+     * on which the implementing class depends on
+     *
+     * @return array
+     */
+    public function getDependencies()
+    {
+        return [
+            'Elcodi\Fixtures\DataFixtures\ORM\Geo\AddressData',
+        ];
     }
 }
