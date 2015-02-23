@@ -218,7 +218,7 @@ module.exports = function(grunt, fixtures) {
 						return '</form>';
 					});
 
-					Twig.exports.extendFunction("getConfiguration", function ( sVar ) {
+					Twig.exports.extendFunction("elcodi_config", function ( sVar ) {
 
 						var sValue = sVar.replace('.', ' ');
 

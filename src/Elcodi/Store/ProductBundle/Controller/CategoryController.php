@@ -129,6 +129,7 @@ class CategoryController extends Controller
             $productRepository = $this->get('elcodi.repository.product');
             $product = $productRepository->find($productId);
             $category = $product->getPrincipalCategory();
+
         } elseif ($masterRoute === 'store_category_products_list') {
             $categoryId = $request->get('id');
             $categoryRepository = $this->get('elcodi.repository.category');

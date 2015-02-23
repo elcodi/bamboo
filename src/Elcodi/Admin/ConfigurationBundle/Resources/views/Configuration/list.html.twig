@@ -30,7 +30,7 @@
                         <li>
                             <input id="url-store.enabled" type="hidden" value="{{ url("admin_configuration_update", {"name": "store.enabled"}) }}">
                             <div class="switch">
-                                <input id="store.enabled" name="store.enabled" type="checkbox"{% if getConfiguration('store.enabled') %} checked="checked"{% endif %} />
+                                <input id="store.enabled" name="store.enabled" type="checkbox"{% if elcodi_config('store.enabled') %} checked="checked"{% endif %} />
                                 <label for="store.enabled"></label>
                             </div>
                             {% trans %}Store enabled{% endtrans %}
@@ -38,7 +38,7 @@
                         <li>
                             <input id="url-store.under_construction" type="hidden" value="{{ url("admin_configuration_update", {"name": "store.under_construction"}) }}">
                             <div class="switch">
-                                <input id="store.under_construction" name="store.under_construction" type="checkbox"{% if getConfiguration('store.under_construction') %} checked="checked"{% endif %} />
+                                <input id="store.under_construction" name="store.under_construction" type="checkbox"{% if elcodi_config('store.under_construction') %} checked="checked"{% endif %} />
                                 <label for="store.under_construction"></label>
                             </div>
                             {% trans %}Store under construction{% endtrans %}
@@ -46,31 +46,31 @@
                         <li>
                             <label for="store.name">{{ 'Store Name'|trans }}</label>
                             <i class="icon-pencil"></i>
-                            <input id="store.name" type="text" name="store.name" value="{{ getConfiguration('store.name') }}"/>
+                            <input id="store.name" type="text" name="store.name" value="{{ elcodi_config('store.name') }}"/>
                             <input id="url-store.name" type="hidden" value="{{ url("admin_configuration_update", {"name": "store.name"}) }}">
                         </li>
                         <li>
                             <label for="store.leitmotiv">{{ 'Store Leitmotiv'|trans }}</label>
                             <i class="icon-pencil"></i>
-                            <input id="store.leitmotiv" type="text" name="store.leitmotiv" value="{{ getConfiguration('store.leitmotiv') }}"/>
+                            <input id="store.leitmotiv" type="text" name="store.leitmotiv" value="{{ elcodi_config('store.leitmotiv') }}"/>
                             <input id="url-store.leitmotiv" type="hidden" value="{{ url("admin_configuration_update", {"name": "store.leitmotiv"}) }}">
                         </li>
                         <li>
                             <label for="store.phone">{{ 'Store Phone'|trans }}</label>
                             <i class="icon-pencil"></i>
-                            <input id="store.phone" type="text" name="store.phone" value="{{ getConfiguration('store.phone') }}"/>
+                            <input id="store.phone" type="text" name="store.phone" value="{{ elcodi_config('store.phone') }}"/>
                             <input id="url-store.phone" type="hidden" value="{{ url("admin_configuration_update", {"name": "store.phone"}) }}">
                         </li>
                         <li>
                             <label for="store.email">{{ 'Store Email'|trans }}</label>
                             <i class="icon-pencil"></i>
-                            <input id="store.email" type="text" name="store.email" value="{{ getConfiguration('store.email') }}"/>
+                            <input id="store.email" type="text" name="store.email" value="{{ elcodi_config('store.email') }}"/>
                             <input id="url-store.email" type="hidden" value="{{ url("admin_configuration_update", {"name": "store.email"}) }}">
                         </li>
                         <li>
                             <label for="currency.default_currency">{{ 'Currency configuration'|trans }}</label>
                             <i class="icon-pencil"></i>
-                            {% set defaultCurrency = getConfiguration('currency.default_currency') %}
+                            {% set defaultCurrency = elcodi_config('currency.default_currency') %}
                             <select id="currency.default_currency" name="currency.default_currency">
                                 {% for currency in currencies %}
                                     <option value="{{ currency.iso }}"{% if currency.iso == defaultCurrency %} selected="selected"{% endif %}>{{ currency.name }}</option>
@@ -93,7 +93,7 @@
                         <li>
                             <input id="url-product.use_stock" type="hidden" value="{{ url("admin_configuration_update", {"name": "product.use_stock"}) }}">
                             <div class="switch">
-                                <input id="product.use_stock" name="product.use_stock" type="checkbox"{% if getConfiguration('product.use_stock') %} checked="checked"{% endif %} />
+                                <input id="product.use_stock" name="product.use_stock" type="checkbox"{% if elcodi_config('product.use_stock') %} checked="checked"{% endif %} />
                                 <label for="product.use_stock"></label>
                             </div>
                             {% trans %}Stock <em class="fz-s">(Enable this option to activate stock control)</em> {% endtrans %}

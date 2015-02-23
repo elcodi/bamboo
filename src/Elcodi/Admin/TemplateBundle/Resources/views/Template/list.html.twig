@@ -28,7 +28,7 @@
                 <div class="fl-r pt-s">
                     Enable:
                     <div class="switch">
-                        <input type="radio" name="store.template" id="{{ templateBundle }}-store.template" value="{{ templateBundle }}"{% if getConfiguration('store.template') == templateBundle %} checked="checked"{% endif %} />
+                        <input type="radio" name="store.template" id="{{ templateBundle }}-store.template" value="{{ templateBundle }}"{% if elcodi_config('store.template') == templateBundle %} checked="checked"{% endif %} />
                         <label for="{{ templateBundle }}-store.template" class="mr-n"></label>
                     </div>
                 </div>

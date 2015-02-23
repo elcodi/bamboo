@@ -4,7 +4,7 @@
 <footer class="footer">
     <div class="grid">
         <div class="col-1-1">
-            <p><strong>{{ getConfiguration('store.leitmotiv') }}</strong></p>
+            <p><strong>{{ elcodi_config('store.leitmotiv') }}</strong></p>
         </div>
     </div>
     <div class="grid">
@@ -20,14 +20,14 @@
         <div class="col-1-4">
             <ul>
                 <li><strong>{{ 'Selling with us'|trans }}</strong></li>
-                <li><a href="#">{{ "Why join"|trans }} {{ getConfiguration('store.name') }}</a></li>
+                <li><a href="#">{{ "Why join"|trans }} {{ elcodi_config('store.name') }}</a></li>
             </ul>
         </div>
         <div class="col-1-4">
             <ul>
                 <li><strong>{{ 'About us'|trans }}</strong></li>
                 <li><a href="#">{{ "Who we are"|trans }}</a></li>
-                <li><a href="#">{{ getConfiguration('store.name') }} {{ "in the press"|trans }}</a></li>
+                <li><a href="#">{{ elcodi_config('store.name') }} {{ "in the press"|trans }}</a></li>
                 <li><a href="#">{{ "Blog"|trans }}</a></li>
             </ul>
         </div>
@@ -35,8 +35,8 @@
             <ul>
                 <li><strong>{{ 'Service'|trans }}</strong></li>
                 <li><a href="#">{{ "Contact us"|trans }}</a></li>
-                <li><a href="#">{{ getConfiguration('store.phone') }}</a></li>
-                <li><a href="#">{{ getConfiguration('store.email') }}</a></li>
+                <li><a href="#">{{ elcodi_config('store.phone') }}</a></li>
+                <li><a href="#">{{ elcodi_config('store.email') }}</a></li>
             </ul>
         </div>
     </div>
@@ -45,13 +45,13 @@
         <div class="col-1-4">
             <ul>
                 <li>{{ 'NEED HELP?'|trans }}</li>
-                <li>Call {{ getConfiguration('store.phone') }}</li>
+                <li>Call {{ elcodi_config('store.phone') }}</li>
             </ul>
         </div>
         <div class="col-1-4">
             <ul>
                 <li>{{ 'QUICK DELIVERY'|trans }}</li>
-                <li>{{ "Why join"|trans }} {{ getConfiguration('store.name') }}</li>
+                <li>{{ "Why join"|trans }} {{ elcodi_config('store.name') }}</li>
             </ul>
         </div>
         <div class="col-1-4">
