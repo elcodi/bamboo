@@ -126,7 +126,7 @@ class ShippingRangeController extends AbstractAdminController
             );
 
             return $this->redirectToRoute('admin_carrier_edit', [
-                'id' => $carrier->getId()
+                'id' => $carrier->getId(),
             ]);
         }
 

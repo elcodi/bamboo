@@ -23,6 +23,7 @@ use Elcodi\Component\Geo\Entity\Interfaces\AddressInterface;
 use Elcodi\Component\Shipping\Entity\Interfaces\ShippingRangeInterface;
 use Elcodi\Component\Shipping\Provider\ShippingRangeProvider;
 use Elcodi\Component\Shipping\Resolver\ShippingRangeResolver;
+use Elcodi\Component\User\Entity\Interfaces\CustomerInterface;
 
 /**
  * Class ShippingApplianceEventListener
@@ -112,12 +113,37 @@ class ShippingApplianceEventListener
         $cart = $event->getCart();
         $shippingRange = $cart->getShippingRange();
 
-        if (
-            ($shippingRange instanceof ShippingRangeInterface) ||
-            !($cart->getDeliveryAddress() instanceof AddressInterface)
-        ) {
+        /**
+         * We don't have the need to find the cheapest one if the real one is
+         * already defined
+         */
+        if ($shippingRange instanceof ShippingRangeInterface) {
             return;
         }
+
+        /**
+         * If the cart is not associated to any customer, just skip it
+         */
+        if (!($cart->getCustomer() instanceof CustomerInterface)) {
+            return;
+        }
+
+        $address = ($cart->getDeliveryAddress() instanceof AddressInterface)
+            ? $cart->getDeliveryAddress()
+            : $cart
+                ->getCustomer()
+                ->getAddresses()
+                ->first();
+
+        /**
+         * If the user does'nt have any address defined, we cannot approximate
+         * anything
+         */
+        if (!($address instanceof AddressInterface)) {
+            return;
+        }
+
+        $cart->setDeliveryAddress($address);
 
         $validCarrierRanges = $this
             ->shippingRangeProvider

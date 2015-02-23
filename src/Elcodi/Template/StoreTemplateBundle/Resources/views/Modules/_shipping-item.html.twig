@@ -12,6 +12,5 @@
         {% endif %}
     {% endif %}
 {% else %}
-    <p class="cart-shipping"><span>{{ 'Carrier'|trans }} ({{ shippingRange.carrier.name }}) </span>{{ shippingAmount|print_convert_money() }}</p>
-
+    <p class="cart-shipping"><span>{{ 'Carrier'|trans }} ({{ shippingRange.carrier.name }})</span> {{ shippingAmount|print_convert_money() }}</p>
 {% endif %}

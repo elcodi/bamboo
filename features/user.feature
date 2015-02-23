@@ -8,6 +8,27 @@ Feature: user
     Given I am on "/user"
     Then I should be on "/login"
 
+  @user @see
+  Scenario Outline: User should be able to logout
+    Given I am logged as <username> - <password>
+    Then I should be on "/login"
+    And I should see "Wrong"
+    And I should not see "Homer"
+
+    Examples:
+      | username                   | password |
+      | "noncustomer@customer.com" | "1234"   |
+      | "customer@customer.com"    | "123"    |
+
+  @user
+  Scenario: Wrong login
+    Given I am logged as "customer@customer.com" - "1234"
+    And I am on "/user"
+    Then I should be on "/user"
+    And I should see "Profile"
+    And I should see "My orders"
+    And I should see "My addresses"
+
   @user
   Scenario: User management should be accessible if logged
     Given I am logged as "customer@customer.com" - "1234"

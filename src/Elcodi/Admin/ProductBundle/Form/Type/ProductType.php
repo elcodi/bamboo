@@ -74,6 +74,22 @@ class ProductType extends AbstractPurchasableType
                 'required' => false,
                 'label'    => 'Visible',
             ))
+            ->add('height', 'number', array(
+                'required' => false,
+                'label'    => 'Height (in Cm)',
+            ))
+            ->add('width', 'number', array(
+                'required' => false,
+                'label'    => 'Width (in Cm)',
+            ))
+            ->add('depth', 'number', array(
+                'required' => false,
+                'label'    => 'Depth (in Cm)',
+            ))
+            ->add('weight', 'number', array(
+                'required' => false,
+                'label'    => 'Weight (in Kg)',
+            ))
             ->add('metaTitle', 'text', array(
                 'required' => false,
                 'label'    => 'Metatitle',
