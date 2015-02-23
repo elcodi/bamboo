@@ -1,7 +1,6 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
-    - { resource: config_local.yml, ignore_errors: true }
     - { resource: @ElcodiBambooBundle/Resources/config/translations.yml }
     - { resource: @ElcodiBambooBundle/Resources/config/mapping.yml }
     - { resource: @ElcodiBambooBundle/Resources/config/filesystem.yml }
@@ -9,6 +8,7 @@ imports:
     - { resource: @ElcodiBambooBundle/Resources/config/cache.yml }
     - { resource: @ElcodiBambooBundle/Resources/config/page.yml }
     - { resource: @ElcodiBambooBundle/Resources/config/metrics.yml }
+    - { resource: config_local.yml, ignore_errors: true }
 
 framework:
     secret:          "%secret%"
