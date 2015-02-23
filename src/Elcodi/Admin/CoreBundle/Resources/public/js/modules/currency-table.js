@@ -10,7 +10,7 @@ TinyCore.AMD.define('currency-table', ['devicePackage' ], function () {
 
                 $('.switch input').change( function() {
 
-                    var sUrl = this.value === 'on' ? document.getElementById('enable-' + this.id).value : document.getElementById('disable-' + this.id).value ;
+                    var sUrl = this.checked === true ? document.getElementById('enable-' + this.id).value : document.getElementById('disable-' + this.id).value ;
 
                     $.ajax({
                         url: sUrl,
