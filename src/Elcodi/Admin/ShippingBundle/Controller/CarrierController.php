@@ -24,6 +24,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\Component\Shipping\Entity\Interfaces\CarrierInterface;
@@ -145,5 +146,39 @@ class CarrierController extends AbstractAdminController
             'carrier' => $carrier,
             'form'    => $form->createView(),
         ];
+    }
+
+    /**
+     * Delete entity
+     *
+     * @param Request $request     Request
+     * @param mixed   $entity      Entity to delete
+     * @param string  $redirectUrl Redirect url
+     *
+     * @return RedirectResponse Redirect response
+     *
+     * @Route(
+     *      path = "/{id}/delete",
+     *      name = "admin_carrier_delete"
+     * )
+     * @Method({"GET", "POST"})
+     *
+     * @EntityAnnotation(
+     *      class = "elcodi.entity.carrier.class",
+     *      mapping = {
+     *          "id" = "~id~"
+     *      }
+     * )
+     */
+    public function deleteAction(
+        Request $request,
+        $entity,
+        $redirectUrl = null
+    ) {
+        return parent::deleteAction(
+            $request,
+            $entity,
+            'admin_carrier_list'
+        );
     }
 }
