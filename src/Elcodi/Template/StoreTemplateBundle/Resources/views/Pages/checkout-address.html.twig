@@ -4,9 +4,8 @@
 
 {% block content_checkout %}
 
-    <h1 class="checkout-title">{{ "Select delivery and billing address"|trans }}</h1>
-
     {% if addresses is not empty %}
+    <h1 class="checkout-title">{{ "Select delivery and billing address"|trans }}</h1>
     <form method="post" action="{{ url('store_checkout_address_save') }}" {% if addresses|length > 1 %}class="address-list" {% endif %}>
         <p class="checkout-actions checkout-actions-top">
             <button type="submit" name="payment" class="button button-secondary desktop"> {{ 'Payment'|trans }} <i class="fa fa-arrow-right"></i></button>
@@ -25,12 +24,16 @@
         </p>
 
     </form>
-
     {% else %}
-    <strong>Add your first address</strong>
-    {% endif %}
-
         <h1 class="checkout-title">{{ "Add New Address"|trans }}</h1>
+        <p class="checkout-actions checkout-actions-top">
+            <a class="button desktop" href="{{ url('store_cart_view') }}"> <i class="fa fa-arrow-left"></i> {{ 'Back' }}</a>
+            {% include "@StoreTemplate/Modules/_checkout-progress.html.twig" with {"step": "2"} %}
+        </p>
+    {% endif %}
+    {% if addresses is not empty %}
+        <h1 class="checkout-title">{{ "Add New Address"|trans }}</h1>
+    {% endif %}
 
         {###########################################################################
     #   IMPORTANT This JS is used on the location-selector to make the city    #
