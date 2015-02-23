@@ -9,7 +9,6 @@
             <p class="message message-ko">{{ "No shipping matching. Please contact us before finish your shipping."|trans }}</p>
         {% endif %}
     {% endif %}
-
 {% else %}
     <p class="cart-shipping"><span>{{ 'Carrier'|trans }} ({{ shippingRange.carrier.name }}) {{ "from"|trans }} </span> {{ shippingAmount|print_convert_money() }}</p>
 {% endif %}

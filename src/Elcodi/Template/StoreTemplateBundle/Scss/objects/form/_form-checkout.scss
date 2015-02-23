@@ -1,13 +1,16 @@
 .form-checkout {
 	& {
-		padding-bottom: $spacing*2;
+		overflow: hidden;
+		padding-bottom: $spacing/2;
+		margin-bottom: $spacing/2;
 		position: relative;
+	}
+
+	h2 {
+		margin-top: 0;
 	}
 }
 
-#form-payment-execute-submit {
+#form-payment-execute-submit, #paymill_view_submit {
 	display: none;
-	position: absolute;
-	left: $spacing;
-	top: $spacing;
 }
