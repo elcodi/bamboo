@@ -1,7 +1,18 @@
 .address-list {
 	& {
-		overflow: hidden;
 		padding-bottom: $spacing*3;
+	}
+}
+
+.address-list-add {
+	position: absolute;
+	right: $spacing;
+	margin-top: -($spacing*2.5);
+}
+
+.address-list-profile {
+	.address-item-selection {
+		display: none !important;
 	}
 }
 

@@ -5,7 +5,8 @@
 {% block content %}
     <h2>{{ 'Addresses'|trans }}</h2>
     {% if addresses|length > 0 %}
-    <div class="address-list">
+    <div class="{% if addresses|length > 1 %}address-list{% endif %} address-list-profile">
+        <a href="{{ url('store_address_new') }}" class="button button-secondary address-list-add">Add new address</a>
         {% for address in addresses %}
             {% include "@StoreTemplate/Modules/_address-item.html.twig" with {"address": address} %}
         {% endfor %}

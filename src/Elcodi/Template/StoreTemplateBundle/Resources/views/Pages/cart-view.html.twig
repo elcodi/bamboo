@@ -16,7 +16,7 @@
             <h1 class="checkout-title">{{ 'Check all the items and/or Apply coupons' }}</h1>
             <p class="checkout-actions checkout-actions-top">
                 {% include "@StoreTemplate/Modules/_checkout-progress.html.twig" with {"step": "1"} %}
-                <a class="button button-secondary" href="{{ url('store_checkout_address') }}">{{ 'Checkout'|trans }} &nbsp;<i class="fa fa-arrow-right"></i> </a>
+                <a class="button button-secondary desktop" href="{{ url('store_checkout_address') }}">{{ 'Checkout'|trans }} &nbsp;<i class="fa fa-arrow-right"></i> </a>
             </p>
         {{ form_start(form) }}
             <div class="cart-list">
