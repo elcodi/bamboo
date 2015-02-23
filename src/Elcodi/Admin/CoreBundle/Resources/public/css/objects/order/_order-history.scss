@@ -1,0 +1,35 @@
+.order-history {
+	i {
+		color: $color-background;
+		background: $color-foreground;
+		@include border-radius(100px);
+		padding: $spacing/4;
+		display: inline-block;
+		border-left: 1px solid rgba($color-foreground, .3);
+		z-index: 2;
+		position: relative;
+	}
+	em {
+		border-left: 4px solid rgba($color-foreground, .5);
+		position: absolute;
+		height: 48px;
+		left: $spacing;
+		top: 0;
+		z-index: 1;
+	}
+	td {
+		position: relative;
+	}
+	tr:first-of-type {
+		em {
+			height: 25px;
+			top: inherit;
+			bottom: -1px;
+		}
+	}
+	tr:last-of-type {
+		em {
+			height: 25px;
+		}
+	}
+}

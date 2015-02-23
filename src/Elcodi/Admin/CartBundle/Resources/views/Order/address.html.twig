@@ -1,29 +1,26 @@
-<div class="box-none pb-n">
+<div class="box-none mb-n">
     <h4>{{ title }}</h4>
-    <p><i class="icon-home"></i> <strong>{{ addressInfo.recipientName }} {{ addressInfo.recipientSurname }}</strong></p>
-    <ul>
-        <li>
-            <strong>Address:</strong>
-            {{ addressInfo.address }} {{addressInfo.addressMore }}
-        </li>
-        <li>
-            <strong>Phones:</strong>
-            {{ addressInfo.phone }} / {{ addressInfo.mobile }}
-        </li>
-        <li>
-            <strong>City:</strong>
-        </li>
+    <dl class="list">
+        <dt>{{ 'Full Name:'|trans }}</dt>
+        <dd>{{ addressInfo.recipientName }} {{addressInfo.recipientSurname }}</dd>
+        <dt>{{ 'Phones:'|trans }}</dt>
+        <dd> {{ addressInfo.phone }} / {{ addressInfo.mobile }}</dd>
+        <dt>{{ 'Address:'|trans }}</dt>
+        <dd>{{ addressInfo.address }} {{addressInfo.addressMore }}</dd>
+        <dt>{{ 'City:'|trans }}</dt>
+        <dd>
         {% for cityLocation in addressInfo.city %}
-            <li>{{ cityLocation }}</li>
+            {{ cityLocation }}
         {% endfor %}
-        <li>{{ addressInfo.postalCode }}</li>
-        <li>
-            <strong>Comment:</strong>
+        </dd>
+        <dt>
+            {{ 'Postal Code:'|trans }}
+        </dt>
+        <dd>{{ addressInfo.postalCode }}</dd>
+        <dt>{{ 'Comment:'|trans }}</dt>
+        <dd>
             {{ addressInfo.comment }}
-        </li>
-    </ul>
+        </dd>
+    </dl>
 
-    {% if order.customer.phone is not null %}
-        <p><i class="icon-phone"></i> {{ order.customer.phone }} </p>
-    {% endif %}
 </div>
