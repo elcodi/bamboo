@@ -1,15 +1,29 @@
 #!/bin/bash
 
-# Copies the parameters dist file to the actual parameters.yml.
-# If you run composer manually, you will benefit from Incenteev
-# ParameterHandler, which will interactively ask you for
-# the parameters to be copied.
-if [ ! -e app/config/parameters.yml ]; then
-    cp app/config/parameters.dist.yml app/config/parameters.yml
-fi
+# Initialization script for the Bamboo web application
 
-# Firing up composer. Better to invoke the INSTALL than an UPDATE
-HOME=$(pwd) sh -c 'composer install --no-interaction'
+getopts :fh FLAG
+case $FLAG in
+    f) # force composer install
+
+       # Copies the parameters dist file to the actual parameters.yml.
+       # If you run composer manually, you will benefit from Incenteev
+       # ParameterHandler, which will interactively ask you for
+       # the parameters to be copied.
+       if [ ! -e app/config/parameters.yml ]; then
+           cp app/config/parameters.dist.yml app/config/parameters.yml
+       fi
+
+       # Firing up composer. Better to invoke the INSTALL than an UPDATE
+       HOME=$(pwd) sh -c 'composer install --no-interaction'
+
+       ;;
+    h) # help
+       echo -e \\n"Usage: $0 [-f]: initializes a Bamboo store"
+       echo -e \\n"Use the -f flag to force composer install"
+
+       ;;
+esac
 
 # Creating database schema and tables
 /usr/bin/env php app/console --no-interaction doc:dat:cre
@@ -22,18 +36,21 @@ FIXTURES="AdminUser Category Country Currency Manufacturer Page Rates Attribute 
 for FIXTURE in ${FIXTURES}; do
      FIXTURES_OPTION="${FIXTURES_OPTION} --fixtures=src/Elcodi/Fixtures/DataFixtures/ORM/${FIXTURE}"
 done
-/usr/bin/env php app/console --no-interaction doc:fix:load ${FIXTURES_OPTION}
+/usr/bin/env php app/console --no-interaction doctrine:fixtures:load ${FIXTURES_OPTION}
+
+# Add geographic information by ISO code. Adding "Spain" as a reference
+/usr/bin/env php app/console elcodi:locations:populate ES
 
 # Load and enable templates. See Elcodi\Component\Template\Services\TemplateManager
-/usr/bin/env php app/console el:tem:lo
-/usr/bin/env php app/console el:tem:enable StoreTemplateBundle
+/usr/bin/env php app/console elcodi:templates:load
+/usr/bin/env php app/console elcodi:templates:enable StoreTemplateBundle
 
 # Loads elcodi plugins. See Elcodi\Component\Plugin\Services\PluginManager
-/usr/bin/env php app/console el:plu:lo
+/usr/bin/env php app/console elcodi:plugins:load
 
 # Enables the store and makes it visible
-/usr/bin/env php app/console el:con:set store.enabled 1
-/usr/bin/env php app/console el:con:set store.under_construction 0
+/usr/bin/env php app/console elcodi:configuration:set store.enabled 1
+/usr/bin/env php app/console elcodi:configuration:set store.under_construction 0
 
 # Assets & Assetic
 /usr/bin/env php app/console --no-interaction assets:install web --symlink
