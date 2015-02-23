@@ -50,16 +50,15 @@ class CategoryType extends AbstractType
     /**
      * Constructor
      *
-     * @param CategoryFactory    $categoryFactory    Category Factory
-     * @param ProductFactory     $productFactory     Product Factory
+     * @param CategoryFactory $categoryFactory Category Factory
+     * @param ProductFactory  $productFactory  Product Factory
      */
     public function __construct(
         CategoryFactory $categoryFactory,
         ProductFactory $productFactory
-    )
-    {
+    ) {
         $this->categoryFactory = $categoryFactory;
-        $this->productFactory = $productFactory;
+        $this->productFactory  = $productFactory;
     }
 
     /**
@@ -116,8 +115,10 @@ class CategoryType extends AbstractType
                 'label'    => 'metaKeywords',
             ])
             ->add('parent', 'entity', [
-                'class'         => $this->categoryFactory->getEntityNamespace(),
-                'query_builder' => $this->getAvailableCategories($currentCategoryId),
+                'class'         => $this->categoryFactory
+                    ->getEntityNamespace(),
+                'query_builder' => $this
+                    ->getAvailableCategories($currentCategoryId),
                 'required'      => true,
                 'label'         => 'parent',
                 'multiple'      => false,
@@ -129,11 +130,14 @@ class CategoryType extends AbstractType
                 'multiple' => true,
             ]);
 
-        $builder->addEventSubscriber($this->getEntityTranslatorFormEventListener());
+        $builder->addEventSubscriber(
+            $this->getEntityTranslatorFormEventListener()
+        );
     }
 
     /**
-     * This method returns a closure used to show only the valid categories to be selected as parent.
+     * This method returns a closure used to show only the valid categories to
+     * be selected as parent.
      *
      * @param integer|null $currentCategoryId The current category id
      *
@@ -141,18 +145,11 @@ class CategoryType extends AbstractType
      */
     protected function getAvailableCategories($currentCategoryId)
     {
-        return function (CategoryRepository $categoryRepository) use ($currentCategoryId) {
-            $queryBuilder = $categoryRepository
-                ->createQueryBuilder('c')
-                ->where('c.root = 1');
-
-            if ($currentCategoryId) {
-                $queryBuilder
-                    ->andWhere('c.id <> :parent_category')
-                    ->setParameter('parent_category', $currentCategoryId);
-            }
-
-            return $queryBuilder;
+        return function (
+            CategoryRepository $categoryRepository
+        ) use ($currentCategoryId) {
+            return $categoryRepository
+                ->getAvailableParentCategoriesQueryBuilder($currentCategoryId);
         };
     }
 
