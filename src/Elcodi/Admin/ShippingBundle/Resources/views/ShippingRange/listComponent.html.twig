@@ -44,6 +44,12 @@
     <td>
         <strong>{{ entity.price|print_money }}</strong>
     </td>
+    <td class="ta-c">
+        <a class="icon-trash-o c-ko td-n fz-l" title="{{ 'delete'|trans }}" href="{{ url("admin_shipping_range_delete", {
+            "carrierId": entity.carrier.id,
+            "id": entity.id
+        }) }}" data-tc-modules="confirm" data-tc-name="{{ entity.name }}" data-tc-text="{{ "Are you sure you want to delete it?"|trans }}"></a>
+    </td>
 {% endblock table_body_row %}
 
 

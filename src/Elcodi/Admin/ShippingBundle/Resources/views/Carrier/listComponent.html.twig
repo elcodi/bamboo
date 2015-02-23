@@ -22,10 +22,12 @@
 {% block component %}
     <table class="table">
         <thead>
-            <th>{{ 'Name'|trans }}</th>
-            <th>{{ 'Description'|trans }}</th>
-            <th>{{ 'Taxes'|trans }}</th>
-            <th>{{ 'Status'|trans }}</th>
+            <tr>
+                <th>{{ 'Name'|trans }}</th>
+                <th>{{ 'Description'|trans }}</th>
+                <th>{{ 'Taxes'|trans }}</th>
+                <th>{{ 'Status'|trans }}</th>
+            </tr>
         </thead>
         <tbody>
         {% for carrier in carriers %}
@@ -48,6 +50,10 @@
                         <span class="label">{{ "disabled"|trans }}</span>
                     {% endif %}
                 </td>
+                {% include "@AdminCore/Tables/actions.html.twig" with {
+                    entity: carrier,
+                    class: "carrier",
+                } %}
             </tr>
         {% endfor %}
         </tbody>
