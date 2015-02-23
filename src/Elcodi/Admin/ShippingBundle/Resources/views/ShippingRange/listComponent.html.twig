@@ -1,0 +1,51 @@
+{% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
+
+{% block title %}
+    {{ 'Product list'|trans }}
+{% endblock title %}
+
+{% block no_items %}
+    {{ lists.no_items('shipping range','shipping ranges', url("admin_shipping_range_new", {
+        'carrierId': carrier.id
+    })  ) }}
+{% endblock no_items %}
+
+{% block table_head %}
+    {% include "@AdminCore/Tables/head.html.twig" with {
+        rows: {
+            "Name": {},
+            "Value": {width:"20"},
+            "Price": {width:"10"}
+        },
+        class: "product",
+    } %}
+{% endblock table_head %}
+
+
+{% block table_body_row %}
+
+    <td>
+        <a href="{{ url("admin_shipping_range_edit", {
+            "carrierId": carrier.id,
+            "id": entity.id
+        }) }}">
+            <strong>{{ entity.name }}</strong> ({{ entity.toZone.name }})
+        </a>
+    </td>
+    <td>
+        {% if entity.type == 1 %}
+            {{ entity.fromPrice|print_money }} - {{ entity.toPrice|print_money }}
+
+        {% elseif entity.type == 2 %}
+
+            {{ entity.fromWeight }}Kg - {{ entity.toWeight }}Kg
+        {% endif %}
+    </td>
+    <td>
+        <strong>{{ entity.price|print_money }}</strong>
+    </td>
+{% endblock table_body_row %}
+
+
+{% block table_paginator_links %}
+{% endblock table_paginator_links %}

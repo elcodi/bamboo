@@ -1,0 +1,26 @@
+<div class="box-none mb-n">
+    <h4>{{ title }}</h4>
+    <dl class="list">
+        <dt>{{ 'Full Name:'|trans }}</dt>
+        <dd>{{ addressInfo.recipientName }} {{addressInfo.recipientSurname }}</dd>
+        <dt>{{ 'Phones:'|trans }}</dt>
+        <dd> {{ addressInfo.phone }} / {{ addressInfo.mobile }}</dd>
+        <dt>{{ 'Address:'|trans }}</dt>
+        <dd>{{ addressInfo.address }} {{addressInfo.addressMore }}</dd>
+        <dt>{{ 'City:'|trans }}</dt>
+        <dd>
+        {% for cityLocation in addressInfo.city %}
+            {{ cityLocation }}
+        {% endfor %}
+        </dd>
+        <dt>
+            {{ 'Postal Code:'|trans }}
+        </dt>
+        <dd>{{ addressInfo.postalCode }}</dd>
+        <dt>{{ 'Comment:'|trans }}</dt>
+        <dd>
+            {{ addressInfo.comment }}
+        </dd>
+    </dl>
+
+</div>

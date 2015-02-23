@@ -8,4 +8,4 @@ Feature: Url does not exist
   Scenario: 404 page
     Given I am on "/this-page-should-not-be-found"
     Then the response status code should be 404
-     And I should see "404 Page not found"
+    And I should see "404 Page not found"

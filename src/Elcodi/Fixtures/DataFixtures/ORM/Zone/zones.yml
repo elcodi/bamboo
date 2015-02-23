@@ -1,0 +1,108 @@
+Spain:
+    - ES
+Andorra:
+    - AD
+Almería:
+    - ES_an_al
+Cádiz:
+    - ES_an_ca
+Córdoba:
+    - ES_an_co
+Granada:
+    - ES_an_gr
+Huelva:
+    - ES_an_h
+Jaén:
+    - ES_an_j
+Málaga:
+    - ES_an_ma
+Sevilla:
+    - ES_an_se
+Huesca:
+    - ES_ar_hu
+Teruel:
+    - ES_ar_te
+Zaragoza:
+    - ES_ar_z
+Asturias:
+    - ES_as_o
+Cantabria:
+    - ES_cb_s
+Ceuta:
+    - ES_ce_ce
+Ávila:
+    - ES_cl_av
+Burgos:
+    - ES_cl_bu
+León:
+    - ES_cl_le
+Palencia:
+    - ES_cl_p
+Salamanca:
+    - ES_cl_sa
+Segovia:
+    - ES_cl_sg
+Soria:
+    - ES_cl_so
+Valladolid:
+    - ES_cl_va
+Zamora:
+    - ES_cl_za
+Albacete:
+    - ES_cm_ab
+"Ciudad Real":
+    - ES_cm_cr
+Cuenca:
+    - ES_cm_cu
+Guadalajara:
+    - ES_cm_gu
+Toledo:
+    - ES_cm_to
+Las Palmas:
+    - ES_cn_gc
+"Santa Cruz de Tenerife":
+    - ES_cn_tf
+Barcelona:
+    - ES_ct_b
+Girona:
+    - ES_ct_gi
+Lleida:
+    - ES_ct_l
+Tarragona:
+    - ES_ct_t
+Badajoz:
+    - ES_ex_ba
+Cáceres:
+    - ES_ex_cc
+"A Coruña":
+    - ES_ga_c
+Lugo:
+    - ES_ga_lu
+Ourense:
+    - ES_ga_or
+Pontevedra:
+    - ES_ga_po
+Baleares:
+    - ES_ib_pm
+Murcia:
+    - ES_mc_mu
+Madrid:
+    - ES_md_m
+Melilla:
+    - ES_ml_me
+Navarra:
+    - ES_nc_na
+Vizcaya:
+    - ES_pv_bi
+Guipúzcoa:
+    - ES_pv_ss
+Álava:
+    - ES_pv_vi
+La Rioja:
+    - ES_ri_lo
+Alicante:
+    - ES_vc_a
+Castellón:
+    - ES_vc_cs
+Valencia:
+    - ES_vc_v

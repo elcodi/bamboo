@@ -1,0 +1,88 @@
+{% extends 'AdminCoreBundle::Common/formComponent.html.twig' %}
+
+{% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
+
+{% block title %}
+    {{ 'Edit Range'|trans }} - {{ shippingRange.id }} - {{ shippingRange.name }}
+{% endblock title %}
+
+{% block content %}
+
+    {% set formAction = shippingRange.id
+    ? url('admin_shipping_range_update', {
+    'carrierId': carrier.id,
+    'id': shippingRange.id
+    })
+    : url('admin_shipping_range_save', {
+    'carrierId': carrier.id
+    }) %}
+    <div data-tc-modules="form-shipping-rates">
+        {{ form_start(form, {'action': formAction}) }}
+        <div class="grid">
+            <div class="col-1-3">
+                <div class="box-none">
+                    <h3 class="fw-n">{% trans %}Basic Details{% endtrans %}</h3>
+                    <p>{% trans %}Provide the name of the shipping rate and in what zone it will be available.{% endtrans %}</p>
+                </div>
+            </div>
+            <div class="col-2-3">
+                <div class="box">
+                    <ol>
+                        <li>
+                            {{ form_row(form.name, {'attr':{'placeholder':'e.g. AwesomeCarrier'}}) }}
+                        </li>
+                        <li>
+                            {{ form_row(form.toZone) }}
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="col-1-3">
+                <div class="box-none">
+                    <h3 class="fw-n">{% trans %}Pricing{% endtrans %}</h3>
+                    <p>{% trans %}Set the price for this shipping rate and define if it's going to be calculated based on order price or order weight.{% endtrans %}</p>
+                </div>
+            </div>
+            <div class="col-2-3">
+                <div class="box">
+                    <ol class="grid">
+                        <li class="col-1-2 pr-l">
+                            {{ form_row(form.price) }}
+                        </li>
+                        <li class="col-1-2 pr-l">
+                            {{ form_row(form.type) }}
+                        </li>
+                    </ol>
+                    <ol id="apply-price" class="grid">
+                        <li class="col-1-2 pr-l">
+                            {{ form_row(form.fromPrice) }}
+                        </li>
+                        <li class="col-1-2">
+                            {{ form_row(form.toPrice) }}
+                        </li>
+                    </ol>
+                    <ol id="apply-weight" class="grid">
+                        <li class="col-1-2 pr-l">
+                            {{ form_row(form.fromWeight) }}
+                        </li>
+                        <li class="col-1-2">
+                            {{ form_row(form.toWeight) }}
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="col-1-3">
+                &nbsp;
+            </div>
+            <div class="col-2-3">
+                {{ form_widget(form.save, {'attr': {'class':'button-primary'}} ) }}
+                <a href="{{ path('admin_carrier_list') }}" class="button">{{ 'Cancel'|trans }}</a>
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock content %}

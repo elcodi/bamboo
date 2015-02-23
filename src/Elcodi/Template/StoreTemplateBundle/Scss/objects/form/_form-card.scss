@@ -1,6 +1,7 @@
 .form-card {
 	& {
-		padding: 0 $spacing $spacing;
+		padding: 0 $spacing 0;
+		margin-bottom: $spacing/2;
 	}
 	.message {
 		border: 0px none;

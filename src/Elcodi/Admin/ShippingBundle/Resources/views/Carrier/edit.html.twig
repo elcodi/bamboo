@@ -1,0 +1,36 @@
+{% extends 'AdminCoreBundle::layout.html.twig' %}
+
+{% block content_title %}
+    {{ 'Carrier Zone'|trans }}
+{% endblock content_title %}
+
+{% block breadcrumb %}
+
+    {% set entityHeader = carrier.id
+        ? 'Edit ' ~ carrier.name
+        : 'Create new Carrier'
+    %}
+
+    {% include '@AdminCore/Common/breadcrumb.html.twig' with {
+        breadcrumb: {
+            'Carriers': {
+                'url': url('admin_carrier_list')
+            },
+            (entityHeader): {
+                'active' : true
+            }
+        }
+    } %}
+{% endblock breadcrumb %}
+
+{% block content %}
+
+    {% if carrier.id %}
+        {{ render(url("admin_carrier_edit_component", {
+            'id': carrier.id
+        })) }}
+    {% else %}
+        {{ render(url("admin_carrier_new_component")) }}
+    {% endif %}
+
+{% endblock content %}

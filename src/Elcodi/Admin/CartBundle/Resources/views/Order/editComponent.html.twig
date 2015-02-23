@@ -4,7 +4,7 @@
 {% block content %}
 <div class="box-background">
     <p class="fl-r fz-s"><i class="icon-calendar-o"></i> {% include "@AdminCart/Order/date.html.twig" %}</p>
-    <h3 class="fw-n">Details</h3>
+    <h3 class="fw-n"><i class="icon-shopping-cart"></i> Details</h3>
     <table class="table">
         <thead>
             <tr>
@@ -18,8 +18,8 @@
             {% for line in order.orderLines %}
             <tr>
                 <td>
-                    <a href="{{ url("admin_product_edit", {"id": line.product.id}) }}">{{ line.product.name }}</a>
-                    <p class="fz-s">ID: {{ line.product.id }}<br/> 1 unfulfilled</p>
+                    <a href="{{ url("admin_product_edit", {"id": line.product.id}) }}" class="fw-b">{{ line.product.name }}</a>
+                    <p class="fz-s">ID: {{ line.product.id }}</p>
                 </td>
                 <td class="ta-r">{{ line.quantity }}</td>
                 <td class="ta-r">{{ line.product.price|print_money }}</td>
@@ -27,20 +27,20 @@
             </tr>
             {% endfor %}
 
-            {% if order.couponAmount is not null %}
-                <tr>
-                    <td colspan="3" class="ta-r">{{ "Coupon Discount"|trans }}</td>
-                    <td class="ta-r">{{ order.couponAmount|print_money }}</td>
-                </tr>
-            {% endif %}
-
             <tr>
                 <td colspan="3" class="ta-r">Subtotal</td>
                 <td class="ta-r">{{ order.productAmount|print_money }}</td>
             </tr>
+
+            {% if order.couponAmount is not null %}
+                <tr>
+                    <td colspan="3" class="ta-r">{{ "Coupon Discount"|trans }}</td>
+                    <td class="ta-r">-{{ order.couponAmount|print_money }}</td>
+                </tr>
+            {% endif %}
             <tr>
-                <td colspan="3" class="ta-r">Shipping (Type)</td>
-                <td class="ta-r">XXX</td>
+                <td colspan="3" class="ta-r">Shipping</td>
+                <td class="ta-r">{{ order.shippingAmount|print_money }}</td>
             </tr>
             <tr>
                 <td colspan="3" class="ta-r fw-b">Total</td>

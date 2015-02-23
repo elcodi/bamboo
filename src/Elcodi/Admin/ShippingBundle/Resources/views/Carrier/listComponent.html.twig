@@ -1,0 +1,60 @@
+{% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
+
+{% block title %}
+    {{ 'Carrier list'|trans }}
+{% endblock title %}
+
+{% block no_items %}
+    {{ lists.no_items('carrier','carriers', url("admin_carrier_new")  ) }}
+{% endblock no_items %}
+
+{% block table_head %}
+    {% include "@AdminCore/Tables/head.html.twig" with {
+    rows: {
+    "Name & details": {},
+    "Category": {width:"20"},
+    "Price": {width:"10"}
+    },
+    class: "carriers",
+    } %}
+{% endblock table_head %}
+
+{% block component %}
+    <table class="table">
+        <thead>
+            <th>{{ 'Name'|trans }}</th>
+            <th>{{ 'Description'|trans }}</th>
+            <th>{{ 'Taxes'|trans }}</th>
+            <th>{{ 'Status'|trans }}</th>
+        </thead>
+        <tbody>
+        {% for carrier in carriers %}
+            <tr>
+                <td>
+                    <a href="{{ url("admin_carrier_edit", {
+                        'id': carrier.id
+                    }) }}"><strong>{{ carrier.name }}</strong></a>
+                </td>
+                <td>
+                    {{ carrier.description }}
+                </td>
+                <td>
+                    {{ carrier.tax.value }}% Tax
+                </td>
+                <td>
+                    {% if carrier.enabled %}
+                        <span class="label label-ok">{{ "enabled"|trans }}</span>
+                    {% else %}
+                        <span class="label">{{ "disabled"|trans }}</span>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock component %}
+
+{% block table_paginator_links %}
+    {% set url = 'admin_carrier_list' %}
+    {{ parent() }}
+{% endblock table_paginator_links %}

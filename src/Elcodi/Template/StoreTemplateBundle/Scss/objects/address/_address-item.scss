@@ -19,10 +19,10 @@
 	dd {
 		max-width: 50%;
 	}
-	dt.address-item-actions {
+	dt.address-item-actions, dt.address-item-selection {
 		display: none;
 	}
-	dd.address-item-actions {
+	dd.address-item-actions, dd.address-item-selection {
 		& {
 			max-width: 100%;
 			padding-top: $spacing/2;
@@ -32,6 +32,15 @@
 			text-align: center;
 		}
 		.button-primary {
+			margin-right: $spacing/4;
+		}
+	}
+
+	dd.address-item-selection {
+		label {
+			margin: 0 $spacing/2;
+		}
+		input {
 			margin-right: $spacing/4;
 		}
 	}

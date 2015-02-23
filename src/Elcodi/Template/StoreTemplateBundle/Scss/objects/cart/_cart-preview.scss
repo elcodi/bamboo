@@ -1,0 +1,31 @@
+.cart-preview {
+	& {
+		background: rgba($color-background, .5);
+		overflow: hidden;
+		border-left: $spacing/8 solid rgba($color-foreground, .4);
+	}
+	h2 {
+		padding: 0 $spacing/2;
+		font-weight: normal;
+		font-family: $font-face-title;
+	}
+
+	.product-title, .cart-shipping, .cart-total {
+		font-size: $font-size-default !important;
+	}
+
+	.cart-total {
+		margin-bottom: 0;
+	}
+	dt.cart-item-total {
+		clear: left;
+	}
+}
+
+.cart-item-preview {
+	@extend %cart-item;
+	@include cart-item-mobile;
+
+}
+
+

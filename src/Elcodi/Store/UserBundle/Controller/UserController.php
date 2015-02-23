@@ -88,7 +88,7 @@ class UserController extends Controller
      * @Route(
      *      path = "/user/edit",
      *      name = "store_user_edit",
-     *      methods = {"GET"}
+     *      methods = {"GET", "POST"}
      * )
      *
      * @EntityAnnotation(
@@ -118,7 +118,7 @@ class UserController extends Controller
                 ->flush($customer);
 
             return $this->redirect(
-                $this->generateUrl('store_user_profile')
+                $this->generateUrl('store_user_edit')
             );
         }
 

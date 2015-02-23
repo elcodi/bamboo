@@ -1,0 +1,7 @@
+parameters:
+
+    #
+    # Form Types
+    #
+    elcodi.admin.shipping.form_type.shipping_range.class: Elcodi\Admin\ShippingBundle\Form\Type\ShippingRangeType
+    elcodi.admin.shipping.form_type.carrier.class: Elcodi\Admin\ShippingBundle\Form\Type\CarrierType

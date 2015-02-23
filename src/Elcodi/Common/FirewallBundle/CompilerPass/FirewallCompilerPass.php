@@ -85,8 +85,7 @@ class FirewallCompilerPass implements CompilerPassInterface
         ContainerBuilder $container,
         $providerKey,
         array $listeners
-    )
-    {
+    ) {
         krsort($listeners);
         $listeners = call_user_func_array('array_merge', $listeners);
         $contextId = 'security.firewall.map.context.'.$providerKey;
@@ -111,8 +110,7 @@ class FirewallCompilerPass implements CompilerPassInterface
         ContainerBuilder $container,
         $provider_key,
         array $events
-    )
-    {
+    ) {
         $listenerId = 'elcodi.firewall.listener.'.$provider_key;
 
         $definition = new Definition('Elcodi\Common\FirewallBundle\EventListener\FirewallListener');

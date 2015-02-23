@@ -59,6 +59,7 @@ class StoreCartExtension extends AbstractExtension
         return [
             'classes',
             'formTypes',
+            'eventListeners',
         ];
     }
 

@@ -1,0 +1,33 @@
+{% extends '@StoreTemplate/Layout/_layout.html.twig' %}
+
+{% block content %}
+    <div class="grid">
+        <div class="col-2-3">
+            {% block content_checkout %}
+            {% endblock content_checkout %}
+        </div>
+        <div class="col-1-3">
+            <div class="cart-preview">
+                <h2>{{ 'Your cart'|trans }}</h2>
+                <div class="cart-list">
+                    {% for line in cart.cartLines %}
+                        {% include "@StoreTemplate/Modules/_order-item.html.twig" with {"line": line, "class": "cart-item-preview"} %}
+                    {% endfor %}
+                </div>
+                <div class="coupon-list">
+                    {% for cartCoupon in cartCoupons %}
+                        {% include "@StoreTemplate/Modules/_coupon-item.html.twig" with { "coupon": cartCoupon.coupon } %}
+                    {% endfor %}
+                </div>
+                <div class="shipping-list">
+                    {% include "@StoreTemplate/Modules/_shipping-item.html.twig" with {
+                    "shippingRange": cart.shippingRange,
+                    "shippingAmount": cart.shippingAmount
+                    } %}
+                </div>
+                <p class="cart-total"><span>{{ 'Total'|trans }} </span>{{ cart.amount|print_convert_money() }}</p>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

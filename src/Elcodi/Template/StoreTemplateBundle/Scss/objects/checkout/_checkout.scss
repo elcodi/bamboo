@@ -1,0 +1,34 @@
+.checkout-title {
+		text-align: center;
+		margin-top: 0;
+}
+
+.checkout-actions {
+	& {
+		overflow: hidden;
+		position: relative;
+		min-height: 65px;
+	}
+	.progress {
+		position: absolute;
+		top: 20px;
+		left: 50%;
+		margin-left: -127px;
+	}
+
+	.button {
+		float: left;
+	}
+	.button-secondary {
+		float: right !important;
+	}
+}
+.checkout-actions-top {
+	padding: $spacing/2 0 0 0;
+	border-top:1px solid rgba($color-foreground, .2);
+}
+.checkout-actions-bottom {
+	padding: 0 0 $spacing/2 0;
+	border-bottom:1px solid rgba($color-foreground, .2);
+	margin-bottom: $spacing;
+}

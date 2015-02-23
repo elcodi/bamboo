@@ -55,26 +55,24 @@ class AddressController extends Controller
      */
     public function listAction()
     {
-        $locationProvider = $this->get('elcodi.location_provider');
+        $addressFormatter = $this->get('elcodi.formatter.address');
 
         $addresses = $this
             ->get('elcodi.wrapper.customer')
             ->loadCustomer()
             ->getAddresses();
 
-        $cities_info = [];
+        $addressesFormatted = [];
         foreach ($addresses as $address) {
-            $cities_info[$address->getCity()] =
-                $locationProvider->getHierarchy(
-                    $address->getCity()
-                );
+            $addressesFormatted[] =
+                $addressFormatter
+                    ->toArray($address);
         }
 
         return $this->renderTemplate(
             'Pages:address-list.html.twig',
             [
-                'addresses'   => $addresses,
-                'cities_info' => $cities_info,
+                'addresses'   => $addressesFormatted,
             ]
         );
     }
@@ -112,7 +110,17 @@ class AddressController extends Controller
 
         $entityManager = $this->get('elcodi.object_manager.address');
         if ($form->isValid()) {
-            $entityManager->flush($address);
+            $addressToSave = $this
+                ->get('elcodi.manager.address')
+                ->saveAddress($address)
+                ->getSavedAddress();
+
+            $customerEntityManager = $this
+                ->get('elcodi.object_manager.customer');
+            $customer              = $this->getUser();
+            $customer->removeAddress($address);
+            $customer->addAddress($addressToSave);
+            $customerEntityManager->flush($customer);
 
             $this->addFlash('success', 'Address saved');
 
@@ -228,10 +236,9 @@ class AddressController extends Controller
             throw new NotFoundHttpException('Address not found');
         }
 
+        $customerManager = $this->get('elcodi.object_manager.customer');
         $customer->removeAddress($address);
-        $addressManager = $this->get('elcodi.object_manager.address');
-        $addressManager->remove($address);
-        $addressManager->flush();
+        $customerManager->flush($customer);
 
         $this->addFlash('success', 'Address removed');
 

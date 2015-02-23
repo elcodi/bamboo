@@ -1,7 +1,7 @@
 parameters:
 
     #
-    # Entity classes
+    # Form Types
     #
     elcodi.admin.product.form_type.product.class: Elcodi\Admin\ProductBundle\Form\Type\ProductType
     elcodi.admin.product.form_type.product_variant.class: Elcodi\Admin\ProductBundle\Form\Type\VariantType

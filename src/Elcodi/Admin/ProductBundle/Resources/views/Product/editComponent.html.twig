@@ -94,30 +94,62 @@
                     </div>
                 </div>
             </div>
-
-            {% if product.id %}
-                <div class="grid">
-                    <div class="col-1-3">
-                        <div class="box-none">
-                            <h3 class="fw-n">{% trans %}Variants{% endtrans %}</h3>
-                            <p>{% trans %}Variants are diferent versions of this product (color, size... ). Variants can have different prices or other attributes.{% endtrans %}</p>
-                            <a href="{{ url("admin_product_variant_new", {'productId': product.id}) }}" data-tc-modules="modal-content" data-tc-width="95%" data-tc-height="95%" class="button">
-                                Create Variant
-                            </a>
-                            <p><a href="{{ url("admin_attribute_new") }}" id="modal-attribute" class="button" data-tc-modules="modal-content">{{ "New atrribute"|trans }}</a> </p>
-                        </div>
-                    </div>
-                    <div class="col-2-3" data-tc-modules="variants">
-                        <input id="variants-url" type="hidden" value="{{ url("admin_product_variant_list_component", { 'productId': product.id }) }}" />
-                        <input id="variants-message-ok" type="hidden" value="{{ 'Changes Saved.'|trans }}" />
-                        <div class="box" id="variants-list">
-                            {{ render(url("admin_product_variant_list_component", {
-                                'productId': product.id
-                            })) }}
-                        </div>
+            <div class="grid">
+                <div class="col-1-3">
+                    <div class="box-none">
+                        <h3 class="fw-n">{% trans %}Dimensions{% endtrans %}</h3>
+                        <p>{% trans %}Set the dimensions for your product.{% endtrans %}</p>
                     </div>
                 </div>
-            {% endif %}
+                <div class="col-2-3">
+                    <div class="box pb-n">
+                        <ol class="grid">
+                            <li class="col-1-4">
+                                {{ form_row(form.weight) }}
+                            </li>
+                            <li class="col-1-4">
+                                {{ form_row(form.width) }}
+                            </li>
+                            <li class="col-1-4">
+                                {{ form_row(form.height) }}
+                            </li>
+                            <li class="col-1-4">
+                                {{ form_row(form.depth) }}
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="col-1-3">
+                    <div class="box-none">
+                        <h3 class="fw-n">{% trans %}Variants{% endtrans %}</h3>
+                        <p>{% trans %}Variants are diferent versions of this product (color, size... ). Variants can have different prices or other attributes.{% endtrans %}</p>
+                        {% if product.id %}
+                        <a href="{{ url("admin_product_variant_new", {'productId': product.id}) }}" data-tc-modules="modal-content" data-tc-width="95%" data-tc-height="95%" class="button">
+                            Create Variant
+                        </a>
+                        <p><a href="{{ url("admin_attribute_new") }}" id="modal-attribute" class="button" data-tc-modules="modal-content">{{ "New atrribute"|trans }}</a> </p>
+                        {% endif %}
+
+                    </div>
+                </div>
+                <div class="col-2-3" data-tc-modules="variants">
+                    <div class="box" id="variants-list">
+                        {% if product.id %}
+                        <input id="variants-url" type="hidden" value="{{ url("admin_product_variant_list_component", { 'productId': product.id }) }}" />
+                        <input id="variants-message-ok" type="hidden" value="{{ 'Changes Saved.'|trans }}" />
+                        {{ render(url("admin_product_variant_list_component", {
+                            'productId': product.id
+                        })) }}
+                        {% else %}
+                            <div class="box-background pa-n">
+                                <p class="msg-info ma-n">{{ 'You will be able to add variants after save the product'|trans }}</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
 
             {% include '@AdminMedia/Module/_images-form-field.html.twig' with {
                 'images' : product.getSortedImages

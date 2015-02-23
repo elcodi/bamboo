@@ -1,0 +1,40 @@
+{% extends 'AdminCoreBundle::layout.html.twig' %}
+
+
+{% set elcodi_context = {
+    entity_type: 'product'
+} %}
+
+
+{% block content_title %}
+    {{ 'Carrier Zone'|trans }}
+{% endblock content_title %}
+
+
+{% block breadcrumb %}
+
+    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
+        breadcrumb: {
+            "Carriers": {
+                "active" : true
+            }
+        }
+    } %}
+
+{% endblock breadcrumb %}
+
+
+{% block header_actions %}
+    <a href="{{ url("admin_carrier_new") }}"type="button" class="button-primary"><i class="icon-plus"></i> <span>{{ "New carrier"|trans }}</span></a>
+{% endblock %}
+
+
+{% block content %}
+
+    {% if noEnabledCarriers %}
+        <p class="msg-warning">{{ "Warning! You have no active carrier"|trans }}</p>
+    {% endif %}
+
+    {{ render(url("admin_carrier_list_component")) }}
+
+{% endblock content %}

@@ -1,0 +1,54 @@
+.progress,.progress-complete {
+	width: 240px;
+	margin: 0 auto;
+	height: 32px;
+	background:url(../img/progress.png);
+	position:relative;
+}
+.progress-complete {
+	background-position: 0px 57px;
+	margin-top: 0;
+	position: absolute;
+	left: 0;
+}
+.progress-complete .progress-marker{
+	position: absolute;
+	top: 0;
+	right: -26px;
+	background:url(../img/markers.png);
+	width: 26px;
+	height: 32px;
+}
+.progress .progress-status-1 {
+	width: 19px;
+}
+.progress .progress-status-2 {
+	width:111px;
+}
+.progress .progress-status-3 {
+	width:203px;
+}
+.progress .progress-status-4 {
+	width:295px;
+}
+.progress .progress-status-5 {
+	width:386px;
+}
+.progress .progress-status-6 {
+	width:478px;
+}
+.progress .progress-status-2 .progress-marker{
+	background-position: -26px 0;
+}
+.progress .progress-status-3 .progress-marker{
+	background-position: -52px 0;
+}
+.progress .progress-status-4 .progress-marker{
+	background-position: -78px 0;
+}
+.progress .progress-status-5 .progress-marker{
+	background-position: -104px 0;
+}
+.progress .progress-status-6 .progress-marker{
+	background-position: -130px 0;
+}

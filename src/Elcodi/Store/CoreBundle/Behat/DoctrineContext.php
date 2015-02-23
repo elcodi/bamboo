@@ -19,6 +19,7 @@ namespace Elcodi\Store\CoreBundle\Behat;
 
 use Behat\Behat\Hook\Scope\AfterScenarioScope;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
+use Doctrine\DBAL\Connection;
 use Symfony\Component\Console\Input\ArrayInput;
 
 use Elcodi\Store\CoreBundle\Behat\abstracts\AbstractElcodiContext;
@@ -35,10 +36,14 @@ class DoctrineContext extends AbstractElcodiContext
     {
         gc_collect_cycles();
 
+        /**
+         * @var Connection $doctrineConnection
+         */
         $doctrineConnection = $this
             ->getContainer()
             ->get('doctrine')
             ->getConnection();
+
         if ($doctrineConnection->isConnected()) {
             $doctrineConnection->close();
         }
@@ -74,6 +79,15 @@ class DoctrineContext extends AbstractElcodiContext
             '--env'            => 'test',
             '--no-interaction' => false,
             '--fixtures'       => $this->kernel->getRootDir().'/../src/Elcodi/Fixtures',
+            '--quiet'          => true,
+        )));
+
+        $this->application->run(new ArrayInput(array(
+            'command'          => 'doctrine:fixtures:load',
+            '--env'            => 'test',
+            '--no-interaction' => false,
+            '--fixtures'       => $this->kernel->getRootDir().'/../vendor/elcodi/elcodi/src/Elcodi/Bundle/GeoBundle/DataFixtures/ORM/',
+            '--append'         => true,
             '--quiet'          => true,
         )));
 
