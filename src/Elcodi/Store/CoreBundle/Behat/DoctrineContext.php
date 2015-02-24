@@ -83,15 +83,6 @@ class DoctrineContext extends AbstractElcodiContext
         )));
 
         $this->application->run(new ArrayInput(array(
-            'command'          => 'doctrine:fixtures:load',
-            '--env'            => 'test',
-            '--no-interaction' => false,
-            '--fixtures'       => $this->kernel->getRootDir().'/../vendor/elcodi/elcodi/src/Elcodi/Bundle/GeoBundle/DataFixtures/ORM/',
-            '--append'         => true,
-            '--quiet'          => true,
-        )));
-
-        $this->application->run(new ArrayInput(array(
             'command'          => 'elcodi:templates:load',
             '--env'            => 'test',
             '--no-interaction' => false,
