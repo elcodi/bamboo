@@ -33,12 +33,12 @@
                     <div class="box-none">
                         <h3 class="fw-n">{% trans %}Basic Details{% endtrans %}</h3>
                         <p>{% trans %}Provide a very specific name as short as you can that helps your consumers to find the products of this manufacturer. Also you can add a description that will be shown in the manufacturer page in your store.{% endtrans %}</p>
-                        {% if languages()|length > 1 %}<p><i class="icon-star"></i> {% trans %}= Master Language (Mandatory){% endtrans %}</p>{% endif %}
+                        {% if elcodi_languages|length > 1 %}<p><i class="icon-star"></i> {% trans %}= Master Language (Mandatory){% endtrans %}</p>{% endif %}
                     </div>
                 </div>
                 <div class="col-2-3">
-                    <div {% if languages()|length > 1 %}data-tc-modules="tabs" class="tabs-box" {% endif %}>
-                        {% for language in languages() %}
+                    <div {% if elcodi_languages|length > 1 %}data-tc-modules="tabs" class="tabs-box" {% endif %}>
+                        {% for language in elcodi_languages %}
                             <section id="tab-{{ language }}" data-tc-name="{% if loop.first %}<i class='icon-star'></i> {% endif %}{{ language|capitalize }}">
                                 <div class="box">
                                     <ol>
@@ -77,8 +77,8 @@
                     </div>
                     <div class="col-2-3">
                         <p class="msg-warning">{% trans %}<strong>This area for advanced users.</strong> Leave this fields in blank to obtain automatically the metadata of your product.{% endtrans %}</p>
-                        <div {% if languages()|length > 1 %}data-tc-modules="tabs" class="tabs-box" {% endif %}>
-                            {% for language in languages() %}
+                        <div {% if elcodi_languages|length > 1 %}data-tc-modules="tabs" class="tabs-box" {% endif %}>
+                            {% for language in elcodi_languages %}
                                 <section id="metadata-{{ language }}" data-tc-name="{% if loop.first %}<i class='icon-sitemap'></i> {% endif %}{{ language|capitalize }}">
                                     <div class="box">
                                         <ol>
