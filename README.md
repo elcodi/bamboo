@@ -1,6 +1,11 @@
 Bamboo e-commerce
 =================
 
+> Warning. This project is not tagged as stable yet. It means that we don't
+> promise BC between minor versions or patch versions. As soon as possible, we
+> will release our first Release Candidate, and the first Stable Version will
+> be release on June 1st. Stay Tuned and enjoy Elcodi.
+
 Welcome to Bamboo e-commerce - a fully-functional e-commerce application built
 using [Elcodi] components on top of the
 [Symfony] framework.
@@ -13,8 +18,7 @@ That's simple, to sell. We provide you with an interface to sell and to manage
 your store. You only have to focus on offering a good product, we take care of
 the rest.
 
-Requirements
-------------------
+## Requirements
 
 ### PHP
 To use Bamboo and Elcodi you need a PHP version not less than **5.4**
@@ -56,15 +60,17 @@ command:
     $ curl -s http://getcomposer.org/installer | php
 ```
 
-Installation
-------------------
+## Installation
 
 ### 1. Install the project
 
-After installing composer you can create your new bamboo project
+After installing composer you can create your new bamboo project. Feel free to
+use any version, but we're still creating new features, fixing some issues and
+errors, and building our first release, so be sure you are not using master, but
+a closed version of the package.
 
 ```bash
-    $ php composer.phar create-project elcodi/bamboo path/
+    $ php composer.phar create-project elcodi/bamboo path/ 0.4.*
 ```
 
 > The installation process will ask you for some parameters like the database
@@ -78,24 +84,26 @@ Enter your directory to start the configuration step
 
 ### 2. Init your database
 
-Now we should create the database to save our data
+Now we should create the database and all the application schema. Symfony
+provides you an easy way for doing that.
 
 ```bash
     $ php app/console doctrine:database:create
     $ php app/console doctrine:schema:create
 ```
 
-We also load some fixtures to show on our store
+We also load some fixtures to show on our store. This fixtures will set your
+store in a testing mode, with some categories, some manufacturers and a bunch of
+t-shirts. Just for testing :)
 
 ```bash
-    $ php app/console doctrine:fixtures:load --fixtures="src/Elcodi/Fixtures"
-    --no-interaction
+    $ php app/console doctrine:fixtures:load --fixtures="src/Elcodi/Fixtures" --no-interaction
 ```
 
 You can also add the geo information for any country. Just find the two letters
 [ISO code](http://en.wikipedia.org/wiki/ISO_3166-1#Current_codes) for the
 country you want to load and launch the following command changing ES with your
-code
+code.
 
 ```bash
     $ php app/console elcodi:locations:populate ES
@@ -114,8 +122,12 @@ Hey, we have some templates for you! Be sure to load 'em all!
 
 ### 4. Load the plugins
 
-Bamboo offers a bunch of plugins to customize your store, load it with this
-command
+Bamboo offers a bunch of plugins to customize your store. In the ecosystem of
+Bamboo, a Plugin is just a Bundle, so first of all, check that all the plugins
+you want to use are actually instantiated in you `AppKernel` class, under `app/`
+folder.
+
+To install load these plugins, use this command
 
 ```bash
     $ php app/console elcodi:plugins:load
@@ -124,7 +136,8 @@ command
 ### 5. Configure the store
 
 When a store is created it's created "under construction", we can disable that
-mode from the command line.
+mode from the command line. Otherwise, you will not be able to view your new
+awesome store.
 
 ```bash
     $ php app/console elcodi:configuration:set store.under_construction "0"
@@ -146,8 +159,10 @@ Finally our store is ready to run :)
 
 ### 7. Visit your store
 
-Yehaaa!! Your store is ready!
-This is an environment test so you have some users ready to be used
+Yehaaa!! We're done! You're about to see what Elcodi can do for you. A complete
+store interface for your customers and some nice features for administrating it.
+
+You can start using these credentials we've already created for you.
 
 - **Store:** [http://127.0.0.1:8000](http://127.0.0.1:8000)
     - Customer username: customer@customer.com
@@ -164,14 +179,22 @@ Don't forget to **create an issue** on
 [Elcodi](https://github.com/elcodi/elcodi/issues) if you found any bug.
 Any collaboration is welcome! We look forward to hearing from you!
 
-Issues
-------------------
+## Tests
+
+Yes, we are doing some tests, and this will be **in cresciendo**. You can ensure
+yourself that all the cases we've been working on are actually green. We are
+using Behat, so you only need to execute all Behat suites
+
+```bash
+   php bin/behat
+```
+
+## Issues
 
 You can report any issue on [Bamboo](https://github.com/elcodi/bamboo/issues) or
 [Elcodi](https://github.com/elcodi/elcodi/issues)
 
-Need help
-------------------
+## Need help
 
 If you need any help with the installation or understanding elcodi or bamboo you
 can contact us on [gitter](https://gitter.im/elcodi/elcodi).
