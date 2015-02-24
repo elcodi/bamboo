@@ -53,7 +53,7 @@
         </ol>
     </div>
 </form>
-<div id="paymill_form">
+<div id="paymill_form_div">
     {{ paymill_render(
     "@StoreTemplate/Modules/_payment-paymill.html.twig"
     ) }}
@@ -102,13 +102,13 @@
                     /* When no data-url is present in the radios,
                      * it means we selected the "paymill" method */
                     $(".js-continue").removeClass("hidden");
-                    $("#paymill_form").addClass("hidden");
+                    $("#paymill_form_div").addClass("hidden");
                     activeForm = formPaymentExecute;
 
                     formPaymentExecute.attr("action", executeUrl);
                 } else {
                     $(".js-continue").addClass("hidden");
-                    $("#paymill_form").removeClass("hidden");
+                    $("#paymill_form_div").removeClass("hidden");
                     activeForm = paymmillForm;
                 }
             });
