@@ -34,13 +34,21 @@ TinyCore.AMD.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupl
 
 					FileUploaded: function(up, file, response) {
 
+
 						var oResponse = $.parseJSON(response.response),
-							nId = oResponse.response.id,
-							sFormat = oResponse.response.extension,
-							sUrlEdit = oResponse.response.routes.view.replace('{id}', nId).replace('{_format}', sFormat),
+							nId, sFormat, sUrlEdit, sUrlDelete;
+
+						if (oResponse.status === 'ok') {
+
+							nId = oResponse.response.id;
+							sFormat = oResponse.response.extension;
+							sUrlEdit = oResponse.response.routes.view.replace('{id}', nId).replace('{_format}', sFormat);
 							sUrlDelete = oResponse.response.routes['delete'].replace('{id}', nId);
 
-						self.addImageToGallery(nId, sUrlEdit, sUrlDelete);
+							self.addImageToGallery(nId, sUrlEdit, sUrlDelete);
+						} else {
+							alert('Ops! Looks like something is wrong. Sorry, try again later or contact your administrator to inform about the error.');
+						}
 
 					},
 
