@@ -40,8 +40,9 @@ class AddressType extends AbstractType
      *
      * @param AddressFactory $addressFactory Address factory
      */
-    public function __construct(AddressFactory $addressFactory)
-    {
+    public function __construct(
+        AddressFactory $addressFactory
+    ) {
         $this->addressFactory = $addressFactory;
     }
 
@@ -55,8 +56,8 @@ class AddressType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => $this->addressFactory->getEntityNamespace(),
-            'empty_data' => $this->addressFactory->create(),
+            'data_class'  => $this->addressFactory->getEntityNamespace(),
+            'empty_data'  => $this->addressFactory->create(),
         ]);
     }
 

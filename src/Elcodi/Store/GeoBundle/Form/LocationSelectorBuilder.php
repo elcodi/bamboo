@@ -17,6 +17,7 @@
 
 namespace Elcodi\Store\GeoBundle\Form;
 
+use Doctrine\ORM\EntityNotFoundException;
 use Elcodi\Component\Geo\Services\Interfaces\LocationProviderInterface;
 use Elcodi\Component\Geo\ValueObject\LocationData;
 
@@ -72,12 +73,17 @@ class LocationSelectorBuilder
 
         if ($locationId) {
             $hierarchy    = $this
-                ->locationProvider
                 ->getHierarchy($locationId);
-            $rootLocation = array_shift($hierarchy);
 
-            $this->buildRootSelector($rootLocation->getId());
-            $this->buildChildrenSelects($rootLocation, $hierarchy);
+            $rootLocation = !empty($hierarchy)
+                ? array_shift($hierarchy)
+                : null;
+
+            $this->buildRootSelector($rootLocation);
+
+            if(!empty($hierarchy)) {
+                $this->buildChildrenSelects($rootLocation, $hierarchy);
+            }
         } else {
             $this->buildRootSelector();
         }
@@ -88,13 +94,24 @@ class LocationSelectorBuilder
     /**
      * Builds the root selector with all the first level options
      *
-     * @param null|LocationData $selectedOption The selected option
+     * @param null|LocationData $selectedLocation The selected option
      */
-    protected function buildRootSelector($selectedOption = null)
+    protected function buildRootSelector($selectedLocation = null)
     {
+        $selectedOption = !is_null($selectedLocation)
+            ? $selectedLocation->getId()
+            : null;
+
         $rootLocations   = $this
             ->locationProvider
             ->getRootLocations();
+
+        if (empty($rootLocations)) {
+            throw new \RuntimeException(
+                'No locations loaded, please populate your locations'
+            );
+        }
+
         $locationExample = reset($rootLocations);
 
         $this->selects[] = $this->formatSelector(
@@ -162,6 +179,26 @@ class LocationSelectorBuilder
         }
 
         return $options;
+    }
+
+    /**
+     * Gets the location hierarchy.
+     *
+     * @param string $locationId The location identifier
+     *
+     * @return \Elcodi\Component\Geo\ValueObject\LocationData[]
+     */
+    protected function getHierarchy($locationId)
+    {
+        try {
+            $hierarchy = $this
+                ->locationProvider
+                ->getHierarchy($locationId);
+        } catch (EntityNotFoundException $e) {
+            $hierarchy = [];
+        }
+
+        return $hierarchy;
     }
 
     /**
