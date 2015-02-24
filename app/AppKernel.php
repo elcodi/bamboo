@@ -119,6 +119,7 @@ class AppKernel extends Kernel
             new \Elcodi\Admin\MetricBundle\AdminMetricBundle(),
             new \Elcodi\Admin\PluginBundle\AdminPluginBundle(),
             new \Elcodi\Admin\ShippingBundle\AdminShippingBundle(),
+            new \Elcodi\Bundle\FixturesBoosterBundle\ElcodiFixturesBoosterBundle(),
 
             /**
              * Elcodi Templates
