@@ -176,13 +176,6 @@ menu_nodes:
         enabled: 1
         subnodes: ~
 
-    bambooadmin_languages:
-        name: Languages
-        code: ~
-        url: admin_language_list
-        enabled: 1
-        subnodes: ~
-
     bambooadmin_settings:
         name: Settings
         code: gear
@@ -192,8 +185,6 @@ menu_nodes:
           - bambooadmin_configurations
           - bambooadmin_carriers
           - bambooadmin_currencies
-          - bambooadmin_languages
-
 
 menus:
     admin:

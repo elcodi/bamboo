@@ -45,7 +45,7 @@ nl:
     enabled: 0
 en:
     name: English
-    enabled: 1
+    enabled: 0
 eo:
     name: Esperanto
     enabled: 0
@@ -60,7 +60,7 @@ fi:
     enabled: 0
 fr:
     name: French
-    enabled: 1
+    enabled: 0
 gl:
     name: Galician
     enabled: 0

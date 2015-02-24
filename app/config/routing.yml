@@ -37,10 +37,6 @@ admin_shipping:
     resource: "@AdminShippingBundle/Resources/config/routing.yml"
     prefix: /%bamboo_admin_prefix%
 
-admin_language:
-    resource: "@AdminLanguageBundle/Resources/config/routing.yml"
-    prefix: /%bamboo_admin_prefix%
-
 admin_media:
     resource: "@AdminMediaBundle/Resources/config/routing.yml"
     prefix: /%bamboo_admin_prefix%
