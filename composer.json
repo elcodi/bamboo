@@ -96,14 +96,15 @@
         "elcodi/page-bundle": "~0.4.0",
         "elcodi/configuration-bundle": "~0.4.0",
         "elcodi/metric-bundle": "~0.4.0",
-        "elcodi/sitemap-bundle": "~0.4.0"
+        "elcodi/sitemap-bundle": "~0.4.0",
+        "elcodi/fixtures-booster-bundle": "~0.4.0"
     },
     "replace": {
         "elcodi-templates/template": "self.version",
         "elcodi-templates/store-template-bundle": "self.version"
     },
     "require-dev": {
-        "elcodi/elcodi": "~0.4.27",
+        "elcodi/elcodi": "0.4.30",
         "elcodi/test-common-bundle": "~0.4.0",
         "doctrine/data-fixtures": "~1.0",
         "behat/behat": "~3.0",
