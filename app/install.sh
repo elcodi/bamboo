@@ -15,7 +15,7 @@ case $FLAG in
        fi
 
        # Firing up composer. Better to invoke the INSTALL than an UPDATE
-       HOME=$(pwd) sh -c 'composer install --no-interaction'
+       sh -c 'composer install --no-interaction --prefer-source'
 
        ;;
     h) # help
@@ -31,7 +31,7 @@ esac
 
 # Allowed fixtures go here
 FIXTURES="AdminUser Category Country Currency Manufacturer Page Rates Attribute \
-          Configuration Coupon Customer Language Menu Product Tax"
+          Configuration Coupon Customer Language Menu Product Tax Zone"
 
 for FIXTURE in ${FIXTURES}; do
      FIXTURES_OPTION="${FIXTURES_OPTION} --fixtures=src/Elcodi/Fixtures/DataFixtures/ORM/${FIXTURE}"
