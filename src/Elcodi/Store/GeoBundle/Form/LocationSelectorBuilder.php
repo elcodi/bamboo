@@ -184,7 +184,7 @@ class LocationSelectorBuilder
     /**
      * Gets the location hierarchy.
      *
-     * @param $locationId
+     * @param string $locationId The location identifier
      *
      * @return \Elcodi\Component\Geo\ValueObject\LocationData[]
      */
