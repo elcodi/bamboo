@@ -76,7 +76,7 @@ TinyCore.AMD.define('modal-content', ['devicePackage','modal' ], function () {
 						});
 
 						$iframe.find(".sidebar").remove();
-						$iframe.find(".col-4-5.pull-right").attr('class','col-1-1');
+						$iframe.find(".col-10-12.push-right").attr('class','col-1-1');
 
 						$modal.fadeIn();
 					}
