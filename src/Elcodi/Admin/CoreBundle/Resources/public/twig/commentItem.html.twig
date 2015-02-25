@@ -1,0 +1,20 @@
+<div class="box-none pa-n">
+    {% if commentSide != 'right' %}
+        <div class="d-ib va-m w-15 ta-r">
+            <img class="thumbnail " src="{{ urlAvatar }}" width="40">
+            <p class="fz-s mb-n">{{ authorName }}</p>
+            <p class="fz-s mb-n">{{ commentDate|date("d/m/Y") }}</p>
+        </div>
+    {% endif %}
+    <div class="balloon balloon-{{ commentSide|default('left') }} balloon-background d-ib va-m mb-n w-80">
+        {{ commentText }}
+        <p class="ta-r">  <a href="#boxpopuli-response-{{ targetId }}" class="bxp-add-response"><i class="icon-comment"></i> Reply</a></p>
+    </div>
+    {% if commentSide == 'right' %}
+        <div class="d-ib va-m w-15">
+            <img class="thumbnail " src="{{ urlAvatar }}" width="40">
+            <p class="fz-s mb-n">{{ authorName }}</p>
+            <p class="fz-s mb-n">{{ commentDate|date("d/m/Y") }}</p>
+        </div>
+    {% endif %}
+</div>

@@ -53,20 +53,17 @@
         {% set author_token = app.user.token %}
         {% set context = "admin" %}
         {% set source = "product-" ~ product.id %}
-        <div id="side-panel-tab-1" class="box">
-            <a data-tc-modules="side-panel" data-tc-position="right" data-tc-width="500" data-tc-tab-top="22%" href="#side-panel-tab-1"><i class="icon-comment"></i> </a>
-            <div
-                    class="boxpopuli-box"
-                    data-tc-modules="boxpopuli"
-                    data-token="{{ author_token }}"
-                    data-author-name="{{ app.user.fullname }}"
-                    data-author-email="{{ app.user.email }}"
-                    data-context="{{ context }}"
-                    data-source="{{ source }}"
-                    data-route-list="{{ url("elcodi_comments_list", {"source": source, "context": context}) }}"
-                    data-route-add="{{ url("elcodi_comments_add", {"source": source, "context": context, "authorToken": author_token}) }}"
-
-                    ></div>
+        <div id="box-populi" class="boxpopuli-container">
+            <a data-tc-modules="side-panel" data-tc-position="right" data-tc-width="600" data-tc-tab-top="22%" href="#box-populi"><i class="icon-comment"></i> </a>
+            <div class="boxpopuli-overflow" data-tc-modules="boxpopuli"
+                data-token="{{ author_token }}"
+                data-author-name="{{ app.user.fullname }}"
+                data-author-email="{{ app.user.email }}"
+                data-context="{{ context }}"
+                data-source="{{ source }}"
+                data-route-list="{{ url("elcodi_comments_list", {"source": source, "context": context}) }}"
+                data-route-add="{{ url("elcodi_comments_add", {"source": source, "context": context, "authorToken": author_token}) }}"
+            ></div>
         </div>
 
 

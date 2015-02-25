@@ -1,0 +1,20 @@
+.boxpopuli-container {
+	& {
+		background: lighten($color-primary, 25%);
+		padding: 0;
+	}
+	textarea {
+		@extend %field;
+		width: 100%;
+		margin-bottom: $spacing;
+		min-height: 150px;
+	}
+}
+
+.boxpopuli-overflow {
+	display: block;
+	overflow-x: hidden;
+	height: 100%;
+	padding: $spacing;
+	overflow-y: auto !important;
+}

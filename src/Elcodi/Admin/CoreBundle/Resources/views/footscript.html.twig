@@ -2,6 +2,8 @@
     var oGlobalSettings = {
         sPathJs: "{{ asset('bundles/admincore/js/') }}",
         sPathJsModules: "{{ asset('bundles/admincore/js/modules/') }}",
+        sPathJsTwig: "{{ asset('bundles/admincore/twig/') }}",
+        sPathJsComponents: "{{ asset('bundles/admincore/components/') }}",
         sPathJsCore: "{{ asset('bundles/admincore/components/frontendcore-js/') }}",
         sPathJsLibs: "{{ asset('bundles/admincore/components/frontendcore-js/libs/') }}",
         sPathRoot: "http://bamboo.dev/app_dev.php/",
@@ -12,4 +14,5 @@
         sDevice: 'desktop'
     }
 </script>
+<script type="text/javascript" src="{{ asset('bundles/admincore/components/twig.js/twig.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/admincore/components/frontendcore-js/core.js') }}"></script>
