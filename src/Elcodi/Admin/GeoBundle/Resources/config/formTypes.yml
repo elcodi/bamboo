@@ -1,0 +1,11 @@
+services:
+
+    #
+    # Form Types
+    #
+    store.geo.form_type.address:
+        class: %admin.geo.form_type.address.class%
+        arguments:
+            address_factory: @elcodi.factory.address
+        tags:
+            - { name: form.type, alias: admin_geo_form_type_address }

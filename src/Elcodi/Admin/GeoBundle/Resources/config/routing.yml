@@ -1,0 +1,3 @@
+AdminGeoBundle:
+    resource: "@AdminGeoBundle/Controller/"
+    type:     annotation

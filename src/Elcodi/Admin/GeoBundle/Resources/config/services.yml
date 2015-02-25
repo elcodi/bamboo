@@ -1,0 +1,9 @@
+services:
+
+    #
+    # Services
+    #
+    elcodi.admin.geo.form.location_selector_builder:
+        class: %elcodi.admin.geo.form.location_selector_builder.class%
+        arguments:
+            location_provider: @elcodi.location_provider

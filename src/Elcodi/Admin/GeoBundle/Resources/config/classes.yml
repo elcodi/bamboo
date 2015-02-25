@@ -1,0 +1,11 @@
+parameters:
+
+    #
+    # Form Types
+    #
+    admin.geo.form_type.address.class: Elcodi\Admin\GeoBundle\Form\Type\AddressType
+
+    #
+    # Services
+    #
+    elcodi.admin.geo.form.location_selector_builder.class: Elcodi\Admin\GeoBundle\Form\LocationSelectorBuilder
