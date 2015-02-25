@@ -36,11 +36,9 @@ class AttributeType extends AbstractType
         $builder
             ->add('name', 'text', array(
                 'required' => true,
-                'label'    => 'Name',
             ))
             ->add('enabled', 'checkbox', array(
                 'required' => false,
-                'label'    => 'Status',
             ));
     }
 

@@ -1,41 +1,51 @@
 {% extends 'AdminCoreBundle::Common/component.html.twig' %}
 
+
 {% block table_content %}
-    <table class="table" id="datatable-icons"  summary="{% block title %}{% endblock %}" {% block table_attributes %}{% endblock table_attributes %}>
+
+    <table class="table" id="datatable-icons" summary="{% block title '' %}" {% block table_attributes '' %}>
         <thead>
             <tr role="row">
-                {% block table_head %}
-                {% endblock table_head %}
+                {% block table_head '' %}
             </tr>
         </thead>
         <tbody>
             {% block table_body %}
             {% for entity in paginator %}
-                <tr class="gradeA {{ cycle(["odd", "even"], loop.index0) }}">
-                    {% block table_body_row %}{% endblock table_body_row %}
+                <tr class="gradeA {{ cycle(['odd', 'even'], loop.index0) }}">
+                    {% block table_body_row '' %}
                 </tr>
             {% endfor %}
             {% endblock table_body %}
         </tbody>
     </table>
+
 {% endblock table_content %}
 
 
 {% block table_pagination %}
+
     <div class="box-none pa-n mb-n">
         <div class="fl-l">
             <p class="fz-default">
                 {% set firstElement = limit * (page-1) + 1 %}
-                {% set lastElement = firstElement + limit - 1 %}
-                {% set lastElement = min(lastElement, totalElements) %}
-                Showing {{ firstElement }} to {{ lastElement }} of {{ totalElements }} entries
+                {% set lastElement = min(firstElement + limit - 1, totalElements) %}
+                {{
+                    'ui.paginator.elements'|trans({
+                        '%first%': firstElement,
+                        '%last%': lastElement,
+                        '%total%': totalElements,
+                    })
+                }}
             </p>
         </div>
         <div class="fl-r">
-            {{ block("table_paginator_links") }}
+            {{ block('table_paginator_links') }}
         </div>
     </div>
+
 {% endblock table_pagination %}
+
 
 {#
     Pagination block.
@@ -47,6 +57,7 @@
     {{ parent() }}
 #}
 {% block table_paginator_links %}
+
     {% include "@AdminCore/Tables/paginator.html.twig" with {
         page: page,
         total_pages: totalPages,
@@ -57,4 +68,5 @@
         middle_group_length: 1,
         side_group_space_length: 1,
     } %}
+
 {% endblock table_paginator_links %}

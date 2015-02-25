@@ -1,8 +1,8 @@
 <ol id="breadcrumb" class="list-horizontal">
-    {% for value,attr in breadcrumb %}
+    {% for value, attr in breadcrumb %}
         <li>
             {% if attr.url %}<a href="{{ attr.url }}">{% endif %}
-                {{ value|trans }} {% if not attr.active %}<i class="icon-angle-right"></i>{% endif %}
+                {{ value }} {% if not attr.active %}<i class="icon-angle-right"></i>{% endif %}
             {% if attr.url %}</a>{% endif %}
         </li>
     {% endfor %}

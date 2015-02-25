@@ -1,40 +1,50 @@
 {% extends 'AdminCoreBundle::Common/formComponent.html.twig' %}
 
+
+{% set elcodi_context = {
+    entity_type: 'attribute',
+} %}
+
+
 {% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
 
-{% block title %}
-    {{ 'Edit Attribute'|trans }} - {{ attribute.id }} - {{ attribute.name }}
-{% endblock title %}
 
 {% block content %}
 
-    {% set formAction = attribute.id
-        ? url('admin_attribute_update', {
-            'id': attribute.id
-        })
-        : url('admin_attribute_save')
-
+    {% set formAction =
+        attribute.id
+            ? url('admin_attribute_update', { id: attribute.id })
+            : url('admin_attribute_save')
      %}
 
-    {{ form_start(form, {'action': formAction}) }}
+    {{ form_start(form, { action: formAction }) }}
         <fieldset class="mb-n">
             <div class="grid">
                 <div class="col-1-3">
                     <div class="box-none">
-                        <h3 class="fw-n">{% trans %}Basic Details{% endtrans %}</h3>
-                        <p>{% trans %}Define the name of the attribute and the values (separated by comma).{% endtrans %}</p>
+                        <h3 class="fw-n">{{ 'admin.attribute.section.basic.title'|trans }}</h3>
+                        <p>{{ 'admin.attribute.section.basic.description'|trans }}</p>
                     </div>
                 </div>
                 <div class="col-2-3">
                     <div class="box">
                         <ol>
                             <li>
-                                <label>{{ 'Name'|trans }}</label>
-                                {{ form_widget(form.name, {'attr': {'placeholder':'e.g. Color'|trans}}) }}
+                                {{
+                                    form_row(form.name, {
+                                        label: 'admin.attribute.field.name.title',
+                                        attr: {
+                                            placeholder: 'admin.attribute.field.name.placeholder',
+                                        }
+                                    })
+                                }}
                             </li>
                             <li>
-                                <label>{{ 'Values'|trans }}</label>
-                                <input required="required" name="values" data-tc-modules="tags" value="{{ attributeValues }}" data-tc-values="{{ allValues }}" placeholder="{{ 'Add tags separated by comma'|trans }}" />
+                                <label for="values">{{ 'admin.attribute.field.name.values'|trans }}</label>
+                                <input id="values" required="required" name="values" value="{{ attributeValues }}"
+                                       data-tc-modules="tags" data-tc-values="{{ allValues }}"
+                                       placeholder="{{ 'ui.tags.placeholder.comma_separated'|trans }}"
+                                >
                             </li>
                         </ol>
                     </div>
@@ -44,15 +54,19 @@
             <div class="grid">
                 <div class="col-1-3">
                     <div class="box-none mb-n pb-m">
-                        <h3 class="fw-n">{% trans %}Visibility{% endtrans %}</h3>
-                        <p>{% trans %}Set this attribute as visible or hidden.{% endtrans %}</p>
+                        <h3 class="fw-n">{{ 'admin.attribute.section.visibility.title'|trans }}</h3>
+                        <p>{{ 'admin.attribute.section.visibility.description'|trans }}</p>
                     </div>
                 </div>
                 <div class="col-2-3">
                     <div class="box mb-n pb-n">
                         <ol class="grid pt-m">
                             <li class="col-1-2">
-                                {{ form_row(form.enabled, {'attr': {'type':'checkbox'}}) }}
+                                {{
+                                    form_row(form.enabled, {
+                                        label: 'admin.attribute.field.enabled.title',
+                                    })
+                                }}
                             </li>
                         </ol>
                     </div>
@@ -64,9 +78,8 @@
                 &nbsp;
             </div>
             <div class="col-2-3">
-                <button type="submit" class="button-primary">{{ 'Save'|trans }}</button>
-                <a href="{{ path('admin_attribute_list') }}" id="cancel-button" class="button">{{ 'Cancel'|trans }}</a>
-
+                <button type="submit" class="button-primary">{{ 'ui.forms.save'|trans }}</button>
+                <a href="{{ path('admin_attribute_list') }}" id="cancel-button" class="button">{{ 'ui.forms.cancel'|trans }}</a>
             </div>
         </div>
     {{ form_end(form) }}

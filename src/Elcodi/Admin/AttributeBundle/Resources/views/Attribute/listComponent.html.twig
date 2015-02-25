@@ -1,21 +1,31 @@
 {% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
 
-{% block title %}
-    {{ 'Attribute list'|trans }}
-{% endblock title %}
 
-{% block no_items %}
-    {{ lists.no_items('attribute','attributes', url("admin_attribute_new")  ) }}
-{% endblock no_items %}
+{% set elcodi_context = {
+    entity_type: 'attribute',
+} %}
+
+
+{% block title 'admin.attribute.list'|trans %}
+
+
+{% block no_items
+    lists.no_items(
+        'admin.attribute.single'|trans,
+        'admin.attribute.plural'|trans,
+        url('admin_attribute_new')
+    )
+%}
+
 
 {% block table_head %}
-    {% include "@AdminCore/Tables/head.html.twig" with {
+    {% include '@AdminCore/Tables/head.html.twig' with {
         rows: {
-            "Name": {},
-            "Values": {},
-            "Status" : {}
+            Name: {},
+            Values: {},
+            Status : {}
         },
-        class: "attribute",
+        class: 'attribute',
     } %}
 {% endblock table_head %}
 
@@ -23,7 +33,9 @@
 {% block table_body_row %}
 
     <td>
-        <a href="{{ url("admin_attribute_edit", {"id": entity.id}) }}"><strong>{{ entity.name }}</strong></a>
+        <a href="{{ url('admin_attribute_edit', { id: entity.id }) }}">
+            <strong>{{ entity.name }}</strong>
+        </a>
     </td>
     <td>
         {% for value in entity.values %}
@@ -31,16 +43,23 @@
         {% endfor %}
     </td>
     <td>
-        {% if entity.enabled %}<span class="label-ok">Enabled</span>{% else %}<span class="label">Disabled</span>{% endif %}
+        {% if entity.enabled %}
+            <span class="label-ok">{{ ui.label.enabled }}</span>
+        {% else %}
+            <span class="label">{{ ui.label.disabled }}</span>
+        {% endif %}
     </td>
-    {% include "@AdminCore/Tables/actions.html.twig" with {
+    {% include '@AdminCore/Tables/actions.html.twig' with {
         entity: entity,
-        class: "attribute",
+        class: 'attribute',
     } %}
+
 {% endblock table_body_row %}
 
 
 {% block table_paginator_links %}
+
     {% set url = 'admin_attribute_list' %}
     {{ parent() }}
+
 {% endblock table_paginator_links %}

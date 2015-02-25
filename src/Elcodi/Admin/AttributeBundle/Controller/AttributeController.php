@@ -46,18 +46,42 @@ class AttributeController extends AbstractAdminController
      * This action is just a wrapper, so should never get any data,
      * as this is component responsibility
      *
+     * @param integer $page             Page
+     * @param integer $limit            Limit of items per page
+     * @param string  $orderByField     Field to order by
+     * @param string  $orderByDirection Direction to order by
+     *
      * @return array Result
      *
      * @Route(
-     *      path = "s",
+     *      path = "s/{page}/{limit}/{orderByField}/{orderByDirection}",
      *      name = "admin_attribute_list",
+     *      requirements = {
+     *          "page" = "\d*",
+     *          "limit" = "\d*",
+     *      },
+     *      defaults = {
+     *          "page" = "1",
+     *          "limit" = "50",
+     *          "orderByField" = "id",
+     *          "orderByDirection" = "DESC",
+     *      },
      *      methods = {"GET"}
      * )
      * @Template
      */
-    public function listAction()
-    {
-        return [];
+    public function listAction(
+        $page,
+        $limit,
+        $orderByField,
+        $orderByDirection
+    ) {
+        return [
+            'page'             => $page,
+            'limit'            => $limit,
+            'orderByField'     => $orderByField,
+            'orderByDirection' => $orderByDirection,
+        ];
     }
 
     /**
@@ -157,9 +181,9 @@ class AttributeController extends AbstractAdminController
      *
      * @Route(
      *      path = "/{id}/enable",
-     *      name = "admin_attribute_enable"
+     *      name = "admin_attribute_enable",
+     *      methods = {"GET", "POST"}
      * )
-     * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.attribute.entity.attribute.class",
@@ -188,9 +212,9 @@ class AttributeController extends AbstractAdminController
      *
      * @Route(
      *      path = "/{id}/disable",
-     *      name = "admin_attribute_disable"
+     *      name = "admin_attribute_disable",
+     *      methods = {"GET", "POST"}
      * )
-     * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.attribute.entity.attribute.class",

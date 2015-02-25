@@ -1,2 +1,45 @@
-store.error.store_is_disabled: "Tienda deshabilitada"
-store.error.store_is_under_construction: "Tienda en construcción"
+store:
+    error:
+        store_is_disabled:           Store is disabled
+        store_is_under_construction: Store is under construction
+
+admin:
+    attribute:
+        single: Attribute
+        plural: Attributes
+        edit:   Edit "%name%"
+        new:    New attribute
+        list:   Attribute list
+        field:
+            name:
+                placeholder: e.g. Color
+                title:       Name
+                values:      Values
+            enabled:
+                title:       Status
+        section:
+            basic:
+                title:       Basic Details
+                description: Define the name of the attribute and the values (separated by comma).
+            visibility:
+                title:       Visibility
+                description: Set this attribute as visible or hidden.
+
+ui:
+    list:
+        no_items:     There are no %items%.
+        create_first: Create my first %item%.
+    label:
+        enabled:  Enabled
+        disabled: Disabled
+    paginator:
+        elements: Showing %first% to %last% from %total% entries.
+    forms:
+        cancel: Cancel
+        save:   Save
+        delete: Delete
+    confirm:
+        delete: Are you sure you want to delete it?
+    tags:
+        placeholder:
+            comma_separated: Add tags separated by comma.
