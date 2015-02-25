@@ -182,7 +182,7 @@ class PaymentBridge implements PaymentBridgeInterface
                 ->cartWrapper
                 ->loadCart()
                 ->getAmount()
-                ->getAmount() / 100;
+                ->getAmount();
         }
 
         $amount = $this->order->getAmount();
@@ -191,7 +191,7 @@ class PaymentBridge implements PaymentBridgeInterface
             return $this
                 ->order
                 ->getAmount()
-                ->getAmount() / 100;
+                ->getAmount();
         }
 
         throw new \LogicException(
@@ -253,7 +253,7 @@ class PaymentBridge implements PaymentBridgeInterface
                     );
 
                 $orderLineArray['amount'] = $convertedAmount
-                    ->getAmount() / 100;
+                    ->getAmount();
 
                 /**
                  * Line items currency should always match
