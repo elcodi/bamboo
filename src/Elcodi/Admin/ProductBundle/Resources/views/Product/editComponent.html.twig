@@ -23,18 +23,18 @@
                     <div class="box-none">
                         <h3 class="fw-n">{% trans %}Basic Details{% endtrans %}</h3>
                         <p>{% trans %}Provide a very specific title for your product that explains and help sell your product and description that provides all the information required for your consumers.{% endtrans %}</p>
-                        {% if languages()|length > 1 %}<p><i class="icon-star"></i> {% trans %}= Master Language (Mandatory){% endtrans %}</p>{% endif %}
+                        {% if elcodi_languages|length > 1 %}<p><i class="icon-star"></i> {% trans %}= Master Language (Mandatory){% endtrans %}</p>{% endif %}
                     </div>
                 </div>
                 <div class="col-2-3">
-                    <div {% if languages()|length > 1 %}data-tc-modules="tabs" class="tabs-box" {% endif %}>
-                        {% for language in languages() %}
+                    <div {% if elcodi_languages|length > 1 %}data-tc-modules="tabs" class="tabs-box" {% endif %}>
+                        {% for language in elcodi_languages %}
                         <section id="tab-{{ language }}" data-tc-name="{% if loop.first %}<i class='icon-star'></i> {% endif %}{{ language|capitalize }}">
                             <div class="box">
                                 <ol>
                                     <li>
                                         <label>{{ 'Title'|trans }}</label>
-                                        {{ form_widget(form.name[language ~ '_name'],{'attr': {'placeholder':'e.g. My Awesome Product'}}) }}
+                                        {{ form_widget(form.name[language ~ '_name'], {'attr': {'placeholder':'e.g. My Awesome Product'}}) }}
                                         <details class="ph-n pt-m mb-n">
                                             <summary class="pl-l mb-n">{{ 'Personalize slug' }}</summary>
                                             {{ form_widget(form.slug[language ~ '_slug'],{'attr': {'data-tc-modules':'slug','data-tc-parent':'elcodi_admin_product_form_type_product_name_'~ language ~'_name' }}) }}
@@ -162,13 +162,13 @@
                         <div class="box-none">
                             <h3 class="fw-n">{% trans %}Metadata{% endtrans %}</h3>
                             <p>{% trans %}Description and keywords in meta tags are commonly used to describe the Web page's content. Most search engines use these data when adding pages to their search index.{% endtrans %}</p>
-                            {% if languages()|length > 1 %}<p><i class="icon-star"></i> {% trans %}= Master Language (Mandatory){% endtrans %}</p>{% endif %}
+                            {% if elcodi_languages|length > 1 %}<p><i class="icon-star"></i> {% trans %}= Master Language (Mandatory){% endtrans %}</p>{% endif %}
                         </div>
                     </div>
                     <div class="col-2-3">
                         <p class="msg-warning">{% trans %}<strong>This area for advanced users.</strong> Leave this fields in blank to obtain automatically the metadata of your product.{% endtrans %}</p>
-                        <div {% if languages()|length > 1 %}data-tc-modules="tabs" class="tabs-box" {% endif %}>
-                            {% for language in languages() %}
+                        <div {% if elcodi_languages|length > 1 %}data-tc-modules="tabs" class="tabs-box" {% endif %}>
+                            {% for language in elcodi_languages %}
                                 <section id="metadata-{{ language }}" data-tc-name="{% if loop.first %}<i class='icon-star'></i> {% endif %}{{ language|capitalize }}">
                                     <div class="box">
                                         <ol>

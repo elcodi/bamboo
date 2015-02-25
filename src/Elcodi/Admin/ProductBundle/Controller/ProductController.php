@@ -166,7 +166,7 @@ class ProductController extends AbstractAdminController
 
         return [
             'product' => $product,
-            'form'     => $form->createView(),
+            'form'    => $form->createView(),
         ];
     }
 
