@@ -23,6 +23,9 @@
     </nav>
     <div class="grid">
         <div class="col-10-12 push-right">
+            {% block body_top_hook %}
+            {{ elcodi_hook("admin.body_top") }}
+            {% endblock body_top_hook %}
             <header class="section-header">
                 <div class="buttons-group">
                     {{ elcodi_hook('admin.header_actions', elcodi_context) }}

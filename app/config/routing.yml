@@ -130,15 +130,19 @@ paypal_login:
 #
 elcodi_plugin_pinterest:
     resource: "@ElcodiPinterestBundle/Resources/config/routing.yml"
-    prefix: /%bamboo_admin_prefix%/plugin
+    prefix: /%bamboo_admin_prefix%/plugin/pinterest
 
 elcodi_plugin_google_analytics:
     resource: "@ElcodiGoogleAnalyticsBundle/Resources/config/routing.yml"
-    prefix: /%bamboo_admin_prefix%/plugin
+    prefix: /%bamboo_admin_prefix%/plugin/google-analytics
 
 elcodi_plugin_product_csv:
     resource: "@ElcodiProductCsvBundle/Resources/config/routing.yml"
-    prefix: /%bamboo_admin_prefix%/plugin
+    prefix: /%bamboo_admin_prefix%/plugin/product-csv
+
+elcodi_store_setup_wizard:
+    resource: "@ElcodiStoreSetupWizardBundle/Resources/config/routing.yml"
+    prefix: /%bamboo_admin_prefix%/plugin/setup-wizard
 
 #
 # Elcodi routes
