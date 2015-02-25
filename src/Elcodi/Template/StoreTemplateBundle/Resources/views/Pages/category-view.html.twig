@@ -4,9 +4,6 @@
 {% block title %}Bamboo - Category {{ category.name }}{% endblock title %}
 
 
-{% block content_title %}{{ category.name }}{% endblock content_title %}
-
-
 {% block content %}
 	{% include '@StoreTemplate/Modules/_product-list.html.twig' with {'products' : products} %}
 {% endblock content %}

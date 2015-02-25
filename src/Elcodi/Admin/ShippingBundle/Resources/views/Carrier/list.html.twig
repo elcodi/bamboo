@@ -1,16 +1,6 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
 
-{% set elcodi_context = {
-    entity_type: 'product'
-} %}
-
-
-{% block content_title %}
-    {{ 'Carrier Zone'|trans }}
-{% endblock content_title %}
-
-
 {% block breadcrumb %}
 
     {% include "@AdminCore/Common/breadcrumb.html.twig" with {
