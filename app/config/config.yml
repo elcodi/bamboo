@@ -161,3 +161,45 @@ elcodi_geo:
         location:
             manager: default
 
+services:
+    #
+    # Overriding services in order to inject
+    # elcodi_config parameters for payment
+    #
+    paymill.twig.extension:
+        class: %paymill.twig.extension.class%
+        arguments:
+            paymill_public_key: @=elcodi_config('store.paymill_public_key')
+            form_factory: @form.factory
+            payment_bridge: @payment.bridge
+            view_template: %paymill.templates.view_template%
+            scripts_template: %paymill.templates.scripts_template%
+        tags:
+            - { name: twig.extension }
+
+    paymill.transaction.wrapper:
+        class: %paymill.transaction.wrapper.class%
+        arguments:
+            paymill_private_key: @=elcodi_config('store.paymill_private_key')
+
+    paypal_web_checkout.wrapper:
+        class: %paypal_web_checkout.wrapper.class%
+        arguments:
+            form.factory: @form.factory
+            payment.bridge: @payment.bridge
+            router: @router
+            business: @=elcodi_config('store.paypal_web_checkout_recipient')
+            url_factory: @paypal_web_checkout.url_factory
+
+    paypal_web_checkout.url_factory:
+        class: %paypal_web_checkout.url_factory.class%
+        arguments:
+            router: @router
+            business: @=elcodi_config('store.paypal_web_checkout_recipient')
+            paypal_url: %paypal_web_checkout.api_endpoint%
+            paypal_sandbox_url: %paypal_web_checkout.sandbox_api_endpoint%
+            paypal_notify_validate_query_param: { cmd: _notify-validate }
+            return_route_name: %paypal_web_checkout.success.route.name%
+            cancel_return_route_name: %paypal_web_checkout.cancel.route.name%
+            process_route_name: %paypal_web_checkout.process.route.name%
+            debug: %paypal_web_checkout.debug%
