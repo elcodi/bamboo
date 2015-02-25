@@ -8,17 +8,12 @@ Feature: user
     Given I am on "/user"
     Then I should be on "/login"
 
-  @user @see
-  Scenario Outline: User should be able to logout
-    Given I am logged as <username> - <password>
+  @user
+  Scenario: User should be able to logout
+    Given I am logged as "noncustomer@customer.com" - "1234"
     Then I should be on "/login"
     And I should see "Wrong"
     And I should not see "Homer"
-
-    Examples:
-      | username                   | password |
-      | "noncustomer@customer.com" | "1234"   |
-      | "customer@customer.com"    | "123"    |
 
   @user
   Scenario: Wrong login
