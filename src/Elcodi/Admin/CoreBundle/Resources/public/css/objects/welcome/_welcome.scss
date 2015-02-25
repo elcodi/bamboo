@@ -2,8 +2,29 @@
 	& {
 		overflow: hidden;
 		margin-bottom: 10px;
+		background: rgba($color-ok, .1);
+		padding-bottom: $spacing/4;
+	}
+	h2 {
+		& {
+			display: block;
+			position: relative;
+			padding: $spacing/4;
+			background: $color-ok;
+			color: contrast-color($color-ok);
+			text-align: center;
+			margin-bottom: $spacing/8;
+			overflow: hidden;
+		}
+		span {
+			position: absolute;
+			margin-left: -100px;
+			@include opacity(.2);
+			top: -12px;
+		}
 	}
 }
+
 
 .welcome-item {
 	& {
@@ -14,6 +35,8 @@
 	}
 	i {
 		@extend %icon-rounded;
+		min-width: 116px;
+
 	}
 	.welcome-done-sign {
 		display: none;
