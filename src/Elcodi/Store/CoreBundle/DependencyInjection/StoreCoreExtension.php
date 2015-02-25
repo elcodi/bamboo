@@ -96,7 +96,6 @@ class StoreCoreExtension extends AbstractExtension
     {
         return [
             'classes',
-            'services',
             'eventListeners',
             [ 'not_found', $config['errors']['not_found']['enabled'] ],
         ];

@@ -58,7 +58,6 @@ class AdminCoreExtension extends AbstractExtension
     {
         return [
             'classes',
-            'twig',
         ];
     }
 
