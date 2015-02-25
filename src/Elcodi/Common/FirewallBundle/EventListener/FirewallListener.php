@@ -30,6 +30,13 @@ use Symfony\Component\Security\Http\Firewall\ListenerInterface;
 class FirewallListener implements ListenerInterface
 {
     /**
+     * @var ContainerAwareEventDispatcher
+     *
+     * Event dispatcher
+     */
+    protected $eventDispatcher;
+
+    /**
      * @var array
      *
      * Listeners to attach on firewall activation
@@ -37,30 +44,31 @@ class FirewallListener implements ListenerInterface
     protected $listenerIds = [];
 
     /**
-     * @var ContainerAwareEventDispatcher
+     * Construct
      *
-     * Event dispatcher
+     * @param ContainerAwareEventDispatcher $eventDispatcher Dispatcher
+     * @param array                         $listenerIds     Listener ids
      */
-    protected $dispatcher;
-
-    /**
-     * @param EventDispatcherInterface $dispatcher
-     * @param array                    $listener_ids
-     */
-    public function __construct(EventDispatcherInterface $dispatcher, $listener_ids = [])
+    public function __construct(
+        ContainerAwareEventDispatcher $eventDispatcher,
+        $listenerIds = []
+    )
     {
-        $this->dispatcher = $dispatcher;
-        $this->listenerIds = $listener_ids;
+        $this->dispatcher = $eventDispatcher;
+        $this->listenerIds = $listenerIds;
     }
 
     /**
      * This interface must be implemented by firewall listeners.
      *
-     * @param GetResponseEvent $event
+     * @param GetResponseEvent $event Event
      */
     public function handle(GetResponseEvent $event)
     {
-        // It may be a `TraceableEventDispatcher` in debug mode, so no hard check in type
+        /**
+         * It may be a `TraceableEventDispatcher` in debug mode, so no hard
+         * check in type
+         */
         if (!is_callable(array($this->dispatcher, 'addListenerService'))) {
             return;
         }
@@ -68,7 +76,11 @@ class FirewallListener implements ListenerInterface
         foreach ($this->listenerIds as $listener) {
             $this
                 ->dispatcher
-                ->addListenerService($listener['eventName'], $listener['callback'], $listener['priority']);
+                ->addListenerService(
+                    $listener['eventName'],
+                    $listener['callback'],
+                    $listener['priority']
+                );
         }
     }
 }
