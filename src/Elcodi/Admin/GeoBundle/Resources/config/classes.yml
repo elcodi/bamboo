@@ -9,3 +9,4 @@ parameters:
     # Services
     #
     elcodi.admin.geo.form.location_selector_builder.class: Elcodi\Admin\GeoBundle\Form\LocationSelectorBuilder
+    elcodi.service.store_address_manage.class: Elcodi\Admin\GeoBundle\Services\StoreAddressManager

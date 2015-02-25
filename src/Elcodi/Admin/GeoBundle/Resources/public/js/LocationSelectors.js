@@ -17,7 +17,7 @@ function locationSelectors() {
                         $(container).replaceWith(response);
 
                         if (undefined != optionSelected.parent().data('max-type')) {
-                            document.getElementById('store_geo_form_type_address_city').value = optionSelectedValue;
+                            document.getElementById('admin_geo_form_type_address_city').value = optionSelectedValue;
                         }
                         bindSelector(container);
                     }

@@ -1,15 +1,10 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
 
-{% block content_title %}
-    {{ 'Configuration Zone'|trans }}
-{% endblock content_title %}
-
-
 {% block breadcrumb %}
     {% include '@AdminCore/Common/breadcrumb.html.twig' with {
         breadcrumb: {
-            'Edit address': {
+            'Edit billing address': {
                 "active" : true
             }
         }
@@ -74,4 +69,3 @@
     <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
 {% endblock content %}
-

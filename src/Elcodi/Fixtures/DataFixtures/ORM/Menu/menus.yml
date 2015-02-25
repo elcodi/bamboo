@@ -176,6 +176,13 @@ menu_nodes:
         enabled: 1
         subnodes: ~
 
+    bambooadmin_address:
+        name: Billing address
+        code: ~
+        url: admin_address_edit
+        enabled: 1
+        subnodes: ~
+
     bambooadmin_settings:
         name: Settings
         code: gear
@@ -183,6 +190,7 @@ menu_nodes:
         enabled: 1
         subnodes:
           - bambooadmin_configurations
+          - bambooadmin_address
           - bambooadmin_carriers
           - bambooadmin_currencies
 

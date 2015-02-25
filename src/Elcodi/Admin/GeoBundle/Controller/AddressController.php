@@ -1,14 +1,33 @@
 <?php
 
+/*
+ * This file is part of the Elcodi package.
+ *
+ * Copyright (c) 2014 Elcodi.com
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * Feel free to edit as you please, and have fun.
+ *
+ * @author Marc Morera <yuhu@mmoreram.com>
+ * @author Aldo Chiecchia <zimage@tiscali.it>
+ * @author Elcodi Team <tech@elcodi.com>
+ */
+
 namespace Elcodi\Admin\GeoBundle\Controller;
 
-use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
+use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
+use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\Form;
-use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
-use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+
+use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
+use Elcodi\Component\Geo\Entity\Interfaces\AddressInterface;
 
 /**
  * Class Controller for Address
@@ -20,7 +39,7 @@ use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
 class AddressController extends AbstractAdminController
 {
     /**
-     * List configuration values
+     * Edits an address
      *
      * @return array Result
      *
@@ -30,6 +49,68 @@ class AddressController extends AbstractAdminController
      * )
      * @Template
      * @Method({"GET","POST"})
+     */
+    public function editAction(Request $request)
+    {
+        $storeAddressManager = $this
+            ->get('elcodi.service.store_address_manager');
+
+        $address = $storeAddressManager
+            ->getStoreAddress();
+
+        if (!$address instanceof AddressInterface) {
+
+            return $this->redirectRoute("admin_address_new");
+        }
+
+        $form = $this->createForm(
+            'admin_geo_form_type_address',
+            $address
+        );
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $addressManager = $this
+                ->get('elcodi.manager.address');
+
+            $addressManager
+                ->saveAddress($address);
+
+            $savedAddress = $addressManager
+                ->getSavedAddress();
+
+            $this
+                ->get('elcodi.service.store_address_manager')
+                ->setStoreAddress($savedAddress);
+
+            $this->addFlash('success', 'Address saved');
+
+            return $this->redirectRoute("admin_address_edit");
+        }
+
+        return $this->render(
+            'AdminGeoBundle:Address:edit.html.twig',
+            [
+                'form'    => $form->createView(),
+                'address' => $address,
+            ]
+        );
+    }
+
+    /**
+     * Adds a new address
+     *
+     * @param Form             $form    The address form
+     * @param AddressInterface $address An address
+     *
+     * @return Response
+     *
+     * @Route(
+     *      path = "/new",
+     *      name = "admin_address_new"
+     * )
+     * @Method({"GET","POST"})
      *
      * @EntityAnnotation(
      *      class = {
@@ -37,30 +118,40 @@ class AddressController extends AbstractAdminController
      *          "method" = "create",
      *          "static" = false
      *      },
-     *      mapping = {
-     *          "id" = "~id~"
-     *      },
-     *      mappingFallback = true,
      *      name = "address",
-     *      persist = true
+     *      persist = false
      * )
      * @FormAnnotation(
-     *      class = "admin_geo_form_type_address",
-     *      name  = "form",
-     *      entity = "address",
+     *      class         = "admin_geo_form_type_address",
+     *      name          = "form",
+     *      entity        = "address",
      *      handleRequest = true,
-     *      validate = "isValid"
+     *      validate      = "isValid"
      * )
      */
-    public function editAction(Form $form, $isValid)
-    {
-        return [
-            'form' => $form->createView()
-        ];
-    }
+    public function newAction(
+        Form $form,
+        AddressInterface $address
+    ) {
+        if ($form->isValid()) {
+            $addressManager = $this->get('elcodi.object_manager.address');
+            $addressManager->persist($address);
+            $addressManager->flush($address);
 
-    public function newAction()
-    {
+            $this
+                ->get('elcodi.service.store_address_manager')
+                ->setStoreAddress($address);
 
+            $this->addFlash('success', 'Address saved');
+
+            return $this->redirectRoute("admin_address_edit");
+        }
+
+        return $this->render(
+            'AdminGeoBundle:Address:edit.html.twig',
+            [
+                'form' => $form->createView(),
+            ]
+        );
     }
 }

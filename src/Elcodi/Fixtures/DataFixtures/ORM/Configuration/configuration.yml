@@ -8,6 +8,13 @@ store_name:
     type: string
     value: "Bamboo: Powered by Elcodi"
 
+store_address:
+    key: address
+    namespace: store
+    name: Store address
+    type: string
+    value:
+
 #
 # Product namespace
 #

@@ -18,6 +18,7 @@
 namespace Elcodi\Store\GeoBundle\Form;
 
 use Doctrine\ORM\EntityNotFoundException;
+
 use Elcodi\Component\Geo\Services\Interfaces\LocationProviderInterface;
 use Elcodi\Component\Geo\ValueObject\LocationData;
 
@@ -81,7 +82,7 @@ class LocationSelectorBuilder
 
             $this->buildRootSelector($rootLocation);
 
-            if(!empty($rootLocation)) {
+            if (!empty($rootLocation)) {
                 $this->buildChildrenSelects($rootLocation, $hierarchy);
             }
         } else {

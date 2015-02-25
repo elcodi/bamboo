@@ -3,6 +3,12 @@ services:
     #
     # Services
     #
+    elcodi.service.store_address_manager:
+        class: %elcodi.service.store_address_manage.class%
+        arguments:
+            configuration_manager: @elcodi.manager.configuration
+            address_repository: @elcodi.repository.address
+
     elcodi.admin.geo.form.location_selector_builder:
         class: %elcodi.admin.geo.form.location_selector_builder.class%
         arguments:
