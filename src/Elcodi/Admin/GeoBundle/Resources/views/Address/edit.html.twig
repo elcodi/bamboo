@@ -1,5 +1,6 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
+{% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
 
 {% block breadcrumb %}
     {% include '@AdminCore/Common/breadcrumb.html.twig' with {
@@ -13,57 +14,53 @@
 
 
 {% block content %}
-    <div class="form form-address">
-        {{ form_start(form) }}
-        <div class="grid hidden">
-            <div class="col-1-1">
-                <div class="form-row">{{ form_row(form.name, { 'value': 'Store address' } ) }}</div>
-            </div>
+    {{ form_start(form) }}
+    {{ form_row(form.name, { 'value': 'Store address' } ) }}
+    <fieldset>
+        <div class="box">
+            <ol class="grid">
+                <li class="col-1-2 pr-l">
+                    {{ form_row(form.recipientName, { 'attr': {'placeholder':'e.g. John'|trans }}) }}
+                </li>
+                <li class="col-1-2">
+                    {{ form_row(form.recipientSurname, { 'attr': {'placeholder':'e.g. Doe'|trans }}) }}
+                </li>
+                <li>
+                    {{ form_row(form.address, { 'attr' : {'placeholder':'e.g. Awesome Street, 21'|trans }}) }}
+                </li>
+            </ol>
+            <ol class="grid">
+                <li class="col-2-3 pr-l">
+                    {{ form_row(form.addressMore, { 'attr' : {'placeholder':'e.g. Doe Enterprises '|trans }} ) }}
+                </li>
+                <li class="col-1-3">
+                    {{ form_row(form.postalcode, { 'attr' : {'placeholder':'e.g. 08080'|trans }} ) }}
+                </li>
+            </ol>
+            <ol>
+                <li class="pb-n">
+                    {% render url('admin_location_selectors',{locationId:address.city}) %}
+                    {{ form_row(form.city) }}
+                </li>
+            </ol>
+            <ol class="grid">
+                <li class="col-1-2 pr-l">
+                    {{ form_row(form.phone, { 'attr': {'placeholder':'e.g. 935 555 555'|trans }}) }}
+                </li>
+                <li class="col-1-2">
+                    {{ form_row(form.mobile, { 'attr': {'placeholder':'e.g. 555 555 555'|trans }}) }}
+                </li>
+            </ol>
+            <ol>
+                <li>
+                    {{ form_row(form.comments, { 'attr' : {'placeholder': "e.g. It's a house"|trans }}) }}
+                </li>
+            </ol>
         </div>
-        <div class="grid">
-            <div class="col-1-2 form-row">
-                {{ form_row(form.recipientName, { 'attr': {'placeholder':'e.g. John'|trans }}) }}
-            </div>
-            <div class="col-1-2 form-row">
-                {{ form_row(form.recipientSurname, { 'attr': {'placeholder':'e.g. Doe'|trans }}) }}
-            </div>
-        </div>
-        <div class="grid">
-            <div class="col-1-1 form-row">
-                {{ form_row(form.address, { 'attr' : {'placeholder':'e.g. Awesome Street, 21'|trans }}) }}
-            </div>
-        </div>
-        <div class="grid">
-            <div class="col-2-3 form-row">
-                {{ form_row(form.addressMore, { 'attr' : {'placeholder':'e.g. Doe Enterprises '|trans }} ) }}
-            </div>
-            <div class="col-1-3 form-row">
-                {{ form_row(form.postalcode, { 'attr' : {'placeholder':'e.g. 08080'|trans }} ) }}
-            </div>
-        </div>
-
-        {% render url('admin_location_selectors',{locationId:address.city}) %}
-
-        {{ form_row(form.city) }}
-        <div class="grid">
-            <div class="col-1-2 form-row">
-                {{ form_row(form.phone, { 'attr': {'placeholder':'e.g. 935 555 555'|trans }}) }}
-            </div>
-            <div class="col-1-2 form-row">
-                {{ form_row(form.mobile, { 'attr': {'placeholder':'e.g. 555 555 555'|trans }}) }}
-            </div>
-        </div>
-        <div class="grid">
-            <div class="col-1-1 form-row">
-                {{ form_row(form.comments, { 'attr' : {'placeholder': "e.g. It's a house"|trans }}) }}
-            </div>
-        </div>
-        <div class="form-row">
-            {{ form_widget(form.send, { 'attr': {'class': 'button button-primary' } }) }}
-            <a href="{{ url('store_address_list') }}" class="button">Cancel</a>
-        </div>
-        {{ form_end(form) }}
-    </div>
+        {{ form_widget(form.send, { 'attr': {'class': 'button button-primary' } }) }}
+        <a href="{{ url('store_address_list') }}" class="button">Cancel</a>
+    </fieldset>
+    {{ form_end(form) }}
 
     {% javascripts '@AdminGeoBundle/Resources/public/js/LocationSelectors.js' %}
     <script src="{{ asset_url }}"></script>

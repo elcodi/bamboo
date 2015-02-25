@@ -72,7 +72,7 @@ class AddressType extends AbstractType
             ->add('city', 'hidden', [
                 'required' => true,
             ])
-            ->add('name', 'text', [
+            ->add('name', 'hidden', [
                 'required' => true,
                 'label'    => 'Address name',
             ])
