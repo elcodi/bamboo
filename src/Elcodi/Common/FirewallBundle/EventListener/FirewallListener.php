@@ -46,15 +46,15 @@ class FirewallListener implements ListenerInterface
     /**
      * Construct
      *
-     * @param ContainerAwareEventDispatcher $eventDispatcher Dispatcher
-     * @param array                         $listenerIds     Listener ids
+     * @param EventDispatcherInterface $eventDispatcher Dispatcher
+     * @param array                    $listenerIds     Listener ids
      */
     public function __construct(
-        ContainerAwareEventDispatcher $eventDispatcher,
+        EventDispatcherInterface $eventDispatcher,
         $listenerIds = []
     )
     {
-        $this->dispatcher = $eventDispatcher;
+        $this->eventDispatcher = $eventDispatcher;
         $this->listenerIds = $listenerIds;
     }
 
@@ -69,13 +69,13 @@ class FirewallListener implements ListenerInterface
          * It may be a `TraceableEventDispatcher` in debug mode, so no hard
          * check in type
          */
-        if (!is_callable(array($this->dispatcher, 'addListenerService'))) {
+        if (!is_callable(array($this->eventDispatcher, 'addListenerService'))) {
             return;
         }
 
         foreach ($this->listenerIds as $listener) {
             $this
-                ->dispatcher
+                ->eventDispatcher
                 ->addListenerService(
                     $listener['eventName'],
                     $listener['callback'],
