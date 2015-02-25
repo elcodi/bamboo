@@ -201,3 +201,12 @@ $object-labels: map-get($objects, labels) !global;
  * @group objects
  */
 $object-animations: map-get($objects, animations ) !global;
+
+/**
+ * Includes the classes at main css for balloons
+ * Posible values: default, false
+ * @type string
+ * @link http://www.frontendcore.com/content/balloons.html
+ * @group objects
+ */
+$object-balloons: map-get($objects, balloons ) !global;

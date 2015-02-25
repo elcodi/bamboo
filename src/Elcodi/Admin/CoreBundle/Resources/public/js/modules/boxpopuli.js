@@ -1,281 +1,279 @@
-TinyCore.AMD.define('boxpopuli', ['md5','wysiwyg'], function () {
-    return {
-        md5 : TinyCore.Module.instantiate( 'md5' ),
-        wysiwyg : TinyCore.Module.instantiate( 'wysiwyg' ),
-        token: '',
-        authorName: '',
-        authorEmail: '',
-        authorGravatar: '',
-        context: '',
-        source: '',
-        routeList: '',
-        routeAdd: '',
-        /**
-         * Init the Boxpopuli environment
-         *
-         * @param $bxp The boxpopuli html placeholder
-         */
-        init: function($bxp) {
+TinyCore.AMD.define('boxpopuli', ['md5'], function () {
+	return {
+		md5: TinyCore.Module.instantiate('md5'),
+		token: '',
+		authorName: '',
+		authorEmail: '',
+		authorGravatar: '',
+		context: '',
+		source: '',
+		routeList: '',
+		routeAdd: '',
+		templates: {},
+		/**
+		 * Init the Boxpopuli environment
+		 *
+		 * @param $bxp The boxpopuli html placeholder
+		 */
+		init: function ($bxp) {
 
-            $bxp.html('');
-            this.token = $bxp.data('token');
-            this.authorName = $bxp.data('author-name');
-            this.authorEmail = $bxp.data('author-email');
-            this.authorGravatar = 'http://www.gravatar.com/avatar/' + this.md5.convert(this.authorEmail) + '?s=32';
-            this.context = $bxp.data('context');
-            this.source = $bxp.data('source');
-            this.routeList = $bxp.data('route-list');
-            this.routeAdd = $bxp.data('route-add');
+			$bxp.html('');
+			this.token = $bxp.data('token');
+			this.authorName = $bxp.data('author-name');
+			this.authorEmail = $bxp.data('author-email');
+			this.authorGravatar = 'http://www.gravatar.com/avatar/' + this.md5.convert(this.authorEmail) + '?s=32';
+			this.context = $bxp.data('context');
+			this.source = $bxp.data('source');
+			this.routeList = $bxp.data('route-list');
+			this.routeAdd = $bxp.data('route-add');
 
-            this.createCommentLayout($bxp);
+			this.createCommentLayout($bxp);
 
-            this.wysiwyg.onStart();
-        },
-        /**
-         * Create comment area in given wrapper object
-         *
-         * @param $wrapper Object with class .wrapper
-         */
-        createCommentNewArea: function($wrapper) {
+		},
+		/**
+		 * Create comment area in given wrapper object
+		 *
+		 * @param $wrapper Object with class .wrapper
+		 */
+		createCommentNewArea: function ($wrapper, sSide) {
 
-            var $newCommentContainer = $wrapper
-                .find('.bxp-new-response')
-                .first();
+			var $newCommentContainer = $wrapper.find('.bxp-new-response').first(),
+				self = this;
 
-            $newCommentContainer.html(
-                '<div class="grid">' +
-                    '<form class="form box-lighten">' +
-                        '<div class="col-1-12 tablet desktop">' +
-                            '<img class="thumbnail" src="' + this.authorGravatar + '" />' +
-                        '</div>' +
-                        '<div class="col-11-12">' +
-                            '<ol>' +
-                                '<li class="mb-n">' +
-                                    '<textarea data-tc-modules="wysiwyg" data-tc-fullscreen="false" data-tc-html="false"></textarea>' +
-                                '</li><li>' +
-                                    '<button type="submit" class="bxp-add-button button-primary">Comment</button>' +
-                                '</li>' +
-                            '</div>' +
-                    '</form>' +
-                '</div>');
-        },
-        /**
-         * Create comment list
-         *
-         * @param $wrapper Object with class .wrapper
-         */
-        buildCommentList: function($wrapper) {
+			$newCommentContainer.html(self.templates.commentNew.render({
+				urlAvatar: self.authorGravatar,
+				authorName: self.authorName,
+				commentSide: sSide
+			}));
+		},
+		/**
+		 * Create comment list
+		 *
+		 * @param $wrapper Object with class .wrapper
+		 */
+		buildCommentList: function ($wrapper) {
 
-            var self = this;
-            var $responsesContainer = $wrapper
-                .find('.bxp-response-block .bxp-responses')
-                .first();
-            $responsesContainer.html();
+			var self = this;
+			var $responsesContainer = $wrapper
+				.find('.bxp-response-block .bxp-responses')
+				.first();
+			$responsesContainer.html();
 
-            $.ajax({
-                type: "GET",
-                url: self.routeList,
-                dataType: "json",
-                async: true,
-                success: function(comments){
+			$.ajax({
+				type: "GET",
+				url: self.routeList,
+				dataType: "json",
+				async: true,
+				success: function (comments) {
 
-                    $.each(comments, function(_, comment) {
+					$.each(comments, function (_, comment) {
 
-                        self.createCommentItem($responsesContainer, comment);
-                    });
-                }
-            });
-        },
-        /**
-         * Initialize comment wrapper
-         *
-         * Initializes the comment area
-         * Initializes the flash area
-         * Initializes the response block are
-         * Initializes the new response area
-         * Initializes the responses area
-         *
-         * @param $o Object where to prepend a wrapper
-         */
-        initializeCommentWrapper: function($o, commentId) {
+						self.createCommentItem($responsesContainer, comment);
+					});
+				}
+			});
+		},
+		/**
+		 * Initialize comment wrapper
+		 *
+		 * Initializes the comment area
+		 * Initializes the flash area
+		 * Initializes the response block are
+		 * Initializes the new response area
+		 * Initializes the responses area
+		 *
+		 * @param $o Object where to prepend a wrapper
+		 */
+		initializeCommentWrapper: function ($o, commentId) {
 
-            $o.append('<div class="bxp-wrapper" data-comment-id="' + commentId + '">' +
-            '<div class="bxp-comment"></div>' +
-            '<div class="bxp-response-block" style="margin-left:20px">' +
-            '<div class="bxp-new-response"></div>' +
-            '<div class="bxp-responses">' +
-            '</div>' +
-            '</div>' +
-            '</div>');
-        },
-        /**
-         * Once a user click add, add this comment into the environment
-         *
-         * @param $o Object
-         */
-        registerAddComment: function ($o) {
+			var self = this;
 
-            var self = this;
+			$o.append(self.templates.commentWrapper.render({
+				commentId: commentId
+			}));
+		},
+		/**
+		 * Once a user click add, add this comment into the environment
+		 *
+		 * @param $o Object
+		 */
+		registerAddComment: function ($o) {
 
-            $o.on('click', '.bxp-new-response .bxp-add-button', function() {
+			var self = this;
 
-                var $this = $(this);
-                var $commentWrapper = $this.closest('.bxp-wrapper');
-                var $newCommentArea = $this.closest('.bxp-new-response');
-                var $responseArea = $commentWrapper.closest('.bxp-response-block .bxp-responses');
-                var $contentTextarea = $newCommentArea
-                    .find('textarea')
-                    .first();
-                var content = $contentTextarea.val();
+			$o.on('click', '.bxp-new-response .bxp-remove-textarea', function () {
+				var $this = $(this);
+				$this.closest('.bxp-new-response').html('');
+			});
 
-                if (!content) {
 
-                    self.createFlash($commentWrapper, 'You must add some text...', 'info');
-                    return false;
-                }
 
-                var parentCommentId = $commentWrapper.data('comment-id');
-                parentCommentId = parseInt( parentCommentId, 10 );
+			$o.on('click', '.bxp-new-response .bxp-add-button', function () {
 
-                $.ajax({
-                    type: "POST",
-                    url: self.routeAdd,
-                    dataType: 'json',
-                    data: {
-                        content: content,
-                        parent: parentCommentId,
-                        author_name: self.authorName,
-                        author_email: self.authorEmail
-                    },
-                    async: true,
-                    success: function(comment){
+				var $this = $(this);
+				var $commentWrapper = $this.closest('.bxp-wrapper');
+				var $newCommentArea = $this.closest('.bxp-new-response');
+				var $responseArea = $commentWrapper.closest('.bxp-response-block .bxp-responses');
+				var $contentTextarea = $newCommentArea
+					.find('textarea')
+					.first();
+				var content = $contentTextarea.val();
 
-                        $contentTextarea.val('');
-                        var $commentRendered = self.createCommentItem($responseArea, comment);
-                        $commentWrapper
-                            .find('.bxp-responses')
-                            .first()
-                            .prepend($commentRendered);
+				if (!content) {
 
-                        if (parentCommentId > 0) {
+					self.createFlash($commentWrapper, 'You must add some text...', 'info');
+					return false;
+				}
 
-                            $newCommentArea.html('');
-                        }
-                    }
-                });
+				var parentCommentId = $commentWrapper.data('comment-id');
+				parentCommentId = parseInt(parentCommentId, 10);
 
-                return false;
-            });
-        },
-        /**
-         * Create the Boxpopuli comments area
-         *
-         * @param $mainLayout Main layout
-         */
-        createCommentLayout: function($mainLayout) {
+				$.ajax({
+					type: "POST",
+					url: self.routeAdd,
+					dataType: 'json',
+					data: {
+						content: content,
+						parent: parentCommentId,
+						author_name: self.authorName,
+						author_email: self.authorEmail
+					},
+					async: true,
+					success: function (comment) {
 
-            $mainLayout.html('<div class="box bxp-container"></div>');
-            var $container = $mainLayout.find('.bxp-container');
+						$contentTextarea.val('');
+						var $commentRendered = self.createCommentItem($responseArea, comment, parentCommentId);
+						$commentWrapper
+							.find('.bxp-responses')
+							.first()
+							.append($commentRendered);
 
-            /**
-             * Create the main wrapper
-             */
-            this.initializeCommentWrapper($container, 0);
+						if (parentCommentId > 0) {
 
-            /**
-             * Initialize the main wrapper
-             */
-            var $wrapper = $container.find('.bxp-wrapper').first();
-            this.createCommentNewArea($wrapper);
-            this.buildCommentList($wrapper);
+							$newCommentArea.html('');
+						} else {
+							$('#' + $contentTextarea[0].id).html('');
+						}
+					}
+				});
 
-            /**
-             * Register all listeners
-             */
-            this.registerAddComment($container);
-            this.registerResponseAddComment($container);
-        },
-        /**
-         * Create comment item
-         *
-         * Given responses container, create a new comment and append it
-         * at the end of the responses
-         *
-         * @param $responsesContainer The responses container
-         * @param comment The comment
-         */
-        createCommentItem: function($responsesContainer, comment) {
+				return false;
+			});
+		},
+		/**
+		 * Create the Boxpopuli comments area
+		 *
+		 * @param $mainLayout Main layout
+		 */
+		createCommentLayout: function ($mainLayout) {
 
-            var self = this;
-            var $commentObject = $('<div/>');
-            var entity = comment.entity;
-            var children = comment.children;
-            var commentId = entity.id;
-            var authorGravatar = 'http://www.gravatar.com/avatar/' + this.md5.convert(entity.authorEmail) + '?s=32';
+			$mainLayout.html('<div class="bxp-container"></div>');
+			var $container = $mainLayout.find('.bxp-container');
 
-            /**
-             * We initialize with the skeleton
-             */
-            self.initializeCommentWrapper($commentObject, commentId);
+			/**
+			 * Create the main wrapper
+			 */
+			this.initializeCommentWrapper($container, 0);
 
-            var $responsesZone = $commentObject.find('.bxp-response-block .bxp-responses').first();
+			/**
+			 * Initialize the main wrapper
+			 */
+			var $wrapper = $container.find('.bxp-wrapper').first();
+			this.createCommentNewArea($wrapper);
+			this.buildCommentList($wrapper);
 
-            $.each(children, function(_, childComment) {
+			/**
+			 * Register all listeners
+			 */
+			this.registerAddComment($container);
+			this.registerResponseAddComment($container);
+		},
+		/**
+		 * Create comment item
+		 *
+		 * Given responses container, create a new comment and append it
+		 * at the end of the responses
+		 *
+		 * @param $responsesContainer The responses container
+		 * @param comment The comment
+		 */
+		createCommentItem: function ($responsesContainer, comment, parentCommentId) {
 
-                self.createCommentItem($responsesZone, childComment);
-            });
+			var self = this;
+			var $commentObject = $('<div/>');
+			var entity = comment.entity;
+			var children = comment.children;
+			var commentId = entity.id;
+			var authorGravatar = 'http://www.gravatar.com/avatar/' + this.md5.convert(entity.authorEmail) + '?s=32';
+			var sSide = parentCommentId !== undefined && parentCommentId > 0 ? 'right' : 'left';
+			var sTargetComment = parentCommentId !== undefined && parentCommentId > 0 ? parentCommentId : commentId;
 
-            $commentObject
-                .find('.bxp-comment')
-                .first()
-                .html('' +
-                '<div class="box grid">' +
-                '<div class="col-1-12">' +
-                '<img class="thumbnail" src="' + authorGravatar + '" />' +
-                '</div>' +
-                '<div class="col-10-12">' +
-                '<div class="bxp-actions">' +
-                'Done by ' + entity.authorName + ' - ' +
-                entity.createdAt + ' - ' +
-                '<a href="#" class="bxp-add-response"><i class="icon-comment"></i> Reply</a>' +
-                '</div>' +
-                '' + entity.content + '' +
-                '</div>' +
-                '<div class="col-1-12 ta-c">' +
-                '</div>' +
-                '</div>'
-            );
+			/**
+			 * We initialize with the skeleton
+			 */
+			self.initializeCommentWrapper($commentObject, sTargetComment);
 
-            $commentObject.prependTo($responsesContainer);
+			var $responsesZone = $commentObject.find('.bxp-response-block .bxp-responses').first();
 
-            return $commentObject;
-        },
-        /**
-         * Register respond comment
-         *
-         * @param $o Object
-         */
-        registerResponseAddComment: function ($o) {
+			$.each(children, function (_, childComment) {
 
-            var self = this;
-            $o.on('click', 'a.bxp-add-response', function() {
+				self.createCommentItem($responsesZone, childComment, commentId );
 
-                var $commentWrapper = $(this).closest('.bxp-wrapper');
-                self.createCommentNewArea($commentWrapper);
 
-                self.wysiwyg.onStart();
+			});
 
-                return false;
-            });
-        },
-        onStart: function () {
+			$commentObject
+				.find('.bxp-comment')
+				.first()
+				.html(self.templates.commentItem.render({
+					urlAvatar: authorGravatar,
+					authorName: entity.authorName,
+					commentDate: entity.createdAt,
+					commentText: entity.content,
+					commentSide: sSide,
+					targetId: sTargetComment
+				}));
 
-            var self = this,
-                aTargets = oTools.getDataModules('boxpopuli');
+			$commentObject.prependTo($responsesContainer);
 
-            $(aTargets).each(function () {
-                self.init( $(this) );
-            });
-        }
-    };
+			return $commentObject;
+		},
+		/**
+		 * Register respond comment
+		 *
+		 * @param $o Object
+		 */
+		registerResponseAddComment: function ($o) {
+
+			var self = this;
+			$o.on('click', 'a.bxp-add-response', function () {
+
+				var $commentWrapper = $('#' + this.href.replace('response','comment').split('#')[1]);
+
+				self.createCommentNewArea($commentWrapper, 'right');
+
+			});
+
+		},
+		setTemplate: function (sName) {
+			this.templates[sName] = twig({
+				href: oGlobalSettings.sPathJsTwig + sName + '.html.twig',
+				async: false
+			});
+		},
+		onStart: function () {
+
+			var self = this,
+				aTargets = oTools.getDataModules('boxpopuli');
+
+			self.setTemplate('commentItem');
+			self.setTemplate('commentWrapper');
+			self.setTemplate('commentNew');
+			self.setTemplate('commentForm');
+
+			$(aTargets).each(function () {
+				self.init($(this));
+			});
+		}
+	};
 });
