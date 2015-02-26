@@ -106,7 +106,6 @@
 @if $object-tabs == default and $ui != true {
 	.tabs {
 		& {
-			@include background-gradient-ie-old(transparent,$color-box);
 			@include background-image(linear-gradient(transparent 95%,$color-box ));
 
 		}
