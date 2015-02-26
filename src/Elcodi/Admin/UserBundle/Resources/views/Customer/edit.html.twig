@@ -5,11 +5,14 @@
     {{ 'Customer Zone'|trans }}
 {% endblock content_title %}
 
+{% block header_actions %}
+    <a href="{{ url('admin_customer_order_list', {customerId: customer.id}) }}" type="button" class="button-primary"><i class="icon-shopping-cart"></i> <span>{% trans with { '%name': customer.firstname } %}%name's orders{% endtrans %}</span></a>
+{% endblock header_actions %}
 
 {% block breadcrumb %}
 
     {% set entityHeader = customer.id
-        ? 'Edit ' ~ customer.name
+        ? customer.fullName
         : 'Create new Customer'
     %}
 
@@ -28,7 +31,6 @@
 
 
 {% block content %}
-
     {% if customer.id %}
         {{ render(url("admin_customer_edit_component", {
             'id': customer.id
