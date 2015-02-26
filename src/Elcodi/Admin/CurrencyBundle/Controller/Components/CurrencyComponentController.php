@@ -17,8 +17,6 @@
 
 namespace Elcodi\Admin\CurrencyBundle\Controller\Components;
 
-use Doctrine\ORM\Tools\Pagination\Paginator;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
@@ -40,9 +38,9 @@ class CurrencyComponentController extends AbstractAdminController
      * @Route(
      *      path = "currencies/list/component",
      *      name = "admin_currency_list_component",
+     *      methods = {"GET"}
      * )
      * @Template("AdminCurrencyBundle:Currency:Component/listComponent.html.twig")
-     * @Method({"GET"})
      */
     public function listComponentAction()
     {

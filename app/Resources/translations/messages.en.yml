@@ -92,6 +92,16 @@ admin:
                 title:       Validity
                 description: Set the time validity of the coupon and the status.
 
+    currency:
+        single: Currency
+        plural: Currencies
+        list:   Currency list
+        field:
+            symbol: Symbol
+            iso: ISO
+            name: Name
+            status: Enabled
+
     order:
         single:    Order
         plural:    Orders

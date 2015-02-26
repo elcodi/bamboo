@@ -8,7 +8,7 @@
                 {% for currency in currencies %}
                     {% if currentCurrency.iso != currency.iso %}
                     <li>
-                        <a href="{{ url("admin_currency_switch", {iso: currency.iso}) }}" title="{{ currency.iso }}">
+                        <a href="{{ url('admin_currency_switch', { iso: currency.iso }) }}" title="{{ currency.iso }}">
                              {{ currency.symbol }}
                         </a>
                     </li>

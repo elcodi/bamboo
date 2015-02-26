@@ -1,31 +1,30 @@
 {% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
 
 
-{% block title %}
-    {{ 'Currency list'|trans }}
-{% endblock title %}
+{% block title 'admin.currency.list'|trans %}
 
 
-{% block table_attributes %}
-    data-tc-modules="table"
-{% endblock table_attributes %}
+{% block table_attributes 'data-tc-modules="table"' %}
 
 
 {% block table_head %}
-    {% include "@AdminCore/Tables/head.html.twig" with {
-        rows: {
-            "Symbol": {"sorting_disabled": true, "width": 10},
-            "Iso": {"sorting_disabled": true, "width": 10},
-            "Name": {"sorting_disabled": true},
-            "Status": {width:"10", "sorting_disabled": true},
-        },
-        class: "currency",
+
+    {% include '@AdminCore/Tables/head.html.twig' with {
+        rows: [
+            { name: 'admin.currency.field.symbol'|trans, width: 10 },
+            { name: 'admin.currency.field.iso'|trans, width: 10 },
+            { name: 'admin.currency.field.name'|trans },
+            { name: 'admin.currency.field.status'|trans, width: 10 },
+        ],
+        class: 'currency',
         actions: false
     } %}
+
 {% endblock table_head %}
 
 
 {% block table_body_row %}
+
     <td>
         {{ entity.symbol }}
     </td>
@@ -37,8 +36,8 @@
     </td>
     <td>
         <div class="switch">
-            <input id="enable-{{ entity.iso }}" type="hidden" value="{{ url("admin_currency_enable", {"iso": entity.iso }) }}" />
-            <input id="disable-{{ entity.iso }}" type="hidden" value="{{ url("admin_currency_disable", {"iso": entity.iso }) }}" />
+            <input id="enable-{{ entity.iso }}" type="hidden" value="{{ url('admin_currency_enable', { iso: entity.iso }) }}" />
+            <input id="disable-{{ entity.iso }}" type="hidden" value="{{ url('admin_currency_disable', { iso: entity.iso }) }}" />
             <input id="{{ entity.iso }}" type="checkbox" {% if entity.enabled %}checked="checked"{% endif %} />
             <label for="{{ entity.iso }}"></label>
         </div>
@@ -47,5 +46,4 @@
 {% endblock table_body_row %}
 
 
-{% block table_paginator_links %}
-{% endblock table_paginator_links %}
+{% block table_paginator_links '' %}
