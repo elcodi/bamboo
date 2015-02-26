@@ -67,8 +67,8 @@
         "mmoreram/extractor": "~1.0, >=1.1.1",
         "ornicar/gravatar-bundle" : "1.1.2",
         "knplabs/knp-gaufrette-bundle": "~0.1.0",
-        "paymentsuite/paymentsuite": "~1.4.0",
-        "paymentsuite/paypal-web-checkout-bundle": "~1.4.0",
+        "paymentsuite/paymentsuite": "~1.5.0",
+        "paymentsuite/paypal-web-checkout-bundle": "~1.5.0",
         "incenteev/composer-parameter-handler": "~2.0",
         "hwi/oauth-bundle": "0.4.*@dev",
         "snc/redis-bundle": "~1.1",
@@ -104,7 +104,7 @@
         "elcodi-templates/store-template-bundle": "self.version"
     },
     "require-dev": {
-        "elcodi/elcodi": "0.4.31",
+        "elcodi/elcodi": "0.4.32",
         "elcodi/test-common-bundle": "~0.4.0",
         "doctrine/data-fixtures": "~1.0",
         "behat/behat": "~3.0",
