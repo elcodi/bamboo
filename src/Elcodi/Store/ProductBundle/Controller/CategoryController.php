@@ -101,6 +101,7 @@ class CategoryController extends Controller
             ->get('elcodi.repository.product')
             ->findBy([
                 'principalCategory' => $category,
+                'enabled'           => true
             ]);
 
         return $this->renderTemplate(
