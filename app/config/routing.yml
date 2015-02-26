@@ -65,14 +65,15 @@ admin_metric:
     resource: "@AdminMetricBundle/Resources/config/routing.yml"
     prefix: /%bamboo_admin_prefix%
 
+admin_geo:
+    resource: "@AdminGeoBundle/Resources/config/routing.yml"
+    prefix: /%bamboo_admin_prefix%
+
 admin_login_check:
     path:  /%bamboo_admin_prefix%/login_check
 
 admin_logout:
     path: /%bamboo_admin_prefix%/logout
-
-store_address:
-    resource: "@StoreGeoBundle/Resources/config/routing.yml"
 
 #
 # Store routes
@@ -103,6 +104,9 @@ store_login_check:
 
 store_logout:
     path: /logout
+
+store_address:
+    resource: "@StoreGeoBundle/Resources/config/routing.yml"
 
 core_media_bundle:
     resource: "@ElcodiMediaBundle/Resources/config/routing.yml"

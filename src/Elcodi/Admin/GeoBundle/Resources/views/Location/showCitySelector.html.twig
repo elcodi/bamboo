@@ -1,0 +1,15 @@
+<ol id="js-location-selectors" data-url="{{ url('admin_location_selectors') }}" class="grid">
+    {% for select in selects %}
+        <li class="d-ib mr-m">
+            <label for="{{ select.type }}">{{ select.type|capitalize|trans }}</label>
+            <select{% if select.type == maxLocationType %} data-max-type{% endif %}>
+                <option>Select one</option>
+                {% for key, value in select.options %}
+                    <option value="{{ key }}"{% if key == select.selected %} selected{% endif %}>
+                        {{ value }}
+                    </option>
+                {% endfor%}
+            </select>
+        </li>
+    {% endfor %}
+</ol>

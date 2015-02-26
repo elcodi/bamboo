@@ -15,7 +15,7 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-namespace Elcodi\Store\GeoBundle\Form;
+namespace Elcodi\Admin\GeoBundle\Form;
 
 use Doctrine\ORM\EntityNotFoundException;
 

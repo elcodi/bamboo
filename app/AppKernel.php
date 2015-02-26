@@ -120,6 +120,7 @@ class AppKernel extends Kernel
             new \Elcodi\Admin\PluginBundle\AdminPluginBundle(),
             new \Elcodi\Admin\ShippingBundle\AdminShippingBundle(),
             new \Elcodi\Bundle\FixturesBoosterBundle\ElcodiFixturesBoosterBundle(),
+            new \Elcodi\Admin\GeoBundle\AdminGeoBundle(),
 
             /**
              * Elcodi Templates
