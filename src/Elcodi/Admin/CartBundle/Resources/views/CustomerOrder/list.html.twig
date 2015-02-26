@@ -1,10 +1,15 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
+{% block header_actions %}
+    <a href="{{ url('admin_order_list') }}" type="button" class="button-primary"><i class="icon-shopping-cart"></i> All orders</a>
+    <a href="{{ url('admin_customer_edit', {id: customer.id}) }}" type="button" class="button-secondary"><i class="icon-user"></i> Go to customer</a>
+{% endblock header_actions %}
+
 {% block breadcrumb %}
 
     {% include "@AdminCore/Common/breadcrumb.html.twig" with {
         breadcrumb: {
-            "Customer orders": {
+            ( customer.fullName ~ " orders history"): {
                 "active" : true
             }
         }
@@ -14,10 +19,6 @@
 
 
 {% block content %}
-    <div class="buttons-group">
-        <a href="{{ url('admin_order_list') }}" type="button" class="button-primary">All orders</a>
-        <a href="{{ url('admin_customer_edit', {id: customer.id}) }}" type="button" class="button-primary">Go to customer</a>
-    </div>
 
     {{ render(url("admin_customer_order_list_component", {
         'customerId': customer.id,

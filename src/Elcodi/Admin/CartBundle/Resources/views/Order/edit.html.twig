@@ -7,6 +7,8 @@
 
 {% block header_actions %}
 
+    <a href="{{ url('admin_customer_order_list', {customerId: order.customer.id}) }}" type="button" class="button"><i class="icon-shopping-cart"></i> <span>{% trans with { '%name': order.customer.firstname } %}%name's orders{% endtrans %}</span></a>
+
     {% for paymentTransition in nextPaymentTransitions %}
         <a href="{{ url("admin_order_change_payment_state", {
             "id": order.id,
@@ -46,7 +48,6 @@
 
 {% block content %}
 
-    <a href="{{ url('admin_customer_order_list', {customerId: order.customer.id}) }}" type="button" class="button-primary">All customer orders</a>
 
     <div class="grid pr-l">
         <div class="col-8-12 pr-l">
