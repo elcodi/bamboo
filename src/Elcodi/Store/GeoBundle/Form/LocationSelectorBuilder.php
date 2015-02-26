@@ -18,6 +18,7 @@
 namespace Elcodi\Store\GeoBundle\Form;
 
 use Doctrine\ORM\EntityNotFoundException;
+
 use Elcodi\Component\Geo\Services\Interfaces\LocationProviderInterface;
 use Elcodi\Component\Geo\ValueObject\LocationData;
 

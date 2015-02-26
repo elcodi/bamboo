@@ -28,6 +28,7 @@
 
 
 {% block content %}
+    <a href="{{ url('admin_customer_order_list', {customerId: customer.id}) }}" type="button" class="button-primary">Customer orders</a>
 
     {% if customer.id %}
         {{ render(url("admin_customer_edit_component", {

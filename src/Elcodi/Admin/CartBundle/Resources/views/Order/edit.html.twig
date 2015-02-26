@@ -46,6 +46,8 @@
 
 {% block content %}
 
+    <a href="{{ url('admin_customer_order_list', {customerId: order.customer.id}) }}" type="button" class="button-primary">All customer orders</a>
+
     <div class="grid pr-l">
         <div class="col-8-12 pr-l">
             {{ render(url("admin_order_edit_component", {
