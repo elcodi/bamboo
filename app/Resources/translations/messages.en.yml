@@ -4,6 +4,40 @@ store:
         store_is_under_construction: Store is under construction
 
 admin:
+    address:
+        single: Address
+        plural: Addresses
+        edit:
+            billing_address: Edit billing address
+        select:
+            placeholder: Select one
+        field:
+            recipient_name:
+                title:       Recipient name
+                placeholder: e.g. John
+            recipient_surname:
+                title:       Recipient surname
+                placeholder: e.g. Doe
+            address:
+                title:       Address
+                placeholder: "e.g. Awesonme Street, 42"
+            address_more:
+                title:       Address more (optional)
+                placeholder: e.g. Doe Enterprises
+            postalcode:
+                title:       Postal code
+                placeholder: e.g. 08080
+            phone:
+                title:       Phone
+                placeholder: e.g. 935 555 555
+            mobile:
+                title:       Cellphone
+                placeholder: e.g. 555 555 555
+            comments:
+                title:       Comments
+                placeholder: e.g. It's a house
+            save: Save address
+
     attribute:
         single: Attribute
         plural: Attributes
