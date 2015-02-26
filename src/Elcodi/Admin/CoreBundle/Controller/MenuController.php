@@ -89,7 +89,10 @@ class MenuController extends Controller
             ->get('store.plugins');
 
         foreach ($plugins as $plugin) {
-            if (!$plugin['enabled']) {
+            if (
+                !$plugin['enabled'] ||
+                !$plugin['visible']
+            ) {
                 continue;
             }
 
