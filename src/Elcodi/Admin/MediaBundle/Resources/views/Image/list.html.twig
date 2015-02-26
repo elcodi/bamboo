@@ -1,22 +1,22 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
+
 {% block breadcrumb %}
 
-    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
-        breadcrumb: {
-            "Media": {
-            "active" : true
-            }
-        }
+    {% include '@AdminCore/Common/breadcrumb.html.twig' with {
+        breadcrumb: [
+            { name: 'admin.media.plural', active: true },
+        ]
     } %}
 
 {% endblock breadcrumb %}
+
 
 {% block content %}
 
     <div class="row">
         <div class="col-md-12">
-            {{ render(url("admin_image_list_component")) }}
+            {{ render(url('admin_image_list_component')) }}
         </div>
     </div>
 

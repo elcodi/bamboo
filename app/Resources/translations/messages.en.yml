@@ -136,10 +136,23 @@ admin:
             name: Name
             status: Enabled
 
+    image:
+        single: Image
+        plural: Images
+        info:
+            principal: First image will be the principal image.
+            reorder: "You can drag & drop the images to reorder."
+            upload: Upload images
+
     language:
         single: Language
         plural: Languages
         list:   Language list
+
+    media:
+        single: Media
+        plural: Media
+        list:   Media list
 
     order:
         single:    Order
