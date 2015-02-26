@@ -1,8 +1,12 @@
+#cboxContent {
+	margin: 0 !important;
+}
 .section-header {
 	& {
 		display: block;
 		background: $color-background;
 		padding: $spacing/2 $spacing/2 $spacing/2 $spacing/1.5;
+		min-height: 53px;
 
 	}
 	.list-horizontal {
@@ -11,7 +15,7 @@
 			font-size: $font-size-xl;
 			font-family: $font-face-title;
 			line-height: 100%;
-			padding: 0;
+			padding: $spacing/4;
 		}
 		li {
 			margin-right: 0;
@@ -53,7 +57,7 @@
 		}
 		.list-horizontal {
 			font-size: $font-size-xxl;
-			padding-top: 0;
+			padding: 0;
 		}
 		[class^='button'] {
 			& {
