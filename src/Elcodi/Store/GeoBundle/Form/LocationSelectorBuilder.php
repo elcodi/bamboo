@@ -81,7 +81,7 @@ class LocationSelectorBuilder
 
             $this->buildRootSelector($rootLocation);
 
-            if(!empty($hierarchy)) {
+            if(!empty($rootLocation)) {
                 $this->buildChildrenSelects($rootLocation, $hierarchy);
             }
         } else {
