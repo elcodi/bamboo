@@ -49,7 +49,7 @@ class PluginController extends AbstractAdminController
     {
         $plugins = $this
             ->get('elcodi.plugin_manager')
-            ->getPlugins();
+            ->getVisiblePlugins();
 
         return [
             'plugins' => $plugins,

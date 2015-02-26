@@ -13,7 +13,7 @@ elcodi_configuration:
             namespace: store
             type: string
             can_be_empty: true
-            reference: paymill_private_key
+            default_value: ''
 
         #
         # Paymill public key
@@ -24,7 +24,7 @@ elcodi_configuration:
             namespace: store
             type: string
             can_be_empty: true
-            reference: paymill_public_key
+            default_value: ''
 
         #
         # Paypal
@@ -35,5 +35,4 @@ elcodi_configuration:
             namespace: store
             type: string
             can_be_empty: true
-            reference: paypal_web_checkout_recipient
-            default_value: payment-test@elcodi.com
+            default_value: ''
