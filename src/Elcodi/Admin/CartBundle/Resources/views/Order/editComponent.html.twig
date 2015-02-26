@@ -1,24 +1,30 @@
 {% extends 'AdminCoreBundle::Common/formComponent.html.twig' %}
 
 
+{% set elcodi_context = {
+    entity_type: 'order',
+} %}
+
+
 {% block content %}
+
 <div class="box-background">
-    <p class="fl-r fz-s"><i class="icon-calendar-o"></i> {% include "@AdminCart/Order/date.html.twig" %}</p>
-    <h3 class="fw-n"><i class="icon-shopping-cart"></i> Details</h3>
+    <p class="fl-r fz-s"><i class="icon-calendar-o"></i> {% include '@AdminCart/Order/date.html.twig' %}</p>
+    <h3 class="fw-n"><i class="icon-shopping-cart"></i> {{ 'admin.order.details.title'|trans }}</h3>
     <table class="table">
         <thead>
             <tr>
-                <th>{{ "Item"|trans }}</th>
-                <th class="w-10 ta-r">{{ "Units"|trans }}</th>
-                <th class="w-15 ta-r">{{ "Price"|trans }}</th>
-                <th class="w-15 ta-r">{{ "Total"|trans }}</th>
+                <th>{{ 'admin.order.details.item'|trans }}</th>
+                <th class="w-10 ta-r">{{ 'admin.order.details.units'|trans }}</th>
+                <th class="w-15 ta-r">{{ 'admin.order.details.price'|trans }}</th>
+                <th class="w-15 ta-r">{{ 'admin.order.field.total'|trans }}</th>
             </tr>
         </thead>
         <tbody>
             {% for line in order.orderLines %}
             <tr>
                 <td>
-                    <a href="{{ url("admin_product_edit", {"id": line.product.id}) }}" class="fw-b">{{ line.product.name }}</a>
+                    <a href="{{ url('admin_product_edit', { id: line.product.id}) }}" class="fw-b">{{ line.product.name }}</a>
                     <p class="fz-s">ID: {{ line.product.id }}</p>
                 </td>
                 <td class="ta-r">{{ line.quantity }}</td>
@@ -28,25 +34,27 @@
             {% endfor %}
 
             <tr>
-                <td colspan="3" class="ta-r">Subtotal</td>
+                <td colspan="3" class="ta-r">{{ 'admin.order.details.subtotal'|trans }}</td>
                 <td class="ta-r">{{ order.productAmount|print_money }}</td>
             </tr>
 
             {% if order.couponAmount is not null %}
                 <tr>
-                    <td colspan="3" class="ta-r">{{ "Coupon Discount"|trans }}</td>
+                    <td colspan="3" class="ta-r">{{ 'admin.order.details.discount'|trans }}</td>
                     <td class="ta-r">-{{ order.couponAmount|print_money }}</td>
                 </tr>
             {% endif %}
+
             <tr>
-                <td colspan="3" class="ta-r">Shipping</td>
+                <td colspan="3" class="ta-r">{{ 'admin.order.details.shipping'|trans }}</td>
                 <td class="ta-r">{{ order.shippingAmount|print_money }}</td>
             </tr>
             <tr>
-                <td colspan="3" class="ta-r fw-b">Total</td>
+                <td colspan="3" class="ta-r fw-b">{{ 'admin.order.field.total'|trans }}</td>
                 <td class="ta-r fw-b">{{ order.amount|print_money }}</td>
             </tr>
         </tbody>
     </table>
 </div>
+
 {% endblock content %}

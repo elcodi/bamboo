@@ -21,7 +21,6 @@ use Doctrine\ORM\Tools\Pagination\Paginator;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Paginator as PaginatorAnnotation;
 use Mmoreram\ControllerExtraBundle\ValueObject\PaginatorAttributes;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
@@ -65,9 +64,9 @@ class OrderComponentController extends AbstractAdminController
      *          "orderByField" = "id",
      *          "orderByDirection" = "DESC",
      *      },
+     *      methods = {"GET"}
      * )
      * @Template("AdminCartBundle:Order:listComponent.html.twig")
-     * @Method({"GET"})
      *
      * @PaginatorAnnotation(
      *      attributes = "paginatorAttributes",
@@ -113,10 +112,10 @@ class OrderComponentController extends AbstractAdminController
      *      name = "admin_order_edit_component",
      *      requirements = {
      *          "id" = "\d+",
-     *      }
+     *      },
+     *      methods={"GET"}
      * )
      * @Template("AdminCartBundle:Order:editComponent.html.twig")
-     * @Method({"GET"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.cart.entity.order.class",

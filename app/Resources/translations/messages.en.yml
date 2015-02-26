@@ -25,7 +25,56 @@ admin:
                 title:       Visibility
                 description: Set this attribute as visible or hidden.
 
+    order:
+        single:    Order
+        plural:    Orders
+        edit:      'Edit #%id%'
+        new:       New order
+        all:       All orders
+        list:      Order list
+        from_user: %name%'s orders
+        to_user:   Go to customer
+        field:
+            id:               'Order #%id%'
+            date:             Date
+            carrier:          Carrier
+            customer:         Customer
+            status:           Status
+            delivery_address: Delivery address
+            billing_address:  Billing address
+            both_addresses:   'Delivery & Billing address'
+            total:            Total
+        details:
+            title:    Details
+            item:     Item
+            units:    Units
+            price:    Price
+            subtotal: Subtotal
+            discount: Coupon Discount
+            shipping: Shipping
+        states:
+            title:       History
+            initial:     New order
+            unpaid:      Unpaid
+            refunded:    Refunded
+            shipped:     Shipped
+            not shipped: Not shipped
+            paid:        Paid
+        transition:
+            refund: Refund
+            ship:   Ship
+
 ui:
+    address:
+        full_name: Full name
+        phone:     Phone
+        address:   Address
+        city:      City
+        zipcode:   Zipcode
+        comment:   Comment
+    date:
+        today_at: Today at %time%
+        yesterday_at: Yesterday at %time%
     list:
         no_items:     There are no %items%.
         create_first: Create my first %item%.

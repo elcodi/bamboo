@@ -1,14 +1,20 @@
 {% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
 
 
-{% block no_items %}
-    <p class="msg-info">{{ 'There are no orders.'|trans }}</p>
-{% endblock no_items %}
+{% set elcodi_context = {
+    entity_type: 'order',
+} %}
 
 
-{% block title %}
-    {{ 'Order list'|trans }}
-{% endblock title %}
+{% block title 'admin.order.list'|trans %}
+
+
+{% block no_items
+    lists.no_items(
+        'admin.order.single'|trans,
+        'admin.order.plural'|trans
+    )
+%}
 
 
 {% block table_head %}
@@ -22,32 +28,43 @@
         },
         class: "order",
     } %}
+
 {% endblock table_head %}
 
 
 {% block table_body_row %}
+
     <td>
-        <a href="{{ url("admin_order_edit",{"id": entity.id}) }}">Order #{{ entity.id }}</a>
+        <a href="{{ url('admin_order_edit', { id: entity.id }) }}">
+            {{ 'admin.order.field.id'|trans({ '%id%': entity.id }) }}
+        </a>
     </td>
     <td>
-        {% include "AdminCartBundle:Order:date.html.twig" %}
+        {% include 'AdminCartBundle:Order:date.html.twig' %}
     </td>
     <td>
-        <a href="{{ url("admin_customer_edit", {"id": entity.customer.id}) }}">
+        <a href="{{ url('admin_customer_edit', { id: entity.customer.id }) }}">
             {{ entity.customer }}
         </a>
     </td>
     <td>
-        <span class="label label-warning">{{ entity.paymentStateLineStack.lastStateLine.name|trans }}</span>
-        <span class="label label-info">{{ entity.shippingStateLineStack.lastStateLine.name|trans }}</span>
+        <span class="label label-warning">
+            {{ "admin.order.states.#{entity.paymentStateLineStack.lastStateLine.name}"|trans }}
+        </span>
+        <span class="label label-info">
+            {{ "admin.order.states.#{entity.shippingStateLineStack.lastStateLine.name}"|trans }}
+        </span>
     </td>
     <td>
         {{ entity.amount|print_money }}
     </td>
+
 {% endblock table_body_row %}
 
 
 {% block table_paginator_links %}
+
     {% set url = 'admin_order_list' %}
     {{ parent() }}
+
 {% endblock table_paginator_links %}

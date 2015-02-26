@@ -1,6 +1,11 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
 
+{% set elcodi_context = {
+    entity_type: 'order',
+} %}
+
+
 {% block breadcrumb %}
 
     {% include "@AdminCore/Common/breadcrumb.html.twig" with {
@@ -16,11 +21,13 @@
 
 {% block content %}
 
-    {{ render(url("admin_order_list_component", {
-        'page': page,
-        'limit': limit,
-        'orderByField': orderByField,
-        'orderByDirection': orderByDirection
-    })) }}
+    {{
+        render(url('admin_order_list_component', {
+            page: page,
+            limit: limit,
+            orderByField: orderByField,
+            orderByDirection: orderByDirection,
+        }))
+    }}
 
 {% endblock content %}
