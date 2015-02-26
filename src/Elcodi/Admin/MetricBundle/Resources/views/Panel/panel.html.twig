@@ -1,0 +1,148 @@
+<nav class="navigation-sub dashboard-tabs">
+    <ul>
+        <li{% if type == 1 %} class="active"{% endif %}>
+            <a title="tab 1" href="{{ url("admin_reports_today") }}">
+                <span class='dashboard-tabs-range'>{{ 'Today'|trans }}</span>
+                {% set todayIntervalContainer = metric_create_interval_container(1) %}
+                <span class='dashboard-tabs-amount'>
+                    {{ metric_accumulation(store_tracker, 'order_total', todayIntervalContainer.elements)|print_money_from_value }}
+                </span>
+                <span class='dashboard-tabs-orders'>
+                    {{ metric_beacon_total(store_tracker, 'order_nb', todayIntervalContainer.elements) }} {{ order|trans }}
+                </span>
+                {% if type == 1 %}
+                    {% set intervalContainer = todayIntervalContainer %}
+                {% endif %}
+            </a>
+        </li>
+
+        <li{% if type == 2 %} class="active"{% endif %}>
+            <a title="tab 2" href="{{ url("admin_reports_yesterday") }}">
+                <span class='dashboard-tabs-range'>{{ 'Yesterday'|trans }}</span>
+                {% set yesterdayIntervalContainer = metric_create_interval_container(2) %}
+                <span class='dashboard-tabs-amount'>
+                    {{ metric_accumulation(store_tracker, 'order_total', yesterdayIntervalContainer.elements)|print_money_from_value }}
+                </span>
+                <span class='dashboard-tabs-orders'>
+                    {{ metric_beacon_total(store_tracker, 'order_nb', yesterdayIntervalContainer.elements) }} {{ order|trans }}
+                </span>
+                {% if type == 2 %}
+                    {% set intervalContainer = yesterdayIntervalContainer %}
+                {% endif %}
+            </a>
+        </li>
+
+        <li{% if type == 3 %} class="active"{% endif %}>
+            <a title="tab 3" href="{{ url("admin_reports_last_week") }}">
+                <span class='dashboard-tabs-range'>{{ 'Last 7 days'|trans }}</span>
+                {% set lastWeekIntervalContainer = metric_create_interval_container(1) %}
+                <span class='dashboard-tabs-amount'>
+                    {{ metric_accumulation(store_tracker, 'order_total', lastWeekIntervalContainer.elements)|print_money_from_value }}
+                </span>
+                <span class='dashboard-tabs-orders'>
+                    {{ metric_beacon_total(store_tracker, 'order_nb', lastWeekIntervalContainer.elements) }} {{ order|trans }}
+                </span>
+                {% if type == 3 %}
+                    {% set intervalContainer = lastWeekIntervalContainer %}
+                {% endif %}
+            </a>
+        </li>
+
+        <li{% if type == 4 %} class="active"{% endif %}>
+            <a title="tab 4" href="{{ url("admin_reports_last_month") }}">
+                <span class='dashboard-tabs-range'>{{ 'Last 30 days'|trans }}</span>
+                {% set lastMonthIntervalContainer = metric_create_interval_container(4) %}
+                <span class='dashboard-tabs-amount'>
+                    {{ metric_accumulation(store_tracker, 'order_total', lastMonthIntervalContainer.elements)|print_money_from_value }}
+                </span>
+                <span class='dashboard-tabs-orders'>
+                    {{ metric_beacon_total(store_tracker, 'order_nb', lastMonthIntervalContainer.elements) }} {{ order|trans }}
+                </span>
+                {% if type == 4 %}
+                    {% set intervalContainer = lastMonthIntervalContainer %}
+                {% endif %}
+            </a>
+        </li>
+
+        <li{% if type == 5 %} class="active"{% endif %}>
+            <a title="tab 5" href="{{ url("admin_reports_last_quarter") }}">
+                <span class='dashboard-tabs-range'>{{ 'Last 90 days'|trans }}</span>
+                {% set lastQuarterIntervalContainer = metric_create_interval_container(5) %}
+                <span class='dashboard-tabs-amount'>
+                    {{ metric_accumulation(store_tracker, 'order_total', lastQuarterIntervalContainer.elements)|print_money_from_value }}
+                </span>
+                <span class='dashboard-tabs-orders'>
+                    {{ metric_beacon_total(store_tracker, 'order_nb', lastQuarterIntervalContainer.elements) }} {{ order|trans }}
+                </span>
+                {% if type == 5 %}
+                    {% set intervalContainer = lastQuarterIntervalContainer %}
+                {% endif %}
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<div class="box-background">
+    <div class="grid">
+        <div class="col-1-2 pr-l">
+            <h2>{{ 'Visitors' }}</h2>
+            {% include 'AdminMetricBundle:Metric:metricLine.html.twig' with {
+                'tracker': store_tracker,
+                'event': 'pv',
+                'intervalContainer': intervalContainer,
+            } %}
+        </div>
+        <div class="col-1-2 pr-l">
+            <h2>{{ 'Sales' }}</h2>
+            {% include 'AdminMetricBundle:Metric:metricOrderTotals.html.twig' with {
+                'tracker': store_tracker,
+                'event': 'order_total',
+                'intervalContainer': intervalContainer,
+            } %}
+        </div>
+    </div>
+    <div class="grid">
+        <div class="col-1-3">
+            <div class="box-none pa-n ta-c">
+                <h2>{{ 'Cart conversion'|trans }}</h2>
+                {% include 'AdminMetricBundle:Metric:metricCheese.html.twig' with {
+                    'tracker': store_tracker,
+                    'events': {
+                        'Cart view': 'pv_store_cart_view',
+                        'Billing/Shipping': 'pv_store_checkout_address',
+                        'Payment': 'pv_store_checkout_payment',
+                        'Ordered': 'order_nb',
+                    },
+                    'intervalContainer': intervalContainer,
+                } %}
+            </div>
+        </div>
+        <div class="col-1-3">
+            <div class="box-none pa-n ta-c">
+                <h2>{{ 'Devices'|trans }}</h2>
+                {% include 'AdminMetricBundle:Metric:metricCheese.html.twig' with {
+                    'tracker': store_tracker,
+                    'events': {
+                        'Mobile': 'mob',
+                        'No Mobile': 'no_mob',
+                    },
+                    'intervalContainer': intervalContainer,
+                } %}
+            </div>
+        </div>
+        <div class="col-1-3">
+            <div class="box-none pa-n ta-c">
+                <h2>{{ 'Traffic Source'|trans }}</h2>
+                {% include 'AdminMetricBundle:Metric:metricCheese.html.twig' with {
+                    'tracker': store_tracker,
+                    'events': {
+                        'Direct': 'source_dir',
+                        'Referrals': 'source_ref',
+                        'Search Engines': 'source_se',
+                    },
+                    'intervalContainer': intervalContainer,
+                } %}
+            </div>
+        </div>
+    </div>
+</div>

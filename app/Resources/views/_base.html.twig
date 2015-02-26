@@ -43,7 +43,6 @@
     </head>
 
     <body {% block body_id "" %} {% block body_class "" %}>
-
         {{ elcodi_hook("store.body_top") }}
 
         <!--[if lt IE 8]>
@@ -51,11 +50,71 @@
         <![endif]-->
         {% block body "" %}
         {% block pixels "" %}
-        {% block view_pixel %}
-            <script>
-                _etc.push(["{{ store_tracker }}", 'page_view']);
-            </script>
-        {% endblock %}
+
+        {% set current_user_id = app.session.id|sha1 %}
+        {% set current_route_name = app.request.get('_route') %}
+
+        <script>
+
+            var isMobile = {
+                Android: function() {
+                    return navigator.userAgent.match(/Android/i);
+                },
+                BlackBerry: function() {
+                    return navigator.userAgent.match(/BlackBerry/i);
+                },
+                iOS: function() {
+                    return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+                },
+                Opera: function() {
+                    return navigator.userAgent.match(/Opera Mini/i);
+                },
+                Windows: function() {
+                    return navigator.userAgent.match(/IEMobile/i);
+                },
+                any: function() {
+                    return ( isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+                }
+            };
+
+            /**
+             * Page view beacons
+             */
+            _etc.push(["{{ store_tracker }}", 'pv', '{{ current_user_id }}', '3']);
+            _etc.push(["{{ store_tracker }}", 'pv_{{ current_route_name }}', '{{ current_user_id }}', '3']);
+
+            /**
+             * Specific product view beacon
+             */
+            {% if current_route_name == 'store_product_view' %}
+                _etc.push(["{{ store_tracker }}", 'pv_store_product_view_{{ product.id }}', '{{ current_user_id }}', '3']);
+            {% endif %}
+
+            /**
+             * Add mobile beacon
+             */
+            if (isMobile.any()) {
+                _etc.push(["{{ store_tracker }}", 'mob', '', '1']);
+            } else {
+                _etc.push(["{{ store_tracker }}", 'no_mob', '', '1']);
+            }
+
+            /**
+             * Add search engine beacon
+             */
+            var referrer = "{{ referrer_domain() }}";
+            var referrerIsSearchEngine = {{ referrer_is_search_engine() }};
+            if (referrerIsSearchEngine) {
+                _etc.push(["{{ store_tracker }}", 'source_se', '', '1']);
+                _etc.push(["{{ store_tracker }}", 'rf', referrer, '8'])
+            } else if (referrer != false) {
+                _etc.push(["{{ store_tracker }}", 'source_ref', '', '1']);
+                _etc.push(["{{ store_tracker }}", 'rf', referrer, '8'])
+            } else {
+                _etc.push(["{{ store_tracker }}", 'source_dir', '', '1'])
+            }
+        </script>
+
         {% block foot_script "" %}
 
         {{ elcodi_hook("store.body_bottom") }}

@@ -1,0 +1,16 @@
+services:
+
+    #
+    # Twig extensions
+    #
+    elcodi.twig_extension.encrypt:
+        class: %elcodi.twig_extension.encrypt.class%
+        tags:
+            - { name: twig.extension }
+
+    elcodi.twig_extension.referrer:
+        class: %elcodi.twig_extension.referrer.class%
+        arguments:
+            - @elcodi.referrer_provider
+        tags:
+            - { name: twig.extension }

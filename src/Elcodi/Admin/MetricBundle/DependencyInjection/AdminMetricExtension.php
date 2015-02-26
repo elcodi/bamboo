@@ -15,21 +15,21 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-namespace Elcodi\Admin\MediaBundle\DependencyInjection;
+namespace Elcodi\Admin\MetricBundle\DependencyInjection;
 
 use Elcodi\Bundle\CoreBundle\DependencyInjection\Abstracts\AbstractExtension;
 
 /**
- * Class AdminMediaExtension
+ * Class AdminMetricExtension
  */
-class AdminMediaExtension extends AbstractExtension
+class AdminMetricExtension extends AbstractExtension
 {
     /**
      * @var string
      *
      * Extension name
      */
-    const EXTENSION_NAME = 'admin_media';
+    const EXTENSION_NAME = 'admin_metric';
 
     /**
      * Get the Config file location
@@ -58,7 +58,8 @@ class AdminMediaExtension extends AbstractExtension
     {
         return [
             'classes',
-            'formTypes',
+            'services',
+            'twig',
         ];
     }
 

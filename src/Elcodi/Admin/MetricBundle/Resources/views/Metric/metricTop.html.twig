@@ -1,0 +1,13 @@
+<table class="table">
+    <tbody>
+
+        {% set results = metric_distributions(tracker, event, intervalContainer.elements)|slice(1,10) %}
+
+        {% for result, count in results %}
+            <tr>
+                <td class="w-60"><a href="{{ result }}">{{ result }}</a></td>
+                <td class="ta-c">{{ count }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

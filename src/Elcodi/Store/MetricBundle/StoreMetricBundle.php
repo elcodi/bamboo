@@ -15,22 +15,25 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-namespace Elcodi\Admin\CoreBundle;
+namespace Elcodi\Store\MetricBundle;
 
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
+use Elcodi\Store\MetricBundle\DependencyInjection\StoreMetricExtension;
+
 /**
- * Class AdminCoreBundle
+ * Class StoreMetricBundle
  */
-class AdminCoreBundle extends Bundle
+class StoreMetricBundle extends Bundle
 {
     /**
      * Returns the bundle's container extension.
      *
-     * @return null
+     * @return ExtensionInterface The container extension
      */
     public function getContainerExtension()
     {
-        return;
+        return new StoreMetricExtension();
     }
 }

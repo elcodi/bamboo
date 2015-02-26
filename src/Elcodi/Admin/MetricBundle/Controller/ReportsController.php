@@ -23,21 +23,71 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
  * Class ReportsController
+ *
+ * @Route(
+ *      path = "reports/"
+ * )
  */
 class ReportsController extends Controller
 {
     /**
      * View reports
      *
+     * @param string $panel Panel type
+     *
+     * @return array
+     *
      * @Route(
-     *      path = "reports",
-     *      name = "admin_reports_view",
+     *      path = "today",
+     *      name = "admin_reports_today",
+     *      defaults = {
+     *          "panel" = "metricPanelToday"
+     *      },
      *      methods = {"GET"}
      * )
+     *
+     * @Route(
+     *      path = "yesterday",
+     *      name = "admin_reports_yesterday",
+     *      defaults = {
+     *          "panel" = "metricPanelYesterday"
+     *      },
+     *      methods = {"GET"}
+     * )
+     *
+     * @Route(
+     *      path = "last/week",
+     *      name = "admin_reports_last_week",
+     *      defaults = {
+     *          "panel" = "metricPanelLastWeek"
+     *      },
+     *      methods = {"GET"}
+     * )
+     *
+     * @Route(
+     *      path = "last/month",
+     *      name = "admin_reports_last_month",
+     *      defaults = {
+     *          "panel" = "metricPanelLastMonth"
+     *      },
+     *      methods = {"GET"}
+     * )
+     *
+     * @Route(
+     *      path = "last/quarter",
+     *      name = "admin_reports_last_quarter",
+     *      defaults = {
+     *          "panel" = "metricPanelLastQuarter"
+     *      },
+     *      methods = {"GET"}
+     * )
+     *
      * @Template()
      */
-    public function viewAction()
+    public function viewAction($panel)
     {
-        return [];
+        return [
+            'panel' => $panel,
+        ];
     }
 }

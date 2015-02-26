@@ -33,7 +33,7 @@ security:
                 default_target_path: admin_homepage
             logout:
                 path:   admin_logout
-                target: admin_homepage
+                target: admin_login
                 invalidate_session: false
 
         store_area:

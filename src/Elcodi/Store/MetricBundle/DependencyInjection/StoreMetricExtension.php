@@ -15,21 +15,21 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-namespace Elcodi\Admin\MediaBundle\DependencyInjection;
+namespace Elcodi\Store\MetricBundle\DependencyInjection;
 
 use Elcodi\Bundle\CoreBundle\DependencyInjection\Abstracts\AbstractExtension;
 
 /**
- * Class AdminMediaExtension
+ * Class StoreMetricExtension
  */
-class AdminMediaExtension extends AbstractExtension
+class StoreMetricExtension extends AbstractExtension
 {
     /**
      * @var string
      *
      * Extension name
      */
-    const EXTENSION_NAME = 'admin_media';
+    const EXTENSION_NAME = 'store_metric';
 
     /**
      * Get the Config file location
@@ -58,7 +58,7 @@ class AdminMediaExtension extends AbstractExtension
     {
         return [
             'classes',
-            'formTypes',
+            'eventListeners',
         ];
     }
 

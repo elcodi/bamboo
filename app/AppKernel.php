@@ -52,7 +52,7 @@ class AppKernel extends Kernel
             new \PaymentSuite\PaypalWebCheckoutBundle\PaypalWebCheckoutBundle(),
             new \PaymentSuite\PaymillBundle\PaymillBundle(),
             new \HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
-            new Snc\RedisBundle\SncRedisBundle(),
+            new \Snc\RedisBundle\SncRedisBundle(),
 
             /**
              * Elcodi core bundles
@@ -98,6 +98,7 @@ class AppKernel extends Kernel
             new \Elcodi\Store\CartCouponBundle\StoreCartCouponBundle(),
             new \Elcodi\Store\ConnectBundle\StoreConnectBundle(),
             new \Elcodi\Store\PaymentBridgeBundle\PaymentBridgeBundle(),
+            new \Elcodi\Store\MetricBundle\StoreMetricBundle(),
 
             /**
              * Elcodi admin bundles

@@ -6,9 +6,6 @@
 
 {% block content %}
 
-    {{ render(url('admin_metric_last_24_hours', {
-        'tracker': store_tracker,
-        'event': 'page_view'
-    })) }}
+    {% render(controller("AdminMetricBundle:Panel:metricPanelToday")) %}
 
 {% endblock content %}

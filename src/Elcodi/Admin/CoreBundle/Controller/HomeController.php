@@ -23,10 +23,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
  * Class IndexController
- *
- * @Route(
- *      path = "/",
- * )
  */
 class HomeController extends Controller
 {

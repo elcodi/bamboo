@@ -1,0 +1,12 @@
+services:
+
+    #
+    # Event Listeners
+    #
+    store.event_listener.add_order_completed_metric:
+        class: %store.event_listener.add_order_completed_metric.class%
+        arguments:
+            - @elcodi.metric_manager
+            - @=elcodi_config("store.tracker")
+        tags:
+            - { name: kernel.event_listener, event: order.oncreated, method: addMetric, priority: 0}

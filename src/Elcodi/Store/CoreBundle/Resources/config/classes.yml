@@ -5,3 +5,9 @@ parameters:
     #
     store.core.event_listener.store_disabled.class: Elcodi\Store\CoreBundle\EventListener\StoreUnavailableEventListener
     store.core.event_listener.store_under_construction.class: Elcodi\Store\CoreBundle\EventListener\StoreUnavailableEventListener
+
+    #
+    # Twig extensions
+    #
+    elcodi.twig_extension.encrypt.class: Elcodi\Store\CoreBundle\Twig\EncryptExtension
+    elcodi.twig_extension.referrer.class: Elcodi\Store\CoreBundle\Twig\ReferrerExtension
