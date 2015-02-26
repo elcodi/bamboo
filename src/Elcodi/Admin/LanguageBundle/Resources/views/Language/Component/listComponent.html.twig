@@ -7,15 +7,17 @@
 
 
 {% block table_head %}
-    {% include "@AdminCore/Tables/head.html.twig" with {
-        rows: {
-            "iso": {},
-            "symbol": {},
-            "enabled": {width:"25"},
-        },
-        class: "language",
+
+    {% include '@AdminCore/Tables/head.html.twig' with {
+        rows: [
+            { name: 'iso' },
+            { name: 'symbol' },
+            { name: 'enabled', width: 25 },
+        ],
+        class: 'language',
         actions: false
     } %}
+
 {% endblock table_head %}
 
 
@@ -29,14 +31,13 @@
     </td>
     <td>
         {% if entity.enabled %}
-            <span class="label label-success">true</span>
+            <span class="label label-success">{{ 'ui.label.enabled'|trans }}</span>
         {% else %}
-            <span class="label label-danger">false</span>
+            <span class="label label-danger">{{ 'ui.label.disabled'|trans }}</span>
         {% endif %}
     </td>
 
 {% endblock table_body_row %}
 
 
-{% block table_paginator_links %}
-{% endblock table_paginator_links %}
+{% block table_paginator_links '' %}

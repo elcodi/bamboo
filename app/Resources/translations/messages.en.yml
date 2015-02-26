@@ -136,6 +136,11 @@ admin:
             name: Name
             status: Enabled
 
+    language:
+        single: Language
+        plural: Languages
+        list:   Language list
+
     order:
         single:    Order
         plural:    Orders
