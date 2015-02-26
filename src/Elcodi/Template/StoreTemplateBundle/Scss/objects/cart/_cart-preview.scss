@@ -20,12 +20,21 @@
 	dt.cart-item-total {
 		clear: left;
 	}
+	.coupon-item-remove, .coupon-item-units, .coupon-item-total {
+		display: none !important;
+	}
 }
 
 .cart-item-preview {
 	@extend %cart-item;
 	@include cart-item-mobile;
-
 }
 
+.coupon-item-preview {
+	@extend %coupon-item;
+	@include coupon-item-mobile;
 
+	dd {
+		min-width: 120px;
+	}
+}

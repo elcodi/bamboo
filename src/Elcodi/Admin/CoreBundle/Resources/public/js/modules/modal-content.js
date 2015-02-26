@@ -42,11 +42,21 @@ TinyCore.AMD.define('modal-content', ['devicePackage','modal' ], function () {
 		},
 		autobind: function( oTarget ){
 
-			var self = this;
+			var self = this,
+				nWindowWidth,
+				nModalWidth = '95%',
+				nModalHeight = '95%';
 
 			$(oTarget).on('click',function(event) {
+
 				event.preventDefault();
 
+				nWindowWidth = $(window).width();
+
+				if (nWindowWidth < 799) {
+					nModalWidth = '100%';
+					nModalHeight = '100%';
+				}
 
 				var $modal = $("#cboxContent");
 
@@ -55,8 +65,8 @@ TinyCore.AMD.define('modal-content', ['devicePackage','modal' ], function () {
 					href: this.href,
 					iframe: true,
 					fastIframe : false,
-					width: '95%',
-					height: '95%',
+					width: nModalWidth,
+					height: nModalHeight,
 					onOpen: function() {
 						$modal.hide();
 					},
@@ -76,6 +86,7 @@ TinyCore.AMD.define('modal-content', ['devicePackage','modal' ], function () {
 						});
 
 						$iframe.find(".sidebar").remove();
+						$iframe.find(".topbar").remove();
 						$iframe.find(".col-10-12.push-right").attr('class','col-1-1');
 
 						$modal.fadeIn();

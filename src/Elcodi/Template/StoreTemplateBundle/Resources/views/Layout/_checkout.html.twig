@@ -16,7 +16,7 @@
                 </div>
                 <div class="coupon-list">
                     {% for cartCoupon in cartCoupons %}
-                        {% include "@StoreTemplate/Modules/_coupon-item.html.twig" with { "coupon": cartCoupon.coupon } %}
+                        {% include "@StoreTemplate/Modules/_coupon-item.html.twig" with { "coupon": cartCoupon.coupon, "class": "coupon-item-preview" } %}
                     {% endfor %}
                 </div>
                 <div class="shipping-list">

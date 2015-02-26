@@ -1,77 +1,90 @@
-TinyCore.AMD.define('variants', ['devicePackage','modal' ], function () {
-    return {
-        modal:  TinyCore.Module.instantiate( 'modal' ),
-        mediator : TinyCore.Toolbox.request( 'mediator' ),
-        onStart: function () {
+TinyCore.AMD.define('variants', ['devicePackage', 'modal'], function () {
+	return {
+		modal: TinyCore.Module.instantiate('modal'),
+		mediator: TinyCore.Toolbox.request('mediator'),
+		onStart: function () {
 
-            var self = this;
+			var self = this,
+				nWindowWidth,
+				nModalWidth = '95%',
+				nModalHeight = '95%';
 
-            if (TinyCore !== undefined) {
-                TinyCore.AMD.requireAndStart('notification');
-            }
+			if (TinyCore !== undefined) {
+				TinyCore.AMD.requireAndStart('notification');
+			}
 
-            this.mediator.subscribe( ['response:success'], this.updateVariants, this );
+			this.mediator.subscribe(['response:success'], this.updateVariants, this);
 
-            $('.button-primary', '#variants-list').on('click', function(event){
+			$('.button-primary', '#variants-list').on('click', function (event) {
 
-                event.preventDefault();
+				event.preventDefault();
 
-                self.modal.open({
-                    iframe: true,
-                    href: this.href,
-                    width: '90%',
-                    height: '90%'
-                });
+				nWindowWidth = $(window).width();
 
-            });
+				if (nWindowWidth < 799) {
+					nModalWidth = '100%';
+					nModalHeight = '100%';
+				}
 
-        },
-        bindLinks: function() {
+				self.modal.open({
+					iframe: true,
+					href: this.href,
+					width: nModalWidth,
+					height: nModalHeight
+				});
 
-            var self = this;
+			});
 
-            $('a' , '#variants-list').on('click',function(event) {
+		},
+		bindLinks: function () {
 
-                if ( this.className.indexOf('icon-trash-o') == -1 ) {
+			var self = this;
 
-                    event.preventDefault();
+			$('a', '#variants-list').on('click', function (event) {
 
-                    self.modal.open({
-                        iframe: true,
-                        href: this.href,
-                        width: '90%',
-                        height: '90%'
-                    });
-                } else {
+				if (this.className.indexOf('icon-trash-o') == -1) {
 
-                    var sText = this.getAttribute("data-tc-text") ? this.getAttribute("data-tc-text") : 'Are you sure?',
-                        sName = this.getAttribute("data-tc-name") ? this.getAttribute("data-tc-name") : 'Delete this item.';
+					event.preventDefault();
 
-                    if (!confirm("\n"+ sName + ":\n" + sText + "\n")) {
-                        return false;
-                    }
-                }
-            });
-        },
-        updateVariants: function( oResponse ) {
+					self.modal.open({
+						iframe: true,
+						href: this.href,
+						width: '90%',
+						height: '90%'
+					});
+				} else {
 
-            var self = this;
+					var sText = this.getAttribute("data-tc-text") ? this.getAttribute("data-tc-text") : 'Are you sure?',
+						sName = this.getAttribute("data-tc-name") ? this.getAttribute("data-tc-name") : 'Delete this item.';
 
-            self.mediator.publish( 'notification', { type : 'ok', message: document.getElementById('variants-message-ok').value } );
+					if (!confirm("\n" + sName + ":\n" + sText + "\n")) {
+						return false;
+					}
+				}
+			});
+		},
+		updateVariants: function (oResponse) {
 
-            document.getElementById('variants-list').innerHTML = '<p class="ta-c pa-xl"><i class="icon-spin icon-spinner fz-xl"></i></p>';
+			var self = this;
 
-            $.get(oResponse.data.url, function( sHtml ) {
+			self.mediator.publish('notification', {
+				type: 'ok',
+				message: document.getElementById('variants-message-ok').value
+			});
 
-                document.getElementById('variants-list').innerHTML = sHtml;
+			document.getElementById('variants-list').innerHTML = '<p class="ta-c pa-xl"><i class="icon-spin icon-spinner fz-xl"></i></p>';
 
-                self.bindLinks();
+			$.get(oResponse.data.url, function (sHtml) {
 
-            });
+				document.getElementById('variants-list').innerHTML = sHtml;
+
+				self.bindLinks();
+
+			});
 
 
-            this.modal.close();
-        }
-    };
+			this.modal.close();
+		}
+	};
 });
 
