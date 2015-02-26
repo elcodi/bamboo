@@ -59,7 +59,6 @@ class AddressController extends AbstractAdminController
             ->getStoreAddress();
 
         if (!$address instanceof AddressInterface) {
-
             return $this->redirectRoute("admin_address_new");
         }
 
