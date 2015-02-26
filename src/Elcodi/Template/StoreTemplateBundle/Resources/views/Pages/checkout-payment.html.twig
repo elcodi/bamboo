@@ -86,8 +86,8 @@
                 paymentRadioInput = $("input[name=field-method]"),
                 selectedRadioInput = $("input[name=field-method]:checked"),
                 selectedPaymentExecuteUrl = selectedRadioInput.data("url"),
-                paymmillForm = $('#paymill_form_div'),
-                activeForm = paymmillForm;
+                paymillForm = $('#paymill_form'),
+                activeForm = paymillForm;
 
             formPaymentExecute.attr("action", selectedPaymentExecuteUrl);
 
@@ -109,7 +109,7 @@
                 } else {
                     $(".js-continue").addClass("hidden");
                     $("#paymill_form_div").removeClass("hidden");
-                    activeForm = paymmillForm;
+                    activeForm = paymillForm;
                 }
             });
 
