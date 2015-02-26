@@ -17,14 +17,10 @@
     {% endif %}
 
     {% include '@AdminCore/Common/breadcrumb.html.twig' with {
-        breadcrumb: {
-            (title) : {
-                'url': url('admin_attribute_list')
-            },
-            (header): {
-                'active' : true
-            }
-        }
+        breadcrumb: [
+            { name: title, url: url('admin_attribute_list'), },
+            { name: header, 'active' : true, },
+        ]
     } %}
 
 {% endblock breadcrumb %}

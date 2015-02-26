@@ -79,6 +79,24 @@
                             </select>
                             <input id="url-currency.default_currency" type="hidden" value="{{ url('admin_configuration_update', { name: 'currency.default_currency' }) }}">
                         </li>
+                        <li>
+                            <label for="store.paymill_private_key">{{ 'plugin.paymill.settings.private_key'|trans }}</label>
+                            <i class="icon-pencil"></i>
+                            <input id="store.paymill_private_key" type="text" name="store.paymill_private_key" value="{{ elcodi_config('store.paymill_private_key') }}"/>
+                            <input id="url-store.paymill_private_key" type="hidden" value="{{ url('admin_configuration_update', { name: 'store.paymill_private_key' }) }}">
+                        </li>
+                        <li>
+                            <label for="store.paymill_public_key">{{ 'plugin.paymill.settings.public_key'|trans }}</label>
+                            <i class="icon-pencil"></i>
+                            <input id="store.paymill_public_key" type="text" name="store.paymill_public_key" value="{{ elcodi_config('store.paymill_public_key') }}"/>
+                            <input id="url-store.paymill_public_key" type="hidden" value="{{ url('admin_configuration_update', { name: 'store.paymill_public_key' }) }}">
+                        </li>
+                        <li>
+                            <label for="store.paypal_web_checkout_recipient">{{ 'plugin.paypal.settings.recipient_email'|trans }}</label>
+                            <i class="icon-pencil"></i>
+                            <input id="store.paypal_web_checkout_recipient" type="text" name="store.paypal_web_checkout_recipient" value="{{ elcodi_config('store.paypal_web_checkout_recipient') }}"/>
+                            <input id="url-store.paypal_web_checkout_recipient" type="hidden" value="{{ url('admin_configuration_update', { name: 'store.paypal_web_checkout_recipient' }) }}">
+                        </li>
                     </ol>
                 </div>
             </div>

@@ -2,16 +2,20 @@
 
 
 {% macro no_items(item, items, no_item_url) %}
+
     <div class="no-items">
         <i class="icon-table no-items-icon"></i>
         <h2>{{ 'ui.list.no_items'|trans({ '%items%': items }) }}</h2>
-        <p>
-            <a href="{{ no_item_url|default('#') }}" class="button-primary">
-                <i class="icon-plus"></i>
-                {{ 'ui.list.create_first'|trans({ '%item%': item }) }}
-            </a>
-        </p>
+        {% if no_item_url is not empty %}
+            <p>
+                <a href="{{ no_item_url|default('#') }}" class="button-primary">
+                    <i class="icon-plus"></i>
+                    {{ 'ui.list.create_first'|trans({ '%item%': item }) }}
+                </a>
+            </p>
+        {% endif %}
     </div>
+
 {% endmacro no_items %}
 
 

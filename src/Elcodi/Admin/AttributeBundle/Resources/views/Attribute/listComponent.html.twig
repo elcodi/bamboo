@@ -20,11 +20,11 @@
 
 {% block table_head %}
     {% include '@AdminCore/Tables/head.html.twig' with {
-        rows: {
-            Name: {},
-            Values: {},
-            Status : {}
-        },
+        rows: [
+            { name: 'admin.attribute.field.name.title'|trans },
+            { name: 'admin.attribute.field.name.values'|trans },
+            { name: 'admin.attribute.field.visibility.title'|trans },
+        ],
         class: 'attribute',
     } %}
 {% endblock table_head %}

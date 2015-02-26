@@ -28,7 +28,7 @@
     <div class="box-none pa-n mb-n">
         <div class="fl-l">
             <p class="fz-default">
-                {% set firstElement = limit * (page-1) + 1 %}
+                {% set firstElement = limit * (page - 1) + 1 %}
                 {% set lastElement = min(firstElement + limit - 1, totalElements) %}
                 {{
                     'ui.paginator.elements'|trans({
@@ -58,7 +58,7 @@
 #}
 {% block table_paginator_links %}
 
-    {% include "@AdminCore/Tables/paginator.html.twig" with {
+    {% include '@AdminCore/Tables/paginator.html.twig' with {
         page: page,
         total_pages: totalPages,
         url: url,

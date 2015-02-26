@@ -8,12 +8,10 @@
 
 {% block breadcrumb %}
 
-    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
-        breadcrumb: {
-            "Orders": {
-                "active" : true
-            }
-        }
+    {% include '@AdminCore/Common/breadcrumb.html.twig' with {
+        breadcrumb: [
+            { name: 'admin.order.plural'|trans, active: true }
+        ],
     } %}
 
 {% endblock breadcrumb %}

@@ -18,15 +18,16 @@
 
 
 {% block table_head %}
-    {% include "@AdminCore/Tables/head.html.twig" with {
-        rows: {
-            "Order": {sorting_disabled: true},
-            "Date": {sorting_disabled: true},
-            "Customer": {sorting_disabled: true},
-            "Status": {sorting_disabled: true},
-            "Total": {sorting_disabled: true},
-        },
-        class: "order",
+
+    {% include '@AdminCore/Tables/head.html.twig' with {
+        rows: [
+            { name: 'admin.order.single'|trans },
+            { name: 'admin.order.field.date'|trans },
+            { name: 'admin.order.field.customer'|trans },
+            { name: 'admin.order.field.status'|trans },
+            { name: 'admin.order.field.total'|trans },
+        ],
+        class: 'order',
     } %}
 
 {% endblock table_head %}
