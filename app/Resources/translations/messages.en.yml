@@ -25,6 +25,73 @@ admin:
                 title:       Visibility
                 description: Set this attribute as visible or hidden.
 
+    coupon:
+        single: Coupon
+        plural: Coupons
+        edit:   Edit "%code%"
+        new:    New coupon
+        list:   Coupon list
+        field:
+            code:
+                placeholder: e.g. MYCODE
+                title:        Code
+            count:
+                title: Usage Limit
+            datetime:
+                title: 'Date & Time'
+            description:
+                placeholder: e.g. 10% Discount code
+                title:       Description
+            discount:
+                title: "% Amount"
+            enabled:
+                title: Status
+            enforcement:
+                title: Mode
+                options:
+                    manual: Manual application
+                    automatic: Automatic application
+            minimum_purchase:
+                title: Minimum purchase
+            price:
+                title: Amount
+            priority:
+                title: Priority
+            rule:
+                title:       Rule
+                placeholder: No rule
+            status:
+                title: Status
+            type:
+                title: Type
+                options:
+                    fixed:  Fixed amount
+                    percent: Percent amount
+            used:
+                title: Used
+            valid_from:
+                title: From
+            valid_to:
+                title: To
+        section:
+            basic:
+                title: Basic Data
+                description:
+                    - 'Set the code name (what users should type in the cart to activate the coupon)'
+                    - 'Set also the description to identify the coupon, the type and the mode to be applied.'
+            fixed_amount:
+                title:       Fixed amount
+                description: Set the fixed amount to discount directly in the cart.
+            percent_amount:
+                title:       Percent amount
+                description: Set the percentage amount to discount directly in the cart.
+            rules:
+                title:       Rules
+                description: Select the rule the coupon will use and a minimum purchase necessary to apply the coupon (optional).
+            validity:
+                title:       Validity
+                description: Set the time validity of the coupon and the status.
+
     order:
         single:    Order
         plural:    Orders
