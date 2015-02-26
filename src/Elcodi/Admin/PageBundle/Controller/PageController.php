@@ -155,9 +155,7 @@ class PageController extends AbstractAdminController
 
             $this->addFlash('success', 'Changes saved');
 
-            return $this->redirectToRoute('admin_page_edit', [
-                'id' => $page->getId(),
-            ]);
+            return $this->redirectToRoute('admin_page_list');
         }
 
         return [

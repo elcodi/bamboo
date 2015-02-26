@@ -138,9 +138,7 @@ class AttributeController extends AbstractAdminController
 
             $this->addFlash('success', 'Changes saved');
 
-            return $this->redirectToRoute('admin_attribute_edit', [
-                'id' => $attribute->getId(),
-            ]);
+            return $this->redirectToRoute('admin_attribute_list');
         }
 
         return [

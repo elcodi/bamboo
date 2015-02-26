@@ -151,9 +151,7 @@ class CouponController extends AbstractAdminController
 
             $this->addFlash('success', 'Changes saved');
 
-            return $this->redirectToRoute('admin_coupon_edit', [
-                'id' => $coupon->getId(),
-            ]);
+            return $this->redirectToRoute('admin_coupon_list');
         }
 
         return [
