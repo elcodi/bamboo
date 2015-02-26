@@ -1,4 +1,4 @@
-.coupon-item {
+%coupon-item {
 	& {
 		display: block;
 		width: 100%;
@@ -15,6 +15,9 @@
 	dd {
 		padding-bottom: $spacing/2;
 	}
+}
+.coupon-item {
+	@extend %coupon-item;
 }
 
 @mixin coupon-item-mobile() {

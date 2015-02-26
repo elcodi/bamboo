@@ -1,4 +1,4 @@
-<dl class="coupon-item">
+<dl class="{{ class|default('coupon-item') }}">
     <dt class="coupon-item-code">{{ 'Coupon'|trans }}</dt>
     <dd class="coupon-item-code"><strong>{{ coupon.code }}</strong></dd>
     <dt class="coupon-item-name">{{ 'Description'|trans }}</dt>

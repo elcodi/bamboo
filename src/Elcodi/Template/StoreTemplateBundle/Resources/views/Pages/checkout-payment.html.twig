@@ -1,14 +1,13 @@
 {% extends '@StoreTemplate/Layout/_checkout.html.twig' %}
 
 {% block content_checkout %}
-    <h1 class="checkout-title">{{ 'Set the shipping & the payment'|trans }}</h1>
-    <p class="checkout-actions checkout-actions-top">
-        <button class="button button-secondary js-continue desktop" type="submit">{{ 'Continue'|trans }}  <i class="fa fa-arrow-right"></i></button>
-        <a class="button desktop" href="{{ url('store_checkout_address') }}"> <i class="fa fa-arrow-left"></i> {{ 'Back' }}</a>
-        {% include "@StoreTemplate/Modules/_checkout-progress.html.twig" with {"step": "3"} %}
-    </p>
-    <form id="form-payment-execute" action="" method="post">
-
+<h1 class="checkout-title">{{ 'Set the shipping & the payment'|trans }}</h1>
+<p class="checkout-actions checkout-actions-top">
+    <button class="button button-secondary js-continue desktop" type="submit">{{ 'Continue'|trans }}  <i class="fa fa-arrow-right"></i></button>
+    <a class="button desktop" href="{{ url('store_checkout_address') }}"> <i class="fa fa-arrow-left"></i> {{ 'Back' }}</a>
+    {% include "@StoreTemplate/Modules/_checkout-progress.html.twig" with {"step": "3"} %}
+</p>
+<form id="form-payment-execute" action="" method="post">
     <div class="form form-checkout">
         {% if shippingRanges|length > 0 %}
             {% set actualShippingRange = cart.shippingRange.id %}
@@ -28,7 +27,6 @@
             </div>
         {% endif %}
     </div>
-
     <div class="form form-checkout">
         <ol class="grid grid-pad">
             <h2>{{ 'Payment method'|trans }}</h2>
@@ -62,11 +60,6 @@
     <a class="button" href="{{ url('store_checkout_address') }}"> <i class="fa fa-arrow-left"></i> {{ 'Back' }}</a>
     <button class="button button-secondary js-continue" type="submit">{{ 'Continue'|trans }}  <i class="fa fa-arrow-right"></i></button>
 </p>
-
-
-
-
-
 {% endblock content_checkout %}
 
 
@@ -86,8 +79,8 @@
                 paymentRadioInput = $("input[name=field-method]"),
                 selectedRadioInput = $("input[name=field-method]:checked"),
                 selectedPaymentExecuteUrl = selectedRadioInput.data("url"),
-                paymillForm = $('#paymill_form'),
-                activeForm = paymillForm;
+                paymmillForm = $('#paymill_form_div'),
+                activeForm = paymmillForm;
 
             formPaymentExecute.attr("action", selectedPaymentExecuteUrl);
 
@@ -109,7 +102,7 @@
                 } else {
                     $(".js-continue").addClass("hidden");
                     $("#paymill_form_div").removeClass("hidden");
-                    activeForm = paymillForm;
+                    activeForm = paymmillForm;
                 }
             });
 
