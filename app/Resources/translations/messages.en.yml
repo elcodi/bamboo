@@ -64,6 +64,48 @@ admin:
             refund: Refund
             ship:   Ship
 
+    settings:
+        single: Setting
+        plural: Settings
+        saved: Settings saved
+        section:
+            store:
+                title: Store Setup
+                description: Set the Store data.
+            products:
+                title: Products Setup
+                description: Set the product data.
+            payment:
+                title: Payment methods
+        field:
+            store_enabled: Store enabled
+            store_under_construction: Store under construction
+            store_name: Store Name
+            store_leitmotiv: Store Leitmotiv
+            store_phone: Store Phone
+            store_email: Store e-mail
+            currency: Currency configuration
+            product_stock:
+                title: Stock
+                description: Enable this option to activate stock control
+
+plugin:
+    paypal:
+        title: Paypal Account Setup
+        register:
+            title: Don't you have a PayPal account?
+            call_to_action: Create a PayPal account
+        settings:
+            recipient_email: Payment Paypal recipient email
+    paymill:
+        title: Paymill Account Setup
+        register:
+            title: Don't you have a Paymill account?
+            call_to_action: Create a Paymill account NOW!
+        settings:
+            private_key: Paymill payment private key
+            public_key: Paymill payment public key
+
 ui:
     address:
         full_name: Full name
