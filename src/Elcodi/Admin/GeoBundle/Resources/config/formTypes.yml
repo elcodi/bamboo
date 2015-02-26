@@ -3,7 +3,7 @@ services:
     #
     # Form Types
     #
-    store.geo.form_type.address:
+    admin.geo.form_type.address:
         class: %admin.geo.form_type.address.class%
         arguments:
             address_factory: @elcodi.factory.address
