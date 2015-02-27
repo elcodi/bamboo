@@ -1,6 +1,7 @@
 {% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
 
 {% block table_content %}
+    {% if categories_list|length > 0 %}
     <div class="grid">
         <div class="col-1-3">
             <div class="box-none">
@@ -45,11 +46,14 @@
             </div>
         </div>
     </div>
+{% else %}
+    <div class="no-items">
+        <i class="icon-table no-items-icon"></i>
+        <h2>{% trans with {'%items%': 'categories'} %}There are not %items%{% endtrans %}</h2>
+        <p><a href="{{ url("admin_category_new") }}" class="button-primary"><i class="icon-plus"></i> {% trans with {'%item%':'category' } %}Create my first %item%{% endtrans %}</a></p>
+    </div>
+{% endif %}
 {% endblock table_content %}
-
-{% block no_items %}
-    {{ lists.no_items('category','categories', url("admin_category_new")  ) }}
-{% endblock no_items %}
 
 {% block table_pagination %}{% endblock table_pagination %}
 
