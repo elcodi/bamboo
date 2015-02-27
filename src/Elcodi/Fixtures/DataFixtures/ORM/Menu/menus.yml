@@ -162,6 +162,20 @@ menu_nodes:
         enabled: 1
         subnodes: ~
 
+    bambooadmin_address:
+        name: Billing address
+        code: ~
+        url: admin_address_edit
+        enabled: 1
+        subnodes: ~
+
+    bambooadmin_payment:
+        name: Payment methods
+        code: ~
+        url: admin_payment_configuration_list
+        enabled: 1
+        subnodes: ~
+
     bambooadmin_carriers:
         name: Shipping
         code: truck
@@ -176,13 +190,6 @@ menu_nodes:
         enabled: 1
         subnodes: ~
 
-    bambooadmin_address:
-        name: Billing address
-        code: ~
-        url: admin_address_edit
-        enabled: 1
-        subnodes: ~
-
     bambooadmin_settings:
         name: Settings
         code: gear
@@ -193,6 +200,7 @@ menu_nodes:
           - bambooadmin_address
           - bambooadmin_carriers
           - bambooadmin_currencies
+          - bambooadmin_payment
 
 menus:
     admin:

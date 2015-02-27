@@ -1,0 +1,79 @@
+{% extends 'AdminCoreBundle::layout.html.twig' %}
+
+
+{% block content_title %}
+    {{ 'Configuration Zone'|trans }}
+{% endblock content_title %}
+
+
+{% block breadcrumb %}
+    {% include '@AdminCore/Common/breadcrumb.html.twig' with {
+        breadcrumb: {
+            'Settings': {},
+            'Payment methods': {
+                'active' : true
+            }
+        }
+    } %}
+{% endblock breadcrumb %}
+
+
+{% block content %}
+    <form class="form-configuration" data-tc-modules="form-save-on-edit">
+        <fieldset class="grid">
+            <div class="col-1-3">
+                <h2 class="fw-n">{{ 'Paymill account setup'|trans }}</h2>
+                <p>
+                    {% trans with {'%1%':'Paymill'} %}Don't you have a %1% account?{% endtrans %}</p>
+                <p>
+                    <a href="https://app.paymill.com/user/register" target="_blank" class="button button-primary">
+                        {% trans with {'%1':'Paymill'} %}Create a %1 account{% endtrans %}
+                    </a>
+                </p>
+            </div>
+            <div class="col-2-3">
+                <div class="box">
+                    <ol>
+                        <li>
+                            <label for="store.paymill_private_key">{{ 'Paymill private Key'|trans }}</label>
+                            <i class="icon-pencil"></i>
+                            <input id="store.paymill_private_key" type="text" name="store.paymill_private_key" value="{{ elcodi_config('store.paymill_private_key') }}"/>
+                            <input id="url-store.paymill_private_key" type="hidden" value="{{ url("admin_configuration_update", {"name": "store.paymill_private_key"}) }}">
+                        </li>
+                        <li>
+                            <label for="store.paymill_public_key">{{ 'Paymill public Key'|trans }}</label>
+                            <i class="icon-pencil"></i>
+                            <input id="store.paymill_public_key" type="text" name="store.paymill_public_key" value="{{ elcodi_config('store.paymill_public_key') }}"/>
+                            <input id="url-store.paymill_public_key" type="hidden" value="{{ url("admin_configuration_update", {"name": "store.paymill_public_key"}) }}">
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="grid">
+            <div class="col-1-3">
+                <h2 class="fw-n">{{ 'Paymill account setup'|trans }}</h2>
+                <p>
+                    {% trans with {'%1%':'Paypal'} %}Don't you have a %1% account?{% endtrans %}</p>
+                <p>
+                    <a href="https://www.paypal.com" target="_blank" class="button button-primary">
+                        {% trans with {'%1':'Paypal'} %}Create a %1 account{% endtrans %}
+                    </a>
+                </p>
+            </div>
+            <div class="col-2-3">
+                <div class="box">
+                    <ol>
+                    <ol>
+                        <li>
+                            <label for="store.paypal_web_checkout_recipient">{{ 'Paypal account'|trans }}</label>
+                            <i class="icon-pencil"></i>
+                            <input id="store.paypal_web_checkout_recipient" type="text" name="store.paypal_web_checkout_recipient" value="{{ elcodi_config('store.paypal_web_checkout_recipient') }}"/>
+                            <input id="url-store.paypal_web_checkout_recipient" type="hidden" value="{{ url("admin_configuration_update", {"name": "store.paypal_web_checkout_recipient"}) }}">
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+{% endblock content %}
