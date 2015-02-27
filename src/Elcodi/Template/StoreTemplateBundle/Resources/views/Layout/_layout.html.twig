@@ -15,17 +15,10 @@
 
     {% endblock header %}
 
-
-
-
     {% block container %}
 
         {% block messages %}
-            <div class="row pad-top-10">
-                <div class="span12">
-                    {% include "@StoreTemplate/Modules/_message-list.html.twig" %}
-                </div>
-            </div>
+            {% include "@StoreTemplate/Modules/_message-list.html.twig" %}
         {% endblock messages %}
 
         <div class="grid grid-pad">

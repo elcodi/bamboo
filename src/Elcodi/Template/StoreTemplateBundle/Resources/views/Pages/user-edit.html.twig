@@ -4,42 +4,32 @@
 {% form_theme form '@StoreTemplate/fields.html.twig' %}
 
 
-{% block content_title %}{{ app.user.name }}{% endblock content_title %}
+{% block content %}{% endblock content %}
 
-
-{% block content %}
-    <div class="container">
-        <div class="row">
-
-            {{ form_start(form) }}
-
-            <div class="span6">
-                <div class="member-box">
-
-                    <h2>{{ "Profile"|trans }}</h2>
-
-                    <p>
-                        {{ form_row(form.firstname) }}
-                    </p>
-                    <p>
-                        {{ form_row(form.lastname) }}
-                    </p>
-                    <p>
-                        {{ form_row(form.email) }}
-                    </p>
-                    <p>
-                        {{ form_row(form.password.first) }}
-                    </p>
-                    <p>
-                        {{ form_row(form.password.second) }}
-                    </p>
-                    <p class="buttons">
-                        {{ form_row(form.send, { 'attr': {'class': 'button button-primary' } }) }}
-                    </p>
-                </div>
+{% block prefooter %}
+    <div class="form">
+        {{ form_start(form) }}
+        <div class="grid">
+            <legend><i class="fa fa-user"></i> {{ "Profile"|trans }}</legend>
+            <div class="col-1-2">
+                {{ form_row(form.firstname) }}
             </div>
-
+            <div class="col-1-2">
+                {{ form_row(form.lastname) }}
+            </div>
+            <div class="col-1-1">
+                {{ form_row(form.email) }}
+            </div>
+            <div class="col-1-2">
+                {{ form_row(form.password.first) }}
+            </div>
+            <div class="col-1-2">
+                {{ form_row(form.password.second) }}
+            </div>
+            <p class="buttons">
+                {{ form_row( form.send , { 'attr': {'class': 'button button-secondary' } } ) }}
+            </p>
             {{ form_end(form) }}
         </div>
     </div>
-{% endblock content %}
+{% endblock prefooter %}
