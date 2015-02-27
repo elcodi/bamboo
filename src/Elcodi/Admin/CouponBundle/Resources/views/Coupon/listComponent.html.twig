@@ -6,6 +6,11 @@
 {% endblock title %}
 
 
+{% block no_items %}
+    {{ lists.no_items('coupon','coupons', url("admin_coupon_new")  ) }}
+{% endblock no_items %}
+
+
 {% block table_head %}
     {% include "@AdminCore/Tables/head.html.twig" with {
         rows: {
