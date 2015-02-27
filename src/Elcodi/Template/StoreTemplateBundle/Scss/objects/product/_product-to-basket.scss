@@ -18,7 +18,7 @@
 	}
 	.product-actions {
 		& {
-			background: lighten($color-secondary, 13%);
+			background: $color-background;
 			padding: $spacing/4;
 			position: relative;
 			margin-bottom: 0;
@@ -32,7 +32,7 @@
 	}
 	.product-pricing {
 		&:after {
-			background: lighten($color-secondary, 13%);
+			background: $color-background;
 
 		}
 

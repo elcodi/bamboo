@@ -8,8 +8,8 @@
     {% include "@StoreTemplate/Modules/_checkout-progress.html.twig" with {"step": "3"} %}
 </p>
 <form id="form-payment-execute" action="" method="post">
+    {% if shippingRanges|length > 0 %}
     <div class="form form-checkout">
-        {% if shippingRanges|length > 0 %}
             {% set actualShippingRange = cart.shippingRange.id %}
             <div class="grid grid-pad">
                 <h2>{{ 'Shipping carrier/method'|trans }}</h2>
@@ -25,8 +25,8 @@
                     {% endif %}
                 {% endfor %}
             </div>
-        {% endif %}
     </div>
+    {% endif %}
     <div class="form form-checkout">
         <ol class="grid grid-pad">
             <h2>{{ 'Payment method'|trans }}</h2>
@@ -79,7 +79,7 @@
                 paymentRadioInput = $("input[name=field-method]"),
                 selectedRadioInput = $("input[name=field-method]:checked"),
                 selectedPaymentExecuteUrl = selectedRadioInput.data("url"),
-                paymmillForm = $('#paymill_form_div'),
+                paymmillForm = $('#paymill_form'),
                 activeForm = paymmillForm;
 
             formPaymentExecute.attr("action", selectedPaymentExecuteUrl);

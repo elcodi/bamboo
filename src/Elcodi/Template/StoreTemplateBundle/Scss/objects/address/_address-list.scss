@@ -11,9 +11,14 @@
 }
 
 .address-list-profile {
+
+	.address-item {
+		padding-top: $spacing;
+	}
 	.address-item-selection {
 		display: none !important;
 	}
+
 }
 
 @mixin address-list-desktop {

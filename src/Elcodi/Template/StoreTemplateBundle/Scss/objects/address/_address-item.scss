@@ -3,7 +3,8 @@
 		display: block;
 		background: $color-background;
 		overflow: hidden;
-		padding: $spacing;
+		padding: $spacing/8;
+		box-shadow: 0 2px 2px rgba($color-foreground, .2);
 	}
 	dt, dd {
 		float: left;
@@ -11,7 +12,7 @@
 	}
 	dt {
 		opacity: .5;
-		min-width: 50%;
+		width: 50%;
 		clear:left;
 		text-align: right;
 		padding-right: $spacing/2;
@@ -22,7 +23,7 @@
 	dt.address-item-actions, dt.address-item-selection {
 		display: none;
 	}
-	dd.address-item-actions, dd.address-item-selection {
+	dd.address-item-actions {
 		& {
 			max-width: 100%;
 			padding-top: $spacing/2;
@@ -33,6 +34,25 @@
 		}
 		.button-primary {
 			margin-right: $spacing/4;
+		}
+	}
+
+	.address-item-selection-item {
+		max-width: 49%;
+		text-align: center;
+		display: inline-block;
+	}
+
+	dd.address-item-selection {
+		& {
+			max-width: 100%;
+			padding: $spacing/2;
+			margin-bottom: $spacing/2;
+			clear: both;
+			display: block;
+			float: none;
+			text-align: center;
+			background: rgba($color-box, .5);
 		}
 	}
 

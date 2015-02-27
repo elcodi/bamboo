@@ -29,7 +29,10 @@
             <dd class="order-item-total">{{ order.amount|print_convert_money() }}</dd>
         </dl>
         {% else %}
-            There are no orders
+            <div class="empty-page">
+                <i class="fa fa-shopping-cart fa-3x"></i>
+                <h2 class="product-title">{{ "There are no orders"|trans}}</h2>
+            </div>
         {% endfor %}
     </div>
 
