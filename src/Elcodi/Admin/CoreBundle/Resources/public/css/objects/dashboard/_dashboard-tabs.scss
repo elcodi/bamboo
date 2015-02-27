@@ -1,0 +1,27 @@
+.dashboard-tabs {
+	& {
+		text-align: center;
+	}
+	li {
+		width: 20%;
+	}
+}
+[class^='dashboard-tabs-'] {
+	display: block;
+	font-weight: normal;
+	padding: $spacing/8 0;
+	text-align: center;
+}
+.dashboard-tabs-range {
+	text-transform: uppercase;
+}
+
+.dashboard-tabs-amount {
+	font-family: $font-face-title;
+	font-size: $font-size-xl;
+	color: $color-primary;
+}
+
+.dashboard-tabs-orders {
+	padding-bottom: $spacing/2;
+}
