@@ -61,8 +61,8 @@
     {% if label is not sameas(false) and label is defined %}
         <label for="{{ id }}">
             {{ label|trans }}
-            {% if attr.label_help is defined %}
-                <em>{{ attr.label_help }}</em>
+            {% if label_help is defined %}
+                <em>{{ label_help }}</em>
             {% endif %}
         </label>
     {% endif %}
@@ -152,8 +152,8 @@
             {% if checked is defined and checked %}checked="checked"{% endif %}
         >
         <label for="{{ id }}">
-            {% if attr.label_help is defined %}
-                <em>{{ attr.label_help }}</em>
+            {% if label_help is defined %}
+                <em>{{ label_help }}</em>
             {% endif %}
         </label>
     </div>
