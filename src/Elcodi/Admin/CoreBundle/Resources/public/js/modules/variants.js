@@ -48,7 +48,7 @@ TinyCore.AMD.define('variants', ['devicePackage', 'modal'], function () {
 
 					self.modal.open({
 						iframe: true,
-						href: this.href,
+						href: this.href + '?modal=true',
 						width: '90%',
 						height: '90%'
 					});

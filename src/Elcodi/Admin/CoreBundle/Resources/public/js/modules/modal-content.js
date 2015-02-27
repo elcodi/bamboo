@@ -62,7 +62,7 @@ TinyCore.AMD.define('modal-content', ['devicePackage','modal' ], function () {
 
 				// 4.Open in a modal this href
 				self.oModal.open({
-					href: this.href,
+					href: this.href + '?modal=true',
 					iframe: true,
 					fastIframe : false,
 					width: nModalWidth,
