@@ -5,6 +5,10 @@
     {{ 'Customer list'|trans }}
 {% endblock title %}
 
+{% block no_items %}
+    <p class="msg-info">{{'There are no customers'|trans }}</p>
+{% endblock no_items %}
+
 
 {% block table_head %}
     {% include "@AdminCore/Tables/head.html.twig" with {
