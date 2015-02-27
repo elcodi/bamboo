@@ -20,7 +20,7 @@ Feature: admin
       | elcodi_admin_product_form_type_product_description_es_description | New description  |
       | elcodi_admin_product_form_type_product_principalCategory          | 1                |
       | elcodi_admin_product_form_type_product_manufacturer               | 1                |
-      | elcodi_admin_product_form_type_product_price_amount               | 6.66              |
+      | elcodi_admin_product_form_type_product_price_amount               | 6.66             |
       | elcodi_admin_product_form_type_product_price_currency             | EUR              |
       | elcodi_admin_product_form_type_product_reducedPrice_amount        | 0                |
       | elcodi_admin_product_form_type_product_reducedPrice_currency      | EUR              |
