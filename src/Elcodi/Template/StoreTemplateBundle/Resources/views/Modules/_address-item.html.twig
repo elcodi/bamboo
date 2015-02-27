@@ -27,11 +27,11 @@
                 name="billing"
                 value="{{ address.id }}"
                 {% if
-                address.id == cart.billingAddress.id or
-                (
-                cart.billingAddress.id is null and
-                loop.index0 == 0
-                )
+                    address.id == cart.billingAddress.id or
+                    (
+                        cart.billingAddress.id is null and
+                        loop.index0 == 0
+                    )
                 %} checked="checked"{% endif %}>
         Billing</label>
         <label for="delivery-{{ address.id }}">
@@ -41,11 +41,11 @@
                 name="delivery"
                 value="{{ address.id }}"
                 {% if
-                address.id == cart.deliveryAddress.id or
-                (
-                cart.deliveryAddress.id is null and
-                loop.index0 == 0
-                )
+                    address.id == cart.deliveryAddress.id or
+                    (
+                        cart.deliveryAddress.id is null and
+                        loop.index0 == 0
+                    )
                 %} checked="checked"{% endif %}>
         Delivery</label>
 
