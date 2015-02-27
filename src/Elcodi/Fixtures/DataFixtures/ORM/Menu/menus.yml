@@ -93,7 +93,7 @@ menu_nodes:
     bambooadmin_reports:
         name: Reports
         code: bar-chart-o
-        url: admin_reports_view
+        url: admin_reports_today
         enabled: 1
         subnodes: ~
 
