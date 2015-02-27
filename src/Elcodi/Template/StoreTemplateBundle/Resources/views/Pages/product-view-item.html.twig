@@ -13,39 +13,36 @@
    <div class="grid">
        <div class="col-1-2">
         {% block product_image %}
-           <img class="product-thumbnail" src="{{ product.images|length > 0 ? product.images.first|resize({
-               'width': 772,
-               'height': 604,
+           <a href="{{ product.images|length > 0 ? product.images.first|resize({
+               'width': 1024,
+               'height': 1024,
                'type': 5
-           }) : 'http://placehold.it/772x604' }}" alt="{{ product.name }}"/>
+           }) : 'http://placehold.it/772x604' }}" alt="{{ product.name }}" class="product-thumbnail">
+            {% if product.reducedPrice.amount > 0 %}<span class="product-badge">{{ 'Offer'|trans }}</span> {% endif %}
+               <img src="{{ product.images|length > 0 ? product.images.first|resize({
+                   'width': 772,
+                   'height': 604,
+                   'type': 5
+               }) : 'http://placehold.it/772x604' }}" alt="{{ product.name }}"/>
+           </a>
         {% endblock %}
        </div>
        <div class="col-1-2">
            {% block product_info %}
-                   <h3 class="product-title desktop">{{ 'Pricing'|trans }}</h3>
                    {% block product_info_add_basket %}
                        <div class= "product-to-basket">
-
-                           <img src="{{ product.principalImage ? product.principalImage|resize({
-                               'width': 60,
-                               'height': 47,
-                               'type': 5
-                           }) : 'http://placehold.it/60x47' }}" alt="{{ product.name }}" align="left" class="desktop"/>
-
-
-                           {% if product.reducedPrice.amount > 0 %}
-                               {% set product_price = product.reducedPrice %}
-                           {% else %}
-                               {% set product_price = product.price %}
-                           {% endif %}
-
                            <h5 class="product-title desktop">{{ product.name }}</h5>
-                           <p>{{ product_price|print_convert_money() }}
+                           <p class="product-actions">
+                               {% if product.reducedPrice.amount > 0 %}
+                                   <span class="product-pricing product-pricing-before">{{ product.price|print_convert_money() }}</span>
+                                   <span class="product-pricing product-pricing-now">{{ product.reducedPrice|print_convert_money() }}</span>
+                               {% else %}
+                                   <span class="product-pricing">{{ product.price|print_convert_money() }}</span>
+                               {% endif %}
                                <a title="Add {{ product|purchasable_name }} to cart"
                                   class="fa fa-shopping-cart button button-secondary"
                                   href="{{ url('store_cart_add_product', { id: product.id }) }}"> {{ 'Add to cart'|trans }}</a>
                            </p>
-
                        </div>
                    {% endblock %}
 
