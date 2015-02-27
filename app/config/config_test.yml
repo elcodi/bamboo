@@ -3,18 +3,9 @@ imports:
     - { resource: @ElcodiBambooBundle/Resources/config/cache.test.yml }
 
 parameters:
-
     database_driver: pdo_sqlite
-    database_host: 127.0.0.1
-    database_port: null
     database_name: bamboo_test
-    database_user: root
-    database_password: root
     database_path: /tmp/Bamboo/bamboo.test
-    database_memory: false
-    locale: en
-    secret: keepcalmandengonga
-
 
 framework:
     test: ~
