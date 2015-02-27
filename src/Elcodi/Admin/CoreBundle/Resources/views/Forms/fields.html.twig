@@ -32,7 +32,8 @@
 
 {% block form_row %}
 {% spaceless %}
-    {% if attr.type != 'checkbox' %}
+    {# Yes, this is is a shitty way to get form type, but it's THE ONLY WAY #}
+    {% if form.vars.block_prefixes.1 != 'checkbox' %}
         {{ form_label(form) }}
     {% endif %}
     {{ form_widget(form) }}
@@ -147,13 +148,10 @@
 {% spaceless %}
     <div class="switch">
         <input type="checkbox" {{ block('widget_attributes') }}
-            id="switch-{{ label|trans|url_encode }}"
             value="{{ value|default(1) }}"
-            {% if checked %}
-                checked="checked"
-            {% endif %}
-        />
-        <label for="switch-{{ label|trans|url_encode }}">
+            {% if checked is defined and checked %}checked="checked"{% endif %}
+        >
+        <label for="{{ id }}">
             {% if attr.label_help is defined %}
                 <em>{{ attr.label_help }}</em>
             {% endif %}
