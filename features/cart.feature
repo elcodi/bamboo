@@ -12,8 +12,8 @@ Feature: cart
   Scenario: Add a product
     Given I am on "/cart/product/10/add"
     Then I should be on "/cart"
-    Then I should see "I was there II English"
-    Then I should see "$11.90"
+    Then I should see "I was there II Spanish"
+    Then I should see "11,90 $"
 
   @cart
   Scenario: See the cart checkout without being logged in
