@@ -13,24 +13,30 @@
     <div class= "product-to-basket">
         {% set variant_price = variant.reducedPrice.amount > 0 ? variant.reducedPrice : variant.price %}
             {% if variant.images|length > 0  %}
-            <img align="right" hspace="10" src="{{ variant.images.first|resize({
-                'width': 60,
-                'height': 47,
+            <img hspace="10" src="{{ variant.images.first|resize({
+                'width': 300,
+                'height': 100,
                 'type': 5
-            }) }}" alt="{{ variant.name }}" align="left"/>
+            }) }}" alt="{{ variant.name }}" />
             {% else %}
                 <img src="{{ product.principalImage ? product.principalImage|resize({
-                    'width': 60,
-                    'height': 47,
+                    'width': 300,
+                    'height': 100,
                     'type': 5
-                }) : 'http://placehold.it/60x47' }}" alt="{{ product.name }}" align="left"/>
+                }) : 'http://placehold.it/60x47' }}" alt="{{ product.name }}" />
             {% endif %}
 
         <h5 class="product-title">{{ variant|purchasable_name }}</h5>
-        <p>{{ variant_price|print_convert_money() }}
+        <p class="product-actions">
+            {% if product.reducedPrice.amount > 0 %}
+                <span class="product-pricing product-pricing-before">{{ variant.price|print_convert_money() }}</span>
+                <span class="product-pricing product-pricing-now">{{ variant.reducedPrice|print_convert_money() }}</span>
+            {% else %}
+                <span class="product-pricing">{{ variant.price|print_convert_money() }}</span>
+            {% endif %}
             <a title="Add {{ variant|purchasable_name }} to cart"
                class="fa fa-shopping-cart button button-secondary"
-               href="{{ url('store_cart_add_product_variant', { id: variant.id }) }}"></a>
+               href="{{ url('store_cart_add_product_variant', { id: variant.id }) }}"> {{ 'Add to cart'|trans }}</a>
         </p>
     </div>
 

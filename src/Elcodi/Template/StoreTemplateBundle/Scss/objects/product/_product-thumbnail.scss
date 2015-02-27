@@ -8,6 +8,9 @@
 		transition: all 200ms ease-out;
 		max-width: 100%;
 		margin-bottom: $spacing/2;
+		position: relative;
+		overflow: hidden;
+		background: $color-background;
 	}
 	&:hover {
 		opacity: .9;
