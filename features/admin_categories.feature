@@ -7,7 +7,7 @@ Feature: admin
   Scenario: See category list in admin with new category element
     Given In admin, I am logged as "admin@admin.com" - "1234"
     And I am on "/admin/categories"
-    Then I should see "Men's"
+    Then I should see "Hombre"
     And I should see "New category"
 
   @admin @category

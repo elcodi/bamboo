@@ -7,7 +7,7 @@ Feature: admin
   Scenario: See product list in admin with new product element
     Given In admin, I am logged as "admin@admin.com" - "1234"
     And I am on "/admin/products"
-    Then I should see "Ibiza 4 Ever English"
+    Then I should see "Ibiza 4 Ever Spanish"
     And I should see "New product"
 
   @admin @product

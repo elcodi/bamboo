@@ -12,7 +12,7 @@ Feature: homepage
   Scenario: List root categories in the homepage
     Given I am on the homepage
     Then I should see category menu item
-      | name    | active |
-      | New     | true   |
-      | Women's | false  |
-      | Men's   | false  |
+      | name   | active |
+      | New | true   |
+      | Mujer  | false  |
+      | Hombre | false  |
