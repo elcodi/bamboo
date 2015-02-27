@@ -58,7 +58,7 @@
 {% block form_label %}
 {% spaceless %}
     {% if label is not sameas(false) and label is defined %}
-        <label>
+        <label for="{{ id }}">
             {{ label|trans }}
             {% if attr.label_help is defined %}
                 <em>{{ attr.label_help }}</em>
