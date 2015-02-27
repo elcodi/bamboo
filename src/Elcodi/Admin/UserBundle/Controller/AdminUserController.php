@@ -153,9 +153,7 @@ class AdminUserController extends AbstractAdminController
 
             $this->addFlash('success', 'Changes saved');
 
-            return $this->redirectToRoute('admin_admin_user_edit', [
-                'id' => $adminUser->getId(),
-            ]);
+            return $this->redirectToRoute('admin_admin_user_list');
         }
 
         return [

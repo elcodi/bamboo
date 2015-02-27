@@ -161,9 +161,7 @@ class CustomerController extends AbstractAdminController
 
             $this->addFlash('success', 'Changes saved');
 
-            return $this->redirectToRoute('admin_customer_edit', [
-                'id' => $customer->getId(),
-            ]);
+            return $this->redirectToRoute('admin_customer_list');
         }
 
         return [

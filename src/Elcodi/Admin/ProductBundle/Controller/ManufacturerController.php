@@ -155,9 +155,7 @@ class ManufacturerController extends AbstractAdminController
 
             $this->addFlash('success', 'Changes saved');
 
-            return $this->redirectToRoute('admin_manufacturer_edit', [
-                'id' => $manufacturer->getId(),
-            ]);
+            return $this->redirectToRoute('admin_manufacturer_list');
         }
 
         return [

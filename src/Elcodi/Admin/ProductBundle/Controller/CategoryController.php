@@ -134,9 +134,7 @@ class CategoryController extends AbstractAdminController
                 ->get('event_dispatcher')
                 ->dispatch(ProductEvents::CATEGORIES_ONCHANGE);
 
-            return $this->redirectToRoute('admin_category_edit', [
-                'id' => $category->getId(),
-            ]);
+            return $this->redirectToRoute('admin_category_list');
         }
 
         return [
