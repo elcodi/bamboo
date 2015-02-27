@@ -46,7 +46,7 @@
         <div class="hidden-placeholder">
             <div id="metrics-panel" class="box-background">
                 <h2>{{ 'Visitors' }}</h2>
-                {% include 'AdminMetricBundle:Metric:metricBars.html.twig' with {
+                {% include 'AdminMetricBundle:Metric:metricLine.html.twig' with {
                     'tracker': store_tracker,
                     'event': 'pv_store_product_view_' ~ product.id,
                     'intervalContainer': metric_create_interval_container(3),
