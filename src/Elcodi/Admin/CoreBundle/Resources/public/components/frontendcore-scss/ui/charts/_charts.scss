@@ -27,4 +27,20 @@
 		text-align: left;
 	}
 
+	.charts-no-data {
+		& {
+			display: inline-block;
+			@include text-shadow(1px 1px 5px $color-background);
+			@include transform(rotate(-8deg));
+		}
+		i {
+			position: absolute;
+			font-size: 8rem;
+			@include opacity(.1);
+			margin-top: -2.5rem;
+			left: 50%;
+			margin-left: -4.3rem;
+		}
+	}
+
 }

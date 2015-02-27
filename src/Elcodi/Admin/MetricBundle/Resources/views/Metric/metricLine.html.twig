@@ -1,0 +1,25 @@
+{% set partialIntervals = intervalContainer.partialIntervals %}
+{% set chartElementsSeparation = intervalContainer.chartElementsSeparation %}
+{% set chartLegendFormat = intervalContainer.chartLegendFormat %}
+
+<div class="box-none pa-n">
+    <canvas
+        height="250"
+        data-tc-modules="charts"
+        data-tc-type="line"
+        data-tc-text-no-data="{{ 'No data'|trans }}"
+        data-tc-labels-x="{% for partialInterval in partialIntervals %}{% if loop.index % chartElementsSeparation == 0 %}{{ partialInterval.first|date(chartLegendFormat) }}{% endif %},{% endfor %}"
+    >
+        <input
+            name="{{ 'Unique' }}"
+            type="hidden"
+            value="{% for partialInterval in partialIntervals %}{{ metric_beacon_unique(tracker, event, partialInterval.elements) }},{% endfor %}"
+        />
+
+        <input
+            name="{{ 'Total' }}"
+            type="hidden"
+            value="{% for partialInterval in partialIntervals %}{{ metric_beacon_total(tracker, event, partialInterval.elements) }},{% endfor %}"
+        />
+    </canvas>
+</div>

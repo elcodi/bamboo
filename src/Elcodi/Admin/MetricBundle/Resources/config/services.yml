@@ -1,0 +1,7 @@
+services:
+
+    #
+    # Services
+    #
+    elcodi.metric_intervals_resolver:
+        class: %elcodi.metric_intervals_resolver.class%

@@ -31,6 +31,6 @@ class AdminCoreBundle extends Bundle
      */
     public function getContainerExtension()
     {
-        return null;
+        return;
     }
 }

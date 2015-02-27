@@ -17,7 +17,10 @@
 
 namespace Elcodi\Admin\MetricBundle;
 
+use Symfony\Component\CssSelector\XPath\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+
+use Elcodi\Admin\MetricBundle\DependencyInjection\AdminMetricExtension;
 
 /**
  * Class AdminMetricBundle
@@ -27,10 +30,10 @@ class AdminMetricBundle extends Bundle
     /**
      * Returns the bundle's container extension.
      *
-     * @return null
+     * @return ExtensionInterface The container extension
      */
     public function getContainerExtension()
     {
-        return;
+        return new AdminMetricExtension();
     }
 }

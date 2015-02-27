@@ -71,7 +71,8 @@
         "paymentsuite/paypal-web-checkout-bundle": "~1.5.0",
         "incenteev/composer-parameter-handler": "~2.0",
         "hwi/oauth-bundle": "0.4.*@dev",
-        "snc/redis-bundle": "~1.1",
+        "snc/redis-bundle": "~1.1, >=1.1.8",
+        "predis/predis": "0.8.7",
 
         "elcodi/bamboo-bundle": "~0.4.0",
         "elcodi/attribute-bundle": "~0.4.0",

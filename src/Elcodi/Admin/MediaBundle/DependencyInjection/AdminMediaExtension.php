@@ -59,7 +59,6 @@ class AdminMediaExtension extends AbstractExtension
         return [
             'classes',
             'formTypes',
-            'paginationFields',
         ];
     }
 

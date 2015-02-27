@@ -42,12 +42,15 @@
     {% endif %}
 
     {% if product.id %}
+
         <div class="hidden-placeholder">
             <div id="metrics-panel" class="box-background">
-                {{ render(url('admin_metric_last_24_hours', {
+                <h2>{{ 'Visitors' }}</h2>
+                {% include 'AdminMetricBundle:Metric:metricLine.html.twig' with {
                     'tracker': store_tracker,
-                    'event': 'product_view_' ~ product.id
-                })) }}
+                    'event': 'pv_store_product_view_' ~ product.id,
+                    'intervalContainer': metric_create_interval_container(3),
+                } %}
             </div>
         </div>
         {% set author_token = app.user.token %}

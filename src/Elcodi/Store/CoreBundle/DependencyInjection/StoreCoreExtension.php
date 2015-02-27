@@ -97,7 +97,8 @@ class StoreCoreExtension extends AbstractExtension
         return [
             'classes',
             'eventListeners',
-            [ 'not_found', $config['errors']['not_found']['enabled'] ],
+            'twig',
+            [ 'notFound', $config['errors']['not_found']['enabled'] ],
         ];
     }
 

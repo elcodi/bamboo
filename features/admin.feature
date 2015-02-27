@@ -15,5 +15,5 @@ Feature: admin
       | elcodi_admin_user_form_type_login_email    | admin@admin.com |
       | elcodi_admin_user_form_type_login_password | 1234            |
     And I press "Log In"
-    Then I should be on "/admin/"
+    Then I should be on "/admin/plugin/setup-wizard/store-setup-wizard"
     And I should see "Elcodi Admin"

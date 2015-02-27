@@ -32,6 +32,9 @@ Bamboo uses redis to make the app lighter and to minimize the response time.
 For more info just visit their
 [installation page](http://redis.io/topics/quickstart)
 
+In order to use the last Redis features, like the `HyperLogLog` commands, be
+sure your Redis version is at least `v2.8.9`.
+
 ### Imagick
 The images are a really important part of an store. Bamboo uses Imagick to
 resize and optimize all the product images
