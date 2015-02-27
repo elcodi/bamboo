@@ -1,53 +1,60 @@
 <dl class="address-item">
+    <dt class="address-item-selection"></dt>
+    <dd class="address-item-selection">
+        <div class="address-item-selection-item">
+            <div class="switch">
+                <input id="billing-{{ address.id }}"
+                       type="radio"
+                       name="billing"
+                       value="{{ address.id }}"
+                        {% if
+                        address.id == cart.billingAddress.id or
+                        (
+                        cart.billingAddress.id is null and
+                        loop.index0 == 0
+                        ) %} checked="checked"{% endif %}
+                        >
+                <label for="billing-{{ address.id }}"></label>
+            </div>
+            {{ 'Billing'|trans }}
+        </div>
+        <div class="address-item-selection-item">
+            <div class="switch">
+                <input id="delivery-{{ address.id }}"
+                       type="radio"
+                       name="delivery"
+                       value="{{ address.id }}"
+                        {% if
+                        address.id == cart.deliveryAddress.id or
+                        (
+                        cart.deliveryAddress.id is null and
+                        loop.index0 == 0
+                        ) %} checked="checked"{% endif %}
+                        >
+                <label for="delivery-{{ address.id }}"></label>
+            </div>
+            {{ 'Delivery'|trans }}
+        </div>
+    </dd>
     <dt>{{ 'Address name'|trans }}</dt>
     <dd><strong>{{ address.name }}</strong></dd>
-    <dt>{{ 'Recipient Fullname'|trans }}</dt>
+    <dt>{{ 'Fullname'|trans }}</dt>
     <dd>{{ address.recipientName }} {{ address.recipientSurname }}</dd>
     <dt>{{ 'Address'|trans }}</dt>
     <dd>{{ address.address }}<br/>{{ address.address_more }}</dd>
-    <dt>{{ 'Phone / Mobile Phone'|trans }}</dt>
+    <dt>{{ 'Phone / Mobile'|trans }}</dt>
     <dd>{{ address.phone }} / {{ address.mobile }}</dd>
     <dt>{{ 'City'|trans }}</dt>
     <dd>{% for locationData in cities_info[address.city] %}{{ locationData.name }}, {% endfor %}</dd>
     <dt>{{ 'Postalcode'|trans }}</dt>
     <dd>{{ address.postalCode }}</dd>
     <dt>{{ 'Comment'|trans }}</dt>
-    <dd>{{ address.comments }}</dd>
+    <dd>{{ address.comments|default('-') }}</dd>
     <dt class="address-item-actions">{{ 'Actions'|trans }}</dt>
     <dd class="address-item-actions">
-        <a href="{{ url('store_address_edit',{id:address.id}) }}" class="button button-primary"><i class="fa fa-pencil"></i> {{ 'Edit'|trans }}</a>
-        <a href="{{ url('store_address_delete',{id:address.id}) }}" class="button button-ko"><i class="fa fa-trash-o"></i> {{ 'Remove'|trans }}</a>
-    </dd>
-    <dt class="address-item-selection"></dt>
-    <dd class="address-item-selection">
-        <label for="billing-{{ address.id }}">
-        <input
-                id="billing-{{ address.id }}"
-                type="radio"
-                name="billing"
-                value="{{ address.id }}"
-                {% if
-                    address.id == cart.billingAddress.id or
-                    (
-                        cart.billingAddress.id is null and
-                        loop.index0 == 0
-                    )
-                %} checked="checked"{% endif %}>
-        Billing</label>
-        <label for="delivery-{{ address.id }}">
-        <input
-                id="delivery-{{ address.id }}"
-                type="radio"
-                name="delivery"
-                value="{{ address.id }}"
-                {% if
-                    address.id == cart.deliveryAddress.id or
-                    (
-                        cart.deliveryAddress.id is null and
-                        loop.index0 == 0
-                    )
-                %} checked="checked"{% endif %}>
-        Delivery</label>
-
+        <a href="{{ url('store_address_edit',{id:address.id}) }}" class="button button-primary"><i
+                    class="fa fa-pencil"></i> {{ 'Edit'|trans }}</a>
+        <a href="{{ url('store_address_delete',{id:address.id}) }}" class="button button-ko"><i
+                    class="fa fa-trash-o"></i> {{ 'Remove'|trans }}</a>
     </dd>
 </dl>
