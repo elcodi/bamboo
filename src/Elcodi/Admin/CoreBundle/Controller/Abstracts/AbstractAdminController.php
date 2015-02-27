@@ -94,6 +94,8 @@ class AbstractAdminController extends Controller
     ) {
         return $this->getResponse($request, function () use ($entity) {
 
+            $this->addFlash('success', 'Correctly deleted');
+
             /**
              * @var EnabledInterface $entity
              */
