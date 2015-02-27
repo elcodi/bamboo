@@ -15,8 +15,7 @@ parameters:
     mailer_password: ~
     mailer_port: ~
 
-
-    locale: en
+    locale: es
     secret: 4acbc300e57d46cb58ac0c629945c17b727f99c8
 
     use_assetic_controller: false
