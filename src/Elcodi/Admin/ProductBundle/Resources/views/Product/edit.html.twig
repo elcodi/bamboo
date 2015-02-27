@@ -34,6 +34,15 @@
 {% block content %}
 
     {% if product.id %}
+
+        {% if product.principalCategory is null %}
+            <p class="msg-warning">{{ "Warning! Your product has no category associated"|trans }}</p>
+        {% endif %}
+
+        {% if product.manufacturer is null %}
+            <p class="msg-warning">{{ "Warning! Your product has no manufacturer associated"|trans }}</p>
+        {% endif %}
+
         {{ render(url("admin_product_edit_component", {
             'id': product.id
         })) }}
