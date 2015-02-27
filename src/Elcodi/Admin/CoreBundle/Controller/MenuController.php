@@ -44,35 +44,51 @@ class MenuController extends Controller
             ->get('elcodi.manager.menu')
             ->loadMenuByCode('admin');
 
+        $this->appendPluginMenus($root);
+        $this->addMenuExtraData($root);
+
+        return [
+            'menu_items' => $root,
+        ];
+    }
+
+    /**
+     * This method adds the extra data like the selected page or the item
+     * badges.
+     *
+     * @param array $pluginsMenu Plugins menu built
+     */
+    protected function addMenuExtraData(array &$pluginsMenu)
+    {
         $currentRoute = $this
             ->get('request_stack')
             ->getMasterRequest()
             ->get('_route');
 
-        /*
-         * We need to add some information about the selected menu,
-         * which is a simple comparison between current route in the
-         * master request and the route from the menu
-         */
-        foreach ($root as &$menuItems) {
-            $menuItems['active'] = ($currentRoute == $menuItems['url']);
-
-            if (count($menuItems['subnodes'])) {
-                foreach ($menuItems['subnodes'] as &$menuItem) {
-                    $menuItem['active'] = $currentRoute == $menuItem['url'];
-
-                    if ($menuItem['active']) {
-                        $menuItems['active'] = true;
-                    }
-                }
+        $selectActiveMenu = function (&$item) use ($currentRoute) {
+            if ($currentRoute == $item['url']) {
+                $item['active'] = true;
             }
-        }
+        };
 
-        $this->appendPluginMenus($root);
+        $pendingOrders      = $this
+            ->get('elcodi.repository.order')
+            ->getNotShippedOrders();
+        $pendingOrdersCount = count($pendingOrders);
 
-        return [
-            'menu_items' => $root,
-        ];
+        $addOrdersPendingBadge = function (&$item) use ($pendingOrdersCount) {
+            if ('Orders' == $item['name']) {
+                $item['badge'] = $pendingOrdersCount;
+            }
+        };
+
+        $this->updateMenuItem(
+            $pluginsMenu,
+            [
+                $selectActiveMenu,
+                $addOrdersPendingBadge
+            ]
+        );
     }
 
     /**
@@ -109,5 +125,34 @@ class MenuController extends Controller
         }
 
         return $this;
+    }
+
+    /**
+     * Updates the received menu applying the received closures, each closure
+     * receives all the items to be checked and updated.
+     *
+     * The received closures will be called with an item menu as a parameter
+     *
+     * @param array      $pluginsMenu The plugins menu
+     * @param \Closure[] $closures    The closures to apply
+     */
+    protected function updateMenuItem(
+        array &$pluginsMenu,
+        array $closures
+    ) {
+        foreach ($pluginsMenu as &$menuItems) {
+
+            foreach ($closures as $closure) {
+                $closure($menuItems);
+            }
+
+            if (count($menuItems['subnodes'])) {
+                foreach ($menuItems['subnodes'] as &$menuItem) {
+                    foreach ($closures as $closure) {
+                        $closure($menuItem);
+                    }
+                }
+            }
+        }
     }
 }
