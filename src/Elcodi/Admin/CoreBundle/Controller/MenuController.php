@@ -86,7 +86,7 @@ class MenuController extends Controller
             $pluginsMenu,
             [
                 $selectActiveMenu,
-                $addOrdersPendingBadge
+                $addOrdersPendingBadge,
             ]
         );
     }
@@ -141,7 +141,6 @@ class MenuController extends Controller
         array $closures
     ) {
         foreach ($pluginsMenu as &$menuItems) {
-
             foreach ($closures as $closure) {
                 $closure($menuItems);
             }
