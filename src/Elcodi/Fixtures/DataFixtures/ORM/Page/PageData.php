@@ -49,12 +49,12 @@ class PageData extends AbstractFixture
          */
         $aboutUsPage = $pageFactory
             ->create()
-            ->setTitle('About us')
-            ->setPath('about-us')
-            ->setContent('<li>About us</li>')
-            ->setMetaTitle('About us')
-            ->setMetaDescription('About us')
-            ->setMetaKeywords('about,us')
+            ->setTitle('Sobre nosotros')
+            ->setPath('sobre-nosotros')
+            ->setContent('<li>Sobre nosotros</li>')
+            ->setMetaTitle('Sobre nosotros')
+            ->setMetaDescription('Sobre nosotros')
+            ->setMetaKeywords('sobre,nosotros')
             ->setEnabled(true)
             ->setPersistent(true);
 
@@ -94,12 +94,12 @@ class PageData extends AbstractFixture
          */
         $termsConditionsPage = $pageFactory
             ->create()
-            ->setTitle('Terms and conditions')
-            ->setPath('terms-and-conditions')
-            ->setContent('<li>Terms and conditions</li>')
-            ->setMetaTitle('Terms and conditions')
-            ->setMetaDescription('Terms and conditions')
-            ->setMetaKeywords('terms, conditions')
+            ->setTitle('Terminos y condiciones')
+            ->setPath('terminos-y-condiciones')
+            ->setContent('<li>Sobre nosotros</li>')
+            ->setMetaTitle('Terminos y condiciones')
+            ->setMetaDescription('Terminos y condiciones')
+            ->setMetaKeywords('terminos, condiciones')
             ->setEnabled(true)
             ->setPersistent(true);
 

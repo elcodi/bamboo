@@ -8,7 +8,6 @@
     {% if product.id > 0 %}
         <a target="_blank" href="{{ url("store_product_view",{id: product.id, slug: product.slug}) }}" class="button-primary"><i class="icon-eye"></i> <span>{{ 'View at store'|trans }}</span></a>
         <a data-tc-modules="modal" href="#metrics-panel" class="button-secondary"><i class="icon-bar-chart-o"></i> <span>{{ 'Show Metrics'|trans }}</span></a>
-
     {% endif %}
 {% endblock header_actions %}
 
