@@ -99,7 +99,7 @@ class AbstractAdminController extends Controller
              */
             $entityManager = $this->getManagerForClass($entity);
             $entityManager->remove($entity);
-            $entityManager->flush($entity);
+            $entityManager->flush();
         }, $redirectUrl);
     }
 
