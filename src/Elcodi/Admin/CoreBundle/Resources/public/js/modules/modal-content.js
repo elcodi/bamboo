@@ -88,6 +88,10 @@ TinyCore.AMD.define('modal-content', ['devicePackage','modal' ], function () {
 						$iframe.find(".sidebar").remove();
 						$iframe.find(".topbar").remove();
 						$iframe.find(".col-10-12.push-right").attr('class','col-1-1');
+						$iframe.find("form").each( function() {
+                            var sAction = $(this).attr('action') + '?modal=true';
+                            $(this).attr('action' , sAction );
+                        });
 
 						$modal.fadeIn();
 					}

@@ -66,6 +66,7 @@ class CategoryController extends AbstractAdminController
      * @param FormInterface     $form     Form
      * @param CategoryInterface $category Category
      * @param boolean           $isValid  Is valid
+     * @param Request           $request  Request
      *
      * @return RedirectResponse Redirect response
      *
@@ -123,7 +124,8 @@ class CategoryController extends AbstractAdminController
     public function editAction(
         FormInterface $form,
         CategoryInterface $category,
-        $isValid
+        $isValid,
+        Request $request
     ) {
         if ($isValid) {
             $this->flush($category);
@@ -134,7 +136,17 @@ class CategoryController extends AbstractAdminController
                 ->get('event_dispatcher')
                 ->dispatch(ProductEvents::CATEGORIES_ONCHANGE);
 
-            return $this->redirectToRoute('admin_category_list');
+            if ($request->query->get('modal', false)) {
+                $redirection = $this
+                        ->redirectToRoute(
+                            'admin_category_edit',
+                            ['id' => $category->getId()]
+                        );
+            } else {
+                $redirection = $this->redirectToRoute('admin_category_list');
+            }
+
+            return $redirection;
         }
 
         return [

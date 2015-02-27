@@ -91,6 +91,7 @@ class ManufacturerController extends AbstractAdminController
      * @param FormInterface         $form         Form
      * @param ManufacturerInterface $manufacturer Manufacturer
      * @param boolean               $isValid      Is valid
+     * @param Request               $request      Request
      *
      * @return RedirectResponse Redirect response
      *
@@ -148,14 +149,25 @@ class ManufacturerController extends AbstractAdminController
     public function editAction(
         FormInterface $form,
         ManufacturerInterface $manufacturer,
-        $isValid
+        $isValid,
+        Request $request
     ) {
         if ($isValid) {
             $this->flush($manufacturer);
 
             $this->addFlash('success', 'Changes saved');
 
-            return $this->redirectToRoute('admin_manufacturer_list');
+            if ($request->query->get('modal', false)) {
+                $redirection = $this
+                    ->redirectToRoute(
+                        'admin_manufacturer_edit',
+                        ['id' => $manufacturer->getId()]
+                    );
+            } else {
+                $redirection = $this->redirectToRoute('admin_manufacturer_list');
+            }
+
+            return $redirection;
         }
 
         return [
