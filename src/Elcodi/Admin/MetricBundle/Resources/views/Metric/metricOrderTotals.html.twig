@@ -4,7 +4,7 @@
 
 <div class="box-none pa-n">
     <canvas
-        height="200"
+        height="250"
         data-tc-modules="charts"
         data-tc-type="bar"
         data-tc-labels-x="{% for partialInterval in partialIntervals %}{% if loop.index % chartElementsSeparation == 0 %}{{ partialInterval.first|date(chartLegendFormat) }}{% endif %},{% endfor %}"
