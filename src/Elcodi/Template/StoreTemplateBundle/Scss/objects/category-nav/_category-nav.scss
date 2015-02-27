@@ -3,6 +3,7 @@
 		& {
 			display: block;
 			overflow: hidden;
+
 		}
 		li {
 			& {
@@ -15,9 +16,11 @@
 			a {
 				& {
 					display: block;
+					margin: 2px;
 					padding: $spacing/2;
 					background: $color-background;
 					color: $color-link;
+					box-shadow: 0 2px 2px rgba($color-foreground, .2);
 				}
 				&:hover {
 					text-decoration: none;
@@ -50,7 +53,7 @@
 		li {
 			& {
 				display: inline-block;
-				margin: $spacing/2 $spacing/4 0 0;
+				margin: $spacing/2 0 0 0;
 				vertical-align: top;
 			}
 			&.expand {
@@ -79,6 +82,7 @@
 				background: $color-background;
 				display: inline-block;
 				padding: $spacing/2;
+				box-shadow: 0 2px 2px rgba($color-foreground, .2);
 
 			}
 			&.active {
@@ -111,6 +115,7 @@
 					padding: $spacing/4;
 					margin: $spacing/4;
 					color: $color-link;
+					box-shadow: 0 0 0;
 				}
 				&.active {
 					border-color: $color-link;
