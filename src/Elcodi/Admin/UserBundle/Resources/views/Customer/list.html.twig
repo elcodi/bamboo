@@ -12,11 +12,6 @@
 {% endblock breadcrumb %}
 
 
-{% block header_actions %}
-    <a href="{{ url("admin_customer_new") }}" class="button-primary"> <i class="icon-plus"></i> <span>{{ "New customer"|trans }}</span></a>
-{% endblock header_actions %}
-
-
 {% block content %}
     {{ render(url("admin_customer_list_component", {
         'page': page,

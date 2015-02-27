@@ -71,10 +71,6 @@ class AdminUserType extends AbstractType
     {
         $builder
             ->setMethod('POST')
-            ->add('username', 'text', array(
-                'required' => true,
-                'label'    => 'Username',
-            ))
             ->add('email', 'email', array(
                 'required' => true,
                 'label'    => 'Email',

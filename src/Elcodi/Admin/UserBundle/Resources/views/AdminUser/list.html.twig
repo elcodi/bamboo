@@ -11,12 +11,6 @@
     } %}
 {% endblock breadcrumb %}
 
-
-{% block header_actions %}
-    <a href="{{ url("admin_admin_user_new") }}"class="button-primary"><i class="icon-plus"></i> <span>{{ "New admin user"|trans }}</span></a>
-{% endblock header_actions %}
-
-
 {% block content %}
     {{ render(url("admin_admin_user_list_component", {
         'page': page,
