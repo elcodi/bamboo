@@ -10,6 +10,19 @@
 		border-color: rgba($color-background, .1);
 		height: 1px;
 	}
+	.badge {
+		float: right;
+		background: rgba($color-background,.2);
+		@include border-radius(100px);
+		padding: 0 $spacing/4;
+		min-width: 35px;
+		text-align: center;
+		font-size: $font-size-s;
+	}
+	.badge-alert {
+		background: rgba($color-ko, .5);
+		text-shadow: 1px 1px 1px $color-foreground;
+	}
 }
 
 .sidebar-title {
