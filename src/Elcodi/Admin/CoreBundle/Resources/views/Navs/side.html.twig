@@ -38,25 +38,23 @@
 <nav id="menu" class="navigation navigation-vertical desktop tablet">
     <ul>
         {% for menu_item in menu_items %}
-
-            {% if menu_item.code != 'separator' %}
-                <li class="{% if menu_item.active %}active{% endif %}{% if menu_item.subnodes|length %}parent{% endif %}">
-                    {% if generate_url(menu_item.url) != '' %}
-                        <a href="{{ generate_url(menu_item.url) }}">
+        {% if menu_item.code != 'separator' %}
+            <li class="{% if menu_item.active %}active{% endif %}{% if menu_item.subnodes|length %}parent{% endif %}">
+                {% if generate_url(menu_item.url) != '' %}
+                <a href="{{ generate_url(menu_item.url) }}">
                     {% else %}
                     <a href="#{{ menu_item.id }}" data-tc-modules="toggle">
                         <i class="icon-caret-down fl-r"></i>
                         {% endif %}
+                        {% if menu_item.badge is defined %}<span class="badge {% if menu_item.badge > 0 %}badge-alert{% endif %}">{{ menu_item.badge }}</span>{% endif %}
                         <span class="mobile tablet">
                         <i class="icon-{{ menu_item.code|default("folder") }} fz-xl va-m mr-s"></i>
                             <span class="c-foreground-light">{{ menu_item.name|trans }}</span>
-                            {% if menu_item.badge is defined %}<span class="badge">{{ menu_item.badge }}</span>{% endif %}
                         </span>
                         <span class="desktop">
                             <i class="icon-{{ menu_item.code|default("folder") }} mr-m"></i>
                             {{ menu_item.name|trans }}
                         </span>
-                        {% if menu_item.badge is defined %}<span class="badge">{{ menu_item.badge }}</span>{% endif %}
                     </a>
                     {% for submenu_item in menu_item.subnodes %}
                         {% if loop.first %}
