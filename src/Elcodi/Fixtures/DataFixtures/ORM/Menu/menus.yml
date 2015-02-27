@@ -13,28 +13,12 @@ menu_nodes:
         enabled: 1
         subnodes: ~
 
-    bambooadmin_admin_users:
-        name: Administrators
-        code: ~
-        url: admin_admin_user_list
-        enabled: 1
-        subnodes: ~
-
     bambooadmin_customers:
         name: Customers
-        code: ~
+        code: users
         url: admin_customer_list
         enabled: 1
         subnodes: ~
-
-    bambooadmin_users:
-        name: Users
-        code: users
-        url: ~
-        enabled: 1
-        subnodes:
-            - bambooadmin_admin_users
-            - bambooadmin_customers
 
     bambooadmin_products:
         name: Products
@@ -210,7 +194,7 @@ menus:
         subnodes:
             - bambooadmin_dashboard
             - bambooadmin_orders
-            - bambooadmin_users
+            - bambooadmin_customers
             - bambooadmin_catalog
             - bambooadmin_coupons
             - bambooadmin_reports

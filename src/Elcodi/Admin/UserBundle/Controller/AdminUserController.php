@@ -25,6 +25,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
@@ -153,7 +154,7 @@ class AdminUserController extends AbstractAdminController
 
             $this->addFlash('success', 'Changes saved');
 
-            return $this->redirectToRoute('admin_admin_user_list');
+            return $this->redirectToRoute('admin_homepage');
         }
 
         return [
@@ -218,6 +219,19 @@ class AdminUserController extends AbstractAdminController
         Request $request,
         EnabledInterface $entity
     ) {
+        /**
+         * @var AdminUserInterface $user
+         * @var AdminUserInterface $entity
+         */
+        $user = $this->getUser();
+        if ($entity->getId() == $user->getId()) {
+            $message = 'You can\'t disable your admin account';
+            throw new HttpException(
+                403,
+                $message
+            );
+        }
+
         return parent::disableAction(
             $request,
             $entity
@@ -251,6 +265,19 @@ class AdminUserController extends AbstractAdminController
         $entity,
         $redirectUrl = null
     ) {
+        /**
+         * @var AdminUserInterface $user
+         * @var AdminUserInterface $entity
+         */
+        $user = $this->getUser();
+        if ($entity->getId() == $user->getId()) {
+            $message = 'You can\'t delete your admin account';
+            throw new HttpException(
+                403,
+                $message
+            );
+        }
+
         return parent::deleteAction(
             $request,
             $entity,
