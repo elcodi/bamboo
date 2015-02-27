@@ -8,15 +8,18 @@
 			min-width: 40%;
 			text-align: right;
 		}
-		&:before {
+		&:after {
 			font-family: "FontAwesome";
 			position: absolute;
 			top: $spacing/4;
 			right: $spacing/2;
+			content: $fa-var-search;
 		}
 		input {
 			@extend %field;
-			display: inline-block;
+			position: absolute;
+			top: 0;
+			right: 0;
 			padding-top: $spacing/4 !important;
 			padding-bottom: $spacing/4 !important;
 			width: 70%;
@@ -30,7 +33,7 @@
 	}
 
 	.dynatable-record-count {
-		display: block;
+		display: none;
 		padding: 5px 0;
 	}
 
