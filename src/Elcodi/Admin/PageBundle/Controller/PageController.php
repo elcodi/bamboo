@@ -19,7 +19,6 @@ namespace Elcodi\Admin\PageBundle\Controller;
 
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormInterface;
@@ -66,9 +65,9 @@ class PageController extends AbstractAdminController
      *          "orderByField" = "id",
      *          "orderByDirection" = "DESC",
      *      },
+     *      methods = {"GET"}
      * )
      * @Template
-     * @Method({"GET"})
      */
     public function listAction(
         $page,
@@ -152,14 +151,19 @@ class PageController extends AbstractAdminController
         if ($isValid) {
             $this->flush($page);
 
-            $this->addFlash('success', 'Changes saved');
+            $this->addFlash(
+                'success',
+                $this
+                    ->get('translator')
+                    ->trans('admin.page.saved')
+            );
 
             return $this->redirectToRoute('admin_page_list');
         }
 
         return [
             'page' => $page,
-            'form'     => $form->createView(),
+            'form' => $form->createView(),
         ];
     }
 
@@ -173,12 +177,13 @@ class PageController extends AbstractAdminController
      *
      * @Route(
      *      path = "/{id}/enable",
-     *      name = "admin_page_enable"
+     *      name = "admin_page_enable",
+     *      methods = {"GET", "POST"},
      * )
-     * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.page.entity.page.class",
+     *      name = "page",
      *      mapping = {
      *          "id" = "~id~"
      *      }
@@ -188,9 +193,9 @@ class PageController extends AbstractAdminController
         Request $request,
         EnabledInterface $page
     ) {
-        if ($page->isPersistent()) {
-            $exception = new AccessDeniedHttpException('This page can\'t be accessed for a permanent page');
-
+        try {
+            $this->canBeDeactivated($page);
+        } catch (AccessDeniedHttpException $exception) {
             return $this->getFailResponse($request, $exception);
         }
 
@@ -210,12 +215,13 @@ class PageController extends AbstractAdminController
      *
      * @Route(
      *      path = "/{id}/disable",
-     *      name = "admin_page_disable"
+     *      name = "admin_page_disable",
+     *      methods = {"GET", "POST"},
      * )
-     * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.page.entity.page.class",
+     *      name = "page",
      *      mapping = {
      *          "id" = "~id~"
      *      }
@@ -225,9 +231,9 @@ class PageController extends AbstractAdminController
         Request $request,
         EnabledInterface $page
     ) {
-        if ($page->isPersistent()) {
-            $exception = new AccessDeniedHttpException('This page can\'t be accessed for a permanent page');
-
+        try {
+            $this->canBeDeactivated($page);
+        } catch (AccessDeniedHttpException $exception) {
             return $this->getFailResponse($request, $exception);
         }
 
@@ -248,9 +254,9 @@ class PageController extends AbstractAdminController
      *
      * @Route(
      *      path = "/{id}/delete",
-     *      name = "admin_page_delete"
+     *      name = "admin_page_delete",
+     *      methods = {"GET", "POST"},
      * )
-     * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.page.entity.page.class",
@@ -264,10 +270,32 @@ class PageController extends AbstractAdminController
         $entity,
         $redirectUrl = null
     ) {
+        try {
+            $this->canBeDeactivated($entity);
+        } catch (AccessDeniedHttpException $exception) {
+            return $this->getFailResponse($request, $exception);
+        }
+
         return parent::deleteAction(
             $request,
             $entity,
             'admin_page_list'
         );
+    }
+
+    /**
+     * Check the entity for activation capabilities
+     *
+     * @param PageInterface $page
+     */
+    private function canBeDeactivated(PageInterface $page)
+    {
+        if ($page->isPersistent()) {
+            throw new AccessDeniedHttpException(
+                $this
+                    ->get('translator')
+                    ->trans('admin.page.error.cant_modify_permanent')
+            );
+        }
     }
 }

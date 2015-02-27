@@ -1,40 +1,39 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
 
-{% block content_title %}
-    {{ 'Email'|trans }}
-{% endblock content_title %}
+{% set elcodi_context = {
+    entity_type: 'mailing',
+} %}
 
 
-{% block header_actions %}
-{% endblock header_actions %}
+{% block header_actions '' %}
 
 
 {% block breadcrumb %}
-    {% set entityHeader = page.id
-        ? 'Edit ' ~ email.name
-        : 'Create new blog post'
+
+    {% set title = 'admin.mailing.plural'|trans %}
+    {%
+        set header = page.id
+            ? 'admin.mailing.edit'|trans({ '%name%': blog_post.name })
+            : 'admin.mailing.new'|trans
     %}
 
     {% include '@AdminCore/Common/breadcrumb.html.twig' with {
-        breadcrumb: {
-            'Blog posts': {
-                'url': url('admin_email_list')
-            },
-            (entityHeader): {
-                'active' : true
-            }
-        }
+        breadcrumb: [
+            { name: title, url: url('admin_email_list'), },
+            { name: header, active: true, },
+        ]
     } %}
+
 {% endblock breadcrumb %}
 
 
 {% block content %}
+
     {% if email.id %}
-        {{ render(url("admin_email_edit_component", {
-            'id': email.id
-        })) }}
+        {{ render(url('admin_email_edit_component', { id: email.id })) }}
     {% else %}
-        {{ render(url("admin_email_new_component")) }}
+        {{ render(url('admin_email_new_component')) }}
     {% endif %}
+
 {% endblock content %}

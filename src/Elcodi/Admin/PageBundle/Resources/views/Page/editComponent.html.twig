@@ -1,48 +1,71 @@
 {% extends 'AdminCoreBundle::Common/formComponent.html.twig' %}
 
+
 {% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
 
-{% block title %}
-    {{ 'Edit Page'|trans }} - {{ page.id }} - {{ page.name }}
-{% endblock title %}
+
+{% set elcodi_context = {
+    entity_type: 'page',
+} %}
+
 
 {% block content %}
 
-    {% set formAction = page.id
-        ? url('admin_page_update', {
-            'id': page.id
-        })
-        : url('admin_page_save')
-
+    {% set formAction =
+        page.id
+            ? url('admin_page_update', { id: page.id })
+            : url('admin_page_save')
      %}
 
-    {{ form_start(form, {'action': formAction}) }}
+    {{ form_start(form, { action: formAction }) }}
         <fieldset class="mb-n">
             <div class="grid">
                 <div class="col-1-3">
                     <div class="box-none">
-                        <h3 class="fw-n">{% trans %}Basic Details{% endtrans %}</h3>
-                        <p>{% trans %}Provide a very specific title for your page that explains and help sell your page and description that provides all the information required for your consumers.{% endtrans %}</p>
-                        {% if elcodi_languages|length > 1 %}<p><i class="icon-star"></i> {% trans %}= Master Language (Mandatory){% endtrans %}</p>{% endif %}
+                        <h3 class="fw-n">{{ 'admin.page.section.basic.title'|trans }}</h3>
+                        <p>{{ 'admin.page.section.basic.description'|trans }}</p>
+                        {% if elcodi_languages|length > 1 %}
+                            <p><i class="icon-star"></i> = {{ 'ui.language.master_language'|trans }}</p>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="col-2-3">
-                    <div {% if elcodi_languages|length > 1 %}data-tc-modules="tabs" class="tabs-box" {% endif %}>
+                    <div {% if elcodi_languages|length > 1 %}data-tc-modules="tabs" class="tabs-box"{% endif %}>
                         {% for language in elcodi_languages %}
-                        <section id="tab-{{ language }}" data-tc-name="{% if loop.first %}<i class='icon-star'></i> {% endif %}{{ language|capitalize }}">
+                        <section id="tab-{{ language }}" data-tc-name="{% if loop.first %}{{ '<i class="icon-star"></i>'|e }} {% endif %}{{ language|capitalize }}">
                             <div class="box">
                                 <ol>
                                     <li>
-                                        <label>{{ 'Title'|trans }}</label>
-                                        {{ form_widget(form.title[language ~ '_title'],{'attr': {'placeholder':'e.g. My Awesome Page'}}) }}
+                                        {{
+                                            form_row(form.title["#{language}_title"], {
+                                                label: 'admin.page.field.title.title',
+                                                attr: {
+                                                    placeholder: 'admin.page.field.title.placeholder',
+                                                }
+                                            })
+                                        }}
                                     </li>
                                     <li>
-                                        <label>{{ 'Path'|trans }}</label>
-                                        {{ form_widget(form.path[language ~ '_path'],{'attr': {'placeholder':'e.g. my/awesome/page'}}) }}
+                                        {{
+                                            form_row(form.path["#{language}_path"], {
+                                                label: 'admin.page.field.path.title',
+                                                attr: {
+                                                    placeholder: 'admin.page.field.path.placeholder',
+                                                }
+                                            })
+                                        }}
                                     </li>
                                     <li>
-                                        <label>{{ 'Content'|trans }}</label>
-                                        {{ form_widget(form.content[language ~ '_content'],{'attr': {'placeholder':'e.g. This awesome page is exactly what you are lookin for.', 'data-tc-modules':'wysiwyg', 'data-tc-text-help':'Select some text to get some format options'|trans}}) }}
+                                        {{
+                                            form_row(form.content["#{language}_content"], {
+                                                label: 'admin.page.field.content.title',
+                                                attr: {
+                                                    placeholder: 'admin.page.field.content.placeholder',
+                                                    'data-tc-modules': 'wysiwyg',
+                                                    'data-tc-text-help': 'ui.editor.help'|trans
+                                                }
+                                            })
+                                        }}
                                     </li>
                                 </ol>
                             </div>
@@ -53,33 +76,56 @@
             </div>
 
             <details class="ph-n">
-                <summary class="mb-n pl-xl">{{ 'Personalize Metadata'|trans }}</summary>
+                <summary class="mb-n pl-xl">{{ 'admin.metadata.customize'|trans }}</summary>
                 <div class="grid">
                     <div class="col-1-3">
                         <div class="box-none">
-                            <h3 class="fw-n">{% trans %}Metadata{% endtrans %}</h3>
-                            <p>{% trans %}Description and keywords in meta tags are commonly used to describe the Web page's content. Most search engines use these data when adding pages to their search index.{% endtrans %}</p>
-                            {% if elcodi_languages|length > 1 %}<p><i class="icon-star"></i> {% trans %}= Master Language (Mandatory){% endtrans %}</p>{% endif %}
+                            <h3 class="fw-n">{{ 'admin.metadata.section.metadata.title'|trans }}</h3>
+                            <p>{{ 'admin.metadata.section.metadata.description'|trans }}</p>
+                            {% if elcodi_languages|length > 1 %}
+                                <p><i class="icon-star"></i> = {{ 'ui.language.master_language'|trans }}</p>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="col-2-3">
-                        <p class="msg-warning">{% trans %}<strong>This area for advanced users.</strong> Leave this fields in blank to obtain automatically the metadata of your page.{% endtrans %}</p>
-                        <div {% if elcodi_languages|length > 1 %}data-tc-modules="tabs" class="tabs-box" {% endif %}>
+                        <p class="msg-warning">
+                            <strong>{{ 'admin.metadata.disclaimer.0'|trans }}</strong>
+                            {{ 'admin.metadata.disclaimer.1'|trans }}
+                        </p>
+                        <div {% if elcodi_languages|length > 1 %}data-tc-modules="tabs" class="tabs-box"{% endif %}>
                             {% for language in elcodi_languages %}
-                                <section id="metadata-{{ language }}" data-tc-name="{% if loop.first %}<i class='icon-star'></i> {% endif %}{{ language|capitalize }}">
+                                <section id="metadata-{{ language }}" data-tc-name="{% if loop.first %}{{ '<i class="icon-star"></i>'|e }} {% endif %}{{ language|capitalize }}">
                                     <div class="box">
                                         <ol>
                                             <li>
-                                                <label>{{ 'metaTitle'|trans }}</label>
-                                                {{ form_widget(form.metaTitle[language ~ '_metaTitle'],{'attr': {'placeholder':'e.g. My Awesome Page'}}) }}
+                                                {{
+                                                    form_row(form.metaTitle["#{language}_metaTitle"], {
+                                                        label: 'admin.metadata.field.metatitle.title',
+                                                        attr: {
+                                                            placeholder: 'admin.page.field.metatitle.placeholder',
+                                                        },
+                                                    })
+                                                }}
                                             </li>
                                             <li>
-                                                <label>{{ 'metaDescription'|trans }}</label>
-                                                {{ form_widget(form.metaDescription[language ~ '_metaDescription'],{'attr': {'placeholder':'e.g. This awesome page is exactly what you are lookin for.'}}) }}
+                                                {{
+                                                    form_row(form.metaDescription["#{language}_metaDescription"], {
+                                                        label: 'admin.metadata.field.metadescription.title',
+                                                        attr: {
+                                                            placeholder: 'admin.page.field.metadescription.placeholder',
+                                                        },
+                                                    })
+                                                }}
                                             </li>
                                             <li>
-                                                <label>{{ 'metaKeywords'|trans }}</label>
-                                                {{ form_widget(form.metaKeywords[language ~ '_metaKeywords'],{'attr': {'placeholder':'e.g. page,awesome'}}) }}
+                                                {{
+                                                    form_row(form.metaKeywords["#{language}_metaKeywords"], {
+                                                        label: 'admin.metadata.field.metakeywords.title',
+                                                        attr: {
+                                                            placeholder: 'admin.page.field.metakeywords.placeholder',
+                                                        },
+                                                    })
+                                                }}
                                             </li>
                                         </ol>
                                     </div>
@@ -89,19 +135,24 @@
                     </div>
                 </div>
             </details>
+
             {% if form.enabled is defined %}
             <div class="grid">
                 <div class="col-1-3">
                     <div class="box-none mb-n pb-m">
-                        <h3 class="fw-n">{% trans %}Visibility{% endtrans %}</h3>
-                        <p>{% trans %}Set this page as visible or hidden, and make it visible in your home.{% endtrans %}</p>
+                        <h3 class="fw-n">{{ 'admin.page.section.visibility.title'|trans }}</h3>
+                        <p>{{ 'admin.page.section.visibility.description'|trans }}</p>
                     </div>
                 </div>
                 <div class="col-2-3">
                     <div class="box mb-n pb-n">
                         <ol class="grid pt-m">
                             <li class="col-1-2">
-                                {{ form_row(form.enabled, {'attr': {'type':'checkbox'}}) }}
+                                {{
+                                    form_row(form.enabled, {
+                                        label: 'ui.label.enabled',
+                                    })
+                                }}
                             </li>
                         </ol>
                     </div>
@@ -109,14 +160,14 @@
             </div>
             {% endif %}
         </fieldset>
+
         <div class="grid">
             <div class="col-1-3">
                 &nbsp;
             </div>
             <div class="col-2-3">
-                <button type="submit" class="button-primary">{{ 'Save'|trans }}</button>
-                <a href="{{ path('admin_page_list') }}" class="button">{{ 'Cancel'|trans }}</a>
-
+                <button type="submit" class="button-primary">{{ 'ui.forms.save'|trans }}</button>
+                <a href="{{ path('admin_page_list') }}" class="button">{{ 'ui.forms.cancel'|trans }}</a>
             </div>
         </div>
     {{ form_end(form) }}

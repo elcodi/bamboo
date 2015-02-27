@@ -59,11 +59,9 @@ class PageType extends AbstractType
         $builder
             ->add('title', 'text', [
                 'required' => true,
-                'label'    => 'title',
             ])
             ->add('path', 'text', [
                 'required' => true,
-                'label'    => 'path',
             ])
             ->add('type', 'hidden', [
                 'required' => true,
@@ -71,24 +69,20 @@ class PageType extends AbstractType
             ])
             ->add('content', 'textarea', [
                 'required' => true,
-                'label'    => 'content',
             ])
             ->add('metaTitle', 'text', [
                 'required' => false,
-                'label'    => 'Metatitle',
             ])
             ->add('metaDescription', 'text', [
                 'required' => false,
-                'label'    => 'Metadescription',
             ])
             ->add('metaKeywords', 'text', [
                 'required' => false,
-                'label'    => 'Metakeywords',
             ])
             ->add('enabled', 'checkbox', [
                 'required' => false,
-                'label'    => 'enabled',
-            ]);
+            ])
+        ;
 
         $builder->addEventSubscriber($this->getEntityTranslatorFormEventListener());
         $builder->addEventSubscriber($this->permanentPageSubscriber);

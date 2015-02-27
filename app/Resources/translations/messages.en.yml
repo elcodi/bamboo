@@ -59,6 +59,64 @@ admin:
                 title:       Visibility
                 description: Set this attribute as visible or hidden.
 
+    blog_post:
+        single: Blog post
+        plural: Blog posts
+        edit:   Edit "%name%"
+        new:    Create blog post
+        list:   Blog post list
+        saved:  Post saved
+        in_store: View at store
+        show_metrics: Show metrics
+        field:
+            title:
+                title: Title
+                placeholder: e.g. My Awesome Blog Post
+            path:
+                title: Path
+                placeholder: e.g. my/awesome/blog-post
+                customize: Customize slug
+            link:
+                title: Link
+            enabled:
+                title: Enabled
+            content:
+                title: Content
+                placeholder: e.g. This awesome blog post is exactly what you are lookin for.
+            publication_date:
+                title: Publication Date
+            metatitle:
+                placeholder: e.g. My Awesome Blog Post
+            metadescription:
+                placeholder: e.g. This awesome blog post is exactly what you are lookin for.
+            metakeywords:
+                placeholder: 'e.g. blog,post,awesome'
+        section:
+            basic:
+                title: Basic Details
+                description: Provide a very specific title for your blog post that explains and help sell your blog post and description that provides all the information required for your consumers.
+            visibility:
+                title: Visibility
+                description: Set this blog post as visible or hidden.
+
+    mailing:
+        single: Mailing
+        plural: Mailings
+        edit:   Edit "%title%"
+        new:    Create new mailing
+        list:   Mailing list
+        field:
+            title:
+                title: Title
+                placeholder: e.g. My Awesome Mailing
+            title:
+                title: Content
+                placeholder: e.g. This awesome mailing is exactly what you are lookin for.
+        section:
+            basic:
+                title: Basic content
+                description: Provide a descriptive title for your mailing and the content to deliver.
+
     coupon:
         single: Coupon
         plural: Coupons
@@ -154,6 +212,19 @@ admin:
         plural: Media
         list:   Media list
 
+    metrics:
+        single: Metric
+        plural: Metrics
+        info:
+            visitors: Visitors
+            no_data: No data
+        action:
+            show: Show Metrics
+        type:
+            line:
+                unique: Unique
+                total: Total
+
     order:
         single:    Order
         plural:    Orders
@@ -192,6 +263,61 @@ admin:
         transition:
             refund: Refund
             ship:   Ship
+
+    page:
+        single:   Page
+        plural:   Pages
+        edit:     Edit "%name%"
+        new:      New Page
+        list:     Page list
+        saved:    Changes saved
+        in_store: View at store
+        field:
+            title:
+                title: Title
+                placeholder: e.g. My Awesome Page
+            path:
+                title: Path
+                placeholder: e.g. my/awesome/page
+            link:
+                title: Link
+            enabled:
+                title: Enabled
+            content:
+                title: Content
+                placeholder: e.g. This awesome page is exactly what you are lookin for.
+            metatitle:
+                placeholder: e.g. My Awesome Page
+            metadescription:
+                placeholder: e.g. This awesome page is exactly what you are lookin for.
+            metakeywords:
+                placeholder: 'e.g. page,awesome'
+        section:
+            basic:
+                title: Basic Details
+                description: Provide a very specific title for your page that explains and help sell your page and description that provides all the information required for your consumers.
+            visibility:
+                title: Visibility
+                description: Set this page as visible or hidden, and make it visible in your home.
+        error:
+            cant_modify_permanent: This page is permanent and can't be modified
+
+    metadata:
+        customize: Customize Metadata
+        disclaimer:
+            - This area for advanced users.
+            - Leave this fields in blank to obtain automatically the metadata of your page.
+        section:
+            metadata:
+                title: Metadata
+                description: Description and keywords in meta tags are commonly used to describe the Web page's content. Most search engines use these data when adding pages to their search index.
+        field:
+            metatitle:
+                title: MetaTitle
+            metadescription:
+                title: MetaDescription
+            metakeywords:
+                title: MetaKeywords
 
     settings:
         single: Setting
@@ -263,3 +389,7 @@ ui:
     tags:
         placeholder:
             comma_separated: Add tags separated by comma.
+    language:
+        master_language: Master Language (Mandatory)
+    editor:
+        help: Select some text to get some format options

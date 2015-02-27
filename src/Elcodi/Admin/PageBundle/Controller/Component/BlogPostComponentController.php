@@ -22,7 +22,6 @@ use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Paginator as PaginatorAnnotation;
 use Mmoreram\ControllerExtraBundle\ValueObject\PaginatorAttributes;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormView;
@@ -67,9 +66,9 @@ class BlogPostComponentController extends AbstractAdminController
      *          "orderByField" = "id",
      *          "orderByDirection" = "DESC",
      *      },
+     *      methods = {"GET"}
      * )
      * @Template("AdminPageBundle:BlogPost:listComponent.html.twig")
-     * @Method({"GET"})
      *
      * @PaginatorAnnotation(
      *      attributes = "paginatorAttributes",
@@ -110,7 +109,7 @@ class BlogPostComponentController extends AbstractAdminController
      * only the specific component
      *
      * @param FormView      $formView Form view
-     * @param PageInterface $page     Page
+     * @param PageInterface $blogPost Page
      *
      * @return array Result
      *
@@ -119,7 +118,8 @@ class BlogPostComponentController extends AbstractAdminController
      *      name = "admin_blog_post_edit_component",
      *      requirements = {
      *          "id" = "\d+",
-     *      }
+     *      },
+     *      methods = {"GET"}
      * )
      * @Route(
      *      path = "/new/component",
@@ -127,7 +127,6 @@ class BlogPostComponentController extends AbstractAdminController
      *      methods = {"GET"}
      * )
      * @Template("AdminPageBundle:BlogPost:editComponent.html.twig")
-     * @Method({"GET"})
      *
      * @EntityAnnotation(
      *      class = {
