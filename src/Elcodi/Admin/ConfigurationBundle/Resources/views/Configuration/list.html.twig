@@ -102,5 +102,29 @@
                 </div>
             </div>
         </fieldset>
+        <fieldset class="grid">
+            <div class="col-1-3">
+                <h2 class="fw-n">{{ 'Social'|trans }}</h2>
+                <p>{{ 'Your shop in the networks'|trans }}</p>
+            </div>
+            <div class="col-2-3">
+                <div class="box">
+                    <ol>
+                        <li>
+                            <label for="store.social_twitter">{{ 'Twitter Account'|trans }}</label>
+                            <i class="icon-pencil"></i>
+                            <input id="store.social_twitter" type="text" name="store.social_twitter" value="{{ elcodi_config('store.social_twitter') }}"/>
+                            <input id="url-store.social_twitter" type="hidden" value="{{ url("admin_configuration_update", {"name": "store.social_twitter"}) }}">
+                        </li>
+                        <li>
+                            <label for="store.social_facebook">{{ 'Facebook Account'|trans }}</label>
+                            <i class="icon-pencil"></i>
+                            <input id="store.social_facebook" type="text" name="store.social_facebook" value="{{ elcodi_config('store.social_facebook') }}"/>
+                            <input id="url-store.social_facebook" type="hidden" value="{{ url("admin_configuration_update", {"name": "store.social_facebook"}) }}">
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </fieldset>
     </form>
 {% endblock content %}

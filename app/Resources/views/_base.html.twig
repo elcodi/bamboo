@@ -1,3 +1,10 @@
+{#
+    Global variables environment
+#}
+{% set current_user_session_id = app.session.id %}
+{% set current_user_session_sha1 = current_user_session_sha1|sha1 %}
+{% set current_route_name = app.request.get('_route') %}
+
 {% block doctype_and_html %}
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html lang="{{ app.request.locale }}" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -51,9 +58,6 @@
         {% block body "" %}
         {% block pixels "" %}
 
-        {% set current_user_id = app.session.id|sha1 %}
-        {% set current_route_name = app.request.get('_route') %}
-
         <script>
 
             var isMobile = {
@@ -80,14 +84,21 @@
             /**
              * Page view beacons
              */
-            _etc.push(["{{ store_tracker }}", 'pv', '{{ current_user_id }}', '3']);
-            _etc.push(["{{ store_tracker }}", 'pv_{{ current_route_name }}', '{{ current_user_id }}', '3']);
+            _etc.push(["{{ store_tracker }}", 'pv', '{{ current_user_session_sha1 }}', '3']);
+            _etc.push(["{{ store_tracker }}", 'pv_{{ current_route_name }}', '{{ current_user_session_sha1 }}', '3']);
 
             /**
              * Specific product view beacon
              */
             {% if current_route_name == 'store_product_view' %}
-                _etc.push(["{{ store_tracker }}", 'pv_store_product_view_{{ product.id }}', '{{ current_user_id }}', '3']);
+                _etc.push(["{{ store_tracker }}", 'pv_store_product_view_{{ product.id }}', '{{ current_user_session_sha1 }}', '3']);
+            {% endif %}
+
+            /**
+             * Specific blog view beacon
+             */
+            {% if current_route_name == 'store_blog_post_view' %}
+                _etc.push(["{{ store_tracker }}", 'pv_store_blog_post_view_{{ blog_post.id }}', '{{ current_user_session_sha1 }}', '3']);
             {% endif %}
 
             /**

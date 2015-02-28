@@ -1,0 +1,38 @@
+{% extends 'AdminCoreBundle::layout.html.twig' %}
+
+
+{% block content_title %}
+    {{ 'Blog Zone'|trans }}
+{% endblock content_title %}
+
+
+{% block breadcrumb %}
+    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
+        breadcrumb: {
+            ("Blog post"): {
+                "active" : true
+            }
+        }
+    } %}
+{% endblock %}
+
+
+{% block header_actions %}
+    <a href="{{ url("admin_blog_post_new") }}"class="button-primary"><i class="icon-plus"></i> <span>{{ "New blog post"|trans }}</span></a>
+{% endblock header_actions %}
+
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-12">
+            {{ render(url("admin_blog_post_list_component", {
+                'page': page,
+                'limit': limit,
+                'orderByField': orderByField,
+                'orderByDirection': orderByDirection
+            })) }}
+        </div>
+    </div>
+
+{% endblock content %}

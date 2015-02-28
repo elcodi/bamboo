@@ -25,20 +25,18 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
 use Elcodi\Component\Page\Entity\Interfaces\PageInterface;
 
 /**
- * Class Controller for Page
+ * Class Controller for Blog Post
  *
  * @Route(
- *      path = "/page",
+ *      path = "/blog/post",
  * )
  */
-class PageController extends AbstractAdminController
+class BlogPostController extends AbstractAdminController
 {
     /**
      * List elements of certain entity type.
@@ -55,7 +53,7 @@ class PageController extends AbstractAdminController
      *
      * @Route(
      *      path = "s/{page}/{limit}/{orderByField}/{orderByDirection}",
-     *      name = "admin_page_list",
+     *      name = "admin_blog_post_list",
      *      requirements = {
      *          "page" = "\d*",
      *          "limit" = "\d*",
@@ -95,7 +93,7 @@ class PageController extends AbstractAdminController
      *
      * @Route(
      *      path = "/{id}",
-     *      name = "admin_page_edit",
+     *      name = "admin_blog_post_edit",
      *      requirements = {
      *          "id" = "\d+",
      *      },
@@ -103,7 +101,7 @@ class PageController extends AbstractAdminController
      * )
      * @Route(
      *      path = "/{id}/update",
-     *      name = "admin_page_update",
+     *      name = "admin_blog_post_update",
      *      requirements = {
      *          "id" = "\d+",
      *      },
@@ -112,12 +110,12 @@ class PageController extends AbstractAdminController
      *
      * @Route(
      *      path = "/new",
-     *      name = "admin_page_new",
+     *      name = "admin_blog_post_new",
      *      methods = {"GET"}
      * )
      * @Route(
      *      path = "/save",
-     *      name = "admin_page_save",
+     *      name = "admin_blog_post_save",
      *      methods = {"POST"}
      * )
      *
@@ -131,13 +129,13 @@ class PageController extends AbstractAdminController
      *          "id" = "~id~"
      *      },
      *      mappingFallback = true,
-     *      name = "page",
+     *      name = "blogPost",
      *      persist = true
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_page_form_type_page",
+     *      class = "elcodi_admin_page_form_type_blog_post",
      *      name  = "form",
-     *      entity = "page",
+     *      entity = "blogPost",
      *      handleRequest = true,
      *      validate = "isValid"
      * )
@@ -146,99 +144,25 @@ class PageController extends AbstractAdminController
      */
     public function editAction(
         FormInterface $form,
-        PageInterface $page,
+        PageInterface $blogPost,
         $isValid
     ) {
         if ($isValid) {
-            $this->flush($page);
+            $this->flush($blogPost);
 
-            $this->addFlash('success', 'Changes saved');
+            $this->addFlash('success', 'Post saved');
 
-            return $this->redirectToRoute('admin_page_list');
+            return $this->redirectToRoute('admin_blog_post_list');
         }
 
         return [
-            'page' => $page,
-            'form'     => $form->createView(),
+            'blog_post' => $blogPost,
+            'form'      => $form->createView(),
         ];
     }
 
     /**
-     * Enable entity
-     *
-     * @param Request          $request Request
-     * @param EnabledInterface $page    Entity to enable
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/{id}/enable",
-     *      name = "admin_page_enable"
-     * )
-     * @Method({"GET", "POST"})
-     *
-     * @EntityAnnotation(
-     *      class = "elcodi.core.page.entity.page.class",
-     *      mapping = {
-     *          "id" = "~id~"
-     *      }
-     * )
-     */
-    public function enableAction(
-        Request $request,
-        EnabledInterface $page
-    ) {
-        if ($page->isPersistent()) {
-            $exception = new AccessDeniedHttpException('This page can\'t be accessed for a permanent page');
-
-            return $this->getFailResponse($request, $exception);
-        }
-
-        return parent::enableAction(
-            $request,
-            $page
-        );
-    }
-
-    /**
-     * Disable entity
-     *
-     * @param Request          $request Request
-     * @param EnabledInterface $page    Entity to disable
-     *
-     * @return array Result
-     *
-     * @Route(
-     *      path = "/{id}/disable",
-     *      name = "admin_page_disable"
-     * )
-     * @Method({"GET", "POST"})
-     *
-     * @EntityAnnotation(
-     *      class = "elcodi.core.page.entity.page.class",
-     *      mapping = {
-     *          "id" = "~id~"
-     *      }
-     * )
-     */
-    public function disableAction(
-        Request $request,
-        EnabledInterface $page
-    ) {
-        if ($page->isPersistent()) {
-            $exception = new AccessDeniedHttpException('This page can\'t be accessed for a permanent page');
-
-            return $this->getFailResponse($request, $exception);
-        }
-
-        return parent::disableAction(
-            $request,
-            $page
-        );
-    }
-
-    /**
-     * Delete entity
+     * Delete a blog post
      *
      * @param Request $request     Request
      * @param mixed   $entity      Entity to delete
@@ -248,7 +172,7 @@ class PageController extends AbstractAdminController
      *
      * @Route(
      *      path = "/{id}/delete",
-     *      name = "admin_page_delete"
+     *      name = "admin_blog_post_delete"
      * )
      * @Method({"GET", "POST"})
      *
@@ -267,7 +191,7 @@ class PageController extends AbstractAdminController
         return parent::deleteAction(
             $request,
             $entity,
-            'admin_page_list'
+            'admin_blog_post_list'
         );
     }
 }

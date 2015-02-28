@@ -59,6 +59,7 @@ class AdminPageExtension extends AbstractExtension
         return [
             'classes',
             'formTypes',
+            'eventListeners',
         ];
     }
 

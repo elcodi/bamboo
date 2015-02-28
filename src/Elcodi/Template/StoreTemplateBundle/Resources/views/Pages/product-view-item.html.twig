@@ -8,27 +8,27 @@
 
 
 {% block content %}
-<div class="product-view">
-   <h1 class="product-title">{{ product.name }}</h1>
-   <div class="grid">
-       <div class="col-1-2">
-        {% block product_image %}
-           <a href="{{ product.images|length > 0 ? product.images.first|resize({
-               'width': 1024,
-               'height': 1024,
-               'type': 5
-           }) : 'http://placehold.it/772x604' }}" alt="{{ product.name }}" class="product-thumbnail">
-            {% if product.reducedPrice.amount > 0 %}<span class="product-badge">{{ 'Offer'|trans }}</span> {% endif %}
-               <img src="{{ product.images|length > 0 ? product.images.first|resize({
-                   'width': 772,
-                   'height': 604,
+    <div class="product-view">
+       <h1 class="product-title">{{ product.name }}</h1>
+       <div class="grid">
+           <div class="col-1-2">
+            {% block product_image %}
+               <a href="{{ product.images|length > 0 ? product.images.first|resize({
+                   'width': 1024,
+                   'height': 1024,
                    'type': 5
-               }) : 'http://placehold.it/772x604' }}" alt="{{ product.name }}"/>
-           </a>
-        {% endblock %}
-       </div>
-       <div class="col-1-2">
-           {% block product_info %}
+               }) : 'http://placehold.it/772x604' }}" alt="{{ product.name }}" class="product-thumbnail">
+                {% if product.reducedPrice.amount > 0 %}<span class="product-badge">{{ 'Offer'|trans }}</span> {% endif %}
+                   <img src="{{ product.images|length > 0 ? product.images.first|resize({
+                       'width': 772,
+                       'height': 604,
+                       'type': 5
+                   }) : 'http://placehold.it/772x604' }}" alt="{{ product.name }}"/>
+               </a>
+            {% endblock %}
+           </div>
+           <div class="col-1-2">
+               {% block product_info %}
                    {% block product_info_add_basket %}
                        <div class= "product-to-basket">
                            <h5 class="product-title desktop">{{ product.name }}</h5>
@@ -63,25 +63,19 @@
                        <p><i class="fa fa-check"></i> {{ 'Free Delivery is available on this item'|trans }}</p>
                        <p><i class="fa fa-truck"></i> {{ 'Usually dispatched within 24 hours'|trans }}</p>
                    {% endblock %}
-           {% endblock %}
+               {% endblock %}
+           </div>
        </div>
-   </div>
-</div>
-<div class="grid">
-    <div class="col-1-1">
-
     </div>
-</div>
-
-
+    <div class="grid">
+        <div class="col-1-1">
+            {{ elcodi_hook("store.product_view_bottom", {
+                'product': product,
+            }) }}
+        </div>
+    </div>
 {% endblock content %}
 
 {% block prefooter %}
-{% include "@StoreTemplate/Modules/_product-related.html.twig" with {'products' : related_products} %}
+    {% include "@StoreTemplate/Modules/_product-related.html.twig" with {'products' : related_products} %}
 {% endblock prefooter %}
-
-{% block pixels %}
-    <script>
-        _etc.push(["{{ store_tracker }}", 'product_view_' + {{ product.id }}]);
-    </script>
-{% endblock %}

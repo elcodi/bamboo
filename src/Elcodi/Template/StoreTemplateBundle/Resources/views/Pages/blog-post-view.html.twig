@@ -1,0 +1,19 @@
+{% extends '@StoreTemplate/Layout/_static.html.twig' %}
+
+{% block content %}
+    <div class="grid">
+        <div class="col-1-1">
+            <h1>{{ blog_post.title }}</h1>
+            <p>{{ blog_post.content }}</p>
+            <p>Published {{ blog_post.publishedDate|date('Y-m-d') }}</p>
+        </div>
+    </div>
+
+    <div class="grid">
+        <div class="col-1-1">
+            {{ elcodi_hook("store.blog_post_view_bottom", {
+                'blog_post': blog_post
+            }) }}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends '@StoreTemplate/Layout/_static.html.twig' %}
+
+{% block content %}
+    <div class="grid">
+        <div class="col-1-1">
+            <h1>{{ 'Blog posts'|trans }}</h1>
+
+            {% if current_page > 1 %}
+                <a href="{{ url("store_blog_view", {"page": current_page-1}) }}">{{ "Previous posts" }}</a>
+            {% endif %}
+
+            {% if number_of_pages > current_page %}
+                <a href="{{ url("store_blog_view", {"page": current_page+1}) }}">{{ "Next posts" }}</a>
+            {% endif %}
+
+
+            {% for blog_post in blog_posts %}
+                <section>
+                    <h2>{{ blog_post.title }}</h2>
+                    <h3>
+                        <a href="{{ url("store_blog_post_view", {
+                            'id': blog_post.id,
+                            'slug': blog_post.path
+                        }) }}">{{ "Read more"|trans }}</a>
+                    </h3>
+                </section>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="grid">
+        <div class="col-1-1">
+            {{ elcodi_hook("store.blog_posts_list_bottom", {
+                'blog_posts': blog_posts,
+                'current_page': current_page,
+                'number_of_pages': number_of_pages,
+            }) }}
+        </div>
+    </div>
+
+{% endblock %}

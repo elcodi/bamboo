@@ -1,0 +1,69 @@
+{% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
+
+
+{% block title %}
+    {{ 'Page list'|trans }}
+{% endblock title %}
+
+
+{% block no_items %}
+    {{ lists.no_items('blog post','blog posts', url("admin_blog_post_new")  ) }}
+{% endblock no_items %}
+
+
+{% block table_head %}
+    {% include "@AdminCore/Tables/head.html.twig" with {
+        rows: {
+            "path": {sorting_disabled: true},
+            "title": {sorting_disabled: true},
+            "link": {sorting_disabled: true},
+            "enabled": {width:"25", sorting_disabled: true},
+        },
+        class: "page",
+    } %}
+{% endblock table_head %}
+
+
+{% block table_body_row %}
+    <td>
+        <a href="{{ url("admin_blog_post_edit", {"id": entity.id}) }}">
+            {{ entity.path }}
+        </a>
+    </td>
+    <td>
+        {{ entity.title|truncate(20, '…') }}
+    </td>
+    <td>
+        {% set path = url('store_blog_post_view', {
+            'id': entity.id,
+            'slug': entity.path
+        }) %}
+        <a target="_blank" href="{{ path }}">
+            {{ path }}
+        </a>
+    </td>
+    <td>
+        {% if entity.enabled %}
+            <span class="label label-success">true</span>
+        {% else %}
+            <span class="label label-danger">false</span>
+        {% endif %}
+    </td>
+
+    {% include "@AdminCore/Tables/actions.html.twig" with {
+        entity: entity,
+        delete: not entity.persistent,
+        class: "page",
+    } %}
+{% endblock table_body_row %}
+
+
+{% block table_paginator_links %}
+    {% set url = 'admin_page_list' %}
+    {{ parent() }}
+{% endblock table_paginator_links %}
+
+
+{% block table_buttons %}
+    <a href="{{ url("admin_page_new") }}"type="button" class="btn btn-success">{{ "New Page"|trans }}</a>
+{% endblock table_buttons %}
