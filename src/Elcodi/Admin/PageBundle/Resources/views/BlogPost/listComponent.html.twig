@@ -50,20 +50,18 @@
         {% endif %}
     </td>
 
-    {% include "@AdminCore/Tables/actions.html.twig" with {
-        entity: entity,
-        delete: not entity.persistent,
-        class: "page",
-    } %}
+    <td class="ta-c">
+        <a class="icon-trash-o c-ko td-n fz-l" title="{{ 'delete'|trans }}" href="{{ url("admin_blog_post_delete", {"id": entity.id}) }}" data-tc-modules="confirm" data-tc-name="{{ entity.name }}" data-tc-text="{{ "Are you sure you want to delete it?"|trans }}"></a>
+    </td>
 {% endblock table_body_row %}
 
 
 {% block table_paginator_links %}
-    {% set url = 'admin_page_list' %}
+    {% set url = 'admin_blog_post_list' %}
     {{ parent() }}
 {% endblock table_paginator_links %}
 
 
 {% block table_buttons %}
-    <a href="{{ url("admin_page_new") }}"type="button" class="btn btn-success">{{ "New Page"|trans }}</a>
+    <a href="{{ url("admin_blog_post_new") }}"type="button" class="btn btn-success">{{ "New Page"|trans }}</a>
 {% endblock table_buttons %}
