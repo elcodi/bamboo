@@ -117,6 +117,8 @@ class UserController extends Controller
                 ->get('elcodi.object_manager.customer')
                 ->flush($customer);
 
+            $this->addFlash('success', 'Profile saved');
+
             return $this->redirect(
                 $this->generateUrl('store_user_edit')
             );
