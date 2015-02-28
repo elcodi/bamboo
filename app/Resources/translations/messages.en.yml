@@ -400,5 +400,7 @@ ui:
             comma_separated: Add tags separated by comma.
     language:
         master_language: Master Language (Mandatory)
+    delete:
+        success: Deleted correctly
     editor:
         help: Select some text to get some format options

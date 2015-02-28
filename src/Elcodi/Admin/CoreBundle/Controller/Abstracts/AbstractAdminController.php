@@ -93,15 +93,20 @@ class AbstractAdminController extends Controller
         $redirectUrl = null
     ) {
         return $this->getResponse($request, function () use ($entity) {
-
-            $this->addFlash('success', 'Correctly deleted');
-
             /**
              * @var EnabledInterface $entity
              */
             $entityManager = $this->getManagerForClass($entity);
             $entityManager->remove($entity);
             $entityManager->flush();
+
+            $this->addFlash(
+                'success',
+                $this
+                    ->get('translator')
+                    ->trans('ui.delete.success')
+            );
+
         }, $redirectUrl);
     }
 
