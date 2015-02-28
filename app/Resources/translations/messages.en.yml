@@ -319,6 +319,15 @@ admin:
             metakeywords:
                 title: MetaKeywords
 
+    plugin:
+        single: App
+        plural: Apps
+        saved:  Plugin status saved
+        field:
+            visibility: Enable:
+        section:
+            settings: Settings
+
     settings:
         single: Setting
         plural: Settings

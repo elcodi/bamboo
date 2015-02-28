@@ -1,13 +1,19 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
+
+{% set elcodi_context = {
+    entity_type: 'plugin',
+} %}
+
+
 {% block breadcrumb %}
-    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
-        breadcrumb: {
-            "Apps": {
-                "active" : true
-            }
-        }
+
+    {% include '@AdminCore/Common/breadcrumb.html.twig' with {
+        breadcrumb: [
+            { name: 'admin.plugin.plural'|trans, active: true },
+        ]
     } %}
+
 {% endblock breadcrumb %}
 
 
@@ -19,18 +25,17 @@
                 <h4 class="fw-n">{{ plugin.name }}{{ plugin.version }}</h4>
                 <p>{{ plugin.author }}</p>
 
-                <input type="hidden" id="url-{{ plugin.name }}" value="{{ url("admin_plugin_enable", {"plugin": plugin.namespace}) }}" />
+                <input type="hidden" id="url-{{ plugin.name }}" value="{{ url('admin_plugin_enable', { plugin: plugin.namespace }) }}" />
 
-                <a href="{{ url( plugin.configurationRoute ) }}" class="button icon-cogs"> {{ 'Settings'|trans }}</a>
+                <a href="{{ url( plugin.configurationRoute ) }}" class="button icon-cogs"> {{ 'admin.plugin.section.settings'|trans }}</a>
 
                 <div class="fl-r pt-s">
-                    Enable:
+                    {{ 'admin.plugin.field.visibility'|trans }}
                     <div class="switch">
                         <input type="checkbox" id="{{ plugin.name }}"{% if plugin.enabled %} checked="checked"{% endif %} />
                         <label for="{{ plugin.name }}" class="mr-n"></label>
                     </div>
                 </div>
-
             </article>
         {% endfor %}
     </form>
