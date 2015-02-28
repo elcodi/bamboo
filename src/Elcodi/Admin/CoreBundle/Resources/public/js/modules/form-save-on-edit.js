@@ -1,5 +1,6 @@
 TinyCore.AMD.define('form-save-on-edit', ['devicePackage'], function () {
 	return {
+		mediator : TinyCore.Toolbox.request( 'mediator' ),
 		onStart: function () {
 
 			var oContainer = $('[data-tc-modules="form-save-on-edit"]')[0],
@@ -7,7 +8,7 @@ TinyCore.AMD.define('form-save-on-edit', ['devicePackage'], function () {
 				$Articles = $('article', oContainer),
 				self = this;
 
-			oTools.trackEvent('JS_Libraries', 'call', 'form-configuration');
+			oTools.trackEvent('JS_Libraries', 'call', 'form-save-on-edit');
 
 			$li.each(function () {
 				self.autobind(this);
@@ -48,7 +49,7 @@ TinyCore.AMD.define('form-save-on-edit', ['devicePackage'], function () {
 				oInput.className = 'd-ib w-80';
 			}
 
-				$('.js-edit-link', oTarget).fadeOut();
+			$('.js-edit-link', oTarget).fadeOut();
 			$('.js-save', oTarget).fadeIn();
 		},
 		autobind: function (oTarget) {
@@ -59,13 +60,9 @@ TinyCore.AMD.define('form-save-on-edit', ['devicePackage'], function () {
 				oInput = document.getElementById(sName),
 				sId = oInput.id.replace('.', '_');
 
-
-
 			if (oInput.type === 'checkbox' || oInput.type === 'radio') {
 
 				$(oInput).change(function (e) {
-
-
 
 					var oData = {};
 					oData.value = $(oInput).is(':checked') || $(oInput).is(':selected') ? oInput.value : '';
@@ -118,6 +115,10 @@ TinyCore.AMD.define('form-save-on-edit', ['devicePackage'], function () {
 							$('.js-save', oTarget).hide();
 							$('.js-loading', oTarget).hide();
 							$('.js-ok', oTarget).fadeIn('slow').fadeOut('slow').fadeIn('slow').fadeOut('slow').fadeIn('slow');
+							self.mediator.publish('save:item', {
+								type: 'ok',
+								message: sId
+							});
 
 							setTimeout( function() {
 								$('.js-ok', oTarget).fadeOut();
