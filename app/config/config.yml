@@ -4,11 +4,9 @@ imports:
 
     # Common Elcodi configuration
     - { resource: @ElcodiBambooBundle/Resources/config/translations.yml }
-    - { resource: @ElcodiBambooBundle/Resources/config/mapping.yml }
     - { resource: @ElcodiBambooBundle/Resources/config/filesystem.yml }
     - { resource: @ElcodiBambooBundle/Resources/config/configuration.yml }
     - { resource: @ElcodiBambooBundle/Resources/config/cache.yml }
-    - { resource: @ElcodiBambooBundle/Resources/config/page.yml }
     - { resource: @ElcodiBambooBundle/Resources/config/metrics.yml }
 
     # Payment-specific bundle and elcodi configuration
@@ -133,3 +131,7 @@ elcodi_geo:
     mapping:
         location:
             manager: default
+
+store_page:
+    blog:
+        posts_per_page: 5

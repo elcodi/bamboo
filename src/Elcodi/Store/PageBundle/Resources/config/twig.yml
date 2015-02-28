@@ -1,0 +1,11 @@
+services:
+
+    #
+    # Twig Extensions
+    #
+    store.twig_extension.store_page:
+        class: %store.twig_extension.store_page.class%
+        arguments:
+            - @elcodi.repository.page
+        tags:
+            - { name: twig.extension }

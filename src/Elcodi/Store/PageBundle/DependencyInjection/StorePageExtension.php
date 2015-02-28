@@ -15,23 +15,23 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-namespace Elcodi\Store\ProductBundle\DependencyInjection;
+namespace Elcodi\Store\PageBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 use Elcodi\Bundle\CoreBundle\DependencyInjection\Abstracts\AbstractExtension;
 
 /**
- * Class StoreProductExtension
+ * Class StorePageExtension
  */
-class StoreProductExtension extends AbstractExtension
+class StorePageExtension extends AbstractExtension
 {
     /**
      * @var string
      *
      * Extension name
      */
-    const EXTENSION_NAME = 'store_product';
+    const EXTENSION_NAME = 'store_page';
 
     /**
      * Get the Config file location
@@ -76,7 +76,7 @@ class StoreProductExtension extends AbstractExtension
     protected function getParametrizationValues(array $config)
     {
         return [
-            'store.product.menu_cache_key' => $config['menu']['menu_cache_key'],
+            'store.page.blog_posts_per_page' => $config['blog']['posts_per_page'],
         ];
     }
 
@@ -97,8 +97,7 @@ class StoreProductExtension extends AbstractExtension
     {
         return [
             'classes',
-            'services',
-            'eventListeners',
+            'twig',
         ];
     }
 

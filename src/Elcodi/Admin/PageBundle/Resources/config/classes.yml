@@ -4,6 +4,7 @@ parameters:
     # Entity classes
     #
     elcodi.admin.page.form_type.page.class: Elcodi\Admin\PageBundle\Form\Type\PageType
+    elcodi.admin.page.form_type.blog_post.class: Elcodi\Admin\PageBundle\Form\Type\BlogPostType
 
     #
     # Event Listeners

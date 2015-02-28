@@ -1,15 +1,15 @@
 {% extends '@StoreTemplate/Layout/_layout.html.twig' %}
 
 {% block content %}
-        {% if thanks %}
-            <div class="message message-ok">
-                <p><i class="fa fa-check"></i> <strong>{{ 'CONGRATULATIONS!'|trans }}</strong></p>
-                <p>{{ ' Thank you for your order! We are going to work to send you as fast as possible.'|trans }}</p>
-            </div>
-        {% else %}
-            <h1>Order #{{ order.id }}</h1>
-        {% endif %}
-    <p class="cart-total"><span>Status: </span>{{ order.lastStateLine.name }}</p>
+    {% if thanks %}
+        <div class="message message-ok">
+            <p><i class="fa fa-check"></i> <strong>{{ 'CONGRATULATIONS!'|trans }}</strong></p>
+            <p>{{ ' Thank you for your order! We are going to work to send you as fast as possible.'|trans }}</p>
+        </div>
+    {% else %}
+        <h1>Order #{{ order.id }}</h1>
+    {% endif %}
+    <p class="cart-total"><span>Status: </span>{{ order.paymentStateLineStack.lastStateLine.name }}</p>
     <div class="cart-list">
         {% for line in order.orderLines %}
             {% include "@StoreTemplate/Modules/_order-item.html.twig" with {"line": line} %}

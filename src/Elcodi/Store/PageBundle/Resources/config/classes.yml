@@ -1,0 +1,6 @@
+parameters:
+
+    #
+    # Twig Extensions
+    #
+    store.twig_extension.store_page.class: Elcodi\Store\PageBundle\Twig\PageExtension

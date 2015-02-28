@@ -8,62 +8,48 @@
         </div>
     </div>
     <div class="grid">
-        <div class="col-1-4">
+        {% set last_post = elcodi_blog_pages()[0] %}
+        {% if last_post %}
+            <div class="col-1-3">
+                <ul>
+                    <li><strong>{{ 'Latest news'|trans }}</strong></li>
+                    <li>
+                        <a href="{{ url("store_blog_post_view", {
+                            "id": last_post.id,
+                            "slug": last_post.path
+                        }) }}">
+                            <strong>{{ last_post.title }}</strong>
+                        </a>
+                    </li>
+                    <li>{{ last_post.content|truncate(50) }}</li>
+                </ul>
+            </div>
+        {% endif %}
+        <div class="col-1-3">
             <ul>
-                <li><strong>{{ 'Shopping with us'|trans }}</strong></li>
-                <li><a href="#">{{ "Terms &amp; Conditions"|trans }}</a></li>
-                <li><a href="#">{{ "Delivery Information"|trans }}</a></li>
-                <li><a href="#">{{ "Secure payment"|trans }}</a></li>
-                <li><a href="#">{{ "Contact"|trans }}</a></li>
+                <li><strong>{{ 'Quick links'|trans }}</strong></li>
+                {% set pages = elcodi_footer_pages() %}
+
+                {% for page in pages %}
+                    <li><a href="{{ url("elcodi_page_render_view", {"path": page.path}) }}">{{ page.title }}</a></li>
+                {% endfor %}
             </ul>
         </div>
-        <div class="col-1-4">
-            <ul>
-                <li><strong>{{ 'Selling with us'|trans }}</strong></li>
-                <li><a href="#">{{ "Why join"|trans }} {{ elcodi_config('store.name') }}</a></li>
-            </ul>
-        </div>
-        <div class="col-1-4">
+        <div class="col-1-3">
             <ul>
                 <li><strong>{{ 'About us'|trans }}</strong></li>
-                <li><a href="#">{{ "Who we are"|trans }}</a></li>
-                <li><a href="#">{{ elcodi_config('store.name') }} {{ "in the press"|trans }}</a></li>
-                <li><a href="#">{{ "Blog"|trans }}</a></li>
-            </ul>
-        </div>
-        <div class="col-1-4">
-            <ul>
-                <li><strong>{{ 'Service'|trans }}</strong></li>
-                <li><a href="#">{{ "Contact us"|trans }}</a></li>
-                <li><a href="#">{{ elcodi_config('store.phone') }}</a></li>
-                <li><a href="#">{{ elcodi_config('store.email') }}</a></li>
-            </ul>
-        </div>
-    </div>
-    <hr />
-    <div class="grid">
-        <div class="col-1-4">
-            <ul>
-                <li>{{ 'NEED HELP?'|trans }}</li>
-                <li>Call {{ elcodi_config('store.phone') }}</li>
-            </ul>
-        </div>
-        <div class="col-1-4">
-            <ul>
-                <li>{{ 'QUICK DELIVERY'|trans }}</li>
-                <li>{{ "Why join"|trans }} {{ elcodi_config('store.name') }}</li>
-            </ul>
-        </div>
-        <div class="col-1-4">
-            <ul>
-                <li>{{ 'FREE RETURNS'|trans }}</li>
-                <li>{{ 'Within 15 days'|trans }}</li>
-            </ul>
-        </div>
-        <div class="col-1-4">
-            <ul>
-                <li>{{ 'SECURE'|trans }}</li>
-                <li>{{ 'PAYMENT'|trans }}</li>
+                {% set social_twitter = elcodi_config('store.social_twitter') %}
+                {% if social_twitter != '' %}
+                    <li>
+                        <a href="http://twitter.com/{{ social_twitter }}">Twitter</a>
+                    </li>
+                {% endif %}
+                {% set social_facebook = elcodi_config('store.social_facebook') %}
+                {% if social_facebook != '' %}
+                    <li>
+                        <a href="http://facebook.com/{{ social_facebook }}">Facebook</a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
     </div>

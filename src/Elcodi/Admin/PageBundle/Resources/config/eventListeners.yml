@@ -1,0 +1,7 @@
+services:
+
+    #
+    # Event Listeners
+    #
+    elcodi.admin.page.form_event_listener.permanent_page:
+         class:  %elcodi.admin.page.form_event_listener.permanent_page.class%

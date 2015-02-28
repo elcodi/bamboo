@@ -34,10 +34,10 @@ use Elcodi\Component\Page\Entity\Interfaces\PageInterface;
  * Class PageComponentController
  *
  * @Route(
- *      path = "/page"
+ *      path = "/blog/post"
  * )
  */
-class PageComponentController extends AbstractAdminController
+class BlogPostComponentController extends AbstractAdminController
 {
     /**
      * Component for entity list.
@@ -56,7 +56,7 @@ class PageComponentController extends AbstractAdminController
      *
      * @Route(
      *      path = "s/list/component/{page}/{limit}/{orderByField}/{orderByDirection}",
-     *      name = "admin_page_list_component",
+     *      name = "admin_blog_post_list_component",
      *      requirements = {
      *          "page" = "\d*",
      *          "limit" = "\d*",
@@ -68,7 +68,7 @@ class PageComponentController extends AbstractAdminController
      *          "orderByDirection" = "DESC",
      *      },
      * )
-     * @Template("AdminPageBundle:Page:listComponent.html.twig")
+     * @Template("AdminPageBundle:BlogPost:listComponent.html.twig")
      * @Method({"GET"})
      *
      * @PaginatorAnnotation(
@@ -77,7 +77,7 @@ class PageComponentController extends AbstractAdminController
      *      page = "~page~",
      *      limit = "~limit~",
      *      wheres = {
-     *          {"x", "type", "=", \Elcodi\Component\Page\ElcodiPageTypes::TYPE_REGULAR}
+     *          {"x", "type", "=", \Elcodi\Component\Page\ElcodiPageTypes::TYPE_BLOG_POST}
      *      },
      *      orderBy = {
      *          {"x", "~orderByField~", "~orderByDirection~"}
@@ -116,17 +116,17 @@ class PageComponentController extends AbstractAdminController
      *
      * @Route(
      *      path = "/{id}/component",
-     *      name = "admin_page_edit_component",
+     *      name = "admin_blog_post_edit_component",
      *      requirements = {
      *          "id" = "\d+",
      *      }
      * )
      * @Route(
      *      path = "/new/component",
-     *      name = "admin_page_new_component",
+     *      name = "admin_blog_post_new_component",
      *      methods = {"GET"}
      * )
-     * @Template("AdminPageBundle:Page:editComponent.html.twig")
+     * @Template("AdminPageBundle:BlogPost:editComponent.html.twig")
      * @Method({"GET"})
      *
      * @EntityAnnotation(
@@ -135,27 +135,27 @@ class PageComponentController extends AbstractAdminController
      *          "method" = "create",
      *          "static" = false
      *      },
-     *      name = "page",
+     *      name = "blogPost",
      *      mapping = {
      *          "id" = "~id~"
      *      },
      *      mappingFallback = true,
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_page_form_type_page",
+     *      class = "elcodi_admin_page_form_type_blog_post",
      *      name  = "formView",
-     *      entity = "page",
+     *      entity = "blogPost",
      *      handleRequest = true,
      *      validate = "isValid"
      * )
      */
     public function editComponentAction(
         FormView $formView,
-        PageInterface $page
+        PageInterface $blogPost
     ) {
         return [
-            'page' => $page,
-            'form'     => $formView,
+            'blog_post' => $blogPost,
+            'form'      => $formView,
         ];
     }
 }

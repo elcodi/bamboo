@@ -95,6 +95,13 @@ menu_nodes:
         enabled: 1
         subnodes: ~
 
+    bambooadmin_blog:
+        name: Blog
+        code: comments
+        url: admin_blog_post_list
+        enabled: 1
+        subnodes: ~
+
     bambooadmin_templates:
         name: Themes
         code: adjust
@@ -204,3 +211,4 @@ menus:
             - bambooadmin_templates
             - bambooadmin_plugins
             - bambooadmin_settings
+            - bambooadmin_blog

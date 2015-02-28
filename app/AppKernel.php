@@ -99,6 +99,7 @@ class AppKernel extends Kernel
             new \Elcodi\Store\ConnectBundle\StoreConnectBundle(),
             new \Elcodi\Store\PaymentBridgeBundle\PaymentBridgeBundle(),
             new \Elcodi\Store\MetricBundle\StoreMetricBundle(),
+            new \Elcodi\Store\PageBundle\StorePageBundle(),
 
             /**
              * Elcodi admin bundles
@@ -135,6 +136,7 @@ class AppKernel extends Kernel
             new \Elcodi\Plugin\PinterestBundle\ElcodiPinterestBundle(),
             new \Elcodi\Plugin\ProductCsvBundle\ElcodiProductCsvBundle(),
             new \Elcodi\Plugin\StoreSetupWizardBundle\ElcodiStoreSetupWizardBundle(),
+            new \Elcodi\Plugin\DisqusBundle\ElcodiDisqusBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

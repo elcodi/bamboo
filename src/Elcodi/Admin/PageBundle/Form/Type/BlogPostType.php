@@ -17,7 +17,6 @@
 
 namespace Elcodi\Admin\PageBundle\Form\Type;
 
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
@@ -25,28 +24,11 @@ use Elcodi\Component\EntityTranslator\EventListener\Traits\EntityTranslatableFor
 use Elcodi\Component\Page\ElcodiPageTypes;
 
 /**
- * Class PageType
+ * Class BlogPostType
  */
-class PageType extends AbstractType
+class BlogPostType extends AbstractType
 {
     use EntityTranslatableFormTrait;
-
-    /**
-     * A permanent page form event subscriber.
-     *
-     * @var EventSubscriberInterface
-     */
-    protected $permanentPageSubscriber;
-
-    /**
-     * Builds the page edit form.
-     *
-     * @param EventSubscriberInterface $permanentPageSubscriber A permanent page event subscriber.
-     */
-    public function __construct(EventSubscriberInterface $permanentPageSubscriber)
-    {
-        $this->permanentPageSubscriber = $permanentPageSubscriber;
-    }
 
     /**
      * Buildform function
@@ -67,11 +49,17 @@ class PageType extends AbstractType
             ])
             ->add('type', 'hidden', [
                 'required' => true,
-                'data'     => ElcodiPageTypes::TYPE_REGULAR,
+                'data'     => ElcodiPageTypes::TYPE_BLOG_POST,
             ])
             ->add('content', 'textarea', [
                 'required' => true,
                 'label'    => 'content',
+            ])
+            ->add('publicationDate', 'date', [
+                'required' => true,
+                'widget'   => 'single_text',
+                'format'   => 'yyyy-MM-dd',
+                'label'    => 'Publication Date',
             ])
             ->add('metaTitle', 'text', [
                 'required' => false,
@@ -91,7 +79,6 @@ class PageType extends AbstractType
             ]);
 
         $builder->addEventSubscriber($this->getEntityTranslatorFormEventListener());
-        $builder->addEventSubscriber($this->permanentPageSubscriber);
     }
 
     /**
@@ -101,6 +88,6 @@ class PageType extends AbstractType
      */
     public function getName()
     {
-        return 'elcodi_admin_page_form_type_page';
+        return 'elcodi_admin_page_form_type_blog_post';
     }
 }

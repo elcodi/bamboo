@@ -21,6 +21,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 
 use Elcodi\Bundle\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
 use Elcodi\Component\EntityTranslator\Services\Interfaces\EntityTranslatorInterface;
+use Elcodi\Component\Page\ElcodiPageTypes;
 use Elcodi\Component\Page\Factory\PageFactory;
 
 /**
@@ -55,8 +56,9 @@ class PageData extends AbstractFixture
             ->setMetaTitle('Sobre nosotros')
             ->setMetaDescription('Sobre nosotros')
             ->setMetaKeywords('sobre,nosotros')
+            ->setType(ElcodiPageTypes::TYPE_REGULAR)
             ->setEnabled(true)
-            ->setPersistent(true);
+            ->setPersistent(false);
 
         $pageObjectManager->persist($aboutUsPage);
         $this->addReference('page-about-us', $aboutUsPage);
@@ -100,8 +102,9 @@ class PageData extends AbstractFixture
             ->setMetaTitle('Terminos y condiciones')
             ->setMetaDescription('Terminos y condiciones')
             ->setMetaKeywords('terminos, condiciones')
+            ->setType(ElcodiPageTypes::TYPE_REGULAR)
             ->setEnabled(true)
-            ->setPersistent(true);
+            ->setPersistent(false);
 
         $pageObjectManager->persist($termsConditionsPage);
         $this->addReference('page-terms-and-conditions', $termsConditionsPage);
