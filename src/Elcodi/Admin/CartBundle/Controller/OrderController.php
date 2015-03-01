@@ -18,7 +18,6 @@
 namespace Elcodi\Admin\CartBundle\Controller;
 
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -63,9 +62,9 @@ class OrderController extends AbstractAdminController
      *          "orderByField" = "id",
      *          "orderByDirection" = "DESC",
      *      },
+     *      methods = {"GET"}
      * )
      * @Template
-     * @Method({"GET"})
      */
     public function listAction(
         $page,
@@ -96,7 +95,6 @@ class OrderController extends AbstractAdminController
      *      },
      *      methods = {"GET"}
      * )
-     *
      * @Template
      *
      * @EntityAnnotation(

@@ -1,23 +1,24 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
 
-{% block content_title %}
-    {{ 'Configuration Zone'|trans }}
-{% endblock content_title %}
+{% set elcodi_context = {
+    entity_type: 'configuration',
+} %}
 
 
 {% block breadcrumb %}
-    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
-        breadcrumb: {
-            "Settings": {
-                "active" : true
-            }
-        }
+
+    {% include '@AdminCore/Common/breadcrumb.html.twig' with {
+        breadcrumb: [
+            { name: 'admin.settings.plural'|trans, active: true },
+        ]
     } %}
+
 {% endblock breadcrumb %}
 
 
 {% block content %}
+
     <form class="form-configuration" data-tc-modules="form-save-on-edit">
         <fieldset class="grid">
             <div class="col-1-3">
@@ -28,47 +29,47 @@
                 <div class="box">
                     <ol>
                         <li>
-                            <input id="url-store.enabled" type="hidden" value="{{ url("admin_configuration_update", {"name": "store.enabled"}) }}">
+                            <input id="url-store.enabled" type="hidden" value="{{ url('admin_configuration_update', { name: 'store.enabled' }) }}">
                             <div class="switch">
                                 <input id="store.enabled" name="store.enabled" type="checkbox"{% if elcodi_config('store.enabled') %} checked="checked"{% endif %} />
                                 <label for="store.enabled"></label>
                             </div>
-                            {% trans %}Store enabled{% endtrans %}
+                            {{ 'admin.settings.field.store_enabled'|trans }}
                         </li>
                         <li>
-                            <input id="url-store.under_construction" type="hidden" value="{{ url("admin_configuration_update", {"name": "store.under_construction"}) }}">
+                            <input id="url-store.under_construction" type="hidden" value="{{ url('admin_configuration_update', { name: 'store.under_construction' }) }}">
                             <div class="switch">
                                 <input id="store.under_construction" name="store.under_construction" type="checkbox"{% if elcodi_config('store.under_construction') %} checked="checked"{% endif %} />
                                 <label for="store.under_construction"></label>
                             </div>
-                            {% trans %}Store under construction{% endtrans %}
+                            {{ 'admin.settings.field.store_under_construction'|trans }}
                         </li>
                         <li>
-                            <label for="store.name">{{ 'Store Name'|trans }}</label>
+                            <label for="store.name">{{ 'admin.settings.field.store_name'|trans }}</label>
                             <i class="icon-pencil"></i>
                             <input id="store.name" type="text" name="store.name" value="{{ elcodi_config('store.name') }}"/>
-                            <input id="url-store.name" type="hidden" value="{{ url("admin_configuration_update", {"name": "store.name"}) }}">
+                            <input id="url-store.name" type="hidden" value="{{ url('admin_configuration_update', { name: 'store.name' }) }}">
                         </li>
                         <li>
-                            <label for="store.leitmotiv">{{ 'Store Leitmotiv'|trans }}</label>
+                            <label for="store.leitmotiv">{{ 'admin.settings.field.store_leitmotiv'|trans }}</label>
                             <i class="icon-pencil"></i>
                             <input id="store.leitmotiv" type="text" name="store.leitmotiv" value="{{ elcodi_config('store.leitmotiv') }}"/>
-                            <input id="url-store.leitmotiv" type="hidden" value="{{ url("admin_configuration_update", {"name": "store.leitmotiv"}) }}">
+                            <input id="url-store.leitmotiv" type="hidden" value="{{ url('admin_configuration_update', { name: 'store.leitmotiv' }) }}">
                         </li>
                         <li>
-                            <label for="store.phone">{{ 'Store Phone'|trans }}</label>
+                            <label for="store.phone">{{ 'admin.settings.field.store_phone'|trans }}</label>
                             <i class="icon-pencil"></i>
                             <input id="store.phone" type="text" name="store.phone" value="{{ elcodi_config('store.phone') }}"/>
-                            <input id="url-store.phone" type="hidden" value="{{ url("admin_configuration_update", {"name": "store.phone"}) }}">
+                            <input id="url-store.phone" type="hidden" value="{{ url('admin_configuration_update', { name: 'store.phone' }) }}">
                         </li>
                         <li>
-                            <label for="store.email">{{ 'Store Email'|trans }}</label>
+                            <label for="store.email">{{ 'admin.settings.field.store_email'|trans }}</label>
                             <i class="icon-pencil"></i>
                             <input id="store.email" type="text" name="store.email" value="{{ elcodi_config('store.email') }}"/>
-                            <input id="url-store.email" type="hidden" value="{{ url("admin_configuration_update", {"name": "store.email"}) }}">
+                            <input id="url-store.email" type="hidden" value="{{ url('admin_configuration_update', { name: 'store.email' }) }}">
                         </li>
                         <li>
-                            <label for="currency.default_currency">{{ 'Currency configuration'|trans }}</label>
+                            <label for="currency.default_currency">{{ 'admin.settings.field.currency'|trans }}</label>
                             <i class="icon-pencil"></i>
                             {% set defaultCurrency = elcodi_config('currency.default_currency') %}
                             <select id="currency.default_currency" name="currency.default_currency">
@@ -76,7 +77,25 @@
                                     <option value="{{ currency.iso }}"{% if currency.iso == defaultCurrency %} selected="selected"{% endif %}>{{ currency.name }}</option>
                                 {% endfor %}
                             </select>
-                            <input id="url-currency.default_currency" type="hidden" value="{{ url("admin_configuration_update", {"name": "currency.default_currency"}) }}">
+                            <input id="url-currency.default_currency" type="hidden" value="{{ url('admin_configuration_update', { name: 'currency.default_currency' }) }}">
+                        </li>
+                        <li>
+                            <label for="store.paymill_private_key">{{ 'plugin.paymill.settings.private_key'|trans }}</label>
+                            <i class="icon-pencil"></i>
+                            <input id="store.paymill_private_key" type="text" name="store.paymill_private_key" value="{{ elcodi_config('store.paymill_private_key') }}"/>
+                            <input id="url-store.paymill_private_key" type="hidden" value="{{ url('admin_configuration_update', { name: 'store.paymill_private_key' }) }}">
+                        </li>
+                        <li>
+                            <label for="store.paymill_public_key">{{ 'plugin.paymill.settings.public_key'|trans }}</label>
+                            <i class="icon-pencil"></i>
+                            <input id="store.paymill_public_key" type="text" name="store.paymill_public_key" value="{{ elcodi_config('store.paymill_public_key') }}"/>
+                            <input id="url-store.paymill_public_key" type="hidden" value="{{ url('admin_configuration_update', { name: 'store.paymill_public_key' }) }}">
+                        </li>
+                        <li>
+                            <label for="store.paypal_web_checkout_recipient">{{ 'plugin.paypal.settings.recipient_email'|trans }}</label>
+                            <i class="icon-pencil"></i>
+                            <input id="store.paypal_web_checkout_recipient" type="text" name="store.paypal_web_checkout_recipient" value="{{ elcodi_config('store.paypal_web_checkout_recipient') }}"/>
+                            <input id="url-store.paypal_web_checkout_recipient" type="hidden" value="{{ url('admin_configuration_update', { name: 'store.paypal_web_checkout_recipient' }) }}">
                         </li>
                     </ol>
                 </div>
@@ -84,19 +103,20 @@
         </fieldset>
         <fieldset class="grid">
             <div class="col-1-3">
-                <h2 class="fw-n">Products setup</h2>
-                <p>Set the Store data.</p>
+                <h2 class="fw-n">{{ 'admin.settings.section.products.title'|trans }}</h2>
+                <p>{{ 'admin.settings.section.products.description'|trans }}</p>
             </div>
             <div class="col-2-3">
                 <div class="box">
                     <ol>
                         <li>
-                            <input id="url-product.use_stock" type="hidden" value="{{ url("admin_configuration_update", {"name": "product.use_stock"}) }}">
+                            <input id="url-product.use_stock" type="hidden" value="{{ url('admin_configuration_update', { name: 'product.use_stock' }) }}">
                             <div class="switch">
                                 <input id="product.use_stock" name="product.use_stock" type="checkbox"{% if elcodi_config('product.use_stock') %} checked="checked"{% endif %} />
                                 <label for="product.use_stock"></label>
                             </div>
-                            {% trans %}Stock <em class="fz-s">(Enable this option to activate stock control)</em> {% endtrans %}
+                            {{ 'admin.settings.field.product_stock.title'|trans }}
+                            <em class="fz-s">({{ 'admin.settings.field.product_stock.description'|trans }})</em>
                         </li>
                     </ol>
                 </div>
@@ -127,4 +147,5 @@
             </div>
         </fieldset>
     </form>
+
 {% endblock content %}

@@ -8,7 +8,10 @@
             </a>
             <ul class="thumbnail-actions">
                 <li>
-                    <a href="{{ url("admin_image_delete", {id: image.id}) }}" data-tc-modules="confirm" data-tc-name="{{ image.name }}" data-tc-text="{{ "Are you sure you want to delete it?"|trans }}">
+                    <a href="{{ url('admin_image_delete', { id: image.id }) }}"
+                       data-tc-modules="confirm" data-tc-name="{{ image.name }}"
+                       data-tc-text="{{ 'ui.confirm.delete'|trans }}"
+                    >
                         <i class="icon-trash-o"></i>
                     </a>
                 </li>

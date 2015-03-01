@@ -64,14 +64,14 @@ class ShippingRangeComponentController extends AbstractAdminController
      */
     public function listComponentAction(CarrierInterface $carrier)
     {
-        $currencies = $this
+        $shippingRanges = $this
             ->get('elcodi.repository.shipping_range')
             ->findBy([
                 'carrier' => $carrier,
             ]);
 
         return [
-            'paginator' => $currencies,
+            'paginator' => $shippingRanges,
             'carrier'   => $carrier,
         ];
     }

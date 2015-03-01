@@ -18,7 +18,6 @@
 namespace Elcodi\Admin\ConfigurationBundle\Controller;
 
 use Mmoreram\ControllerExtraBundle\Annotation\JsonResponse;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
@@ -41,10 +40,11 @@ class ConfigurationController extends AbstractAdminController
      *
      * @Route(
      *      path = "",
-     *      name = "admin_configuration_list"
+     *      name = "admin_configuration_list",
+     *      methods = {"GET"},
      * )
+     *
      * @Template
-     * @Method({"GET"})
      */
     public function listAction()
     {
@@ -76,9 +76,9 @@ class ConfigurationController extends AbstractAdminController
      *      name = "admin_configuration_update",
      *      requirements = {
      *          "name" = ".+"
-     *      }
+     *      },
+     *      methods = {"POST"},
      * )
-     * @Method({"POST"})
      *
      * @JsonResponse()
      */
@@ -92,10 +92,12 @@ class ConfigurationController extends AbstractAdminController
             ->get('elcodi.manager.configuration')
             ->set($name, $value);
 
+        $translator = $this->get('translator');
+
         return [
             'status' => 200,
             'response' => [
-                'Configuration saved',
+                $translator->trans('admin.settings.saved'),
             ],
         ];
     }

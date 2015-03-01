@@ -10,12 +10,12 @@
     You can override the row name by defining "row" field
 #}
 
-{% for row, info in rows %}
+{% for info in rows %}
     <th role="columnheader"
         {%- if info.width is defined -%}
             class="w-{{ info.width }}"
         {%- endif -%}
     >
-        {{- row|trans -}}
+        {{- info.name -}}
     </th>
 {% endfor %}

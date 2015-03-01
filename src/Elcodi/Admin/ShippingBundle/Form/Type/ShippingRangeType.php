@@ -53,43 +53,34 @@ class ShippingRangeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('save', 'submit')
             ->add('name', 'text', array(
                 'required' => true,
-                'label'    => 'Shipping rate name',
             ))
             ->add('price', 'money_object', array(
                 'required' => true,
-                'label'    => 'Price',
             ))
             ->add('type', 'choice', array(
                 'choices'  => array(
-                    ElcodiShippingRangeTypes::TYPE_PRICE => 'Based on order price',
-                    ElcodiShippingRangeTypes::TYPE_WEIGHT => 'Based on order weight',
+                    ElcodiShippingRangeTypes::TYPE_PRICE => 'admin.shipping_range.field.type.options.price',
+                    ElcodiShippingRangeTypes::TYPE_WEIGHT => 'admin.shipping_range.field.type.options.weight',
                 ),
                 'required' => true,
-                'label'    => 'Price will be calculated...',
             ))
             ->add('fromWeight', 'number', array(
                 'required' => false,
-                'label'    => 'From weight',
             ))
             ->add('toWeight', 'number', array(
                 'required' => false,
-                'label'    => 'To weight',
             ))
             ->add('fromPrice', 'money_object', array(
                 'required' => false,
-                'label'    => 'From price',
             ))
             ->add('toPrice', 'money_object', array(
                 'required' => false,
-                'label'    => 'To price',
             ))
             ->add('toZone', 'entity', array(
                 'class'    => $this->zoneNamespace,
                 'required' => true,
-                'label'    => 'Zone',
                 'property' => 'name',
                 'multiple' => false,
             ));

@@ -1,66 +1,80 @@
 {% extends 'AdminCoreBundle::Common/formComponent.html.twig' %}
 
+
+{% set elcodi_context = {
+    entity_type: 'carrier',
+} %}
+
+
 {% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
 
-{% block title %}
-    {{ 'Edit Carrier'|trans }} - {{ carrier.id }} - {{ carrier.name }}
-{% endblock title %}
 
 {% block content %}
 
-    {% set formAction = carrier.id
-        ? url('admin_carrier_update', {
-            'id': carrier.id
-        })
-        : url('admin_carrier_save')
-
+    {% set formAction =
+        carrier.id
+            ? url('admin_carrier_update', { id: carrier.id })
+            : url('admin_carrier_save')
      %}
 
-    {{ form_start(form, {'action': formAction}) }}
+    {{ form_start(form, { action: formAction }) }}
         <div class="grid">
             <div class="col-1-3">
                 <div class="box-none">
-                    <h3 class="fw-n">{% trans %}Basic Details{% endtrans %}</h3>
-                    <p>{% trans %}Provide the name of the carrier and an internal description if needed.{% endtrans %}</p>
+                    <h3 class="fw-n">{{ 'admin.carrier.section.basic.title'|trans }}</h3>
+                    <p>{{ 'admin.carrier.section.basic.description'|trans }}</p>
                 </div>
             </div>
             <div class="col-2-3">
                 <div class="box">
                     <ol>
                         <li>
-                            {{ form_row(form.name, {'attr':{'placeholder':'e.g. AwesomeCarrier'}}) }}
+                            {{
+                                form_row(form.name, {
+                                    label: 'admin.carrier.field.name.title',
+                                    attr: { placeholder: 'admin.carrier.field.name.placeholder' }
+                                })
+                            }}
                         </li>
                         <li>
-                            {{ form_row(form.description, {'attr':{'placeholder':'e.g. Best option for local shipping'}}) }}
+                            {{
+                                form_row(form.description, {
+                                    label: 'admin.carrier.field.description.title',
+                                    attr: { placeholder: 'admin.carrier.field.description.placeholder' }
+                                })
+                            }}
                         </li>
                         <li class="w-30">
-                            {{ form_row(form.tax) }}
+                            {{
+                                form_row(form.tax, {
+                                    label: 'admin.carrier.field.taxes.title',
+                                })
+                            }}
                         </li>
                     </ol>
                 </div>
             </div>
         </div>
+
         <div class="grid">
             <div class="col-1-3">
                 <div class="box-none">
-                    <h3 class="fw-n">{% trans %}Shipping Rates{% endtrans %}</h3>
-                    <p>{% trans %}Add the shipping rates{% endtrans %}</p>
+                    <h3 class="fw-n">{{ 'admin.carrier.section.shipping_rates.title'|trans }}</h3>
+                    <p>{{ 'admin.carrier.section.shipping_rates.description'|trans }}</p>
                     {% if carrier.id %}
-                    <a href="{{ url('admin_shipping_range_new', {
-                        'carrierId': carrier.id
-                    }) }}" class="button">Add range</a>
+                        <a href="{{ url('admin_shipping_range_new', {
+                            carrierId: carrier.id,
+                        }) }}" class="button">{{ 'admin.carrier.action.add_shipping_range'|trans }}</a>
                     {% endif %}
                 </div>
             </div>
             <div class="col-2-3">
                 <div class="box">
                     {% if carrier.id %}
-                    {{ render(url("admin_shipping_range_list_component", {
-                        'carrierId': carrier.id
-                    })) }}
+                        {{ render(url('admin_shipping_range_list_component', { carrierId: carrier.id })) }}
                     {% else %}
                         <div class="box-background pa-n">
-                            <p class="msg-info ma-n">{{ 'You will be able to add shipping rates after save the carrier'|trans }}</p>
+                            <p class="msg-info ma-n">{{ 'admin.carrier.info.shipping_rates_before_saving'|trans }}</p>
                         </div>
                     {% endif %}
                 </div>
@@ -69,32 +83,34 @@
         <div class="grid">
             <div class="col-1-3">
                 <div class="box-none mb-n pb-m">
-                    <h3 class="fw-n">{% trans %}Visibility{% endtrans %}</h3>
-                    <p>{% trans %}Set this carrier as enabled or disabled.{% endtrans %}</p>
+                    <h3 class="fw-n">{{ 'admin.carrier.section.visibility.title'|trans }}</h3>
+                    <p>{{ 'admin.carrier.section.visibility.description'|trans }}</p>
                 </div>
             </div>
             <div class="col-2-3">
                 <div class="box mb-n pb-n">
                     <ol class="grid pt-m">
                         <li class="col-1-2">
-                            {{ form_row(form.enabled, {'attr': {'type':'checkbox'}}) }}
+                            {{
+                                form_row(form.enabled, {
+                                    label: 'admin.carrier.field.status.title',
+                                })
+                            }}
                         </li>
                     </ol>
                 </div>
             </div>
         </div>
+
         <div class="grid">
             <div class="col-1-3">
                 &nbsp;
             </div>
             <div class="col-2-3">
-                {{ form_widget(form.save, {'attr': {'class':'button-primary'}} ) }}
-                <a href="{{ path('admin_carrier_list') }}" class="button">{{ 'Cancel'|trans }}</a>
+                <button type="submit" class="button-primary">{{ 'ui.forms.save'|trans }}</button>
+                <a href="{{ path('admin_carrier_list') }}" id="cancel-button" class="button">{{ 'ui.forms.cancel'|trans }}</a>
             </div>
         </div>
-
-
-
-
     {{ form_end(form) }}
+
 {% endblock content %}

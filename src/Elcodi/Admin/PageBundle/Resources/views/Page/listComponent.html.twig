@@ -1,27 +1,42 @@
 {% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
 
 
-{% block title %}
-    {{ 'Page list'|trans }}
-{% endblock title %}
+{% set elcodi_context = {
+    entity_type: 'page',
+} %}
+
+
+{% block title 'admin.page.list'|trans %}
+
+
+{% block no_items
+    lists.no_items(
+        'admin.page.single'|trans,
+        'admin.page.plural'|trans,
+        url('admin_page_new')
+    )
+%}
 
 
 {% block table_head %}
-    {% include "@AdminCore/Tables/head.html.twig" with {
-        rows: {
-            "path": {sorting_disabled: true},
-            "title": {sorting_disabled: true},
-            "link": {sorting_disabled: true},
-            "enabled": {width:"25", sorting_disabled: true},
-        },
-        class: "page",
+
+    {% include '@AdminCore/Tables/head.html.twig' with {
+        class: 'page',
+        rows: [
+            { name: 'admin.page.field.path.title'|trans },
+            { name: 'admin.page.field.title.title'|trans },
+            { name: 'admin.page.field.link.title'|trans },
+            { name: 'admin.page.field.enabled.title'|trans, width: 25 },
+        ]
     } %}
+
 {% endblock table_head %}
 
 
 {% block table_body_row %}
+
     <td>
-        <a href="{{ url("admin_page_edit", {"id": entity.id}) }}">
+        <a href="{{ url('admin_page_edit', { id: entity.id }) }}">
             {{ entity.path }}
         </a>
     </td>
@@ -36,26 +51,24 @@
     </td>
     <td>
         {% if entity.enabled %}
-            <span class="label label-success">true</span>
+            <span class="label label-success">{{ 'ui.label.enabled'|trans }}</span>
         {% else %}
-            <span class="label label-danger">false</span>
+            <span class="label label-danger">{{ 'ui.label.disabled'|trans }}</span>
         {% endif %}
     </td>
 
-    {% include "@AdminCore/Tables/actions.html.twig" with {
+    {% include '@AdminCore/Tables/actions.html.twig' with {
         entity: entity,
         delete: not entity.persistent,
-        class: "page",
+        class: 'page',
     } %}
+
 {% endblock table_body_row %}
 
 
 {% block table_paginator_links %}
+
     {% set url = 'admin_page_list' %}
     {{ parent() }}
+
 {% endblock table_paginator_links %}
-
-
-{% block table_buttons %}
-    <a href="{{ url("admin_page_new") }}"type="button" class="btn btn-success">{{ "New Page"|trans }}</a>
-{% endblock table_buttons %}

@@ -1,5 +1,13 @@
 <td class="ta-c">
     {% if delete is not defined or delete != false %}
-        <a class="icon-trash-o c-ko td-n fz-l" title="{{ 'delete'|trans }}" href="{{ url("admin_" ~ class ~ "_delete", {"id": entity.id}) }}" data-tc-modules="confirm" data-tc-name="{{ entity.name }}" data-tc-text="{{ "Are you sure you want to delete it?"|trans }}"></a>
+        {% if delete_url is not defined %}
+            {% set delete_url = url("admin_#{class}_delete", { id: id|default(entity.id) }) %}
+        {% endif %}
+        <a class="icon-trash-o c-ko td-n fz-l"
+           title="{{ 'ui.forms.delete'|trans }}"
+           href="{{ delete_url }}"
+           data-tc-modules="confirm" data-tc-name="{{ name|default(entity.name) }}"
+           data-tc-text="{{ 'ui.confirm.delete'|trans }}">
+        </a>
     {% endif %}
 </td>

@@ -1,32 +1,42 @@
 {% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
 
 
-{% block title %}
-    {{ 'Page list'|trans }}
-{% endblock title %}
+{% set elcodi_context = {
+    entity_type: 'blog_post',
+} %}
 
 
-{% block no_items %}
-    {{ lists.no_items('blog post','blog posts', url("admin_blog_post_new")  ) }}
-{% endblock no_items %}
+{% block title 'admin.blog_post.list'|trans %}
+
+
+{% block no_items
+    lists.no_items(
+        'admin.blog_post.single'|trans,
+        'admin.blog_post.plural'|trans,
+        url('admin_blog_post_new')
+    )
+%}
 
 
 {% block table_head %}
-    {% include "@AdminCore/Tables/head.html.twig" with {
-        rows: {
-            "path": {sorting_disabled: true},
-            "title": {sorting_disabled: true},
-            "link": {sorting_disabled: true},
-            "enabled": {width:"25", sorting_disabled: true},
-        },
-        class: "page",
+
+    {% include '@AdminCore/Tables/head.html.twig' with {
+        class: 'blog_post',
+        rows: [
+            { name: 'admin.blog_post.field.path.title'|trans },
+            { name: 'admin.blog_post.field.title.title'|trans },
+            { name: 'admin.blog_post.field.link.title'|trans },
+            { name: 'admin.blog_post.field.enabled.title'|trans, width: 25 },
+        ],
     } %}
+
 {% endblock table_head %}
 
 
 {% block table_body_row %}
+
     <td>
-        <a href="{{ url("admin_blog_post_edit", {"id": entity.id}) }}">
+        <a href="{{ url('admin_blog_post_edit', { id: entity.id}) }}">
             {{ entity.path }}
         </a>
     </td>
@@ -35,8 +45,8 @@
     </td>
     <td>
         {% set path = url('store_blog_post_view', {
-            'id': entity.id,
-            'slug': entity.path
+            id: entity.id,
+            slug: entity.path,
         }) %}
         <a target="_blank" href="{{ path }}">
             {{ path }}
@@ -44,24 +54,23 @@
     </td>
     <td>
         {% if entity.enabled %}
-            <span class="label label-success">true</span>
+            <span class="label label-success">{{ 'ui.label.enabled'|trans }}</span>
         {% else %}
-            <span class="label label-danger">false</span>
+            <span class="label label-danger">{{ 'ui.label.disabled'|trans }}</span>
         {% endif %}
     </td>
 
-    <td class="ta-c">
-        <a class="icon-trash-o c-ko td-n fz-l" title="{{ 'delete'|trans }}" href="{{ url("admin_blog_post_delete", {"id": entity.id}) }}" data-tc-modules="confirm" data-tc-name="{{ entity.name }}" data-tc-text="{{ "Are you sure you want to delete it?"|trans }}"></a>
-    </td>
+    {% include '@AdminCore/Tables/actions.html.twig' with {
+        entity: entity,
+        class: 'blog_post',
+    } %}
+
 {% endblock table_body_row %}
 
 
 {% block table_paginator_links %}
+
     {% set url = 'admin_blog_post_list' %}
     {{ parent() }}
+
 {% endblock table_paginator_links %}
-
-
-{% block table_buttons %}
-    <a href="{{ url("admin_blog_post_new") }}"type="button" class="btn btn-success">{{ "New Page"|trans }}</a>
-{% endblock table_buttons %}

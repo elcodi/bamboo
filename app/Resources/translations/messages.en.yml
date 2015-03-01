@@ -1,2 +1,613 @@
-store.error.store_is_disabled: "Tienda deshabilitada"
-store.error.store_is_under_construction: "Tienda en construcción"
+store:
+    error:
+        store_is_disabled:           Store is disabled
+        store_is_under_construction: Store is under construction
+
+admin:
+    address:
+        single: Address
+        plural: Addresses
+        edit:
+            billing_address: Edit billing address
+        select:
+            placeholder: Select one
+        field:
+            recipient_name:
+                title:       Recipient name
+                placeholder: e.g. John
+            recipient_surname:
+                title:       Recipient surname
+                placeholder: e.g. Doe
+            address:
+                title:       Address
+                placeholder: "e.g. Awesonme Street, 42"
+            address_more:
+                title:       Address more (optional)
+                placeholder: e.g. Doe Enterprises
+            postalcode:
+                title:       Postal code
+                placeholder: e.g. 08080
+            phone:
+                title:       Phone
+                placeholder: e.g. 935 555 555
+            mobile:
+                title:       Cellphone
+                placeholder: e.g. 555 555 555
+            comments:
+                title:       Comments
+                placeholder: e.g. It's a house
+            save: Save address
+
+    remember_user:
+        title: Forgot your password?
+        description: "Don't worry, we'll send you an email to reset your password."
+
+    recover_user:
+        title: New password
+        field:
+            email:
+                placeholder: Enter your mail
+            password:
+                placeholder: New password
+            repeat_password:
+                placeholder: Repeat password
+        action:
+            email_sent:
+                title: Email sent
+                description: "Please, check your email and follow the instruction to recover your password."
+
+    login:
+        title: Login access required
+        field:
+            email:
+                placeholder: Enter your mail
+            password:
+                placeholder: Enter password
+        action:
+            login: Log In
+            remember: Remember
+
+    user:
+        field:
+            email:
+                title: Email
+                placeholder: e.g. john.doe@mail.com
+            firstname:
+                title: First name
+                placeholder: e.g. John
+            lastname:
+                title: Last name
+                placeholder: e.g. Doe
+            fullname:
+                title: Full name
+            username:
+                title: Username
+            birthday:
+                title: Birthday
+            gender:
+                title: Gender
+                options:
+                    male: Male
+                    female: Female
+            password:
+                title: Password
+            enabled:
+                title: Status
+                options:
+                    active:   Active
+                    inactive: Inactive
+
+    admin_user:
+        single: Administrator
+        plural: Administrators
+        list:   Administrator list
+        edit:   Edit "%name%"
+        new:    Create new Admin User
+        saved:  Changes saved
+        error:
+            cant_disable_yourself: You can't disable your own account
+            cant_remove_yourself: You can't delete your own account
+        section:
+            login:
+                title: Login details
+                description: Each user should have a unique e-mail.
+            contact:
+                title: Contact details
+                description: The contact information for this administrator.
+            status:
+                title: User status
+                description: You can set administrators as active or inactive.
+
+    customer:
+        single: Customer
+        plural: Customers
+        list:   Customer list
+        edit:   Edit "%name%"
+        new:    Create new Customer
+        saved:  Changes saved
+        info:
+            password_changed: Password successfully changed
+        error:
+            password_change: Error changing password
+        field:
+            username:
+                title: Username
+                placeholder: e.g. john_doe
+            identity_document:
+                title: Identity
+                placeholder: e.g. 12345678A
+            phone:
+                title: Phone
+                placeholder: e.g. 555 55 55 55
+            language:
+                title: Preferred language
+            guest:
+                title: Guest
+            newsletter:
+                title: Newsletter
+            order_count:
+                title: '# Orders'
+        section:
+            login:
+                title: Login details
+                description: Each user should have a unique e-mail and unique username.
+            contact:
+                title: Contact details
+                description: The contact information for this user.
+            status:
+                title: 'Status & Preferences'
+                description: Set the user status and preferences.
+
+    attribute:
+        single: Attribute
+        plural: Attributes
+        edit:   Edit "%name%"
+        new:    New attribute
+        list:   Attribute list
+        field:
+            name:
+                placeholder: e.g. Color
+                title:       Name
+                values:      Values
+            enabled:
+                title:       Status
+        section:
+            basic:
+                title:       Basic Details
+                description: Define the name of the attribute and the values (separated by comma).
+            visibility:
+                title:       Visibility
+                description: Set this attribute as visible or hidden.
+
+    blog_post:
+        single: Blog post
+        plural: Blog posts
+        edit:   Edit "%name%"
+        new:    Create blog post
+        list:   Blog post list
+        saved:  Post saved
+        in_store: View at store
+        show_metrics: Show metrics
+        field:
+            title:
+                title: Title
+                placeholder: e.g. My Awesome Blog Post
+            path:
+                title: Path
+                placeholder: e.g. my/awesome/blog-post
+                customize: Customize slug
+            link:
+                title: Link
+            enabled:
+                title: Enabled
+            content:
+                title: Content
+                placeholder: e.g. This awesome blog post is exactly what you are lookin for.
+            publication_date:
+                title: Publication Date
+            metatitle:
+                placeholder: e.g. My Awesome Blog Post
+            metadescription:
+                placeholder: e.g. This awesome blog post is exactly what you are lookin for.
+            metakeywords:
+                placeholder: 'e.g. blog,post,awesome'
+        section:
+            basic:
+                title: Basic Details
+                description: Provide a very specific title for your blog post that explains and help sell your blog post and description that provides all the information required for your consumers.
+            visibility:
+                title: Visibility
+                description: Set this blog post as visible or hidden.
+
+    mailing:
+        single: Mailing
+        plural: Mailings
+        edit:   Edit "%title%"
+        new:    Create new mailing
+        list:   Mailing list
+        field:
+            title:
+                title: Title
+                placeholder: e.g. My Awesome Mailing
+            title:
+                title: Content
+                placeholder: e.g. This awesome mailing is exactly what you are lookin for.
+        section:
+            basic:
+                title: Basic content
+                description: Provide a descriptive title for your mailing and the content to deliver.
+
+    carrier:
+        single: Carrier
+        plural: Carriers
+        saved:  Changes saved
+        edit:   Edit "%name%"
+        new:    New Carrier
+        list:   Carrier list
+        error:
+            no_active_carrier: Warning! You have no active carrier
+        field:
+            name:
+                title: Name
+                placeholder: e.g. AwesomeCarrier
+            description:
+                title: Description
+                placeholder: e.g. Best option for local shipping
+            taxes:
+                title: Taxes
+                format: %value%% Tax
+            status:
+                title: Enabled
+        info:
+            shipping_rates_before_saving: You will be able to add shipping rates after save the carrier
+        action:
+            add_shipping_range: Add range
+        section:
+            basic:
+                title: Basic Details
+                description: Provide the name of the carrier and an internal description if needed.
+            shipping_rates:
+                title: Shipping Rates
+                description: Add the shipping rates.
+            visibility:
+                title: Visibility
+                description: Set this carrier as enabled or disabled.
+
+    coupon:
+        single: Coupon
+        plural: Coupons
+        edit:   Edit "%code%"
+        new:    New coupon
+        list:   Coupon list
+        field:
+            code:
+                placeholder: e.g. MYCODE
+                title:        Code
+            count:
+                title: Usage Limit
+            datetime:
+                title: 'Date & Time'
+            description:
+                placeholder: e.g. 10% Discount code
+                title:       Description
+            discount:
+                title: "% Amount"
+            enabled:
+                title: Status
+            enforcement:
+                title: Mode
+                options:
+                    manual: Manual application
+                    automatic: Automatic application
+            minimum_purchase:
+                title: Minimum purchase
+            price:
+                title: Amount
+            priority:
+                title: Priority
+            rule:
+                title:       Rule
+                placeholder: No rule
+            status:
+                title: Status
+            type:
+                title: Type
+                options:
+                    fixed:  Fixed amount
+                    percent: Percent amount
+            used:
+                title: Used
+            valid_from:
+                title: From
+            valid_to:
+                title: To
+        section:
+            basic:
+                title: Basic Data
+                description:
+                    - 'Set the code name (what users should type in the cart to activate the coupon)'
+                    - 'Set also the description to identify the coupon, the type and the mode to be applied.'
+            fixed_amount:
+                title:       Fixed amount
+                description: Set the fixed amount to discount directly in the cart.
+            percent_amount:
+                title:       Percent amount
+                description: Set the percentage amount to discount directly in the cart.
+            rules:
+                title:       Rules
+                description: Select the rule the coupon will use and a minimum purchase necessary to apply the coupon (optional).
+            validity:
+                title:       Validity
+                description: Set the time validity of the coupon and the status.
+
+    currency:
+        single: Currency
+        plural: Currencies
+        list:   Currency list
+        field:
+            symbol: Symbol
+            iso: ISO
+            name: Name
+            status: Enabled
+
+    image:
+        single: Image
+        plural: Images
+        info:
+            principal: First image will be the principal image.
+            reorder: "You can drag & drop the images to reorder."
+            upload: Upload images
+
+    language:
+        single: Language
+        plural: Languages
+        list:   Language list
+
+    media:
+        single: Media
+        plural: Media
+        list:   Media list
+
+    metrics:
+        single: Metric
+        plural: Metrics
+        info:
+            visitors: Visitors
+            no_data: No data
+        action:
+            show: Show Metrics
+        type:
+            line:
+                unique: Unique
+                total: Total
+
+    order:
+        single:    Order
+        plural:    Orders
+        edit:      'Edit #%id%'
+        new:       New order
+        all:       All orders
+        list:      Order list
+        from_user: %name%'s orders
+        to_user:   Go to customer
+        field:
+            id:               'Order #%id%'
+            date:             Date
+            carrier:          Carrier
+            customer:         Customer
+            status:           Status
+            delivery_address: Delivery address
+            billing_address:  Billing address
+            both_addresses:   'Delivery & Billing address'
+            total:            Total
+        details:
+            title:    Details
+            item:     Item
+            units:    Units
+            price:    Price
+            subtotal: Subtotal
+            discount: Coupon Discount
+            shipping: Shipping
+        states:
+            title:       History
+            initial:     New order
+            unpaid:      Unpaid
+            refunded:    Refunded
+            shipped:     Shipped
+            not shipped: Not shipped
+            paid:        Paid
+        transition:
+            refund: Refund
+            ship:   Ship
+
+    page:
+        single:   Page
+        plural:   Pages
+        edit:     Edit "%name%"
+        new:      New Page
+        list:     Page list
+        saved:    Changes saved
+        in_store: View at store
+        field:
+            title:
+                title: Title
+                placeholder: e.g. My Awesome Page
+            path:
+                title: Path
+                placeholder: e.g. my/awesome/page
+            link:
+                title: Link
+            enabled:
+                title: Enabled
+            content:
+                title: Content
+                placeholder: e.g. This awesome page is exactly what you are lookin for.
+            metatitle:
+                placeholder: e.g. My Awesome Page
+            metadescription:
+                placeholder: e.g. This awesome page is exactly what you are lookin for.
+            metakeywords:
+                placeholder: 'e.g. page,awesome'
+        section:
+            basic:
+                title: Basic Details
+                description: Provide a very specific title for your page that explains and help sell your page and description that provides all the information required for your consumers.
+            visibility:
+                title: Visibility
+                description: Set this page as visible or hidden, and make it visible in your home.
+        error:
+            cant_modify_permanent: This page is permanent and can't be modified
+
+    metadata:
+        customize: Customize Metadata
+        disclaimer:
+            - This area for advanced users.
+            - Leave this fields in blank to obtain automatically the metadata of your page.
+        section:
+            metadata:
+                title: Metadata
+                description: Description and keywords in meta tags are commonly used to describe the Web page's content. Most search engines use these data when adding pages to their search index.
+        field:
+            metatitle:
+                title: MetaTitle
+            metadescription:
+                title: MetaDescription
+            metakeywords:
+                title: MetaKeywords
+
+    shipping_range:
+        single: Shipping range
+        plural: Shipping ranges
+        edit:   Edit Range "%name%"
+        new:    Create New Range
+        list:   Shipping Range list
+        saved:  Changes saved
+        field:
+            name:
+                title: Shipping rate name
+                placeholder: e.g. Delivery in 3-5 days
+            to_zone:
+                title: To Zone
+            price:
+                title: Price
+            type:
+                title: Prices will be calculated…
+                options:
+                    price: Based on order price
+                    weight: Based on order weight
+            fromPrice:
+                title: From price
+            toPrice:
+                title: To price
+            fromWeight:
+                title: From weight
+            toWeight:
+                title: To weight
+            value:
+                title: Value
+                price_format: From %from% to %to%
+                weight_format: From %from%Kg to %to%Kg
+        section:
+            basic:
+                title: Basic Details
+                description: Provide the name of the shipping rate and in what zone it will be available.
+            pricing:
+                title: Pricing
+                description: Set the price for this shipping rate and define if it's going to be calculated based on order price or order weight.
+            visibility:
+                title: Visibility
+                description: Set this carrier as enabled or disabled.
+
+    plugin:
+        single: App
+        plural: Apps
+        saved:  Plugin status saved
+        field:
+            visibility: Enable:
+        section:
+            settings: Settings
+
+    settings:
+        single: Setting
+        plural: Settings
+        saved: Settings saved
+        section:
+            store:
+                title: Store Setup
+                description: Set the Store data.
+            products:
+                title: Products Setup
+                description: Set the product data.
+            payment:
+                title: Payment methods
+        field:
+            store_enabled: Store enabled
+            store_under_construction: Store under construction
+            store_name: Store Name
+            store_leitmotiv: Store Leitmotiv
+            store_phone: Store Phone
+            store_email: Store e-mail
+            currency: Currency configuration
+            product_stock:
+                title: Stock
+                description: Enable this option to activate stock control
+
+    template:
+        single: Theme
+        plural: Themes
+        label:
+            status: Enable:
+        action:
+            preview: Preview
+
+plugin:
+    paypal:
+        title: Paypal Account Setup
+        register:
+            title: Don't you have a PayPal account?
+            call_to_action: Create a PayPal account
+        settings:
+            recipient_email: Payment Paypal recipient email
+    paymill:
+        title: Paymill Account Setup
+        register:
+            title: Don't you have a Paymill account?
+            call_to_action: Create a Paymill account NOW!
+        settings:
+            private_key: Paymill payment private key
+            public_key: Paymill payment public key
+
+ui:
+    address:
+        full_name: Full name
+        phone:     Phone
+        address:   Address
+        city:      City
+        zipcode:   Zipcode
+        comment:   Comment
+    date:
+        today_at: Today at %time%
+        yesterday_at: Yesterday at %time%
+    list:
+        no_items:     There are no %items%.
+        create_first: Create my first %item%.
+    label:
+        enabled:  Enabled
+        disabled: Disabled
+    paginator:
+        elements: Showing %first% to %last% from %total% entries.
+    forms:
+        cancel: Cancel
+        save:   Save
+        delete: Delete
+    confirm:
+        delete: Are you sure you want to delete it?
+    tags:
+        placeholder:
+            comma_separated: Add tags separated by comma.
+    language:
+        master_language: Master Language (Mandatory)
+    delete:
+        success: Deleted correctly
+    editor:
+        help: Select some text to get some format options

@@ -123,7 +123,9 @@ class ShippingRangeController extends AbstractAdminController
 
             $this->addFlash(
                 'success',
-                'Changes saved'
+                $this
+                    ->get('translator')
+                    ->trans('admin.shipping_range.saved')
             );
 
             return $this->redirectToRoute('admin_carrier_edit', [

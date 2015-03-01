@@ -1,49 +1,58 @@
 {% extends 'AdminCoreBundle::Common/formComponent.html.twig' %}
 
 
+{% set elcodi_context = {
+    entity_type: 'coupon',
+} %}
+
+
 {% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
-
-
-{% block title %}
-    {{ 'Edit Coupon'|trans }} - {{ entity.id }}
-{% endblock title %}
 
 
 {% block content %}
 
-    {% set formAction = coupon.id
-        ? url('admin_coupon_update', {
-            'id': coupon.id
-        })
-        : url('admin_coupon_save')
-    %}
+    {% set formAction =
+        coupon.id
+            ? url('admin_coupon_update', { id: coupon.id })
+            : url('admin_coupon_save')
+     %}
 
-    {{ form_start(form, {'action': formAction}) }}
+    {{ form_start(form, { action: formAction }) }}
     <fieldset data-tc-modules="form-coupons">
         <div class="grid">
             <div class="col-1-3">
                 <div class="box-none">
-                    <h3 class="fw-n">{% trans %}Basic data{% endtrans %}</h3>
-                    <p>{% trans %}Set the code name (what users should type in the cart to activate the coupon).{% endtrans %}</p>
-                    <p>{% trans %}Set also the description to identify the coupon, the type and the mode to be applied.{% endtrans %}</p>
+                    <h3 class="fw-n">{{ 'admin.coupon.section.basic.title'|trans }}</h3>
+                    <p>{{ 'admin.coupon.section.basic.description.0'|trans }}</p>
+                    <p>{{ 'admin.coupon.section.basic.description.1'|trans }}</p>
                 </div>
             </div>
             <div class="col-2-3">
                 <div class="box">
                     <ol>
                         <li>
-                            {{ form_row(form.code, {'attr': {'placeholder':'e.g. MYCODE'}} ) }}
+                            {{
+                                form_row(form.code, {
+                                    label: 'admin.coupon.field.code.title',
+                                    attr: { placeholder: 'admin.coupon.field.code.placeholder' }
+                                })
+                            }}
                         </li>
                         <li>
-                            {{ form_row(form.name, {'attr': {'placeholder':'e.g. 10% Discount code'}}) }}
+                            {{
+                                form_row(form.name, {
+                                    label: 'admin.coupon.field.description.title',
+                                    attr: { placeholder: 'admin.coupon.field.description.placeholder' }
+                                })
+                            }}
                         </li>
                     </ol>
                     <ol class="grid">
                         <li class="col-1-2 pr-l">
-                            {{ form_row(form.type) }}
+                            {{ form_row(form.type, { label: 'admin.coupon.field.type.title' }) }}
                         </li>
                         <li class="col-1-2">
-                            {{ form_row(form.enforcement) }}
+                            {{ form_row(form.enforcement, { label: 'admin.coupon.field.enforcement.title' } ) }}
                         </li>
                     </ol>
                 </div>
@@ -52,15 +61,15 @@
         <div id="fixed-amount" class="grid">
             <div class="col-1-3">
                 <div class="box-none">
-                    <h3 class="fw-n">{% trans %}Fixed amount{% endtrans %}</h3>
-                    <p>{% trans %}Set the fixed amount to discount directly in the cart.{% endtrans %}</p>
+                    <h3 class="fw-n">{{ 'admin.coupon.section.fixed_amount.title' }}</h3>
+                    <p>{{ 'admin.coupon.section.fixed_amount.description' }}</p>
                 </div>
             </div>
             <div class="col-2-3">
                 <div class="box">
                     <ol>
                         <li>
-                            {{ form_row(form.price) }}
+                            {{ form_row(form.price, { label: 'admin.coupon.field.price.title' }) }}
                         </li>
                     </ol>
                 </div>
@@ -69,15 +78,15 @@
         <div id="percent-amount" class="grid">
             <div class="col-1-3">
                 <div class="box-none">
-                    <h3 class="fw-n">{% trans %}Percent amount{% endtrans %}</h3>
-                    <p>{% trans %}Set the percentage amount to discount directly in the cart.{% endtrans %}</p>
+                    <h3 class="fw-n">{{ 'admin.coupon.section.percent_amount.title'|trans }}</h3>
+                    <p>{{ 'admin.coupon.section.percent_amount.description'|trans }}</p>
                 </div>
             </div>
             <div class="col-2-3">
                 <div class="box">
                     <ol>
                         <li>
-                            {{ form_row(form.discount) }}
+                            {{ form_row(form.discount, { label: 'admin.coupon.field.discount.title' }) }}
                         </li>
                     </ol>
                 </div>
@@ -86,28 +95,38 @@
         <div class="grid">
             <div class="col-1-3">
                 <div class="box-none">
-                    <h3 class="fw-n">{% trans %}Rules{% endtrans %}</h3>
-                    <p>{% trans %}Select the rule the coupon will use and a minimum purchase necessary to apply the coupon (optional).{% endtrans %}</p>
+                    <h3 class="fw-n">{{ 'admin.coupon.field.rule.title'|trans }}</h3>
+                    <p>{{ 'admin.coupon.section.rules.description'|trans }}</p>
                 </div>
             </div>
             <div class="col-2-3">
                 <div class="box">
                     <ol>
                         <li>
-                            {{ form_row(form.rule) }}
+                            {{
+                                form_row(form.rule, {
+                                    label: 'admin.coupon.field.rule.title',
+                                    placeholder: 'admin.coupon.field.rule.placeholder',
+                                })
+                            }}
                         </li>
                         <li class="d-n">
-                            {{ form_row(form.priority) }}
+                            {{ form_row(form.priority, { label: 'admin.coupon.field.priority.title' }) }}
                         </li>
                     </ol>
                     <ol>
                         <li class="col-1-2">
-                            {{ form_row(form.minimumPurchase) }}
+                            {{ form_row(form.minimumPurchase, { label: 'admin.coupon.field.minimum_purchase.title' }) }}
                         </li>
                         <li class="col-1-2">
-                            {{ form_row(form.count) }}
+                            {{ form_row(form.count, { label: 'admin.coupon.field.count.title' }) }}
                             <div class="d-n">
-                                {{ form_row(form.used,{'attr': {'readonly':'readonly'}}) }}
+                                {{
+                                    form_row(form.used, {
+                                        label: 'admin.coupon.field.used.title',
+                                        attr: { readonly: true },
+                                    })
+                                }}
                             </div>
                         </li>
                     </ol>
@@ -117,25 +136,29 @@
         <div class="grid">
             <div class="col-1-3">
                 <div class="box-none">
-                    <h3 class="fw-n">{% trans %}Validity{% endtrans %}</h3>
-                    <p>{% trans %}Set the time validity of the coupon and the status.{% endtrans %}</p>
+                    <h3 class="fw-n">{{ 'admin.coupon.section.validity.title'|trans }}</h3>
+                    <p>{{ 'admin.coupon.section.validity.description'|trans }}</p>
                 </div>
             </div>
             <div class="col-2-3">
                 <div class="box">
-                    <h5>{{ 'Date & Time'|trans }}</h5>
+                    <h5>{{ 'admin.coupon.field.datetime.title'|trans }}</h5>
                     <ol class="grid">
                         <li class="col-1-2 pr-l date-hour">
-                            {{ form_row(form.validFrom) }}
+                            {{ form_row(form.validFrom, { label: 'admin.coupon.field.valid_from.title' }) }}
                         </li>
                         <li  class="col-1-2 date-hour">
-                            {{ form_row(form.validTo) }}
+                            {{ form_row(form.validTo, { label: 'admin.coupon.field.valid_to.title' }) }}
                         </li>
                     </ol>
                     <hr />
                     <ol>
                         <li>
-                            {{ form_row(form.enabled, {'attr': {'type':'checkbox'}}) }}
+                            {{
+                                form_row(form.enabled, {
+                                    label: 'admin.coupon.field.enabled.title',
+                                })
+                            }}
                         </li>
                     </ol>
                 </div>
@@ -146,11 +169,11 @@
                 &nbsp;
             </div>
             <div class="col-2-3">
-                <button type="submit" class="button-primary">{{ 'Save'|trans }}</button>
-                <a href="{{ path('admin_coupon_list') }}" id="cancel-button" class="button">{{ 'Cancel'|trans }}</a>
-
+                <button type="submit" class="button-primary">{{ 'ui.forms.save'|trans }}</button>
+                <a href="{{ path('admin_coupon_list') }}" id="cancel-button" class="button">{{ 'ui.forms.cancel'|trans }}</a>
             </div>
         </div>
     </fieldset>
     {{ form_end(form) }}
+
 {% endblock content %}

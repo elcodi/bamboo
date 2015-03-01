@@ -34,20 +34,12 @@ class PasswordRecoverType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->setMethod('POST')
             ->add('email', 'email', array(
-                'label' => false,
                 'required' => true,
             ))
             ->add('password', 'repeated', array(
-                'type'           => 'password',
-                'first_options'  => array(
-                    'label' => false,
-                ),
-                'second_options' => array(
-                    'label' => false,
-                ),
-                'required'       => true,
+                'type'     => 'password',
+                'required' => true,
             ));
     }
 

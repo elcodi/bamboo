@@ -1,37 +1,43 @@
 {% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
 
 
-{% block title %}
-    {{ 'Page list'|trans }}
-{% endblock title %}
+{% set elcodi_context = {
+    entity_type: 'mailing',
+} %}
 
 
-{% block no_items %}
-{% endblock no_items %}
+{% block title 'admin.mailing.list'|trans %}
+
+
+{% block no_items
+    lists.no_items(
+        'admin.mailing.single'|trans,
+        'admin.mailing.plural'|trans
+    )
+%}
 
 
 {% block table_head %}
-    {% include "@AdminCore/Tables/head.html.twig" with {
-        rows: {
-            "title": {sorting_disabled: true},
-        },
-        class: "email",
+
+    {% include '@AdminCore/Tables/head.html.twig' with {
+        class: 'email',
+        rows: [
+            { name: 'admin.mailing.field.title.title'|trans },
+        ],
     } %}
+
 {% endblock table_head %}
 
 
 {% block table_body_row %}
+
     <td>
-        <a href="{{ url("admin_email_edit", {"id": entity.id}) }}">
+        <a href="{{ url('admin_email_edit', { id: entity.id }) }}">
             {{ entity.title }}
         </a>
     </td>
+
 {% endblock table_body_row %}
 
 
-{% block table_paginator_links %}
-{% endblock table_paginator_links %}
-
-
-{% block table_buttons %}
-{% endblock table_buttons %}
+{% block table_pagination '' %}

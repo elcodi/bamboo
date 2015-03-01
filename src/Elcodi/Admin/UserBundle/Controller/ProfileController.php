@@ -17,10 +17,8 @@
 
 namespace Elcodi\Admin\UserBundle\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
 
@@ -36,18 +34,16 @@ class ProfileController extends AbstractAdminController
     /**
      * View the connected user profile
      *
-     * @param Request $request Request
-     *
      * @return array Result
      *
      * @Route(
      *      path = "",
-     *      name = "admin_profile_view"
+     *      name = "admin_profile_view",
+     *      methods = {"GET"}
      * )
      * @Template
-     * @Method({"GET"})
      */
-    public function viewAction(Request $request)
+    public function viewAction()
     {
         return [];
     }

@@ -22,7 +22,6 @@ use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Paginator as PaginatorAnnotation;
 use Mmoreram\ControllerExtraBundle\ValueObject\PaginatorAttributes;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormView;
@@ -67,9 +66,9 @@ class CustomerComponentController extends AbstractAdminController
      *          "orderByField" = "id",
      *          "orderByDirection" = "DESC",
      *      },
+     *      methods = {"GET"}
      * )
      * @Template("AdminUserBundle:Customer:listComponent.html.twig")
-     * @Method({"GET"})
      *
      * @PaginatorAnnotation(
      *      attributes = "paginatorAttributes",
@@ -116,7 +115,8 @@ class CustomerComponentController extends AbstractAdminController
      *      name = "admin_customer_edit_component",
      *      requirements = {
      *          "id" = "\d+",
-     *      }
+     *      },
+     *      methods = {"GET"}
      * )
      * @Route(
      *      path = "/new/component",
@@ -124,7 +124,6 @@ class CustomerComponentController extends AbstractAdminController
      *      methods = {"GET"}
      * )
      * @Template("AdminUserBundle:Customer:editComponent.html.twig")
-     * @Method({"GET"})
      *
      * @EntityAnnotation(
      *      class = {

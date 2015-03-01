@@ -20,7 +20,8 @@ namespace Elcodi\Admin\AttributeBundle\Controller\Component;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Mmoreram\ControllerExtraBundle\Annotation\Paginator as PaginatorAnnotation;
+use Mmoreram\ControllerExtraBundle\ValueObject\PaginatorAttributes;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormView;
@@ -43,23 +44,52 @@ class AttributeComponentController extends AbstractAdminController
      * As a component, this action should not return all the html macro, but
      * only the specific component
      *
+     * @param Paginator           $paginator           Paginator instance
+     * @param PaginatorAttributes $paginatorAttributes Paginator attributes
+     * @param integer             $page                Page
+     * @param integer             $limit               Limit of items per page
+     *
      * @return array Result
      *
      * @Route(
-     *      path = "s/list/component",
+     *      path = "s/list/component/{page}/{limit}/{orderByField}/{orderByDirection}",
      *      name = "admin_attribute_list_component",
+     *      requirements = {
+     *          "page" = "\d*",
+     *          "limit" = "\d*",
+     *      },
+     *      defaults = {
+     *          "page" = "1",
+     *          "limit" = "50",
+     *          "orderByField" = "id",
+     *          "orderByDirection" = "DESC",
+     *      },
      *      methods = {"GET"}
      * )
      * @Template("AdminAttributeBundle:Attribute:listComponent.html.twig")
+     *
+     * @PaginatorAnnotation(
+     *      attributes = "paginatorAttributes",
+     *      class = "elcodi.core.attribute.entity.attribute.class",
+     *      page = "~page~",
+     *      limit = "~limit~",
+     *      orderBy = {
+     *          {"x", "~orderByField~", "~orderByDirection~"},
+     *      },
+     * )
      */
-    public function listComponentAction()
-    {
-        $attributes = $this
-            ->get('elcodi.repository.attribute')
-            ->findAll();
-
+    public function listComponentAction(
+        Paginator $paginator,
+        PaginatorAttributes $paginatorAttributes,
+        $page,
+        $limit
+    ) {
         return [
-            'paginator' => $attributes,
+            'paginator'        => $paginator,
+            'page'             => $page,
+            'limit'            => $limit,
+            'totalPages'       => $paginatorAttributes->getTotalPages(),
+            'totalElements'    => $paginatorAttributes->getTotalElements(),
         ];
     }
 
@@ -79,7 +109,8 @@ class AttributeComponentController extends AbstractAdminController
      *      name = "admin_attribute_edit_component",
      *      requirements = {
      *          "id" = "\d+",
-     *      }
+     *      },
+     *      methods = {"GET", "POST"}
      * )
      * @Route(
      *      path = "/new/component",
@@ -87,7 +118,6 @@ class AttributeComponentController extends AbstractAdminController
      *      methods = {"GET"}
      * )
      * @Template("AdminAttributeBundle:Attribute:editComponent.html.twig")
-     * @Method({"GET"})
      *
      * @EntityAnnotation(
      *      class = {

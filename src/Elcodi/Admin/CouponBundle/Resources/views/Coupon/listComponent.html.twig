@@ -1,32 +1,42 @@
 {% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
 
 
-{% block title %}
-    {{ 'Coupon list'|trans }}
-{% endblock title %}
+{% set elcodi_context = {
+    entity_type: 'coupon',
+} %}
 
 
-{% block no_items %}
-    {{ lists.no_items('coupon','coupons', url("admin_coupon_new")  ) }}
-{% endblock no_items %}
+{% block title 'admin.coupon.list'|trans %}
+
+
+{% block no_items
+    lists.no_items(
+        'admin.coupon.single'|trans,
+        'admin.coupon.plural'|trans,
+        url('admin_coupon_new')
+    )
+%}
 
 
 {% block table_head %}
-    {% include "@AdminCore/Tables/head.html.twig" with {
-        rows: {
-            "Code": {},
-            "Description": {width:"40"},
-            "rule": {width:"20"},
-            "Status": {width:"10"},
-        },
-        class: "coupon",
+
+    {% include '@AdminCore/Tables/head.html.twig' with {
+        rows: [
+            { name: 'admin.coupon.field.code.title'|trans },
+            { name: 'admin.coupon.field.description.title'|trans, width: 40 },
+            { name: 'admin.coupon.field.rule.title'|trans, width: 20 },
+            { name: 'admin.coupon.field.status.title'|trans, width: 10 },
+        ],
+        class: 'coupon',
     } %}
+
 {% endblock table_head %}
 
 
 {% block table_body_row %}
+
     <td>
-        <a href="{{ url("admin_coupon_edit", {"id": entity.id}) }}">
+        <a href="{{ url('admin_coupon_edit', { id: entity.id }) }}">
             <strong>{{ entity.code }}</strong>
         </a>
     </td>
@@ -41,17 +51,24 @@
         {% endif %}
     </td>
     <td>
-        {% if entity.enabled %}<span class="label-ok">Enabled</span>{% else %}<span class="label">Disabled</span>{% endif %}
+        {% if entity.enabled %}
+            <span class="label-ok">{{ 'ui.label.enabled'|trans }}</span>
+        {% else %}
+            <span class="label">{{ 'ui.label.disabled'|trans }}</span>
+        {% endif %}
     </td>
 
-    {% include "@AdminCore/Tables/actions.html.twig" with {
+    {% include '@AdminCore/Tables/actions.html.twig' with {
         entity: entity,
-        class: "coupon",
+        class: 'coupon',
     } %}
+
 {% endblock table_body_row %}
 
 
 {% block table_paginator_links %}
+
     {% set url = 'admin_coupon_list' %}
     {{ parent() }}
+
 {% endblock table_paginator_links %}

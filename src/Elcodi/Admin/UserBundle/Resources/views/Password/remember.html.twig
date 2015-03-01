@@ -4,25 +4,26 @@
 {% block content %}
 
     {{ form_start(form, {
-        "attr": {
-            "class": "form-horizontal",
-            "style": "margin-bottom: 0px !important;"
+        attr: {
+            class: 'form-horizontal',
+            style: 'margin-bottom: 0px !important;'
         }
     }) }}
         <fieldset>
-            <legend>{{ 'Forgot your password?'|trans }}</legend>
-            <p>{{ "Don't worry, we'll send you an email to reset your password."|trans }}</p>
+            <legend>{{ 'admin.remember_user.title'|trans }}</legend>
+            <p>{{ 'admin.remember_user.description'|trans }}</p>
             <ol>
                 <li>
                     {{ form_row(form.email, {
-                        "attr": {
-                            "class": "form-control",
-                            "placeholder": "Email"|trans
+                        label: false,
+                        attr: {
+                            class: 'form-control',
+                            placeholder: 'admin.recover_user.field.email.placeholder',
                         }
                     }) }}
                 </li>
             </ol>
-            <button type="submit" class="button-primary">{{ "Remember"|trans }}</button>
+            <button type="submit" class="button-primary">{{ 'admin.login.action.remember'|trans }}</button>
         </fieldset>
     {{ form_end(form) }}
 {% endblock content %}

@@ -19,7 +19,6 @@ namespace Elcodi\Admin\PageBundle\Controller;
 
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormInterface;
@@ -64,9 +63,9 @@ class BlogPostController extends AbstractAdminController
      *          "orderByField" = "id",
      *          "orderByDirection" = "DESC",
      *      },
+     *      methods = {"GET"}
      * )
      * @Template
-     * @Method({"GET"})
      */
     public function listAction(
         $page,
@@ -85,9 +84,9 @@ class BlogPostController extends AbstractAdminController
     /**
      * Edit and Saves page
      *
-     * @param FormInterface $form    Form
-     * @param PageInterface $page    Page
-     * @param boolean       $isValid Is valid
+     * @param FormInterface $form     Form
+     * @param PageInterface $blogPost Page
+     * @param boolean       $isValid  Is valid
      *
      * @return RedirectResponse Redirect response
      *
@@ -150,7 +149,12 @@ class BlogPostController extends AbstractAdminController
         if ($isValid) {
             $this->flush($blogPost);
 
-            $this->addFlash('success', 'Post saved');
+            $this->addFlash(
+                'success',
+                $this
+                    ->get('translator')
+                    ->trans('admin.blog_post.saved')
+            );
 
             return $this->redirectToRoute('admin_blog_post_list');
         }
@@ -172,9 +176,9 @@ class BlogPostController extends AbstractAdminController
      *
      * @Route(
      *      path = "/{id}/delete",
-     *      name = "admin_blog_post_delete"
+     *      name = "admin_blog_post_delete",
+     *      methods = {"GET", "POST"}
      * )
-     * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.page.entity.page.class",

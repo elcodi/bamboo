@@ -19,7 +19,6 @@ namespace Elcodi\Admin\UserBundle\Controller;
 
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormInterface;
@@ -66,9 +65,9 @@ class AdminUserController extends AbstractAdminController
      *          "orderByField" = "id",
      *          "orderByDirection" = "DESC",
      *      },
+     *      methods = {"GET"}
      * )
      * @Template
-     * @Method({"GET"})
      */
     public function listAction(
         $page,
@@ -152,7 +151,12 @@ class AdminUserController extends AbstractAdminController
         if ($isValid) {
             $this->flush($adminUser);
 
-            $this->addFlash('success', 'Changes saved');
+            $this->addFlash(
+                'success',
+                $this
+                    ->get('translator')
+                    ->trans('admin.admin_user.saved')
+            );
 
             return $this->redirectToRoute('admin_homepage');
         }
@@ -173,9 +177,9 @@ class AdminUserController extends AbstractAdminController
      *
      * @Route(
      *      path = "/{id}/enable",
-     *      name = "admin_admin_user_enable"
+     *      name = "admin_admin_user_enable",
+     *      methods = {"GET", "POST"}
      * )
-     * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.user.entity.admin_user.class",
@@ -204,9 +208,9 @@ class AdminUserController extends AbstractAdminController
      *
      * @Route(
      *      path = "/{id}/disable",
-     *      name = "admin_admin_user_disable"
+     *      name = "admin_admin_user_disable",
+     *      methods = {"GET", "POST"}
      * )
-     * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.user.entity.admin_user.class",
@@ -219,16 +223,9 @@ class AdminUserController extends AbstractAdminController
         Request $request,
         EnabledInterface $entity
     ) {
-        /**
-         * @var AdminUserInterface $user
-         * @var AdminUserInterface $entity
-         */
-        $user = $this->getUser();
-        if ($entity->getId() == $user->getId()) {
-            $message = 'You can\'t disable your admin account';
-            throw new HttpException(
-                403,
-                $message
+        if ($this->isSameUser($entity)) {
+            $this->denyWithMessage(
+                'admin.admin_user.error.cant_disable_yourself'
             );
         }
 
@@ -249,9 +246,9 @@ class AdminUserController extends AbstractAdminController
      *
      * @Route(
      *      path = "/{id}/delete",
-     *      name = "admin_admin_user_delete"
+     *      name = "admin_admin_user_delete",
+     *      methods = {"GET", "POST"}
      * )
-     * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.user.entity.admin_user.class",
@@ -265,16 +262,9 @@ class AdminUserController extends AbstractAdminController
         $entity,
         $redirectUrl = null
     ) {
-        /**
-         * @var AdminUserInterface $user
-         * @var AdminUserInterface $entity
-         */
-        $user = $this->getUser();
-        if ($entity->getId() == $user->getId()) {
-            $message = 'You can\'t delete your admin account';
-            throw new HttpException(
-                403,
-                $message
+        if ($this->isSameUser($entity)) {
+            $this->denyWithMessage(
+                'admin.admin_user.error.cant_delete_yourself'
             );
         }
 
@@ -283,5 +273,36 @@ class AdminUserController extends AbstractAdminController
             $entity,
             'admin_admin_user_list'
         );
+    }
+
+    /**
+     * Check if the user is the same as the logged one
+     *
+     * @param AdminUserInterface $entity
+     *
+     * @return bool
+     */
+    protected function isSameUser(AdminUserInterface $entity)
+    {
+        /**
+         * @var AdminUserInterface $user
+         */
+        $user = $this->getUser();
+
+        return $entity->getId() == $user->getId();
+    }
+
+    /**
+     * Deny the request with a Forbidden error and a translated message
+     *
+     * @param $string String to be translated
+     */
+    protected function denyWithMessage($string)
+    {
+        $message = $this
+            ->get('translator')
+            ->trans($string);
+
+        throw new HttpException(403, $message);
     }
 }

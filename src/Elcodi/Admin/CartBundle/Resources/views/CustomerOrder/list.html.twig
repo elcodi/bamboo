@@ -1,18 +1,32 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
+
+{% set elcodi_context = {
+    entity_type: 'order',
+} %}
+
+
 {% block header_actions %}
-    <a href="{{ url('admin_order_list') }}" type="button" class="button-primary"><i class="icon-shopping-cart"></i> All orders</a>
-    <a href="{{ url('admin_customer_edit', {id: customer.id}) }}" type="button" class="button-secondary"><i class="icon-user"></i> Go to customer</a>
+
+    <a href="{{ url('admin_order_list') }}" type="button" class="button-primary">
+        <i class="icon-shopping-cart"></i>
+        {{ 'admin.order.all'|trans }}
+    </a>
+    <a href="{{ url('admin_customer_edit', { id: customer.id }) }}" type="button" class="button-secondary">
+        <i class="icon-user"></i>
+        {{ 'admin.order.to_user'|trans }}
+    </a>
+
 {% endblock header_actions %}
+
 
 {% block breadcrumb %}
 
-    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
-        breadcrumb: {
-            ( customer.fullName ~ " orders history"): {
-                "active" : true
-            }
-        }
+    {% include '@AdminCore/Common/breadcrumb.html.twig' with {
+        breadcrumb: [
+            { name: 'admin.order.plural'|trans, url: url('admin_order_list') },
+            { name: 'admin.order.from_user'|trans({ '%name%': customer.fullName }), active: true }
+        ]
     } %}
 
 {% endblock breadcrumb %}
@@ -20,12 +34,14 @@
 
 {% block content %}
 
-    {{ render(url("admin_customer_order_list_component", {
-        'customerId': customer.id,
-        'page': page,
-        'limit': limit,
-        'orderByField': orderByField,
-        'orderByDirection': orderByDirection
-    })) }}
+    {{
+        render(url('admin_customer_order_list_component', {
+            customerId: customer.id,
+            page: page,
+            limit: limit,
+            orderByField: orderByField,
+            orderByDirection: orderByDirection
+        }))
+    }}
 
 {% endblock content %}

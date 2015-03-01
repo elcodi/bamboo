@@ -22,7 +22,6 @@ use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Paginator as PaginatorAnnotation;
 use Mmoreram\ControllerExtraBundle\ValueObject\PaginatorAttributes;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormView;
@@ -61,6 +60,7 @@ class PageComponentController extends AbstractAdminController
      *          "page" = "\d*",
      *          "limit" = "\d*",
      *      },
+     *      methods = {"GET"},
      *      defaults = {
      *          "page" = "1",
      *          "limit" = "50",
@@ -69,7 +69,6 @@ class PageComponentController extends AbstractAdminController
      *      },
      * )
      * @Template("AdminPageBundle:Page:listComponent.html.twig")
-     * @Method({"GET"})
      *
      * @PaginatorAnnotation(
      *      attributes = "paginatorAttributes",
@@ -119,7 +118,8 @@ class PageComponentController extends AbstractAdminController
      *      name = "admin_page_edit_component",
      *      requirements = {
      *          "id" = "\d+",
-     *      }
+     *      },
+     *      methods = {"GET"}
      * )
      * @Route(
      *      path = "/new/component",
@@ -127,7 +127,6 @@ class PageComponentController extends AbstractAdminController
      *      methods = {"GET"}
      * )
      * @Template("AdminPageBundle:Page:editComponent.html.twig")
-     * @Method({"GET"})
      *
      * @EntityAnnotation(
      *      class = {
@@ -155,7 +154,7 @@ class PageComponentController extends AbstractAdminController
     ) {
         return [
             'page' => $page,
-            'form'     => $formView,
+            'form' => $formView,
         ];
     }
 }

@@ -1,31 +1,39 @@
 {% block form_start %}
 {% spaceless %}
     {% set method = method|upper %}
-    {% if method in ["GET", "POST"] %}
-        {% set form_method = method %}
-    {% else %}
-        {% set form_method = "POST" %}
-    {% endif %}
-    {% set attr = attr|merge({'class': 'form'}) %}
-    <form role="form" name="{{ form.vars.name }}" method="{{ form_method|lower }}" action="{{ action }}"{% for attrname, attrvalue in attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}{% if multipart %} enctype="multipart/form-data"{% endif %}>
+    {% set form_method = (method == 'GET' ? method : 'POST') %}
+    {% set attr = attr|merge({ class: 'form' }) %}
+    <form role="form"
+        name="{{ form.vars.name }}"
+        method="{{ form_method|lower }}"
+        action="{{ action }}"
+        {% for attrname, attrvalue in attr %}
+            {{ attrname }}="{{ attrvalue }}"
+        {% endfor %}
+        {% if multipart %}
+            enctype="multipart/form-data"
+        {% endif %}
+    >
     {% if form_method != method %}
         <input type="hidden" name="_method" value="{{ method }}" />
-
     {% endif %}
 {% endspaceless %}
 {% endblock form_start %}
 
+
 {% block number_widget %}
-    {% spaceless %}
-        {# type="number" doesn't work with floats #}
-        {% set type = type|default('text') %}
-        {{ block('form_widget_simple') }}
-    {% endspaceless %}
+{% spaceless %}
+    {# type="number" doesn't work with floats #}
+    {% set type = type|default('text') %}
+    {{ block('form_widget_simple') }}
+{% endspaceless %}
 {% endblock number_widget %}
 
+
 {% block form_row %}
-    {% spaceless %}
-    {% if attr.type != 'checkbox' %}
+{% spaceless %}
+    {# Yes, this is is a shitty way to get form type, but it's THE ONLY WAY #}
+    {% if form.vars.block_prefixes.1 != 'checkbox' %}
         {{ form_label(form) }}
     {% endif %}
     {{ form_widget(form) }}
@@ -33,26 +41,43 @@
 {% endblock form_row %}
 
 
-
-
 {% block radio_widget %}
-    {% spaceless %}
-        <input type="radio" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
-    {% endspaceless %}
+{% spaceless %}
+    <input type="radio"
+        {{ block('widget_attributes') }}
+        {% if value is defined %}
+            value="{{ value }}"
+        {% endif %}
+        {% if checked %}
+            checked="checked"
+        {% endif %}
+    />
+{% endspaceless %}
 {% endblock radio_widget %}
+
 
 {% block form_label %}
 {% spaceless %}
     {% if label is not sameas(false) and label is defined %}
-        <label>{{ label|trans({}, translation_domain) }} {% if attr.label_help is defined %}<em>{{ attr.label_help }}</em>{% endif %}</label>
+        <label for="{{ id }}">
+            {{ label|trans }}
+            {% if label_help is defined %}
+                <em>{{ label_help }}</em>
+            {% endif %}
+        </label>
     {% endif %}
 {% endspaceless %}
 {% endblock form_label %}
 
+
 {% block form_widget_simple %}
 {% spaceless %}
     {% set type = type|default('text') %}
-    <input type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %} />
+    <input type="{{ type }}" {{ block('widget_attributes') }}
+        {% if value is not empty %}
+            value="{{ value }}"
+        {% endif %}
+    />
 {% endspaceless %}
 {% endblock form_widget_simple %}
 
@@ -63,67 +88,80 @@
         {{ form_widget(form.amount) }}
     </div>
     <div class="d-ib">
-        {{  form_widget(form.currency) }}
+        {{ form_widget(form.currency) }}
     </div>
 {% endspaceless %}
 {% endblock money_object_widget %}
 
 
 {% block date_widget %}
-    {% spaceless %}
-        {% if widget == 'single_text' %}
-            {{ block('form_widget_simple') }}
-        {% else %}
-            <div {{ block('widget_container_attributes') }}>
-                {{ date_pattern|replace({
-                    '{{ year }}':  form_widget(form.year),
-                    '{{ month }}': form_widget(form.month),
-                    '{{ day }}':   form_widget(form.day),
-                })|raw }}
-            </div>
-        {% endif %}
-    {% endspaceless %}
+{% spaceless %}
+    {% if widget == 'single_text' %}
+        {{ block('form_widget_simple') }}
+    {% else %}
+        <div {{ block('widget_container_attributes') }}>
+            {{ date_pattern|replace({
+                '{{ year }}':  form_widget(form.year),
+                '{{ month }}': form_widget(form.month),
+                '{{ day }}':   form_widget(form.day),
+            })|raw }}
+        </div>
+    {% endif %}
+{% endspaceless %}
 {% endblock date_widget %}
 
 
 {% block time_widget %}
-    {% spaceless %}
-        {% if widget == 'single_text' %}
-            {{ block('form_widget_simple') }}
-        {% else %}
-            {% set vars = widget == 'text' ? { 'attr': { 'size': 1 }} : {} %}
-            <div {{ block('widget_container_attributes') }}>
-                {{ form_widget(form.hour, vars) }}:{{ form_widget(form.minute, vars) }}{% if with_seconds %}:{{ form_widget(form.second, vars) }}{% endif %}
-            </div>
-        {% endif %}
-    {% endspaceless %}
+{% spaceless %}
+    {% if widget == 'single_text' %}
+        {{ block('form_widget_simple') }}
+    {% else %}
+        {% set vars = widget == 'text' ? { attr: { size: 1 }} : {} %}
+        <div {{ block('widget_container_attributes') }}>
+            {{ form_widget(form.hour, vars) }}:{{ form_widget(form.minute, vars) }}
+            {%- if with_seconds -%}
+                :{{ form_widget(form.second, vars) }}
+            {%- endif -%}
+        </div>
+    {% endif %}
+{% endspaceless %}
 {% endblock time_widget %}
 
+
 {% block datetime_widget %}
-    {% spaceless %}
-        {% if widget == 'single_text' %}
-            {{ block('form_widget_simple', { "attr": { "class": "form-control" }}) }}
-        {% else %}
-            <div {{ block('widget_container_attributes') }}>
-                {{ form_errors(form.date) }}
-                {{ form_errors(form.time) }}
-                {{ form_widget(form.date) }}
-                {{ form_widget(form.time) }}
-            </div>
-        {% endif %}
-    {% endspaceless %}
+{% spaceless %}
+    {% if widget == 'single_text' %}
+        {{
+            block('form_widget_simple', {
+                attr: attr|merge({ class: (attr.class|default('') ~ ' form-control')|trim }),
+            })
+        }}
+    {% else %}
+        <div {{ block('widget_container_attributes') }}>
+            {{ form_errors(form.date) }}
+            {{ form_errors(form.time) }}
+            {{ form_widget(form.date) }}
+            {{ form_widget(form.time) }}
+        </div>
+    {% endif %}
+{% endspaceless %}
 {% endblock datetime_widget %}
 
 
 {% block checkbox_widget %}
 {% spaceless %}
-
     <div class="switch">
-        <input id="switch-{{ label|trans({}, translation_domain)|url_encode  }}" type="checkbox" {{ block('widget_attributes') }} {% if value is defined %} value="{{ value }}"{% else %}value="1"{% endif %}{% if checked %} checked="checked"{% endif %}>
-        <label for="switch-{{ label|trans({}, translation_domain)|url_encode }}"></label> {% if attr.label_help is defined %}<em>{{ attr.label_help }}</em>{% endif %}
+        <input type="checkbox" {{ block('widget_attributes') }}
+            value="{{ value|default(1) }}"
+            {% if checked is defined and checked %}checked="checked"{% endif %}
+        >
+        <label for="{{ id }}">
+            {% if label_help is defined %}
+                <em>{{ label_help }}</em>
+            {% endif %}
+        </label>
     </div>
-    {{ label|trans({}, translation_domain) }}
-
+    {{ label|trans }}
 {% endspaceless %}
 {% endblock checkbox_widget %}
 
@@ -139,7 +177,7 @@
 
 {% block textarea_widget %}
 {% spaceless %}
-    {% set attr = attr|merge({'class': attr.class|default('') ~ ' form-control'}) %}
+    {% set attr = attr|merge({ class: (attr.class|default('') ~ ' form-control')|trim }) %}
     <textarea {{ block('widget_attributes') }}>{{ value }}</textarea>
 {% endspaceless %}
 {% endblock textarea_widget %}

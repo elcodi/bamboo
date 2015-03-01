@@ -73,33 +73,27 @@ class AdminUserType extends AbstractType
             ->setMethod('POST')
             ->add('email', 'email', array(
                 'required' => true,
-                'label'    => 'Email',
             ))
             ->add('firstname', 'text', array(
                 'required' => false,
-                'label'    => 'Firstname',
             ))
             ->add('lastname', 'text', array(
                 'required' => false,
-                'label'    => 'Lastname',
             ))
             ->add('gender', 'choice', array(
                 'choices'   => array(
-                    ElcodiUserProperties::GENDER_MALE => 'Male',
-                    ElcodiUserProperties::GENDER_FEMALE => 'Female',
+                    ElcodiUserProperties::GENDER_MALE => 'admin.user.field.gender.options.male',
+                    ElcodiUserProperties::GENDER_FEMALE => 'admin.user.field.gender.options.female',
                 ),
                 'required' => true,
-                'label'    => 'Gender',
             ))
             ->add('birthday', 'date', array(
                 'required' => false,
                 'widget'   => 'single_text',
                 'format'   => 'yyyy-MM-dd',
-                'label'    => 'Birthday',
             ))
             ->add('enabled', 'checkbox', array(
                 'required' => false,
-                'label'    => 'Status',
             ));
     }
 

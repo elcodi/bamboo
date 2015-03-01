@@ -2,7 +2,7 @@
 
     <ul class="thumbnail-group">
     {% for image in images %}
-        {% set imageResize = image|resize({'height': 150, 'width': 150, 'type': 3}) %}
+        {% set imageResize = image|resize({ height: 150, width: 150, type: 3}) %}
         {% set imageView = image|viewImage %}
 
         <li>
@@ -11,7 +11,7 @@
             </a>
             <ul class="thumbnail-actions">
                 <li>
-                    <a href="{{ url("admin_image_delete", {id: image.id}) }}" class="icon-trash-o"></a>
+                    <a href="{{ url('admin_image_delete', { id: image.id }) }}" class="icon-trash-o"></a>
                 </li>
             </ul>
         </li>

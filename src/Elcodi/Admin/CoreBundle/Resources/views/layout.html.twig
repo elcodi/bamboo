@@ -2,6 +2,7 @@
 
 
 {% block head_style %}
+
     <link rel="stylesheet" type="text/css"  href="{{ asset('bundles/admincore/css/main.css') }}" media="all">
     <!--[if gte IE 9]>
     <link rel="stylesheet" type="text/css"  href="{{ asset('bundles/admincore/css/ie-new.css') }}" media="all">
@@ -16,9 +17,10 @@
 
 
 {% block body %}
+
     <nav class="topbar mobile">
         <a data-tc-modules="side-panel" data-tc-clone="true" data-tc-close="false" href="#menu" class="icon-align-justify button button-icon topbar-main-menu"></a>
-        <a class="topbar-title" href="{{ url("admin_homepage") }}">Elcodi Admin</a>
+        <a class="topbar-title" href="{{ url('admin_homepage') }}">Elcodi Admin</a>
         <a data-tc-modules="side-panel" data-tc-clone="true" data-tc-close="false" data-tc-position="right" data-tc-class="navigation navigation-vertical" href="#sidebar-user-dropdown" class="icon-user button button-icon topbar-user-menu"></a>
     </nav>
     <div class="grid">
@@ -42,9 +44,12 @@
         </aside>
     </div>
     {% include 'AdminCoreBundle::Common/flashMessages.html.twig' %}
+
 {% endblock body %}
 
 
 {% block foot_script %}
+
     {% include 'AdminCoreBundle::footscript.html.twig' %}
+
 {% endblock foot_script %}

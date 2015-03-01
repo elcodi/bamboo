@@ -1,49 +1,53 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
 
-{% block content_title %}
-    {{ 'Customer Zone'|trans }}
-{% endblock content_title %}
+{% set elcodi_context = {
+    entity_type: 'customer',
+} %}
+
 
 {% block header_actions %}
-    <a href="{{ url('admin_customer_order_list', {customerId: customer.id}) }}" type="button" class="button-primary"><i class="icon-shopping-cart"></i> <span>{% trans with { '%name': customer.firstname } %}%name's orders{% endtrans %}</span></a>
+
+    <a href="{{ url('admin_customer_order_list', { customerId: customer.id }) }}" type="button" class="button-primary">
+        <i class="icon-shopping-cart"></i>
+        <span>{{ 'admin.order.from_user'|trans({ '%name%': customer.firstname }) }}</span>
+    </a>
+
 {% endblock header_actions %}
+
 
 {% block breadcrumb %}
 
-    {% set entityHeader = customer.id
-        ? customer.fullName
-        : 'Create new Customer'
+    {% set title = 'admin.customer.plural'|trans %}
+    {%
+        set header = customer.id
+            ? 'admin.customer.edit'|trans({ '%name%': customer.fullName })
+            : 'admin.customer.new'|trans
     %}
 
-    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
-        breadcrumb: {
-            "Customers": {
-                "url": url('admin_customer_list')
-            },
-            (entityHeader): {
-                "active" : true
-            }
-        }
+    {% include '@AdminCore/Common/breadcrumb.html.twig' with {
+        breadcrumb: [
+            { name: title, url: url('admin_customer_list'), },
+            { name: header, active: true, },
+        ]
     } %}
 
 {% endblock breadcrumb %}
 
 
 {% block content %}
+
     {% if customer.id %}
-        {{ render(url("admin_customer_edit_component", {
-            'id': customer.id
-        })) }}
+        {{ render(url('admin_customer_edit_component', { id: customer.id })) }}
     {% else %}
-        {{ render(url("admin_customer_new_component")) }}
+        {{ render(url('admin_customer_new_component')) }}
     {% endif %}
 
     {% if customer.id %}
 
         {% set author_token = app.user.token %}
-        {% set context = "admin" %}
-        {% set source = "customer-" ~ customer.id %}
+        {% set context = 'admin' %}
+        {% set source = "customer-#{customer.id}" %}
         <div id="box-populi" class="boxpopuli-container">
             <a data-tc-modules="side-panel" data-tc-position="right" data-tc-width="600" data-tc-tab-top="48%" href="#box-populi"><i class="icon-comment"></i> </a>
             <div class="boxpopuli-overflow" data-tc-modules="boxpopuli"
@@ -52,9 +56,8 @@
                     data-author-email="{{ app.user.email }}"
                     data-context="{{ context }}"
                     data-source="{{ source }}"
-                    data-route-list="{{ url("elcodi_comments_list", {"source": source, "context": context}) }}"
-                    data-route-add="{{ url("elcodi_comments_add", {"source": source, "context": context, "authorToken": author_token}) }}"
-
+                    data-route-list="{{ url('elcodi_comments_list', { source: source, context: context }) }}"
+                    data-route-add="{{ url('elcodi_comments_add', { source: source, context: context, authorToken: author_token }) }}"
                 ></div>
         </div>
     {% endif %}

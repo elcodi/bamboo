@@ -51,24 +51,19 @@ class CarrierType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('save', 'submit')
             ->add('name', 'text', array(
                 'required' => true,
-                'label'    => 'Name',
             ))
             ->add('description', 'text', array(
                 'required' => true,
-                'label'    => 'Internal description',
             ))
             ->add('tax', 'entity', array(
                 'class'    => $this->taxNamespace,
                 'required' => true,
-                'label'    => 'Taxes',
                 'property' => 'name',
                 'multiple' => false,
             ))
             ->add('enabled', 'checkbox', array(
-                'label'    => 'Status',
                 'required' => false,
             ));
     }

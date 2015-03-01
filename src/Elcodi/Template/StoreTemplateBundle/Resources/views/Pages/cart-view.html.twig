@@ -1,14 +1,5 @@
 {% extends '@StoreTemplate/Layout/_layout.html.twig' %}
 
-{% block content_title %}
-
-    {% if cart.totalItemNumber > 0 %}
-        {{ 'Your basket'|trans }}
-    {% else %}
-        {{ 'Your basket is empty!'|trans }}
-    {% endif %}
-
-{% endblock content_title %}
 
 {% block content %}
 

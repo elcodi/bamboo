@@ -1,36 +1,44 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
 
-{% block content_title %}
-    {{ 'Coupon Zone'|trans }}
-{% endblock content_title %}
+{% set elcodi_context = {
+    entity_type: 'coupon',
+} %}
 
 
 {% block breadcrumb %}
-    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
-        breadcrumb: {
-            "Coupons": {
-                "active" : true
-            }
-        }
+
+    {% include '@AdminCore/Common/breadcrumb.html.twig' with {
+        breadcrumb: [
+            { name: 'admin.coupon.plural'|trans, active: true }
+        ],
     } %}
-{% endblock %}
+
+{% endblock breadcrumb %}
 
 
 {% block header_actions %}
-    <a href="{{ url("admin_coupon_new") }}" class="button-primary"><i class="icon-plus"></i> <span>{{ "New coupon"|trans }}</span></a>
+
+    <a href="{{ url('admin_coupon_new') }}" class="button-primary">
+        <i class="icon-plus"></i> <span>{{ 'admin.coupon.new'|trans }}</span>
+    </a>
+
 {% endblock header_actions %}
 
 
 {% block content %}
+
     <div class="row">
         <div class="col-md-12">
-            {{ render(url("admin_coupon_list_component", {
-                'page': page,
-                'limit': limit,
-                'orderByField': orderByField,
-                'orderByDirection': orderByDirection
-            })) }}
+            {{
+                render(url('admin_coupon_list_component', {
+                    page: page,
+                    limit: limit,
+                    orderByField: orderByField,
+                    orderByDirection: orderByDirection
+                }))
+            }}
         </div>
     </div>
+
 {% endblock content %}

@@ -1,13 +1,14 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
+
 {% block breadcrumb %}
-    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
-        breadcrumb: {
-            "Template": {
-                "active" : true
-            }
-        }
+
+    {% include '@AdminCore/Common/breadcrumb.html.twig' with {
+        breadcrumb: [
+            { name: 'admin.template.plural'|trans, active: true },
+        ],
     } %}
+
 {% endblock breadcrumb %}
 
 
@@ -16,17 +17,19 @@
     <form class="form-grid form-save-on-edit" data-tc-modules="form-save-on-edit">
         {% for template in templates %}
             {% set templateBundle = template.bundle %}
-            {% set assetPath = template.assetPath %}
+            {% set assetPath = "bundles/#{template.assetPath}" %}
             <article class="box-background">
                 <h4 class="fw-n">{{ templateBundle }}</h4>
-
-                <a href="{{ asset('bundles/' ~ assetPath ~ '/preview.jpg') }}" data-tc-modules="modal" class="thumbnail mt-s mb-l">
-                    <img width="100%" src="{{ asset('bundles/' ~ assetPath ~ '/preview.jpg') }}" />
+                {% set imageUrl = asset("#{assetPath}/preview.jpg") %}
+                <a href="{{ imageUrl }}" data-tc-modules="modal" class="thumbnail mt-s mb-l">
+                    <img width="100%" src="{{ imageUrl }}" />
                 </a>
-                <input type="hidden" id="url-{{ templateBundle }}-store.template" value="{{ url("admin_configuration_update", {"name": "store.template"}) }}" />
-                <a href="{{ asset('bundles/' ~ assetPath ~ '/preview/index.html') }}" data-tc-modules="modal" data-tc-width="95%" data-tc-height="95%" class="button">Preview</a>
+                <input type="hidden" id="url-{{ templateBundle }}-store.template" value="{{ url('admin_configuration_update', { name: 'store.template'}) }}" />
+                <a href="{{ asset("#{assetPath}/preview/index.html") }}" data-tc-modules="modal" data-tc-width="95%" data-tc-height="95%" class="button">
+                    {{ 'admin.template.action.preview'|trans }}
+                </a>
                 <div class="fl-r pt-s">
-                    Enable:
+                    {{ 'admin.template.label.status'|trans }}
                     <div class="switch">
                         <input type="radio" name="store.template" id="{{ templateBundle }}-store.template" value="{{ templateBundle }}"{% if elcodi_config('store.template') == templateBundle %} checked="checked"{% endif %} />
                         <label for="{{ templateBundle }}-store.template" class="mr-n"></label>

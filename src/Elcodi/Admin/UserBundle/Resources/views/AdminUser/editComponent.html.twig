@@ -1,32 +1,43 @@
 {% extends 'AdminCoreBundle::Common/formComponent.html.twig' %}
 
 
+{% set elcodi_context = {
+    entity_type: 'admin_user',
+} %}
+
+
 {% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
 
 
 {% block content %}
 
-    {% set formAction = adminUser.id
-        ? url('admin_admin_user_update', {
-            'id': adminUser.id
-        })
-        : url('admin_admin_user_save')
-    %}
+    {% set formAction =
+        adminUser.id
+            ? url('admin_admin_user_update', { id: adminUser.id })
+            : url('admin_admin_user_save')
+     %}
 
-    {{ form_start(form, {'action':formAction}) }}
+    {{ form_start(form, { action: formAction }) }}
     <fieldset>
         <div class="grid">
             <div class="col-1-3">
                 <div class="box-none">
-                    <h2 class="fw-n">{{ 'Login details'|trans }}</h2>
-                    <p>{% trans %}Each user should have a unique e-mail and unique username.{% endtrans %}</p>
+                    <h2 class="fw-n">{{ 'admin.admin_user.section.login.title'|trans }}</h2>
+                    <p>{{ 'admin.admin_user.section.login.description'|trans }}</p>
                 </div>
             </div>
             <div class="col-2-3">
                 <div class="box">
                     <ol>
                         <li>
-                            {{ form_row(form.email,{'attr': {'placeholder':'e.g. john.doe@mail.com'}}) }}
+                            {{
+                                form_row(form.email, {
+                                    label: 'admin.user.field.email.title',
+                                    attr: {
+                                        placeholder: 'admin.user.field.email.placeholder',
+                                    }
+                                })
+                            }}
                         </li>
                     </ol>
                 </div>
@@ -35,26 +46,48 @@
         <div class="grid">
             <div class="col-1-3">
                 <div class="box-none">
-                    <h2 class="fw-n">{{ 'Contact details'|trans }}</h2>
-                    <p>{% trans %}The contact information for this user{% endtrans %}</p>
+                    <h2 class="fw-n">{{ 'admin.admin_user.section.contact.title'|trans }}</h2>
+                    <p>{{ 'admin.admin_user.section.contact.description'|trans }}</p>
                 </div>
             </div>
             <div class="col-2-3">
                 <div class="box">
                     <ol>
                         <li>
-                            {{ form_row(form.firstname,{'attr': {'placeholder':'e.g. John'}}) }}
+                            {{
+                                form_row(form.firstname, {
+                                    label: 'admin.user.field.firstname.title',
+                                    attr: {
+                                        placeholder: 'admin.user.field.firstname.placeholder',
+                                    }
+                                })
+                            }}
                         </li>
                         <li>
-                            {{ form_row(form.lastname,{'attr': {'placeholder':'e.g. Doe'}}) }}
+                            {{
+                                form_row(form.lastname, {
+                                    label: 'admin.user.field.lastname.title',
+                                    attr: {
+                                        placeholder: 'admin.user.field.lastname.placeholder',
+                                    }
+                                })
+                            }}
                         </li>
                     </ol>
                     <ol class="grid">
                         <li class="col-1-2 pr-l">
-                            {{ form_row(form.gender) }}
+                            {{
+                                form_row(form.gender, {
+                                    label: 'admin.user.field.gender.title',
+                                })
+                            }}
                         </li>
                         <li class="col-1-2">
-                            {{ form_row(form.birthday) }}
+                            {{
+                                form_row(form.birthday, {
+                                    label: 'admin.user.field.birthday.title',
+                                })
+                            }}
                         </li>
                     </ol>
                 </div>
@@ -63,30 +96,35 @@
         <div class="grid{% if adminUser.id == app.user.id %} hidden{% endif %}">
             <div class="col-1-3">
                 <div class="box-none">
-                    <h2 class="fw-n">{{ 'User Status'|trans }}</h2>
-                    <p>{% trans %}You can set user as active or inactive.{% endtrans %}</p>
+                    <h2 class="fw-n">{{ 'admin.admin_user.section.status.title'|trans }}</h2>
+                    <p>{{ 'admin.admin_user.section.status.description'|trans }}</p>
                 </div>
             </div>
             <div class="col-2-3">
                 <div class="box">
                     <ol>
                         <li>
-                            {{ form_row(form.enabled, {'attr': {'type':'checkbox'}}) }}
+                            {{
+                                form_row(form.enabled, {
+                                    label: 'admin.user.field.enabled.title',
+                                })
+                            }}
                         </li>
                     </ol>
                 </div>
             </div>
         </div>
+
         <div class="grid">
             <div class="col-1-3">
                 &nbsp;
             </div>
             <div class="col-2-3">
-                <button type="submit" class="button-primary">{{ 'Update'|trans }}</button>
-                <a href="{{ path('admin_admin_user_list') }}" class="button">{{ 'Cancel'|trans }}</a>
-
+                <button type="submit" class="button-primary">{{ 'ui.forms.save'|trans }}</button>
+                <a href="{{ path('admin_admin_user_list') }}" id="cancel-button" class="button">{{ 'ui.forms.cancel'|trans }}</a>
             </div>
         </div>
     </fieldset>
     {{ form_end(form) }}
+
 {% endblock content %}

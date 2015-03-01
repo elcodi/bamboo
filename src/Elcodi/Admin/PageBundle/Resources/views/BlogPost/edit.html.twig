@@ -1,60 +1,70 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
-{% block content_title %}
-    {{ 'Blog'|trans }}
-{% endblock content_title %}
+
+{% set elcodi_context = {
+    entity_type: 'blog_post',
+} %}
+
 
 {% block header_actions %}
+
     {% if blog_post.id > 0 %}
-        <a target="_blank" href="{{ url("store_blog_post_view",{id: blog_post.id, slug: blog_post.path}) }}" class="button-primary"><i class="icon-eye"></i> <span>{{ 'View at store'|trans }}</span></a>
-        <a data-tc-modules="modal" href="#metrics-panel" class="button-secondary"><i class="icon-bar-chart-o"></i> <span>{{ 'Show Metrics'|trans }}</span></a>
+        <a target="_blank" href="{{ url('store_blog_post_view', { id: blog_post.id, slug: blog_post.path }) }}" class="button-primary">
+            <i class="icon-eye"></i>
+            <span>{{ 'admin.blog_post.in_store'|trans }}</span>
+        </a>
+        <a data-tc-modules="modal" href="#metrics-panel" class="button-secondary">
+            <i class="icon-bar-chart-o"></i>
+            <span>{{ 'admin.metrics.action.show'|trans }}</span>
+        </a>
     {% endif %}
+
 {% endblock header_actions %}
+
 
 {% block breadcrumb %}
 
-    {% set entityHeader = page.id
-        ? 'Edit ' ~ blog_post.name
-        : 'Create new blog post'
+    {% set title = 'admin.blog_post.plural'|trans %}
+    {%
+        set header = page.id
+            ? 'admin.blog_post.edit'|trans({ '%name%': blog_post.name })
+            : 'admin.blog_post.new'|trans
     %}
 
     {% include '@AdminCore/Common/breadcrumb.html.twig' with {
-        breadcrumb: {
-            'Blog posts': {
-                'url': url('admin_blog_post_list')
-            },
-            (entityHeader): {
-                'active' : true
-            }
-        }
+        breadcrumb: [
+            { name: title, url: url('admin_blog_post_list'), },
+            { name: header, active: true, },
+        ]
     } %}
 
 {% endblock breadcrumb %}
 
+
 {% block content %}
 
     {% if blog_post.id %}
-        {{ render(url("admin_blog_post_edit_component", {
-            'id': blog_post.id
-        })) }}
-    {% else %}
-        {{ render(url("admin_blog_post_new_component")) }}
-    {% endif %}
+        {{
+            render(url('admin_blog_post_edit_component', {
+                id: blog_post.id,
+            }))
+        }}
 
-    {% if blog_post.id %}
         <div class="hidden-placeholder">
             <div id="metrics-panel" class="box-background">
-                <h2>{{ 'Visitors' }}</h2>
+                <h2>{{ 'admin.metrics.info.visitors'|trans }}</h2>
                 {% include 'AdminMetricBundle:Metric:metricLine.html.twig' with {
-                    'tracker': store_tracker,
-                    'event': 'pv_store_blog_post_view_' ~ blog_post.id,
-                    'intervalContainer': metric_create_interval_container(3),
+                    tracker: store_tracker,
+                    event: "pv_store_blog_post_view_#{blog_post.id}",
+                    intervalContainer: metric_create_interval_container(3),
                 } %}
             </div>
         </div>
+
         {% set author_token = app.user.token %}
-        {% set context = "admin" %}
-        {% set source = "blog-post-" ~ blog_post.id %}
+        {% set context = 'admin' %}
+        {% set source = "blog-post-#{blog_post.id}" %}
+
         <div id="box-populi" class="boxpopuli-container">
             <a data-tc-modules="side-panel" data-tc-position="right" data-tc-width="600" data-tc-tab-top="22%" href="#box-populi"><i class="icon-comment"></i> </a>
             <div class="boxpopuli-overflow" data-tc-modules="boxpopuli"
@@ -63,10 +73,13 @@
                 data-author-email="{{ app.user.email }}"
                 data-context="{{ context }}"
                 data-source="{{ source }}"
-                data-route-list="{{ url("elcodi_comments_list", {"source": source, "context": context}) }}"
-                data-route-add="{{ url("elcodi_comments_add", {"source": source, "context": context, "authorToken": author_token}) }}"
+                data-route-list="{{ url('elcodi_comments_list', { source: source, context: context }) }}"
+                data-route-add="{{ url('elcodi_comments_add', { source: source, context: context, authorToken: author_token }) }}"
             ></div>
         </div>
+
+    {% else %}
+        {{ render(url('admin_blog_post_new_component')) }}
     {% endif %}
 
 {% endblock content %}

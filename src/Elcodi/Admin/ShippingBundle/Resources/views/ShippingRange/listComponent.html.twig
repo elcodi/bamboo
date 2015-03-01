@@ -1,57 +1,71 @@
 {% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
 
-{% block title %}
-    {{ 'Product list'|trans }}
-{% endblock title %}
 
-{% block no_items %}
-    {{ lists.no_items('shipping range','shipping ranges', url("admin_shipping_range_new", {
-        'carrierId': carrier.id
-    })  ) }}
-{% endblock no_items %}
+{% set elcodi_context = {
+    entity_type: 'shipping_range',
+} %}
+
+
+{% block title 'admin.shipping_range.list'|trans %}
+
+
+{% block no_items
+    lists.no_items(
+        'admin.shipping_range.single'|trans,
+        'admin.shipping_range.plural'|trans,
+        url('admin_shipping_range_new', { carrierId: carrier.id })
+    )
+%}
+
 
 {% block table_head %}
-    {% include "@AdminCore/Tables/head.html.twig" with {
-        rows: {
-            "Name": {},
-            "Value": {width:"20"},
-            "Price": {width:"10"}
-        },
-        class: "product",
+
+    {% include '@AdminCore/Tables/head.html.twig' with {
+        class: 'product',
+        rows: [
+            { name: 'admin.shipping_range.field.name.title'|trans },
+            { name: 'admin.shipping_range.field.value.title'|trans, width: 20 },
+            { name: 'admin.shipping_range.field.price.title'|trans, width: 10 },
+        ],
     } %}
+
 {% endblock table_head %}
 
 
 {% block table_body_row %}
 
     <td>
-        <a href="{{ url("admin_shipping_range_edit", {
-            "carrierId": carrier.id,
-            "id": entity.id
-        }) }}">
+        <a href="{{ url('admin_shipping_range_edit', { carrierId: carrier.id, id: entity.id }) }}">
             <strong>{{ entity.name }}</strong> ({{ entity.toZone.name }})
         </a>
     </td>
     <td>
         {% if entity.type == 1 %}
-            {{ entity.fromPrice|print_money }} - {{ entity.toPrice|print_money }}
-
+            {{
+                'admin.shipping_range.field.value.price_format'|trans({
+                    '%from%': entity.fromPrice|print_money,
+                    '%to%': entity.toPrice|print_money,
+                })
+            }}
         {% elseif entity.type == 2 %}
-
-            {{ entity.fromWeight }}Kg - {{ entity.toWeight }}Kg
+            {{
+                'admin.shipping_range.field.value.weight_format'|trans({
+                    '%from%': entity.fromWeight,
+                    '%to%': entity.toWeight,
+                })
+            }}
         {% endif %}
     </td>
     <td>
         <strong>{{ entity.price|print_money }}</strong>
     </td>
-    <td class="ta-c">
-        <a class="icon-trash-o c-ko td-n fz-l" title="{{ 'delete'|trans }}" href="{{ url("admin_shipping_range_delete", {
-            "carrierId": entity.carrier.id,
-            "id": entity.id
-        }) }}" data-tc-modules="confirm" data-tc-name="{{ entity.name }}" data-tc-text="{{ "Are you sure you want to delete it?"|trans }}"></a>
-    </td>
+    {% include "@AdminCore/Tables/actions.html.twig" with {
+        entity: entity,
+        delete_url: url('admin_shipping_range_delete', { carrierId: entity.carrier.id, id: entity.id }),
+        class: 'shipping_range',
+    } %}
+
 {% endblock table_body_row %}
 
 
-{% block table_paginator_links %}
-{% endblock table_paginator_links %}
+{% block table_pagination '' %}

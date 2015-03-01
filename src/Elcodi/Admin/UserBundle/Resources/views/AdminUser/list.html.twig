@@ -1,21 +1,31 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
 
+{% set elcodi_context = {
+    entity_type: 'admin_user',
+} %}
+
+
 {% block breadcrumb %}
-    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
-        breadcrumb: {
-            "Admin Users": {
-                "active" : true
-            }
-        }
+
+    {% include '@AdminCore/Common/breadcrumb.html.twig' with {
+        breadcrumb: [
+            { name: 'admin.admin_user.single'|trans, active: true },
+        ],
     } %}
+
 {% endblock breadcrumb %}
 
+
 {% block content %}
-    {{ render(url("admin_admin_user_list_component", {
-        'page': page,
-        'limit': limit,
-        'orderByField': orderByField,
-        'orderByDirection': orderByDirection
-    })) }}
+
+    {{
+        render(url('admin_admin_user_list_component', {
+            page: page,
+            limit: limit,
+            orderByField: orderByField,
+            orderByDirection: orderByDirection
+        }))
+    }}
+
 {% endblock content %}

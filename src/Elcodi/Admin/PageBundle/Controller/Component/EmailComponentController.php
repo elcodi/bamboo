@@ -17,10 +17,8 @@
 
 namespace Elcodi\Admin\PageBundle\Controller\Component;
 
-use Doctrine\ORM\Tools\Pagination\Paginator;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormView;
@@ -49,9 +47,9 @@ class EmailComponentController extends AbstractAdminController
      * @Route(
      *      path = "s",
      *      name = "admin_email_list_component",
+     *      methods = {"GET"}
      * )
      * @Template("AdminPageBundle:Email:listComponent.html.twig")
-     * @Method({"GET"})
      */
     public function listComponentAction()
     {
@@ -83,10 +81,15 @@ class EmailComponentController extends AbstractAdminController
      *      name = "admin_email_edit_component",
      *      requirements = {
      *          "id" = "\d+",
-     *      }
+     *      },
+     *      methods = {"GET", "POST"}
+     * )
+     * @Route(
+     *      path = "/new/component",
+     *      name = "admin_email_new_component",
+     *      methods = {"GET", "POST"}
      * )
      * @Template("AdminPageBundle:Email:editComponent.html.twig")
-     * @Method({"GET"})
      *
      * @EntityAnnotation(
      *      class = {

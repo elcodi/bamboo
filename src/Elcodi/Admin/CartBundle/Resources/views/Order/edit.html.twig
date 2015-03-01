@@ -1,26 +1,36 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
-{% block content_title %}
-    {{ 'Order Zone'|trans }}
-{% endblock content_title %}
+
+{% set elcodi_context = {
+    entity_type: 'order',
+} %}
 
 
 {% block header_actions %}
 
-    <a href="{{ url('admin_customer_order_list', {customerId: order.customer.id}) }}" type="button" class="button"><i class="icon-shopping-cart"></i> <span>{% trans with { '%name': order.customer.firstname } %}%name's orders{% endtrans %}</span></a>
+    <a href="{{ url('admin_customer_order_list', {customerId: order.customer.id}) }}" type="button" class="button">
+        <i class="icon-shopping-cart"></i>
+        <span>{{ 'admin.order.from_user'|trans({ '%name%': order.customer.firstname }) }}</span>
+    </a>
 
     {% for paymentTransition in nextPaymentTransitions %}
-        <a href="{{ url("admin_order_change_payment_state", {
-            "id": order.id,
-            "transition": paymentTransition.name
-        }) }}" class="button-primary"> <i class="icon-credit-card"></i> {{ paymentTransition.name|trans }}</a>
+        <a href="{{ url('admin_order_change_payment_state', {
+            id: order.id,
+            transition: paymentTransition.name,
+        }) }}" class="button-primary">
+            <i class="icon-credit-card"></i>
+            {{ "admin.order.transition.#{paymentTransition.name}"|trans }}
+        </a>
     {% endfor %}
 
     {% for shippingTransition in nextShippingTransitions %}
-        <a href="{{ url("admin_order_change_shipping_state", {
-            "id": order.id,
-            "transition": shippingTransition.name
-        }) }}" class="button-secondary"><i class="icon-truck"></i> {{ shippingTransition.name|trans }}</a>
+        <a href="{{ url('admin_order_change_shipping_state', {
+            id: order.id,
+            transition: shippingTransition.name
+        }) }}" class="button-secondary">
+            <i class="icon-truck"></i>
+            {{ "admin.order.transition.#{shippingTransition.name}"|trans }}
+        </a>
     {% endfor %}
 
 {% endblock header_actions %}
@@ -28,47 +38,46 @@
 
 {% block breadcrumb %}
 
-    {% set entityHeader = order.id
-        ? 'Edit ' ~ order.name
-        : 'Create new Order'
-    %}
+    {% set title = 'admin.order.plural'|trans %}
 
-    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
-        breadcrumb: {
-            "Orders": {
-                "url": url('admin_order_list')
-            },
-            ("#" ~ order.id): {
-                "active" : true
-            }
-        }
+    {% if order.id %}
+        {% set header = 'admin.order.edit'|trans({ '%id%': order.id }) %}
+    {% else %}
+        {% set header = 'admin.order.new'|trans %}
+    {% endif %}
+
+    {% include '@AdminCore/Common/breadcrumb.html.twig' with {
+        breadcrumb: [
+            { name: title, url: url('admin_order_list'), },
+            { name: header, active: true, },
+        ]
     } %}
+
 {% endblock breadcrumb %}
 
 
 {% block content %}
 
-
     <div class="grid pr-l">
         <div class="col-8-12 pr-l">
-            {{ render(url("admin_order_edit_component", {
-                'id': order.id
-            })) }}
+            {{ render(url('admin_order_edit_component', { id: order.id })) }}
             <div class="box-background">
-                <h3 class="fw-n"><i class="icon-clock-o"></i> History</h3>
+                <h3 class="fw-n"><i class="icon-clock-o"></i>{{ 'admin.order.states.title'|trans }}</h3>
                 <table class="table order-history">
                     <tbody>
                         <tr>
                             <td class="w-70">
                                 <i class="icon-shopping-cart bg-ok mr-s"></i>
                                 <em></em>
-                                {{ 'New order' }} </td>
-                            <td class="ta-r">{% include "AdminCartBundle:Order:date.html.twig" with {
-                                'date': allStates.0.createdAt
-                                } %}</td>
+                                {{ 'admin.order.states.initial'|trans }}
+                            </td>
+                            <td class="ta-r">
+                                {% include 'AdminCartBundle:Order:date.html.twig' with {
+                                    date: allStates.0.createdAt,
+                                } %}
+                            </td>
                         </tr>
                         {% for stateLine in allStates %}
-
                             {% if 'un' in stateLine.name or 'no' in stateLine.name %}
                                 {% set colorClass = 'bg-warning' %}
                             {% else  %}
@@ -84,10 +93,13 @@
                                  <td>
                                      <i class="{{ iconClass }} {{ colorClass }} mr-s"></i>
                                      <em></em>
-                                     {{ stateLine.name|trans }} </td>
-                                 <td class="ta-r">{% include "AdminCartBundle:Order:date.html.twig" with {
-                                        'date': stateLine.createdAt
-                                    } %}</td>
+                                     {{ "admin.order.states.#{stateLine.name}"|trans }}
+                                 </td>
+                                 <td class="ta-r">
+                                     {% include 'AdminCartBundle:Order:date.html.twig' with {
+                                        date: stateLine.createdAt,
+                                     } %}
+                                 </td>
                             </tr>
                         {% endfor %}
                     </tbody>
@@ -97,41 +109,43 @@
         <div class="col-4-12">
             <div class="box ph-n">
                 <div class="box-none pv-n">
-                    <h3 class="fw-n"><a href="{{ url("admin_customer_edit", {"id": order.customer.id}) }}">{{  order.customer.fullName }}</a></h3>
+                    <h3 class="fw-n"><a href="{{ url('admin_customer_edit', { id: order.customer.id }) }}">{{ order.customer.fullName }}</a></h3>
                     <a href="mailto:{{ order.customer.email }}" class="c-foreground"><i class="icon-envelope"></i> {{ order.customer.username }}</a>
                 </div>
                 <a href="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=es&amp;q={{ deliveryInfo.fullAddress|url_encode }}" target="_blank">
                     <img id="CM_Map_map" src="http://maps.google.com/maps/api/staticmap?size=500x150&amp;zoom=15.5&amp;sensor=false&amp;center={{ deliveryInfo.fullAddress|url_encode }}&amp;markers=color:blue|{{ deliveryInfo.fullAddress|url_encode }}">
                 </a>
                 {% if deliveryInfo.id == billingInfo.id %}
-                    {% include "AdminCartBundle:Order:address.html.twig" with {
-                        'title': 'Delivery & Billing address',
-                        'addressInfo': deliveryInfo
+                    {% include 'AdminCartBundle:Order:address.html.twig' with {
+                        title: 'admin.order.field.both_addresses'|trans,
+                        addressInfo: deliveryInfo,
                     } %}
                 {% else %}
-                    {% include "AdminCartBundle:Order:address.html.twig" with {
-                        'title': 'Delivery address',
-                        'addressInfo': deliveryInfo
+                    {% include 'AdminCartBundle:Order:address.html.twig' with {
+                        title: 'admin.order.field.delivery_address'|trans,
+                        addressInfo: deliveryInfo,
                     } %}
 
-                    {% include "AdminCartBundle:Order:address.html.twig" with {
-                        'title': 'Billing address',
-                        'addressInfo': deliveryInfo
+                    {% include 'AdminCartBundle:Order:address.html.twig' with {
+                        title: 'admin.order.field.billing_address'|trans,
+                        addressInfo: deliveryInfo,
                     } %}
                 {% endif %}
                 <hr class="mb-n"/>
                 <div class="box-none pb-n">
-                    <h3 class="fw-n">{{ 'Carrier'|trans }}</h3>
-                    <i class="icon-truck"></i> Default ( {{ order.shippingAmount|print_money }} )
+                    <h3 class="fw-n">{{ 'admin.order.field.carrier'|trans }}</h3>
+                    <i class="icon-truck"></i>
+                    {# TODO: Extract carrier_name from the shown order #}
+                    {{ carrier_name|default('Default') }} ( {{ order.shippingAmount|print_money }} )
                 </div>
             </div>
         </div>
     </div>
-    {% if order.id %}
 
+    {% if order.id %}
         {% set author_token = app.user.token %}
-        {% set context = "admin" %}
-        {% set source = "order-" ~ order.id %}
+        {% set context = 'admin' %}
+        {% set source = "order-#{order.id}" %}
         <div id="box-populi" class="boxpopuli-container">
             <a data-tc-modules="side-panel" data-tc-position="right" data-tc-width="600" data-tc-tab-top="48%" href="#box-populi"><i class="icon-comment"></i> </a>
             <div class="boxpopuli-overflow" data-tc-modules="boxpopuli"
@@ -140,10 +154,10 @@
                     data-author-email="{{ app.user.email }}"
                     data-context="{{ context }}"
                     data-source="{{ source }}"
-                    data-route-list="{{ url("elcodi_comments_list", {"source": source, "context": context}) }}"
-                    data-route-add="{{ url("elcodi_comments_add", {"source": source, "context": context, "authorToken": author_token}) }}"
-
-                    ></div>
+                    data-route-list="{{ url('elcodi_comments_list', { source: source, context: context }) }}"
+                    data-route-add="{{ url('elcodi_comments_add', { source: source, context: context, authorToken: author_token }) }}"
+            ></div>
         </div>
     {% endif %}
+
 {% endblock content %}

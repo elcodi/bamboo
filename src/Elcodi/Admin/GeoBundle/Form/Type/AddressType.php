@@ -74,43 +74,32 @@ class AddressType extends AbstractType
             ])
             ->add('name', 'hidden', [
                 'required' => true,
-                'label'    => 'Address name',
             ])
             ->add('recipientName', 'text', [
                 'required' => true,
-                'label'    => 'Recipient name',
             ])
             ->add('recipientSurname', 'text', [
                 'required' => true,
-                'label'    => 'Recipient Surname',
             ])
             ->add('address', 'text', [
                 'required' => true,
-                'label'    => 'Address',
             ])
             ->add('addressMore', 'text', [
                 'required' => false,
-                'label'    => 'Address more (optional)',
             ])
             ->add('postalcode', 'text', [
                 'required' => true,
-                'label'    => 'Postalcode',
             ])
             ->add('phone', 'text', [
                 'required' => true,
-                'label'    => 'Phone',
             ])
             ->add('mobile', 'text', [
                 'required' => false,
-                'label'    => 'Mobile',
             ])
             ->add('comments', 'textarea', [
                 'required' => false,
-                'label'    => 'Comments',
             ])
-            ->add('send', 'submit', array(
-                'label' => 'Save address',
-            ));
+            ->add('send', 'submit');
     }
 
     /**

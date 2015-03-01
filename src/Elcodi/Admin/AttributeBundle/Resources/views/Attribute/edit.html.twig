@@ -1,37 +1,47 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
-{% block content_title %}
-    {{ 'Attribute Zone'|trans }}
-{% endblock content_title %}
+
+{% set elcodi_context = {
+    entity_type: 'attribute',
+} %}
+
 
 {% block breadcrumb %}
 
-    {% set entityHeader = attribute.id
-        ? 'Edit ' ~ attribute.name
-        : 'Create new Attribute'
-    %}
+    {% set title = 'admin.attribute.plural'|trans %}
+
+    {% if attribute.id %}
+        {% set header = 'admin.attribute.edit'|trans({ '%name%': attribute.name }) %}
+    {% else %}
+        {% set header = 'admin.attribute.new'|trans %}
+    {% endif %}
 
     {% include '@AdminCore/Common/breadcrumb.html.twig' with {
-        breadcrumb: {
-            'Attributes': {
-                'url': url('admin_attribute_list')
-            },
-            (entityHeader): {
-                'active' : true
-            }
-        }
+        breadcrumb: [
+            { name: title, url: url('admin_attribute_list'), },
+            { name: header, 'active' : true, },
+        ]
     } %}
 
 {% endblock breadcrumb %}
 
+
 {% block content %}
 
     {% if attribute.id %}
-        {{ render(url("admin_attribute_edit_component", {
-            'id': attribute.id
-        })) }}
+        {{
+            render(
+                url('admin_attribute_edit_component', {
+                    id: attribute.id,
+                })
+            )
+        }}
     {% else %}
-        {{ render(url("admin_attribute_new_component")) }}
+        {{
+            render(
+                url('admin_attribute_new_component')
+            )
+        }}
     {% endif %}
 
 {% endblock content %}
