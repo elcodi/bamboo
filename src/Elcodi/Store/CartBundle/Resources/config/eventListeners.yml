@@ -12,3 +12,15 @@ services:
         tags:
             - { name: kernel.event_listener, event: cart.onload, method: removeInvalidShippingRange, priority: 8 }
             - { name: kernel.event_listener, event: cart.onload, method: loadCheapestShippingRange, priority: 7 }
+
+    store.event_listener.send_order_confirmation_email:
+        class: %store.event_listener.send_order_confirmation_email.class%
+        parent: store.abstract_email_sender_event_listener
+        tags:
+            - { name: kernel.event_listener, event: order.oncreated, method: sendOrderConfirmationEmail, priority: 0 }
+
+    store.event_listener.send_order_shipped_email:
+        class: %store.event_listener.send_order_shipped_email.class%
+        parent: store.abstract_email_sender_event_listener
+        tags:
+            - { name: kernel.event_listener, event: state_machine.order_shipping_states_machine.transition_ship, method: sendOrderShippedEmail, priority: 0 }

@@ -95,6 +95,13 @@ menu_nodes:
         enabled: 1
         subnodes: ~
 
+    bambooadmin_emails:
+        name: Emails
+        code: bell-o
+        url: admin_email_list
+        enabled: 1
+        subnodes: ~
+
     bambooadmin_blog:
         name: Blog
         code: comments
@@ -212,3 +219,4 @@ menus:
             - bambooadmin_plugins
             - bambooadmin_settings
             - bambooadmin_blog
+            - bambooadmin_emails

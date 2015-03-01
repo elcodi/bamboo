@@ -1,23 +1,27 @@
 {% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
 
+
 {% block title %}
     {{ 'Carrier list'|trans }}
 {% endblock title %}
+
 
 {% block no_items %}
     {{ lists.no_items('carrier','carriers', url("admin_carrier_new")  ) }}
 {% endblock no_items %}
 
+
 {% block table_head %}
     {% include "@AdminCore/Tables/head.html.twig" with {
-    rows: {
-    "Name & details": {},
-    "Category": {width:"20"},
-    "Price": {width:"10"}
-    },
-    class: "carriers",
+        rows: {
+            "Name & details": {},
+            "Category": {width:"20"},
+            "Price": {width:"10"}
+        },
+        class: "carriers",
     } %}
 {% endblock table_head %}
+
 
 {% block component %}
     <table class="table">
@@ -59,6 +63,7 @@
         </tbody>
     </table>
 {% endblock component %}
+
 
 {% block table_paginator_links %}
     {% set url = 'admin_carrier_list' %}

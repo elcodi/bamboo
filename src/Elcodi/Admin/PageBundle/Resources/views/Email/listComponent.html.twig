@@ -1,0 +1,37 @@
+{% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
+
+
+{% block title %}
+    {{ 'Page list'|trans }}
+{% endblock title %}
+
+
+{% block no_items %}
+{% endblock no_items %}
+
+
+{% block table_head %}
+    {% include "@AdminCore/Tables/head.html.twig" with {
+        rows: {
+            "title": {sorting_disabled: true},
+        },
+        class: "email",
+    } %}
+{% endblock table_head %}
+
+
+{% block table_body_row %}
+    <td>
+        <a href="{{ url("admin_email_edit", {"id": entity.id}) }}">
+            {{ entity.title }}
+        </a>
+    </td>
+{% endblock table_body_row %}
+
+
+{% block table_paginator_links %}
+{% endblock table_paginator_links %}
+
+
+{% block table_buttons %}
+{% endblock table_buttons %}

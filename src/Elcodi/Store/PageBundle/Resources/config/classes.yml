@@ -4,3 +4,8 @@ parameters:
     # Twig Extensions
     #
     store.twig_extension.store_page.class: Elcodi\Store\PageBundle\Twig\PageExtension
+
+    #
+    # Event listeners
+    #
+    store.abstract_email_sender_event_listener.class: Elcodi\Store\PageBundle\EventListener\Abstracts\AbstractEmailSenderEventListener
