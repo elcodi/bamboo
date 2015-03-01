@@ -286,7 +286,9 @@ class PageController extends AbstractAdminController
     /**
      * Check the entity for activation capabilities
      *
-     * @param PageInterface $page
+     * @param PageInterface $page Page
+     *
+     * @throws AccessDeniedHttpException
      */
     private function canBeDeactivated(PageInterface $page)
     {

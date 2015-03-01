@@ -78,14 +78,13 @@ class PageExtension extends Twig_Extension
     /**
      * Get blog pages
      *
-     * @param integer $page Page
+     * @param integer $page          Page
+     * @param integer $numberPerPage Number per page
      *
      * @return array Collection of enabled pages for the blog
      */
-    public function getBlogPages($page = 1)
+    public function getBlogPages($page = 1, $numberPerPage = 10)
     {
-        $numberPerPage = 5;
-
         return $this
             ->pageRepository
             ->findPages(

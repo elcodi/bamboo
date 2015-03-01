@@ -132,6 +132,10 @@ elcodi_geo:
         location:
             manager: default
 
+elcodi_page:
+    renderers:
+        - bamboo.page.renderer.template_renderer
+
 store_page:
     blog:
         posts_per_page: 5
