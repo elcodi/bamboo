@@ -5,7 +5,7 @@
             <div class="box-lighten">
                 {% block container %}
                     <div class="box-primary">
-                        <h2 class="mb-n c-background"><i class="icon-lock"></i> Bamboo Admin</h2>
+                        <h2 class="mb-n c-background">{% block title %}<i class="icon-lock"></i> Bamboo Admin {% endblock %}</h2>
                     </div>
                     {% block content '' %}
                 {% endblock container %}
