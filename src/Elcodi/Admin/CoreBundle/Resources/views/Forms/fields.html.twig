@@ -131,7 +131,11 @@
 {% block datetime_widget %}
 {% spaceless %}
     {% if widget == 'single_text' %}
-        {{ block('form_widget_simple', { attr: { class: 'form-control' } }) }}
+        {{
+            block('form_widget_simple', {
+                attr: attr|merge({ class: (attr.class|default('') ~ ' form-control')|trim }),
+            })
+        }}
     {% else %}
         <div {{ block('widget_container_attributes') }}>
             {{ form_errors(form.date) }}
