@@ -88,51 +88,38 @@ class CategoryType extends AbstractType
         $builder
             ->add('name', 'text', [
                 'required' => true,
-                'label'    => 'name',
             ])
             ->add('slug', 'text', [
                 'required' => false,
-                'label'    => 'slug',
             ])
             ->add('root', 'checkbox', [
                 'required' => false,
-                'label'    => 'Root Category',
             ])
             ->add('enabled', 'checkbox', [
                 'required' => false,
-                'label'    => 'Visible',
             ])
             ->add('metaTitle', 'text', [
                 'required' => false,
-                'label'    => 'metaTitle',
             ])
             ->add('metaDescription', 'text', [
                 'required' => false,
-                'label'    => 'metaDescription',
             ])
             ->add('metaKeywords', 'text', [
                 'required' => false,
-                'label'    => 'metaKeywords',
             ])
             ->add('parent', 'entity', [
-                'class'         => $this->categoryFactory
-                    ->getEntityNamespace(),
-                'query_builder' => $this
-                    ->getAvailableCategories($currentCategoryId),
+                'class'         => $this->categoryFactory->getEntityNamespace(),
+                'query_builder' => $this->getAvailableCategories($currentCategoryId),
                 'required'      => true,
-                'label'         => 'parent',
                 'multiple'      => false,
             ])
             ->add('products', 'entity', [
                 'class'    => $this->productFactory->getEntityNamespace(),
                 'required' => false,
-                'label'    => false,
                 'multiple' => true,
             ]);
 
-        $builder->addEventSubscriber(
-            $this->getEntityTranslatorFormEventListener()
-        );
+        $builder->addEventSubscriber($this->getEntityTranslatorFormEventListener());
     }
 
     /**
@@ -145,11 +132,9 @@ class CategoryType extends AbstractType
      */
     protected function getAvailableCategories($currentCategoryId)
     {
-        return function (
-            CategoryRepository $categoryRepository
-        ) use ($currentCategoryId) {
-            return $categoryRepository
-                ->getAvailableParentCategoriesQueryBuilder($currentCategoryId);
+        return function (CategoryRepository $categoryRepository) use ($currentCategoryId) {
+
+            return $categoryRepository->getAvailableParentCategoriesQueryBuilder($currentCategoryId);
         };
     }
 

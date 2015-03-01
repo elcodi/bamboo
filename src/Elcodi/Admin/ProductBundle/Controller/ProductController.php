@@ -159,7 +159,12 @@ class ProductController extends AbstractAdminController
         if ($isValid) {
             $this->flush($product);
 
-            $this->addFlash('success', 'Changes saved');
+            $this->addFlash(
+                'success',
+                $this
+                    ->get('translator')
+                    ->trans('Changes saved')
+            );
 
             return $this->redirectToRoute('admin_product_list');
         }

@@ -54,7 +54,7 @@ class CategoryComponentController extends AbstractAdminController
         $category_manager = $this->get('elcodi.provider.category_tree');
         $category_tree    = $category_manager->buildCategoryTree();
 
-        return ['categories_list' => $category_tree];
+        return ['paginator' => $category_tree];
     }
 
     /**

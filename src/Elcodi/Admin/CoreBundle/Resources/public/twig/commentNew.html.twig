@@ -7,7 +7,12 @@
     {% endif %}
     <div class="balloon balloon-{{ commentSide|default('left') }} balloon-primary d-ib va-m mb-n w-80 c-foreground ta-l">
         <textarea data-tc-modules="wysiwyg" data-tc-fullscreen="false" data-tc-html="false"></textarea>
-        <p><button type="submit" class="bxp-add-button button mr-l">Comment</button> {% if commentSide == 'right' %} <a href="#" class="bxp-remove-textarea c-background">Cancel</a>{% endif %}</p>
+        <p>
+            <button type="submit" class="bxp-add-button button mr-l">Comentar</button>
+            {% if commentSide == 'right' %}
+                <a href="#" class="bxp-remove-textarea c-background">Cancelar</a>
+            {% endif %}
+        </p>
     </div>
     {% if commentSide == 'right' %}
         <div class="d-ib va-m w-15 ta-r">

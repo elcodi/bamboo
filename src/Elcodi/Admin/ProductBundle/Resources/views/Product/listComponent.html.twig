@@ -1,44 +1,93 @@
 {% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
 
-{% block title %}
-    {{ 'Product list'|trans }}
-{% endblock title %}
 
-{% block no_items %}
-    {{ lists.no_items('product','products', url("admin_product_new")  ) }}
-{% endblock no_items %}
+{% set elcodi_context = {
+    entity_type: 'product'
+} %}
+
+
+{% block title 'admin.product.list'|trans %}
+
+
+{% block no_items
+    lists.no_items(
+        'admin.product.single'|trans,
+        'admin.product.plural'|trans,
+        url('admin_product_new')
+    )
+%}
+
 
 {% block table_head %}
-    {% include "@AdminCore/Tables/head.html.twig" with {
-        rows: {
-            "Image": {width:"10"},
-            "Name & details": {},
-            "Category": {width:"20"},
-            "Price": {width:"10"}
-        },
-        class: "product",
+
+    {% include '@AdminCore/Tables/head.html.twig' with {
+        rows: [
+            { name: 'admin.product.field.image.title'|trans, width: 10 },
+            { name: 'admin.product.field.name_details.title'|trans },
+            { name: 'admin.product.field.main_category.title'|trans, widht: 20 },
+            { name: 'admin.product.field.price.title'|trans, width: 10 },
+        ],
+        class: 'product',
     } %}
+
 {% endblock table_head %}
 
 
 {% block table_body_row %}
+
     <td>
         {% if entity.images|length > 0 %}
-            <a href="{{ url("admin_product_edit", {"id": entity.id}) }}" class="thumbnail">
-                <img src="{{ entity.getSortedImages.first|resize({'height': 100, 'width': 100, 'type': 4}) }}" />
+            <a href="{{ url('admin_product_edit', { id: entity.id }) }}" class="thumbnail">
+                <img src="{{ entity.getSortedImages.first|resize({ height: 100, width: 100, type: 4 }) }}" />
             </a>
         {% endif %}
     </td>
 
     <td>
-        <a href="{{ url("admin_product_edit", {"id": entity.id}) }}"><strong>{{ entity.name }}</strong></a>
-        {% set path = url("store_product_view",{id: entity.id, slug: entity.slug}) %}
-        <p class="fz-s"><a target="_blank" href="{{ path }}">/{{ entity.slug }}</a></p>
-        {% if entity.enabled %}<span class="label-ok fz-xs">Enabled</span>{% else %}<span class="label fz-xs">Disabled</span>{% endif %} {% if entity.showInHome %}<span class="label-info fz-xs">{{'Home'|trans}}</span>{% endif %} {% if entity.hasVariants %}<span class="label bg-secondary fz-xs c-background">{{'Variants'|trans}}</span>{% endif %} {% if entity.principalCategory is null %}<span class="label label-ko fz-xs"><i class="icon-warning mr-s"></i>{{'No category'|trans}}</span>{% endif %} {% if entity.manufacturer is null %}<span class="label label-ko fz-xs"><i class="icon-warning mr-s"></i>{{'No Manufacturer'|trans}}</span>{% endif %}
+        <a href="{{ url('admin_product_edit', { id: entity.id }) }}">
+            <strong>{{ entity.name }}</strong>
+        </a>
+
+        {% set path = url('store_product_view', { id: entity.id, slug: entity.slug }) %}
+        <p class="fz-s">
+            <a target="_blank" href="{{ path }}">/{{ entity.slug }}</a>
+        </p>
+
+        {% if entity.enabled %}
+            <span class="label-ok fz-xs">{{ 'admin.product.field.enabled.options.active'|trans }}</span>
+        {% else %}
+            <span class="label fz-xs">{{ 'admin.product.field.enabled.options.inactive'|trans }}</span>
+        {% endif %}
+
+        {% if entity.showInHome %}
+            <span class="label-info fz-xs">
+                {{'admin.product.tag.in_home'|trans}}
+            </span>
+        {% endif %}
+
+        {% if entity.hasVariants %}
+            <span class="label bg-secondary fz-xs c-background">
+                {{'admin.product.tag.has_variants'|trans}}
+            </span>
+        {% endif %}
+
+        {% if entity.principalCategory is null %}
+            <span class="label label-ko fz-xs">
+                <i class="icon-warning mr-s"></i>
+                {{'admin.product.tag.no_category'|trans}}
+            </span>
+        {% endif %}
+
+        {% if entity.manufacturer is null %}
+            <span class="label label-ko fz-xs">
+                <i class="icon-warning mr-s"></i>
+                {{'admin.product.tag.no_manufacturer'|trans}}
+            </span>
+        {% endif %}
     </td>
     <td>
         {% if entity.principalCategory %}
-            <a href="{{ url("admin_category_edit", { id: entity.principalCategory.id }) }}">
+            <a href="{{ url('admin_category_edit', { id: entity.principalCategory.id }) }}">
                 {{ entity.principalCategory.name }}
             </a>
         {% endif %}
@@ -46,14 +95,18 @@
     <td>
         {{ entity.price|print_money }}
     </td>
-    {% include "@AdminCore/Tables/actions.html.twig" with {
+
+    {% include '@AdminCore/Tables/actions.html.twig' with {
         entity: entity,
-        class: "product",
+        class: 'product',
     } %}
+
 {% endblock table_body_row %}
 
 
 {% block table_paginator_links %}
+
     {% set url = 'admin_product_list' %}
     {{ parent() }}
+
 {% endblock table_paginator_links %}

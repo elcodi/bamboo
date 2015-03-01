@@ -39,7 +39,6 @@ class VariantType extends AbstractPurchasableType
             ->add('options', 'entity', array(
                 'class'    => 'Elcodi\Component\Attribute\Entity\Value',
                 'required' => true,
-                'label'    => 'Select one or more attributes:',
                 'multiple' => true,
                 'group_by' => 'attribute',
                 'query_builder' => function (ValueRepository $valueRepository) {
@@ -51,30 +50,24 @@ class VariantType extends AbstractPurchasableType
             ))
             ->add('imagesSort', 'text', array(
                 'required' => false,
-                'label'    => 'Images sort',
             ))
             ->add('images', 'entity', array(
                 'class'    => 'Elcodi\Component\Media\Entity\Image',
                 'required' => false,
                 'property' => 'id',
-                'label'    => false,
                 'multiple' => true,
             ))
             ->add('stock', 'hidden', array(
                 'required' => false,
-                'label'    => 'stock',
             ))
             ->add('price', 'money_object', array(
                 'required' => false,
-                'label'    => 'Price',
             ))
             ->add('reducedPrice', 'money_object', array(
                 'required' => false,
-                'label'    => 'Reduced Price',
             ))
             ->add('enabled', 'checkbox', array(
                 'required' => false,
-                'label'    => 'Visible',
             ));
     }
 

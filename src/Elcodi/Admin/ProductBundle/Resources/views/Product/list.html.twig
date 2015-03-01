@@ -8,29 +8,34 @@
 
 {% block breadcrumb %}
 
-    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
-        breadcrumb: {
-            "Products": {
-                "active" : true
-            }
-        }
+    {% include '@AdminCore/Common/breadcrumb.html.twig' with {
+        breadcrumb: [
+            { name: 'admin.product.plural'|trans, active: true },
+        ],
     } %}
 
 {% endblock breadcrumb %}
 
 
 {% block header_actions %}
-    <a href="{{ url("admin_product_new") }}"type="button" class="button-primary"><i class="icon-plus"></i> <span>{{ "New product"|trans }}</span></a>
-{% endblock %}
+
+    <a href="{{ url('admin_product_new') }}" type="button" class="button-primary">
+        <i class="icon-plus"></i>
+        <span>{{ 'admin.product.new'|trans }}</span>
+    </a>
+
+{% endblock header_actions %}
 
 
 {% block content %}
 
-    {{ render(url("admin_product_list_component", {
-        'page': page,
-        'limit': limit,
-        'orderByField': orderByField,
-        'orderByDirection': orderByDirection
-    })) }}
+    {{
+        render(url('admin_product_list_component', {
+            page: page,
+            limit: limit,
+            orderByField: orderByField,
+            orderByDirection: orderByDirection
+        }))
+    }}
 
 {% endblock content %}
