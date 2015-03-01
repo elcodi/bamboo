@@ -513,14 +513,26 @@ admin:
                 title: Profundidad (en cm)
             in_home:
                 title: Mostrar en la página principal
+            image:
+                title: Image
+            name_details:
+                title: "Detalles del producto"
             enabled:
-                title: Visible
+                title: Habilitado
+                options:
+                    active: Habilitado
+                    inactive: Deshabilitado
             metatitle:
                 placeholder: ej. Mi genial producto
             metadescription:
                 placeholder: ej. Este genial producto es exactamente lo que buscabas.
             metakeywords:
                 placeholder: 'ej. product,genial'
+        tag:
+            in_home: Portada
+            has_variants: Tiene variantes
+            no_category: Sin categoría
+            no_manufacturer: Sin fabricante
         info:
             variants_before_saving: Podrás añadir variantes una vez hayas guardo el producto
         error:
@@ -549,6 +561,37 @@ admin:
     variant:
         new: Nueva variante
         saved: Cambios guardados
+        single: variante
+        plural: variantes
+        edit:   Editar variante "%name%"
+        list:   Listado de variantes
+        field:
+            name:
+                title: Nombre de la variante
+            price:
+                title: Precio
+            stock:
+                title: Existencias
+            reduced_price:
+                title: Precio de oferta
+            enabled:
+                title: Estado
+                options:
+                    active: Habilitado
+                    inactive: Deshabilitado
+            options:
+                title: "Selecciona uno o más atributos:"
+        section:
+            attributes:
+                title: Atributos
+                description: "Selecciona los atributos de esta variante."
+            pricing:
+                title: Precios
+                description: "Configura el precio de esta variante (sin incluir impuestos ni envíos). También puedes poner un precio de oferta (opcional)."
+            visibility:
+                title: Visibilidad
+                description: "Configura esta variante como visible u oculto."
+
 
     manufacturer:
         single:   Fabricante
@@ -567,7 +610,16 @@ admin:
                 title: Descripción
                 placeholder: ej. Este genial fabricante es exactamente lo que estás buscando.
             enabled:
-                title: Enabled
+                title: Estado
+                options:
+                    active: Habilitado
+                    inactive: Deshabilitado
+            image:
+                title: Imagen
+            name_slug:
+                title: "Detalles del fabricante"
+            product_count:
+                title: Productos
             metatitle:
                 placeholder: ej. Mi genial fabricante
             metadescription:
@@ -599,7 +651,14 @@ admin:
             root:
                 title: Categoria principal
             enabled:
-                title: Habilidata
+                title: Habilitada
+                options:
+                    active: Habilitada
+                    inactive: Deshabilitada
+            parent:
+                title: Categoría Padre
+            contains:
+                title: Contiene %count% productos
             metatitle:
                 placeholder: ej. Mi genial categoria
             metadescription:
@@ -616,6 +675,12 @@ admin:
             visibility:
                 title: Visibilidad
                 description: Configurar la categoria como visible u oculta.
+            edit:
+                title: "Edita y ordena"
+                description:
+                    - "Arrastra y suelta las categorías para ordenarlas o anidarlas."
+                    - "Haz click en un categoría para editarla."
+                    - "Haz click en la papelera para borrar la categoría."
 
     profile:
         single: Perfil
@@ -753,7 +818,7 @@ ui:
         yesterday_at: Ayer a las %time%
     list:
         no_items:     No hay %items%.
-        create_first: Crear mi primer %item%.
+        create_first: Crear %item%
     label:
         enabled:  Habilitado
         disabled: Deshabilitado

@@ -7,16 +7,12 @@
 
 
 {% block header_actions %}
-
-    <pre>Slug: {{ dump(category.slug) }}</pre>
-
     {% if category.id > 0 and false %}
         <a target="_blank" href="{{ url('store_category_products_list', { id: category.id, slug: category.slug }) }}" class="button-primary">
             <i class="icon-eye"></i>
             <span>{{ 'admin.category.in_store'|trans }}</span>
         </a>
     {% endif %}
-
 {% endblock header_actions %}
 
 
