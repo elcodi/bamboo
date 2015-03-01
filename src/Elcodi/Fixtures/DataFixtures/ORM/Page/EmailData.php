@@ -113,5 +113,51 @@ class EmailData extends AbstractFixture
                 'content' => 'Hola {{ customer.fullname }}.  Le damos la Bienvenida.',
             ),
         ));
+
+        /**
+         * Customer password remember
+         */
+        $passwordRememberEmail = $pageFactory
+            ->create()
+            ->setTitle('Recordatorio de contraseña')
+            ->setContent('Hola {{ customer.fullname }}. Para recuperar tu contraseña entra en <a href="{{ remember_url }}">este enlace</a>.')
+            ->setName('password_remember')
+            ->setType(ElcodiPageTypes::TYPE_EMAIL)
+            ->setEnabled(true)
+            ->setPersistent(true);
+
+        $pageObjectManager->persist($passwordRememberEmail);
+        $this->addReference('email-password-remember', $passwordRememberEmail);
+        $pageObjectManager->flush($passwordRememberEmail);
+
+        $entityTranslator->save($passwordRememberEmail, array(
+            'es' => array(
+                'title'   => 'Recordatorio de contraseña',
+                'content' => 'Hola {{ customer.fullname }}. Para recuperar tu contraseña entra en <a href="{{ remember_url }}">este enlace</a>.',
+            ),
+        ));
+
+        /**
+         * Customer password recover
+         */
+        $passwordRecoverEmail = $pageFactory
+            ->create()
+            ->setTitle('Recordatorio de contraseña')
+            ->setContent('Hola {{ customer.fullname }}. Tu contraseña ha sido recuperada.')
+            ->setName('password_recover')
+            ->setType(ElcodiPageTypes::TYPE_EMAIL)
+            ->setEnabled(true)
+            ->setPersistent(true);
+
+        $pageObjectManager->persist($passwordRecoverEmail);
+        $this->addReference('email-password-recover', $passwordRecoverEmail);
+        $pageObjectManager->flush($passwordRecoverEmail);
+
+        $entityTranslator->save($passwordRecoverEmail, array(
+            'es' => array(
+                'title'   => 'Recordatorio de contraseña',
+                'content' => 'Hola {{ customer.fullname }}. Tu contraseña ha sido recuperada.',
+            ),
+        ));
     }
 }

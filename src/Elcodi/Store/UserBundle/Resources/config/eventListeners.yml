@@ -3,16 +3,28 @@ services:
     #
     # Event Listeners
     #
-    store.user.event_listener.remember_password:
-        class: %store.user.event_listener.remember_password.class%
+    store.event_listener.password_remember_credentials:
+        class: %store.event_listener.password_remember_credentials.class%
         arguments:
             - @security.token_storage
             - %bamboo_store_firewall%
         tags:
-            - { name: kernel.event_listener, event: password.recover, method: onPasswordRecover }
+            - { name: kernel.event_listener, event: password.recover, method: giveCredentialsWithNewPassword }
 
     store.event_listener.send_customer_registration_email:
         class: %store.event_listener.send_customer_registration_email.class%
         parent: store.abstract_email_sender_event_listener
         tags:
             - { name: kernel.event_listener, event: customer.register, method: sendCustomerRegistrationEmail }
+
+    store.event_listener.send_password_remember_email:
+        class: %store.event_listener.send_password_remember_email.class%
+        parent: store.abstract_email_sender_event_listener
+        tags:
+            - { name: kernel.event_listener, event: password.remember, method: sendPasswordRememberEmail }
+
+    store.event_listener.send_password_recover_email:
+        class: %store.event_listener.send_password_recover_email.class%
+        parent: store.abstract_email_sender_event_listener
+        tags:
+            - { name: kernel.event_listener, event: password.recover, method: sendPasswordRecoverEmail }

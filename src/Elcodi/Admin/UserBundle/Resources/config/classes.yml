@@ -1,11 +1,6 @@
 parameters:
 
     #
-    # Event Listeners
-    #
-    admin.user.event_listener.remember_password.class: Elcodi\Admin\UserBundle\EventListener\RememberPasswordEventListener
-
-    #
     # Form Types
     #
     admin.user.form_type.login.class: Elcodi\Admin\UserBundle\Form\Type\LoginType

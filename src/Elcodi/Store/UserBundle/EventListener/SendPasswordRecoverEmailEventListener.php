@@ -15,35 +15,29 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-namespace Elcodi\Store\CartBundle\EventListener;
+namespace Elcodi\Store\UserBundle\EventListener;
 
-use Elcodi\Component\Cart\Entity\Interfaces\OrderInterface;
-use Elcodi\Component\StateTransitionMachine\Event\TransitionEvent;
+use Elcodi\Component\User\Event\PasswordRecoverEvent;
 use Elcodi\Store\PageBundle\EventListener\Abstracts\AbstractEmailSenderEventListener;
 
 /**
- * Class SendOrderShippedEmailEventListener
+ * Class SendPasswordRecoverEmailEventListener
  */
-class SendOrderShippedEmailEventListener extends AbstractEmailSenderEventListener
+class SendPasswordRecoverEmailEventListener extends AbstractEmailSenderEventListener
 {
     /**
      * Send email
      *
-     * @param TransitionEvent $event Event
+     * @param PasswordRecoverEvent $event Event
      */
-    public function sendOrderShippedEmail(TransitionEvent $event)
+    public function sendPasswordRecoverEmail(PasswordRecoverEvent $event)
     {
-        /**
-         * @var OrderInterface $order
-         */
-        $order = $event->getObject();
-        $customer = $order->getCustomer();
+        $customer = $event->getUser();
 
         $this->sendEmail(
-            'order_shipped',
+            'password_recover',
             [
-                'order'    => $order,
-                'customer' => $customer,
+                'customer'     => $customer,
             ],
             $customer->getEmail()
         );
