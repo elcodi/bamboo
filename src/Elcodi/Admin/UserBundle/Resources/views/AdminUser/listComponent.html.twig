@@ -1,41 +1,46 @@
 {% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
 
 
-{% block title %}
-    {{ 'Admin Users list'|trans }}
-{% endblock title %}
+{% set elcodi_context = {
+    entity_type: 'admin_user',
+} %}
+
+
+{% block title 'admin.admin_user.list'|trans %}
 
 
 {% block table_head %}
-    {% include "@AdminCore/Tables/head.html.twig" with {
-        rows: {
-            "Username": {},
-            "Name & Surname": {},
-            "E-mail": {},
-            "Status": {width:"10"},
-        },
-        class: "admin_user",
+
+    {% include '@AdminCore/Tables/head.html.twig' with {
+        class: 'admin_user',
+        rows: [
+            { name: 'admin.user.field.username.title'|trans, },
+            { name: 'admin.user.field.fullname.title'|trans, },
+            { name: 'admin.user.field.email.title'|trans, },
+            { name: 'admin.user.field.enabled.title'|trans, width: 10 },
+        ],
     } %}
+
 {% endblock table_head %}
 
 
 {% block table_body_row %}
     <td>
-        <a href="{{ url("admin_admin_user_edit", {"id": entity.id}) }}">
-            <strong>{{ entity.username}}</strong>
+        <a href="{{ url('admin_admin_user_edit', { id: entity.id }) }}">
+            <strong>{{ entity.username }}</strong>
         </a>
     </td>
     <td>
-        {{ entity.fullname  }}
+        {{ entity.fullname }}
     </td>
     <td>
         {{ entity.email }}
     </td>
     <td>
         {% if entity.enabled %}
-            <span class="label-ok">Active</span>
+            <span class="label-ok">{{ 'admin.user.field.enabled.options.active'|trans }}</span>
         {% else %}
-            <span class="label-ko">Inactive</span>
+            <span class="label-ko">{{ 'admin.user.field.enabled.options.inactive'|trans }}</span>
         {% endif %}
     </td>
 
@@ -43,6 +48,8 @@
 
 
 {% block table_paginator_links %}
+
     {% set url = 'admin_admin_user_list' %}
     {{ parent() }}
+
 {% endblock table_paginator_links %}

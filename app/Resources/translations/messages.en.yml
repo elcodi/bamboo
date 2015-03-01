@@ -38,6 +38,126 @@ admin:
                 placeholder: e.g. It's a house
             save: Save address
 
+    remember_user:
+        title: Forgot your password?
+        description: "Don't worry, we'll send you an email to reset your password."
+
+    recover_user:
+        title: New password
+        field:
+            email:
+                placeholder: Enter your mail
+            password:
+                placeholder: New password
+            repeat_password:
+                placeholder: Repeat password
+        action:
+            email_sent:
+                title: Email sent
+                description: "Please, check your email and follow the instruction to recover your password."
+
+    login:
+        title: Login access required
+        field:
+            email:
+                placeholder: Enter your mail
+            password:
+                placeholder: Enter password
+        action:
+            login: Log In
+            remember: Remember
+
+    user:
+        field:
+            email:
+                title: Email
+                placeholder: e.g. john.doe@mail.com
+            firstname:
+                title: First name
+                placeholder: e.g. John
+            lastname:
+                title: Last name
+                placeholder: e.g. Doe
+            fullname:
+                title: Full name
+            username:
+                title: Username
+            birthday:
+                title: Birthday
+            gender:
+                title: Gender
+                options:
+                    male: Male
+                    female: Female
+            password:
+                title: Password
+            enabled:
+                title: Status
+                options:
+                    active:   Active
+                    inactive: Inactive
+
+    admin_user:
+        single: Administrator
+        plural: Administrators
+        list:   Administrator list
+        edit:   Edit "%name%"
+        new:    Create new Admin User
+        saved:  Changes saved
+        error:
+            cant_disable_yourself: You can't disable your own account
+            cant_remove_yourself: You can't delete your own account
+        section:
+            login:
+                title: Login details
+                description: Each user should have a unique e-mail.
+            contact:
+                title: Contact details
+                description: The contact information for this administrator.
+            status:
+                title: User status
+                description: You can set administrators as active or inactive.
+
+    customer:
+        single: Customer
+        plural: Customers
+        list:   Customer list
+        edit:   Edit "%name%"
+        new:    Create new Customer
+        saved:  Changes saved
+        info:
+            password_changed: Password successfully changed
+        error:
+            password_change: Error changing password
+        field:
+            username:
+                title: Username
+                placeholder: e.g. john_doe
+            identity_document:
+                title: Identity
+                placeholder: e.g. 12345678A
+            phone:
+                title: Phone
+                placeholder: e.g. 555 55 55 55
+            language:
+                title: Preferred language
+            guest:
+                title: Guest
+            newsletter:
+                title: Newsletter
+            order_count:
+                title: '# Orders'
+        section:
+            login:
+                title: Login details
+                description: Each user should have a unique e-mail and unique username.
+            contact:
+                title: Contact details
+                description: The contact information for this user.
+            status:
+                title: 'Status & Preferences'
+                description: Set the user status and preferences.
+
     attribute:
         single: Attribute
         plural: Attributes

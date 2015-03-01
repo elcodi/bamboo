@@ -2,41 +2,45 @@
 
 
 {% block body %}
+
     {{ include('@AdminCore/Common/flashMessages.html.twig') }}
     {{ parent() }}
+
 {% endblock body %}
 
 
 {% block content %}
 
                 {{ form_start(form, {
-                    "attr": {
-                        "class": "form"
+                    attr: {
+                        class: 'form'
                     }
                 }) }}
                     <fieldset>
-                        <legend>{{ "Login access required"|trans }}</legend>
+                        <legend>{{ 'admin.login.title'|trans }}</legend>
                         <ol>
                             <li>
                                 {{ form_row(form.email, {
-                                    "attr": {
-                                        "class": "form-control",
-                                        "placeholder": "Email"|trans
+                                    label: false,
+                                    attr: {
+                                        class: 'form-control',
+                                        placeholder: 'admin.login.field.email.placeholder',
                                     }
                                 }) }}
                             </li>
                             <li>
                                 {{ form_row(form.password, {
-                                    "attr": {
-                                        "class": "form-control",
-                                        "placeholder": "Password"|trans
+                                    label: false,
+                                    attr: {
+                                        class: 'form-control',
+                                        placeholder: 'admin.login.field.password.placeholder',
                                     }
                                 }) }}
                             </li>
                         </ol>
-                        <button type="submit" class="button-primary">{{ "Log In"|trans }}</button>
-                        <a href="{{ url("admin_password_remember") }}" class="button" data-dismiss="modal" type="warning">
-                            {{ "Remember"|trans }}
+                        <button type="submit" class="button-primary">{{ 'admin.login.action.login'|trans }}</button>
+                        <a href="{{ url('admin_password_remember') }}" class="button" data-dismiss="modal" type="warning">
+                            {{ 'admin.login.action.remember'|trans }}
                         </a>
                     </fieldset>
                 {{ form_end(form) }}

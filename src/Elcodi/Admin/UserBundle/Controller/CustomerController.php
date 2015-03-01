@@ -19,7 +19,6 @@ namespace Elcodi\Admin\UserBundle\Controller;
 
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormInterface;
@@ -65,9 +64,9 @@ class CustomerController extends AbstractAdminController
      *          "orderByField" = "id",
      *          "orderByDirection" = "DESC",
      *      },
+     *      methods = {"GET"}
      * )
      * @Template
-     * @Method({"GET"})
      */
     public function listAction(
         $page,
@@ -159,7 +158,12 @@ class CustomerController extends AbstractAdminController
         if ($isValid) {
             $this->flush($customer);
 
-            $this->addFlash('success', 'Changes saved');
+            $this->addFlash(
+                'success',
+                $this
+                    ->get('translator')
+                    ->trans('admin.customer.saved')
+            );
 
             return $this->redirectToRoute('admin_customer_list');
         }
@@ -180,9 +184,9 @@ class CustomerController extends AbstractAdminController
      *
      * @Route(
      *      path = "/{id}/enable",
-     *      name = "admin_customer_enable"
+     *      name = "admin_customer_enable",
+     *      methods = {"GET", "POST"}
      * )
-     * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.user.entity.customer.class",
@@ -211,9 +215,9 @@ class CustomerController extends AbstractAdminController
      *
      * @Route(
      *      path = "/{id}/disable",
-     *      name = "admin_customer_disable"
+     *      name = "admin_customer_disable",
+     *      methods = {"GET", "POST"}
      * )
-     * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.user.entity.customer.class",
@@ -243,9 +247,9 @@ class CustomerController extends AbstractAdminController
      *
      * @Route(
      *      path = "/{id}/delete",
-     *      name = "admin_customer_delete"
+     *      name = "admin_customer_delete",
+     *      methods = {"GET", "POST"}
      * )
-     * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.user.entity.customer.class",

@@ -44,7 +44,8 @@ class PasswordController extends Controller
      *
      * @Route(
      *      path = "/remember",
-     *      name = "admin_password_remember"
+     *      name = "admin_password_remember",
+     *      methods = {"GET", "POST"}
      * )
      * @Template
      *
@@ -66,7 +67,7 @@ class PasswordController extends Controller
                 ->get('email')
                 ->getData();
 
-            $emailFound = $this
+            $this
                 ->get('elcodi.manager.password')
                 ->rememberPasswordByEmail(
                     $adminUserRepository,
@@ -74,9 +75,7 @@ class PasswordController extends Controller
                     'admin_password_recover'
                 );
 
-            if ($emailFound) {
-                return $this->redirectToRoute('admin_password_recover_sent');
-            }
+            return $this->redirectToRoute('admin_password_recover_sent');
         }
 
         return [
@@ -91,7 +90,8 @@ class PasswordController extends Controller
      *
      * @Route(
      *      path = "/sent",
-     *      name = "admin_password_recover_sent"
+     *      name = "admin_password_recover_sent",
+     *      methods = {"GET"}
      * )
      * @Template
      */
@@ -114,7 +114,8 @@ class PasswordController extends Controller
      *      name = "admin_password_recover",
      *      requirements = {
      *          "hash" = "[\dA-Fa-f]+"
-     *      }
+     *      },
+     *      methods = {"GET", "POST"}
      * )
      * @Template
      *
@@ -132,7 +133,7 @@ class PasswordController extends Controller
                 ->get('elcodi.repository.admin_user')
                 ->findOneBy(array(
                     'recoveryHash' => $hash,
-                    'email' => $form->get('email')->getData(),
+                    'email' => $passwordRecoverForm->get('email')->getData(),
                 ));
 
             if ($customer instanceof AbstractUser) {
@@ -144,9 +145,19 @@ class PasswordController extends Controller
                     ->get('elcodi.manager.password')
                     ->recoverPassword($customer, $hash, $password);
 
-                $this->addFlash('info', 'Password successfully changed');
+                $this->addFlash(
+                    'info',
+                    $this
+                        ->get('translator')
+                        ->trans('admin.customer.info.password_changed')
+                );
             } else {
-                $this->addFlash('error', 'Error changing password');
+                $this->addFlash(
+                    'error',
+                    $this
+                        ->get('translator')
+                        ->trans('admin.customer.error.password_change')
+                );
             }
 
             return $this->redirectToRoute('admin_homepage');

@@ -34,10 +34,8 @@ class PasswordRememberType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->setMethod('POST')
             ->add('email', 'email', array(
                 'required' => true,
-                'label' =>  false,
             ));
     }
 

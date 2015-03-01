@@ -1,12 +1,13 @@
 {% extends 'AdminCoreBundle::layouts/center_box.html.twig' %}
 
 
-
 {% block container %}
+
     <div class="msg-ok">
-        <h3>{{ "Email sent"|trans }}</h3>
+        <h3>{{ 'admin.recover_user.action.email_sent.title'|trans }}</h3>
     </div>
     <p>
-        {{ "Please, check your email and follow the instruction to recover your password."|trans }}
+        {{ 'admin.recover_user.action.email_sent.description'|trans }}
     </p>
+
 {% endblock container %}

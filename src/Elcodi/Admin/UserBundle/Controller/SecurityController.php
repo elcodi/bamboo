@@ -22,7 +22,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\FormView;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * Class SecurityController
@@ -38,7 +37,8 @@ class SecurityController extends Controller
      *
      * @Route(
      *      path = "/login",
-     *      name = "admin_login"
+     *      name = "admin_login",
+     *      methods = {"GET", "POST"}
      * )
      * @Template
      *
@@ -52,8 +52,12 @@ class SecurityController extends Controller
         /**
          * If user is already logged, go to redirect url
          */
-        if ($this->get('security.context')->isGranted('ROLE_ADMIN')) {
-            return new RedirectResponse($this->generateUrl('admin_homepage'));
+        if (
+            $this
+                ->get('security.authorization_checker')
+                ->isGranted('ROLE_ADMIN')
+        ) {
+            return $this->redirectToRoute('admin_homepage');
         }
 
         return [

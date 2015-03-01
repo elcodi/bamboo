@@ -2,42 +2,47 @@
 
 
 {% block content %}
+
     {{ form_start(form, {
-        "attr": {
-            "class": "form-horizontal",
-            "style": "margin-bottom: 0px !important;"
+        attr: {
+            class: 'form-horizontal',
+            style: 'margin-bottom: 0px !important;'
         }
     }) }}
     <fieldset>
-        <legend>{{ 'New password'|trans }}</legend>
-        <ul>
+        <legend>{{ 'admin.recover_user.title'|trans }}</legend>
+        <ol>
             <li>
                 {{ form_row(form.email, {
-                    "attr": {
-                        "class": "form-control",
-                        "placeholder": "Enter your mail"|trans
+                    label: false,
+                    attr: {
+                        class: 'form-control',
+                        placeholder: 'admin.recover_user.field.email.placeholder'
                     }
                 }) }}
             </li>
             <li>
                 {{ form_errors(form.password) }}
                 {{ form_row(form.password.first, {
-                    "attr": {
-                        "class": "form-control",
-                        "placeholder": "Password"|trans
+                    label: false,
+                    attr: {
+                        class: 'form-control',
+                        placeholder: 'admin.recover_user.field.password.placeholder',
                     }
                 }) }}
             </li>
             <li>
                 {{ form_row(form.password.second, {
-                    "attr": {
-                        "class": "form-control",
-                        "placeholder": "Repeat password"|trans
+                    label: false,
+                    attr: {
+                        class: 'form-control',
+                        placeholder: 'admin.recover_user.field.repeat_password.placeholder',
                     }
                 }) }}
             </li>
-        </ul>
-        <button type="submit" class="button-primary">{{ "Save"|trans }}</button>
+        </ol>
+        <button type="submit" class="button-primary">{{ 'ui.forms.save'|trans }}</button>
     </fieldset>
     {{ form_end(form) }}
+
 {% endblock content %}

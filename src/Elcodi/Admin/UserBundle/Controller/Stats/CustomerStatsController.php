@@ -17,7 +17,6 @@
 
 namespace Elcodi\Admin\UserBundle\Controller\Stats;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
@@ -39,10 +38,10 @@ class CustomerStatsController extends AbstractStatsController
      *
      * @Route(
      *      path = "/total",
-     *      name = "admin_customer_stats_total"
+     *      name = "admin_customer_stats_total",
+     *      methods = {"GET"}
      * )
      * @Template("AdminCoreBundle:Stats:total.html.twig")
-     * @Method({"GET"})
      */
     public function totalStatsAction()
     {
@@ -58,10 +57,10 @@ class CustomerStatsController extends AbstractStatsController
      *
      * @Route(
      *      path = "/monthly",
-     *      name = "admin_customer_stats_monthly"
+     *      name = "admin_customer_stats_monthly",
+     *      methods = {"GET"}
      * )
      * @Template("AdminCoreBundle:Stats:monthly.html.twig")
-     * @Method({"GET"})
      */
     public function monthlyStatsAction()
     {
@@ -77,10 +76,10 @@ class CustomerStatsController extends AbstractStatsController
      *
      * @Route(
      *      path = "/daily",
-     *      name = "admin_customer_stats_daily"
+     *      name = "admin_customer_stats_daily",
+     *      methods = {"GET"}
      * )
      * @Template("AdminCoreBundle:Stats:daily.html.twig")
-     * @Method({"GET"})
      */
     public function dailyStatsAction()
     {
