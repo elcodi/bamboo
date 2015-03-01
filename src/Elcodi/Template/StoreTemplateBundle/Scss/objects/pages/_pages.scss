@@ -1,0 +1,9 @@
+.pages {
+	& {
+		background: $color-background;
+	}
+	.cart-nav, .category-nav {
+		display: none;
+	}
+
+}

@@ -1,4 +1,5 @@
 {% extends '@StoreTemplate/Layout/_static.html.twig' %}
+{
 
 {% block content %}
     <div class="grid">
@@ -13,7 +14,6 @@
                 <a href="{{ url("store_blog_view", {"page": current_page+1}) }}">{{ "Next posts" }}</a>
             {% endif %}
 
-
             {% for blog_post in blog_posts %}
                 <section>
                     <h2>{{ blog_post.title }}</h2>
@@ -25,6 +25,7 @@
                     </h3>
                 </section>
             {% endfor %}
+
         </div>
     </div>
 
@@ -38,4 +39,4 @@
         </div>
     </div>
 
-{% endblock %}
+{% endblock content %}

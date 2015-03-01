@@ -1,19 +1,40 @@
 {% extends '@StoreTemplate/Layout/_static.html.twig' %}
 
 {% block content %}
-    <div class="grid">
-        <div class="col-1-1">
-            <h1>{{ blog_post.title }}</h1>
-            <p>{{ blog_post.content }}</p>
-            <p>Published {{ blog_post.publishedDate|date('Y-m-d') }}</p>
-        </div>
-    </div>
+    <article class="blog-post">
+        <h1>{{ blog_post.title }}</h1>
+        <span class="blog-post-date fa fa-calendar"> {{ blog_post.publishedDate|date('Y-m-d') }}</span>
+        <div class="blog-post-content">
 
-    <div class="grid">
-        <div class="col-1-1">
-            {{ elcodi_hook("store.blog_post_view_bottom", {
-                'blog_post': blog_post
-            }) }}
+            {{ blog_post.content|raw }}
         </div>
+    </article>
+
+    {{ elcodi_hook("store.blog_post_view_bottom", {
+        'blog_post': blog_post
+    }) }}
+    <h3>{{ 'Last Posts'|trans }}</h3>
+    {% set last_posts = elcodi_blog_pages(1) %}
+    {% set col = last_posts|length < 3 ? last_posts|length : 3  %}
+    <div class="grid">
+    {% for blog_post in last_posts %}
+        {% if loop.index <= col  %}
+        <div class="col-1-{{ col }}">
+            <div class="blog-post blog-post-mini">
+                <h2><a href="{{ url("store_blog_post_view", {
+                        'id': blog_post.id,
+                        'slug': blog_post.path
+                    }) }}">
+                    {{ blog_post.title }}
+                </a></h2>
+                {{ blog_post.content|striptags|raw|truncate(100) }}
+                <a href="{{ url("store_blog_post_view", {
+                    'id': blog_post.id,
+                    'slug': blog_post.path
+                }) }}">{{ "Read more"|trans }}</a>
+            </div>
+        </div>
+        {% endif %}
+    {% endfor %}
     </div>
-{% endblock %}
+{% endblock content %}

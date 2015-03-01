@@ -1,16 +1,31 @@
 {% extends '@StoreTemplate/Layout/_layout.html.twig' %}
 
+{% block body %}
+<div class="pages">
+    {% block header %}
 
-{% block title %}{{ page.title }}{% endblock title %}
+        {% include '@StoreTemplate/Modules/_header.html.twig' %}
 
+    {% endblock header %}
 
-{% block meta_tags %}
-    <meta name="description" content="{{ page.metadescription }}">
-    <meta name="keywords" content="{{ page.metakeywords }}">
-{% endblock meta_tags %}
+    {% block container %}
 
+        {% block messages %}
+            {% include "@StoreTemplate/Modules/_message-list.html.twig" %}
+        {% endblock messages %}
 
-{% block content %}
-    {{ block('title') }}
-    {{ page.content|raw }}
-{% endblock content %}
+        <div class="grid grid-pad">
+            <div class="col-1-1">
+                {% block content %}{% endblock content %}
+            </div>
+        </div>
+        {% block prefooter %}{% endblock prefooter %}
+        {%  block footer %}
+
+            {% include '@StoreTemplate/Modules/_footer.html.twig' %}
+
+        {%  endblock footer %}
+
+    {% endblock container %}
+</div>
+{% endblock body %}
