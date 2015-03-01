@@ -350,9 +350,9 @@ admin:
                 description: Configura la validez del cupón y su estado.
 
     currency:
-        single: Moneda
-        plural: Monedas
-        list:   Listado de monedas
+        single: Divisa
+        plural: Divisas
+        list:   Listado de divisas
         field:
             symbol: Símbolo
             iso: ISO
