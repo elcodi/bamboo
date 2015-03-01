@@ -1,4 +1,4 @@
-TinyCore.AMD.define('form-save-on-edit', ['devicePackage'], function () {
+TinyCore.AMD.define('form-save-on-edit', [], function () {
 	return {
 		mediator : TinyCore.Toolbox.request( 'mediator' ),
 		onStart: function () {
@@ -52,6 +52,73 @@ TinyCore.AMD.define('form-save-on-edit', ['devicePackage'], function () {
 			$('.js-edit-link', oTarget).fadeOut();
 			$('.js-save', oTarget).fadeIn();
 		},
+		inputChange : function(oInput, sName) {
+
+			var self = this;
+
+			$(oInput).change(function (e) {
+
+				var oData = {};
+
+				oData.value = $(oInput).is(':checked') || $(oInput).is(':selected') ? oInput.value : '';
+
+				$.ajax({
+					url: document.getElementById('url-' + sName).value,
+					type: 'post',
+					data: oData,
+					error: function (response) {
+
+						TinyCore.AMD.requireAndStart(['notification'], function () {
+
+							var sMessage = JSON.parse(response.responseText).response;
+							self.mediator.publish('notification', {type: 'ko', message: sMessage});
+
+							$(oInput).unbind();
+							$(oInput).click();
+							self.inputChange(oInput, sName);
+
+						});
+					}
+				});
+			});
+		},
+		inputSave: function(oInput, oTarget, sId, sName) {
+
+			var oData = {},
+				self = this;
+
+			oData.value = document.getElementById(sName).value;
+
+			$('.js-loading', oTarget).show();
+
+			$(oInput).blur();
+
+			$.ajax({
+				url: document.getElementById('url-' + sName).value,
+				type:  'post',
+				data: oData,
+				success: function(response) {
+
+					if (oInput.nodeName == 'SELECT') {
+						document.getElementById('preview-'+ sId).value = oInput.options[oInput.selectedIndex].innerHTML;
+					}
+
+					self.toggleField(oInput, true);
+					$('.js-save', oTarget).hide();
+					$('.js-loading', oTarget).hide();
+					$('.js-ok', oTarget).fadeIn('slow').fadeOut('slow').fadeIn('slow').fadeOut('slow').fadeIn('slow');
+					self.mediator.publish('save:item', {
+						type: 'ok',
+						message: sId
+					});
+
+					setTimeout( function() {
+						$('.js-ok', oTarget).fadeOut();
+					}, 3000);
+					$('.js-edit-link', oTarget).show();
+				}
+			});
+		},
 		autobind: function (oTarget) {
 
 			var self = this,
@@ -62,17 +129,7 @@ TinyCore.AMD.define('form-save-on-edit', ['devicePackage'], function () {
 
 			if (oInput.type === 'checkbox' || oInput.type === 'radio') {
 
-				$(oInput).change(function (e) {
-
-					var oData = {};
-					oData.value = $(oInput).is(':checked') || $(oInput).is(':selected') ? oInput.value : '';
-
-					$.ajax({
-						url: document.getElementById('url-' + sName).value,
-						type: 'post',
-						data: oData
-					});
-				});
+				self.inputChange(oInput, sName);
 
 			} else {
 				$(oTarget).append('<a href="#" class="js-save button-primary fz-l pv-s mb-n" style="vertical-align: top; display: none;"><i class="icon-save"></i> </a>');
@@ -93,39 +150,15 @@ TinyCore.AMD.define('form-save-on-edit', ['devicePackage'], function () {
 					self.setEditable(oTarget, oInput);
 				});
 
-				$('.js-save', oTarget).on('click', function () {
+				$(oInput).keypress( function(e){
+					if(e.keyCode==13){
+						self.inputSave(oInput, oTarget, sId, sName);
+					}
+				});
 
-					var oData = {};
-
-					oData.value = document.getElementById(sName).value;
-
-					$('.js-loading', oTarget).show();
-
-					$.ajax({
-						url: document.getElementById('url-' + sName).value,
-						type:  'post',
-						data: oData,
-						success: function(response) {
-
-							if (oInput.nodeName == 'SELECT') {
-								document.getElementById('preview-'+ sId).value = oInput.options[oInput.selectedIndex].innerHTML;
-							}
-
-							self.toggleField(oInput, true);
-							$('.js-save', oTarget).hide();
-							$('.js-loading', oTarget).hide();
-							$('.js-ok', oTarget).fadeIn('slow').fadeOut('slow').fadeIn('slow').fadeOut('slow').fadeIn('slow');
-							self.mediator.publish('save:item', {
-								type: 'ok',
-								message: sId
-							});
-
-							setTimeout( function() {
-								$('.js-ok', oTarget).fadeOut();
-							}, 3000);
-							$('.js-edit-link', oTarget).show();
-						}
-					});
+				$('.js-save', oTarget).on('click', function (e) {
+					e.preventDefault();
+					self.inputSave(oInput, oTarget, sId, sName);
 				});
 			}
 		}
