@@ -88,7 +88,7 @@ abstract class AbstractStatsController extends Controller
             ->getParameter($entity);
 
         $queryBuilder = $this
-            ->get('elcodi.core.core.service.manager_provider')
+            ->get('elcodi.provider.manager')
             ->getManagerByEntityNamespace($namespace)
             ->createQueryBuilder()
             ->select('count(x.id)')
