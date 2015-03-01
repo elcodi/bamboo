@@ -15,35 +15,31 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-namespace Elcodi\Store\CartBundle\EventListener;
+namespace Elcodi\Store\UserBundle\EventListener;
 
-use Elcodi\Component\Cart\Entity\Interfaces\OrderInterface;
-use Elcodi\Component\StateTransitionMachine\Event\TransitionEvent;
+use Elcodi\Component\User\Event\PasswordRememberEvent;
 use Elcodi\Store\PageBundle\EventListener\Abstracts\AbstractEmailSenderEventListener;
 
 /**
- * Class SendOrderShippedEmailEventListener
+ * Class SendPasswordRememberEmailEventListener
  */
-class SendOrderShippedEmailEventListener extends AbstractEmailSenderEventListener
+class SendPasswordRememberEmailEventListener extends AbstractEmailSenderEventListener
 {
     /**
      * Send email
      *
-     * @param TransitionEvent $event Event
+     * @param PasswordRememberEvent $event Event
      */
-    public function sendOrderShippedEmail(TransitionEvent $event)
+    public function sendPasswordRememberEmail(PasswordRememberEvent $event)
     {
-        /**
-         * @var OrderInterface $order
-         */
-        $order = $event->getObject();
-        $customer = $order->getCustomer();
+        $customer = $event->getUser();
+        $rememberUrl = $event->getRememberUrl();
 
         $this->sendEmail(
-            'order_shipped',
+            'password_remember',
             [
-                'order'    => $order,
-                'customer' => $customer,
+                'customer'     => $customer,
+                'remember_url' => $rememberUrl,
             ],
             $customer->getEmail()
         );

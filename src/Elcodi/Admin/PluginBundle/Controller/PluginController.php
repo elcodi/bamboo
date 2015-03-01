@@ -59,8 +59,8 @@ class PluginController extends AbstractAdminController
     /**
      * Enable/Disable plugin
      *
-     * @param  Request $request Request
-     * @param  string $plugin   Plugin name
+     * @param Request $request Request
+     * @param string  $plugin  Plugin name
      *
      * @return array Result
      *
@@ -85,7 +85,7 @@ class PluginController extends AbstractAdminController
         return [
             'status' => 200,
             'response' => [
-                $this->get('translator')->trans('admin.plugin.saved')
+                $this->get('translator')->trans('admin.plugin.saved'),
             ],
         ];
     }

@@ -23,9 +23,9 @@ use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Elcodi\Component\User\Event\PasswordRecoverEvent;
 
 /**
- * Password event listener
+ * Class RememberPasswordCredentialsEventListener
  */
-class RememberPasswordEventListener
+class RememberPasswordCredentialsEventListener
 {
     /**
      * @var TokenStorageInterface
@@ -62,7 +62,7 @@ class RememberPasswordEventListener
      *
      * @param PasswordRecoverEvent $event Password recover event
      */
-    public function onPasswordRecover(PasswordRecoverEvent $event)
+    public function giveCredentialsWithNewPassword(PasswordRecoverEvent $event)
     {
         $user = $event->getUser();
 

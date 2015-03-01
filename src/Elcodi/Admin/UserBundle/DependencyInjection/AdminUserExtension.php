@@ -59,7 +59,6 @@ class AdminUserExtension extends AbstractExtension
         return [
             'classes',
             'formTypes',
-            'eventListeners',
             'services',
         ];
     }
