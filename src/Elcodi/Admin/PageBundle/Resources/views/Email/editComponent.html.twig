@@ -1,0 +1,59 @@
+{% extends 'AdminCoreBundle::Common/formComponent.html.twig' %}
+
+{% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
+
+{% block title %}
+    {{ 'Edit Email'|trans }} - {{ page.id }} - {{ page.name }}
+{% endblock title %}
+
+{% block content %}
+
+    {% set formAction =  url('admin_email_update', {
+        'id': email.id
+    }) %}
+
+    {{ form_start(form, {'action': formAction}) }}
+        <fieldset class="mb-n">
+            <div class="grid">
+                <div class="col-1-3">
+                    <div class="box-none">
+                        <h3 class="fw-n">{% trans %}Basic Details{% endtrans %}</h3>
+                        <p>{% trans %}Provide a very specific title for your page that explains and help sell your page and description that provides all the information required for your consumers.{% endtrans %}</p>
+                        {% if elcodi_languages|length > 1 %}<p><i class="icon-star"></i> {% trans %}= Master Language (Mandatory){% endtrans %}</p>{% endif %}
+                    </div>
+                </div>
+                <div class="col-2-3">
+                    <div {% if elcodi_languages|length > 1 %}data-tc-modules="tabs" class="tabs-box" {% endif %}>
+                        {% for language in elcodi_languages %}
+                        <section id="tab-{{ language }}" data-tc-name="{% if loop.first %}<i class='icon-star'></i> {% endif %}{{ language|capitalize }}">
+                            <div class="box">
+                                <ol>
+                                    <li>
+                                        <label>{{ 'Title'|trans }}</label>
+                                        {{ form_widget(form.title[language ~ '_title'],{'attr': {'placeholder':'e.g. My Awesome Post'}}) }}
+                                    </li>
+                                    <li>
+                                        <label>{{ 'Content'|trans }}</label>
+                                        {{ form_widget(form.content[language ~ '_content'],{'attr': {'placeholder':'e.g. This awesome page is exactly what you are lookin for.', 'data-tc-modules':'wysiwyg', 'data-tc-text-help':'Select some text to get some format options'|trans}}) }}
+                                    </li>
+                                </ol>
+                            </div>
+                        </section>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <div class="grid">
+            <div class="col-1-3">
+                &nbsp;
+            </div>
+            <div class="col-2-3">
+                <button type="submit" class="button-primary">{{ 'Save'|trans }}</button>
+                <a href="{{ path('admin_page_list') }}" class="button">{{ 'Cancel'|trans }}</a>
+
+            </div>
+        </div>
+    {{ form_end(form) }}
+
+{% endblock content %}

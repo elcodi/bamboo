@@ -4,6 +4,7 @@ parameters:
     # Event Listeners
     #
     store.user.event_listener.remember_password.class: Elcodi\Store\UserBundle\EventListener\RememberPasswordEventListener
+    store.event_listener.send_customer_registration_email.class: Elcodi\Store\UserBundle\EventListener\SendRegistrationEmailEventListener
 
     #
     # Form Types

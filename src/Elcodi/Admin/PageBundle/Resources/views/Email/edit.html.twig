@@ -1,0 +1,40 @@
+{% extends 'AdminCoreBundle::layout.html.twig' %}
+
+
+{% block content_title %}
+    {{ 'Email'|trans }}
+{% endblock content_title %}
+
+
+{% block header_actions %}
+{% endblock header_actions %}
+
+
+{% block breadcrumb %}
+    {% set entityHeader = page.id
+        ? 'Edit ' ~ email.name
+        : 'Create new blog post'
+    %}
+
+    {% include '@AdminCore/Common/breadcrumb.html.twig' with {
+        breadcrumb: {
+            'Blog posts': {
+                'url': url('admin_email_list')
+            },
+            (entityHeader): {
+                'active' : true
+            }
+        }
+    } %}
+{% endblock breadcrumb %}
+
+
+{% block content %}
+    {% if email.id %}
+        {{ render(url("admin_email_edit_component", {
+            'id': email.id
+        })) }}
+    {% else %}
+        {{ render(url("admin_email_new_component")) }}
+    {% endif %}
+{% endblock content %}

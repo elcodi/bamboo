@@ -1,6 +1,14 @@
 services:
 
     #
+    # Twig Extension loader
+    #
+    twig.stringloader:
+        class: Twig_Extension_StringLoader
+        tags:
+            - { name: twig.extension }
+
+    #
     # Twig Extensions
     #
     store.twig_extension.store_page:

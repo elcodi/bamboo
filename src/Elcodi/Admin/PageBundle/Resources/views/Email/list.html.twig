@@ -1,0 +1,32 @@
+{% extends 'AdminCoreBundle::layout.html.twig' %}
+
+
+{% block content_title %}
+    {{ 'Notifications Zone'|trans }}
+{% endblock content_title %}
+
+
+{% block breadcrumb %}
+    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
+        breadcrumb: {
+            ("Emails"): {
+                "active" : true
+            }
+        }
+    } %}
+{% endblock %}
+
+
+{% block header_actions %}
+{% endblock header_actions %}
+
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-12">
+            {{ render(url("admin_email_list_component")) }}
+        </div>
+    </div>
+
+{% endblock content %}

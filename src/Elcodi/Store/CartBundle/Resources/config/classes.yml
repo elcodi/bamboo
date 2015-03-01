@@ -10,3 +10,5 @@ parameters:
     # Event listeners
     #
     store.cart.event_listener.shipping_appliance.class: Elcodi\Store\CartBundle\EventListener\ShippingApplianceEventListener
+    store.event_listener.send_order_confirmation_email.class: Elcodi\Store\CartBundle\EventListener\SendOrderConfirmationEmailEventListener
+    store.event_listener.send_order_shipped_email.class: Elcodi\Store\CartBundle\EventListener\SendOrderShippedEmailEventListener

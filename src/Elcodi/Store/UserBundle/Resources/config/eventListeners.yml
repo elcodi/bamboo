@@ -10,3 +10,9 @@ services:
             - %bamboo_store_firewall%
         tags:
             - { name: kernel.event_listener, event: password.recover, method: onPasswordRecover }
+
+    store.event_listener.send_customer_registration_email:
+        class: %store.event_listener.send_customer_registration_email.class%
+        parent: store.abstract_email_sender_event_listener
+        tags:
+            - { name: kernel.event_listener, event: customer.register, method: sendCustomerRegistrationEmail }
