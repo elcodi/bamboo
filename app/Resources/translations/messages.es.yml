@@ -65,6 +65,7 @@ admin:
                 placeholder: Tu contraseña
         action:
             login: Iniciar sesión
+            logout: Cerrar sesión
             remember: Recuérdame
 
     user:
@@ -179,6 +180,10 @@ admin:
                 title:       Visibilidad
                 description: Configura este atributo como visible u oculto.
 
+    blog:
+        single: Blog
+        plural: Blogs
+
     blog_post:
         single: Artículo del blog
         plural: Artículos del blog
@@ -273,6 +278,10 @@ admin:
                 title: visibilidad
                 description: Configurar este transportista como activo o inactivo.
 
+    catalog:
+        single: Catálogo
+        plural: Catálogos
+
     coupon:
         single: Cupón
         plural: Cupones
@@ -350,6 +359,10 @@ admin:
             name: Nombre
             status: Activa
 
+    dashboard:
+        single: Panel de control
+        plural: Paneles de control
+
     image:
         single: Imagen
         plural: Imagenes
@@ -364,9 +377,9 @@ admin:
         list:   Listado de idiomas
 
     media:
-        single: Recursos
-        plural: Recursos
-        list:   Listado de recursos
+        single: Imagen
+        plural: Imágenes
+        list:   Listado de Imágenes
 
     metrics:
         single: Métrica
@@ -603,6 +616,10 @@ admin:
             visibility:
                 title: Visibilidad
                 description: Configurar la categoria como visible u oculta.
+
+    profile:
+        single: Perfil
+        plural: Perfiles
 
     metadata:
         customize: Personalizar Metadata

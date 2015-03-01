@@ -65,6 +65,7 @@ admin:
                 placeholder: Enter password
         action:
             login: Log In
+            logout: Log Out
             remember: Remember
 
     user:
@@ -178,6 +179,9 @@ admin:
             visibility:
                 title:       Visibility
                 description: Set this attribute as visible or hidden.
+    blog:
+        single: Catalog
+        plural: Catalogs
 
     blog_post:
         single: Blog post
@@ -273,6 +277,10 @@ admin:
                 title: Visibility
                 description: Set this carrier as enabled or disabled.
 
+    catalog:
+        single: Catalog
+        plural: Catalogs
+
     coupon:
         single: Coupon
         plural: Coupons
@@ -349,6 +357,10 @@ admin:
             iso: ISO
             name: Name
             status: Enabled
+
+    dashboard:
+        single: Dashboard
+        plural: Dashboards
 
     image:
         single: Image
@@ -457,6 +469,10 @@ admin:
                 description: Set this page as visible or hidden, and make it visible in your home.
         error:
             cant_modify_permanent: This page is permanent and can't be modified
+
+    profile:
+        single: Profile
+        plural: Profiles
 
     metadata:
         customize: Customize Metadata

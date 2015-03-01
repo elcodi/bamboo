@@ -15,20 +15,20 @@
             <li>
                 <a href="{{ url('admin_admin_user_edit', {id: app.user.id }) }}">
                     <span class="mobile tablet">
-                        <i class="icon-user fz-xl"></i> {{ 'Profile'|trans }}
+                        <i class="icon-user fz-xl"></i> {{ 'admin.profile.single'|trans }}
                     </span>
                     <span class="desktop">
-                        <i class="icon-user"></i> {{ 'Profile'|trans }}
+                        <i class="icon-user"></i> {{ 'admin.profile.single'|trans }}
                     </span>
                 </a>
             </li>
             <li>
                 <a href="{{ url('admin_logout') }}">
                     <span class="mobile tablet">
-                        <i class="icon-sign-out fz-xl"></i> {{ 'Sign Out'|trans }}
+                        <i class="icon-sign-out fz-xl"></i> {{ 'admin.login.action.logout'|trans }}
                     </span>
                     <span class="desktop">
-                        <i class="icon-sign-out"></i> {{ 'Sign Out'|trans }}
+                        <i class="icon-sign-out"></i> {{ 'admin.login.action.logout'|trans }}
                     </span>
                 </a>
             </li>
@@ -61,7 +61,7 @@
                             <ul id="{{ menu_item.id }}" {% if not menu_item.active %}class="hidden"{% endif %}>
                         {% endif %}
                         <li {% if submenu_item.active %}class="active"{% endif %}>
-                            <a href="{{ generate_url(submenu_item.url) }}" class="pl-l"><i class="icon-angle-right"></i> {{ submenu_item.name }}</a>
+                            <a href="{{ generate_url(submenu_item.url) }}" class="pl-l"><i class="icon-angle-right"></i> {{ submenu_item.name|trans }}</a>
                         </li>
                         {% if loop.last %}
                             </ul>
