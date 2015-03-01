@@ -38,7 +38,9 @@
                                 }) }}
                             </li>
                         </ol>
-                        <button type="submit" class="button-primary">{{ 'admin.login.action.login'|trans }}</button>
+                        <button id="submit-login" type="submit" class="button-primary">
+                            {{ 'admin.login.action.login'|trans }}
+                        </button>
                         <a href="{{ url('admin_password_remember') }}" class="button" data-dismiss="modal" type="warning">
                             {{ 'admin.login.action.remember'|trans }}
                         </a>
