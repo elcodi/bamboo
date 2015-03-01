@@ -7,12 +7,12 @@ TinyCore.AMD.define('slug', ['devicePackage'], function () {
 
 			oTools.trackEvent('JS_Libraries', 'call', 'slug');
 
-			if (document.getElementById('breadcrumb').innerHTML.indexOf('Create new Category') !== -1) {
 				$(aTargets).each(function () {
-					self.autobind(this);
+					if ($('#' + this.getAttribute("data-tc-parent")).val() === '') {
+						console.log('dentro');
+						self.autobind(this);
+					}
 				});
-			}
-
 		},
 		autobind: function (oTarget) {
 

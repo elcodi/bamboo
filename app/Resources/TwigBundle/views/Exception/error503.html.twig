@@ -1,6 +1,6 @@
 {% extends '@AdminCore/layouts/center_box.html.twig' %}
 
-{% block title %}{{ 'Store closed or under construction'|trans }} {% endblock %}
+{% block title_container %}{{ 'Store closed or under construction'|trans }} {% endblock title_container %}
 {% block content %}
     <h1>Uh si! {{ exception.message|trans }}</h1>
     <img src="{{ asset('bundles/admincore/images/uh-si.png') }}" width="250" class="fl-r ml-m" />
