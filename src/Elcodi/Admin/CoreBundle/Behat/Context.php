@@ -38,6 +38,6 @@ class Context extends AbstractElcodiContext
 
         $page->fillField('elcodi_admin_user_form_type_login_email', $username);
         $page->fillField('elcodi_admin_user_form_type_login_password', $password);
-        $page->pressButton('Log In');
+        $page->pressButton('submit-login');
     }
 }

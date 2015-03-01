@@ -30,7 +30,7 @@ Feature: admin
       | elcodi_admin_product_form_type_product_depth                      | 33               |
       | elcodi_admin_product_form_type_product[showInHome]                | 1                |
       | elcodi_admin_product_form_type_product[enabled]                   | 1                |
-    And I press "Save"
+    And I press "submit-save"
     Then I should be on "/admin/products"
     And I should see "New test product"
     And I should see "/new-test-product"
