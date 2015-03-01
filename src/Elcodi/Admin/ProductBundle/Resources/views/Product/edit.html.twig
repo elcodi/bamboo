@@ -1,31 +1,43 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
 
+{% set elcodi_context = {
+    entity_type: 'product',
+} %}
+
+
 {% block header_actions %}
+
     {% if product.id > 0 %}
-        <a target="_blank" href="{{ url("store_product_view",{id: product.id, slug: product.slug}) }}" class="button-primary"><i class="icon-eye"></i> <span>{{ 'View at store'|trans }}</span></a>
-        <a data-tc-modules="modal" href="#metrics-panel" class="button-secondary"><i class="icon-bar-chart-o"></i> <span>{{ 'Show Metrics'|trans }}</span></a>
+        <a target="_blank" href="{{ url('store_product_view', { id: product.id, slug: product.slug }) }}" class="button-primary">
+            <i class="icon-eye"></i>
+            <span>{{ 'admin.product.in_store'|trans }}</span>
+        </a>
+        <a data-tc-modules="modal" href="#metrics-panel" class="button-secondary">
+            <i class="icon-bar-chart-o"></i>
+            <span>{{ 'admin.product.show_metrics'|trans }}</span>
+        </a>
     {% endif %}
+
 {% endblock header_actions %}
 
 
 {% block breadcrumb %}
 
-    {% set entityHeader = product.id
-        ? 'Edit ' ~ product.name
-        : 'Create new Product'
+    {% set title = 'admin.product.plural'|trans %}
+    {%
+        set header = product.id
+            ? 'admin.product.edit'|trans({ '%name%': product.name })
+            : 'admin.product.new'|trans
     %}
 
     {% include '@AdminCore/Common/breadcrumb.html.twig' with {
-        breadcrumb: {
-            'Products': {
-                'url': url('admin_product_list')
-            },
-            (entityHeader): {
-                'active' : true
-            }
-        }
+        breadcrumb: [
+            { name: title, url: url('admin_product_list'), },
+            { name: header, active: true, },
+        ]
     } %}
+
 {% endblock breadcrumb %}
 
 
@@ -34,34 +46,33 @@
     {% if product.id %}
 
         {% if product.principalCategory is null %}
-            <p class="msg-warning">{{ "Warning! Your product has no category associated"|trans }}</p>
+            <p class="msg-warning">{{ 'admin.product.error.no_category'|trans }}</p>
         {% endif %}
 
         {% if product.manufacturer is null %}
-            <p class="msg-warning">{{ "Warning! Your product has no manufacturer associated"|trans }}</p>
+            <p class="msg-warning">{{ 'admin.product.error.no_manufacturer'|trans }}</p>
         {% endif %}
 
-        {{ render(url("admin_product_edit_component", {
-            'id': product.id
-        })) }}
+        {{ render(url('admin_product_edit_component', { id: product.id })) }}
     {% else %}
-        {{ render(url("admin_product_new_component")) }}
+        {{ render(url('admin_product_new_component')) }}
     {% endif %}
 
     {% if product.id %}
         <div class="hidden-placeholder">
             <div id="metrics-panel" class="box-background">
-                <h2>{{ 'Visitors' }}</h2>
+                <h2>{{ 'admin.metrics.info.visitors'|trans }}</h2>
                 {% include 'AdminMetricBundle:Metric:metricLine.html.twig' with {
-                    'tracker': store_tracker,
-                    'event': 'pv_store_product_view_' ~ product.id,
-                    'intervalContainer': metric_create_interval_container(3),
+                    tracker: store_tracker,
+                    event: "pv_store_product_view_#{product.id}",
+                    intervalContainer: metric_create_interval_container(3),
                 } %}
             </div>
         </div>
+
         {% set author_token = app.user.token %}
         {% set context = "admin" %}
-        {% set source = "product-" ~ product.id %}
+        {% set source = "product-#{product.id}" %}
         <div id="box-populi" class="boxpopuli-container">
             <a data-tc-modules="side-panel" data-tc-position="right" data-tc-width="600" data-tc-tab-top="48%" href="#box-populi"><i class="icon-comment"></i> </a>
             <div class="boxpopuli-overflow" data-tc-modules="boxpopuli"
@@ -70,8 +81,8 @@
                 data-author-email="{{ app.user.email }}"
                 data-context="{{ context }}"
                 data-source="{{ source }}"
-                data-route-list="{{ url("elcodi_comments_list", {"source": source, "context": context}) }}"
-                data-route-add="{{ url("elcodi_comments_add", {"source": source, "context": context, "authorToken": author_token}) }}"
+                data-route-list="{{ url('elcodi_comments_list', { source: source, context: context }) }}"
+                data-route-add="{{ url('elcodi_comments_add', { source: source, context: context, authorToken: author_token }) }}"
             ></div>
         </div>
     {% endif %}

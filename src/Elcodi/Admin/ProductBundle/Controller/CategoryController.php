@@ -19,7 +19,6 @@ namespace Elcodi\Admin\ProductBundle\Controller;
 
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormInterface;
@@ -50,10 +49,10 @@ class CategoryController extends AbstractAdminController
      *
      * @Route(
      *      path = "/categories",
-     *      name = "admin_category_list"
+     *      name = "admin_category_list",
+     *      methods = {"GET"}
      * )
      * @Template
-     * @Method({"GET"})
      */
     public function listAction()
     {
@@ -165,9 +164,9 @@ class CategoryController extends AbstractAdminController
      *
      * @Route(
      *      path = "/category/{id}/enable",
-     *      name = "admin_category_enable"
+     *      name = "admin_category_enable",
+     *      methods = {"GET", "POST"}
      * )
-     * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.product.entity.category.class",
@@ -196,9 +195,9 @@ class CategoryController extends AbstractAdminController
      *
      * @Route(
      *      path = "/category/{id}/disable",
-     *      name = "admin_category_disable"
+     *      name = "admin_category_disable",
+     *      methods = {"GET", "POST"}
      * )
-     * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.product.entity.category.class",
@@ -228,9 +227,9 @@ class CategoryController extends AbstractAdminController
      *
      * @Route(
      *      path = "/category/{id}/delete",
-     *      name = "admin_category_delete"
+     *      name = "admin_category_delete",
+     *      methods = {"GET", "POST"}
      * )
-     * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.core.product.entity.category.class",

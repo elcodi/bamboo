@@ -21,7 +21,7 @@
 
 {% block component %}
 
-    {% if paginator|length > 0 or categories_list > 0 %}
+    {% if paginator|length > 0 %}
 
         {{ block('table_pagination') }}
         {{ block('table_content') }}

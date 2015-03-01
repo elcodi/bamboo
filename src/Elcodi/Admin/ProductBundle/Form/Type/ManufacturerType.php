@@ -72,42 +72,33 @@ class ManufacturerType extends AbstractType
         $builder
             ->add('name', 'text', array(
                 'required' => true,
-                'label'    => 'name',
             ))
             ->add('slug', 'text', array(
                 'required' => false,
-                'label'    => 'slug',
             ))
             ->add('description', 'textarea', array(
                 'required' => false,
-                'label'    => 'description',
             ))
             ->add('imagesSort', 'text', array(
                 'required' => false,
-                'label'    => 'Images sort',
             ))
             ->add('images', 'entity', array(
                 'class'    => 'Elcodi\Component\Media\Entity\Image',
                 'required' => false,
                 'property' => 'id',
-                'label'    => false,
                 'multiple' => true,
             ))
             ->add('metaTitle', 'text', array(
                 'required' => false,
-                'label'    => 'metaTitle',
             ))
             ->add('metaDescription', 'text', array(
                 'required' => false,
-                'label'    => 'metaDescription',
             ))
             ->add('metaKeywords', 'text', array(
                 'required' => false,
-                'label'    => 'metaKeywords',
             ))
             ->add('enabled', 'checkbox', array(
                 'required' => false,
-                'label'    => 'Status',
             ));
 
         $builder->addEventSubscriber($this->getEntityTranslatorFormEventListener());

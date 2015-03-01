@@ -82,6 +82,14 @@
 {% endblock form_widget_simple %}
 
 
+{% block money_object_label %}
+{% spaceless %}
+    {% set id = "#{id}_amount" %}
+    {{ block('form_label') }}
+{% endspaceless %}
+{% endblock money_object_label %}
+
+
 {% block money_object_widget %}
 {% spaceless %}
     <div class="d-ib mr-m" style="max-width:100px;">

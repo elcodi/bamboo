@@ -1,40 +1,26 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
 
-{% block breadcrumb %}
+{% set elcodi_context = {
+    entity_type: 'variant'
+} %}
 
-    {% set entityHeader = product.id
-        ? 'Edit ' ~ variant.name
-        : 'Create new Variant'
-    %}
-
-    {% include '@AdminCore/Common/breadcrumb.html.twig' with {
-        breadcrumb: {
-            'Products': {
-                'url': url('admin_product_list')
-            },
-            ('#' ~ id): {
-                'url': url('admin_product_edit', {id: product.id})
-            },
-            ('Edit Variant #' ~ variantId): {
-                'active': true
-            }
-        }
-    } %}
-
-{% endblock breadcrumb %}
 
 {% block body %}
 
     {% if variant.id %}
-        {{ render(url('admin_product_variant_edit_component', {
-            'productId': product.id,
-            'id': variant.id
-        })) }}
+        {{
+            render(url('admin_product_variant_edit_component', {
+                productId: product.id,
+                id: variant.id,
+            }))
+        }}
     {% else %}
-        {{ render(url('admin_product_variant_new_component', {
-            'productId': product.id
-        })) }}
+        {{
+            render(url('admin_product_variant_new_component', {
+                productId: product.id,
+            }))
+        }}
     {% endif %}
 
 {% endblock body %}

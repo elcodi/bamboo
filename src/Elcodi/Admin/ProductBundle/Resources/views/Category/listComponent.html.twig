@@ -1,99 +1,93 @@
 {% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
 
+
+{% set elcodi_context = {
+    entity_type: 'category'
+} %}
+
+
+{% block title 'admin.category.list'|trans %}
+
+
+{% block no_items
+    lists.no_items(
+        'admin.category.single'|trans,
+        'admin.category.plural'|trans,
+        url('admin_category_new')
+    )
+%}
+
+
+{% macro category_tree(category, children) %}
+
+    <li class="pr-n" data-tc-id="{{ category.id }}" data-tc-name="{{ category.name }}">
+        <p class="fl-r fz-s pr-l">
+            {% if category.enabled %}
+                <span class="label-ok fz-xs mr-l">
+                    {{ 'admin.category.field.enabled.options.active'|trans }}
+                </span>
+            {% else %}
+                <span class="label fz-xs mr-l">
+                    {{ 'admin.category.field.enabled.options.inactive'|trans }}
+                </span>
+            {% endif %}
+
+            {{ 'admin.category.field.contains.title'|trans({ '%count%': category.products|length }) }}
+
+            <a class="icon-trash-o c-ko td-n fz-l ml-l"
+               title="{{ 'ui.forms.delete'|trans }}"
+               href="{{ url('admin_category_delete', { id: category.id }) }}"
+               data-tc-modules="confirm"
+               data-tc-name="{{ category.name }}"
+               data-tc-text="{{ 'ui.confirm.delete'|trans }}">
+            </a>
+        </p>
+
+        <a href="{{ url('admin_category_edit', { id: category.id }) }}" class="fw-n va-b">
+            {{ category.name }}
+        </a>
+
+        {% if children|length > 0 %}
+            <ol>
+                {% for child in children %}
+                    {{ _self.category_tree(child.entity, child.children) }}
+                {% endfor %}
+            </ol>
+        {% endif %}
+    </li>
+
+{% endmacro category_tree %}
+
+
 {% block table_content %}
-    {% if categories_list|length > 0 %}
+
     <div class="grid">
         <div class="col-1-3">
             <div class="box-none">
-                <h3 class="fw-n">{% trans %}Order & Edit{% endtrans %}</h3>
-                <p>{% trans %}Drag & Drop the categories to order or nest one inside others. (2 Level max).{% endtrans %}</p>
-                <p>{% trans %}Click on a category to edit.{% endtrans %}</p>
-                <p>{% trans %}Click on a the trash to delete a category.{% endtrans %}</p>
+                <h3 class="fw-n">{{ 'admin.category.section.edit.title'|trans }}</h3>
+                <p>{{ 'admin.category.section.edit.description.0'|trans }}</p>
+                <p>{{ 'admin.category.section.edit.description.1'|trans }}</p>
+                <p>{{ 'admin.category.section.edit.description.2'|trans }}</p>
             </div>
         </div>
         <div class="col-2-3">
             <div class="box-background">
-            <ol id="categories-list" data-tc-modules="sortable" data-tc-url="{{ url('admin_category_sort_component') }}" data-tc-type="nested" data-tc-output="json" data-tc-depth="2">
-                {% for node in categories_list %}
-                    <li class="pr-n" data-tc-id="{{node.entity.id}}" data-tc-name="{{node.entity.name}}">
-                        <p class="fl-r fz-s pr-l">
-                            {% if node.entity.enabled %}<span class="label-ok fz-xs mr-l">Enabled</span>{% else %}<span class="label fz-xs mr-l">Disabled</span>{% endif %}
-                            {{ node.entity.products|length }} {{ 'Products inside'|trans }}
-                            <a class="icon-trash-o c-ko td-n fz-l ml-l" title="{{ 'delete'|trans }}" href="{{ url("admin_category_delete", {"id": node.entity.id}) }}" data-tc-modules="confirm" data-tc-name="{{ node.entity.name }}" data-tc-text="{{ "Are you sure you want to delete it?"|trans }}"></a>
-                        </p>
-                        <a href="{{ url("admin_category_edit", {"id": node.entity.id}) }}" class="fw-n va-b">
-                            {{ node.entity.name }}
-                        </a>
-                        {% if node.children|length > 0 %}
-                            <ol>
-                                {% for child in node.children %}
-                                    <li class="pr-n" data-tc-id="{{child.entity.id}}" data-tc-name="{{child.entity.name}}">
-                                        <p class="fl-r fz-s pr-l">
-                                            {% if child.entity.enabled %}<span class="label-ok fz-xs mr-l">Enabled</span>{% else %}<span class="label fz-xs mr-l">Disabled</span>{% endif %}
-                                            {{ child.entity.products|length }} {{ 'Products inside'|trans }}
-                                            <a class="icon-trash-o c-ko td-n fz-l ml-l" title="{{ 'delete'|trans }}" href="{{ url("admin_category_delete", {"id": child.entity.id}) }}" data-tc-modules="confirm" data-tc-name="{{ child.entity.name }}" data-tc-text="{{ "Are you sure you want to delete it?"|trans }}"></a>
-                                        </p>
-                                        <a href="{{ url("admin_category_edit", {"id": child.entity.id}) }}">
-                                            {{ child.entity.name }}
-                                        </a>
-                                    </li>
-                                {% endfor %}
-                            </ol>
-                        {% endif %}
-                    </li>
+            <ol id="categories-list"
+                data-tc-modules="sortable"
+                data-tc-url="{{ url('admin_category_sort_component') }}"
+                data-tc-type="nested"
+                data-tc-output="json"
+                data-tc-depth="2"
+            >
+                {% for node in paginator %}
+                    {{ _self.category_tree(node.entity, node.children) }}
                 {% endfor %}
             </ol>
             </div>
         </div>
     </div>
-{% else %}
-    <div class="no-items">
-        <i class="icon-table no-items-icon"></i>
-        <h2>{% trans with {'%items%': 'categories'} %}There are not %items%{% endtrans %}</h2>
-        <p><a href="{{ url("admin_category_new") }}" class="button-primary"><i class="icon-plus"></i> {% trans with {'%item%':'category' } %}Create my first %item%{% endtrans %}</a></p>
-    </div>
-{% endif %}
+
 {% endblock table_content %}
 
-{% block table_pagination %}{% endblock table_pagination %}
 
-{% block none %}
-    <td>
-        <a href="{{ url("admin_category_edit", {"id": entity.id}) }}">
-           <strong>{{ entity.name }}</strong>
-        </a>
-        {% set path = url("store_category_products_list",{id: entity.id, slug: entity.slug}) %}
-        <p class="fz-s"><a target="_blank" href="{{ path }}">/{{ entity.slug }}</a></p>
-    </td>
-    <td>
-        {% if entity.subCategories|length > 0 %}
-        <ul>
-            {% for subCategory in entity.subCategories if not subCategory.root %}
-                <li>
-                    <a href="{{ url("admin_category_edit", { id: subCategory.id }) }}">
-                        {{ subCategory.name }}
-                    </a>
-                </li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-    </td>
-    <td>
-        {{ entity.products|length }}
-    </td>
-    <td>
-        {% if entity.root %}<span class="label">Root</span>{% endif %}
-    </td>
-    <td>
-        {{ entity.position }}
-    </td>
-    <td>
-        {% if entity.enabled %}<span class="label-ok">Enabled</span>{% else %}<span class="label-ko">Disabled</span>{% endif %}
-    </td>
-
-    {% include "@AdminCore/Tables/actions.html.twig" with {
-        entity: entity,
-        class: "category",
-    } %}
-
-{% endblock none %}
+{% block table_pagination '' %}

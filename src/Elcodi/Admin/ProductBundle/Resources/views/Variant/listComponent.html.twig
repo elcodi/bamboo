@@ -1,36 +1,49 @@
 {% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
 
-{% block title %}
-    {{ 'Variants'|trans }}
-{% endblock title %}
 
-{% block no_items %}
-    {{ lists.no_items('variant','variants', url("admin_product_variant_new", {
-        'productId': productId
-    }) ) }}
-{% endblock no_items %}
+{% set elcodi_context = {
+    entity_type: 'variant'
+} %}
+
+
+{% block title 'admin.variant.list'|trans %}
+
+
+{% block no_items
+    lists.no_items(
+        'admin.variant.single'|trans,
+        'admin.variant.plural'|trans,
+        url('admin_product_variant_new', { productId: productId })
+    )
+%}
+
 
 {% block table_head %}
 
-    {% include "@AdminProduct/Variant/Tables/head.html.twig" with {
-        rows: {
-            "Variant": {width:"50"},
-            "Price": {width:"10"},
-            "Reduced Price": {width:"20"},
-            "Status": {width:"10"},
-        },
-        class: "variant",
-        id: entity.id
+    {% include '@AdminCore/Tables/head.html.twig' with {
+        rows: [
+            { name: 'admin.variant.field.name.title'|trans, width: 50 },
+            { name: 'admin.variant.field.price.title'|trans, width: 10 },
+            { name: 'admin.variant.field.reduced_price.title'|trans, width: 20 },
+            { name: 'admin.variant.field.enabled.title'|trans, width: 10 },
+        ],
+        class: 'variant'
     } %}
 
 {% endblock table_head %}
 
+
 {% block table_body_row %}
+
     <td>
-        <a target="_blank" data-tc-modules="modal" data-tc-width="95%" data-tc-height="95%" href="{{ url( "admin_product_variant_edit", {
-            "productId": entity.product.id,
-            "id": entity.id
-        }) }}">
+        <a target="_blank" data-tc-modules="modal"
+           data-tc-width="95%" data-tc-height="95%"
+           href="{{
+                url( 'admin_product_variant_edit', {
+                    productId: entity.product.id,
+                    id: entity.id,
+                })
+           }}">
             {% for option in entity.options %}
                 {{ option.value }}
             {% endfor %}
@@ -43,7 +56,11 @@
         {{ entity.reducedPrice|print_money }}
     </td>
     <td>
-        {% if entity.enabled %}<span class="label-ok">Enabled</span>{% else %}<span class="label-ko">Disabled</span>{% endif %}
+        {% if entity.enabled %}
+            <span class="label-ok">{{ 'admin.variant.field.enabled.options.active'|trans }}</span>
+        {% else %}
+            <span class="label-ko">{{ 'admin.variant.field.enabled.options.inactive'|trans }}</span>
+        {% endif %}
     </td>
 
     <td class="center">
@@ -51,15 +68,14 @@
             <a class="icon-trash-o c-ko td-n fz-l"
                data-tc-modules="confirm"
                data-tc-name="{{ entity.product.name }}{% for option in entity.options %} {{ option.value }}{% endfor %}"
-               data-tc-text="{{ "Are you sure you want to delete it?"|trans }}"
+               data-tc-text="{{ 'ui.confirm.delete'|trans }}"
                href="{{
-                        url(
-                            "admin_product_variant_delete", {
-                                "productId": entity.product.id,
-                                "id": entity.id
-                            }
-                        )
-                     }}">
+                    url('admin_product_variant_delete', {
+                        productId: entity.product.id,
+                        id: entity.id,
+                    })
+                }}"
+            >
                 <i class="fa fa-times"></i>
             </a>
         {% endif %}
@@ -67,8 +83,9 @@
 
 {% endblock table_body_row %}
 
-{% block table_paginator_links %}
-{% endblock table_paginator_links %}
+
+{% block table_pagination '' %}
+
 
 {#
  # Twig variable 'productId' is passed directly

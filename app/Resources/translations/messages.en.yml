@@ -474,6 +474,218 @@ admin:
         single: Profile
         plural: Profiles
 
+    product:
+        single:   Product
+        plural:   Products
+        edit:     Edit "%name%"
+        new:      New Product
+        list:     Product list
+        saved:    Product saved
+        in_store:     View at the store
+        show_metrics: Show metrics
+        field:
+            name:
+                title: Title
+                placeholder: e.g. My Awesome Product
+            slug:
+                title: Slug
+                placeholder: e.g. my/awesome/product
+                customize: Customize slug
+            description:
+                title: Description
+                placeholder: e.g. This awesome product is exactly what you are lookin for.
+            main_category:
+                title: Category
+                placeholder: 'e.g. Computers, handbags...'
+            manufacturer:
+                title: Manufacturer
+                placeholder: 'e.g. Apple, Disney...'
+            price:
+                title: Price
+            stock:
+                title: Stock
+            reduced_price:
+                title: Reduced price
+            weight:
+                title: Weight (in kg)
+            height:
+                title: Height (in cm)
+            width:
+                title: Width (in cm)
+            depth:
+                title: Depth (in cm)
+            in_home:
+                title: Show in home
+            image:
+                title: Image
+            name_details:
+                title: "Name & Details"
+            enabled:
+                title: Visible
+                options:
+                    active: Active
+                    inactive: Inactive
+            metatitle:
+                placeholder: e.g. My Awesome Product
+            metadescription:
+                placeholder: e.g. This awesome product is exactly what you are lookin for.
+            metakeywords:
+                placeholder: 'e.g. product,awesome'
+        info:
+            variants_before_saving: You will be able to add variants after saving the product
+        error:
+            no_category: Warning! This product has no associated category
+            no_manufacturer: Warning! This product has no associated manufacturer
+        tag:
+            in_home: Home
+            has_variants: Has variants
+            no_category: No category
+            no_manufacturer: No manufacturer
+        section:
+            basic:
+                title: Basic Details
+                description: Provide a very specific title for your product that explains and help sell your product and description that provides all the information required for your consumers.
+            categorization:
+                title: Categorization
+                description: The product must be clasified under one category and one manufacturer. They will be visible in your store and must help your customers to navigate in your store.
+            pricing:
+                title: Pricing
+                description: "Set the price for your product, it doesn't include taxes or shipping. Also you can set a offer price."
+            dimensions:
+                title: Dimensions
+                description: "Set the dimensions and weight for your product. This information will be useful to calculate shipping costs."
+            variants:
+                title: Variants
+                description: 'Variants are diferent versions of this product (color, size... ). Variants can have different prices or other attributes.'
+            visibility:
+                title: Visibility
+                description: "Set this product as visible or hidden, and make it visible in your home."
+
+    variant:
+        single: Variant
+        plural: Variants
+        edit:   Edit variant "%name%"
+        new:    New Variant
+        list:   Variant list
+        saved:  Changes saved
+        field:
+            name:
+                title: Variant name
+            price:
+                title: Price
+            stock:
+                title: Stock
+            reduced_price:
+                title: Reduced price
+            enabled:
+                title: Status
+                options:
+                    active: Active
+                    inactive: Inactive
+            options:
+                title: "Select one or more attributes:"
+        section:
+            attributes:
+                title: Attributes
+                description: "Set the principal attributes of this variant."
+            pricing:
+                title: Pricing
+                description: "Set the price for your variant, it doesn't include taxes or shipping. Also you can set a offer price."
+            visibility:
+                title: Visibility
+                description: "Set this variant as visible or hidden."
+
+    manufacturer:
+        single:   Manufacturer
+        plural:   Manufacturers
+        edit:     Edit "%name%"
+        new:      New Manufacturer
+        list:     Manufacturer list
+        field:
+            name:
+                title: Manufacturer name
+                placeholder: e.g. My Awesome Manufacturer
+            slug:
+                title: Slug
+                customize: Customize slug
+                placeholder: e.g. my/awesome/manufacturer
+            description:
+                title: Description
+                placeholder: e.g. This awesome manufacturer is exactly what you are lookin for.
+            enabled:
+                title: Enabled
+                options:
+                    active: Active
+                    inactive: Inactive
+            image:
+                title: Image
+            name_slug:
+                title: "Name & slug"
+            product_count:
+                title: Products
+            metatitle:
+                placeholder: e.g. My Awesome Manufacturer
+            metadescription:
+                placeholder: e.g. This awesome manufacturer is exactly what you are lookin for.
+            metakeywords:
+                placeholder: 'e.g. manufacturer,awesome'
+        section:
+            basic:
+                title: Basic Details
+                description: Provide a very specific name as short as you can that helps your consumers to find the products of this manufacturer. Also you can add a description that will be shown in the manufacturer page in your store.
+            visibility:
+                title: Visibility
+                description: Set this manufacturer as visible or hidden.
+
+    category:
+        single:   Category
+        plural:   Categories
+        edit:     Edit "%name%"
+        new:      New Category
+        list:     Category list
+        in_store: View at the store
+        field:
+            name:
+                title: Category name
+                placeholder: e.g. My Awesome Category
+            slug:
+                title: Slug
+                placeholder: e.g. my/awesome/category
+                customize: Customize slug
+            root:
+                title: Root Category
+            enabled:
+                title: Enabled
+                options:
+                    active: Active
+                    inactive: Inactive
+            parent:
+                title: Parent
+            contains:
+                title: %count% products inside
+            metatitle:
+                placeholder: e.g. My Awesome Category
+            metadescription:
+                placeholder: e.g. This awesome category is exactly what you are lookin for.
+            metakeywords:
+                placeholder: 'e.g. category,awesome'
+        section:
+            basic:
+                title: Basic Details
+                description: Provide a very specific name as short as you can that helps your consumers to find the products of this category.
+            categorization:
+                title: Categorization
+                description: Set your category as root if doesn't have any parent or it's going to be parent of others.
+            visibility:
+                title: Visibility
+                description: Set this category as visible or hidden.
+            edit:
+                title: "Order & Edit"
+                description:
+                    - "Drag & Drop the categories to order or nest one inside others. (2 Level max)."
+                    - "Click on a category to edit."
+                    - "Click on a the trash to delete a category."
+
     metadata:
         customize: Customize Metadata
         disclaimer:

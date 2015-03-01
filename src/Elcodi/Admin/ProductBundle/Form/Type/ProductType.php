@@ -40,85 +40,66 @@ class ProductType extends AbstractPurchasableType
         $builder
             ->add('name', 'text', array(
                 'required' => true,
-                'label'    => 'Title',
             ))
             ->add('slug', 'text', array(
                 'required' => true,
-                'label'    => 'slug',
             ))
             ->add('description', 'textarea', array(
                 'required' => true,
-                'label'    => 'Description',
             ))
             ->add('showInHome', 'checkbox', array(
                 'required' => false,
-                'label'    => 'Show in home',
             ))
             ->add('stock', 'hidden', array(
                 'required' => true,
-                'label'    => 'stock',
             ))
             ->add('price', 'money_object', array(
                 'required' => true,
-                'label'    => 'Price',
             ))
             ->add('reducedPrice', 'money_object', array(
                 'required' => false,
-                'label'    => 'Reduced Price',
             ))
             ->add('imagesSort', 'text', array(
                 'required' => false,
-                'label'    => 'Images sort',
             ))
             ->add('enabled', 'checkbox', array(
                 'required' => false,
-                'label'    => 'Visible',
             ))
             ->add('height', 'number', array(
                 'required' => false,
-                'label'    => 'Height (in Cm)',
             ))
             ->add('width', 'number', array(
                 'required' => false,
-                'label'    => 'Width (in Cm)',
             ))
             ->add('depth', 'number', array(
                 'required' => false,
-                'label'    => 'Depth (in Cm)',
             ))
             ->add('weight', 'number', array(
                 'required' => false,
-                'label'    => 'Weight (in Kg)',
             ))
             ->add('metaTitle', 'text', array(
                 'required' => false,
-                'label'    => 'Metatitle',
             ))
             ->add('metaDescription', 'text', array(
                 'required' => false,
-                'label'    => 'Metadescription',
             ))
             ->add('metaKeywords', 'text', array(
                 'required' => false,
-                'label'    => 'Metakeywords',
             ))
             ->add('manufacturer', 'entity', array(
                 'class'    => 'Elcodi\Component\Product\Entity\Manufacturer',
                 'required' => false,
-                'label'    => 'manufacturer',
                 'multiple' => false,
             ))
             ->add('principalCategory', 'entity', array(
                 'class'    => 'Elcodi\Component\Product\Entity\Category',
                 'required' => true,
-                'label'    => 'Category',
                 'multiple' => false,
             ))
             ->add('images', 'entity', array(
                 'class'    => 'Elcodi\Component\Media\Entity\Image',
                 'required' => false,
                 'property' => 'id',
-                'label'    => false,
                 'multiple' => true,
             ));
 

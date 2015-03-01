@@ -1,40 +1,50 @@
 {% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
 
 
-{% block no_items %}
-    {{ lists.no_items('manufacturer','manufacturers', url("admin_manufacturer_new") ) }}
-{% endblock no_items %}
+{% set elcodi_context = {
+    entity_type: 'manufacturer',
+} %}
 
 
-{% block title %}
-    {{ 'Manufacturer list'|trans }}
-{% endblock title %}
+{% block title 'admin.manufacturer.list'|trans %}
+
+
+{% block no_items
+    lists.no_items(
+        'admin.manufacturer.single'|trans,
+        'admin.manufacturer.plural'|trans,
+        url('admin_manufacturer_new')
+    )
+%}
 
 
 {% block table_head %}
-    {% include "@AdminCore/Tables/head.html.twig" with {
-        rows: {
-            "Image": {width:"20"},
-            "Name & Slug": {},
-            "Products": {sorting_disabled: true},
-            "Status": {width:"10"},
-        },
-        class: "manufacturer",
+
+    {% include '@AdminCore/Tables/head.html.twig' with {
+        rows: [
+            { name: 'admin.manufacturer.field.image.title'|trans, width: 20 },
+            { name: 'admin.manufacturer.field.name_slug.title'|trans },
+            { name: 'admin.manufacturer.field.product_count.title'|trans },
+            { name: 'admin.manufacturer.field.enabled.title'|trans, width: 10 },
+        ],
+        class: 'manufacturer',
     } %}
+
 {% endblock table_head %}
 
 
 {% block table_body_row %}
+
     <td>
         {% if entity.images|length > 0 %}
-            <a href="{{ url("admin_manufacturer_edit", {"id": entity.id}) }}" class="thumbnail">
-                <img src="{{ entity.getSortedImages.first|resize({'height': 100, 'width': 100, 'type': 4}) }}" />
+            <a href="{{ url('admin_manufacturer_edit', { id: entity.id }) }}" class="thumbnail">
+                <img src="{{ entity.getSortedImages.first|resize({ height: 100, width: 100, type: 4 }) }}" />
             </a>
         {% endif %}
     </td>
 
     <td>
-        <a href="{{ url("admin_manufacturer_edit", {"id": entity.id}) }}" class="fw-b">
+        <a href="{{ url('admin_manufacturer_edit', { id: entity.id }) }}" class="fw-b">
             {{ entity.name }}
         </a>
         <p class="fz-">{{ entity.slug }}</p>
@@ -43,17 +53,24 @@
         {{ entity.products|length }}
     </td>
     <td>
-        {% if entity.enabled %}<span class="label-ok">{{ 'Enabled'|trans }}</span>{% else %}<span class="label">{{ 'Disabled'|trans }}</span>{% endif %}
+        {% if entity.enabled %}
+            <span class="label-ok">{{ 'admin.manufacturer.field.enabled.options.active'|trans }}</span>
+        {% else %}
+            <span class="label">{{ 'admin.manufacturer.field.enabled.options.inactive'|trans }}</span>
+        {% endif %}
     </td>
 
-    {% include "@AdminCore/Tables/actions.html.twig" with {
+    {% include '@AdminCore/Tables/actions.html.twig' with {
         entity: entity,
-        class: "manufacturer",
+        class: 'manufacturer',
     } %}
+
 {% endblock table_body_row %}
 
 
 {% block table_paginator_links %}
+
     {% set url = 'admin_manufacturer_list' %}
     {{ parent() }}
+
 {% endblock table_paginator_links %}
