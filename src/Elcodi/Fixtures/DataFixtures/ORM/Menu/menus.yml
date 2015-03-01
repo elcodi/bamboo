@@ -1,62 +1,62 @@
 menu_nodes:
     bambooadmin_dashboard:
-        name: Dashboard
-        code: home
+        name: admin.dashboard.single
+        code: tachometer
         url: admin_homepage
         enabled: 1
         subnodes: ~
 
     bambooadmin_orders:
-        name: Orders
+        name: admin.order.plural
         code: shopping-cart
         url: admin_order_list
         enabled: 1
         subnodes: ~
 
     bambooadmin_customers:
-        name: Customers
+        name: admin.customer.plural
         code: users
         url: admin_customer_list
         enabled: 1
         subnodes: ~
 
     bambooadmin_products:
-        name: Products
+        name: admin.product.plural
         code: ~
         url: admin_product_list
         enabled: 1
         subnodes: ~
 
     bambooadmin_categories:
-        name: Categories
+        name: admin.category.plural
         code: ~
         url: admin_category_list
         enabled: 1
         subnodes: ~
 
     bambooadmin_manufacturers:
-        name: Manufacturers
+        name: admin.manufacturer.plural
         code: ~
         url: admin_manufacturer_list
         enabled: 1
         subnodes: ~
 
     bambooadmin_attributes:
-        name: Attributes
+        name: admin.attribute.plural
         code: ~
         url: admin_attribute_list
         enabled: 1
         subnodes: ~
 
     bambooadmin_medias:
-        name: Medias
+        name: admin.media.plural
         code: picture-o
         url: admin_image_list
         enabled: 1
         subnodes: ~
 
     bambooadmin_catalog:
-        name: Catalog
+        name: admin.catalog.single
         code: tags
         url: ~
         enabled: 1
@@ -68,7 +68,7 @@ menu_nodes:
             - bambooadmin_medias
 
     bambooadmin_coupons:
-        name: Coupons
+        name: admin.coupon.plural
         code: ticket
         url: admin_coupon_list
         enabled: 1
@@ -89,37 +89,23 @@ menu_nodes:
         subnodes: ~
 
     bambooadmin_pages:
-        name: Pages
+        name: admin.page.plural
         code: file-text-o
         url: admin_page_list
         enabled: 1
         subnodes: ~
 
     bambooadmin_emails:
-        name: Emails
-        code: bell-o
+        name: admin.mailing.plural
+        code: envelope-o
         url: admin_email_list
         enabled: 1
         subnodes: ~
 
     bambooadmin_blog:
-        name: Blog
-        code: comments
+        name: admin.blog.single
+        code: pencil
         url: admin_blog_post_list
-        enabled: 1
-        subnodes: ~
-
-    bambooadmin_templates:
-        name: Themes
-        code: adjust
-        url: admin_template_list
-        enabled: 1
-        subnodes: ~
-
-    bambooadmin_plugins:
-        name: Apps
-        code: puzzle-piece
-        url: admin_plugin_list
         enabled: 1
         subnodes: ~
 
@@ -153,43 +139,57 @@ menu_nodes:
         url: ~
         subnodes: ~
 
+    bambooadmin_templates:
+        name: admin.template.plural
+        code: adjust
+        url: admin_template_list
+        enabled: 1
+        subnodes: ~
+
+    bambooadmin_plugins:
+        name: admin.plugin.plural
+        code: puzzle-piece
+        url: admin_plugin_list
+        enabled: 1
+        subnodes: ~
+
     bambooadmin_configurations:
-        name: General
+        name: admin.settings.section.store.title
         code: ~
         url: admin_configuration_list
         enabled: 1
         subnodes: ~
 
     bambooadmin_address:
-        name: Billing address
+        name: admin.order.field.billing_address
         code: ~
         url: admin_address_edit
         enabled: 1
         subnodes: ~
 
     bambooadmin_payment:
-        name: Payment methods
+        name: admin.settings.section.payment.title
         code: ~
         url: admin_payment_configuration_list
         enabled: 1
         subnodes: ~
 
     bambooadmin_carriers:
-        name: Shipping
+        name: admin.carrier.plural
         code: truck
         url: admin_carrier_list
         enabled: 1
         subnodes: ~
 
     bambooadmin_currencies:
-        name: Currencies
+        name: admin.currency.plural
         code: ~
         url: admin_currency_list
         enabled: 1
         subnodes: ~
 
     bambooadmin_settings:
-        name: Settings
+        name: admin.settings.single
         code: gear
         url: ~
         enabled: 1
@@ -199,6 +199,13 @@ menu_nodes:
           - bambooadmin_carriers
           - bambooadmin_currencies
           - bambooadmin_payment
+
+    bambooadmin_separator_3:
+        name: separator_3
+        code: separator
+        enabled: 1
+        url: ~
+        subnodes: ~
 
 menus:
     admin:
@@ -211,7 +218,6 @@ menus:
             - bambooadmin_customers
             - bambooadmin_catalog
             - bambooadmin_coupons
-            - bambooadmin_reports
             - bambooadmin_separator_1
             - bambooadmin_separator_2
             - bambooadmin_pages
@@ -220,3 +226,4 @@ menus:
             - bambooadmin_settings
             - bambooadmin_blog
             - bambooadmin_emails
+            - bambooadmin_separator_3
