@@ -185,8 +185,8 @@ admin:
         plural: Blogs
 
     blog_post:
-        single: Artículo del blog
-        plural: Artículos del blog
+        single: Blog
+        plural: Blog
         edit:   Editar "%name%"
         new:    Crea un nuevo artículo
         list:   Listado de artículos del blog
