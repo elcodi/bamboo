@@ -8,7 +8,12 @@
     {% endif %}
     <div class="balloon balloon-{{ commentSide|default('left') }} balloon-background d-ib va-m mb-n w-80">
         {{ commentText }}
-        <p class="ta-r">  <a href="#boxpopuli-response-{{ targetId }}" class="bxp-add-response"><i class="icon-comment"></i> Reply</a></p>
+        <p class="ta-r">
+            <a href="#boxpopuli-response-{{ targetId }}" class="bxp-add-response">
+                <i class="icon-comment"></i>
+                Responder
+            </a>
+        </p>
     </div>
     {% if commentSide == 'right' %}
         <div class="d-ib va-m w-15">
