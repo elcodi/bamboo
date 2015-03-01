@@ -117,6 +117,42 @@ admin:
                 title: Basic content
                 description: Provide a descriptive title for your mailing and the content to deliver.
 
+    carrier:
+        single: Carrier
+        plural: Carriers
+        saved:  Changes saved
+        edit:   Edit "%name%"
+        new:    New Carrier
+        list:   Carrier list
+        error:
+            no_active_carrier: Warning! You have no active carrier
+        field:
+            name:
+                title: Name
+                placeholder: e.g. AwesomeCarrier
+            description:
+                title: Description
+                placeholder: e.g. Best option for local shipping
+            taxes:
+                title: Taxes
+                format: %value%% Tax
+            status:
+                title: Enabled
+        info:
+            shipping_rates_before_saving: You will be able to add shipping rates after save the carrier
+        action:
+            add_shipping_range: Add range
+        section:
+            basic:
+                title: Basic Details
+                description: Provide the name of the carrier and an internal description if needed.
+            shipping_rates:
+                title: Shipping Rates
+                description: Add the shipping rates.
+            visibility:
+                title: Visibility
+                description: Set this carrier as enabled or disabled.
+
     coupon:
         single: Coupon
         plural: Coupons
@@ -318,6 +354,49 @@ admin:
                 title: MetaDescription
             metakeywords:
                 title: MetaKeywords
+
+    shipping_range:
+        single: Shipping range
+        plural: Shipping ranges
+        edit:   Edit Range "%name%"
+        new:    Create New Range
+        list:   Shipping Range list
+        saved:  Changes saved
+        field:
+            name:
+                title: Shipping rate name
+                placeholder: e.g. Delivery in 3-5 days
+            to_zone:
+                title: To Zone
+            price:
+                title: Price
+            type:
+                title: Prices will be calculated…
+                options:
+                    price: Based on order price
+                    weight: Based on order weight
+            fromPrice:
+                title: From price
+            toPrice:
+                title: To price
+            fromWeight:
+                title: From weight
+            toWeight:
+                title: To weight
+            value:
+                title: Value
+                price_format: From %from% to %to%
+                weight_format: From %from%Kg to %to%Kg
+        section:
+            basic:
+                title: Basic Details
+                description: Provide the name of the shipping rate and in what zone it will be available.
+            pricing:
+                title: Pricing
+                description: Set the price for this shipping rate and define if it's going to be calculated based on order price or order weight.
+            visibility:
+                title: Visibility
+                description: Set this carrier as enabled or disabled.
 
     plugin:
         single: App

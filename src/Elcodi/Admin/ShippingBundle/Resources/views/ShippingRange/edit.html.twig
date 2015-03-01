@@ -1,22 +1,25 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
 
+{% set elcodi_context = {
+    entity_type: 'shipping_range',
+} %}
+
+
 {% block breadcrumb %}
 
-    {% set entityHeader = shippingRange.id
-        ? 'Edit ' ~ shippingRange.name
-        : 'Create new Range'
+    {% set title = 'admin.carrier.plural'|trans %}
+    {%
+        set header = shippingRange.id
+            ? 'admin.shipping_range.edit'|trans({ '%name%': shippingRange.name })
+            : 'admin.shipping_range.new'|trans
     %}
 
     {% include '@AdminCore/Common/breadcrumb.html.twig' with {
-        breadcrumb: {
-            'Carrier': {
-                'url': url('admin_carrier_list')
-            },
-            (entityHeader): {
-                'active' : true
-            }
-        }
+        breadcrumb: [
+            { name: title, url: url('admin_carrier_list'), },
+            { name: header, active: true, },
+        ]
     } %}
 
 {% endblock breadcrumb %}
@@ -25,14 +28,18 @@
 {% block content %}
 
     {% if shippingRange.id %}
-        {{ render(url("admin_shipping_range_edit_component", {
-            'carrierId': carrier.id,
-            'id': shippingRange.id
-        })) }}
+        {{
+            render(url('admin_shipping_range_edit_component', {
+                carrierId: carrier.id,
+                id: shippingRange.id,
+            }))
+        }}
     {% else %}
-        {{ render(url("admin_shipping_range_new_component", {
-            'carrierId': carrier.id
-        })) }}
+        {{
+            render(url('admin_shipping_range_new_component', {
+                carrierId: carrier.id,
+            }))
+        }}
     {% endif %}
 
 {% endblock content %}

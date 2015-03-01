@@ -69,9 +69,9 @@ class CarrierController extends AbstractAdminController
     /**
      * Edit and Saves category
      *
-     * @param FormInterface    $form          Form
-     * @param CarrierInterface $shippingRange Shipping range
-     * @param boolean          $isValid       Is valid
+     * @param FormInterface    $form    Form
+     * @param CarrierInterface $carrier Carrier
+     * @param boolean          $isValid Is valid
      *
      * @return RedirectResponse Redirect response
      *
@@ -136,7 +136,9 @@ class CarrierController extends AbstractAdminController
 
             $this->addFlash(
                 'success',
-                'Changes saved'
+                $this
+                    ->get('translator')
+                    ->trans('admin.carrier.saved')
             );
 
             return $this->redirectToRoute('admin_carrier_list');

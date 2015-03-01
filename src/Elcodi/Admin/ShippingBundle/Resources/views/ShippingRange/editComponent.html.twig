@@ -1,38 +1,48 @@
 {% extends 'AdminCoreBundle::Common/formComponent.html.twig' %}
 
+
+{% set elcodi_context = {
+    entity_type: 'shipping_range',
+} %}
+
+
 {% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
 
-{% block title %}
-    {{ 'Edit Range'|trans }} - {{ shippingRange.id }} - {{ shippingRange.name }}
-{% endblock title %}
 
 {% block content %}
 
-    {% set formAction = shippingRange.id
-    ? url('admin_shipping_range_update', {
-    'carrierId': carrier.id,
-    'id': shippingRange.id
-    })
-    : url('admin_shipping_range_save', {
-    'carrierId': carrier.id
-    }) %}
+    {% set formAction =
+        shippingRange.id
+            ? url('admin_shipping_range_update', { carrierId: carrier.id, id: shippingRange.id })
+            : url('admin_shipping_range_save', { carrierId: carrier.id })
+    %}
+
     <div data-tc-modules="form-shipping-rates">
-        {{ form_start(form, {'action': formAction}) }}
+        {{ form_start(form, { action: formAction}) }}
         <div class="grid">
             <div class="col-1-3">
                 <div class="box-none">
-                    <h3 class="fw-n">{% trans %}Basic Details{% endtrans %}</h3>
-                    <p>{% trans %}Provide the name of the shipping rate and in what zone it will be available.{% endtrans %}</p>
+                    <h3 class="fw-n">{{ 'admin.shipping_range.section.basic.title'|trans }}</h3>
+                    <p>{{ 'admin.shipping_range.section.basic.description'|trans }}</p>
                 </div>
             </div>
             <div class="col-2-3">
                 <div class="box">
                     <ol>
                         <li>
-                            {{ form_row(form.name, {'attr':{'placeholder':'e.g. Delivery in 3-5 days'}}) }}
+                            {{
+                                form_row(form.name, {
+                                    label: 'admin.shipping_range.field.name.title',
+                                    attr: { placeholder: 'admin.shipping_range.field.name.placeholder' }
+                                })
+                            }}
                         </li>
                         <li>
-                            {{ form_row(form.toZone) }}
+                            {{
+                                form_row(form.toZone, {
+                                    label: 'admin.shipping_range.field.to_zone.title',
+                                })
+                            }}
                         </li>
                     </ol>
                 </div>
@@ -41,48 +51,74 @@
         <div class="grid">
             <div class="col-1-3">
                 <div class="box-none">
-                    <h3 class="fw-n">{% trans %}Pricing{% endtrans %}</h3>
-                    <p>{% trans %}Set the price for this shipping rate and define if it's going to be calculated based on order price or order weight.{% endtrans %}</p>
+                    <h3 class="fw-n">{{ 'admin.shipping_range.section.pricing.title'|trans }}</h3>
+                    <p>{{ 'admin.shipping_range.section.pricing.description'|trans }}</p>
                 </div>
             </div>
             <div class="col-2-3">
                 <div class="box">
                     <ol class="grid">
                         <li class="col-1-2 pr-l">
-                            {{ form_row(form.price) }}
+                            {{
+                                form_row(form.price, {
+                                    label: 'admin.shipping_range.field.price.title',
+                                })
+                            }}
                         </li>
                         <li class="col-1-2 pr-l">
-                            {{ form_row(form.type) }}
+                            {{
+                                form_row(form.type, {
+                                    label: 'admin.shipping_range.field.type.title',
+                                })
+                            }}
                         </li>
                     </ol>
                     <ol id="apply-price" class="grid">
                         <li class="col-1-2 pr-l">
-                            {{ form_row(form.fromPrice) }}
+                            {{
+                                form_row(form.fromPrice, {
+                                    label: 'admin.shipping_range.field.fromPrice.title',
+                                })
+                            }}
                         </li>
                         <li class="col-1-2">
-                            {{ form_row(form.toPrice) }}
+                            {{
+                                form_row(form.toPrice, {
+                                    label: 'admin.shipping_range.field.toPrice.title',
+                                })
+                            }}
                         </li>
                     </ol>
                     <ol id="apply-weight" class="grid">
                         <li class="col-1-2 pr-l">
-                            {{ form_row(form.fromWeight) }}
+                            {{
+                                form_row(form.fromWeight, {
+                                    label: 'admin.shipping_range.field.fromWeight.title',
+                                })
+                            }}
                         </li>
                         <li class="col-1-2">
-                            {{ form_row(form.toWeight) }}
+                            {{
+                                form_row(form.toWeight, {
+                                    label: 'admin.shipping_range.field.toWeight.title',
+                                })
+                            }}
                         </li>
                     </ol>
                 </div>
             </div>
         </div>
+
         <div class="grid">
             <div class="col-1-3">
                 &nbsp;
             </div>
             <div class="col-2-3">
-                {{ form_widget(form.save, {'attr': {'class':'button-primary'}} ) }}
-                <a href="{{ path('admin_carrier_list') }}" class="button">{{ 'Cancel'|trans }}</a>
+                <button type="submit" class="button-primary">{{ 'ui.forms.save'|trans }}</button>
+                <a href="{{ path('admin_carrier_list') }}" id="cancel-button" class="button">{{ 'ui.forms.cancel'|trans }}</a>
             </div>
         </div>
         {{ form_end(form) }}
     </div>
+
 {% endblock content %}

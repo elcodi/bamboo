@@ -19,7 +19,6 @@ namespace Elcodi\Admin\ShippingBundle\Controller\Component;
 
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormView;
@@ -47,9 +46,9 @@ class CarrierComponentController extends AbstractAdminController
      * @Route(
      *      path = "s/component",
      *      name = "admin_carrier_list_component",
+     *      methods = {"GET"}
      * )
      * @Template("AdminShippingBundle:Carrier:listComponent.html.twig")
-     * @Method({"GET"})
      */
     public function listComponentAction()
     {
@@ -58,7 +57,7 @@ class CarrierComponentController extends AbstractAdminController
             ->findAll();
 
         return [
-            'carriers' => $carriers,
+            'paginator' => $carriers,
         ];
     }
 
@@ -76,6 +75,7 @@ class CarrierComponentController extends AbstractAdminController
      * @Route(
      *      path = "/{id}/component",
      *      name = "admin_carrier_edit_component",
+     *      methods = {"GET"},
      *      requirements = {
      *          "id" = "\d+",
      *      }
@@ -86,7 +86,6 @@ class CarrierComponentController extends AbstractAdminController
      *      methods = {"GET"}
      * )
      * @Template("AdminShippingBundle:Carrier:editComponent.html.twig")
-     * @Method({"GET"})
      *
      * @EntityAnnotation(
      *      class = {
@@ -112,7 +111,6 @@ class CarrierComponentController extends AbstractAdminController
     public function editComponentAction(
         FormView $formView,
         CarrierInterface $carrier
-
     ) {
         return [
             'carrier' => $carrier,

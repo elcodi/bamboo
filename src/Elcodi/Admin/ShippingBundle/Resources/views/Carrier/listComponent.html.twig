@@ -1,71 +1,65 @@
 {% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
 
 
-{% block title %}
-    {{ 'Carrier list'|trans }}
-{% endblock title %}
+{% set elcodi_context = {
+    entity_type: 'carrier',
+} %}
 
 
-{% block no_items %}
-    {{ lists.no_items('carrier','carriers', url("admin_carrier_new")  ) }}
-{% endblock no_items %}
+{% block title 'admin.carrier.list'|trans %}
+
+
+{% block no_items
+    lists.no_items(
+        'admin.carrier.single'|trans,
+        'admin.carrier.plural'|trans,
+        url('admin_carrier_new')
+    )
+%}
 
 
 {% block table_head %}
-    {% include "@AdminCore/Tables/head.html.twig" with {
-        rows: {
-            "Name & details": {},
-            "Category": {width:"20"},
-            "Price": {width:"10"}
-        },
-        class: "carriers",
+
+    {% include '@AdminCore/Tables/head.html.twig' with {
+        class: 'carriers',
+        rows: [
+            { name: 'admin.carrier.field.name.title'|trans, },
+            { name: 'admin.carrier.field.description.title'|trans, },
+            { name: 'admin.carrier.field.taxes.title'|trans, width: 20 },
+            { name: 'admin.carrier.field.status.title'|trans, width: 10 },
+        ],
     } %}
+
 {% endblock table_head %}
 
 
-{% block component %}
-    <table class="table">
-        <thead>
-            <tr>
-                <th>{{ 'Name'|trans }}</th>
-                <th>{{ 'Description'|trans }}</th>
-                <th>{{ 'Taxes'|trans }}</th>
-                <th>{{ 'Status'|trans }}</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for carrier in carriers %}
-            <tr>
-                <td>
-                    <a href="{{ url("admin_carrier_edit", {
-                        'id': carrier.id
-                    }) }}"><strong>{{ carrier.name }}</strong></a>
-                </td>
-                <td>
-                    {{ carrier.description }}
-                </td>
-                <td>
-                    {{ carrier.tax.value }}% Tax
-                </td>
-                <td>
-                    {% if carrier.enabled %}
-                        <span class="label label-ok">{{ "enabled"|trans }}</span>
-                    {% else %}
-                        <span class="label">{{ "disabled"|trans }}</span>
-                    {% endif %}
-                </td>
-                {% include "@AdminCore/Tables/actions.html.twig" with {
-                    entity: carrier,
-                    class: "carrier",
-                } %}
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-{% endblock component %}
+{% block table_body_row %}
+
+    <td>
+        <a href="{{ url('admin_carrier_edit', { id: entity.id }) }}">
+            {{ entity.name }}
+        </a>
+    </td>
+    <td>
+        {{ entity.description }}
+    </td>
+    <td>
+        {{ 'admin.carrier.field.taxes.format'|trans({ '%value%': entity.tax.value }) }}
+    </td>
+    <td>
+        {% if entity.enabled %}
+            <span class="label label-success">{{ 'ui.label.enabled'|trans }}</span>
+        {% else %}
+            <span class="label label-danger">{{ 'ui.label.disabled'|trans }}</span>
+        {% endif %}
+    </td>
+
+    {% include '@AdminCore/Tables/actions.html.twig' with {
+        entity: entity,
+        class: 'carrier',
+    } %}
+
+{% endblock table_body_row %}
 
 
-{% block table_paginator_links %}
-    {% set url = 'admin_carrier_list' %}
-    {{ parent() }}
-{% endblock table_paginator_links %}
+{% block table_pagination '' %}
