@@ -44,16 +44,19 @@
                                                 }
                                             })
                                         }}
-                                    </li>
-                                    <li>
-                                        {{
-                                            form_row(form.path["#{language}_path"], {
+                                        <details class="ph-n pt-m mb-n">
+                                            <summary class="pl-l mb-n">{{ 'Personalize slug' }}</summary>
+                                            {{
+                                            form_widget(form.path["#{language}_path"], {
                                                 label: 'admin.page.field.path.title',
                                                 attr: {
                                                     placeholder: 'admin.page.field.path.placeholder',
+                                                    'data-tc-modules':'slug',
+                                                    'data-tc-parent':'elcodi_admin_page_form_type_page_title_'~ language ~'_title'
                                                 }
                                             })
-                                        }}
+                                            }}
+                                        </details>
                                     </li>
                                     <li>
                                         {{
