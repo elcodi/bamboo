@@ -5,10 +5,10 @@ store:
 
 admin:
     address:
-        single: Dirección
-        plural: Direcciones
+        single: Dirección fiscal
+        plural: Direcciones fiscales
         edit:
-            billing_address: Editar la dirección de pago
+            billing_address: Dirección fiscal de tu tienda
         select:
             placeholder: Selecciona una
         field:
@@ -147,7 +147,7 @@ admin:
             newsletter:
                 title: Boletín de noticias
             order_count:
-                title: 'Num. de pedido'
+                title: 'Nº Pedido'
         section:
             login:
                 title: Detalles de sesión
@@ -204,7 +204,7 @@ admin:
             link:
                 title: Enlace
             enabled:
-                title: Activo
+                title: Estado
             content:
                 title: Contenido
                 placeholder: ej. Este magnífico artículo es exactamente lo que buscas.
@@ -334,7 +334,7 @@ admin:
             basic:
                 title: Información básica
                 description:
-                    - 'Configura el nombre del código(El que los usuarios tienen que proporcionar en el carrito para activar el cupón)'
+                    - 'Configura el nombre del código (El que los usuarios tienen que proporcionar en el carrito para activar el cupón).'
                     - 'Configura también la descripción para identificar el cupón, el tipo y el modo en que será aplicado.'
             fixed_amount:
                 title:       Cantidad fija

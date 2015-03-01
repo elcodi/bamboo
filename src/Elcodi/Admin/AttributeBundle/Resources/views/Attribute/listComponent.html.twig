@@ -21,9 +21,9 @@
 {% block table_head %}
     {% include '@AdminCore/Tables/head.html.twig' with {
         rows: [
-            { name: 'admin.attribute.field.name.title'|trans },
+            { name: 'admin.attribute.field.name.title'|trans, width: 20 },
             { name: 'admin.attribute.field.name.values'|trans },
-            { name: 'admin.attribute.field.visibility.title'|trans },
+            { name: 'admin.attribute.field.enabled.title'|trans, width: 15 },
         ],
         class: 'attribute',
     } %}
@@ -43,10 +43,10 @@
         {% endfor %}
     </td>
     <td>
-        {% if entity.enabled %}
-            <span class="label-ok">{{ ui.label.enabled }}</span>
+        {% if entity.enabled == 1%}
+            <span class="label label-ok">{{ 'ui.label.enabled'|trans }}</span>
         {% else %}
-            <span class="label">{{ ui.label.disabled }}</span>
+            <span class="label">{{ 'ui.label.disabled'|trans }}</span>
         {% endif %}
     </td>
     {% include '@AdminCore/Tables/actions.html.twig' with {

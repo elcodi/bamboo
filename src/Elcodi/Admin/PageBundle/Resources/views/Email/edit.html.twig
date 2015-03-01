@@ -12,9 +12,10 @@
 {% block breadcrumb %}
 
     {% set title = 'admin.mailing.plural'|trans %}
+
     {%
-        set header = page.id
-            ? 'admin.mailing.edit'|trans({ '%name%': blog_post.name })
+        set header = email.id
+            ? 'admin.mailing.edit'|trans({ '%title%': email.title })
             : 'admin.mailing.new'|trans
     %}
 
