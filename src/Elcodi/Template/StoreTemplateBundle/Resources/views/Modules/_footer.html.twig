@@ -11,8 +11,8 @@
         {% set last_post = elcodi_blog_pages()[0] %}
         {% if last_post %}
             <div class="col-1-3">
+                <h5>{{ 'Latest news'|trans }}</h5>
                 <ul>
-                    <li><strong>{{ 'Latest news'|trans }}</strong></li>
                     <li>
                         <a href="{{ url("store_blog_post_view", {
                             "id": last_post.id,
@@ -21,13 +21,15 @@
                             <strong>{{ last_post.title }}</strong>
                         </a>
                     </li>
-                    <li>{{ last_post.content|truncate(50) }}</li>
+                    <li>
+                        <a href="{{ url('store_blog_view') }}">{{ 'More'|trans }}</a>
+                    </li>
                 </ul>
             </div>
         {% endif %}
         <div class="col-1-3">
+            <h5>{{ 'Quick links'|trans }}</h5>
             <ul>
-                <li><strong>{{ 'Quick links'|trans }}</strong></li>
                 {% set pages = elcodi_footer_pages() %}
 
                 {% for page in pages %}
@@ -35,16 +37,18 @@
                 {% endfor %}
             </ul>
         </div>
+        {% set social_twitter = elcodi_config('store.social_twitter') %}
+        {% set social_facebook = elcodi_config('store.social_facebook') %}
+        {% if social_twitter != '' or social_facebook != '' %}
         <div class="col-1-3">
+            <h5>{{ 'Follow us'|trans }}</h5>
             <ul>
-                <li><strong>{{ 'About us'|trans }}</strong></li>
-                {% set social_twitter = elcodi_config('store.social_twitter') %}
                 {% if social_twitter != '' %}
                     <li>
                         <a href="http://twitter.com/{{ social_twitter }}">Twitter</a>
                     </li>
                 {% endif %}
-                {% set social_facebook = elcodi_config('store.social_facebook') %}
+
                 {% if social_facebook != '' %}
                     <li>
                         <a href="http://facebook.com/{{ social_facebook }}">Facebook</a>
@@ -52,5 +56,6 @@
                 {% endif %}
             </ul>
         </div>
+        {% endif %}
     </div>
 </footer>

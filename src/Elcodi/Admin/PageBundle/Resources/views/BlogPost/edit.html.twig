@@ -26,8 +26,8 @@
 
     {% set title = 'admin.blog_post.plural'|trans %}
     {%
-        set header = page.id
-            ? 'admin.blog_post.edit'|trans({ '%name%': blog_post.name })
+        set header = blog_post.id
+            ? 'admin.blog_post.edit'|trans({ '%name%': blog_post.title })
             : 'admin.blog_post.new'|trans
     %}
 

@@ -23,10 +23,9 @@
     {% include '@AdminCore/Tables/head.html.twig' with {
         class: 'blog_post',
         rows: [
-            { name: 'admin.blog_post.field.path.title'|trans },
-            { name: 'admin.blog_post.field.title.title'|trans },
-            { name: 'admin.blog_post.field.link.title'|trans },
-            { name: 'admin.blog_post.field.enabled.title'|trans, width: 25 },
+            { name: 'admin.blog_post.single'|trans },
+            { name: 'admin.blog_post.field.path.title'|trans, width: 25 },
+            { name: 'admin.blog_post.field.enabled.title'|trans, width: 15 },
         ],
     } %}
 
@@ -34,29 +33,26 @@
 
 
 {% block table_body_row %}
-
     <td>
         <a href="{{ url('admin_blog_post_edit', { id: entity.id}) }}">
-            {{ entity.path }}
+           <strong>{{ entity.title|truncate(30, '…') }}</strong>
         </a>
-    </td>
-    <td>
-        {{ entity.title|truncate(20, '…') }}
+        <p>{{ entity.content|striptags|truncate(150, '…') }}</p>
     </td>
     <td>
         {% set path = url('store_blog_post_view', {
-            id: entity.id,
-            slug: entity.path,
+        id: entity.id,
+        slug: entity.path,
         }) %}
         <a target="_blank" href="{{ path }}">
-            {{ path }}
+            /{{ entity.path }}
         </a>
     </td>
     <td>
         {% if entity.enabled %}
-            <span class="label label-success">{{ 'ui.label.enabled'|trans }}</span>
+            <span class="label label-ok">{{ 'ui.label.enabled'|trans }}</span>
         {% else %}
-            <span class="label label-danger">{{ 'ui.label.disabled'|trans }}</span>
+            <span class="label label">{{ 'ui.label.disabled'|trans }}</span>
         {% endif %}
     </td>
 

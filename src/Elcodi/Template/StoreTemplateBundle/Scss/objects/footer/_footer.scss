@@ -2,7 +2,10 @@
 	& {
 		text-align: left;
 		background: $color-primary;
+		color: rgba($color-background, .7);
 		box-shadow: 0 0 2px rgba($color-foreground, .1);
+		min-height: 150px;
+		margin-top: $spacing;
 	}
 
 	a {
@@ -21,6 +24,23 @@
 		}
 		&:hover {
 			text-decoration: none;
+		}
+	}
+
+	h5 {
+		font-family: $font-face-title;
+		font-size: $font-size-l;
+		margin: 0;
+		font-weight: normal;
+	}
+
+	ul {
+		& {
+			list-style: disc;
+			margin-left: $spacing*1.5;
+		}
+		li {
+			margin-bottom: $spacing/4;
 		}
 	}
 }
