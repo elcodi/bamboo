@@ -432,6 +432,14 @@ admin:
                 title: Stock
                 description: Enable this option to activate stock control
 
+    template:
+        single: Theme
+        plural: Themes
+        label:
+            status: Enable:
+        action:
+            preview: Preview
+
 plugin:
     paypal:
         title: Paypal Account Setup
