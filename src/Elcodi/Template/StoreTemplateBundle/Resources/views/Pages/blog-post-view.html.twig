@@ -9,7 +9,6 @@
             {{ blog_post.content|raw }}
         </div>
     </article>
-
     {{ elcodi_hook("store.blog_post_view_bottom", {
         'blog_post': blog_post
     }) }}
