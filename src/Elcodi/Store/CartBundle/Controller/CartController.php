@@ -166,7 +166,7 @@ class CartController extends Controller
      * Adds product variant into cart
      *
      * @param Request          $request Request object
-     * @param ProductInterface $product Product id
+     * @param VariantInterface $variant variant
      * @param CartInterface    $cart    Cart
      *
      * @return Response Redirect response

@@ -9,7 +9,8 @@
     <div class="col-1-1">
     {% for select in selects %}
         <div class="form-inline">
-            <label for="{{ select.type }}">{{ select.type|capitalize|trans }}</label>
+            {% set fieldType = 'store.address.form.fields.' ~ select.type ~ '.label' %}
+            <label for="{{ select.type }}">{{ fieldType|trans  }}</label>
             <select{% if select.type == maxLocationType %} data-max-type{% endif %}>
                 <option>Select one</option>
                 {% for key, value in select.options %}

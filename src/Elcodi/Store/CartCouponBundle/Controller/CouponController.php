@@ -88,6 +88,7 @@ class CouponController extends Controller
      */
     public function applyAction(Form $couponApplyFormType)
     {
+        $translator = $this->get('translator');
         $couponCode = $couponApplyFormType
             ->get('code')
             ->getData();
@@ -104,9 +105,11 @@ class CouponController extends Controller
                 ->get('elcodi.manager.cart_coupon')
                 ->addCouponByCode($cart, $couponCode);
 
-            $this->addFlash('info', 'Coupon applied successfully');
+            $message = $translator->trans('store.coupon.applied.message_ok');
+            $this->addFlash('info', $message);
         } catch (AbstractCouponException $e) {
-            $this->addFlash('error', 'Could not apply coupon');
+            $message = $translator->trans('store.coupon.applied.message_ko');
+            $this->addFlash('error', $message);
         }
 
         return $this->redirectToRoute('store_cart_view');

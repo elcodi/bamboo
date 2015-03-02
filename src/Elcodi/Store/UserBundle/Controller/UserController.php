@@ -117,7 +117,9 @@ class UserController extends Controller
                 ->get('elcodi.object_manager.customer')
                 ->flush($customer);
 
-            $this->addFlash('success', 'Profile saved');
+            $message = $this->get('translator')
+                ->trans('store.user.profile.save.message_ok');
+            $this->addFlash('success', $message);
 
             return $this->redirect(
                 $this->generateUrl('store_user_edit')

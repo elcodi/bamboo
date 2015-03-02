@@ -37,10 +37,10 @@ class PasswordRememberType extends AbstractType
             ->setMethod('POST')
             ->add('email', 'email', [
                 'required' => true,
-                'label' =>  'Email',
+                'label' =>  'store.recovery.form.fields.email.label',
             ])
             ->add('send', 'submit', [
-                'label' =>  'Remember',
+                'label' =>  'store.recovery.form.fields.remember.label',
             ]);
     }
 

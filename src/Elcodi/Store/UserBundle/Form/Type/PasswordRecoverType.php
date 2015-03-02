@@ -38,14 +38,14 @@ class PasswordRecoverType extends AbstractType
             ->add('password', 'repeated', [
                 'type'           => 'password',
                 'first_options'  => [
-                    'label' => 'Password',
+                    'label' => 'store.recovery.form.fields.password.label',
                 ],
                 'second_options' => [
-                    'label' => 'Repeat Password',
+                    'label' => 'store.recovery.form.fields.repeat_password.label',
                 ],
                 'required'       => true,
             ])
-            ->add('send', 'submit', [
+            ->add('store.recovery.form.fields.send.label', 'submit', [
                 'label' => 'Recover',
             ]);
     }
