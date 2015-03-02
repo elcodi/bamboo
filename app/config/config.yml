@@ -127,10 +127,10 @@ elcodi_media:
 # entity manager, be sure to change this value with the name of it. By default,
 # the "default" entity manager will be used
 #
-elcodi_geo:
-    mapping:
-        location:
-            manager: default
+# elcodi_geo:
+#     mapping:
+#         location:
+#             manager: default
 
 elcodi_page:
     renderers:
