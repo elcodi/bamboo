@@ -293,7 +293,7 @@ admin:
             path:
                 title: Ruta
                 placeholder: ej. mi/magnifico/articulo
-                customize: Personalizar la ruta
+                customize: Personalizar ruta
             link:
                 title: Enlace
             enabled:
@@ -541,6 +541,7 @@ admin:
             path:
                 title: Ruta
                 placeholder: ej. my/genial/pagina
+                customize: Personalizar ruta
             link:
                 title: Enlace
             enabled:
@@ -780,13 +781,13 @@ admin:
         plural: Perfiles
 
     metadata:
-        customize: Personalizar Metadata
+        customize: Personalizar metadatos
         disclaimer:
             - Esta area es para usuarios avanzados.
-            - Deja estos campos en blanco para obtener automaticamente el metadata para tu página.
+            - Deja estos campos en blanco para obtener automaticamente metadatos para tu página.
         section:
             metadata:
-                title: Metadata
+                title: Metadatos
                 description: La descripción y palabras claves en los meta tags se usan para describir el contenido de la página. La mayoria de los motores de búsqueda usan esta información para su índice de busqueda.
         field:
             metatitle:

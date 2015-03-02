@@ -539,6 +539,7 @@ admin:
             path:
                 title: Path
                 placeholder: e.g. my/awesome/page
+                customize: Customize path
             link:
                 title: Link
             enabled:
