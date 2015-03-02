@@ -95,6 +95,7 @@ class AddressController extends Controller
         $id,
         Request $request
     ) {
+        $translator = $this->get('translator');
         $address = $this->get('elcodi.repository.customer')
             ->findAddress(
                 $this->getUser()->getId(),
@@ -122,7 +123,8 @@ class AddressController extends Controller
             $customer->addAddress($addressToSave);
             $customerEntityManager->flush($customer);
 
-            $this->addFlash('success', 'Address saved');
+            $message = $translator->trans('store.address.save.response_ok');
+            $this->addFlash('success', $message);
 
             return $this->redirect(
                 $this->generateUrl('store_address_list')
@@ -178,6 +180,8 @@ class AddressController extends Controller
         $isValid
     ) {
         if ($isValid) {
+            $translator = $this->get('translator');
+
             $addressManager = $this->get('elcodi.object_manager.address');
             $addressManager->persist($address);
             $addressManager->flush();
@@ -190,7 +194,8 @@ class AddressController extends Controller
             $this->get('elcodi.object_manager.customer')
                 ->flush();
 
-            $this->addFlash('success', 'Address saved');
+            $message = $translator->trans('store.address.save.response_ok');
+            $this->addFlash('success', $message);
 
             return $this->redirect(
                 $this->generateUrl('store_address_list')
@@ -222,6 +227,8 @@ class AddressController extends Controller
     public function deleteAction(
         $id
     ) {
+        $translator = $this->get('translator');
+
         /**
          * @var CustomerInterface $customer
          */
@@ -240,7 +247,8 @@ class AddressController extends Controller
         $customer->removeAddress($address);
         $customerManager->flush($customer);
 
-        $this->addFlash('success', 'Address removed');
+        $message = $translator->trans('store.address.delete.response_ok');
+        $this->addFlash('success', $message);
 
         return $this->redirect(
             $this->generateUrl('store_address_list')

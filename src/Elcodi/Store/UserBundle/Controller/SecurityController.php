@@ -55,6 +55,8 @@ class SecurityController extends Controller
      */
     public function loginAction(FormView $loginFormView)
     {
+        $translator = $this->get('translator');
+
         /**
          * If user is already logged, go to redirect url
          */
@@ -68,9 +70,11 @@ class SecurityController extends Controller
          */
         $session = $this->get('session');
         if ($session->has(Security::AUTHENTICATION_ERROR)) {
-            $session
-                ->getFlashBag()
-                ->add('error', 'Wrong Email and password combination.');
+            $message = $translator
+                ->trans('store.login.wrong_combination');
+
+            $this
+                ->addFlash('error', $message);
         }
 
         return $this->renderTemplate(

@@ -60,10 +60,10 @@ class CouponApplyType extends AbstractType
             ->setMethod('POST')
             ->add('code', 'text', [
                 'required' => true,
-                'label'    => 'Coupon Code',
+                'label'    => 'store.coupon.form.fields.code.label',
             ])
             ->add('apply', 'submit', [
-                'label'    => 'Apply coupon',
+                'label'    => 'store.coupon.form.fields.apply.label',
             ]);
     }
 

@@ -75,42 +75,42 @@ class AddressType extends AbstractType
             ])
             ->add('name', 'text', [
                 'required' => true,
-                'label'    => 'Address name',
+                'label'    => 'store.address.form.fields.name.label',
             ])
             ->add('recipientName', 'text', [
                 'required' => true,
-                'label'    => 'Recipient name',
+                'label'    => 'store.address.form.fields.recipientName.label',
             ])
             ->add('recipientSurname', 'text', [
                 'required' => true,
-                'label'    => 'Recipient Surname',
+                'label'    => 'store.address.form.fields.recipientSurname.label',
             ])
             ->add('address', 'text', [
                 'required' => true,
-                'label'    => 'Address',
+                'label'    => 'store.address.form.fields.address.label',
             ])
             ->add('addressMore', 'text', [
                 'required' => false,
-                'label'    => 'Address more (optional)',
+                'label'    => 'store.address.form.fields.addressMore.label',
             ])
             ->add('postalcode', 'text', [
                 'required' => true,
-                'label'    => 'Postalcode',
+                'label'    => 'store.address.form.fields.postalcode.label',
             ])
             ->add('phone', 'text', [
                 'required' => true,
-                'label'    => 'Phone',
+                'label'    => 'store.address.form.fields.phone.label',
             ])
             ->add('mobile', 'text', [
                 'required' => false,
-                'label'    => 'Mobile',
+                'label'    => 'store.address.form.fields.mobile.label',
             ])
             ->add('comments', 'textarea', [
                 'required' => false,
-                'label'    => 'Comments',
+                'label'    => 'store.address.form.fields.comments.label',
             ])
             ->add('send', 'submit', array(
-                'label' => 'Save address',
+                'label' => 'store.address.form.fields.send.label',
             ));
     }
 

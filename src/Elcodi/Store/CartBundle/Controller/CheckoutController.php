@@ -96,7 +96,11 @@ class CheckoutController extends Controller
             $this->get('elcodi.object_manager.customer')
                 ->flush();
 
-            $this->addFlash('success', 'Address saved');
+            $translator = $this->get('translator');
+            $this->addFlash(
+                'success', $translator
+                ->trans('store.address.save.response_ok')
+            );
 
             return $this->redirect(
                 $this->generateUrl('store_checkout_address')
@@ -184,22 +188,27 @@ class CheckoutController extends Controller
                     $cartObjectManager->flush();
                 }
             } else {
+                $translator = $this->get('translator');
+                $type       = $translator->trans($addressType);
                 $this->addFlash(
                     'success',
-                    "Select a $addressType address"
+                    $translator->trans(
+                        'store.address.select_address_type',
+                        ['%1' => $type]
+                    )
                 );
             }
         };
 
         $saveCheckoutAddress(
             $deliveryAddressId,
-            'delivery',
+            'store.address.delivery',
             'setDeliveryAddress'
         );
 
         $saveCheckoutAddress(
             $billingAddressId,
-            'billing',
+            'store.address.billing',
             'setBillingAddress'
         );
 

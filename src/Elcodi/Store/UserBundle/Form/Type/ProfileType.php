@@ -69,28 +69,28 @@ class ProfileType extends AbstractType
             ->setMethod('POST')
             ->add('firstname', 'text', [
                 'required' => true,
-                'label'    => 'Firstname',
+                'label'    => 'store.user.form.fields.firstname.label',
             ])
             ->add('lastname', 'text', [
                 'required' => true,
-                'label'    => 'Lastname',
+                'label'    => 'store.user.form.fields.lastname.label',
             ])
             ->add('email', 'email', [
                 'required' => true,
-                'label'    => 'Email',
+                'label'    => 'store.user.form.fields.email.label',
             ])
             ->add('password', 'repeated', [
                 'type'           => 'password',
                 'first_options'  => [
-                    'label' => 'Password',
+                    'label' => 'store.user.form.fields.password.label',
                 ],
                 'second_options' => [
-                    'label' => 'Repeat Password',
+                    'label' => 'store.user.form.fields.repeat_password.label',
                 ],
                 'required'       => false,
             ])
             ->add('send', 'submit', [
-                'label' => 'Save',
+                'label' => 'store.user.form.fields.send.label',
             ]);
     }
 
