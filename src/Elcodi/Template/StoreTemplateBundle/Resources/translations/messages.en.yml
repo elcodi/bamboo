@@ -66,6 +66,7 @@ template:
                 total: Total
                 checkout: Checkout
                 empty_basket: Empty basket
+                update_basket: Update basket
                 continue_shopping: Continue Shopping
                 your_cart_is_empty: Your cart is empty
             nav:

@@ -30,7 +30,14 @@
 
             <div class="cart-actions">
                 <a class="button button-secondary" href="{{ url('store_checkout_address') }}">{{ 'template.store_template_bundle.cart.view.checkout'|trans }} &nbsp;<i class="fa fa-arrow-right"></i> </a>
-                {{ form_widget(form.update, { 'attr': {'class': 'button button-empty fa fa-refresh'} } ) }}
+                {{
+                    form_widget(form.update, {
+                        label: 'template.store_template_bundle.cart.view.update_basket',
+                        attr: {
+                            class: 'button button-empty fa fa-refresh'
+                        }
+                    })
+                }}
                 <a class="button button-empty" href="{{ url('store_cart_empty') }}"><i class="fa fa-trash-o"></i> {{ 'template.store_template_bundle.cart.view.empty_basket'|trans }}</a>
                 <a class="button button-empty cart-actions-continue" href="{{ url('store_homepage') }}"><i class="fa fa-arrow-left"></i> {{ 'template.store_template_bundle.cart.view.continue_shopping'|trans }}</a>
             </div>

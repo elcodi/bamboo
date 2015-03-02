@@ -76,12 +76,6 @@ class CartType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->setAction(
-                $this
-                    ->router
-                    ->generate('store_cart_update')
-            )
-            ->setMethod('POST')
             ->add('cartLines', 'collection', [
                 'type'     => 'store_cart_form_type_cart_line',
                 'required' => true,
@@ -89,7 +83,13 @@ class CartType extends AbstractType
             ])
             ->add('update', 'submit', [
                 'label' => 'Update basket',
-            ]);
+            ])
+            ->setAction(
+                $this
+                    ->router
+                    ->generate('store_cart_update')
+            )
+        ;
     }
 
     /**
