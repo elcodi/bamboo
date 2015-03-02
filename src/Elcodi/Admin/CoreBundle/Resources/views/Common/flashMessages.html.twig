@@ -5,7 +5,7 @@
             if ( window!=window.top ) {
                 document.body.innerHTML = '';
                 Mediator = window.parent.TinyCore.Toolbox.request( 'mediator' );
-                sUrl = window.parent.document.getElementById('variants-url').value;
+                sUrl = window.parent.document.getElementById('variants-url') !== null? window.parent.document.getElementById('variants-url').value : '';
                 Mediator.publish( 'response:success', { url : sUrl } );
             }
     </script>

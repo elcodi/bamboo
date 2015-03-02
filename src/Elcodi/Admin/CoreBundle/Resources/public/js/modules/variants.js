@@ -67,23 +67,26 @@ TinyCore.AMD.define('variants', ['devicePackage', 'modal'], function () {
 
 			var self = this;
 
-			self.mediator.publish('notification', {
-				type: 'ok',
-				message: document.getElementById('variants-message-ok').value
-			});
+			if (document.getElementById('variants-message-ok') !== null) {
+				self.mediator.publish('notification', {
+					type: 'ok',
+					message: document.getElementById('variants-message-ok').value
+				});
 
-			document.getElementById('variants-list').innerHTML = '<p class="ta-c pa-xl"><i class="icon-spin icon-spinner fz-xl"></i></p>';
+				document.getElementById('variants-list').innerHTML = '<p class="ta-c pa-xl"><i class="icon-spin icon-spinner fz-xl"></i></p>';
 
-			$.get(oResponse.data.url, function (sHtml) {
+				$.get(oResponse.data.url, function (sHtml) {
 
-				document.getElementById('variants-list').innerHTML = sHtml;
+					document.getElementById('variants-list').innerHTML = sHtml;
 
-				self.bindLinks();
+					self.bindLinks();
 
-			});
+				});
 
+			}
 
 			this.modal.close();
+
 		}
 	};
 });

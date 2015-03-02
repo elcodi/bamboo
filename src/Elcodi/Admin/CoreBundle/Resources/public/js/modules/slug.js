@@ -9,7 +9,6 @@ TinyCore.AMD.define('slug', ['devicePackage'], function () {
 
 				$(aTargets).each(function () {
 					if ($('#' + this.getAttribute("data-tc-parent")).val() === '') {
-						console.log('dentro');
 						self.autobind(this);
 					}
 				});

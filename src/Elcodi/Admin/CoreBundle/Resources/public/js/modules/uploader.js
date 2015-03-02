@@ -61,7 +61,7 @@ TinyCore.AMD.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupl
 					},
 
 					Error: function(up, err) {
-						console.log(err.code);
+						//console.log(err.code);
 					}
 				}
 			});
