@@ -82,6 +82,7 @@ template:
                 remove: Remove
 
         payment:
+            credit_card_owner: Credit card owner
             credit_card_numbers: Credit card numbers
             month: Month
             year: Year

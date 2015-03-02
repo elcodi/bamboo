@@ -8,7 +8,7 @@
     <form method="post" action="{{ url('store_checkout_address_save') }}" {% if addresses|length > 1 %}class="address-list" {% endif %}>
         <p class="checkout-actions checkout-actions-top">
             <button type="submit" name="payment" class="button button-secondary desktop"> {{ 'template.store_template_bundle.checkout.address.payment'|trans }} <i class="fa fa-arrow-right"></i></button>
-            <a class="button desktop" href="{{ url('store_cart_view') }}"> <i class="fa fa-arrow-left"></i> {{ 'Back' }}</a>
+            <a class="button desktop" href="{{ url('store_cart_view') }}"> <i class="fa fa-arrow-left"></i> {{ 'template.store_template_bundle.checkout.back'|trans }}</a>
             {% include "@StoreTemplate/Modules/_checkout-progress.html.twig" with {"step": "2"} %}
         </p>
             {% for address in addresses %}
@@ -19,14 +19,14 @@
 
         <p class="checkout-actions checkout-actions-bottom">
             <button type="submit" name="payment" class="button button-secondary"> {{ 'template.store_template_bundle.checkout.address.payment'|trans }} <i class="fa fa-arrow-right"></i></button>
-            <a class="button" href="{{ url('store_cart_view') }}"> <i class="fa fa-arrow-left"></i> {{ 'Back' }}</a>
+            <a class="button" href="{{ url('store_cart_view') }}"> <i class="fa fa-arrow-left"></i> {{ 'template.store_template_bundle.checkout.back'|trans }}</a>
         </p>
 
     </form>
     {% else %}
         <h1 class="checkout-title">{{ "template.store_template_bundle.checkout.address.add_new_address"|trans }}</h1>
         <p class="checkout-actions checkout-actions-top">
-            <a class="button desktop" href="{{ url('store_cart_view') }}"> <i class="fa fa-arrow-left"></i> {{ 'Back' }}</a>
+            <a class="button desktop" href="{{ url('store_cart_view') }}"> <i class="fa fa-arrow-left"></i> {{ 'template.store_template_bundle.checkout.back'|trans }}</a>
             {% include "@StoreTemplate/Modules/_checkout-progress.html.twig" with {"step": "2"} %}
         </p>
     {% endif %}

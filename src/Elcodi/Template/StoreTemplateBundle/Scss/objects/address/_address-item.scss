@@ -38,9 +38,14 @@
 	}
 
 	.address-item-selection-item {
-		max-width: 49%;
-		text-align: center;
-		display: inline-block;
+		& {
+			width: 49%;
+			text-align: center;
+			display: inline-block;
+		}
+		.switch {
+			display: block;
+		}
 	}
 
 	dd.address-item-selection {
