@@ -42,7 +42,7 @@
 			top: 0;
 			right: 0;
 			background: rgba($color-foreground, .2);
-			padding: 0 $spacing;
+			padding: $spacing/4 $spacing 0;
 		}
 		.cart-nav {
 			position: absolute;
