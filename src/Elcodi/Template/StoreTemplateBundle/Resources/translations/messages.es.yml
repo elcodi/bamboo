@@ -66,6 +66,7 @@ template:
                 total: Total
                 checkout: Tramitar pedido
                 empty_basket: Vaciar carrito
+                update_basket: Actualizar carrito
                 continue_shopping: Seguir comprando
                 your_cart_is_empty: Tu carrito está vacío
             nav:
