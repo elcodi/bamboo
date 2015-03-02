@@ -293,7 +293,7 @@ admin:
             path:
                 title: Ruta
                 placeholder: ej. mi/magnifico/articulo
-                customize: Personalizar la ruta
+                customize: Personalizar ruta
             link:
                 title: Enlace
             enabled:
@@ -541,6 +541,7 @@ admin:
             path:
                 title: Ruta
                 placeholder: ej. my/genial/pagina
+                customize: Personalizar ruta
             link:
                 title: Enlace
             enabled:
