@@ -653,6 +653,9 @@ admin:
             visibility:
                 title: Visibility
                 description: "Set this product as visible or hidden, and make it visible in your home."
+            stock:
+                title: Stock
+                description: "Configure the stock for your product. Each order will reduce this number."
 
     variant:
         single: Variant

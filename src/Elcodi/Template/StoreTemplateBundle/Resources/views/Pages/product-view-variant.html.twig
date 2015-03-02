@@ -34,9 +34,15 @@
             {% else %}
                 <span class="product-pricing">{{ variant.price|print_convert_money() }}</span>
             {% endif %}
-            <a title="Add {{ variant|purchasable_name }} to cart"
+            {% if not useStock or variant.stock > 0 %}
+            <a title="{{ 'template.store_template_bundle.product.view_item.add_to_cart'|trans }}"
                class="fa fa-shopping-cart button button-secondary"
                href="{{ url('store_cart_add_product_variant', { id: variant.id }) }}"> {{ 'template.store_template_bundle.product.view_item.add_to_cart'|trans }}</a>
+            {% else %}
+                <a title="{{ 'template.store_template_bundle.product.view_item.no_stock'|trans }}"
+                   class="fa fa-times button button"
+                   href="#"> {{ 'template.store_template_bundle.product.view_item.no_stock'|trans }}</a>
+            {% endif %}
         </p>
     </div>
 

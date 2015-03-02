@@ -50,7 +50,7 @@ class VariantController extends AbstractAdminController
      *
      * @param FormInterface    $form    Form
      * @param ProductInterface $product Product
-     * @param VariantInterface $product Variant
+     * @param VariantInterface $variant Variant
      * @param boolean          $isValid Is valid
      *
      * @return RedirectResponse Redirect response

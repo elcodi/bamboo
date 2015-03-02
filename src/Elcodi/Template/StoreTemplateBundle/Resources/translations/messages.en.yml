@@ -150,6 +150,7 @@ template:
                 product: Product
                 offer: Offer
                 add_to_cart: Add to cart
+                no_stock: No stock
                 description: Description
                 stock: Stock
                 in_stock: This item is in stock and ready to ship!

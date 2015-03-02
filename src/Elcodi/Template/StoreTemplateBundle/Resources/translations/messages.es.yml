@@ -155,6 +155,7 @@ template:
                 product: Producto
                 offer: Oferta
                 add_to_cart: Añadir
+                no_stock: Sin stock
                 description: Descripción
                 stock: Existencias
                 in_stock: Este producto está en stock, listo para ser enviado.

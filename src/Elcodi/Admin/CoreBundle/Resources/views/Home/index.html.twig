@@ -3,6 +3,13 @@
 
 {% block breadcrumb %}<h1>Welcome!</h1>{% endblock %}
 
+{% block header_actions %}
+
+    <a href="{{ url('admin_customer_order_list', {customerId: order.customer.id}) }}" type="button" class="button">
+        <span>{{ 'admin.order.from_user'|trans({ '%name%': order.customer.firstname }) }}</span>
+    </a>
+
+{% endblock header_actions %}
 
 {% block content %}
 

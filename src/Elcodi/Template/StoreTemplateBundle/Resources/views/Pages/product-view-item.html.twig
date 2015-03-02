@@ -39,28 +39,21 @@
                                {% else %}
                                    <span class="product-pricing">{{ product.price|print_convert_money() }}</span>
                                {% endif %}
-                               <a title="Add {{ product|purchasable_name }} to cart"
+                               {% if not useStock or product.stock > 0 %}
+                               <a title="{{ 'template.store_template_bundle.product.view_item.add_to_cart'|trans }}"
                                   class="fa fa-shopping-cart button button-secondary"
                                   href="{{ url('store_cart_add_product', { id: product.id }) }}"> {{ 'template.store_template_bundle.product.view_item.add_to_cart'|trans }}</a>
+                               {% else %}
+                               <a title="{{ 'template.store_template_bundle.product.view_item.no_stock'|trans }}"
+                                  class="fa fa-times button"
+                                  href="#"> {{ 'template.store_template_bundle.product.view_item.no_stock'|trans }}</a>
+                               {% endif %}
                            </p>
                        </div>
                    {% endblock %}
 
                    {% block product_info_details %}
-                       <h3 class="product-title">{{ 'template.store_template_bundle.product.view_item.description'|trans }}</h3>
                        <p>{{ product.description }}</p>
-
-                       <h3 class="product-title">{{ 'template.store_template_bundle.product.view_item.stock'|trans }}</h3>
-
-                       {% if product.stock %}
-                           <p><i class="fa fa-check"></i> {{ 'template.store_template_bundle.product.view_item.in_stock'|trans }}</p>
-                       {% else %}
-                           <p><i class="fa fa-times"></i>{{ 'template.store_template_bundle.product.view_item.not_available'|trans }}</p>
-                       {% endif %}
-
-                       <h3 class="product-title">{{ 'template.store_template_bundle.product.view_item.delivery'|trans }}</h3>
-
-                       <p><i class="fa fa-truck"></i> {{ 'template.store_template_bundle.product.view_item.usually_dispatched_24_hours'|trans }}</p>
                    {% endblock %}
                {% endblock %}
            </div>
