@@ -77,7 +77,7 @@ class MenuController extends Controller
         $pendingOrdersCount = count($pendingOrders);
 
         $addOrdersPendingBadge = function (&$item) use ($pendingOrdersCount) {
-            if ('Orders' == $item['name']) {
+            if ('admin_order_list' == $item['url']) {
                 $item['badge'] = $pendingOrdersCount;
             }
         };
