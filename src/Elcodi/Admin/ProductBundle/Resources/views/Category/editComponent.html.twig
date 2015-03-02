@@ -56,11 +56,12 @@
                                         <details class="ph-n pt-m mb-n">
                                             <summary class="pl-l mb-n">{{ 'admin.category.field.slug.customize'|trans }}</summary>
                                             {{
-                                                form_widget(form.slug["#{language}_slug"], {
+                                                form_row(form.slug["#{language}_slug"], {
+                                                    label: false,
                                                     attr: {
                                                         placeholder: 'admin.category.field.slug.placeholder',
                                                         'data-tc-modules': 'slug',
-                                                        'data-tc-parent': 'elcodi_admin_product_form_type_category_name_'~ language ~'_name',
+                                                        'data-tc-parent': form.name["#{language}_name"].vars.id,
                                                     }
                                                 })
                                             }}

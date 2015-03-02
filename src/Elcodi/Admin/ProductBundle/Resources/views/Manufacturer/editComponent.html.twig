@@ -56,11 +56,12 @@
                                             <details class="ph-n pt-m mb-n">
                                                 <summary class="pl-l mb-n">{{ 'admin.manufacturer.field.slug.customize'|trans }}</summary>
                                                 {{
-                                                    form_widget(form.slug["#{language}_slug"], {
+                                                    form_row(form.slug["#{language}_slug"], {
+                                                        label: false,
                                                         attr: {
                                                             placeholder: 'admin.manufacturer.field.slug.placeholder',
                                                             'data-tc-modules': 'slug',
-                                                            'data-tc-parent': 'elcodi_admin_product_form_type_manufacturer_name_'~ language ~'_name',
+                                                            'data-tc-parent': form.name["#{language}_name"].vars.id,
                                                         }
                                                     })
                                                 }}
@@ -68,7 +69,8 @@
                                         </li>
                                         <li>
                                             {{
-                                                form_widget(form.description["#{language}_description"], {
+                                                form_row(form.description["#{language}_description"], {
+                                                    label: 'admin.manufacturer.field.description.title',
                                                     attr: {
                                                         placeholder: 'admin.manufacturer.field.description.placeholder',
                                                         'data-tc-modules': 'wysiwyg',
