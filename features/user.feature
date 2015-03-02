@@ -12,7 +12,7 @@ Feature: user
   Scenario: User should be able to logout
     Given I am logged as "noncustomer@customer.com" - "1234"
     Then I should be on "/login"
-    And I should see "Wrong"
+    And I should see "incorrectos"
     And I should not see "Homer"
 
   @user
@@ -20,18 +20,18 @@ Feature: user
     Given I am logged as "customer@customer.com" - "1234"
     And I am on "/user"
     Then I should be on "/user"
-    And I should see "Profile"
-    And I should see "My orders"
-    And I should see "My addresses"
+    And I should see "Perfil"
+    And I should see "Mis pedidos"
+    And I should see "Mis direcciones"
 
   @user
   Scenario: User management should be accessible if logged
     Given I am logged as "customer@customer.com" - "1234"
     And I am on "/user"
     Then I should be on "/user"
-    And I should see "Profile"
-    And I should see "My orders"
-    And I should see "My addresses"
+    And I should see "Perfil"
+    And I should see "Mis pedidos"
+    And I should see "Mis direcciones"
 
   @user
   Scenario: User logged should see its data in edit tab

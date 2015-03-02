@@ -6,7 +6,7 @@ Feature: cart
   @cart
   Scenario: See an empty cart
     Given I am on "/cart"
-    Then I should see "Your cart is empty"
+    Then I should see "Tu carrito está vacío"
 
   @cart
   Scenario: Add a product

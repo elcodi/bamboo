@@ -13,6 +13,6 @@ Feature: homepage
     Given I am on the homepage
     Then I should see category menu item
       | name   | active |
-      | New | true   |
+      | Nueva  | true   |
       | Mujer  | false  |
       | Hombre | false  |
