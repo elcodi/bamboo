@@ -43,6 +43,13 @@ class AddressController extends Controller
     use TemplateRenderTrait;
 
     /**
+     * @var string
+     *
+     * Checkout source, used for redirection.
+     */
+    const CHECKOUT_SOURCE = 'checkout';
+
+    /**
      * List addresses page
      *
      * @return Response Response
@@ -82,18 +89,23 @@ class AddressController extends Controller
      *
      * @param integer $id      The address id
      * @param Request $request The current request
+     * @param string           $source   The form source to redirect back
      *
      * @return Response Response
      *
      * @Route(
-     *      path = "/edit/{id}",
+     *      path = "/edit/{id}/{source}",
      *      name = "store_address_edit",
-     *      methods = {"GET","POST"}
+     *      methods = {"GET","POST"},
+     *      defaults = {
+     *          "source" = null,
+     *      },
      * )
      */
     public function editAction(
         $id,
-        Request $request
+        Request $request,
+        $source
     ) {
         $translator = $this->get('translator');
         $address = $this->get('elcodi.repository.customer')
@@ -126,8 +138,12 @@ class AddressController extends Controller
             $message = $translator->trans('store.address.save.response_ok');
             $this->addFlash('success', $message);
 
+            $redirectUrl = self::CHECKOUT_SOURCE == $source
+                ? 'store_checkout_address'
+                : 'store_address_list';
+
             return $this->redirect(
-                $this->generateUrl('store_address_list')
+                $this->generateUrl($redirectUrl)
             );
         } else {
             $entityManager->clear($address);
@@ -148,13 +164,17 @@ class AddressController extends Controller
      * @param AddressInterface $address  $address A new address entity
      * @param FormView         $formView The form view
      * @param boolean          $isValid  If the form is valid
+     * @param string|null      $source   The form source to redirect back
      *
      * @return Response Response
      *
      * @Route(
-     *      path = "/new",
+     *      path = "/new/{source}",
      *      name = "store_address_new",
-     *      methods = {"GET","POST"}
+     *      methods = {"GET","POST"},
+     *      defaults = {
+     *          "source" = null,
+     *      },
      * )
      *
      * @EntityAnnotation(
@@ -177,7 +197,8 @@ class AddressController extends Controller
     public function newAction(
         AddressInterface $address,
         FormView $formView,
-        $isValid
+        $isValid,
+        $source = null
     ) {
         if ($isValid) {
             $translator = $this->get('translator');
@@ -197,8 +218,12 @@ class AddressController extends Controller
             $message = $translator->trans('store.address.save.response_ok');
             $this->addFlash('success', $message);
 
+            $redirectUrl = self::CHECKOUT_SOURCE == $source
+                ? 'store_checkout_address'
+                : 'store_address_list';
+
             return $this->redirect(
-                $this->generateUrl('store_address_list')
+                $this->generateUrl($redirectUrl)
             );
         }
 
@@ -214,18 +239,23 @@ class AddressController extends Controller
     /**
      * Delete address
      *
-     * @param integer $id The address id
+     * @param integer     $id     The address id
+     * @param string|null $source The form source to redirect back
      *
      * @return Response Response
      *
      * @Route(
      *      path = "/delete/{id}",
      *      name = "store_address_delete",
-     *      methods = {"GET"}
+     *      methods = {"GET"},
+     *      defaults = {
+     *          "source" = null,
+     *      },
      * )
      */
     public function deleteAction(
-        $id
+        $id,
+        $source = null
     ) {
         $translator = $this->get('translator');
 
@@ -250,8 +280,12 @@ class AddressController extends Controller
         $message = $translator->trans('store.address.delete.response_ok');
         $this->addFlash('success', $message);
 
+        $redirectUrl = self::CHECKOUT_SOURCE == $source
+            ? 'store_checkout_address'
+            : 'store_address_list';
+
         return $this->redirect(
-            $this->generateUrl('store_address_list')
+            $this->generateUrl($redirectUrl)
         );
     }
 }

@@ -13,7 +13,7 @@
         </p>
             {% for address in addresses %}
 
-                {% include "@StoreTemplate/Modules/_address-item.html.twig" with {"address": address} %}
+                {% include "@StoreTemplate/Modules/_address-item.html.twig" with {"address": address, "source": "checkout"} %}
 
             {% endfor %}
 
