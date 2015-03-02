@@ -36,7 +36,7 @@ store:
                 send:
                     label: Save address
                 country:
-                    label: País
+                    label: Country
                 state:
                     label: State
                 province:
@@ -163,6 +163,14 @@ admin:
             comments:
                 title:       Comments
                 placeholder: e.g. It's a house
+            country:
+                title: Country
+            state:
+                title: State
+            province:
+                title: Province
+            city:
+                title: City
             save: Save address
 
     remember_user:
