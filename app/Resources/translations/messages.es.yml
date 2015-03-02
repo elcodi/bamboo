@@ -39,7 +39,7 @@ admin:
             save: Guardar dirección
 
     remember_user:
-        title: Olvidaste tu contraseña?
+        title: ¿Olvidaste tu contraseña?
         description: "No te preocupes, te mandamos un email para reiniciar tu contraseña."
 
     recover_user:
@@ -66,7 +66,7 @@ admin:
         action:
             login: Iniciar sesión
             logout: Cerrar sesión
-            remember: Recuérdame
+            remember: No recuerdo mi contraseña
 
     user:
         field:
@@ -250,7 +250,7 @@ admin:
         new:    Nuevo transportista
         list:   Listado de transportistas
         error:
-            no_active_carrier: Atención! No tienes ningún transportista activo
+            no_active_carrier: ¡Atención! No tienes ningún transportista activo
         field:
             name:
                 title: Nombre
@@ -536,8 +536,8 @@ admin:
         info:
             variants_before_saving: Podrás añadir variantes una vez hayas guardo el producto
         error:
-            no_category: Atención! Este producto no está asociado a ninguna categoria
-            no_manufacturer: Atención! Este producto no está asociado a ningun fabricante
+            no_category: ¡Atención! Este producto no está asociado a ninguna categoria
+            no_manufacturer: ¡Atención! Este producto no está asociado a ningun fabricante
         section:
             basic:
                 title: Detalles básicos
@@ -792,15 +792,15 @@ plugin:
     paypal:
         title: Configuración de la cuenta de paypal
         register:
-            title: No tienes una cuenta de paypal?
+            title: ¿No tienes una cuenta de paypal?
             call_to_action: Crear una cuenta de paypal
         settings:
             recipient_email: Correo electrónico de recibo de pagos de Paypal
     paymill:
         title: Configuración de la cuenta de Paymill
         register:
-            title: No tienes una cuenta de Paymill?
-            call_to_action: Crea una cuenta de paymill ahora!
+            title: ¿No tienes una cuenta de Paymill?
+            call_to_action: ¡Crea una cuenta de paymill ahora!
         settings:
             private_key: Clave privada de Paymill
             public_key: Clave pública de Paymill
