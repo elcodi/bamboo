@@ -1,35 +1,44 @@
 {% extends '@StoreTemplate/Layout/_layout.html.twig' %}
 
+
 {% form_theme form '@StoreTemplate/fields.html.twig' %}
 
-{% block content %}{% endblock content %}
+
+{% block content '' %}
+
 
 {% block prefooter %}
+
 <div class="form form-login">
     <div class="grid">
         <div class="col-1-2">
-                <legend><i class="fa fa-sign-in"></i> {{ "template.store_template_bundle.user.login.login_with_account"|trans }}</legend>
-                {{ form_start(form) }}
+            <legend>
+                <i class="fa fa-sign-in"></i>
+                {{ 'template.store_template_bundle.user.login.login_with_account'|trans }}
+            </legend>
+            {{ form_start(form) }}
                 {{ form_row(form.email) }}
                 {{ form_row(form.password) }}
                 <p class="buttons">
-                    {{ form_row( form.send , { 'attr': {'class': 'button button-secondary' } } ) }}
-                    <a class="button button-empty" href="{{ url("store_password_remember") }}">
-                        {{ "template.store_template_bundle.user.login.forgot_your_password"|trans }}
+                    {{ form_row(form.send , { attr: { class: 'button button-secondary' } }) }}
+                    <a class="button button-empty" href="{{ url('store_password_remember') }}">
+                        {{ 'template.store_template_bundle.user.login.forgot_your_password'|trans }}
                     </a>
                 </p>
-                {{ form_end(form) }}
+            {{ form_end(form) }}
         </div>
+
         <div class="col-1-2">
-            <legend>{{ "template.store_template_bundle.user.login.unregistered"|trans }}</legend>
-            <a class="button button-primary" href="{{ url("store_register") }}">
-                {{ "template.store_template_bundle.user.login.create_new_account"|trans }}
+            <legend>{{ 'template.store_template_bundle.user.login.unregistered'|trans }}</legend>
+            <a class="button button-primary" href="{{ url('store_register') }}">
+                {{ 'template.store_template_bundle.user.login.create_new_account'|trans }}
             </a>
-            <legend>{{ "template.store_template_bundle.user.login.login_with_social"|trans }}</legend>
+            <legend>{{ 'template.store_template_bundle.user.login.login_with_social'|trans }}</legend>
             <div class="login-social">
                 {% render url('hwi_oauth_connect') %}
             </div>
         </div>
     </div>
 </div>
+
 {% endblock prefooter %}

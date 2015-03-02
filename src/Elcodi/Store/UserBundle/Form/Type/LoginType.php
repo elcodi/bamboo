@@ -52,12 +52,6 @@ class LoginType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->setAction(
-                $this
-                    ->router
-                    ->generate('store_login_check')
-            )
-            ->setMethod('POST')
             ->add('email', 'email', [
                 'required' => true,
                 'label'    => 'store.login.form.fields.email.label',
@@ -66,7 +60,15 @@ class LoginType extends AbstractType
                 'required' => true,
                 'label'    => 'store.login.form.fields.password.label',
             ])
-            ->add('send', 'submit');
+            ->add('send', 'submit', [
+                'label' => 'store.login.form.fields.send.label',
+            ])
+            ->setAction(
+                $this
+                    ->router
+                    ->generate('store_login_check')
+            )
+        ;
     }
 
     /**

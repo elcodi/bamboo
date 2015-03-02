@@ -65,6 +65,7 @@ template:
             view:
                 title: Your shopping cart
                 total: Total
+                checkout_title: Check all the items and/or Apply coupons
                 checkout: Checkout
                 empty_basket: Empty basket
                 update_basket: Update basket
