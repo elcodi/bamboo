@@ -1,4 +1,4 @@
-<canvas height="100" data-tc-modules="charts" data-tc-type="doughnut" data-tc-text-no-data="{{ 'No data'|trans }}" data-tc-colors="[b55151,5b90bf,b48ead,96c47f,82b2af]">
+<canvas height="100" data-tc-modules="charts" data-tc-type="doughnut" data-tc-text-no-data="{{ 'admin.metrics.info.no_data'|trans }}" data-tc-colors="[b55151,5b90bf,b48ead,96c47f,82b2af]">
     {% for eventDescriptor, eventName in events %}
         {% set value = metric_beacon_unique(tracker, eventName, intervalContainer.elements) %}
         <input name="{{ eventDescriptor }}" type="hidden" value="{{ value }}" />

@@ -2,14 +2,14 @@
 
 
 {% block breadcrumb %}
+
     {% include "@AdminCore/Common/breadcrumb.html.twig" with {
-        breadcrumb: {
-            ("Reports"): {
-                "active" : true
-            }
-        }
+        breadcrumb: [
+            { name: 'admin.dashboard.title'|trans, active: true },
+        ]
     } %}
-{% endblock %}
+
+{% endblock breadcrumb %}
 
 
 {% block content %}

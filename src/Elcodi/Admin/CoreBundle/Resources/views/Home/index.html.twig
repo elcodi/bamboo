@@ -1,7 +1,15 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
 
-{% block breadcrumb %}<h1>Welcome!</h1>{% endblock %}
+{% block breadcrumb %}
+
+    {% include "@AdminCore/Common/breadcrumb.html.twig" with {
+        breadcrumb: [
+            { name: 'admin.dashboard.title'|trans, active: true },
+        ]
+    } %}
+
+{% endblock %}
 
 {% block header_actions %}
 
