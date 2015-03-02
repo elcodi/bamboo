@@ -8,7 +8,7 @@ Feature: admin
     Given In admin, I am logged as "admin@admin.com" - "1234"
     And I am on "/admin/products"
     Then I should see "Ibiza 4 Ever Spanish"
-    And I should see "New product"
+    And I should see "Nuevo producto"
 
   @admin @product
   Scenario: Add product

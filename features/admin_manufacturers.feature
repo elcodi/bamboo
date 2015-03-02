@@ -8,4 +8,4 @@ Feature: admin
     Given In admin, I am logged as "admin@admin.com" - "1234"
     And I am on "/admin/manufacturers"
     Then I should see "Levis"
-    And I should see "New manufacturer"
+    And I should see "Nuevo fabricante"

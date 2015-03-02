@@ -6,4 +6,4 @@ Feature: coupon
   @login
   Scenario: Enter the admin with no credentials
     Given I am on "/cart"
-    Then I should see "Your cart is empty"
+    Then I should see "Tu carrito está vacío"
