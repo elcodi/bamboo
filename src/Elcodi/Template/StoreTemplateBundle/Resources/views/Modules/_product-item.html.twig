@@ -17,7 +17,7 @@
 
     {% block pin_image %}
         <a href="{{ productRoute }}" class="product-thumbnail">
-            {% if product.reducedPrice.amount > 0 %}<span class="product-badge">{{ 'Offer'|trans }}</span> {% endif %}
+            {% if product.reducedPrice.amount > 0 %}<span class="product-badge">{{ 'template.store_template_bundle.product.item.offer'|trans }}</span> {% endif %}
             <img class="image" src="{{ product.images|length > 0 ? product.images.first|resize({
                 'width': 372,
                 'height': 291,

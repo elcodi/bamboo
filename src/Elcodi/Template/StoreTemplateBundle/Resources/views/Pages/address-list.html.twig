@@ -2,7 +2,7 @@
 
 
 {% block content %}
-    <h2>{{ 'Addresses'|trans }}</h2>
+    <h2>{{ 'template.store_template_bundle.address.list.addresses'|trans }}</h2>
     {% if addresses|length > 0 %}
     <div class="{% if addresses|length > 1 %}address-list{% endif %} address-list-profile">
         <a href="{{ url('store_address_new') }}" class="button button-secondary address-list-add">Add new address</a>
@@ -13,8 +13,8 @@
     {% else %}
         <div class="empty-page">
             <i class="fa fa-map-marker fa-3x"></i>
-            <h2 class="product-title">{{ "There are not addresses"|trans}}</h2>
-            <a href="{{ url('store_address_new') }}" class="button button-secondary">Add new address</a>
+            <h2 class="product-title">{{ "template.store_template_bundle.address.list.no_addresses"|trans}}</h2>
+            <a href="{{ url('store_address_new') }}" class="button button-secondary">{{ "template.store_template_bundle.address.list.add_new_address"|trans }}</a>
         </div>
 
     {% endif %}

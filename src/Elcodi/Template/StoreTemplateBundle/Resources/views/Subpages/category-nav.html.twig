@@ -1,6 +1,6 @@
 <ul class="category-nav">
     <li>
-        <a href="{{ url('store_homepage') }}" {% if not currentCategory %} class="active"{% endif %}>New</a>
+        <a href="{{ url('store_homepage') }}" {% if not currentCategory %} class="active"{% endif %}>{{ 'template.store_template_bundle.category.nav.new'|trans }}</a>
     </li>
     {% for category in categoryTree %}
         <li {% if ( currentCategory.id == category.entity.id or currentCategory.parent.id == category.entity.id ) and category.children|length > 0 %} class="expand" {% endif %}>

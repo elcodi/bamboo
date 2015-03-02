@@ -1,7 +1,7 @@
 {% extends '@StoreTemplate/Layout/_static.html.twig' %}
 
 {% block content %}
-    <h1>{{ 'Blog posts'|trans }}</h1>
+    <h1>{{ 'template.store_template_bundle.blog.post.list.blog_posts'|trans }}</h1>
     <div class="grid">
         {% for blog_post in blog_posts %}
             <div class="col-1-2">
@@ -16,16 +16,16 @@
                     <a href="{{ url("store_blog_post_view", {
                         'id': blog_post.id,
                         'slug': blog_post.path
-                    }) }}">{{ "Read more"|trans }}</a>
+                    }) }}">{{ "template.store_template_bundle.blog.post.list.read_more"|trans }}</a>
                 </div>
             </div>
         {% endfor %}
         <p>
             {% if number_of_pages > current_page %}
-                <a href="{{ url("store_blog_view", {"page": current_page+1}) }}" class="button button-secondary" style="float:right;">{{ "Next posts" }} <i class="fa fa-caret-right"></i></a>
+                <a href="{{ url("store_blog_view", {"page": current_page+1}) }}" class="button button-secondary" style="float:right;">{{ "template.store_template_bundle.blog.post.list.next_posts"|trans }} <i class="fa fa-caret-right"></i></a>
             {% endif %}
             {% if current_page > 1 %}
-            <a href="{{ url("store_blog_view", {"page": current_page-1}) }}" class="button button-secondary"><i class="fa fa-caret-left"></i> {{ "Previous posts" }}</a>
+            <a href="{{ url("store_blog_view", {"page": current_page-1}) }}" class="button button-secondary"><i class="fa fa-caret-left"></i> {{ "template.store_template_bundle.blog.post.list.previous_posts"|trans }}</a>
             {% endif %}
         </p>
     </div>

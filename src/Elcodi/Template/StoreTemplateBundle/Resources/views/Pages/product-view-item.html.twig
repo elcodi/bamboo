@@ -4,7 +4,7 @@
 {% extends '@StoreTemplate/Layout/_layout.html.twig' %}
 
 
-{% block title %}Bamboo - {{ 'Product'|trans }} {{ product.name }}{% endblock title %}
+{% block title %}Bamboo - {{ 'template.store_template_bundle.product.view_item.product'|trans }} {{ product.name }}{% endblock title %}
 
 
 {% block content %}
@@ -18,7 +18,7 @@
                    'height': 1024,
                    'type': 5
                }) : 'http://placehold.it/772x604' }}" alt="{{ product.name }}" class="product-thumbnail">
-                {% if product.reducedPrice.amount > 0 %}<span class="product-badge">{{ 'Offer'|trans }}</span> {% endif %}
+                {% if product.reducedPrice.amount > 0 %}<span class="product-badge">{{ 'template.store_template_bundle.product.view_item.offer'|trans }}</span> {% endif %}
                    <img src="{{ product.images|length > 0 ? product.images.first|resize({
                        'width': 772,
                        'height': 604,
@@ -41,27 +41,26 @@
                                {% endif %}
                                <a title="Add {{ product|purchasable_name }} to cart"
                                   class="fa fa-shopping-cart button button-secondary"
-                                  href="{{ url('store_cart_add_product', { id: product.id }) }}"> {{ 'Add to cart'|trans }}</a>
+                                  href="{{ url('store_cart_add_product', { id: product.id }) }}"> {{ 'template.store_template_bundle.product.view_item.add_to_cart'|trans }}</a>
                            </p>
                        </div>
                    {% endblock %}
 
                    {% block product_info_details %}
-                       <h3 class="product-title">{{ 'Description'|trans }}</h3>
+                       <h3 class="product-title">{{ 'template.store_template_bundle.product.view_item.description'|trans }}</h3>
                        <p>{{ product.description }}</p>
 
-                       <h3 class="product-title">{{ 'Stock'|trans }}</h3>
+                       <h3 class="product-title">{{ 'template.store_template_bundle.product.view_item.stock'|trans }}</h3>
 
                        {% if product.stock %}
-                           <p><i class="fa fa-check"></i> {{ 'This item is in stock and ready to ship!'|trans }}</p>
+                           <p><i class="fa fa-check"></i> {{ 'template.store_template_bundle.product.view_item.in_stock'|trans }}</p>
                        {% else %}
-                           <p><i class="fa fa-times"></i>{{ 'This item is currently not available'|trans }}</p>
+                           <p><i class="fa fa-times"></i>{{ 'template.store_template_bundle.product.view_item.not_available'|trans }}</p>
                        {% endif %}
 
-                       <h3 class="product-title">{{ 'Delivery'|trans }}</h3>
+                       <h3 class="product-title">{{ 'template.store_template_bundle.product.view_item.delivery'|trans }}</h3>
 
-                       <p><i class="fa fa-check"></i> {{ 'Free Delivery is available on this item'|trans }}</p>
-                       <p><i class="fa fa-truck"></i> {{ 'Usually dispatched within 24 hours'|trans }}</p>
+                       <p><i class="fa fa-truck"></i> {{ 'template.store_template_bundle.product.view_item.usually_dispatched_24_hours'|trans }}</p>
                    {% endblock %}
                {% endblock %}
            </div>

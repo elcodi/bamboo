@@ -643,7 +643,7 @@ admin:
                 description: The product must be clasified under one category and one manufacturer. They will be visible in your store and must help your customers to navigate in your store.
             pricing:
                 title: Pricing
-                description: "Set the price for your product, it doesn't include taxes or shipping. Also you can set a offer price."
+                description: "Set the price for your product, without including taxes nor shipping. Also you can set an offer price."
             dimensions:
                 title: Dimensions
                 description: "Set the dimensions and weight for your product. This information will be useful to calculate shipping costs."
@@ -683,7 +683,7 @@ admin:
                 description: "Set the principal attributes of this variant."
             pricing:
                 title: Pricing
-                description: "Set the price for your variant, it doesn't include taxes or shipping. Also you can set a offer price."
+                description: "Set the price for your variant, without including taxes or shipping. Also you can set an offer price."
             visibility:
                 title: Visibility
                 description: "Set this variant as visible or hidden."
@@ -776,8 +776,8 @@ admin:
                 title: "Order & Edit"
                 description:
                     - "Drag & Drop the categories to order or nest one inside others. (2 Level max)."
-                    - "Click on a category to edit."
-                    - "Click on a the trash to delete a category."
+                    - "Click a category to edit."
+                    - "Click the trash to delete a category."
 
     metadata:
         customize: Customize Metadata
