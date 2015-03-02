@@ -564,6 +564,9 @@ admin:
                 description: Configurar la página como visible u oculta, también puedes hacerla visible en tu página principal.
         error:
             cant_modify_permanent: Esta página es permanente y no puede ser modificada
+    profile:
+        single: Perfil
+        plural: Perfiles
 
     product:
         single:   Producto
@@ -616,6 +619,7 @@ admin:
                 options:
                     active: Habilitado
                     inactive: Deshabilitado
+
             metatitle:
                 placeholder: ej. Mi genial producto
             metadescription:
@@ -632,6 +636,7 @@ admin:
         error:
             no_category: ¡Atención! Este producto no está asociado a ninguna categoria
             no_manufacturer: ¡Atención! Este producto no está asociado a ningun fabricante
+
         section:
             basic:
                 title: Detalles básicos
@@ -653,6 +658,9 @@ admin:
                 description: "Configura este producto como visible u oculto, también puedes hacerlo visible en la página principal."
 
     variant:
+        single: Variante
+        plural: Variantes
+        edit:   Editar variante "%name%"
         new: Nueva variante
         saved: Cambios guardados
         single: variante
@@ -686,12 +694,12 @@ admin:
                 title: Visibilidad
                 description: "Configura esta variante como visible u oculto."
 
-
     manufacturer:
         single:   Fabricante
         plural:   Fabricantes
         edit:     Editar "%name%"
         new:      Nuevo fabricante
+        list:     Lista de fabricantes
         field:
             name:
                 title: Nombre del fabricante
@@ -729,10 +737,11 @@ admin:
                 description: Configura el fabricante como visible y activo.
 
     category:
-        single:   Categoria
+        single:   Categoría
         plural:   Categorias
         edit:     Editar "%name%"
-        new:      Nueva categoria
+        new:      Nueva categoría
+        list:     Lista de categoría
         in_store: Ver en la tienda
         field:
             name:

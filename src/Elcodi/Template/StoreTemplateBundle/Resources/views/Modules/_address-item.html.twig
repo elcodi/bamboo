@@ -16,7 +16,7 @@
                         >
                 <label for="billing-{{ address.id }}"></label>
             </div>
-            {{ 'Billing'|trans }}
+            {{ 'template.store_template_bundle.address.item.billing'|trans }}
         </div>
         <div class="address-item-selection-item">
             <div class="switch">
@@ -33,28 +33,28 @@
                         >
                 <label for="delivery-{{ address.id }}"></label>
             </div>
-            {{ 'Delivery'|trans }}
+            {{ 'template.store_template_bundle.address.item.delivery'|trans }}
         </div>
     </dd>
-    <dt>{{ 'Address name'|trans }}</dt>
+    <dt>{{ 'template.store_template_bundle.address.item.address_name'|trans }}</dt>
     <dd><strong>{{ address.name }}</strong></dd>
-    <dt>{{ 'Fullname'|trans }}</dt>
+    <dt>{{ 'template.store_template_bundle.address.item.fullname'|trans }}</dt>
     <dd>{{ address.recipientName }} {{ address.recipientSurname }}</dd>
-    <dt>{{ 'Address'|trans }}</dt>
+    <dt>{{ 'template.store_template_bundle.address.item.address'|trans }}</dt>
     <dd>{{ address.address }}<br/>{{ address.address_more }}</dd>
-    <dt>{{ 'Phone / Mobile'|trans }}</dt>
+    <dt>{{ 'template.store_template_bundle.address.item.phone_and_mobile'|trans }}</dt>
     <dd>{{ address.phone }} / {{ address.mobile }}</dd>
-    <dt>{{ 'City'|trans }}</dt>
+    <dt>{{ 'template.store_template_bundle.address.item.city'|trans }}</dt>
     <dd>{% for locationData in cities_info[address.city] %}{{ locationData.name }}, {% endfor %}</dd>
-    <dt>{{ 'Postalcode'|trans }}</dt>
+    <dt>{{ 'template.store_template_bundle.address.item.postal_code'|trans }}</dt>
     <dd>{{ address.postalCode }}</dd>
-    <dt>{{ 'Comment'|trans }}</dt>
+    <dt>{{ 'template.store_template_bundle.address.item.comment'|trans }}</dt>
     <dd>{{ address.comments|default('-') }}</dd>
-    <dt class="address-item-actions">{{ 'Actions'|trans }}</dt>
+    <dt class="address-item-actions">{{ 'template.store_template_bundle.address.item.actions'|trans }}</dt>
     <dd class="address-item-actions">
         <a href="{{ url('store_address_edit',{id:address.id}) }}" class="button button-primary"><i
-                    class="fa fa-pencil"></i> {{ 'Edit'|trans }}</a>
+                    class="fa fa-pencil"></i> {{ 'template.store_template_bundle.address.item.edit'|trans }}</a>
         <a href="{{ url('store_address_delete',{id:address.id}) }}" class="button button-ko"><i
-                    class="fa fa-trash-o"></i> {{ 'Remove'|trans }}</a>
+                    class="fa fa-trash-o"></i> {{ 'template.store_template_bundle.address.item.remove'|trans }}</a>
     </dd>
 </dl>

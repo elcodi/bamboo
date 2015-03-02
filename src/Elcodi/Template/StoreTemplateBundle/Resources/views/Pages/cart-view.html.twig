@@ -7,7 +7,7 @@
             <h1 class="checkout-title">{{ 'Check all the items and/or Apply coupons' }}</h1>
             <p class="checkout-actions checkout-actions-top">
                 {% include "@StoreTemplate/Modules/_checkout-progress.html.twig" with {"step": "1"} %}
-                <a class="button button-secondary desktop" href="{{ url('store_checkout_address') }}">{{ 'Checkout'|trans }} &nbsp;<i class="fa fa-arrow-right"></i> </a>
+                <a class="button button-secondary desktop" href="{{ url('store_checkout_address') }}">{{ 'template.store_template_bundle.cart.view.checkout'|trans }} &nbsp;<i class="fa fa-arrow-right"></i> </a>
             </p>
         {{ form_start(form) }}
             <div class="cart-list">
@@ -26,13 +26,13 @@
                     "shippingAmount": cart.shippingAmount
                 } %}
             </div>
-            <p class="cart-total"><span>{{ 'Total'|trans }} </span>{{ cart.amount|print_convert_money() }}</p>
+            <p class="cart-total"><span>{{ 'template.store_template_bundle.cart.view.total'|trans }} </span>{{ cart.amount|print_convert_money() }}</p>
 
             <div class="cart-actions">
-                <a class="button button-secondary" href="{{ url('store_checkout_address') }}">{{ 'Checkout'|trans }} &nbsp;<i class="fa fa-arrow-right"></i> </a>
+                <a class="button button-secondary" href="{{ url('store_checkout_address') }}">{{ 'template.store_template_bundle.cart.view.checkout'|trans }} &nbsp;<i class="fa fa-arrow-right"></i> </a>
                 {{ form_widget(form.update, { 'attr': {'class': 'button button-empty fa fa-refresh'} } ) }}
-                <a class="button button-empty" href="{{ url('store_cart_empty') }}"><i class="fa fa-trash-o"></i> {{ 'Empty basket'|trans }}</a>
-                <a class="button button-empty cart-actions-continue" href="{{ url('store_homepage') }}"><i class="fa fa-arrow-left"></i> {{ 'Continue shopping'|trans }}</a>
+                <a class="button button-empty" href="{{ url('store_cart_empty') }}"><i class="fa fa-trash-o"></i> {{ 'template.store_template_bundle.cart.view.empty_basket'|trans }}</a>
+                <a class="button button-empty cart-actions-continue" href="{{ url('store_homepage') }}"><i class="fa fa-arrow-left"></i> {{ 'template.store_template_bundle.cart.view.continue_shopping'|trans }}</a>
             </div>
         {{ form_end(form) }}
 
@@ -43,8 +43,8 @@
     {% else %}
         <div class="empty-page">
             <i class="fa fa-shopping-cart fa-3x"></i>
-            <h2 class="product-title">{{ "Your cart is empty"|trans}}</h2>
-            <a class="button button-secondary" href="{{ url('store_homepage') }}">{{ 'Continue shopping'|trans }} <i class="fa fa-arrow-right"></i></a>
+            <h2 class="product-title">{{ "template.store_template_bundle.cart.view.your_cart_is_empty"|trans}}</h2>
+            <a class="button button-secondary" href="{{ url('store_homepage') }}">{{ 'template.store_template_bundle.cart.view.continue_shopping'|trans }} <i class="fa fa-arrow-right"></i></a>
         </div>
     {% endif %}
 

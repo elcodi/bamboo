@@ -2,11 +2,11 @@
 
 {% block content %}
     <div class="order-list">
-        <h1>{{ 'Orders'|trans }}</h1>
+        <h1>{{ 'template.store_template_bundle.order.list.orders'|trans }}</h1>
         {% for order in orders %}
         <dl class="order-item">
             <dt class="order-item-image">
-                {{ 'Image'|trans }}
+                {{ 'template.store_template_bundle.order.list.image'|trans }}
             </dt>
             <dd class="order-item-image">
                 <img src="{{ order.orderLines.first.product.principalImage|resize({
@@ -16,22 +16,22 @@
                 }}" alt="{{ line.product.name }}" class="product-thumbnail" />
             </dd>
             <dt class="order-item-id">
-                {{ 'Number of order'|trans }}
+                {{ 'template.store_template_bundle.order.list.number_of_order'|trans }}
             </dt>
             <dd class="order-item-id">
-                <a href="{{ url('store_order_view', { id: order.id }) }}" class="order-title">{{ 'Order #'|trans }}{{ order.id }}</a>
+                <a href="{{ url('store_order_view', { id: order.id }) }}" class="order-title">{{ 'template.store_template_bundle.order.list.order_number'|trans }}{{ order.id }}</a>
             </dd>
-            <dt class="order-item-state">{{ 'State'|trans }}</dt>
+            <dt class="order-item-state">{{ 'template.store_template_bundle.order.list.state'|trans }}</dt>
             <dd class="order-item-state">{{ order.lastOrderHistory.state }}</dd>
-            <dt class="order-item-date">{{ 'Date'|trans }}</dt>
+            <dt class="order-item-date">{{ 'template.store_template_bundle.order.list.date'|trans }}</dt>
             <dd class="order-item-date">{{ order.createdAt|date('d.m.Y') }}</dd>
-            <dt class="order-item-total">{{ 'Total'|trans }}</dt>
+            <dt class="order-item-total">{{ 'template.store_template_bundle.order.list.total'|trans }}</dt>
             <dd class="order-item-total">{{ order.amount|print_convert_money() }}</dd>
         </dl>
         {% else %}
             <div class="empty-page">
                 <i class="fa fa-shopping-cart fa-3x"></i>
-                <h2 class="product-title">{{ "There are no orders"|trans}}</h2>
+                <h2 class="product-title">{{ "template.store_template_bundle.order.list.no_orders"|trans}}</h2>
             </div>
         {% endfor %}
     </div>

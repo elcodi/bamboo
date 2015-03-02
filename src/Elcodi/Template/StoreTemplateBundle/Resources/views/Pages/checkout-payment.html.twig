@@ -1,9 +1,9 @@
 {% extends '@StoreTemplate/Layout/_checkout.html.twig' %}
 
 {% block content_checkout %}
-<h1 class="checkout-title">{{ 'Set the shipping & the payment'|trans }}</h1>
+<h1 class="checkout-title">{{ 'template.store_template_bundle.checkout.payment.set_shipping_payment'|trans }}</h1>
 <p class="checkout-actions checkout-actions-top">
-    <button class="button button-secondary js-continue desktop" type="submit">{{ 'Continue'|trans }}  <i class="fa fa-arrow-right"></i></button>
+    <button class="button button-secondary js-continue desktop" type="submit">{{ 'template.store_template_bundle.checkout.payment.continue'|trans }}  <i class="fa fa-arrow-right"></i></button>
     <a class="button desktop" href="{{ url('store_checkout_address') }}"> <i class="fa fa-arrow-left"></i> {{ 'Back' }}</a>
     {% include "@StoreTemplate/Modules/_checkout-progress.html.twig" with {"step": "3"} %}
 </p>
@@ -12,7 +12,7 @@
     <div class="form form-checkout">
             {% set actualShippingRange = cart.shippingRange.id %}
             <div class="grid grid-pad">
-                <h2>{{ 'Shipping carrier/method'|trans }}</h2>
+                <h2>{{ 'template.store_template_bundle.checkout.payment.shipping_carrier_method'|trans }}</h2>
                 {% for shippingRange in shippingRanges %}
                     {% if shippingRange.id == actualShippingRange %}
                         <div class="col-1-3"><i class="fa fa-caret-right"></i> <strong>{{ shippingRange.carrier.name }} - {{ shippingRange.price|print_convert_money }}</strong></div>
@@ -29,23 +29,23 @@
     {% endif %}
     <div class="form form-checkout">
         <ol class="grid grid-pad">
-            <h2>{{ 'Payment method'|trans }}</h2>
+            <h2>{{ 'template.store_template_bundle.checkout.payment.payment_method'|trans }}</h2>
             <li class="col-1-3">
                 <label>
                     <input data-url="" type="radio" id="field-paymill" name="field-method" checked="checked" />
-                    {{ 'Credit/Debit card'|trans }}
+                    {{ 'template.store_template_bundle.checkout.payment.credit_debit_card'|trans }}
                 </label>
             </li>
             <li class="col-1-3">
                 <label>
                     <input data-url="{{ url('paypal_web_checkout_execute') }}" type="radio" id="field-paypal" name="field-method" />
-                    {{ 'Paypal'|trans }}
+                    {{ 'template.store_template_bundle.checkout.payment.paypal'|trans }}
                 </label>
             </li>
             <li class="col-1-3">
                 <label>
                     <input data-url="{{ url('freepayment_execute') }}" type="radio" id="field-card" name="field-method"  />
-                    {{ 'Free'|trans }}
+                    {{ 'template.store_template_bundle.checkout.payment.bankwire'|trans }}
                 </label>
             </li>
         </ol>
@@ -57,8 +57,8 @@
     ) }}
 </div>
 <p class="checkout-actions checkout-actions-bottom">
-    <a class="button" href="{{ url('store_checkout_address') }}"> <i class="fa fa-arrow-left"></i> {{ 'Back' }}</a>
-    <button class="button button-secondary js-continue" type="submit">{{ 'Continue'|trans }}  <i class="fa fa-arrow-right"></i></button>
+    <a class="button" href="{{ url('store_checkout_address') }}"> <i class="fa fa-arrow-left"></i> {{ 'template.store_template_bundle.checkout.payment.back'|trans }}</a>
+    <button class="button button-secondary js-continue" type="submit">{{ 'template.store_template_bundle.checkout.payment.continue'|trans }}  <i class="fa fa-arrow-right"></i></button>
 </p>
 {% endblock content_checkout %}
 

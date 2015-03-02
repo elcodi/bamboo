@@ -36,7 +36,7 @@
             {% endif %}
             <a title="Add {{ variant|purchasable_name }} to cart"
                class="fa fa-shopping-cart button button-secondary"
-               href="{{ url('store_cart_add_product_variant', { id: variant.id }) }}"> {{ 'Add to cart'|trans }}</a>
+               href="{{ url('store_cart_add_product_variant', { id: variant.id }) }}"> {{ 'template.store_template_bundle.product.view_item.add_to_cart'|trans }}</a>
         </p>
     </div>
 

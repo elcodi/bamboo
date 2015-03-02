@@ -7,29 +7,29 @@
     {% endif %}
     <div class="grid">
         <div class="col-1-1">
-            <div class="form-row">{{ form_row(form.name, { 'attr': {'placeholder':'e.g. My default address'|trans }} ) }}</div>
+            <div class="form-row">{{ form_row(form.name, { 'attr': {'placeholder':'template.store_template_bundle.address.new.name.example'|trans }} ) }}</div>
             <hr class="rule" />
         </div>
     </div>
     <div class="grid">
         <div class="col-1-2 form-row">
-            {{ form_row(form.recipientName, { 'attr': {'placeholder':'e.g. John'|trans }}) }}
+            {{ form_row(form.recipientName, { 'attr': {'placeholder':'template.store_template_bundle.address.new.recipient.example_name'|trans }}) }}
         </div>
         <div class="col-1-2 form-row">
-            {{ form_row(form.recipientSurname, { 'attr': {'placeholder':'e.g. Doe'|trans }}) }}
+            {{ form_row(form.recipientSurname, { 'attr': {'placeholder':'template.store_template_bundle.address.new.recipient.example_surname'|trans }}) }}
         </div>
     </div>
     <div class="grid">
         <div class="col-1-1 form-row">
-            {{ form_row(form.address, { 'attr' : {'placeholder':'e.g. Awesome Street, 21'|trans }}) }}
+            {{ form_row(form.address, { 'attr' : {'placeholder':'template.store_template_bundle.address.new.address.example'|trans }}) }}
         </div>
     </div>
     <div class="grid">
         <div class="col-2-3 form-row">
-            {{ form_row(form.addressMore, { 'attr' : {'placeholder':'e.g. Doe Enterprises '|trans }} ) }}
+            {{ form_row(form.addressMore, { 'attr' : {'placeholder':'template.store_template_bundle.address.new.address_more.example'|trans }} ) }}
         </div>
         <div class="col-1-3 form-row">
-            {{ form_row(form.postalcode, { 'attr' : {'placeholder':'e.g. 08080'|trans }} ) }}
+            {{ form_row(form.postalcode, { 'attr' : {'placeholder':'template.store_template_bundle.address.new.postalcode.example'|trans }} ) }}
         </div>
     </div>
 
@@ -38,20 +38,20 @@
     {{ form_row(form.city) }}
     <div class="grid">
         <div class="col-1-2 form-row">
-            {{ form_row(form.phone, { 'attr': {'placeholder':'e.g. 935 555 555'|trans }}) }}
+            {{ form_row(form.phone, { 'attr': {'placeholder':'template.store_template_bundle.address.new.phone.example'|trans }}) }}
         </div>
         <div class="col-1-2 form-row">
-            {{ form_row(form.mobile, { 'attr': {'placeholder':'e.g. 555 555 555'|trans }}) }}
+            {{ form_row(form.mobile, { 'attr': {'placeholder':'template.store_template_bundle.address.new.mobile.example'|trans }}) }}
         </div>
     </div>
     <div class="grid">
         <div class="col-1-1 form-row">
-            {{ form_row(form.comments, { 'attr' : {'placeholder': "e.g. It's a house"|trans }}) }}
+            {{ form_row(form.comments, { 'attr' : {'placeholder': "template.store_template_bundle.address.new.comments.example"|trans }}) }}
         </div>
     </div>
     <div class="form-row">
         {{ form_widget(form.send, { 'attr': {'class': 'button button-primary' } }) }}
-        <a href="{{ url('store_address_list') }}" class="button">Cancel</a>
+        <a href="{{ url('store_address_list') }}" class="button">{{ "template.store_template_bundle.address.new.cancel"|trans }}</a>
     </div>
     {{ form_end(form) }}
 </div>

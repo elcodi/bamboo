@@ -1,19 +1,19 @@
 <dl class="{{ class|default('coupon-item') }}">
-    <dt class="coupon-item-code">{{ 'Coupon'|trans }}</dt>
+    <dt class="coupon-item-code">{{ 'template.store_template_bundle.coupon.item.coupon'|trans }}</dt>
     <dd class="coupon-item-code"><strong>{{ coupon.code }}</strong></dd>
-    <dt class="coupon-item-name">{{ 'Description'|trans }}</dt>
+    <dt class="coupon-item-name">{{ 'template.store_template_bundle.coupon.item.description'|trans }}</dt>
     <dd class="coupon-item-name">{{ coupon.name }}</dd>
-    <dt class="coupon-item-units">{{ 'Units'|trans }}</dt>
+    <dt class="coupon-item-units">{{ 'template.store_template_bundle.coupon.item.units'|trans }}</dt>
     <dd class="coupon-item-units">1</dd>
     {% if coupon.type == '2'%}
         {% set couponValue =  coupon.discount ~ '%' %}
     {% else %}
         {% set couponValue =  '-' ~ coupon.absolutePrice|print_convert_money() %}
     {% endif %}
-    <dt class="coupon-item-value">{{ 'Value'|trans }}</dt>
+    <dt class="coupon-item-value">{{ 'template.store_template_bundle.coupon.item.value'|trans }}</dt>
     <dd class="coupon-item-value">{{ couponValue }}</dd>
-    <dt class="coupon-item-total">{{ 'Total'|trans }}</dt>
+    <dt class="coupon-item-total">{{ 'template.store_template_bundle.coupon.item.total'|trans }}</dt>
     <dd class="coupon-item-total">-{{ coupon.absolutePrice|print_convert_money() }}</dd>
-    <dt class="coupon-item-remove">{{ 'Remove'|trans }}</dt>
+    <dt class="coupon-item-remove">{{ 'template.store_template_bundle.coupon.item.remove'|trans }}</dt>
     <dd class="coupon-item-remove"><a href="{{ url('store_coupon_remove', { code: coupon.code }) }}" class="fa fa-trash-o button"></a></dd>
 </dl>

@@ -3,9 +3,9 @@
 
 {% block content %}
     {% if address.name %}
-        <h2>{{ 'Edit address'|trans }}</h2>
+        <h2>{{ 'template.store_template_bundle.address.edit.edit_address'|trans }}</h2>
     {% else %}
-        <h2>{{ 'Add new address'|trans }}</h2>
+        <h2>{{ 'template.store_template_bundle.address.edit.add_new_address'|trans }}</h2>
     {% endif %}
 
     {% include '@StoreTemplate/Modules/_address-new.html.twig' with {'form' : form} %}

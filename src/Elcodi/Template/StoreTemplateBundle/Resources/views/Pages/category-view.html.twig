@@ -1,16 +1,9 @@
 {% extends '@StoreTemplate/Layout/_layout.html.twig' %}
 
 
-{% block title %}Bamboo - Category {{ category.name }}{% endblock title %}
+{% block title %}{{ "template.store_template_bundle.category.view.category"|trans }}{{ category.name }}{% endblock title %}
 
 
 {% block content %}
 	{% include '@StoreTemplate/Modules/_product-list.html.twig' with {'products' : products} %}
 {% endblock content %}
-
-
-{% block pixels %}
-    <script>
-        _etc.push([472374892, 'category_view_' + {{ category.id }}]);
-    </script>
-{% endblock %}

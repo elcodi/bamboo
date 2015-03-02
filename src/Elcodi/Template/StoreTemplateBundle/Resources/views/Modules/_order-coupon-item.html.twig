@@ -1,17 +1,17 @@
 <dl class="coupon-item">
-    <dt class="coupon-item-code">{{ 'Coupon'|trans }}</dt>
+    <dt class="coupon-item-code">{{ 'template.store_template_bundle.order.coupon.coupon'|trans }}</dt>
     <dd class="coupon-item-code"><strong>{{ orderCoupon.code }}</strong></dd>
-    <dt class="coupon-item-name">{{ 'Description'|trans }}</dt>
+    <dt class="coupon-item-name">{{ 'template.store_template_bundle.order.coupon.description'|trans }}</dt>
     <dd class="coupon-item-name">{{ orderCoupon.name }}</dd>
-    <dt class="coupon-item-units">{{ 'Units'|trans }}</dt>
+    <dt class="coupon-item-units">{{ 'template.store_template_bundle.order.coupon.units'|trans }}</dt>
     <dd class="coupon-item-units">1</dd>
     {% if orderCoupon.type == '1'%}
         {% set couponValue =  orderCoupon.discount ~ '%' %}
     {% else %}
         {% set couponValue =  '-' ~ orderCoupon.amount|print_convert_money() %}
     {% endif %}
-    <dt class="coupon-item-value">{{ 'Value'|trans }}</dt>
+    <dt class="coupon-item-value">{{ 'template.store_template_bundle.order.coupon.values'|trans }}</dt>
     <dd class="coupon-item-value">{{ couponValue }}</dd>
-    <dt class="coupon-item-total">{{ 'Total'|trans }}</dt>
+    <dt class="coupon-item-total">{{ 'template.store_template_bundle.order.coupon.total'|trans }}</dt>
     <dd class="coupon-item-total">-{{ orderCoupon.amount|print_convert_money() }}</dd>
 </dl>

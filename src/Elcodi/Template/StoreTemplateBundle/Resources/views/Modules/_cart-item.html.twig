@@ -4,7 +4,7 @@
 {% set productRoute = url('store_product_view', { slug: product.slug, id: product.id }) %}
 
 <dl class="cart-item">
-    <dt class="cart-item-image">{{ 'Image'|trans }}</dt>
+    <dt class="cart-item-image">{{ 'template.store_template_bundle.cart.item.image'|trans }}</dt>
     <dd class="cart-item-image">
         <a href="{{ productRoute }}">
             <img src="{{ product.images|length > 0 ? product.images.first|resize({
@@ -14,19 +14,19 @@
             }}" alt="{{ product.name }}" class="product-thumbnail" />
         </a>
     </dd>
-    <dt class="cart-item-name">{{ 'Item'|trans }}</dt>
+    <dt class="cart-item-name">{{ 'template.store_template_bundle.cart.item.item'|trans }}</dt>
     <dd class="cart-item-name"><a href="{{ productRoute }}" class="product-title">{{ product.name }}</a></dd>
-    <dt class="cart-item-units">{{ 'Units'|trans }}</dt>
+    <dt class="cart-item-units">{{ 'template.store_template_bundle.cart.item.units'|trans }}</dt>
     <dd class="cart-item-units">{{ form_row(line.quantity) }}</dd>
     {% if purchasable.reducedPrice.amount > 0 %}
         {% set purchasablePrice = purchasable.ReducedPrice %}
     {% else %}
         {% set purchasablePrice = purchasable.price %}
-    <dt class="cart-item-price">{{ 'Price'|trans }}</dt>
+    <dt class="cart-item-price">{{ 'template.store_template_bundle.cart.item.price'|trans }}</dt>
     <dd class="cart-item-price">{{ purchasablePrice|print_convert_money() }}</dd>
-    <dt class="cart-item-total">{{ 'Total'|trans }}</dt>
+    <dt class="cart-item-total">{{ 'template.store_template_bundle.cart.item.total'|trans }}</dt>
     <dd class="cart-item-total">{{ lineObject.amount|print_convert_money() }}</dd>
     {% endif %}
-    <dt class="cart-item-remove">{{ 'Remove'|trans }}</dt>
+    <dt class="cart-item-remove">{{ 'template.store_template_bundle.cart.item.remove'|trans }}</dt>
     <dd class="cart-item-remove"><a href="{{ url('store_cartline_remove', { id: lineObject.id }) }}" class="fa fa-trash-o button"></a></dd>
 </dl>

@@ -2,24 +2,24 @@
 
 
 {% block content %}
-    <h1>{{ 'Dashboard'|trans }}</h1>
+    <h1>{{ 'template.store_template_bundle.user.home.dashboard'|trans }}</h1>
     <div class="grid grid-pad user-home">
         <div class="col-1-4">
             <a href="{{ url("store_user_edit") }}">
                 <i class="fa fa-user fa-3x"></i>
-                {{ "Profile"|trans }}
+                {{ "template.store_template_bundle.user.home.profile"|trans }}
             </a>
         </div>
         <div class="col-1-4">
             <a href="{{ url("store_order_list") }}">
                 <i class="fa fa-files-o fa-3x"></i>
-                {{ "My orders"|trans }}
+                {{ "template.store_template_bundle.user.home.my_orders"|trans }}
             </a>
         </div>
         <div class="col-1-4">
             <a href="{{ url("store_address_list") }}">
                 <i class="fa fa-map-marker fa-3x"></i>
-                {{ "My addresses"|trans }}
+                {{ "template.store_template_bundle.user.home.my_addresses"|trans }}
             </a>
         </div>
     </div>
