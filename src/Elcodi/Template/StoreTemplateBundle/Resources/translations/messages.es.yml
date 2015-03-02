@@ -63,6 +63,7 @@ template:
                 total: Total
                 remove: Eliminar
             view:
+                title: Tu carrito de la compra
                 total: Total
                 checkout: Tramitar pedido
                 empty_basket: Vaciar carrito
