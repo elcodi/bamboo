@@ -2,7 +2,7 @@
     <ul>
         <li{% if type == 1 %} class="active"{% endif %}>
             <a title="tab 1" href="{{ url("admin_reports_today") }}">
-                <span class='dashboard-tabs-range'>{{ 'Today'|trans }}</span>
+                <span class='dashboard-tabs-range'>{{ 'admin.dashboard.chart_range.today'|trans }}</span>
                 {% set todayIntervalContainer = metric_create_interval_container(1) %}
                 <span class='dashboard-tabs-amount'>
                     {{ metric_accumulation(store_tracker, 'order_total', todayIntervalContainer.elements)|print_money_from_value }}
@@ -18,7 +18,7 @@
 
         <li{% if type == 2 %} class="active"{% endif %}>
             <a title="tab 2" href="{{ url("admin_reports_yesterday") }}">
-                <span class='dashboard-tabs-range'>{{ 'Yesterday'|trans }}</span>
+                <span class='dashboard-tabs-range'>{{ 'admin.dashboard.chart_range.yesterday'|trans }}</span>
                 {% set yesterdayIntervalContainer = metric_create_interval_container(2) %}
                 <span class='dashboard-tabs-amount'>
                     {{ metric_accumulation(store_tracker, 'order_total', yesterdayIntervalContainer.elements)|print_money_from_value }}
@@ -34,7 +34,7 @@
 
         <li{% if type == 3 %} class="active"{% endif %}>
             <a title="tab 3" href="{{ url("admin_reports_last_week") }}">
-                <span class='dashboard-tabs-range'>{{ 'Last 7 days'|trans }}</span>
+                <span class='dashboard-tabs-range'>{{ 'admin.dashboard.chart_range.last7days'|trans }}</span>
                 {% set lastWeekIntervalContainer = metric_create_interval_container(1) %}
                 <span class='dashboard-tabs-amount'>
                     {{ metric_accumulation(store_tracker, 'order_total', lastWeekIntervalContainer.elements)|print_money_from_value }}
@@ -50,7 +50,7 @@
 
         <li{% if type == 4 %} class="active"{% endif %}>
             <a title="tab 4" href="{{ url("admin_reports_last_month") }}">
-                <span class='dashboard-tabs-range'>{{ 'Last 30 days'|trans }}</span>
+                <span class='dashboard-tabs-range'>{{ 'admin.dashboard.chart_range.last30days'|trans }}</span>
                 {% set lastMonthIntervalContainer = metric_create_interval_container(4) %}
                 <span class='dashboard-tabs-amount'>
                     {{ metric_accumulation(store_tracker, 'order_total', lastMonthIntervalContainer.elements)|print_money_from_value }}
@@ -66,7 +66,7 @@
 
         <li{% if type == 5 %} class="active"{% endif %}>
             <a title="tab 5" href="{{ url("admin_reports_last_quarter") }}">
-                <span class='dashboard-tabs-range'>{{ 'Last 90 days'|trans }}</span>
+                <span class='dashboard-tabs-range'>{{ 'admin.dashboard.chart_range.last90days'|trans }}</span>
                 {% set lastQuarterIntervalContainer = metric_create_interval_container(5) %}
                 <span class='dashboard-tabs-amount'>
                     {{ metric_accumulation(store_tracker, 'order_total', lastQuarterIntervalContainer.elements)|print_money_from_value }}
@@ -85,7 +85,7 @@
 <div class="box-background dashboard-panels">
     <div class="grid">
         <div class="col-1-2 pr-l">
-            <h2>{{ 'Visitors' }}</h2>
+            <h2>{{ 'admin.dashboard.chart.visitors.title'|trans }}</h2>
             {% include 'AdminMetricBundle:Metric:metricLine.html.twig' with {
                 'tracker': store_tracker,
                 'event': 'pv',
@@ -93,7 +93,7 @@
             } %}
         </div>
         <div class="col-1-2 pr-l">
-            <h2>{{ 'Sales' }}</h2>
+            <h2>{{ 'admin.dashboard.chart.sales.title'|trans }}</h2>
             {% include 'AdminMetricBundle:Metric:metricOrderTotals.html.twig' with {
                 'tracker': store_tracker,
                 'event': 'order_total',
@@ -104,14 +104,14 @@
     <div class="grid">
         <div class="col-1-3">
             <div class="box-none pa-n ta-c">
-                <h2>{{ 'Cart conversion'|trans }}</h2>
+                <h2>{{ 'admin.dashboard.chart.cart_conversion.title'|trans }}</h2>
                 {% include 'AdminMetricBundle:Metric:metricCheese.html.twig' with {
                     'tracker': store_tracker,
                     'events': {
-                        'Cart view': 'pv_store_cart_view',
-                        'Billing/Shipping': 'pv_store_checkout_address',
-                        'Payment': 'pv_store_checkout_payment',
-                        'Ordered': 'order_nb',
+                        ('admin.dashboard.chart.cart_conversion.cart_view'|trans): 'pv_store_cart_view',
+                        ('admin.dashboard.chart.cart_conversion.billing_shipping'|trans): 'pv_store_checkout_address',
+                        ('admin.dashboard.chart.cart_conversion.payment'|trans): 'pv_store_checkout_payment',
+                        ('admin.dashboard.chart.cart_conversion.ordered'|trans): 'order_nb',
                     },
                     'intervalContainer': intervalContainer,
                 } %}
@@ -119,12 +119,12 @@
         </div>
         <div class="col-1-3">
             <div class="box-none pa-n ta-c">
-                <h2>{{ 'Devices'|trans }}</h2>
+                <h2>{{ 'admin.dashboard.chart.devices.title'|trans }}</h2>
                 {% include 'AdminMetricBundle:Metric:metricCheese.html.twig' with {
                     'tracker': store_tracker,
                     'events': {
-                        'Mobile': 'mob',
-                        'No Mobile': 'no_mob',
+                        ('admin.dashboard.chart.devices.mobile'|trans): 'mob',
+                        ('admin.dashboard.chart.devices.desktop'|trans): 'no_mob',
                     },
                     'intervalContainer': intervalContainer,
                 } %}
@@ -132,13 +132,13 @@
         </div>
         <div class="col-1-3">
             <div class="box-none pa-n ta-c">
-                <h2>{{ 'Traffic Source'|trans }}</h2>
+                <h2>{{ 'admin.dashboard.chart.traffic_source.title'|trans }}</h2>
                 {% include 'AdminMetricBundle:Metric:metricCheese.html.twig' with {
                     'tracker': store_tracker,
                     'events': {
-                        'Direct': 'source_dir',
-                        'Referrals': 'source_ref',
-                        'Search Engines': 'source_se',
+                        ('admin.dashboard.chart.traffic_source.direct'|trans): 'source_dir',
+                        ('admin.dashboard.chart.traffic_source.referrals'|trans): 'source_ref',
+                        ('admin.dashboard.chart.traffic_source.search_engine'|trans): 'source_se',
                     },
                     'intervalContainer': intervalContainer,
                 } %}

@@ -96,6 +96,40 @@ store:
             message_ko: Could not apply coupon
 
 admin:
+    dashboard:
+        single: Dashboard
+        plural: Dashboards
+        title:  Dashboard
+        chart:
+            visitors:
+                title: Visitors
+                unique: Unique
+                total: Total
+            sales:
+                title: Sales
+                sales: Sales
+            cart_conversion:
+                title: Cart conversion
+                cart_view: Cart view
+                billing_shipping: Billing/Shipping
+                payment: Payment
+                ordered: Ordered
+            devices:
+                title: Devices
+                mobile: Mobile
+                desktop: Desktop
+            traffic_source:
+                title: Traffic Source
+                direct: Direct
+                referrals: Referrals
+                search_engine: Search Engines
+        chart_range:
+            today: Today
+            yesterday: Yesterday
+            last7days: Last 7 days
+            last30days: Last 30 days
+            last90days: Last 90 days
+
     address:
         single: Address
         plural: Addresses
@@ -449,10 +483,6 @@ admin:
             iso: ISO
             name: Name
             status: Enabled
-
-    dashboard:
-        single: Dashboard
-        plural: Dashboards
 
     image:
         single: Image

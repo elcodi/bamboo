@@ -7,11 +7,11 @@
         height="250"
         data-tc-modules="charts"
         data-tc-type="bar"
-        data-tc-text-no-data="{{ 'No data'|trans }}"
+        data-tc-text-no-data="{{ 'admin.metrics.info.no_data'|trans }}"
         data-tc-labels-x="{% for partialInterval in partialIntervals %}{% if loop.index % chartElementsSeparation == 0 %}{{ partialInterval.first|date(chartLegendFormat) }}{% endif %},{% endfor %}"
     >
         <input
-            name="{{ 'Unique' }}"
+            name="{{ 'admin.metrics.type.line.unique'|trans }}"
             type="hidden"
             value="{% for partialInterval in partialIntervals %}{{ metric_accumulation(tracker, event, partialInterval.elements)/100 }},{% endfor %}"
         />

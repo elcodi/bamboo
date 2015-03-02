@@ -97,6 +97,40 @@ store:
             message_ko: No se pudo aplicar el cupón
 
 admin:
+    dashboard:
+        single: Panel de control
+        plural: Paneles de control
+        title:  Panel de Control
+        chart:
+            visitors:
+                title: Visitas
+                unique: Usuarios únicos
+                total: Páginas vistas
+            sales:
+                title: Ventas
+                sales: Ventas
+            cart_conversion:
+                title: Conversión de carrito
+                cart_view: Resumen
+                billing_shipping: Dirección
+                payment: Pago
+                ordered: Finalizado
+            devices:
+                title: Dispositivos
+                mobile: Móviles
+                desktop: Escritorio
+            traffic_source:
+                title: Origen de tráfico
+                direct: Directo
+                referrals: Referidos
+                search_engine: Buscadores
+        chart_range:
+            today: Hoy
+            yesterday: Ayer
+            last7days: Últimos 7 días
+            last30days: Últimos 30 días
+            last90days: Últimos 90 días
+
     address:
         single: Dirección fiscal
         plural: Direcciones fiscales
@@ -451,10 +485,6 @@ admin:
             iso: ISO
             name: Nombre
             status: Activa
-
-    dashboard:
-        single: Panel de control
-        plural: Paneles de control
 
     image:
         single: Imagen

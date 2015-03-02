@@ -65,6 +65,7 @@ template:
             view:
                 title: Tu carrito de la compra
                 total: Total
+                checkout_title: Comprueba tu pedido y/o aplica cupones
                 checkout: Tramitar pedido
                 empty_basket: Vaciar carrito
                 update_basket: Actualizar carrito
