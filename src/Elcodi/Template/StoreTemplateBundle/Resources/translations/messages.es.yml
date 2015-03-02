@@ -70,8 +70,8 @@ template:
                 continue_shopping: Seguir comprando
                 your_cart_is_empty: Tu carrito está vacío
             nav:
-                amount: Precio
-                items: Elementos
+                amount: Total
+                items: Productos
         coupon:
             item:
                 coupon: Cupon
@@ -82,6 +82,7 @@ template:
                 remove: Eliminar
 
         payment:
+            credit_card_owner: Titular de la tarjeta
             credit_card_numbers: Número de la targeta de crédito
             month: Mes
             year: Año
@@ -94,12 +95,13 @@ template:
                 new: Nueva
 
         checkout:
+            back: Atrás
             layout:
                 your_cart: Tu carrito
                 total: Total
             address:
-                select_address: Selecciona dirección de entrega y facturación
-                payment: Pago
+                select_address: Entrega y facturación
+                payment: Pagar
                 add_new_address: Añadir nueva dirección
             payment:
                 set_shipping_payment: Elige pago y forma de envío
@@ -128,18 +130,22 @@ template:
             list:
                 orders: Pedidos
                 image: Imagen
-                number_of_order: Number of order
+                number_of_order: Nº de Pedido
                 order_number: "Pedido #"
                 state: Comunidad autónoma
                 date: Fecha
                 total: Total
                 no_orders: Aún no tienes ningún pedido
             view:
-                congratulations: FELICIDADES!
-                thanks: " Gracias por tu pedido! Vamos a proceder con su entrega lo antes posible."
+                order: Pedido
+                congratulations: ¡FELICIDADES!
+                thanks: " ¡Gracias por tu pedido! Vamos a proceder con su entrega lo antes posible."
                 total: Total
                 continue_shopping: Seguir comprando
+                status: Estado:
+                shipping: Envío:
         product:
+            also_like: Tambien te puede interesar...
             item:
                 offer: Oferta
             list:
@@ -147,13 +153,13 @@ template:
             view_item:
                 product: Producto
                 offer: Oferta
-                add_to_cart: Añadir al carrito
+                add_to_cart: Añadir
                 description: Descripción
                 stock: Existencias
                 in_stock: Este producto está en stock, listo para ser enviado.
                 not_available: No hay stock para este producto
                 delivery: Envío
-                usually_dispatched_24_hours: Normalmente enviado en 24 horas
+                usually_dispatched_24_hours: Envío en 24/48 horas
 
         user:
             edit:
@@ -166,9 +172,9 @@ template:
             login:
                 login_with_account: Entra con tu cuenta
                 create_new_account: Crea una nueva cuenta
-                unregistered: "No estás registrado?"
+                unregistered: "¿No estás registrado?"
                 login_with_social: Entra con tus cuentas sociales
-                forgot_your_password: Has perdido la contraseña?
+                forgot_your_password: ¿Has perdido la contraseña?
             password:
                 recover_password: Recuperar contraseña
                 email_sent: Correo enviado

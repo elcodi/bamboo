@@ -2,7 +2,8 @@
     <div class="form form-card">
         <ul id="paymill_payment_error" class="message message-ko"></ul>
         {{ form_start(paymill_form, { 'attr': {'id': 'paymill_form' } }) }}
-        {{ form_row(paymill_form.credit_card_owner) }}
+        <label>{{ 'template.store_template_bundle.payment.credit_card_owner'|trans }}</label>
+        {{ form_widget(paymill_form.credit_card_owner) }}
 
         <div class="form-card-numbers">
             <label>{{ 'template.store_template_bundle.payment.credit_card_numbers'|trans }}</label>
