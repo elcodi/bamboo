@@ -22,7 +22,7 @@ TinyCore.AMD.define('multiple-select', ['devicePackage' ], function () {
                    sValue = this.value,
                    sLabel = $(this).attr('data-group');
 
-                $( 'option', 'optgroup[label='+ sLabel + ']').each( function(){
+                $( 'option', 'optgroup[label="'+ sLabel + '"]').each( function(){
                     if ( this.value == sValue) {
                         this.selected = true;
                     } else {

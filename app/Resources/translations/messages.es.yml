@@ -18,13 +18,13 @@ store:
                 name:
                     label: Nombre de la dirección
                 recipientName:
-                    label: Nombde del destinatario
+                    label: Nombre
                 recipientSurname:
-                    label: Apellido del destinatario
+                    label: Apellidos
                 address:
                     label: Dirección
                 addressMore:
-                    label: Más dirección (optional)
+                    label: Ampliar dirección (optional)
                 postalcode:
                     label: Código postal
                 phone:
@@ -101,6 +101,7 @@ admin:
         single: Panel de control
         plural: Paneles de control
         title:  Panel de Control
+        view_store: Ver mi tienda
         chart:
             visitors:
                 title: Visitas
@@ -140,16 +141,16 @@ admin:
             placeholder: Selecciona una
         field:
             recipient_name:
-                title:       Nombre del destinatario
+                title:       Nombre
                 placeholder: ej. John
             recipient_surname:
-                title:       Apellido del destinatario
+                title:       Apellidos
                 placeholder: ej. Doe
             address:
                 title:       Dirección
                 placeholder: "ej. Calle impresionante, 42"
             address_more:
-                title:       Más dirección (opcional)
+                title:       Ampliar dirección (opcional)
                 placeholder: ej. Oficina Doe
             postalcode:
                 title:       Código postal
