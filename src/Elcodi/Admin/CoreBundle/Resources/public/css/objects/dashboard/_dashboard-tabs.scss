@@ -3,14 +3,20 @@
 		text-align: center;
 	}
 	li {
-		width: 20%;
+		display: block;
 	}
 }
+
 [class^='dashboard-tabs-'] {
-	display: block;
-	font-weight: normal;
-	padding: $spacing/8 0;
-	text-align: center;
+	& {
+		display: inline-block;
+		margin-right: $spacing;
+		font-weight: normal;
+		padding: $spacing/8 0;
+	}
+	a {
+		text-align: left;
+	}
 }
 .dashboard-tabs-range {
 	text-transform: uppercase;
@@ -24,4 +30,23 @@
 
 .dashboard-tabs-orders {
 	padding-bottom: $spacing/2;
+}
+
+@mixin papa-dashboard-tabs {
+
+	[class^='dashboard-tabs-'] {
+		& {
+			display: block;
+			margin-right: 0;
+		}
+		a {
+			text-align: center;
+		}
+	}
+	.dashboard-tabs {
+		li {
+			display: inline-block;
+			width: 20%;
+		}
+	}
 }
