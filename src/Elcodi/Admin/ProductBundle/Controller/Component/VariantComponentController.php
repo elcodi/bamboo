@@ -88,6 +88,7 @@ class VariantComponentController extends AbstractAdminController
      *
      * @param FormView         $formView Form view
      * @param ProductInterface $product  Product
+     * @param VariantInterface $variant  Variant
      *
      * @return array Result
      *
@@ -143,10 +144,15 @@ class VariantComponentController extends AbstractAdminController
         ProductInterface $product,
         VariantInterface $variant
     ) {
+        $useStock = $this
+            ->get('elcodi.manager.configuration')
+            ->get('product.use_stock');
+
         return [
-            'variant' => $variant,
-            'product' => $product,
-            'form'    => $formView,
+            'variant'  => $variant,
+            'product'  => $product,
+            'form'     => $formView,
+            'useStock' => $useStock,
         ];
     }
 }

@@ -597,7 +597,7 @@ admin:
             price:
                 title: Precio
             stock:
-                title: Existencias
+                title: Unidades
             reduced_price:
                 title: Precio reducido
             weight:
@@ -656,6 +656,9 @@ admin:
             visibility:
                 title: Visibilidad
                 description: "Configura este producto como visible u oculto, también puedes hacerlo visible en la página principal."
+            stock:
+                title: Stock
+                description: "Configura las existencias de este producto. Cada compra disminuirá tus existencias."
 
     variant:
         single: Variante
@@ -673,7 +676,7 @@ admin:
             price:
                 title: Precio
             stock:
-                title: Existencias
+                title: Stock
             reduced_price:
                 title: Precio de oferta
             enabled:
@@ -880,7 +883,7 @@ admin:
             store_email: Correo electrónico de la tienda
             currency: Configuración de moneda
             product_stock:
-                title: Existencias
+                title: Stock
                 description: Activa esta opción para habilitar el control de existencias
 
     template:

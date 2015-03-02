@@ -86,6 +86,9 @@ class ProductType extends AbstractPurchasableType
             ->add('metaKeywords', 'text', array(
                 'required' => false,
             ))
+            ->add('stock', 'number', array(
+                'required' => false,
+            ))
             ->add('manufacturer', 'entity', array(
                 'class'    => 'Elcodi\Component\Product\Entity\Manufacturer',
                 'required' => false,

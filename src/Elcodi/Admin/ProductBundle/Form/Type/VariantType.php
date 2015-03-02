@@ -57,7 +57,7 @@ class VariantType extends AbstractPurchasableType
                 'property' => 'id',
                 'multiple' => true,
             ))
-            ->add('stock', 'hidden', array(
+            ->add('stock', 'number', array(
                 'required' => false,
             ))
             ->add('price', 'money_object', array(
