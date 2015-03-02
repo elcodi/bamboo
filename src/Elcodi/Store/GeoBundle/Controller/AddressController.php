@@ -164,7 +164,7 @@ class AddressController extends Controller
      * @param AddressInterface $address  $address A new address entity
      * @param FormView         $formView The form view
      * @param boolean          $isValid  If the form is valid
-     * @param string           $source   The form source to redirect back
+     * @param string|null      $source   The form source to redirect back
      *
      * @return Response Response
      *
@@ -198,7 +198,7 @@ class AddressController extends Controller
         AddressInterface $address,
         FormView $formView,
         $isValid,
-        $source
+        $source = null
     ) {
         if ($isValid) {
             $translator = $this->get('translator');
@@ -239,8 +239,8 @@ class AddressController extends Controller
     /**
      * Delete address
      *
-     * @param integer $id     The address id
-     * @param string  $source The form source to redirect back
+     * @param integer     $id     The address id
+     * @param string|null $source The form source to redirect back
      *
      * @return Response Response
      *
@@ -255,7 +255,7 @@ class AddressController extends Controller
      */
     public function deleteAction(
         $id,
-        $source
+        $source = null
     ) {
         $translator = $this->get('translator');
 
