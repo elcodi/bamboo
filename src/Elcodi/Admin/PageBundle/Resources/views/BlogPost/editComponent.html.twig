@@ -47,11 +47,12 @@
                                         <details class="ph-n pt-m mb-n">
                                             <summary class="pl-l mb-n">{{ 'admin.blog_post.field.path.customize'|trans }}</summary>
                                             {{
-                                                form_widget(form.path["#{language}_path"], {
+                                                form_row(form.path["#{language}_path"], {
+                                                    label: false,
                                                     attr: {
                                                         placeholder: 'admin.blog_post.field.path.placeholder',
                                                         'data-tc-modules': 'slug',
-                                                        'data-tc-parent': 'elcodi_admin_page_form_type_blog_post_title_'~ language ~'_title',
+                                                        'data-tc-parent': form.title["#{language}_title"].vars.id,
                                                     }
                                                 })
                                             }}

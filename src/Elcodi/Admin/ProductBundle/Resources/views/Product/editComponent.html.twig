@@ -46,21 +46,23 @@
                                             })
                                         }}
                                         <details class="ph-n pt-m mb-n">
-                                                <summary class="pl-l mb-n">{{ 'admin.product.field.slug.customize'|trans }}</summary>
-                                                {{
-                                                    form_widget(form.slug["#{language}_slug"], {
-                                                        attr: {
-                                                            placeholder: 'admin.product.field.slug.placeholder',
-                                                            'data-tc-modules': 'slug',
-                                                            'data-tc-parent': 'elcodi_admin_product_form_type_product_name_'~ language ~'_name',
-                                                        }
-                                                    })
-                                                }}
+                                            <summary class="pl-l mb-n">{{ 'admin.product.field.slug.customize'|trans }}</summary>
+                                            {{
+                                                form_row(form.slug["#{language}_slug"], {
+                                                    label: false,
+                                                    attr: {
+                                                        placeholder: 'admin.product.field.slug.placeholder',
+                                                        'data-tc-modules': 'slug',
+                                                        'data-tc-parent': form.name["#{language}_name"].vars.id,
+                                                    }
+                                                })
+                                            }}
                                         </details>
                                     </li>
                                     <li>
                                         {{
-                                            form_widget(form.description["#{language}_description"], {
+                                            form_row(form.description["#{language}_description"], {
+                                                label: 'admin.product.field.description.title',
                                                 attr: {
                                                     placeholder: 'admin.product.field.description.placeholder',
                                                     'data-tc-modules': 'wysiwyg',
