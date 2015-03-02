@@ -854,7 +854,7 @@ admin:
         plural: Apps
         saved:  Estado de la app guardado
         field:
-            visibility: Visibilidad
+            visibility: Activo:
         section:
             settings: Configuración
 
