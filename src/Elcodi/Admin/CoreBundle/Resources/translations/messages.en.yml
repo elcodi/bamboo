@@ -1,106 +1,8 @@
-store:
-    error:
-        store_is_disabled:           Store is disabled
-        store_is_under_construction: Store is under construction
-
-    address:
-        save:
-            response_ok: Address saved
-        delete:
-            response_ok: Address correctly removed
-        select_address_type: Select a %1 address
-        billing: billing
-        delivery: delivery
-        form:
-            fields:
-                city:
-                    label: City
-                name:
-                    label: Address name
-                recipientName:
-                    label: Recipient name
-                recipientSurname:
-                    label: Recipient surname
-                address:
-                    label: Address
-                addressMore:
-                    label: Address more (optional)
-                postalcode:
-                    label: Postalcode
-                phone:
-                    label: Phone
-                mobile:
-                    label: Mobile
-                comments:
-                    label: Comments
-                send:
-                    label: Save address
-                country:
-                    label: Country
-                state:
-                    label: State
-                province:
-                    label: Province
-    login:
-        wrong_combination: Wrong Email and password combination.
-        form:
-            fields:
-                email:
-                    label: Email
-                password:
-                    label: Password
-                send:
-                    label: Send
-    recovery:
-        form:
-            fields:
-                password:
-                    label: Password
-                repeat_password:
-                    label: Repeat password
-                email:
-                    label: email
-                send:
-                    label: Send
-                remember:
-                    label: Remember
-
-    user:
-        profile:
-            save:
-                message_ok: Profile saved
-        form:
-            fields:
-                firstname:
-                    label: Firstname
-                lastname:
-                    label: Lastname
-                email:
-                    label: Email
-                password:
-                    label: Password
-                repeat_password:
-                    label: Repeat password
-                send:
-                    label: Save
-
-    coupon:
-        form:
-            fields:
-                code:
-                    label: Coupon Code
-                apply:
-                    label: Apply coupon
-        applied:
-            message_ok: Coupon applied successfully
-            message_ko: Could not apply coupon
-
 admin:
     dashboard:
         single: Dashboard
         plural: Dashboards
         title:  Dashboard
-        view_store: View store
         chart:
             visitors:
                 title: Visitors
@@ -163,14 +65,6 @@ admin:
             comments:
                 title:       Comments
                 placeholder: e.g. It's a house
-            country:
-                title: Country
-            state:
-                title: State
-            province:
-                title: Province
-            city:
-                title: City
             save: Save address
 
     remember_user:

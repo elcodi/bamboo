@@ -1,107 +1,8 @@
-store:
-    error:
-        store_is_disabled:           La tienda está desactivada
-        store_is_under_construction: La tienda está en construcción
-
-    address:
-        save:
-            response_ok: Dirección guardada
-        delete:
-            response_ok: Dirección borrada correctamente
-        select_address_type: Selecciona una dirección de %1
-        billing: facturación
-        delivery: entrega
-        form:
-            fields:
-                city:
-                    label: Ciudad
-                name:
-                    label: Nombre de la dirección
-                recipientName:
-                    label: Nombre
-                recipientSurname:
-                    label: Apellidos
-                address:
-                    label: Dirección
-                addressMore:
-                    label: Ampliar dirección (optional)
-                postalcode:
-                    label: Código postal
-                phone:
-                    label: Teléfono
-                mobile:
-                    label: Teléfono móvil
-                comments:
-                    label: Comentarios
-                send:
-                    label: Guardar dirección
-                country:
-                    label: País
-                state:
-                    label: Estado
-                province:
-                    label: Provincia
-
-    login:
-        wrong_combination: Combinación de email y contraseña incorrectos.
-        form:
-            fields:
-                email:
-                    label: Correo electrónico
-                password:
-                    label: Contraseña
-                send:
-                    label: Enviar
-    recovery:
-        form:
-            fields:
-                password:
-                    label: Contraseña
-                repeat_password:
-                    label: Repetir contraseña
-                email:
-                    label: Correo electrónico
-                send:
-                    label: Enviar
-                remember:
-                    label: No recuerdo mi contraseña
-
-    user:
-        profile:
-            save:
-                message_ok: Perfil guardado
-        form:
-            fields:
-                firstname:
-                    label: Nombre
-                lastname:
-                    label: Apellido
-                email:
-                    label: Correo electrónico
-                password:
-                    label: Contraseña
-                repeat_password:
-                    label: Repetir contraseña
-                send:
-                    label: Guardar
-
-    coupon:
-        form:
-            fields:
-                code:
-                    label: Código de cupón
-                apply:
-                    label: Aplicar cupón
-        applied:
-            message_ok: Cupón aplicado correctamente
-            message_ko: No se pudo aplicar el cupón
-
 admin:
     dashboard:
         single: Panel de control
         plural: Paneles de control
         title:  Panel de Control
-        view_store: Ver mi tienda
         chart:
             visitors:
                 title: Visitas
@@ -141,16 +42,16 @@ admin:
             placeholder: Selecciona una
         field:
             recipient_name:
-                title:       Nombre
+                title:       Nombre del destinatario
                 placeholder: ej. John
             recipient_surname:
-                title:       Apellidos
+                title:       Apellido del destinatario
                 placeholder: ej. Doe
             address:
                 title:       Dirección
                 placeholder: "ej. Calle impresionante, 42"
             address_more:
-                title:       Ampliar dirección (opcional)
+                title:       Más dirección (opcional)
                 placeholder: ej. Oficina Doe
             postalcode:
                 title:       Código postal
@@ -164,14 +65,6 @@ admin:
             comments:
                 title:       Comentarios
                 placeholder: ej. Es una casa
-            country:
-                title: País
-            state:
-                title: Estado
-            province:
-                title: Provincia
-            city:
-                title: Ciudad
             save: Guardar dirección
 
     remember_user:
