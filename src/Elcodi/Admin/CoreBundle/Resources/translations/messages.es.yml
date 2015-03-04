@@ -65,6 +65,14 @@ admin:
             comments:
                 title:       Comentarios
                 placeholder: ej. Es una casa
+            country:
+                title: País
+            state:
+                title: Estado
+            province:
+                title: Provincia
+            city:
+                title: Ciudad
             save: Guardar dirección
 
     remember_user:
