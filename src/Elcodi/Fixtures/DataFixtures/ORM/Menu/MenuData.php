@@ -58,6 +58,7 @@ class MenuData extends AbstractFixture
                 ->setName($menuNodeData['name'])
                 ->setCode($menuNodeData['code'])
                 ->setUrl($menuNodeData['url'])
+                ->setActiveUrls($menuNodeData['active_urls'])
                 ->setEnabled((boolean) $menuNodeData['enabled']);
 
             if (is_array($menuNodeData['subnodes'])) {

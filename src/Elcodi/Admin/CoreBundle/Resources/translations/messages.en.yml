@@ -3,6 +3,7 @@ admin:
         single: Dashboard
         plural: Dashboards
         title:  Dashboard
+        view_store: View my store
         chart:
             visitors:
                 title: Visitors

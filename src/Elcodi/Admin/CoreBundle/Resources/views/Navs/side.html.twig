@@ -58,7 +58,7 @@
                     </a>
                     {% for submenu_item in menu_item.subnodes %}
                         {% if loop.first %}
-                            <ul id="{{ menu_item.id }}" {% if not menu_item.active %}class="hidden"{% endif %}>
+                            <ul id="{{ menu_item.id }}" {% if not menu_item.expanded %}class="hidden"{% endif %}>
                         {% endif %}
                         <li {% if submenu_item.active %}class="active"{% endif %}>
                             <a href="{{ generate_url(submenu_item.url) }}" class="pl-l"><i class="icon-angle-right"></i> {{ submenu_item.name|trans }}</a>
