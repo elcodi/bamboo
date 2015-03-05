@@ -35,6 +35,8 @@ For more info just visit their
 In order to use the last Redis features, like the `HyperLogLog` commands, be
 sure your Redis version is at least `v2.8.9`.
 
+Also, don't forget to install the php extension for redis.
+
 ### Imagick
 The images are a really important part of an store. Bamboo uses Imagick to
 resize and optimize all the product images
