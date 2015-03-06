@@ -1,0 +1,96 @@
+store:
+    error:
+        store_is_disabled:           La boutique est désactivée
+        store_is_under_construction: La boutique est en cours de construction
+
+    address:
+        save:
+            response_ok: Adresse sauvée
+        delete:
+            response_ok: Adresse supprimée avec succès
+        select_address_type: Choisissez %1 adresse(s)
+        billing: facturation
+        delivery: livraison
+        form:
+            fields:
+                city:
+                    label: Ville
+                name:
+                    label: Nom de l'adresse
+                recipientName:
+                    label: Nom du destinataire
+                recipientSurname:
+                    label: Nom de famille du destinataire
+                address:
+                    label: Adresse
+                addressMore:
+                    label: Adresse complément (optionnel)
+                postalcode:
+                    label: Code postal
+                phone:
+                    label: Téléphone fixe
+                mobile:
+                    label: Téléphone mobile
+                comments:
+                    label: Commentaires
+                send:
+                    label: Sauvegarder adresse
+                country:
+                    label: Pays
+                state:
+                    label: Etat/Région
+                province:
+                    label: Département
+    login:
+        wrong_combination: Mauvaise combinaison Email / Mot de passe.
+        form:
+            fields:
+                email:
+                    label: Email
+                password:
+                    label: Mot de passe
+                send:
+                    label: Se connecter
+    recovery:
+        form:
+            fields:
+                password:
+                    label: Mot de passe
+                repeat_password:
+                    label: Confirmer mot de passe
+                email:
+                    label: email
+                send:
+                    label: Envoyer
+                remember:
+                    label: Se souvenir de moi
+
+    user:
+        profile:
+            save:
+                message_ok: Profil enregistré
+        form:
+            fields:
+                firstname:
+                    label: Prénom
+                lastname:
+                    label: Nom
+                email:
+                    label: Email
+                password:
+                    label: Mot de passe
+                repeat_password:
+                    label: Confirmer mot de passe
+                send:
+                    label: Enregistrer
+
+    coupon:
+        form:
+            fields:
+                code:
+                    label: Code du Coupon
+                apply:
+                    label: Appliquer le coupon
+        applied:
+            message_ok: Le Coupon a été appliqué avec succès
+            message_ko: Une erreur est survenue lors de l'application du coupon
