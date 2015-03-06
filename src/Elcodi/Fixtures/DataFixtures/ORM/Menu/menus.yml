@@ -3,6 +3,13 @@ menu_nodes:
         name: admin.dashboard.single
         code: tachometer
         url: admin_homepage
+        active_urls:
+            - admin_homepage
+            - admin_reports_today
+            - admin_reports_yesterday
+            - admin_reports_last_week
+            - admin_reports_last_month
+            - admin_reports_last_quarter
         enabled: 1
         subnodes: ~
 
@@ -10,6 +17,11 @@ menu_nodes:
         name: admin.order.plural
         code: shopping-cart
         url: admin_order_list
+        active_urls:
+            - admin_order_list
+            - admin_order_edit
+            - admin_customer_order_list
+            - admin_customer_order_list
         enabled: 1
         subnodes: ~
 
@@ -17,6 +29,9 @@ menu_nodes:
         name: admin.customer.plural
         code: users
         url: admin_customer_list
+        active_urls:
+            - admin_customer_list
+            - admin_customer_edit
         enabled: 1
         subnodes: ~
 
@@ -24,6 +39,10 @@ menu_nodes:
         name: admin.product.plural
         code: ~
         url: admin_product_list
+        active_urls:
+            - admin_product_list
+            - admin_product_edit
+            - admin_product_new
         enabled: 1
         subnodes: ~
 
@@ -31,6 +50,10 @@ menu_nodes:
         name: admin.category.plural
         code: ~
         url: admin_category_list
+        active_urls:
+            - admin_category_list
+            - admin_category_edit
+            - admin_category_new
         enabled: 1
         subnodes: ~
 
@@ -38,6 +61,10 @@ menu_nodes:
         name: admin.manufacturer.plural
         code: ~
         url: admin_manufacturer_list
+        active_urls:
+            - admin_manufacturer_list
+            - admin_manufacturer_edit
+            - admin_manufacturer_new
         enabled: 1
         subnodes: ~
 
@@ -45,6 +72,10 @@ menu_nodes:
         name: admin.attribute.plural
         code: ~
         url: admin_attribute_list
+        active_urls:
+            - admin_attribute_list
+            - admin_attribute_edit
+            - admin_attribute_new
         enabled: 1
         subnodes: ~
 
@@ -52,6 +83,8 @@ menu_nodes:
         name: admin.media.plural
         code: picture-o
         url: admin_image_list
+        active_urls:
+            - admin_image_list
         enabled: 1
         subnodes: ~
 
@@ -59,6 +92,8 @@ menu_nodes:
         name: admin.catalog.single
         code: tags
         url: ~
+        active_urls:
+            - ~
         enabled: 1
         subnodes:
             - bambooadmin_products
@@ -71,6 +106,10 @@ menu_nodes:
         name: admin.coupon.plural
         code: ticket
         url: admin_coupon_list
+        active_urls:
+            - admin_coupon_list
+            - admin_coupon_edit
+            - admin_coupon_new
         enabled: 1
         subnodes: ~
 
@@ -78,6 +117,8 @@ menu_nodes:
         name: Reports
         code: bar-chart-o
         url: admin_reports_today
+        active_urls:
+            - admin_reports_today
         enabled: 1
         subnodes: ~
 
@@ -86,12 +127,18 @@ menu_nodes:
         code: separator
         enabled: 1
         url: ~
+        active_urls:
+            - ~
         subnodes: ~
 
     bambooadmin_pages:
         name: admin.page.plural
         code: file-text-o
         url: admin_page_list
+        active_urls:
+            - admin_page_list
+            - admin_page_edit
+            - admin_page_new
         enabled: 1
         subnodes: ~
 
@@ -99,6 +146,9 @@ menu_nodes:
         name: admin.mailing.plural
         code: envelope-o
         url: admin_email_list
+        active_urls:
+            - admin_email_list
+            - admin_email_edit
         enabled: 1
         subnodes: ~
 
@@ -106,6 +156,10 @@ menu_nodes:
         name: admin.blog.single
         code: pencil
         url: admin_blog_post_list
+        active_urls:
+            - admin_blog_post_list
+            - admin_blog_post_edit
+            - admin_blog_post_new
         enabled: 1
         subnodes: ~
 
@@ -113,6 +167,8 @@ menu_nodes:
         name: Banner Zones
         code: ~
         url: admin_banner_zone_list
+        active_urls:
+            - admin_banner_zone_list
         enabled: 1
         subnodes: ~
 
@@ -120,6 +176,8 @@ menu_nodes:
         name: Banners
         code: ~
         url: admin_banner_list
+        active_urls:
+            - admin_banner_list
         enabled: 1
         subnodes: ~
 
@@ -127,6 +185,8 @@ menu_nodes:
         name: Banners
         code: ~
         url: ~
+        active_urls:
+            - ~
         enabled: 1
         subnodes:
             - bambooadmin_bannerzones
@@ -137,12 +197,16 @@ menu_nodes:
         code: separator
         enabled: 1
         url: ~
+        active_urls:
+            - ~
         subnodes: ~
 
     bambooadmin_templates:
         name: admin.template.plural
         code: adjust
         url: admin_template_list
+        active_urls:
+            - admin_template_list
         enabled: 1
         subnodes: ~
 
@@ -150,6 +214,8 @@ menu_nodes:
         name: admin.plugin.plural
         code: puzzle-piece
         url: admin_plugin_list
+        active_urls:
+            - admin_plugin_list
         enabled: 1
         subnodes: ~
 
@@ -157,6 +223,8 @@ menu_nodes:
         name: admin.settings.section.store.title
         code: ~
         url: admin_configuration_list
+        active_urls:
+            - admin_configuration_list
         enabled: 1
         subnodes: ~
 
@@ -164,6 +232,8 @@ menu_nodes:
         name: admin.order.field.billing_address
         code: ~
         url: admin_address_edit
+        active_urls:
+            - admin_address_edit
         enabled: 1
         subnodes: ~
 
@@ -171,6 +241,8 @@ menu_nodes:
         name: admin.settings.section.payment.title
         code: ~
         url: admin_payment_configuration_list
+        active_urls:
+            - admin_payment_configuration_list
         enabled: 1
         subnodes: ~
 
@@ -178,6 +250,8 @@ menu_nodes:
         name: admin.carrier.plural
         code: truck
         url: admin_carrier_list
+        active_urls:
+            - admin_carrier_list
         enabled: 1
         subnodes: ~
 
@@ -185,6 +259,8 @@ menu_nodes:
         name: admin.currency.plural
         code: ~
         url: admin_currency_list
+        active_urls:
+            - admin_currency_list
         enabled: 1
         subnodes: ~
 
@@ -192,6 +268,8 @@ menu_nodes:
         name: admin.settings.single
         code: gear
         url: ~
+        active_urls:
+            - ~
         enabled: 1
         subnodes:
           - bambooadmin_configurations
@@ -205,6 +283,8 @@ menu_nodes:
         code: separator
         enabled: 1
         url: ~
+        active_urls:
+            - ~
         subnodes: ~
 
 menus:

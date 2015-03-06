@@ -3,6 +3,7 @@ admin:
         single: Panel de control
         plural: Paneles de control
         title:  Panel de Control
+        view_store: Ir a mi tienda
         chart:
             visitors:
                 title: Visitas

@@ -66,8 +66,17 @@ class MenuController extends Controller
             ->get('_route');
 
         $selectActiveMenu = function (&$item) use ($currentRoute) {
-            if ($currentRoute == $item['url']) {
+            if (in_array($currentRoute, $item['activeUrls'])) {
                 $item['active'] = true;
+            }
+        };
+
+        $expandParentMenu = function (&$item) use ($currentRoute) {
+            $item['expanded'] = false;
+            foreach ($item['subnodes'] as $subnode) {
+                if (in_array($currentRoute, $subnode['activeUrls'])) {
+                    $item['expanded'] = true;
+                }
             }
         };
 
@@ -86,6 +95,7 @@ class MenuController extends Controller
             $pluginsMenu,
             [
                 $selectActiveMenu,
+                $expandParentMenu,
                 $addOrdersPendingBadge,
             ]
         );
