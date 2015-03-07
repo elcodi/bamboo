@@ -504,6 +504,7 @@ admin:
                 description: Configurar la página como visible u oculta, también puedes hacerla visible en tu página principal.
         error:
             cant_modify_permanent: Esta página es permanente y no puede ser modificada
+
     profile:
         single: Perfil
         plural: Perfiles
@@ -566,17 +567,16 @@ admin:
                 placeholder: ej. Este genial producto es exactamente lo que buscabas.
             metakeywords:
                 placeholder: 'ej. product,genial'
-        tag:
-            in_home: Portada
-            has_variants: Tiene variantes
-            no_category: Sin categoría
-            no_manufacturer: Sin fabricante
         info:
             variants_before_saving: Podrás añadir variantes una vez hayas guardo el producto
         error:
             no_category: ¡Atención! Este producto no está asociado a ninguna categoria
             no_manufacturer: ¡Atención! Este producto no está asociado a ningun fabricante
-
+        tag:
+            in_home: Portada
+            has_variants: Tiene variantes
+            no_category: Sin categoría
+            no_manufacturer: Sin fabricante
         section:
             basic:
                 title: Detalles básicos
@@ -605,11 +605,8 @@ admin:
         plural: Variantes
         edit:   Editar variante "%name%"
         new: Nueva variante
-        saved: Cambios guardados
-        single: variante
-        plural: variantes
-        edit:   Editar variante "%name%"
         list:   Listado de variantes
+        saved: Cambios guardados
         field:
             name:
                 title: Nombre de la variante
@@ -727,10 +724,6 @@ admin:
                     - "Arrastra y suelta las categorías para ordenarlas o anidarlas."
                     - "Haz click en un categoría para editarla."
                     - "Haz click en la papelera para borrar la categoría."
-
-    profile:
-        single: Perfil
-        plural: Perfiles
 
     metadata:
         customize: Personalizar metadatos
