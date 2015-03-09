@@ -70,6 +70,22 @@ module.exports = {
 				to: ""
 			},
 			{
+				from: "{% javascripts '@StoreGeoBundle/Resources/public/js/LocationSelectors.js' %}",                   // string replacement
+				to: ""
+			},
+			{
+				from: "{% endjavascripts %}",                   // string replacement
+				to: ""
+			},
+			{
+				from: "{% endjavascripts %}",                   // string replacement
+				to: ""
+			},
+			{
+				from: "{% render url('location_selectors',{locationId:address.city}) %}",                   // string replacement
+				to: ""
+			},
+			{
 				from: 'src="//',                   // string replacement
 				to: 'src="http://'
 			}]

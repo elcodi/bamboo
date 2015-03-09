@@ -33,10 +33,10 @@ module.exports = function(grunt, fixtures) {
 
 
 	var oLanguages = getFixtures(['messages.en']),
-		oFullFixtures = getFixtures(['store','currencies','categoryTree','product','products','related_products','cart-empty','order','orders','currencyCategoryId-null']),
+		oFullFixtures = getFixtures(['store','currencies','categoryTree','product','products','form','related_products','cart-empty','addresses','order','orders','currencyCategoryId-null']),
 		oCategoryFullFixtures = getFixtures(['store','currencies','categoryTree','product','products','related_products','cart-empty','currencyCategoryId-1']),
 		oCategoryEmptyFixtures = getFixtures(['store','currencies','categoryTree','product','related_products','cart-empty','currencyCategoryId-1']),
-		oCartFullFixtures = getFixtures(['store','currencies','categoryTree','product','related_products','order','orders','cart-full','currencyCategoryId-1']),
+		oCartFullFixtures = getFixtures(['store','currencies','categoryTree','product','related_products','addresses','order','orders','cart-full','currencyCategoryId-1']),
 		oUserForm = getFixtures(['store','currencies','categoryTree','product','related_products','order','orders','cart-full','form']),
 		oOrderEmtpyFixtures = getFixtures(['store','currencies','categoryTree','product','related_products','cart-full','currencyCategoryId-1']);
 
@@ -237,21 +237,30 @@ module.exports = function(grunt, fixtures) {
 
 					Twig.exports.extendFunction("elcodi_blog_pages", function ( sVar ) {
 
-						if (sVar !== undefined) {
-							var sValue = sVar.replace('.', ' ');
-						}
-
-						return sValue;
+						return sVar;
 					});
 
 					Twig.exports.extendFunction("elcodi_footer_pages", function ( sVar ) {
 
-						if (sVar !== undefined) {
-							var sValue = sVar.replace('.', ' ');
-						}
 
-						return sValue;
+						return sVar;
 					});
+
+					Twig.exports.extendFunction("paymill_scripts", function ( sVar ) {
+
+						return false;
+					});
+
+					Twig.exports.extendFunction("paymill_render", function ( sVar ) {
+
+
+						return false;
+					});
+					Twig.exports.extendFunction("form_errors", function ( sVar ) {
+
+						return false;
+					});
+
 
 				}
 

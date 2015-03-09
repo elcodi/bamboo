@@ -9,9 +9,7 @@
             {{ blog_post.content|raw }}
         </div>
     </article>
-    {{ elcodi_hook("store.blog_post_view_bottom", {
-        'blog_post': blog_post
-    }) }}
+    {{ elcodi_hook("store.blog_post_view_bottom", {'blog_post': blog_post }) }}
     <h3>{{ 'template.store_template_bundle.blog.post.view.last_post'|trans }}</h3>
     {% set last_posts = elcodi_blog_pages(1) %}
     {% set col = last_posts|length < 3 ? last_posts|length : 3  %}
