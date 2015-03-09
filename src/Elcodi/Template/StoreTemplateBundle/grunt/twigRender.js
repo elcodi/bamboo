@@ -32,7 +32,8 @@ function getFixtures( aFixturesNames ) {
 module.exports = function(grunt, fixtures) {
 
 
-	var oFullFixtures = getFixtures(['store','currencies','categoryTree','product','products','related_products','cart-empty','order','orders','currencyCategoryId-null']),
+	var oLanguages = getFixtures(['messages.en']),
+		oFullFixtures = getFixtures(['store','currencies','categoryTree','product','products','related_products','cart-empty','order','orders','currencyCategoryId-null']),
 		oCategoryFullFixtures = getFixtures(['store','currencies','categoryTree','product','products','related_products','cart-empty','currencyCategoryId-1']),
 		oCategoryEmptyFixtures = getFixtures(['store','currencies','categoryTree','product','related_products','cart-empty','currencyCategoryId-1']),
 		oCartFullFixtures = getFixtures(['store','currencies','categoryTree','product','related_products','order','orders','cart-full','currencyCategoryId-1']),
@@ -50,7 +51,14 @@ module.exports = function(grunt, fixtures) {
 							return;
 						}
 
-						return value;
+						var aKeys = value.split('.'),
+							currentKey = oLanguages[aKeys[0]];
+
+						for ( var nKey = 1; nKey < aKeys.length; nKey++ ) {
+							currentKey = currentKey[aKeys[nKey]];
+						}
+
+						return currentKey;
 					});
 
 					Twig.exports.extendFilter("resize", function (value) {
@@ -121,7 +129,7 @@ module.exports = function(grunt, fixtures) {
 					Twig.exports.extendFunction("form_row", function (oInput, oOptions) {
 
 
-						if ( oInput === undefined)  {
+						if ( oInput === undefined || oInput === null )  {
 
 							return 'undefined';
 
@@ -176,7 +184,7 @@ module.exports = function(grunt, fixtures) {
 
 
 
-						if ( oInput === undefined)  {
+						if ( oInput === undefined || oInput === null)  {
 
 							return 'undefined';
 
@@ -220,7 +228,27 @@ module.exports = function(grunt, fixtures) {
 
 					Twig.exports.extendFunction("elcodi_config", function ( sVar ) {
 
-						var sValue = sVar.replace('.', ' ');
+						if (sVar !== undefined) {
+							var sValue = sVar.replace('.', ' ');
+						}
+
+						return sValue;
+					});
+
+					Twig.exports.extendFunction("elcodi_blog_pages", function ( sVar ) {
+
+						if (sVar !== undefined) {
+							var sValue = sVar.replace('.', ' ');
+						}
+
+						return sValue;
+					});
+
+					Twig.exports.extendFunction("elcodi_footer_pages", function ( sVar ) {
+
+						if (sVar !== undefined) {
+							var sValue = sVar.replace('.', ' ');
+						}
 
 						return sValue;
 					});

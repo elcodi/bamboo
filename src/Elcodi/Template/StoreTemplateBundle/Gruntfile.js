@@ -7,7 +7,7 @@ module.exports = function (grunt) {
 	require('jit-grunt')(grunt);
 
     grunt.registerTask('js', ['jshint','jasmine']);
-	grunt.registerTask('twig', ['twigRender']);
+	grunt.registerTask('twig', ['yaml','twigRender']);
 	grunt.registerTask('scss', ['compass']);
 
 	grunt.registerTask('default', ['clean','copy','replace','twigRender','clean:temp','scss']);

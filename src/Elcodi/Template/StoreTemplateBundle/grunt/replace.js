@@ -40,7 +40,7 @@ module.exports = {
 			},
 			{
 				from: "render url('store_currency_nav')",                   // string replacement
-				to: "include ('currency-list.html.twig')"
+				to: "include ('currency-nav.html.twig')"
 			},			{
 				from: "render url('store_user_nav')",                   // string replacement
 				to: "include ('user-nav.html.twig')"
@@ -55,7 +55,7 @@ module.exports = {
 			},
 			{
 				from: "render url('store_categories_nav')",                   // string replacement
-				to: "include ('category-list.html.twig')"
+				to: "include ('category-nav.html.twig')"
 			},
 			{
 				from: "render url('store_coupon_view')",                   // string replacement
