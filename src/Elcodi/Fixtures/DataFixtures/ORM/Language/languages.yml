@@ -24,7 +24,7 @@ bg:
     enabled: 0
 ca:
     name: Catalan
-    enabled: 0
+    enabled: 1
 zh-CN :
     name: Chinese Simplified
     enabled: 0
@@ -45,7 +45,7 @@ nl:
     enabled: 0
 en:
     name: English
-    enabled: 0
+    enabled: 1
 eo:
     name: Esperanto
     enabled: 0

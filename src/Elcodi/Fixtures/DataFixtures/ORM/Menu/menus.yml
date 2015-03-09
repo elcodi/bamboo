@@ -264,6 +264,15 @@ menu_nodes:
         enabled: 1
         subnodes: ~
 
+    bambooadmin_languages:
+        name: admin.language.plural
+        code: ~
+        url: admin_language_list
+        active_urls:
+            - admin_language_list
+        enabled: 1
+        subnodes: ~
+
     bambooadmin_settings:
         name: admin.settings.single
         code: gear
@@ -276,6 +285,7 @@ menu_nodes:
           - bambooadmin_address
           - bambooadmin_carriers
           - bambooadmin_currencies
+          - bambooadmin_languages
           - bambooadmin_payment
 
     bambooadmin_separator_3:

@@ -1,0 +1,19 @@
+services:
+
+    jms_i18n_routing.locale_choosing_listener:
+        class: %jms_i18n_routing.locale_choosing_listener.class%
+        public: false
+        arguments:
+            - %jms_i18n_routing.default_locale%
+            - @elcodi.languages_iso_array
+            - @jms_i18n_routing.locale_resolver
+
+    jms_i18n_routing.pattern_generation_strategy.default:
+        class: %jms_i18n_routing.pattern_generation_strategy.class%
+        arguments:
+            - %jms_i18n_routing.strategy%
+            - @translator
+            - @elcodi.languages_iso_array
+            - %kernel.cache_dir%
+            - %jms_i18n_routing.catalogue%
+            - %jms_i18n_routing.default_locale%

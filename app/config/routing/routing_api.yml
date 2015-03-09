@@ -1,0 +1,11 @@
+#
+# API routes
+#
+elcodi_metric:
+    resource: "@ElcodiMetricBundle/Resources/config/routing.yml"
+
+elcodi_comment:
+    resource: "@ElcodiCommentBundle/Resources/config/routing.yml"
+
+elcodi_location:
+    resource: "@ElcodiGeoBundle/Resources/config/routing.yml"

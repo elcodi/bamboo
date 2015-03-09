@@ -20,8 +20,8 @@ namespace Elcodi\Store\UserBundle\Controller;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Form;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -65,6 +65,7 @@ class UserController extends Controller
      *
      * @return array
      *
+     * @Security("has_role('ROLE_CUSTOMER')")
      * @Route(
      *      path = "/user",
      *      name = "store_user",
@@ -85,6 +86,7 @@ class UserController extends Controller
      *
      * @return Response Response
      *
+     * @Security("has_role('ROLE_CUSTOMER')")
      * @Route(
      *      path = "/user/edit",
      *      name = "store_user_edit",

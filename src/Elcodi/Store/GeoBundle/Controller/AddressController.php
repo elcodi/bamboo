@@ -21,7 +21,6 @@ use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Form;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -79,7 +78,7 @@ class AddressController extends Controller
         return $this->renderTemplate(
             'Pages:address-list.html.twig',
             [
-                'addresses'   => $addressesFormatted,
+                'addresses' => $addressesFormatted,
             ]
         );
     }
@@ -94,7 +93,7 @@ class AddressController extends Controller
      * @return Response Response
      *
      * @Route(
-     *      path = "/edit/{id}/{source}",
+     *      path = "/{id}/edit/{source}",
      *      name = "store_address_edit",
      *      methods = {"GET","POST"},
      *      defaults = {
@@ -107,8 +106,8 @@ class AddressController extends Controller
         Request $request,
         $source
     ) {
-        $translator = $this->get('translator');
-        $address = $this->get('elcodi.repository.customer')
+        $address = $this
+            ->get('elcodi.repository.customer')
             ->findAddress(
                 $this->getUser()->getId(),
                 $id
@@ -118,24 +117,31 @@ class AddressController extends Controller
             throw new NotFoundHttpException('Address not found');
         }
 
-        $form = $this->createForm('store_geo_form_type_address', $address);
+        $form = $this
+            ->createForm(
+                'store_geo_form_type_address',
+                $address
+            );
+
         $form->handleRequest($request);
 
-        $entityManager = $this->get('elcodi.object_manager.address');
         if ($form->isValid()) {
             $addressToSave = $this
                 ->get('elcodi.manager.address')
                 ->saveAddress($address)
                 ->getSavedAddress();
 
-            $customerEntityManager = $this
-                ->get('elcodi.object_manager.customer');
-            $customer              = $this->getUser();
+            $customer = $this->getUser();
             $customer->removeAddress($address);
             $customer->addAddress($addressToSave);
-            $customerEntityManager->flush($customer);
+            $this
+                ->get('elcodi.object_manager.customer')
+                ->flush($customer);
 
-            $message = $translator->trans('store.address.save.response_ok');
+            $message = $this
+                ->get('translator')
+                ->trans('store.address.save.response_ok');
+
             $this->addFlash('success', $message);
 
             $redirectUrl = self::CHECKOUT_SOURCE == $source
@@ -146,7 +152,9 @@ class AddressController extends Controller
                 $this->generateUrl($redirectUrl)
             );
         } else {
-            $entityManager->clear($address);
+            $this
+                ->get('elcodi.object_manager.address')
+                ->clear($address);
         }
 
         return $this->renderTemplate(
@@ -245,7 +253,7 @@ class AddressController extends Controller
      * @return Response Response
      *
      * @Route(
-     *      path = "/delete/{id}",
+     *      path = "/{id}/delete",
      *      name = "store_address_delete",
      *      methods = {"GET"},
      *      defaults = {
@@ -263,7 +271,8 @@ class AddressController extends Controller
          * @var CustomerInterface $customer
          */
         $customer = $this->getUser();
-        $address  = $this->get('elcodi.repository.customer')
+        $address = $this
+            ->get('elcodi.repository.customer')
             ->findAddress(
                 $customer->getId(),
                 $id

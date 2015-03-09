@@ -1,0 +1,62 @@
+#
+# Admin routes
+#
+admin_core:
+    resource: "@AdminCoreBundle/Resources/config/routing.yml"
+
+admin_user:
+    resource: "@AdminUserBundle/Resources/config/routing.yml"
+
+admin_cart:
+    resource: "@AdminCartBundle/Resources/config/routing.yml"
+
+admin_banner:
+    resource: "@AdminBannerBundle/Resources/config/routing.yml"
+
+admin_coupon:
+    resource: "@AdminCouponBundle/Resources/config/routing.yml"
+
+admin_currency:
+    resource: "@AdminCurrencyBundle/Resources/config/routing.yml"
+
+admin_attribute:
+    resource: "@AdminAttributeBundle/Resources/config/routing.yml"
+
+admin_product:
+    resource: "@AdminProductBundle/Resources/config/routing.yml"
+
+admin_shipping:
+    resource: "@AdminShippingBundle/Resources/config/routing.yml"
+
+admin_media:
+    resource: "@AdminMediaBundle/Resources/config/routing.yml"
+
+admin_newsletter:
+    resource: "@AdminNewsletterBundle/Resources/config/routing.yml"
+
+admin_page:
+    resource: "@AdminPageBundle/Resources/config/routing.yml"
+
+admin_configuration:
+    resource: "@AdminConfigurationBundle/Resources/config/routing.yml"
+
+admin_templates:
+    resource: "@AdminTemplateBundle/Resources/config/routing.yml"
+
+admin_plugins:
+    resource: "@AdminPluginBundle/Resources/config/routing.yml"
+
+admin_metric:
+    resource: "@AdminMetricBundle/Resources/config/routing.yml"
+
+admin_geo:
+    resource: "@AdminGeoBundle/Resources/config/routing.yml"
+
+admin_languages:
+    resource: "@AdminLanguageBundle/Resources/config/routing.yml"
+
+admin_login_check:
+    path:  /login_check
+
+admin_logout:
+    path: /logout

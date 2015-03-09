@@ -1,0 +1,17 @@
+{% if languages|length > 1 %}
+    <nav class="currency-nav">
+        <div class="grid">
+            <ul>
+                {% set routeName = request.attributes.get('_route') %}
+                {% set routeParameters = request.attributes.get('_route_params') %}
+                {% for language in languages %}
+                    <li>
+                        <a href="{{ url(routeName, routeParameters|merge({'_locale': language.iso })) }}" {% if language.iso == activeLocale %} class="active" {% endif %}>
+                            {{ language.iso }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </nav>
+{% endif %}

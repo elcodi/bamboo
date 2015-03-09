@@ -1354,8 +1354,6 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             $product,
             'product-18.jpg'
         );
-
-        $manager->flush();
     }
 
     /**

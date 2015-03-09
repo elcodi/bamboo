@@ -3,7 +3,6 @@ imports:
     # Bamboo security
     #
     - { resource: firewalls.yml }
-    - { resource: accessControl.yml }
 
     #
     # Bamboo store & admin imported security

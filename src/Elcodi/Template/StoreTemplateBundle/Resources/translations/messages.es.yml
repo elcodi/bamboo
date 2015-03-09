@@ -85,7 +85,7 @@ template:
 
         payment:
             credit_card_owner: Titular de la tarjeta
-            credit_card_numbers: Número de la targeta de crédito
+            credit_card_numbers: Número de la tarjeta de crédito
             month: Mes
             year: Año
             security_code: Código de seguridad
@@ -94,7 +94,7 @@ template:
             view:
                 category: Categoría
             nav:
-                new: Nueva
+                new: Nuevos
 
         checkout:
             back: Atrás
@@ -111,7 +111,7 @@ template:
                 back: Regresar
                 shipping_carrier_method: Método de envío
                 payment_method: Forma de pago
-                credit_debit_card: Targeta de crédito/débido
+                credit_debit_card: Tarjeta de crédito/débido
                 paypal: Paypal
                 bankwire: Transferencia bancaria
                 try_again: Por favor, inténtelo otra vez
@@ -199,7 +199,7 @@ template:
 
         shipping:
             costs_will_be_calculated_after_login: Después de iniciar sesión, los gastos de envío se calcularán.
-            carrier: Carrier
+            carrier: Transportista
             from: from
             costs_will_be_calculated_after_address: Después de seleccionar una dirección, los gastos de envio de calcularán.
             no_shipping_matching: No se puede enviar en tu zona. Por favor, contacte con la tienda

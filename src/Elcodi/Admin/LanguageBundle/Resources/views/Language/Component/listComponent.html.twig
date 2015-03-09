@@ -33,16 +33,16 @@
     </td>
     <td>
         <div class="switch">
-            <input id="enable-{{ entity.iso }}-master" type="hidden" value="{{ url('admin_language_enable', { id: entity.iso }) }}" />
-            <input id="disable-{{ entity.iso }}-master" type="hidden" value="{{ url('admin_language_disable', { id: entity.iso }) }}" />
+            <input id="enable-{{ entity.iso }}-master" type="hidden" value="{{ url('admin_language_enable', { iso: entity.iso }) }}" />
+            <input id="disable-{{ entity.iso }}-master" type="hidden" value="{{ url('admin_language_disable', { iso: entity.iso }) }}" />
             <input id="{{ entity.iso }}-master" name="language-master" type="radio" {% if entity.enabled %}checked="checked"{% endif %} />
             <label for="{{ entity.iso }}-master"></label>
         </div>
     </td>
     <td>
         <div class="switch">
-            <input id="enable-{{ entity.iso }}" type="hidden" value="{{ url('admin_language_enable', { id: entity.iso }) }}" />
-            <input id="disable-{{ entity.iso }}" type="hidden" value="{{ url('admin_language_disable', { id: entity.iso }) }}" />
+            <input id="enable-{{ entity.iso }}" type="hidden" value="{{ url('admin_language_enable', { iso: entity.iso }) }}" />
+            <input id="disable-{{ entity.iso }}" type="hidden" value="{{ url('admin_language_disable', { iso: entity.iso }) }}" />
             <input id="{{ entity.iso }}" type="checkbox" {% if entity.enabled %}checked="checked"{% endif %} />
             <label for="{{ entity.iso }}"></label>
         </div>

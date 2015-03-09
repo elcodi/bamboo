@@ -18,6 +18,7 @@
 namespace Elcodi\Store\CartBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -27,6 +28,7 @@ use Elcodi\Store\CoreBundle\Controller\Traits\TemplateRenderTrait;
 /**
  * Order controllers
  *
+ * @Security("has_role('ROLE_CUSTOMER')")
  * @Route(
  *      path = "/order",
  * )
