@@ -1,0 +1,44 @@
+{
+  "addresses" : {
+    "1" : {
+      "id" : 1,
+      "name" : "My Address",
+      "recipientName" : "John",
+      "address" : "Awesome Street, 21",
+      "recipientSurname" : "Doe",
+      "mobile" : "666 666 666",
+      "phone" : "555 555 555",
+      "city" : "Barcelona",
+      "postalCode" : "08080",
+      "comments" : "It's a house"
+    },
+    "2" : {
+      "id" : 2,
+      "name" : "My Address 2",
+      "recipientName" : "John",
+      "address" : "Awesome Street, 21",
+      "recipientSurname" : "Doe",
+      "mobile" : "666 666 666",
+      "phone" : "555 555 555",
+      "city" : "Barcelona",
+      "postalCode" : "08080",
+      "comments" : "It's a house"
+    }
+  },
+  "cities_info" : {
+    "Barcelona" : {
+      "0" : {
+        "name" : "Barcelona"
+      },
+      "1" : {
+        "name" : "Catalonia"
+      },
+      "2" : {
+        "name" : "Spain"
+      }
+    }
+  },
+  "source" : {
+
+  }
+}

@@ -32,10 +32,11 @@ function getFixtures( aFixturesNames ) {
 module.exports = function(grunt, fixtures) {
 
 
-	var oFullFixtures = getFixtures(['store','currencies','categoryTree','product','products','related_products','cart-empty','order','orders','currencyCategoryId-null']),
+	var oLanguages = getFixtures(['messages.en']),
+		oFullFixtures = getFixtures(['store','currencies','categoryTree','product','products','form','related_products','cart-empty','addresses','order','orders','currencyCategoryId-null']),
 		oCategoryFullFixtures = getFixtures(['store','currencies','categoryTree','product','products','related_products','cart-empty','currencyCategoryId-1']),
 		oCategoryEmptyFixtures = getFixtures(['store','currencies','categoryTree','product','related_products','cart-empty','currencyCategoryId-1']),
-		oCartFullFixtures = getFixtures(['store','currencies','categoryTree','product','related_products','order','orders','cart-full','currencyCategoryId-1']),
+		oCartFullFixtures = getFixtures(['store','currencies','categoryTree','product','related_products','addresses','order','orders','cart-full','currencyCategoryId-1']),
 		oUserForm = getFixtures(['store','currencies','categoryTree','product','related_products','order','orders','cart-full','form']),
 		oOrderEmtpyFixtures = getFixtures(['store','currencies','categoryTree','product','related_products','cart-full','currencyCategoryId-1']);
 
@@ -50,7 +51,14 @@ module.exports = function(grunt, fixtures) {
 							return;
 						}
 
-						return value;
+						var aKeys = value.split('.'),
+							currentKey = oLanguages[aKeys[0]];
+
+						for ( var nKey = 1; nKey < aKeys.length; nKey++ ) {
+							currentKey = currentKey[aKeys[nKey]];
+						}
+
+						return currentKey;
 					});
 
 					Twig.exports.extendFilter("resize", function (value) {
@@ -121,7 +129,7 @@ module.exports = function(grunt, fixtures) {
 					Twig.exports.extendFunction("form_row", function (oInput, oOptions) {
 
 
-						if ( oInput === undefined)  {
+						if ( oInput === undefined || oInput === null )  {
 
 							return 'undefined';
 
@@ -176,7 +184,7 @@ module.exports = function(grunt, fixtures) {
 
 
 
-						if ( oInput === undefined)  {
+						if ( oInput === undefined || oInput === null)  {
 
 							return 'undefined';
 
@@ -220,10 +228,39 @@ module.exports = function(grunt, fixtures) {
 
 					Twig.exports.extendFunction("elcodi_config", function ( sVar ) {
 
-						var sValue = sVar.replace('.', ' ');
+						if (sVar !== undefined) {
+							var sValue = sVar.replace('.', ' ');
+						}
 
 						return sValue;
 					});
+
+					Twig.exports.extendFunction("elcodi_blog_pages", function ( sVar ) {
+
+						return sVar;
+					});
+
+					Twig.exports.extendFunction("elcodi_footer_pages", function ( sVar ) {
+
+
+						return sVar;
+					});
+
+					Twig.exports.extendFunction("paymill_scripts", function ( sVar ) {
+
+						return false;
+					});
+
+					Twig.exports.extendFunction("paymill_render", function ( sVar ) {
+
+
+						return false;
+					});
+					Twig.exports.extendFunction("form_errors", function ( sVar ) {
+
+						return false;
+					});
+
 
 				}
 

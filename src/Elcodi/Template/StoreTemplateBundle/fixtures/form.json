@@ -12,12 +12,48 @@
       "label" : "LastName <span class='mand'>*</span>",
       "type" : "text"
     },
+    "recipientName" : {
+      "label" : "First Name <span class='mand'>*</span>",
+      "type" : "text"
+    },
+    "recipientSurname" : {
+      "label" : "LastName <span class='mand'>*</span>",
+      "type" : "text"
+    },
     "username" : {
       "label" : "LastName <span class='mand'>*</span>",
       "type" : "text"
     },
     "deliveryAddress" : {
       "label" : "Delivery Address",
+      "type" : "text"
+    },
+    "address" : {
+      "label" : "Address",
+      "type" : "text"
+    },
+    "addressMore" : {
+      "label" : "Address more",
+      "type" : "text"
+    },
+    "postalcode" : {
+      "label" : "Postal Code",
+      "type" : "text"
+    },
+    "phone" : {
+      "label" : "Postal Code",
+      "type" : "text"
+    },
+    "mobile" : {
+      "label" : "Postal Code",
+      "type" : "text"
+    },
+    "comments" : {
+      "label" : "Postal Code",
+      "type" : "text"
+    },
+    "name" : {
+      "label" : "Postal Code",
       "type" : "text"
     },
     "password" : {

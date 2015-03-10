@@ -21,10 +21,7 @@
                 {% endfor %}
             </div>
             <div class="shipping-list">
-                {% include "@StoreTemplate/Modules/_shipping-item.html.twig" with {
-                    "shippingRange": cart.shippingRange,
-                    "shippingAmount": cart.shippingAmount
-                } %}
+                {% include "@StoreTemplate/Modules/_shipping-item.html.twig" with { "shippingRange": cart.shippingRange, "shippingAmount": cart.shippingAmount } %}
             </div>
             <p class="cart-total"><span>{{ 'template.store_template_bundle.cart.view.total'|trans }} </span>{{ cart.amount|print_convert_money() }}</p>
 

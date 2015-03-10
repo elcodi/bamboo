@@ -144,8 +144,8 @@ template:
                 thanks: " ¡Gracias por tu pedido! Vamos a proceder con su entrega lo antes posible."
                 total: Total
                 continue_shopping: Seguir comprando
-                status: Estado:
-                shipping: Envío:
+                status: "Estado:"
+                shipping: "Envío:"
         product:
             also_like: Tambien te puede interesar...
             item:

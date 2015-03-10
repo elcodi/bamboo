@@ -1,7 +1,11 @@
 {
   "cart" : {
     "amount" : 45.00,
-    "totalItemNumber" : 3
+    "totalItemNumber" : 3,
+    "shippingRange" : 5,
+    "shippingAmount": 10,
+    "cheapestShippingRange": 10,
+    "deliveryAddress": "Awesome Street"
   },
   "form" : {
     "update" : {

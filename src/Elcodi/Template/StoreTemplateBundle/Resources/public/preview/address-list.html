@@ -56,6 +56,86 @@
 <![endif]-->
     
         
+
+<header class="header">
+        <nav class="currency-nav">
+        <div class="grid">
+            <ul>
+                                    <li>
+                        <a href="#" >
+                            EUR
+                        </a>
+                    </li>
+                                    <li>
+                        <a href="#" >
+                            GBP
+                        </a>
+                    </li>
+                                    <li>
+                        <a href="#" >
+                            JPY
+                        </a>
+                    </li>
+                                    <li>
+                        <a href="#" >
+                            USD
+                        </a>
+                    </li>
+                            </ul>
+        </div>
+    </nav>
+    <div class="grid">
+        <div class="col-1-2">
+            <a href="#" class="logo">
+                store name
+            </a>
+        </div>
+        <div class="col-1-2">
+            <ul class="user-nav">
+            <li>
+            <a href="#"><i class="fa fa-sign-in"></i> Login</a>
+        </li>
+        <li>
+            <a href="#"><strong><i class="fa fa-user"></i> Create new account</strong></a>
+        </li>
+    </ul>
+            <ul class="cart-nav">
+    <li>
+        <small>Amount</small>
+        <strong>$0.00</strong>
+    </li>
+    <li>
+        <small>Items</small>
+        <strong>0</strong>
+    </li>
+    <li>
+        <a href="#" class="fa fa-shopping-cart fa-2x"></a>
+    </li>
+</ul>
+        </div>
+    </div>
+</header>
+<div class="grid desktop">
+    <ul class="category-nav">
+    <li>
+        <a href="#"  class="active">New</a>
+    </li>
+            <li >
+            <a href="#"
+                >
+                Women's
+            </a>
+                    </li>
+            <li >
+            <a href="#"
+                >
+                Men's
+            </a>
+                    </li>
+    </ul>
+</div>
+<a href="#mobile-menu" class="button mobile"><i class="fa fa-arrow-down"></i> Menu</a>
+
     
     
                     <div class="grid message-grid">
@@ -74,17 +154,156 @@
         
         <div class="grid grid-pad">
             <div class="col-1-1">
-                    <h2>template.store_template_bundle.address.list.addresses</h2>
-            <div class="empty-page">
-            <i class="fa fa-map-marker fa-3x"></i>
-            <h2 class="product-title">template.store_template_bundle.address.list.no_addresses</h2>
-            <a href="#" class="button button-secondary">template.store_template_bundle.address.list.add_new_address</a>
+                    <h2>Addresses</h2>
+        <div class="address-list address-list-profile">
+        <a href="#" class="button button-secondary address-list-add">Add new address</a>
+                    <dl class="address-item">
+    <dt class="address-item-selection"></dt>
+    <dd class="address-item-selection">
+        <div class="address-item-selection-item">
+            <div class="switch">
+                <input id="billing-1"
+                       type="radio"
+                       name="billing"
+                       value="1"
+                                                >
+                <label for="billing-1"></label>
+            </div>
+            Billing
         </div>
-
+        <div class="address-item-selection-item">
+            <div class="switch">
+                <input id="delivery-1"
+                       type="radio"
+                       name="delivery"
+                       value="1"
+                         checked="checked"                        >
+                <label for="delivery-1"></label>
+            </div>
+            Delivery
+        </div>
+    </dd>
+    <dt>Name</dt>
+    <dd><strong>My Address</strong></dd>
+    <dt>Full name</dt>
+    <dd>John Doe</dd>
+    <dt>Address</dt>
+    <dd>Awesome Street, 21<br/></dd>
+    <dt>Phone / Mobile</dt>
+    <dd>555 555 555 / 666 666 666</dd>
+    <dt>City</dt>
+    <dd>Barcelona, Catalonia, Spain, </dd>
+    <dt>Postal Code</dt>
+    <dd>08080</dd>
+    <dt>Comments</dt>
+    <dd>It's a house</dd>
+    <dt class="address-item-actions">Actions</dt>
+    <dd class="address-item-actions">
+        <a href="#" class="button button-primary"><i
+                    class="fa fa-pencil"></i> Edit</a>
+        <a href="#" class="button button-ko"><i
+                    class="fa fa-trash-o"></i> Remove</a>
+    </dd>
+</dl>
+                    <dl class="address-item">
+    <dt class="address-item-selection"></dt>
+    <dd class="address-item-selection">
+        <div class="address-item-selection-item">
+            <div class="switch">
+                <input id="billing-2"
+                       type="radio"
+                       name="billing"
+                       value="2"
+                                                >
+                <label for="billing-2"></label>
+            </div>
+            Billing
+        </div>
+        <div class="address-item-selection-item">
+            <div class="switch">
+                <input id="delivery-2"
+                       type="radio"
+                       name="delivery"
+                       value="2"
+                                                >
+                <label for="delivery-2"></label>
+            </div>
+            Delivery
+        </div>
+    </dd>
+    <dt>Name</dt>
+    <dd><strong>My Address 2</strong></dd>
+    <dt>Full name</dt>
+    <dd>John Doe</dd>
+    <dt>Address</dt>
+    <dd>Awesome Street, 21<br/></dd>
+    <dt>Phone / Mobile</dt>
+    <dd>555 555 555 / 666 666 666</dd>
+    <dt>City</dt>
+    <dd>Barcelona, Catalonia, Spain, </dd>
+    <dt>Postal Code</dt>
+    <dd>08080</dd>
+    <dt>Comments</dt>
+    <dd>It's a house</dd>
+    <dt class="address-item-actions">Actions</dt>
+    <dd class="address-item-actions">
+        <a href="#" class="button button-primary"><i
+                    class="fa fa-pencil"></i> Edit</a>
+        <a href="#" class="button button-ko"><i
+                    class="fa fa-trash-o"></i> Remove</a>
+    </dd>
+</dl>
+            </div>
                 </div>
         </div>
                 
-        
+        <div id="mobile-menu" class="grid mobile">
+    <ul class="category-nav">
+    <li>
+        <a href="#"  class="active">New</a>
+    </li>
+            <li >
+            <a href="#"
+                >
+                Women's
+            </a>
+                    </li>
+            <li >
+            <a href="#"
+                >
+                Men's
+            </a>
+                    </li>
+    </ul>
+</div>
+<footer class="footer">
+    <div class="grid">
+        <div class="col-1-1">
+            <p><strong>store leitmotiv</strong></p>
+        </div>
+    </div>
+    <div class="grid">
+                        <div class="col-1-3">
+            <h5>Quick links</h5>
+            <ul>
+                
+                            </ul>
+        </div>
+                                <div class="col-1-3">
+            <h5>Follow us</h5>
+            <ul>
+                                    <li>
+                        <a href="http://twitter.com/store social_twitter">Twitter</a>
+                    </li>
+                
+                                    <li>
+                        <a href="http://facebook.com/store social_facebook">Facebook</a>
+                    </li>
+                            </ul>
+        </div>
+            </div>
+</footer>
+
         
         <script>
         _etc.push(["", 'page_view']);
