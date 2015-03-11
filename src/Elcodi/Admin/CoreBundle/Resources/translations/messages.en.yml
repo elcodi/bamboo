@@ -210,8 +210,8 @@ admin:
                 title:       Visibility
                 description: Set this attribute as visible or hidden.
     blog:
-        single: Catalog
-        plural: Catalogs
+        single: Blog
+        plural: Blogs
 
     blog_post:
         single: Blog post
