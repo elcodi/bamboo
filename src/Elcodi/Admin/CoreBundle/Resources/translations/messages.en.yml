@@ -409,6 +409,10 @@ admin:
         single: Language
         plural: Languages
         list:   Language list
+        field:
+            iso: ISO
+            master: Master language
+            status: Enabled
 
     media:
         single: Media

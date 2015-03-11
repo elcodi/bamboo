@@ -5,14 +5,16 @@
     {{ 'Language list'|trans }}
 {% endblock title %}
 
+{% block table_attributes 'data-tc-modules="table"' %}
 
 {% block table_head %}
 
     {% include '@AdminCore/Tables/head.html.twig' with {
         rows: [
-            { name: 'iso' },
-            { name: 'symbol' },
-            { name: 'enabled', width: 25 },
+            { name: 'admin.language.field.iso'|trans, width: 10 },
+            { name: 'admin.language.single'|trans },
+            { name: 'admin.language.field.master'|trans, width: 15 },
+            { name: 'admin.language.field.status'|trans, width: 15 },
         ],
         class: 'language',
         actions: false
@@ -30,11 +32,20 @@
         {{ entity.name }}
     </td>
     <td>
-        {% if entity.enabled %}
-            <span class="label label-success">{{ 'ui.label.enabled'|trans }}</span>
-        {% else %}
-            <span class="label label-danger">{{ 'ui.label.disabled'|trans }}</span>
-        {% endif %}
+        <div class="switch">
+            <input id="enable-{{ entity.iso }}-master" type="hidden" value="{{ url('admin_language_enable', { id: entity.iso }) }}" />
+            <input id="disable-{{ entity.iso }}-master" type="hidden" value="{{ url('admin_language_disable', { id: entity.iso }) }}" />
+            <input id="{{ entity.iso }}-master" name="language-master" type="radio" {% if entity.enabled %}checked="checked"{% endif %} />
+            <label for="{{ entity.iso }}-master"></label>
+        </div>
+    </td>
+    <td>
+        <div class="switch">
+            <input id="enable-{{ entity.iso }}" type="hidden" value="{{ url('admin_language_enable', { id: entity.iso }) }}" />
+            <input id="disable-{{ entity.iso }}" type="hidden" value="{{ url('admin_language_disable', { id: entity.iso }) }}" />
+            <input id="{{ entity.iso }}" type="checkbox" {% if entity.enabled %}checked="checked"{% endif %} />
+            <label for="{{ entity.iso }}"></label>
+        </div>
     </td>
 
 {% endblock table_body_row %}

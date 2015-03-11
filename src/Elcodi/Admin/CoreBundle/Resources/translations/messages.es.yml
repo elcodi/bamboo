@@ -395,7 +395,7 @@ admin:
             symbol: Símbolo
             iso: ISO
             name: Nombre
-            status: Activa
+            status: Activo
 
     image:
         single: Imagen
@@ -409,6 +409,10 @@ admin:
         single: Idioma
         plural: Idiomas
         list:   Listado de idiomas
+        field:
+            iso: ISO
+            master: Idioma principal
+            status: Activo
 
     media:
         single: Imagen
