@@ -36,7 +36,7 @@ store:
                 send:
                     label: Save address
                 country:
-                    label: País
+                    label: Country
                 state:
                     label: State
                 province:

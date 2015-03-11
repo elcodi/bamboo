@@ -66,6 +66,14 @@ admin:
             comments:
                 title:       Comments
                 placeholder: e.g. It's a house
+            country:
+                title: Country
+            state:
+                title: State
+            province:
+                title: Province
+            city:
+                title: City
             save: Save address
 
     remember_user:
@@ -209,6 +217,7 @@ admin:
             visibility:
                 title:       Visibility
                 description: Set this attribute as visible or hidden.
+
     blog:
         single: Blog
         plural: Blogs
@@ -548,10 +557,11 @@ admin:
             name_details:
                 title: "Name & Details"
             enabled:
-                title: Visible
+                title: Visibility
                 options:
                     active: Active
                     inactive: Inactive
+
             metatitle:
                 placeholder: e.g. My Awesome Product
             metadescription:
@@ -742,7 +752,7 @@ admin:
         saved:  Changes saved
         field:
             name:
-                title: Shipping rate name
+                title: Shipping range name
                 placeholder: e.g. Delivery in 3-5 days
             to_zone:
                 title: To Zone
@@ -768,13 +778,13 @@ admin:
         section:
             basic:
                 title: Basic Details
-                description: Provide the name of the shipping rate and in what zone it will be available.
+                description: Provide the name of the shipping range and in what zone it will be available.
             pricing:
                 title: Pricing
-                description: Set the price for this shipping rate and define if it's going to be calculated based on order price or order weight.
+                description: Set the price for this shipping range and define if it's going to be calculated based on order price or order weight.
             visibility:
                 title: Visibility
-                description: Set this carrier as enabled or disabled.
+                description: Set this shipping range as enabled or disabled.
 
     plugin:
         single: App
