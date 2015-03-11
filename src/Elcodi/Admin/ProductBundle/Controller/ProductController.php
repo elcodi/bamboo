@@ -163,7 +163,7 @@ class ProductController extends AbstractAdminController
                 'success',
                 $this
                     ->get('translator')
-                    ->trans('Changes saved')
+                    ->trans('admin.product.saved')
             );
 
             return $this->redirectToRoute('admin_product_list');

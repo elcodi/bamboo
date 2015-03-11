@@ -37,6 +37,7 @@ admin:
     address:
         single: Dirección fiscal
         plural: Direcciones fiscales
+        saved:  Dirección guardada
         edit:
             billing_address: Dirección fiscal de tu tienda
         select:
@@ -202,6 +203,7 @@ admin:
         plural: Atributos
         edit:   Editar "%name%"
         new:    Nuevo atributo
+        saved:  Atributo guardado
         list:   Listado de atributos
         field:
             name:
@@ -267,6 +269,7 @@ admin:
         plural: Correos
         edit:   Editar "%title%"
         new:    Crear nuevo correo
+        saved:  Correo guardado
         list:   Listado de correo
         field:
             title:
@@ -325,6 +328,7 @@ admin:
         plural: Cupones
         edit:   Editar "%code%"
         new:    Nuevo cupón
+        saved:  Cupón guardado
         list:   Listado de cupones
         field:
             code:
@@ -610,6 +614,7 @@ admin:
         plural: Variantes
         edit:   Editar variante "%name%"
         new: Nueva variante
+        saved: Variante guardada
         list:   Listado de variantes
         saved: Cambios guardados
         field:
@@ -644,6 +649,7 @@ admin:
         plural:   Fabricantes
         edit:     Editar "%name%"
         new:      Nuevo fabricante
+        saved:    Fabricante guardado
         list:     Lista de fabricantes
         field:
             name:
@@ -686,6 +692,7 @@ admin:
         plural:   Categorias
         edit:     Editar "%name%"
         new:      Nueva categoría
+        saved:    Categoría guardada
         list:     Lista de categoría
         in_store: Ver en la tienda
         field:

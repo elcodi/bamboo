@@ -83,7 +83,7 @@ class AddressController extends AbstractAdminController
                 ->get('elcodi.service.store_address_manager')
                 ->setStoreAddress($savedAddress);
 
-            $this->addFlash('success', 'Address saved');
+            $this->addFlash('success', 'admin.address.saved');
 
             return $this->redirectRoute("admin_address_edit");
         }
@@ -141,7 +141,7 @@ class AddressController extends AbstractAdminController
                 ->get('elcodi.service.store_address_manager')
                 ->setStoreAddress($address);
 
-            $this->addFlash('success', 'Address saved');
+            $this->addFlash('success', 'admin.address.saved');
 
             return $this->redirectRoute("admin_address_edit");
         }

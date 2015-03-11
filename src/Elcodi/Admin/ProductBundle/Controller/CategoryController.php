@@ -129,7 +129,7 @@ class CategoryController extends AbstractAdminController
         if ($isValid) {
             $this->flush($category);
 
-            $this->addFlash('success', 'Changes saved');
+            $this->addFlash('success', 'admin.category.saved');
 
             $this
                 ->get('event_dispatcher')

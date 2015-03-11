@@ -37,6 +37,7 @@ admin:
     address:
         single: Address
         plural: Addresses
+        saved:  Address saved
         edit:
             billing_address: Edit billing address
         select:
@@ -202,6 +203,7 @@ admin:
         plural: Attributes
         edit:   Edit "%name%"
         new:    New attribute
+        saved:  Attribute saved
         list:   Attribute list
         field:
             name:
@@ -267,6 +269,7 @@ admin:
         plural: Mailings
         edit:   Edit "%title%"
         new:    Create new mailing
+        saved:  Mailing saved
         list:   Mailing list
         field:
             title:
@@ -325,6 +328,7 @@ admin:
         plural: Coupons
         edit:   Edit "%code%"
         new:    New coupon
+        saved:  Coupon saved
         list:   Coupon list
         field:
             code:
@@ -611,7 +615,7 @@ admin:
         edit:   Edit variant "%name%"
         new:    New Variant
         list:   Variant list
-        saved:  Changes saved
+        saved:  Variant saved
         field:
             name:
                 title: Variant name
@@ -644,6 +648,7 @@ admin:
         plural:   Manufacturers
         edit:     Edit "%name%"
         new:      New Manufacturer
+        saved:    Manufacturer saved
         list:     Manufacturer list
         field:
             name:
@@ -686,6 +691,7 @@ admin:
         plural:   Categories
         edit:     Edit "%name%"
         new:      New Category
+        saved:    Category saved
         list:     Category list
         in_store: View at the store
         field:
