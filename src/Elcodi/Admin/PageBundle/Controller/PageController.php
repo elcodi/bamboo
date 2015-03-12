@@ -24,7 +24,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
@@ -195,7 +195,7 @@ class PageController extends AbstractAdminController
     ) {
         try {
             $this->canBeDeactivated($page);
-        } catch (AccessDeniedHttpException $exception) {
+        } catch (AccessDeniedException $exception) {
             return $this->getFailResponse($request, $exception);
         }
 
@@ -233,7 +233,7 @@ class PageController extends AbstractAdminController
     ) {
         try {
             $this->canBeDeactivated($page);
-        } catch (AccessDeniedHttpException $exception) {
+        } catch (AccessDeniedException $exception) {
             return $this->getFailResponse($request, $exception);
         }
 
@@ -272,7 +272,7 @@ class PageController extends AbstractAdminController
     ) {
         try {
             $this->canBeDeactivated($entity);
-        } catch (AccessDeniedHttpException $exception) {
+        } catch (AccessDeniedException $exception) {
             return $this->getFailResponse($request, $exception);
         }
 
@@ -288,12 +288,12 @@ class PageController extends AbstractAdminController
      *
      * @param PageInterface $page Page
      *
-     * @throws AccessDeniedHttpException
+     * @throws AccessDeniedException
      */
     private function canBeDeactivated(PageInterface $page)
     {
         if ($page->isPersistent()) {
-            throw new AccessDeniedHttpException(
+            throw new AccessDeniedException(
                 $this
                     ->get('translator')
                     ->trans('admin.page.error.cant_modify_permanent')
