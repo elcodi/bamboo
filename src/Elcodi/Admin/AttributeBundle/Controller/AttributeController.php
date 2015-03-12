@@ -276,7 +276,7 @@ class AttributeController extends AbstractAdminController
      *
      * @return $this Self object
      */
-    public function evaluateAttributeValues(AttributeInterface $attribute, array $values = [])
+    protected function evaluateAttributeValues(AttributeInterface $attribute, array $values = [])
     {
         $actualValues = [];
         $values = array_filter($values, function ($value) {

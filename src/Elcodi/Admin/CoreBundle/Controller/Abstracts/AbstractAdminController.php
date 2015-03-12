@@ -220,7 +220,7 @@ class AbstractAdminController extends Controller
      *
      * @return $this self Object
      */
-    public function flush($entity)
+    protected function flush($entity)
     {
         /**
          * @var ObjectManager $objectManager
