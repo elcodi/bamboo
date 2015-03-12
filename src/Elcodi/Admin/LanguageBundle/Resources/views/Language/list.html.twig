@@ -13,11 +13,8 @@
 
 
 {% block content %}
-
-    <div class="row">
-        <div class="col-md-12">
-            {{ render(url('admin_language_list_component')) }}
-        </div>
+    <p id="table-loading" class="ta-c fz-xxl"><i class="icon-spin icon-spinner" data-tc-modules="on-off-table"></i></p>
+    <div id="current-table" style="display: none">
+        {{ render(url('admin_language_list_component')) }}
     </div>
-
 {% endblock content %}

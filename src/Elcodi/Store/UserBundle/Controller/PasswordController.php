@@ -17,7 +17,6 @@
 
 namespace Elcodi\Store\UserBundle\Controller;
 
-use Doctrine\Common\Persistence\ObjectRepository;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as AnnotationForm;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -25,7 +24,6 @@ use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Response;
 
 use Elcodi\Component\User\Entity\Abstracts\AbstractUser;
-use Elcodi\Component\User\Repository\Interfaces\UserEmaileableInterface;
 use Elcodi\Store\CoreBundle\Controller\Traits\TemplateRenderTrait;
 
 /**
@@ -63,8 +61,6 @@ class PasswordController extends Controller
     public function rememberAction(Form $passwordRememberForm, $isValid)
     {
         if ($isValid) {
-            $customerRepository = $this->getCustomerRepository();
-
             $email = $passwordRememberForm
                 ->get('email')
                 ->getData();
@@ -72,7 +68,7 @@ class PasswordController extends Controller
             $emailFound = $this
                 ->get('elcodi.manager.password')
                 ->rememberPasswordByEmail(
-                    $customerRepository,
+                    $this->get('elcodi.repository.customer'),
                     $email,
                     'store_password_recover'
                 );
@@ -142,7 +138,7 @@ class PasswordController extends Controller
     {
         if ($isValid) {
             $customer = $this
-                ->getCustomerRepository()
+                ->get('elcodi.repository.customer')
                 ->findOneBy([
                     'recoveryHash' => $hash,
                 ]);
@@ -166,17 +162,5 @@ class PasswordController extends Controller
                 'form' => $passwordRecoverForm->createView(),
             ]
         );
-    }
-
-    /**
-     * Get customer repository
-     *
-     * @return ObjectRepository|UserEmaileableInterface
-     */
-    protected function getCustomerRepository()
-    {
-        return $this
-            ->get('elcodi.provider.repository')
-            ->getRepositoryByEntityParameter('elcodi.core.user.entity.customer.class');
     }
 }

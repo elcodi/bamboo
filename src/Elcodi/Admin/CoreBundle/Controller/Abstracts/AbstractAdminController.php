@@ -40,7 +40,7 @@ class AbstractAdminController extends Controller
      *
      * @return array Result
      */
-    public function enableAction(
+    protected function enableAction(
         Request $request,
         EnabledInterface $entity
     ) {
@@ -63,7 +63,7 @@ class AbstractAdminController extends Controller
      *
      * @return array Result
      */
-    public function disableAction(
+    protected function disableAction(
         Request $request,
         EnabledInterface $entity
     ) {
@@ -87,7 +87,7 @@ class AbstractAdminController extends Controller
      *
      * @return RedirectResponse Redirect response
      */
-    public function deleteAction(
+    protected function deleteAction(
         Request $request,
         $entity,
         $redirectUrl = null
@@ -229,6 +229,20 @@ class AbstractAdminController extends Controller
 
         $objectManager->persist($entity);
         $objectManager->flush($entity);
+
+        return $this;
+    }
+
+    /**
+     * Flush cache
+     *
+     * @return $this self Object
+     */
+    protected function flushCache()
+    {
+        $this
+            ->get('cache_flusher')
+            ->flushCache();
 
         return $this;
     }

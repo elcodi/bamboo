@@ -40,6 +40,7 @@ parameters:
 
     bamboo_bucket_name: fillme
     bamboo_admin_prefix: admin
+    bamboo_api_prefix: api
     bamboo_store_firewall: store_area
 
     imagick_convert_bin_path: /usr/bin/convert

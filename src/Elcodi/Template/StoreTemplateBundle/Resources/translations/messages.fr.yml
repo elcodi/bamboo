@@ -1,0 +1,200 @@
+template:
+    store_template_bundle:
+        address:
+            item:
+                billing: Billing
+                delivery: Delivery
+                address_name: Name
+                fullname: Full name
+                address: Address
+                phone_and_mobile: Phone / Mobile
+                city: City
+                state: State
+                province: Province
+                country: Country
+                postal_code: Postal Code
+                comment: Comments
+                actions: Actions
+                edit: Edit
+                remove: Remove
+            new:
+                name:
+                    example: e.g. My default address
+                recipient:
+                    example_name: e.g. John
+                    example_surname: e.g. Doe
+                address:
+                    example: e.g. Awesome Street, 21
+                address_more:
+                    example: e.g. Doe Enterprises
+                postalcode:
+                    example: e.g. 08080
+                phone:
+                    example: e.g. 935 555 555
+                mobile:
+                    example: e.g. 555 555 555
+                comments:
+                    example: e.g. It's a house
+                cancel: Cancel
+            edit:
+                edit_address: Edit address
+                add_new_address: Add new address
+            list:
+                addresses: Addresses
+                no_addresses: There are not addresses
+                add_new_address: Add new address
+        blog:
+            post:
+                view:
+                    last_post: Last post
+                    read_more: Read more
+                list:
+                    blog_posts: Blog posts
+                    read_more: Read more
+                    next_posts: Next posts
+                    previous_posts: Previous posts
+
+        cart:
+            item:
+                image: Image
+                item: Item
+                units: Units
+                price: Price
+                total: Total
+                remove: Remove
+            view:
+                title: Your shopping cart
+                total: Total
+                checkout_title: Check all the items and/or Apply coupons
+                checkout: Checkout
+                empty_basket: Empty basket
+                update_basket: Update basket
+                continue_shopping: Continue Shopping
+                your_cart_is_empty: Your cart is empty
+            nav:
+                amount: Amount
+                items: Items
+        coupon:
+            item:
+                coupon: Coupon
+                description: Description
+                units: Units
+                value: Value
+                total: Total
+                remove: Remove
+
+        payment:
+            credit_card_owner: Credit card owner
+            credit_card_numbers: Credit card numbers
+            month: Month
+            year: Year
+            security_code: Security Code
+
+        category:
+            view:
+                category: Category
+            nav:
+                new: New
+
+        checkout:
+            layout:
+                your_cart: Your cart
+                total: Total
+            address:
+                select_address: Select delivery and billing address
+                payment: Payment
+                add_new_address: Add new address
+            payment:
+                set_shipping_payment: Set the shipping & the payment
+                continue: Continue
+                back: Back
+                shipping_carrier_method: Shipping carrier/method
+                payment_method: Payment method
+                credit_debit_card: Credit/Debit card
+                paypal: Paypal
+                bankwire: Bankwire
+                try_again: Please try again.
+
+        order:
+            coupon:
+                coupon: Coupon
+                description: Description
+                units: Units
+                values: Values
+                total: Total
+            item:
+                image: Image
+                item: Item
+                units: Units
+                price: Price
+                total: Total
+            list:
+                orders: Orders
+                image: Image
+                number_of_order: Number of order
+                order_number: "Order #"
+                state: State
+                date: Date
+                total: Total
+                no_orders: There are no orders
+            view:
+                congratulations: CONGRATULATIONS!
+                thanks: " Thank you for your order! We are going to work to send you as fast as possible."
+                total: Total
+                continue_shopping: Continue shopping
+        product:
+            item:
+                offer: Offer
+            list:
+                no_products_in_category: Sorry, we don't have products for this category
+            view_item:
+                product: Product
+                offer: Offer
+                add_to_cart: Add to cart
+                no_stock: No stock
+                description: Description
+                stock: Stock
+                in_stock: This item is in stock and ready to ship!
+                not_available: This item is currently not available
+                delivery: Delivery
+                usually_dispatched_24_hours: Usually dispatched within 24 hours
+
+        user:
+            edit:
+                profile: Profile
+            home:
+                dashboard: Dashboard
+                profile: Profile
+                my_orders: My orders
+                my_addresses: My addresses
+            login:
+                login_with_account: Login with your account
+                create_new_account: Create new account
+                unregistered: "Unregistered?"
+                login_with_social: Login with your social accounts
+                forgot_your_password: Have you lost your password?
+            password:
+                recover_password: Recover password
+                password_sent: Password sent
+                password_sent_text: We have sent you an email with all the information to recover your password.
+                register: Register
+            nav:
+                logout: Logout
+                login: Login
+                create_new_account: Create new account
+
+        header:
+            menu: Menu
+
+        footer:
+            latest_news: Latests news
+            more: More
+            quick_links: Quick links
+            follow_us: Follow us
+
+        shipping:
+            costs_will_be_calculated_after_login: After you login or add your shipping address the shipping costs will be calculated.
+            carrier: Carrier
+            from: from
+            costs_will_be_calculated_after_address: After you set your address, shipping costs will be calculated.
+            no_shipping_matching: No shipping matching. Please contact us before finish your shipping.

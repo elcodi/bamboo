@@ -20,6 +20,7 @@ namespace Elcodi\Store\CartBundle\Controller;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\Request;
@@ -36,6 +37,7 @@ use Elcodi\Store\CoreBundle\Controller\Traits\TemplateRenderTrait;
 /**
  * Class CheckoutController
  *
+ * @Security("has_role('ROLE_CUSTOMER')")
  * @Route(
  *      path = "/checkout",
  * )

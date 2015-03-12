@@ -14,15 +14,6 @@ security:
             path: ^/%bamboo_admin_prefix%/
             roles: ROLE_ADMIN
 
-        # store
-        customer_area:
-            path: ^/user(/|$)
-            roles: ROLE_CUSTOMER
-
-        checkout_area:
-            path: ^/checkout/
-            roles: ROLE_CUSTOMER
-
         public_area:
             path: ^/
             roles: IS_AUTHENTICATED_ANONYMOUSLY

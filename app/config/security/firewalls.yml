@@ -9,7 +9,7 @@ security:
             security: false
 
         api_area:
-            pattern:  ^/api/
+            pattern:  ^/%bamboo_api_prefix%/
             security: false
 
         admin_login_area:
@@ -49,9 +49,9 @@ security:
                 target: store_homepage
                 invalidate_session: false
             oauth:
-                login_path: /login
+                login_path: store_login
                 use_forward: false
-                failure_path: /login
+                failure_path: store_login
                 oauth_user_provider:
                     service: store.connect.service.oauth_provider
                 resource_owners:

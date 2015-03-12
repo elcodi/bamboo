@@ -15,6 +15,13 @@ store_address:
     type: string
     value:
 
+store_default_language:
+    key: default_language
+    namespace: store
+    name: Default language
+    type: string
+    value: en
+
 #
 # Product namespace
 #

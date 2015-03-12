@@ -16,12 +16,20 @@
 
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpKernel\Kernel;
+use Symfony\Component\HttpKernel\Bundle\BundleInterface;
 
 /**
  * Class AppKernel
  */
 class AppKernel extends Kernel
 {
+    /**
+     * Returns an array of bundles to register.
+     *
+     * @return BundleInterface[] An array of bundle instances.
+     *
+     * @api
+     */
     public function registerBundles()
     {
         $bundles = array(
@@ -45,14 +53,21 @@ class AppKernel extends Kernel
             new \Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
             new \Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
-            new \Mmoreram\ControllerExtraBundle\ControllerExtraBundle(),
             new \Ornicar\GravatarBundle\OrnicarGravatarBundle(),
+            new \HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
+            new \Snc\RedisBundle\SncRedisBundle(),
+            new \JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
+            new \JMS\TranslationBundle\JMSTranslationBundle(),
+            new \Mmoreram\ControllerExtraBundle\ControllerExtraBundle(),
+            new \Mmoreram\CacheFlushBundle\CacheFlushBundle(),
+
+            /**
+             * Payment suite
+             */
             new \PaymentSuite\PaymentCoreBundle\PaymentCoreBundle(),
             new \PaymentSuite\FreePaymentBundle\FreePaymentBundle(),
             new \PaymentSuite\PaypalWebCheckoutBundle\PaypalWebCheckoutBundle(),
             new \PaymentSuite\PaymillBundle\PaymillBundle(),
-            new \HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
-            new \Snc\RedisBundle\SncRedisBundle(),
 
             /**
              * Elcodi core bundles
@@ -100,6 +115,7 @@ class AppKernel extends Kernel
             new \Elcodi\Store\PaymentBridgeBundle\PaymentBridgeBundle(),
             new \Elcodi\Store\MetricBundle\StoreMetricBundle(),
             new \Elcodi\Store\PageBundle\StorePageBundle(),
+            new \Elcodi\Store\LanguageBundle\StoreLanguageBundle(),
 
             /**
              * Elcodi admin bundles
@@ -149,6 +165,6 @@ class AppKernel extends Kernel
 
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
+        $loader->load(__DIR__ . '/config/config_' . $this->getEnvironment() . '.yml');
     }
 }

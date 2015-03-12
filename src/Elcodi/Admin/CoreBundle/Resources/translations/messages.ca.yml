@@ -1,161 +1,160 @@
 admin:
     dashboard:
-        single: Panel de control
-        plural: Paneles de control
-        title:  Panel de Control
-        view_store: Ir a mi tienda
+        single: Panell de contol
+        plural: Panells de control
+        title:  Panell de control
         chart:
             visitors:
-                title: Visitas
-                unique: Usuarios únicos
-                total: Páginas vistas
+                title: Visites
+                unique: Usuaris unics
+                total: Pàgines vistes
             sales:
-                title: Ventas
-                sales: Ventas
+                title: Vendes
+                sales: Vendes
             cart_conversion:
-                title: Conversión de carrito
-                cart_view: Resumen
-                billing_shipping: Dirección
-                payment: Pago
-                ordered: Finalizado
+                title: Conversió de cistella
+                cart_view: Resum
+                billing_shipping: Adreça
+                payment: Pagament
+                ordered: Finalitzat
             devices:
-                title: Dispositivos
-                mobile: Móviles
-                desktop: Escritorio
+                title: Dispositius
+                mobile: Mòbils
+                desktop: Escriptori
             traffic_source:
-                title: Origen de tráfico
-                direct: Directo
-                referrals: Referidos
-                search_engine: Buscadores
+                title: Origen de visites
+                direct: Directe
+                referrals: Referits
+                search_engine: Cercadors
         chart_range:
-            today: Hoy
-            yesterday: Ayer
-            last7days: Últimos 7 días
-            last30days: Últimos 30 días
-            last90days: Últimos 90 días
+            today: Avui
+            yesterday: Ahir
+            last7days: Ultims 7 dies
+            last30days: Ultims 30 dies
+            last90days: Ultims 90 dies
 
     address:
-        single: Dirección fiscal
-        plural: Direcciones fiscales
+        single: Adreça fiscal
+        plural: Adreçes fiscals
         edit:
-            billing_address: Dirección fiscal de tu tienda
+            billing_address: Adreça fiscal de la teva botiga
         select:
-            placeholder: Selecciona una
+            placeholder: Sel·lecciona una
         field:
             recipient_name:
-                title:       Nombre del destinatario
-                placeholder: ej. John
+                title:       Nom del destinatari
+                placeholder: p.e. Joan
             recipient_surname:
                 title:       Apellido del destinatario
-                placeholder: ej. Doe
+                placeholder: p.e. Capdevila
             address:
-                title:       Dirección
-                placeholder: "ej. Calle impresionante, 42"
+                title:       Adreça
+                placeholder: "Plaça de a vil·la, 42"
             address_more:
-                title:       Más dirección (opcional)
-                placeholder: ej. Oficina Doe
+                title:       Més adreça (opcional)
+                placeholder: p.e. Oficina central
             postalcode:
-                title:       Código postal
-                placeholder: ej. 08080
+                title:       Codi postal
+                placeholder: p.e. 08080
             phone:
-                title:       Teléfono
-                placeholder: ej. 935 555 555
+                title:       Telèfon
+                placeholder: p.e. 935 555 555
             mobile:
-                title:       Móvil
-                placeholder: ej. 555 555 555
+                title:       Mòbil
+                placeholder: p.e. 555 555 555
             comments:
-                title:       Comentarios
-                placeholder: ej. Es una casa
+                title:       Comentaris
+                placeholder: p.e. És una casa
             country:
-                title: País
+                title: Pais
             state:
-                title: Estado
+                title: Comunitat Autònoma
             province:
-                title: Provincia
+                title: Província
             city:
-                title: Ciudad
-            save: Guardar dirección
+                title: Ciutat
+            save: Guardar adreça
 
     remember_user:
-        title: ¿Olvidaste tu contraseña?
-        description: "No te preocupes, te mandamos un email para reiniciar tu contraseña."
+        title: Has perdut la teva contrasenya?
+        description: "No et preocupis, t'enviem un correu electrònic per a que reiniciis la teva contrasenya."
 
     recover_user:
-        title: Nueva contraseña
+        title: Nova contrasenya
         field:
             email:
-                placeholder: Tu correo electrónico
+                placeholder: La teva adreça de correu electrònic
             password:
-                placeholder: Nueva contraseña
+                placeholder: Nova contrasenya
             repeat_password:
-                placeholder: Repite contraseña
+                placeholder: Repeteix contrasenya
         action:
             email_sent:
-                title: Correo electrónico enviado
-                description: "Por favor, comprueba tu correo electrónico y sigue las intrucciones para recuperar tu contraseña."
+                title: Correu electrònic enviat
+                description: "Si us plau, comprova la teva bústia electrònica i segueix les instruccions per a recuperar la teva contrasenya."
 
     login:
-        title: Es necesario iniciar sesión
+        title: És necessari iniciar sessió
         field:
             email:
-                placeholder: Tu correo electrónico
+                placeholder: La teva adreça electrònica
             password:
-                placeholder: Tu contraseña
+                placeholder: La teva contrasenya
         action:
-            login: Iniciar sesión
-            logout: Cerrar sesión
-            remember: No recuerdo mi contraseña
+            login: Iniciar sessió
+            logout: Tancar sessió
+            remember: No recordo la meva contrasenya
 
     user:
         field:
             email:
-                title: Correo electrónico
-                placeholder: ej. john.doe@mail.com
+                title: Adreça electrònica
+                placeholder: p.e. joan.capdevila@mail.com
             firstname:
-                title: Nombre
-                placeholder: ej. John
+                title: Nom
+                placeholder: p.e. Joan
             lastname:
                 title: Apellido
-                placeholder: ej. Doe
+                placeholder: p.e. Capdevila
             fullname:
-                title: Nombre completo
+                title: Nom complet
             username:
-                title: Nombre de usuario
+                title: Nom d'usuari
             birthday:
-                title: Fecha de nacimiento
+                title: Data de naixement
             gender:
-                title: Sexo
+                title: Sexe
                 options:
-                    male: Masculino
-                    female: Femenino
+                    male: Masculí
+                    female: Femení
             password:
-                title: Contraseña
+                title: Contrasenya
             enabled:
-                title: Estado
+                title: Estat
                 options:
-                    active:   Activo
-                    inactive: Inactivo
+                    active:   Actiu
+                    inactive: Inactiu
 
     admin_user:
         single: Administrador
-        plural: Administradores
-        list:   Listado de administradores
+        plural: Administradors
+        list:   Llistat d'administradors
         edit:   Editar "%name%"
-        new:    Crea un nuevo administrador
-        saved:  Cambios guardados
+        new:    Crea un nou administrador
+        saved:  Canvis guardats
         error:
-            cant_disable_yourself: No puedes desactivar tu propia cuenta
-            cant_remove_yourself: No puedes borrar tu propia cuenta
+            cant_disable_yourself: No pots desactivar el teu propi compte
+            cant_remove_yourself: No pots esborrar el teu propi compte
         section:
             login:
-                title: Detalles de sesión
-                description: Cada usuario debe tener un correo eletrónico único.
+                title: Detalls de sessió
+                description: Cada usuari ha de tenir una adreça de correu electrònic únic.
             contact:
-                title: Detalles de contacto
-                description: Los detalles de contacto para este administrador.
+                title: Detalls de contacte
+                description: Els detalls de contacte per aquest administrador.
             status:
-                title: Estado del usuario
-                description: Puedes configurar los administradores como activos o inactivos.
+                title: Estat de l'usuari
+                description: Pots configurar els administradors com actius o inactius.
 
     customer:
         single: Cliente
@@ -171,13 +170,13 @@ admin:
         field:
             username:
                 title: Nombre de usuario
-                placeholder: ej. john_doe
+                placeholder: p.e. john_doe
             identity_document:
                 title: Documento de identidad
-                placeholder: ej. 12345678A
+                placeholder: p.e. 12345678A
             phone:
                 title: Teléfono
-                placeholder: ej. 555 55 55 55
+                placeholder: p.e. 555 55 55 55
             language:
                 title: Idioma preferido
             guest:
@@ -205,7 +204,7 @@ admin:
         list:   Listado de atributos
         field:
             name:
-                placeholder: ej. Color
+                placeholder: p.e. Color
                 title:       Nombre
                 values:      Valores
             enabled:
@@ -234,10 +233,10 @@ admin:
         field:
             title:
                 title: Título
-                placeholder: ej. Mi magnífico artículo
+                placeholder: p.e. Mi magnífico artículo
             path:
                 title: Ruta
-                placeholder: ej. mi/magnifico/articulo
+                placeholder: p.e. mi/magnifico/articulo
                 customize: Personalizar ruta
             link:
                 title: Enlace
@@ -245,15 +244,15 @@ admin:
                 title: Estado
             content:
                 title: Contenido
-                placeholder: ej. Este magnífico artículo es exactamente lo que buscas.
+                placeholder: p.e. Este magnífico artículo es exactamente lo que buscas.
             publication_date:
                 title: Fecha de publicación
             metatitle:
-                placeholder: ej. Mi magnífico articulo
+                placeholder: p.e. Mi magnífico articulo
             metadescription:
-                placeholder: ej. Este magnífico artículo es exactamente lo que buscas.
+                placeholder: p.e. Este magnífico artículo es exactamente lo que buscas.
             metakeywords:
-                placeholder: 'ej. blog,articulo,magnifico'
+                placeholder: 'p.e. blog,articulo,magnifico'
         section:
             basic:
                 title: Detalles básicos
@@ -271,10 +270,10 @@ admin:
         field:
             title:
                 title: Título
-                placeholder: ej. Mi magnífico correo
+                placeholder: p.e. Mi magnífico correo
             title:
                 title: Contenido
-                placeholder: ej. Este magnífico correo es exactamente lo que buscabas.
+                placeholder: p.e. Este magnífico correo es exactamente lo que buscabas.
         section:
             basic:
                 title: Contenido básico
@@ -292,10 +291,10 @@ admin:
         field:
             name:
                 title: Nombre
-                placeholder: ej. SuperTransportista
+                placeholder: p.e. SuperTransportista
             description:
                 title: Descripción
-                placeholder: ej. La mejor opción para transporte local
+                placeholder: p.e. La mejor opción para transporte local
             taxes:
                 title: Tasas
                 format: Tasa %value%%
@@ -328,14 +327,14 @@ admin:
         list:   Listado de cupones
         field:
             code:
-                placeholder: ej. MYCODIGO
+                placeholder: p.e. MYCODIGO
                 title:        Código
             count:
                 title: Límite de usos
             datetime:
                 title: 'Fecha y hora'
             description:
-                placeholder: ej. Código de 10% de descuento
+                placeholder: p.e. Código de 10% de descuento
                 title:       Descripción
             discount:
                 title: "Porcentaje"
@@ -395,7 +394,7 @@ admin:
             symbol: Símbolo
             iso: ISO
             name: Nombre
-            status: Activo
+            status: Activa
 
     image:
         single: Imagen
@@ -409,10 +408,6 @@ admin:
         single: Idioma
         plural: Idiomas
         list:   Listado de idiomas
-        field:
-            iso: ISO
-            master: Idioma principal
-            status: Activo
 
     media:
         single: Imagen
@@ -482,10 +477,10 @@ admin:
         field:
             title:
                 title: Título
-                placeholder: ej. My genial página
+                placeholder: p.e. My genial página
             path:
                 title: Ruta
-                placeholder: ej. my/genial/pagina
+                placeholder: p.e. my/genial/pagina
                 customize: Personalizar ruta
             link:
                 title: Enlace
@@ -493,13 +488,13 @@ admin:
                 title: Activa
             content:
                 title: Contenido
-                placeholder: ej. Esta genial página es exactamente lo que buscabas.
+                placeholder: p.e. Esta genial página es exactamente lo que buscabas.
             metatitle:
-                placeholder: ej. My genial página
+                placeholder: p.e. My genial página
             metadescription:
-                placeholder: ej. Esta genial página es exactamente lo que buscabas.
+                placeholder: p.e. Esta genial página es exactamente lo que buscabas.
             metakeywords:
-                placeholder: 'ej. pagina,genial'
+                placeholder: 'p.e. pagina,genial'
         section:
             basic:
                 title: Detálles básicos
@@ -509,7 +504,6 @@ admin:
                 description: Configurar la página como visible u oculta, también puedes hacerla visible en tu página principal.
         error:
             cant_modify_permanent: Esta página es permanente y no puede ser modificada
-
     profile:
         single: Perfil
         plural: Perfiles
@@ -526,20 +520,20 @@ admin:
         field:
             name:
                 title: Título
-                placeholder: ej. Mi genial producto
+                placeholder: p.e. Mi genial producto
             slug:
                 title: Slug
-                placeholder: ej. my/genial/producto
+                placeholder: p.e. my/genial/producto
                 customize: Personalizar ruta
             description:
                 title: Descripción
-                placeholder: ej. Este genial producto es exactamente lo que buscabas.
+                placeholder: p.e. Este genial producto es exactamente lo que buscabas.
             main_category:
                 title: Categoria
-                placeholder: 'ej. Ordenadores, bolsas de mano...'
+                placeholder: 'p.e. Ordenadores, bolsas de mano...'
             manufacturer:
                 title: Fabricante
-                placeholder: 'ej. Apple, Disney...'
+                placeholder: 'p.e. Apple, Disney...'
             price:
                 title: Precio
             stock:
@@ -567,21 +561,22 @@ admin:
                     inactive: Deshabilitado
 
             metatitle:
-                placeholder: ej. Mi genial producto
+                placeholder: p.e. Mi genial producto
             metadescription:
-                placeholder: ej. Este genial producto es exactamente lo que buscabas.
+                placeholder: p.e. Este genial producto es exactamente lo que buscabas.
             metakeywords:
-                placeholder: 'ej. product,genial'
-        info:
-            variants_before_saving: Podrás añadir variantes una vez hayas guardo el producto
-        error:
-            no_category: ¡Atención! Este producto no está asociado a ninguna categoria
-            no_manufacturer: ¡Atención! Este producto no está asociado a ningun fabricante
+                placeholder: 'p.e. product,genial'
         tag:
             in_home: Portada
             has_variants: Tiene variantes
             no_category: Sin categoría
             no_manufacturer: Sin fabricante
+        info:
+            variants_before_saving: Podrás añadir variantes una vez hayas guardo el producto
+        error:
+            no_category: ¡Atención! Este producto no está asociado a ninguna categoria
+            no_manufacturer: ¡Atención! Este producto no está asociado a ningun fabricante
+
         section:
             basic:
                 title: Detalles básicos
@@ -610,8 +605,11 @@ admin:
         plural: Variantes
         edit:   Editar variante "%name%"
         new: Nueva variante
-        list:   Listado de variantes
         saved: Cambios guardados
+        single: variante
+        plural: variantes
+        edit:   Editar variante "%name%"
+        list:   Listado de variantes
         field:
             name:
                 title: Nombre de la variante
@@ -648,14 +646,14 @@ admin:
         field:
             name:
                 title: Nombre del fabricante
-                placeholder: ej. Mi genial fabricante
+                placeholder: p.e. Mi genial fabricante
             slug:
                 title: Ruta
                 customize: Personalizar ruta
-                placeholder: ej. mi/genial/fabricante
+                placeholder: p.e. mi/genial/fabricante
             description:
                 title: Descripción
-                placeholder: ej. Este genial fabricante es exactamente lo que estás buscando.
+                placeholder: p.e. Este genial fabricante es exactamente lo que estás buscando.
             enabled:
                 title: Estado
                 options:
@@ -668,11 +666,11 @@ admin:
             product_count:
                 title: Productos
             metatitle:
-                placeholder: ej. Mi genial fabricante
+                placeholder: p.e. Mi genial fabricante
             metadescription:
-                placeholder: ej. Este genial fabricante es exactamente lo que estás buscando.
+                placeholder: p.e. Este genial fabricante es exactamente lo que estás buscando.
             metakeywords:
-                placeholder: 'ej. fabricante,genial'
+                placeholder: 'p.e. fabricante,genial'
         section:
             basic:
                 title: Detalles básicos
@@ -691,10 +689,10 @@ admin:
         field:
             name:
                 title: Nombre de la categoria
-                placeholder: ej. Mi genial categoria
+                placeholder: p.e. Mi genial categoria
             slug:
                 title: Ruta
-                placeholder: ej. mi/genial/categoria
+                placeholder: p.e. mi/genial/categoria
                 customize: Personalizar ruta
             root:
                 title: Categoria principal
@@ -708,11 +706,11 @@ admin:
             contains:
                 title: Contiene %count% productos
             metatitle:
-                placeholder: ej. Mi genial categoria
+                placeholder: p.e. Mi genial categoria
             metadescription:
-                placeholder: ej. Esta genial categoria es exactamente lo que estabas buscando.
+                placeholder: p.e. Esta genial categoria es exactamente lo que estabas buscando.
             metakeywords:
-                placeholder: 'ej. categoria,genial'
+                placeholder: 'p.e. categoria,genial'
         section:
             basic:
                 title: Detalles básicos
@@ -729,6 +727,10 @@ admin:
                     - "Arrastra y suelta las categorías para ordenarlas o anidarlas."
                     - "Haz click en un categoría para editarla."
                     - "Haz click en la papelera para borrar la categoría."
+
+    profile:
+        single: Perfil
+        plural: Perfiles
 
     metadata:
         customize: Personalizar metadatos
@@ -757,7 +759,7 @@ admin:
         field:
             name:
                 title: Nombre del rango de envio
-                placeholder: ej. Entrega en 3-5 días
+                placeholder: p.e. Entrega en 3-5 días
             to_zone:
                 title: A la zona
             price:

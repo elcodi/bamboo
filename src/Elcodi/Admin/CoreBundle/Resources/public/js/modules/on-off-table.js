@@ -1,11 +1,11 @@
-TinyCore.AMD.define('currency-table', ['devicePackage' ], function () {
+TinyCore.AMD.define('on-off-table', ['devicePackage' ], function () {
     return {
         onStart: function () {
 
             setTimeout( function() {
 
-                $('#currency-loading').fadeOut('fast', function() {
-                    $('#currency-table').fadeIn();
+                $('#table-loading').fadeOut('fast', function() {
+                    $('#current-table').fadeIn();
                 });
 
                 $('.switch input').change( function() {

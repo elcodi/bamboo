@@ -14,8 +14,8 @@
 
 {% block content %}
 
-    <p  id="currency-loading" class="ta-c fz-xxl"><i class="icon-spin icon-spinner" data-tc-modules="currency-table"></i></p>
-    <div id="currency-table" style="display: none">
+    <p id="table-loading" class="ta-c fz-xxl"><i class="icon-spin icon-spinner" data-tc-modules="on-off-table"></i></p>
+    <div id="current-table" style="display: none">
         {{ render(url('admin_currency_list_component')) }}
     </div>
 

@@ -1,0 +1,94 @@
+#
+# Monedes
+#
+store_currency_nav: /divises/nav
+
+#
+# Idiomes
+#
+store_language_nav: /idiomes/nav
+
+#
+# Adreçes
+#
+store_address_list: /les-meves-direccions
+store_address_edit: /les-meves-direccions/{id}/editar/{source}
+store_address_new: /les-meves-direccions/nova/{source}
+store_address_delete: /les-meves-direccions/{id}/eliminar
+
+#
+# Localitzacions
+#
+location_selectors: /localitzacions/selectors/{locationId}
+
+#
+# Blog
+#
+store_blog_view: /blog/{page}
+store_blog_post_view: /blog/{id}/{slug}
+
+#
+# Categoria
+#
+store_categories_nav: /categories/nav
+store_category_products_list: /categoria/{slug}/{id}
+
+#
+# Producte
+#
+store_product_view: /producte/{slug}/{id}
+
+
+#
+# Cistella
+#
+store_cart_view: /cistella
+store_cart_add_product: /cistella/producte/{id}/afegir
+store_cart_add_product_variant: /cistella/producte/variacio/{id}/afegir
+store_cart_empty: /cistella/buidar
+store_cart_update: /cistella/actualitzar
+store_cartline_remove: /cistella/linia/{id}/eliminar
+store_cart_nav: /cistella/nav
+
+#
+# Procés de compra
+#
+store_checkout_address: /cistella/adreça
+store_checkout_address_save: /cistella/adreça/guardar
+store_checkout_payment: /cistella/pagament
+store_checkout_payment_fail: /cistella/pagament/error
+store_checkout_shipping_range_apply: /cistella/enviament/rang/canviar/{rangeId}
+
+#
+# Comandes
+#
+store_order_view: /comanda/{id}
+store_order_view_thanks: /comanda/{id}/gracies
+store_order_list: /les-meves-comandes
+
+#
+# Cart Coupon
+#
+store_cart_coupon_form_type_coupon_apply: /cistella/cupons
+store_coupon_apply: /cistella/cupo/aplicar
+store_coupon_remove: /cistella/cupo/eliminar
+
+#
+# Password
+#
+store_password_remember: /contrasenya/recordar
+store_password_recover_sent: /contrasenya/enviat
+store_password_recover: /contrasenya/recuperar
+
+#
+# Security
+#
+store_register: /registrar-se
+store_login: /entrar
+
+#
+# User
+#
+store_user_nav: /usuari/nav
+store_user: /usuari
+store_user_edit: /usuari/editar

@@ -17,6 +17,7 @@
 
 namespace Elcodi\Admin\LanguageBundle\Controller;
 
+use Exception;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -65,7 +66,7 @@ class LanguageController extends AbstractAdminController
      * @return array Result
      *
      * @Route(
-     *      path = "/{id}/enable",
+     *      path = "/{iso}/enable",
      *      name = "admin_language_enable"
      * )
      * @Method({"GET", "POST"})
@@ -73,7 +74,7 @@ class LanguageController extends AbstractAdminController
      * @EntityAnnotation(
      *      class = "elcodi.core.language.entity.language.class",
      *      mapping = {
-     *          "id" = "~id~"
+     *          "iso" = "~iso~"
      *      }
      * )
      */
@@ -81,10 +82,14 @@ class LanguageController extends AbstractAdminController
         Request $request,
         EnabledInterface $entity
     ) {
-        return parent::enableAction(
+        $result = parent::enableAction(
             $request,
             $entity
         );
+
+        $this->flushCache();
+
+        return $result;
     }
 
     /**
@@ -96,7 +101,7 @@ class LanguageController extends AbstractAdminController
      * @return array Result
      *
      * @Route(
-     *      path = "/{id}/disable",
+     *      path = "/{iso}/disable",
      *      name = "admin_language_disable"
      * )
      * @Method({"GET", "POST"})
@@ -104,7 +109,7 @@ class LanguageController extends AbstractAdminController
      * @EntityAnnotation(
      *      class = "elcodi.core.language.entity.language.class",
      *      mapping = {
-     *          "id" = "~id~"
+     *          "iso" = "~iso~"
      *      }
      * )
      */
@@ -112,9 +117,28 @@ class LanguageController extends AbstractAdminController
         Request $request,
         EnabledInterface $entity
     ) {
-        return parent::disableAction(
+
+        /**
+         * We cannot disable the default locale
+         */
+        $masterLanguage = $this
+            ->container
+            ->getParameter('locale');
+
+        if ($entity->getIso() == $masterLanguage) {
+            return $this->getFailResponse(
+                $request,
+                new Exception('You cannot disable your master language')
+            );
+        }
+
+        $result = parent::disableAction(
             $request,
             $entity
         );
+
+        $this->flushCache();
+
+        return $result;
     }
 }
