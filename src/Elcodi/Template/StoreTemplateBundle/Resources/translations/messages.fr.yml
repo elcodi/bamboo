@@ -2,199 +2,199 @@ template:
     store_template_bundle:
         address:
             item:
-                billing: Billing
-                delivery: Delivery
-                address_name: Name
-                fullname: Full name
-                address: Address
-                phone_and_mobile: Phone / Mobile
-                city: City
-                state: State
-                province: Province
-                country: Country
-                postal_code: Postal Code
-                comment: Comments
+                billing: Facturation
+                delivery: Livraison
+                address_name: Nom
+                fullname: Nom complet
+                address: Adresse
+                phone_and_mobile: Téléphone / Mobile
+                city: Ville
+                state: Etat / Région
+                province: Province / Département
+                country: Pays
+                postal_code: Code postal
+                comment: Commentaires
                 actions: Actions
-                edit: Edit
-                remove: Remove
+                edit: Editer
+                remove: Supprimer
             new:
                 name:
-                    example: e.g. My default address
+                    example: e.g. Mon adresse par défaut
                 recipient:
-                    example_name: e.g. John
-                    example_surname: e.g. Doe
+                    example_name: e.g. Julien
+                    example_surname: e.g. Dupont
                 address:
-                    example: e.g. Awesome Street, 21
+                    example: e.g. 1 rue de la Paix
                 address_more:
-                    example: e.g. Doe Enterprises
+                    example: e.g. Dupont Entreprises
                 postalcode:
-                    example: e.g. 08080
+                    example: e.g. 75000
                 phone:
-                    example: e.g. 935 555 555
+                    example: e.g. 01 02 03 04 05
                 mobile:
-                    example: e.g. 555 555 555
+                    example: e.g. 06 07 08 09 10
                 comments:
-                    example: e.g. It's a house
-                cancel: Cancel
+                    example: e.g. C'est une maison
+                cancel: Annuler
             edit:
-                edit_address: Edit address
-                add_new_address: Add new address
+                edit_address: Editer l'adresse
+                add_new_address: Ajouter nouvelle adresse
             list:
-                addresses: Addresses
-                no_addresses: There are not addresses
-                add_new_address: Add new address
+                addresses: Adresses
+                no_addresses: Il n'y a pas d'adresses
+                add_new_address: Ajouter nouvelle adresse
         blog:
             post:
                 view:
-                    last_post: Last post
-                    read_more: Read more
+                    last_post: Dernier article
+                    read_more: Autres articles
                 list:
-                    blog_posts: Blog posts
-                    read_more: Read more
-                    next_posts: Next posts
-                    previous_posts: Previous posts
+                    blog_posts: Articles de blog
+                    read_more: Autres articles
+                    next_posts: Articles suivants
+                    previous_posts: Articles précédents
 
         cart:
             item:
                 image: Image
-                item: Item
-                units: Units
-                price: Price
+                item: Article
+                units: Unités
+                price: Prix
                 total: Total
-                remove: Remove
+                remove: Supprimer
             view:
-                title: Your shopping cart
+                title: Votre panier
                 total: Total
-                checkout_title: Check all the items and/or Apply coupons
-                checkout: Checkout
-                empty_basket: Empty basket
-                update_basket: Update basket
-                continue_shopping: Continue Shopping
-                your_cart_is_empty: Your cart is empty
+                checkout_title: Vérifiez tous les articles et / ou appliquer les coupons
+                checkout: Vérification
+                empty_basket: Vider panier
+                update_basket: Mettre à jour le panier
+                continue_shopping: Continuez vos achats
+                your_cart_is_empty: Vos informations de carte bancaires sont vides
             nav:
-                amount: Amount
-                items: Items
+                amount: Montant
+                items: Articles
         coupon:
             item:
                 coupon: Coupon
                 description: Description
-                units: Units
-                value: Value
+                units: Unités
+                value: Valeur
                 total: Total
-                remove: Remove
+                remove: Supprimer
 
         payment:
-            credit_card_owner: Credit card owner
-            credit_card_numbers: Credit card numbers
-            month: Month
-            year: Year
-            security_code: Security Code
+            credit_card_owner: Propriétaire
+            credit_card_numbers: Numéro de carte bancaire
+            month: Mois
+            year: Année
+            security_code: Code de sécurité
 
         category:
             view:
-                category: Category
+                category: Catégorie
             nav:
-                new: New
+                new: Nouvelle
 
         checkout:
             layout:
-                your_cart: Your cart
+                your_cart: Vos achats
                 total: Total
             address:
-                select_address: Select delivery and billing address
-                payment: Payment
-                add_new_address: Add new address
+                select_address: Choisissez les adresses de livraison et de facturation
+                payment: Paiement
+                add_new_address: Ajouter une nouvelle adresse
             payment:
-                set_shipping_payment: Set the shipping & the payment
-                continue: Continue
-                back: Back
-                shipping_carrier_method: Shipping carrier/method
-                payment_method: Payment method
-                credit_debit_card: Credit/Debit card
+                set_shipping_payment: Choisissez les options de livraison et de paiement
+                continue: Continuer
+                back: Retour
+                shipping_carrier_method: Mode de livraison / transporteur
+                payment_method: Méthode de paiement
+                credit_debit_card: Carte de crédit / débit
                 paypal: Paypal
                 bankwire: Bankwire
-                try_again: Please try again.
+                try_again: Essayez à nouveau.
 
         order:
             coupon:
                 coupon: Coupon
                 description: Description
-                units: Units
-                values: Values
+                units: Unités
+                values: Valeurs
                 total: Total
             item:
                 image: Image
-                item: Item
-                units: Units
-                price: Price
+                item: Article
+                units: Unités
+                price: Prix
                 total: Total
             list:
-                orders: Orders
+                orders: Commandes
                 image: Image
-                number_of_order: Number of order
-                order_number: "Order #"
-                state: State
+                number_of_order: Numéro de commande
+                order_number: "Commande #"
+                state: Etat
                 date: Date
                 total: Total
-                no_orders: There are no orders
+                no_orders: Il n'y a aucune commande
             view:
-                congratulations: CONGRATULATIONS!
-                thanks: " Thank you for your order! We are going to work to send you as fast as possible."
+                congratulations: Félicitations!
+                thanks: " Merci pour votre commande! Nous nous assurons qu'il vous sera envoyé le plus rapidement possible."
                 total: Total
-                continue_shopping: Continue shopping
+                continue_shopping: Continuez vos achats
         product:
             item:
-                offer: Offer
+                offer: Offre spéciale
             list:
-                no_products_in_category: Sorry, we don't have products for this category
+                no_products_in_category: "Désolé, cette catégorie ne contient pas d'articles"
             view_item:
-                product: Product
-                offer: Offer
-                add_to_cart: Add to cart
-                no_stock: No stock
+                product: Produit
+                offer: Offre spéciale
+                add_to_cart: Ajouter au panier
+                no_stock: Plus en stock
                 description: Description
                 stock: Stock
-                in_stock: This item is in stock and ready to ship!
-                not_available: This item is currently not available
-                delivery: Delivery
-                usually_dispatched_24_hours: Usually dispatched within 24 hours
+                in_stock: Cet article est en stock et prêt à être livré!
+                not_available: Cet article n'est actuellement plus disponible
+                delivery: Livraison
+                usually_dispatched_24_hours: Livré dans les 24h
 
         user:
             edit:
-                profile: Profile
+                profile: Profil
             home:
-                dashboard: Dashboard
-                profile: Profile
-                my_orders: My orders
-                my_addresses: My addresses
+                dashboard: Tableau de bord
+                profile: Profil
+                my_orders: Mes commandes
+                my_addresses: Mes adresses
             login:
-                login_with_account: Login with your account
-                create_new_account: Create new account
-                unregistered: "Unregistered?"
-                login_with_social: Login with your social accounts
-                forgot_your_password: Have you lost your password?
+                login_with_account: Connectez vous à votre compte
+                create_new_account: Créer un compte
+                unregistered: "Pas encore enregistré?"
+                login_with_social: Connectez vous avec un compte "social"
+                forgot_your_password: Mot de passe oublié ?
             password:
-                recover_password: Recover password
-                password_sent: Password sent
-                password_sent_text: We have sent you an email with all the information to recover your password.
-                register: Register
+                recover_password: Récupérer un nouveau mot de passe
+                password_sent: Mot de passe envoyé
+                password_sent_text: Un email vous a été envoyé avec toutes les informations pour que vous puissiez récupérer un mot de passe.
+                register: S'enregistrer
             nav:
-                logout: Logout
-                login: Login
-                create_new_account: Create new account
+                logout: Se déconnecter
+                login: Se connecter
+                create_new_account: Créer un compte
 
         header:
             menu: Menu
 
         footer:
-            latest_news: Latests news
-            more: More
-            quick_links: Quick links
-            follow_us: Follow us
+            latest_news: Dernières nouvelles
+            more: Plus
+            quick_links: Liens rapides
+            follow_us: Suivez nous
 
         shipping:
-            costs_will_be_calculated_after_login: After you login or add your shipping address the shipping costs will be calculated.
-            carrier: Carrier
-            from: from
-            costs_will_be_calculated_after_address: After you set your address, shipping costs will be calculated.
-            no_shipping_matching: No shipping matching. Please contact us before finish your shipping.
+            costs_will_be_calculated_after_login: Après vous être connecté ou avoir ajouté votre adresse expédition les frais de port seront re-calculés.
+            carrier: Transporteur
+            from: De
+            costs_will_be_calculated_after_address: Après que vous ayez choisi votre adresse, les frais de transport seront re-calculés.
+            no_shipping_matching: Aucune correspondance avec un mode de livraison.Contactez nous afin de terminer le processus de livraison.
