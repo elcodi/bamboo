@@ -14,5 +14,7 @@ services:
         class: %elcodi.admin.shipping.form_type.carrier.class%
         arguments:
             zone_namespace: %elcodi.entity.tax.class%
+        calls:
+            - [setEntityTranslatorFormEventListener, [@elcodi.entity_translator_form_event_listener]]
         tags:
             - { name: form.type, alias: elcodi_admin_shipping_form_type_carrier }
