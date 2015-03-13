@@ -160,7 +160,7 @@ class AttributeController extends AbstractAdminController
 
             $this->flush($attribute);
 
-            $this->addFlash('success', 'Changes saved');
+            $this->addFlash('success', 'admin.attribute.saved');
 
             return $this->redirectToRoute('admin_attribute_list');
         }

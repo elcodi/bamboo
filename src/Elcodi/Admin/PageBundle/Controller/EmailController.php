@@ -113,7 +113,7 @@ class EmailController extends AbstractAdminController
         if ($isValid) {
             $this->flush($email);
 
-            $this->addFlash('success', 'Email saved');
+            $this->addFlash('success', 'admin.mailing.saved');
 
             return $this->redirectToRoute('admin_email_list');
         }

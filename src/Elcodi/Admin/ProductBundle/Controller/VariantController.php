@@ -153,7 +153,7 @@ class VariantController extends AbstractAdminController
             $this->flush($variant);
             $this->flush($product);
 
-            $this->addFlash('success', 'Changes saved');
+            $this->addFlash('success', 'admin.variant.saved');
 
             return $this->redirectToRoute('admin_product_edit', [
                 'id'        => $product->getId(),

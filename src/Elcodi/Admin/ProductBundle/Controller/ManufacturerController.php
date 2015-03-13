@@ -155,7 +155,7 @@ class ManufacturerController extends AbstractAdminController
         if ($isValid) {
             $this->flush($manufacturer);
 
-            $this->addFlash('success', 'Changes saved');
+            $this->addFlash('success', 'admin.manufacturer.saved');
 
             if ($request->query->get('modal', false)) {
                 $redirection = $this

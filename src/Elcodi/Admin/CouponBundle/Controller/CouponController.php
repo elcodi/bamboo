@@ -149,7 +149,7 @@ class CouponController extends AbstractAdminController
         if ($isValid) {
             $this->flush($coupon);
 
-            $this->addFlash('success', 'Changes saved');
+            $this->addFlash('success', 'admin.coupon.saved');
 
             return $this->redirectToRoute('admin_coupon_list');
         }
