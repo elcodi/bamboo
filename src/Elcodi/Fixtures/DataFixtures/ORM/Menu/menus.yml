@@ -234,6 +234,7 @@ menu_nodes:
         url: admin_address_edit
         active_urls:
             - admin_address_edit
+            - admin_address_new
         enabled: 1
         subnodes: ~
 
@@ -252,6 +253,8 @@ menu_nodes:
         url: admin_carrier_list
         active_urls:
             - admin_carrier_list
+            - admin_carrier_new
+            - admin_carrier_edit
         enabled: 1
         subnodes: ~
 
