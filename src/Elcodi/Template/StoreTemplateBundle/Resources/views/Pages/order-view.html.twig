@@ -6,6 +6,8 @@
             <p><i class="fa fa-check"></i> <strong>{{ 'template.store_template_bundle.order.view.congratulations'|trans }}</strong></p>
             <p>{{ 'template.store_template_bundle.order.view.thanks'|trans }}</p>
         </div>
+
+        {{ elcodi_hook("store.order_thanks") }}
     {% else %}
         <h1>{{ 'template.store_template_bundle.order.view.order'|trans }} #{{ order.id }}</h1>
     {% endif %}

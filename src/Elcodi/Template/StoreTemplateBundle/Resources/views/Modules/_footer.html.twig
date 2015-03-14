@@ -37,25 +37,17 @@
                 {% endfor %}
             </ul>
         </div>
-        {% set social_twitter = elcodi_config('store.social_twitter') %}
         {% set social_facebook = elcodi_config('store.social_facebook') %}
-        {% if social_twitter != '' or social_facebook != '' %}
         <div class="col-1-3">
             <h5>{{ 'template.store_template_bundle.footer.follow_us'|trans }}</h5>
             <ul>
-                {% if social_twitter != '' %}
-                    <li>
-                        <a href="http://twitter.com/{{ social_twitter }}">Twitter</a>
-                    </li>
-                {% endif %}
-
                 {% if social_facebook != '' %}
                     <li>
                         <a href="http://facebook.com/{{ social_facebook }}">Facebook</a>
                     </li>
                 {% endif %}
+                {{ elcodi_hook("store.footer_social") }}
             </ul>
         </div>
-        {% endif %}
     </div>
 </footer>

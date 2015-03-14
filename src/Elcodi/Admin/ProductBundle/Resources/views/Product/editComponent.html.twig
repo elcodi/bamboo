@@ -20,6 +20,9 @@
     <div class="pr-l">
     {{ form_start(form, { action: formAction }) }}
         <fieldset class="mb-n">
+            {{ elcodi_hook("admin.product_top", {
+                'product': product
+            }) }}
             <div class="grid">
                 <div class="col-1-3">
                     <div class="box-none">
