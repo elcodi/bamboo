@@ -24,3 +24,7 @@ elcodi_plugin_disqus:
 elcodi_plugin_twitter:
     resource: "@ElcodiTwitterBundle/Resources/config/routing.yml"
     prefix: /plugin/twitter
+
+elcodi_plugin_facebook:
+    resource: "@ElcodiFacebookBundle/Resources/config/routing.yml"
+    prefix: /plugin/facebook

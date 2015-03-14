@@ -154,6 +154,7 @@ class AppKernel extends Kernel
             new \Elcodi\Plugin\StoreSetupWizardBundle\ElcodiStoreSetupWizardBundle(),
             new \Elcodi\Plugin\DisqusBundle\ElcodiDisqusBundle(),
             new \Elcodi\Plugin\TwitterBundle\ElcodiTwitterBundle(),
+            new \Elcodi\Plugin\FacebookBundle\ElcodiFacebookBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
