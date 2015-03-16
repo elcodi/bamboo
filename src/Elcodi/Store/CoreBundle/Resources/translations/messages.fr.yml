@@ -94,3 +94,10 @@ store:
         applied:
             message_ok: Le Coupon a été appliqué avec succès
             message_ko: Une erreur est survenue lors de l'application du coupon
+
+    pagination:
+        first: Première
+        previous: Précédent
+        current: Actual
+        next: Suivant
+        last: Dernière

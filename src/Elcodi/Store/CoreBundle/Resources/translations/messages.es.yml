@@ -95,3 +95,10 @@ store:
         applied:
             message_ok: Cupón aplicado correctamente
             message_ko: No se pudo aplicar el cupón
+
+    pagination:
+        first: Primero
+        previous: Anterior
+        current: Actual
+        next: Siguiente
+        last: Último

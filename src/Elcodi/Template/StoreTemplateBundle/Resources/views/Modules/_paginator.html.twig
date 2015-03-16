@@ -1,0 +1,87 @@
+{#
+ # Generate a list of pagination links
+ #
+ # This module expects the following variables:
+ #
+ # Mandatory variables
+ #
+ # - currentPage: Number of the current page
+ # - totalPages:  Total number of pages
+ # - route:       Route name to generate pages
+ #
+ # Optional variables
+ #
+ # - contextPages: How many pages in the context (default: 0)
+ # - separator:    Add separator if context is far from edges (default: true)
+ #}
+{%- spaceless %}
+<nav class="pagination">
+    <ul>
+        {% set enabled = currentPage > 1 %}
+
+        <li class="first{% if not enabled %} disabled{% endif %}">
+            {% if enabled %}<a  href="{{ url(route, { page: 1 }) }}">{% endif %}
+            <span>{{ 'store.pagination.first'|trans }}</span>
+            {% if enabled %}</a>{% endif %}
+        </li>
+
+        <li class="prev{% if not enabled %} disabled{% endif %}">
+            {% if enabled %}<a href="{{ url(route, { page: currentPage - 1 }) }}">{% endif %}
+            <span>{{ 'store.pagination.previous'|trans }}</span>
+            {% if enabled %}</a>{% endif %}
+        </li>
+
+        {% set lowerLimit = max(1, currentPage - contextPages) %}
+        {% set upperLimit = currentPage - 1 %}
+
+        {% if separator and lowerLimit > 1 %}
+            <li class="separator"></li>
+        {% endif %}
+
+        {% if lowerLimit <= upperLimit %}
+            {% for page in lowerLimit..upperLimit %}
+                <li class="page">
+                    <a href="{{ url(route, { page: page }) }}">
+                        <span>{{ page }}</span>
+                    </a>
+                </li>
+            {% endfor %}
+        {% endif %}
+
+        <li class="active">
+            <span>{{ currentPage }}</span>
+        </li>
+
+        {% set lowerLimit = currentPage + 1 %}
+        {% set upperLimit = min(currentPage + contextPages, totalPages) %}
+
+        {% if lowerLimit <= upperLimit %}
+            {% for page in lowerLimit..upperLimit %}
+                <li class="page">
+                    <a href="{{ url(route, { page: page }) }}">
+                        <span>{{ page }}</span>
+                    </a>
+                </li>
+            {% endfor %}
+        {% endif %}
+
+        {% if separator and upperLimit < totalPages %}
+            <li class="separator"></li>
+        {% endif %}
+
+        {% set enabled = currentPage < totalPages %}
+
+        <li class="next{% if not enabled %} disabled{% endif %}">
+            {% if enabled %}<a href="{{ url(route, { page: currentPage + 1 }) }}">{% endif %}
+            <span>{{ 'store.pagination.next'|trans }}</span>
+            {% if enabled %}</a>{% endif %}
+        </li>
+
+        <li class="last{% if not enabled %} disabled{% endif %}">
+            {% if enabled %}<a href="{{ url(route, { page: totalPages }) }}">{% endif %}
+            <span>{{ 'store.pagination.last'|trans }}</span>
+            {% if enabled %}</a>{% endif %}
+        </li>
+    </ul>
+</nav>
+{% endspaceless -%}
