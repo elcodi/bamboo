@@ -13,7 +13,7 @@ using [Elcodi] components on top of the
 Yes, you got it right! Bamboo uses the Symfony framework but our components are
 framework agnostic, that is, they only depend on the Symfony components.
 
-Why should I use Symfony?
+Why should I use Bamboo?
 That's simple, to sell. We provide you with an interface to sell and to manage
 your store. You only have to focus on offering a good product, we take care of
 the rest.
@@ -73,7 +73,7 @@ errors, and building our first release, so be sure you are not using master, but
 a closed version of the package.
 
 ```bash
-    $ php composer.phar create-project elcodi/bamboo path/ 0.4.*
+    $ php composer.phar create-project elcodi/bamboo path/ 0.5.*
 ```
 
 > The installation process will ask you for some parameters like the database
