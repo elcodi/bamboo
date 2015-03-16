@@ -60,7 +60,6 @@
         "twbs/bootstrap": "2.3.*",
         "leafo/lessphp": "0.3.9",
 
-        "amazonwebservices/aws-sdk-for-php": "1.6.2",
         "guzzlehttp/guzzle": "~5.2",
         "ornicar/gravatar-bundle" : "1.1.2",
         "knplabs/knp-gaufrette-bundle": "~0.1.0",
