@@ -39,7 +39,8 @@ admin:
         plural: Addresses
         saved:  Address saved
         edit:
-            billing_address: Edit billing address
+            billing_address: Billing address for your store
+            description: "The address that should appear on the bills from your store. If you own a company that should be its fiscal address. Otherwise will surely be your physical address."
         select:
             placeholder: Select one
         field:
