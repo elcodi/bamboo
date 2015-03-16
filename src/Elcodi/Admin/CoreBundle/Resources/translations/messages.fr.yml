@@ -309,6 +309,9 @@ admin:
             basic:
                 title: Détails de base
                 description: Fournir le nom du transporteur et une description interne si souhaité.
+            taxes:
+                title: ~
+                description: ~
             shipping_rates:
                 title: Coûts de livraison
                 description: Ajouter des coûts de livraison.
