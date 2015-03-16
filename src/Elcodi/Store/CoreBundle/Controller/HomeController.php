@@ -44,24 +44,17 @@ class HomeController extends Controller
      * @return Response Response
      *
      * @Route(
-     *      path = "",
+     *      path = "/{page}/{limit}",
      *      name = "store_homepage",
-     *      methods = {"GET"},
-     *      defaults = {
-     *          "page" = 1,
-     *          "limit" = 6,
-     *      },
-     * )
-     * @Route(
-     *      path = "/page/{page}",
-     *      name = "store_paged_homepage",
      *      methods = {"GET"},
      *      requirements = {
      *          "page" = "\d+",
+     *          "limit" = "\d+",
      *      },
      *      defaults = {
-     *          "limit" = 6,
-     *      }
+     *          "page" = "1",
+     *          "limit" = "6",
+     *      },
      * )
      * @PaginatorAnnotation(
      *      attributes = "paginatorAttributes",
@@ -89,6 +82,7 @@ class HomeController extends Controller
                 'products' => $paginator,
                 'currentPage' => $paginatorAttributes->getCurrentPage(),
                 'totalPages' => $paginatorAttributes->getTotalPages(),
+                'limitPerPage' => $paginatorAttributes->getLimitPerPage(),
             ]
         );
     }

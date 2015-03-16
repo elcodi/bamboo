@@ -5,9 +5,10 @@
  #
  # Mandatory variables
  #
- # - currentPage: Number of the current page
- # - totalPages:  Total number of pages
- # - route:       Route name to generate pages
+ # - currentPage:  Number of the current page
+ # - totalPages:   Total number of pages
+ # - limitPerPage: Number of items in a page
+ # - route:        Route name to generate pages
  #
  # Optional variables
  #
@@ -20,13 +21,13 @@
         {% set enabled = currentPage > 1 %}
 
         <li class="first{% if not enabled %} disabled{% endif %}">
-            {% if enabled %}<a  href="{{ url(route, { page: 1 }) }}">{% endif %}
+            {% if enabled %}<a  href="{{ url(route, { page: 1, limit: limitPerPage }) }}">{% endif %}
             <span>{{ 'store.pagination.first'|trans }}</span>
             {% if enabled %}</a>{% endif %}
         </li>
 
         <li class="prev{% if not enabled %} disabled{% endif %}">
-            {% if enabled %}<a href="{{ url(route, { page: currentPage - 1 }) }}">{% endif %}
+            {% if enabled %}<a href="{{ url(route, { page: currentPage - 1, limit: limitPerPage }) }}">{% endif %}
             <span>{{ 'store.pagination.previous'|trans }}</span>
             {% if enabled %}</a>{% endif %}
         </li>
@@ -41,7 +42,7 @@
         {% if lowerLimit <= upperLimit %}
             {% for page in lowerLimit..upperLimit %}
                 <li class="page">
-                    <a href="{{ url(route, { page: page }) }}">
+                    <a href="{{ url(route, { page: page, limit: limitPerPage }) }}">
                         <span>{{ page }}</span>
                     </a>
                 </li>
@@ -58,7 +59,7 @@
         {% if lowerLimit <= upperLimit %}
             {% for page in lowerLimit..upperLimit %}
                 <li class="page">
-                    <a href="{{ url(route, { page: page }) }}">
+                    <a href="{{ url(route, { page: page, limit: limitPerPage }) }}">
                         <span>{{ page }}</span>
                     </a>
                 </li>
@@ -72,13 +73,13 @@
         {% set enabled = currentPage < totalPages %}
 
         <li class="next{% if not enabled %} disabled{% endif %}">
-            {% if enabled %}<a href="{{ url(route, { page: currentPage + 1 }) }}">{% endif %}
+            {% if enabled %}<a href="{{ url(route, { page: currentPage + 1, limit: limitPerPage }) }}">{% endif %}
             <span>{{ 'store.pagination.next'|trans }}</span>
             {% if enabled %}</a>{% endif %}
         </li>
 
         <li class="last{% if not enabled %} disabled{% endif %}">
-            {% if enabled %}<a href="{{ url(route, { page: totalPages }) }}">{% endif %}
+            {% if enabled %}<a href="{{ url(route, { page: totalPages, limit: limitPerPage }) }}">{% endif %}
             <span>{{ 'store.pagination.last'|trans }}</span>
             {% if enabled %}</a>{% endif %}
         </li>
