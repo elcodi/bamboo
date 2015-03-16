@@ -139,8 +139,7 @@
             "Elcodi\\": [
                 "src/Elcodi"
             ]
-        },
-        "files": ["app/AppKernel.php"]
+        }
     },
     "config": {
         "bin-dir": "bin"
