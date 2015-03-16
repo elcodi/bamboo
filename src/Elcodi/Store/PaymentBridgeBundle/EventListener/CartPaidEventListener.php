@@ -17,7 +17,7 @@
 
 namespace Elcodi\Store\PaymentBridgeBundle\EventListener;
 
-use PaymentSuite\PaymentCoreBundle\Event\PaymentOrderLoadEvent;
+use PaymentSuite\PaymentCoreBundle\Event\Abstracts\AbstractPaymentEvent;
 
 use Elcodi\Component\Cart\Transformer\CartOrderTransformer;
 use Elcodi\Component\Cart\Wrapper\CartWrapper;
@@ -59,9 +59,9 @@ class CartPaidEventListener
      * Create order given current cart. This event is only for pushing the new
      * Order to the payment infrastructure
      *
-     * @param PaymentOrderLoadEvent $event Event
+     * @param AbstractPaymentEvent $event Event
      */
-    public function transformCartToOrder(PaymentOrderLoadEvent $event)
+    public function transformCartToOrder(AbstractPaymentEvent $event)
     {
         $cart = $this
             ->cartWrapper
