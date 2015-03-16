@@ -54,7 +54,6 @@
         "jquery/jquery": "1.9.*",
         "jms/aop-bundle": "~1.0",
         "jms/serializer-bundle": "0.13.0",
-        "liip/doctrine-cache-bundle": "1.0.3",
         "jms/security-extra-bundle": "1.5.1",
         "braincrafted/bootstrap-bundle": "1.*",
         "twbs/bootstrap": "2.3.*",
