@@ -34,8 +34,8 @@
     <dd>{{ address.address }}<br/>{{ address.address_more }}</dd>
     <dt>{{ 'template.store_template_bundle.address.item.phone_and_mobile'|trans }}</dt>
     <dd>{{ address.phone }} / {{ address.mobile }}</dd>
-    <dt>{{ 'template.store_template_bundle.address.item.city'|trans }}</dt>
-    <dd>{% for locationData in cities_info[address.city] %}{{ locationData.name }}, {% endfor %}</dd>
+    <dt>{{ 'template.store_template_bundle.address.item.address'|trans }}</dt>
+    <dd>{{ address.fullAddress }}</dd>
     <dt>{{ 'template.store_template_bundle.address.item.postal_code'|trans }}</dt>
     <dd>{{ address.postalCode }}</dd>
     <dt>{{ 'template.store_template_bundle.address.item.comment'|trans }}</dt>

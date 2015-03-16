@@ -109,7 +109,7 @@ class CheckoutController extends Controller
             );
         }
 
-        $locationProvider = $this->get('elcodi.location_provider');
+        $addressFormatter = $this->get('elcodi.formatter.address');
 
         $cart = $this
             ->get('elcodi.wrapper.cart')
@@ -120,20 +120,18 @@ class CheckoutController extends Controller
             ->loadCustomer()
             ->getAddresses();
 
-        $cities_info = [];
+        $addressesFormatted = [];
         foreach ($addresses as $address) {
-            $cities_info[$address->getCity()] =
-                $locationProvider->getHierarchy(
-                    $address->getCity()
-                );
+            $addressesFormatted[] =
+                $addressFormatter
+                    ->toArray($address);
         }
 
         return $this->renderTemplate(
             'Pages:checkout-address.html.twig',
             [
                 'cart'        => $cart,
-                'addresses'   => $addresses,
-                'cities_info' => $cities_info,
+                'addresses'   => $addressesFormatted,
                 'form'        => $formView,
             ]
         );
