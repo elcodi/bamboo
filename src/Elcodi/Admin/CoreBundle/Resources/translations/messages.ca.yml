@@ -37,7 +37,8 @@ admin:
         single: Adreça fiscal
         plural: Adreçes fiscals
         edit:
-            billing_address: Adreça fiscal de la teva botiga
+            billing_address: Adreça de facturació de la teva botiga
+            description: "La direcció que ha de constar a les factures que la teva tenda emeti. En el cas de tenir una empresa aquesta serà la direcció fiscal d'aquesta. En cas contrari, segurament serà la teva direcció física."
         select:
             placeholder: Sel·lecciona una
         field:

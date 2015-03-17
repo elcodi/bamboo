@@ -16,6 +16,9 @@
 
 
 {% block content %}
+    <div class="msg-info">
+        {{ 'admin.address.edit.description'|trans }}
+    </div>
 
     {{ form_start(form) }}
     {{ form_row(form.name, { value: 'Store address' }) }}

@@ -38,6 +38,7 @@ admin:
         plural: Adresses
         edit:
             billing_address: Mettre à jour l'adresse de facturation
+            description: ~
         select:
             placeholder: Choisir une option
         field:

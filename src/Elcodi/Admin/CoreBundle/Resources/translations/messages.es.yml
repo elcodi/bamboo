@@ -39,7 +39,8 @@ admin:
         plural: Direcciones fiscales
         saved:  Dirección guardada
         edit:
-            billing_address: Dirección fiscal de tu tienda
+            billing_address: Dirección de facturación de tu tienda
+            description: "La dirección que constará en las facturas que emita tu tienda. En el caso de tener una empresa, esta será la dirección fiscal de esta. En caso contrario seguramente será tu dirección física."
         select:
             placeholder: Selecciona una
         field:
