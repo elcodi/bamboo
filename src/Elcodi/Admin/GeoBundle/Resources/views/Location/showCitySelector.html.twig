@@ -3,7 +3,7 @@
         <li class="d-ib mr-m">
             {% set fieldType = 'admin.address.field.' ~ select.type ~ '.title' %}
             <label for="{{ select.type }}">{{ fieldType|trans }}</label>
-            <select{% if select.type == maxLocationType %} data-max-type{% endif %}>
+            <select{% if select.type == maxLocationType %} data-max-type{% endif %}{% if loop.last %} class="last"{% endif %}>
                 <option>{{ 'admin.address.select.placeholder'|trans }}</option>
                 {% for key, value in select.options %}
                     <option value="{{ key }}"{% if key == select.selected %} selected{% endif %}>
