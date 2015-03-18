@@ -115,7 +115,7 @@ hwi_oauth:
 
 jms_i18n_routing:
     default_locale: %locale%
-    locales: [en, es, ca]
+    locales:        %available_languages%
     strategy: prefix_except_default
 
 #
