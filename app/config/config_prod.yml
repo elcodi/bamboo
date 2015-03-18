@@ -23,3 +23,9 @@ monolog:
             level: debug
         console:
             type:  console
+
+store_core:
+    errors:
+        404: Exception:error404.html.twig
+        503: Exception:error503.html.twig
+        500: Exception:error.html.twig

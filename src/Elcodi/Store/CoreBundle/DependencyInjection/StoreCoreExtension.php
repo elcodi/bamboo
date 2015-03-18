@@ -17,6 +17,10 @@
 
 namespace Elcodi\Store\CoreBundle\DependencyInjection;
 
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
+use Symfony\Component\HttpFoundation\Response;
+
 use Elcodi\Bundle\CoreBundle\DependencyInjection\Abstracts\AbstractExtension;
 
 /**
@@ -59,27 +63,6 @@ class StoreCoreExtension extends AbstractExtension
     }
 
     /**
-     * Load Parametrization definition
-     *
-     * return array(
-     *      'parameter1' => $config['parameter1'],
-     *      'parameter2' => $config['parameter2'],
-     *      ...
-     * );
-     *
-     * @param array $config Bundles config values
-     *
-     * @return array Parametrization values
-     */
-    protected function getParametrizationValues(array $config)
-    {
-        return [
-            'store.core.errors.not_found.enabled' => $config['errors']['not_found']['enabled'],
-            'store.core.errors.not_found.template' => $config['errors']['not_found']['template'],
-        ];
-    }
-
-    /**
      * Config files to load
      *
      * return array(
@@ -99,8 +82,102 @@ class StoreCoreExtension extends AbstractExtension
             'eventListeners',
             'twig',
             'services',
-            [ 'notFound', $config['errors']['not_found']['enabled'] ],
+            [ 'exceptions', $this->shouldActivateExceptions($config) ],
         ];
+    }
+
+    /**
+     * Hook after load the full container
+     *
+     * @param array            $config    Configuration
+     * @param ContainerBuilder $container Container
+     */
+    protected function postLoad(array $config, ContainerBuilder $container)
+    {
+        parent::postLoad($config, $container);
+
+        $serviceId = 'store.core.event_listener.exception';
+        if ($container->hasDefinition($serviceId)) {
+            $exceptions = $this->collectExceptions($config['errors']);
+            $container
+                ->getDefinition($serviceId)
+                ->replaceArgument(2, $exceptions);
+        }
+    }
+
+    /**
+     * Hook after pre-pending configuration.
+     *
+     * @param array            $config    Configuration
+     * @param ContainerBuilder $container Container
+     */
+    protected function preLoad(array $config, ContainerBuilder $container)
+    {
+        parent::preLoad($config, $container);
+
+        if ($this->shouldActivateInternalExceptions($config)) {
+            $container->prependExtensionConfig('twig', [
+                'exception_controller' => 'store.core.event_listener.exception:showExceptionAction',
+            ]);
+        }
+    }
+
+    /**
+     * Check if the exception listener should be activated
+     *
+     * @param array $config Configuration
+     *
+     * @return bool
+     */
+    protected function shouldActivateExceptions(array $config)
+    {
+        foreach ($config['errors'] as $statusCode => $codeSetup) {
+            if ($codeSetup['enabled']) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Check if the exception listener for internal errors should be activated
+     *
+     * @param array $config Configuration
+     *
+     * @return bool
+     */
+    protected function shouldActivateInternalExceptions(array $config)
+    {
+        $statusCode = Response::HTTP_INTERNAL_SERVER_ERROR;
+
+        if (!isset($config['errors'][$statusCode])) {
+            return false;
+        }
+
+        return $config['errors'][$statusCode]['enabled'];
+    }
+
+    /**
+     * Check if the exception listener should be activated
+     *
+     * @param array $errors
+     *
+     * @return bool
+     */
+    protected function collectExceptions(array $errors)
+    {
+        $exceptions = [];
+        foreach ($errors as $statusCode => $config) {
+
+            if (!$config['enabled']) {
+                continue;
+            }
+
+            $exceptions["{$statusCode}"] = $config['template'];
+        }
+
+        return $exceptions;
     }
 
     /**

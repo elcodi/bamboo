@@ -40,9 +40,26 @@ class Configuration extends AbstractConfiguration
         $rootNode
             ->children()
                 ->arrayNode('errors')
-                    ->addDefaultsIfNotSet()
-                    ->children()
-                        ->append($this->template('not_found'))
+                    ->useAttributeAsKey('name')
+                    ->prototype('array')
+                        ->canBeDisabled()
+                        ->addDefaultsIfNotSet()
+
+                        ->beforeNormalization()
+                            ->ifString()
+                            ->then(function ($value) {
+                                return array(
+                                    'enabled' => true,
+                                    'template' => $value,
+                                );
+                            })
+                        ->end()
+
+                        ->children()
+                            ->scalarNode('template')
+                                ->defaultValue('Exception:error.html.twig')
+                            ->end()
+                        ->end()
                     ->end()
                 ->end()
             ->end();
