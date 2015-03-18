@@ -18,10 +18,10 @@
 namespace Elcodi\Store\PaymentBridgeBundle\EventListener;
 
 use Doctrine\Common\Persistence\ObjectManager;
-use PaymentSuite\PaymentCoreBundle\Event\PaymentOrderSuccessEvent;
 
 use Elcodi\Component\Cart\Entity\Interfaces\OrderInterface;
 use Elcodi\Component\StateTransitionMachine\Machine\MachineManager;
+use PaymentSuite\PaymentCoreBundle\Event\Abstracts\AbstractPaymentEvent;
 
 /**
  * Class OrderToPaidEventListener
@@ -71,9 +71,9 @@ class OrderToPaidEventListener
      *
      * This means that we can change the order state to ACCEPTED
      *
-     * @param PaymentOrderSuccessEvent $event
+     * @param AbstractPaymentEvent $event
      */
-    public function setOrderToPaid(PaymentOrderSuccessEvent $event)
+    public function setOrderToPaid(AbstractPaymentEvent $event)
     {
         $order = $event
             ->getPaymentBridge()
