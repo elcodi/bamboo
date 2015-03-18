@@ -9,6 +9,9 @@
 
 {% block content %}
     <div class="product-view">
+        {{ elcodi_hook("store.product_pin_top", {
+            'product': product
+        }) }}
        <h1 class="product-title">{{ product.name }}</h1>
        <div class="grid">
            <div class="col-1-2">
