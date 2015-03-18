@@ -12,16 +12,23 @@ function locationSelectors() {
                 selectorsUrl = $(container).data('url') + '/' + optionSelectedValue;
 
             if(optionSelectedValue) {
-                $.ajax(selectorsUrl, {
-                    success: function (response) {
-                        $(container).replaceWith(response);
 
-                        if (undefined != optionSelected.parent().data('max-type')) {
-                            document.getElementById('admin_geo_form_type_address_city').value = optionSelectedValue;
+                if (undefined != optionSelected.parent().data('max-type')) {
+                    document.getElementById('admin_geo_form_type_address_city').value = optionSelectedValue;
+                }
+                else{
+                    $(container).append('<i class="icon-spin icon-refresh"></i>');
+
+                    $.ajax(selectorsUrl, {
+                        success: function (response) {
+                            $(container).replaceWith(response);
+
+                            $('select.last', container).addClass('animated pulse').focus();
+
+                            bindSelector(container);
                         }
-                        bindSelector(container);
-                    }
-                });
+                    });
+                }
             }
         });
     }
