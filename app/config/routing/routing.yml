@@ -29,7 +29,6 @@ plugin_routes:
 #
 api_routes:
     resource: "routing_api.yml"
-    prefix: /%bamboo_api_prefix%
     options:
         i18n: false
 
