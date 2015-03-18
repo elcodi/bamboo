@@ -98,7 +98,7 @@ class PageData extends AbstractFixture
             ->create()
             ->setTitle('Terminos y condiciones')
             ->setPath('terminos-y-condiciones')
-            ->setContent('<li>Sobre nosotros</li>')
+            ->setContent('<li>Terminos y condiciones</li>')
             ->setMetaTitle('Terminos y condiciones')
             ->setMetaDescription('Terminos y condiciones')
             ->setMetaKeywords('terminos, condiciones')
@@ -122,7 +122,7 @@ class PageData extends AbstractFixture
             'es' => array(
                 'path'            => 'terminos-y-condiciones',
                 'title'           => 'Terminos y condiciones',
-                'content'         => '<li>Sobre nosotros</li>',
+                'content'         => '<li>Terminos y condiciones</li>',
                 'metaTitle'       => 'Terminos y condiciones',
                 'metaDescription' => 'Terminos y condiciones',
                 'metaKeywords'    => 'terminos,condiciones',

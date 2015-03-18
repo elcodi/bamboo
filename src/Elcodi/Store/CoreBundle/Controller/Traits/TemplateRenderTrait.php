@@ -32,13 +32,13 @@ trait TemplateRenderTrait
      */
     protected function renderTemplate($path, $param = [])
     {
-        $templateBundle = $this
-            ->get('elcodi.manager.configuration')
-            ->get('store.template');
+        $template = $this
+            ->get('store.core.services.template_locator')
+            ->locate($path);
 
         return $this
             ->render(
-                $templateBundle.':'.$path,
+                $template,
                 $param
             );
     }
