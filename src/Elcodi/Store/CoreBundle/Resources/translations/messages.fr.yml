@@ -1,7 +1,10 @@
 store:
     error:
+        store_unavailable_title:     Boutique pas disponible
         store_is_disabled:           La boutique est désactivée
         store_is_under_construction: La boutique est en cours de construction
+        page_not_found_title:        Page non trouvée
+        page_not_found:              Oh, vous avez découvert notre plan secret pour conquérir le monde
 
     address:
         save:

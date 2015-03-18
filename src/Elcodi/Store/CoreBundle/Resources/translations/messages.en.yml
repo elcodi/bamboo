@@ -1,7 +1,10 @@
 store:
     error:
-        store_is_disabled:           Store is disabled
-        store_is_under_construction: Store is under construction
+        store_unavailable_title:     Store not available
+        store_is_disabled:           This store is currently disabled
+        store_is_under_construction: This store is under construction
+        page_not_found_title:        Page not found
+        page_not_found:              So, you've discovered our secret plans to take on the world.
 
     address:
         save:

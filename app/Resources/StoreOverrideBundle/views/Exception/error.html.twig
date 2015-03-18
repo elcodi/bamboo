@@ -1,12 +1,17 @@
-{% extends '::_base.html.twig' %}
+{% extends '@AdminCore/layouts/center_box.html.twig' %}
 
 
-{% block body %}
-    <h1>Oops! An Error Occurred</h1>
-    <h2>The server returned a "{{ status_code }} {{ status_text }}".</h2>
+{% block title_container 'Unknown error' %}
+
+
+{% block content %}
+
+    <h1>Oops! A wild error appeared!</h1>
+    <img src="{{ asset('bundles/admincore/images/uh-si.png') }}" width="250" class="fl-r ml-m" />
 
     <p>
         Something is broken. Please let us know what you were doing when this error occurred.
         We will fix it as soon as possible. Sorry for any inconvenience caused.
     </p>
-{% endblock %}
+
+{% endblock content %}
