@@ -20,7 +20,7 @@
 
 {% macro category_tree(category, children) %}
 
-    <li class="pr-n" data-tc-id="{{ category.id }}" data-tc-name="{{ category.name }}">
+    <li class="pr-n" data-tc-id="{{ category.id }}" data-tc-name="{{ category.name }}" data-test="category-{{ category.id }}">
         <p class="fl-r fz-s pr-l">
             {% if category.enabled %}
                 <span class="label-ok fz-xs mr-l">

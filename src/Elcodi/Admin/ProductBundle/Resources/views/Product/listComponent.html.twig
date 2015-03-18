@@ -35,7 +35,7 @@
 
 {% block table_body_row %}
 
-    <td>
+    <td data-test="product-{{ entity.id }}">
         {% if entity.images|length > 0 %}
             <a href="{{ url('admin_product_edit', { id: entity.id }) }}" class="thumbnail">
                 <img src="{{ entity.getSortedImages.first|resize({ height: 100, width: 100, type: 4 }) }}" />

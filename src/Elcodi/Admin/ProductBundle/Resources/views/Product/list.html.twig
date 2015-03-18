@@ -19,7 +19,7 @@
 
 {% block header_actions %}
 
-    <a href="{{ url('admin_product_new') }}" type="button" class="button-primary">
+    <a href="{{ url('admin_product_new') }}" type="button" class="button-primary" data-test="new-product">
         <i class="icon-plus"></i>
         <span>{{ 'admin.product.new'|trans }}</span>
     </a>

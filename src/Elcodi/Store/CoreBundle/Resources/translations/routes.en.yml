@@ -43,7 +43,7 @@ store_product_view: /product/{slug}/{id}
 # Cart
 #
 store_cart_view: /cart
-store_cart_add_product: /cart/product/{id}/añadir
+store_cart_add_product: /cart/product/{id}/add
 store_cart_add_product_variant: /cart/product/variant/{id}/add
 store_cart_empty: /cart/empty
 store_cart_update: /cart/update
