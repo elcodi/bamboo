@@ -69,7 +69,7 @@ class TemplateLocator
         if (!$template) {
             throw new RuntimeException(sprintf(
                 'Template "%s" not found',
-                $template
+                $templatePath
             ));
         }
 
