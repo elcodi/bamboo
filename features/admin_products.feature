@@ -7,17 +7,20 @@ Feature: admin
   Scenario: See product list in admin with new product element
     Given In admin, I am logged as "admin@admin.com" - "1234"
     And I am on "/admin/products"
-    Then I should see "Ibiza 4 Ever Spanish"
-    And I should see "Nuevo producto"
+    Then the response should contain "product-1"
+    Then the response should contain "product-2"
+    Then the response should contain "product-18"
+    Then the response should not contain "product-19"
+    Then the response should contain "new-product"
 
   @admin @product
   Scenario: Add product
     Given In admin, I am logged as "admin@admin.com" - "1234"
     And I am on "/admin/product/new"
     When I fill in the following:
-      | elcodi_admin_product_form_type_product_name_es_name               | New test product |
-      | elcodi_admin_product_form_type_product_slug_es_slug               | new-test-product |
-      | elcodi_admin_product_form_type_product_description_es_description | New description  |
+      | elcodi_admin_product_form_type_product_name_en_name               | New test product |
+      | elcodi_admin_product_form_type_product_slug_en_slug               | new-test-product |
+      | elcodi_admin_product_form_type_product_description_en_description | New description  |
       | elcodi_admin_product_form_type_product_principalCategory          | 1                |
       | elcodi_admin_product_form_type_product_manufacturer               | 1                |
       | elcodi_admin_product_form_type_product_price_amount               | 6.66             |
@@ -32,6 +35,4 @@ Feature: admin
       | elcodi_admin_product_form_type_product[enabled]                   | 1                |
     And I press "submit-save"
     Then I should be on "/admin/products"
-    And I should see "New test product"
-    And I should see "/new-test-product"
-    And I should see "6,66 €"
+    Then the response should contain "product-19"

@@ -6,14 +6,14 @@ Feature: cart
   @cart
   Scenario: See an empty cart
     Given I am on "/cart"
-    Then I should see "Tu carrito está vacío"
+    Then the response should contain "empty-cart"
 
   @cart
   Scenario: Add a product
     Given I am on "/cart/product/10/add"
+    Then print last response
     Then I should be on "/cart"
-    Then I should see "I was there II Spanish"
-    Then I should see "11,90 $"
+    Then the response should not contain "empty-cart"
 
   @cart
   Scenario: See the cart checkout without being logged in
