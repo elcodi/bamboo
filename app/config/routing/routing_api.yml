@@ -6,6 +6,8 @@ elcodi_metric:
 
 elcodi_comment:
     resource: "@ElcodiCommentBundle/Resources/config/routing.yml"
+    prefix: /%bamboo_api_prefix%
 
 elcodi_location:
     resource: "@ElcodiGeoBundle/Resources/config/routing.yml"
+    prefix: /%bamboo_api_prefix%
