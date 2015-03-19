@@ -11,3 +11,8 @@ parameters:
     #
     elcodi.twig_extension.encrypt.class: Elcodi\Store\CoreBundle\Twig\EncryptExtension
     elcodi.twig_extension.referrer.class: Elcodi\Store\CoreBundle\Twig\ReferrerExtension
+
+    #
+    # Services
+    #
+    store.core.services.template_locator.class: Elcodi\Store\CoreBundle\Services\TemplateLocator

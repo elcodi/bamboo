@@ -117,6 +117,8 @@ class AppKernel extends Kernel
             new \Elcodi\Store\MetricBundle\StoreMetricBundle(),
             new \Elcodi\Store\PageBundle\StorePageBundle(),
             new \Elcodi\Store\LanguageBundle\StoreLanguageBundle(),
+            new \Elcodi\Store\OverrideBundle\StoreOverrideBundle(),
+            new \Elcodi\Store\FallbackBundle\StoreFallbackBundle(),
 
             /**
              * Elcodi admin bundles
