@@ -1,11 +1,11 @@
-TinyCore.AMD.define('form-coupons', [], function () {
+FrontendCore.define('form-coupons', [], function () {
 	return {
 		onStart: function () {
 
 			var self = this,
 				sTypeValue = document.getElementById('elcodi_admin_coupon_form_type_coupon_type').value;
 
-			oTools.trackEvent('JS_Libraries', 'call', 'form-coupons');
+			FrontendTools.trackEvent('JS_Libraries', 'call', 'form-coupons');
 
 			self.TypeVisibility(sTypeValue);
 

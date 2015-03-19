@@ -13,7 +13,7 @@
             <i class="icon-eye"></i>
             <span>{{ 'admin.blog_post.in_store'|trans }}</span>
         </a>
-        <a data-tc-modules="modal" href="#metrics-panel" class="button-secondary">
+        <a data-fc-modules="modal" href="#metrics-panel" class="button-secondary">
             <i class="icon-bar-chart-o"></i>
             <span>{{ 'admin.metrics.action.show'|trans }}</span>
         </a>
@@ -66,8 +66,8 @@
         {% set source = "blog-post-#{blog_post.id}" %}
 
         <div id="box-populi" class="boxpopuli-container">
-            <a data-tc-modules="side-panel" data-tc-position="right" data-tc-width="600" data-tc-tab-top="22%" href="#box-populi"><i class="icon-comment"></i> </a>
-            <div class="boxpopuli-overflow" data-tc-modules="boxpopuli"
+            <a data-fc-modules="side-panel" data-fc-position="right" data-fc-width="600" data-fc-tab-top="22%" href="#box-populi"><i class="icon-comment"></i> </a>
+            <div class="boxpopuli-overflow" data-fc-modules="boxpopuli"
                 data-token="{{ author_token }}"
                 data-author-name="{{ app.user.fullname }}"
                 data-author-email="{{ app.user.email }}"

@@ -1,6 +1,6 @@
 <div class="sidebar-user tablet desktop">
     <div class="ta-c">
-        <a href="#sidebar-user-dropdown" data-tc-modules="toggle" class="c-foreground-light">
+        <a href="#sidebar-user-dropdown" data-fc-modules="toggle" class="c-foreground-light">
              <span class=" tablet va-m">
                 <img src="{{ gravatar(app.user.email, 40) }}" alt="Avatar" class="image-circle">
             </span>
@@ -43,7 +43,7 @@
                 {% if generate_url(menu_item.url) != '' %}
                 <a href="{{ generate_url(menu_item.url) }}">
                     {% else %}
-                    <a href="#{{ menu_item.id }}" data-tc-modules="toggle">
+                    <a href="#{{ menu_item.id }}" data-fc-modules="toggle">
                         <i class="icon-caret-down fl-r"></i>
                         {% endif %}
                         {% if menu_item.badge is defined %}<span class="badge {% if menu_item.badge > 0 %}badge-alert{% endif %}">{{ menu_item.badge }}</span>{% endif %}

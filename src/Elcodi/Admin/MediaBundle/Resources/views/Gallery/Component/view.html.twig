@@ -3,14 +3,14 @@
         {% set imagePath = image|viewImage %}
         <li>
             {{ entity.name }}
-            <a href="{{ imagePath }}" data-tc-modules="modal" class="thumbnail">
+            <a href="{{ imagePath }}" data-fc-modules="modal" class="thumbnail">
                 <img src="{{ imagePath }}" width="150"/>
             </a>
             <ul class="thumbnail-actions">
                 <li>
                     <a href="{{ url('admin_image_delete', { id: image.id }) }}"
-                       data-tc-modules="confirm" data-tc-name="{{ image.name }}"
-                       data-tc-text="{{ 'ui.confirm.delete'|trans }}"
+                       data-fc-modules="confirm" data-fc-name="{{ image.name }}"
+                       data-fc-text="{{ 'ui.confirm.delete'|trans }}"
                     >
                         <i class="icon-trash-o"></i>
                     </a>

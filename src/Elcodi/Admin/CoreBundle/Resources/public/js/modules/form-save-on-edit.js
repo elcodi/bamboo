@@ -1,14 +1,14 @@
-TinyCore.AMD.define('form-save-on-edit', [], function () {
+FrontendCore.define('form-save-on-edit', [], function () {
 	return {
-		mediator : TinyCore.Toolbox.request( 'mediator' ),
+		mediator : FrontendMediator,
 		onStart: function () {
 
-			var oContainer = $('[data-tc-modules="form-save-on-edit"]')[0],
+			var oContainer = $('[data-fc-modules="form-save-on-edit"]')[0],
 				$li = $('li', oContainer),
 				$Articles = $('article', oContainer),
 				self = this;
 
-			oTools.trackEvent('JS_Libraries', 'call', 'form-save-on-edit');
+			FrontendTools.trackEvent('JS_Libraries', 'call', 'form-save-on-edit');
 
 			$li.each(function () {
 				self.autobind(this);
@@ -68,7 +68,7 @@ TinyCore.AMD.define('form-save-on-edit', [], function () {
 					data: oData,
 					error: function (response) {
 
-						TinyCore.AMD.requireAndStart(['notification'], function () {
+						FrontendCore.requireAndStart(['notification'], function () {
 
 							var sMessage = JSON.parse(response.responseText).response;
 							self.mediator.publish('notification', {type: 'ko', message: sMessage});

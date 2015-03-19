@@ -1,10 +1,10 @@
-TinyCore.AMD.define('form-refresh-on-filled', ['devicePackage'], function () {
+FrontendCore.define('form-refresh-on-filled', ['devicePackage'], function () {
 	return {
 		oFields : ['store.paymill_private_key','store.paymill_public_key','store.paypal_web_checkout_recipient'],
-		mediator : TinyCore.Toolbox.request( 'mediator' ),
+		mediator : FrontendMediator,
 		onStart: function () {
 
-			oTools.trackEvent('JS_Libraries', 'call', 'form-refresh-on-filled');
+			FrontendTools.trackEvent('JS_Libraries', 'call', 'form-refresh-on-filled');
 
 			this.mediator.subscribe( ['save:item'], this.addAndCheck, this );
 		},

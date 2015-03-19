@@ -1,4 +1,4 @@
-TinyCore.AMD.define('example', ['dependencies.js' ], function () {
+FrontendCore.define('example', ['dependencies.js' ], function () {
     return {
         onStart: function () {
 

@@ -5,10 +5,10 @@
 <div class="box-none pa-n">
     <canvas
         height="250"
-        data-tc-modules="charts"
-        data-tc-type="line"
-        data-tc-text-no-data="{{ 'admin.metrics.info.no_data'|trans }}"
-        data-tc-labels-x="{% for partialInterval in partialIntervals %}{% if loop.index % chartElementsSeparation == 0 %}{{ partialInterval.first|date(chartLegendFormat) }}{% endif %},{% endfor %}"
+        data-fc-modules="charts"
+        data-fc-type="line"
+        data-fc-text-no-data="{{ 'admin.metrics.info.no_data'|trans }}"
+        data-fc-labels-x="{% for partialInterval in partialIntervals %}{% if loop.index % chartElementsSeparation == 0 %}{{ partialInterval.first|date(chartLegendFormat) }}{% endif %},{% endfor %}"
     >
         <input
             name="{{ 'admin.metrics.type.line.unique'|trans }}"

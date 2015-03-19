@@ -14,18 +14,18 @@
 
 {% block content %}
 
-    <form class="form-grid form-save-on-edit" data-tc-modules="form-save-on-edit">
+    <form class="form-grid form-save-on-edit" data-fc-modules="form-save-on-edit">
         {% for template in templates %}
             {% set templateBundle = template.bundle %}
             {% set assetPath = "bundles/#{template.assetPath}" %}
             <article class="box-background">
                 <h4 class="fw-n">{{ templateBundle }}</h4>
                 {% set imageUrl = asset("#{assetPath}/preview.jpg") %}
-                <a href="{{ imageUrl }}" data-tc-modules="modal" class="thumbnail mt-s mb-l">
+                <a href="{{ imageUrl }}" data-fc-modules="modal" class="thumbnail mt-s mb-l">
                     <img width="100%" src="{{ imageUrl }}" />
                 </a>
                 <input type="hidden" id="url-{{ templateBundle }}-store.template" value="{{ url('admin_configuration_update', { name: 'store.template'}) }}" />
-                <a href="{{ asset("#{assetPath}/preview/index.html") }}" data-tc-modules="modal" data-tc-width="95%" data-tc-height="95%" class="button">
+                <a href="{{ asset("#{assetPath}/preview/index.html") }}" data-fc-modules="modal" data-fc-width="95%" data-fc-height="95%" class="button">
                     {{ 'admin.template.action.preview'|trans }}
                 </a>
                 <div class="fl-r pt-s">

@@ -3,7 +3,7 @@
         <div id="upload-container" class="box-none">
             <h3 class="fw-n">{{ 'admin.image.plural'|trans }}</h3>
             <p>{{ 'admin.image.info.principal'|trans }}{{ 'admin.image.info.reorder'|trans }}</p>
-            <a href="{{ url('admin_image_upload') }}" id="pickfiles" class="button" data-tc-modules="uploader">
+            <a href="{{ url('admin_image_upload') }}" id="pickfiles" class="button" data-fc-modules="uploader">
                 {{ 'admin.image.info.upload'|trans }}
             </a>
             <div class="d-n">
@@ -22,12 +22,12 @@
                 <i class="icon-picture-o no-items-icon"></i>
             </div>
             {% endif %}
-            <ul id="thumb-gallery" data-tc-modules="sortable" data-tc-input="{{ form.imagesSort.vars.id }}" class="thumbnail-group thumbnail-group-extended pl-s mb-m">
+            <ul id="thumb-gallery" data-fc-modules="sortable" data-fc-input="{{ form.imagesSort.vars.id }}" class="thumbnail-group thumbnail-group-extended pl-s mb-m">
             {% for image in images %}
                 {% set imageResize = image|resize({ height: 150, width: 150, type: 4 }) %}
                 {% set imageView = image|viewImage %}
                 <li id="{{ image.id }}">
-                    <a href="{{ imageView }}" data-tc-modules="modal" data-tc-width="90%" data-tc-height="90%" class="group-images thumbnail">
+                    <a href="{{ imageView }}" data-fc-modules="modal" data-fc-width="90%" data-fc-height="90%" class="group-images thumbnail">
                         <img id="image-{{ image.id }}" src="{{ imageResize }}" width="150" />
                     </a>
                     <ul class="thumbnail-actions">

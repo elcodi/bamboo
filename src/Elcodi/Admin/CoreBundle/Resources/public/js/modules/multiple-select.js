@@ -1,13 +1,13 @@
-TinyCore.AMD.define('multiple-select', ['devicePackage' ], function () {
+FrontendCore.define('multiple-select', ['devicePackage' ], function () {
     return {
         onStart: function () {
 
-            var aTargets = oTools.getDataModules('multiple-select'),
+            var aTargets = FrontendTools.getDataModules('multiple-select'),
                 self = this,
                 oData,
                 oSelects;
 
-            oTools.trackEvent('JS_Libraries', 'call', 'multiple-select');
+            FrontendTools.trackEvent('JS_Libraries', 'call', 'multiple-select');
 
             $('select[multiple="multiple"]', aTargets).each(function (nKey) {
                 $(aTargets[nKey]).hide().before(self.createGrid( self.createSelect( self.getElements(this) , aTargets[nKey]) ));

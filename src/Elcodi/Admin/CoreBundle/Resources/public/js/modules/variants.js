@@ -1,4 +1,4 @@
-TinyCore.AMD.define('variants', ['devicePackage', 'modal'], function () {
+FrontendCore.define('variants', ['devicePackage', 'modal'], function () {
 	return {
 		modal: TinyCore.Module.instantiate('modal'),
 		mediator: TinyCore.Toolbox.request('mediator'),
@@ -10,7 +10,7 @@ TinyCore.AMD.define('variants', ['devicePackage', 'modal'], function () {
 				nModalHeight = '95%';
 
 			if (TinyCore !== undefined) {
-				TinyCore.AMD.requireAndStart('notification');
+				FrontendCore.requireAndStart('notification');
 			}
 
 			this.mediator.subscribe(['response:success'], this.updateVariants, this);
@@ -54,8 +54,8 @@ TinyCore.AMD.define('variants', ['devicePackage', 'modal'], function () {
 					});
 				} else {
 
-					var sText = this.getAttribute("data-tc-text") ? this.getAttribute("data-tc-text") : 'Are you sure?',
-						sName = this.getAttribute("data-tc-name") ? this.getAttribute("data-tc-name") : 'Delete this item.';
+					var sText = this.getAttribute("data-fc-text") ? this.getAttribute("data-fc-text") : 'Are you sure?',
+						sName = this.getAttribute("data-fc-name") ? this.getAttribute("data-fc-name") : 'Delete this item.';
 
 					if (!confirm("\n" + sName + ":\n" + sText + "\n")) {
 						return false;

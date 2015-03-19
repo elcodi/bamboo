@@ -1,11 +1,11 @@
 /* jshint -W004 */
 /* jshint -W099 */
 /* jshint -W033 */
-TinyCore.AMD.define('md5', [ ], function () {
+FrontendCore.define('md5', [ ], function () {
     return {
         onStart: function () {
 
-            oTools.trackEvent('JS_Libraries', 'call', 'md5');
+            FrontendTools.trackEvent('JS_Libraries', 'call', 'md5');
 
         },
         convert: function(){ function e(e,t){var o=e[0],u=e[1],a=e[2],f=e[3];o=n(o,u,a,f,t[0],7,-680876936);f=n(f,o,u,a,t[1],

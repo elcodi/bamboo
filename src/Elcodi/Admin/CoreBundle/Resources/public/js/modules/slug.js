@@ -1,21 +1,21 @@
-TinyCore.AMD.define('slug', ['devicePackage'], function () {
+FrontendCore.define('slug', ['devicePackage'], function () {
 	return {
 		onStart: function () {
 
-			var aTargets = oTools.getDataModules('slug'),
+			var aTargets = FrontendTools.getDataModules('slug'),
 				self = this;
 
-			oTools.trackEvent('JS_Libraries', 'call', 'slug');
+			FrontendTools.trackEvent('JS_Libraries', 'call', 'slug');
 
 				$(aTargets).each(function () {
-					if ($('#' + this.getAttribute("data-tc-parent")).val() === '') {
+					if ($('#' + this.getAttribute("data-fc-parent")).val() === '') {
 						self.autobind(this);
 					}
 				});
 		},
 		autobind: function (oTarget) {
 
-			var oParent = document.getElementById(oTarget.getAttribute("data-tc-parent")),
+			var oParent = document.getElementById(oTarget.getAttribute("data-fc-parent")),
 				sSlug;
 
 			$(oParent).on('change', function() {

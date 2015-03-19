@@ -25,9 +25,9 @@
                     </div>
                 </div>
                 <div class="col-2-3">
-                    <div {% if elcodi_languages|length > 1 %}data-tc-modules="tabs" class="tabs-box" {% endif %}>
+                    <div {% if elcodi_languages|length > 1 %}data-fc-modules="tabs" class="tabs-box" {% endif %}>
                         {% for language in elcodi_languages %}
-                        <section id="tab-{{ language }}" data-tc-name="{% if loop.first %}<i class='icon-star'></i> {% endif %}{{ language|capitalize }}">
+                        <section id="tab-{{ language }}" data-fc-name="{% if loop.first %}<i class='icon-star'></i> {% endif %}{{ language|capitalize }}">
                             <div class="box">
                                 <ol>
                                     <li>
@@ -46,8 +46,8 @@
                                                 label: 'admin.mailing.field.content.title',
                                                 attr: {
                                                     placeholder: 'admin.mailing.field.content.placeholder',
-                                                    'data-tc-modules': 'wysiwyg',
-                                                    'data-tc-text-help': 'ui.editor.help'|trans,
+                                                    'data-fc-modules': 'wysiwyg',
+                                                    'data-fc-text-help': 'ui.editor.help'|trans,
                                                 }
                                             })
                                         }}

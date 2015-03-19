@@ -1,4 +1,4 @@
-TinyCore.AMD.define('boxpopuli', ['md5'], function () {
+FrontendCore.define('boxpopuli', ['md5'], function () {
 	return {
 		md5: TinyCore.Module.instantiate('md5'),
 		token: '',
@@ -264,7 +264,7 @@ TinyCore.AMD.define('boxpopuli', ['md5'], function () {
 		onStart: function () {
 
 			var self = this,
-				aTargets = oTools.getDataModules('boxpopuli');
+				aTargets = FrontendTools.getDataModules('boxpopuli');
 
 			self.setTemplate('commentItem');
 			self.setTemplate('commentWrapper');

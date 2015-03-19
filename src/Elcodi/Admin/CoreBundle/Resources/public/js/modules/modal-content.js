@@ -1,13 +1,13 @@
-TinyCore.AMD.define('modal-content', ['devicePackage','modal' ], function () {
+FrontendCore.define('modal-content', ['devicePackage','modal' ], function () {
 	return {
 		oModal:  TinyCore.Module.instantiate( 'modal' ),
-		mediator : TinyCore.Toolbox.request( 'mediator' ),
+		mediator : FrontendMediator,
 		onStart: function () {
 
-			var aTargets = oTools.getDataModules('modal-content'),
+			var aTargets = FrontendTools.getDataModules('modal-content'),
 				self = this;
 
-			oTools.trackEvent('JS_Libraries', 'call', 'modal-content');
+			FrontendTools.trackEvent('JS_Libraries', 'call', 'modal-content');
 
 			$(aTargets).each(function () {
 				self.autobind(this);
