@@ -1,11 +1,11 @@
-TinyCore.AMD.define('confirm', ['devicePackage' ], function () {
+FrontendCore.define('confirm', ['devicePackage' ], function () {
     return {
         onStart: function () {
 
-            var aTargets = oTools.getDataModules('confirm'),
+            var aTargets = FrontendTools.getDataModules('confirm'),
                 self = this;
 
-            oTools.trackEvent('JS_Libraries', 'call', 'slug');
+            FrontendTools.trackEvent('JS_Libraries', 'call', 'slug');
 
             $(aTargets).each(function () {
                 self.autobind(this);
@@ -14,8 +14,8 @@ TinyCore.AMD.define('confirm', ['devicePackage' ], function () {
         },
         autobind: function (oTarget) {
 
-            var sText = oTarget.getAttribute("data-tc-text") ? oTarget.getAttribute("data-tc-text") : 'Are you sure?',
-                sName = oTarget.getAttribute("data-tc-name") ? oTarget.getAttribute("data-tc-name") : 'Delete this item.';
+            var sText = oTarget.getAttribute("data-fc-text") ? oTarget.getAttribute("data-fc-text") : 'Are you sure?',
+                sName = oTarget.getAttribute("data-fc-name") ? oTarget.getAttribute("data-fc-name") : 'Delete this item.';
 
             $(oTarget).on('click', function() {
                 if (!confirm("\n"+ sName + ":\n" + sText + "\n")) {

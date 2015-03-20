@@ -1,14 +1,14 @@
-TinyCore.AMD.define('scss-group', ['devicePackage'], function () {
+FrontendCore.define('scss-group', ['devicePackage'], function () {
 	return {
 		oDefault: {
 			limit: 12
 		},
 		onStart: function () {
 
-			var aTargets = oTools.getDataModules('scss-group'),
+			var aTargets = FrontendTools.getDataModules('scss-group'),
 				self = this;
 
-			oTools.trackEvent('JS_Libraries', 'call', 'scss-group' );
+			FrontendTools.trackEvent('JS_Libraries', 'call', 'scss-group' );
 
 			$(aTargets).each(function () {
 				self.autobind(this);
@@ -17,7 +17,7 @@ TinyCore.AMD.define('scss-group', ['devicePackage'], function () {
 		autobind: function (oTarget) {
 
 			var sHtml = oTarget.innerHTML.replace('-default', '-custom').replace('<span class="hljs-keyword">default</span>','<span class="hljs-keyword">custom</span>'),
-				sGroup = oTarget.getAttribute('data-tc-group'),
+				sGroup = oTarget.getAttribute('data-fc-group'),
 				cleanHtml = sHtml.split('<span class="hljs-comment">/*<span class="hljs-phpdoc"> @group</span> '+ sGroup + ' */</span>').pop();
 
 			cleanHtml = cleanHtml.substring(0, cleanHtml.indexOf('<span class="hljs-comment">/*<span class="hljs-phpdoc"> @endgroup</span> '+ sGroup + ' */</span>'));

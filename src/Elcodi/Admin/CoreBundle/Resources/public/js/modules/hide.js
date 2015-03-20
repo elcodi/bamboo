@@ -1,11 +1,11 @@
-TinyCore.AMD.define('hide', [], function () {
+FrontendCore.define('hide', [], function () {
 	return {
 		onStart: function () {
 
-			var aTargets = oTools.getDataModules('hide'),
+			var aTargets = FrontendTools.getDataModules('hide'),
 				self = this;
 
-			oTools.trackEvent('JS_Libraries', 'call', 'hide');
+			FrontendTools.trackEvent('JS_Libraries', 'call', 'hide');
 
 			$(aTargets).each(function () {
 				self.autobind(this);

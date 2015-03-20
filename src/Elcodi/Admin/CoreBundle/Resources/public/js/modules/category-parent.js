@@ -1,4 +1,4 @@
-TinyCore.AMD.define('category-parent', ['devicePackage' ], function () {
+FrontendCore.define('category-parent', ['devicePackage' ], function () {
     return {
         onStart: function () {
 

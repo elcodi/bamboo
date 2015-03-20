@@ -1,11 +1,11 @@
-TinyCore.AMD.define('form-shipping-rates', [], function () {
+FrontendCore.define('form-shipping-rates', [], function () {
 	return {
 		onStart: function () {
 
 			var self = this,
 				sTypeValue = document.getElementById('elcodi_admin_shipping_form_type_shipping_range_type').value;
 
-			oTools.trackEvent('JS_Libraries', 'call', 'shipping-rates');
+			FrontendTools.trackEvent('JS_Libraries', 'call', 'shipping-rates');
 
 			self.TypeVisibility(sTypeValue);
 

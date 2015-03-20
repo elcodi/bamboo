@@ -20,7 +20,7 @@
 
 {% macro category_tree(category, children) %}
 
-    <li class="pr-n" data-tc-id="{{ category.id }}" data-tc-name="{{ category.name }}" data-test="category-{{ category.id }}">
+    <li class="pr-n" data-fc-id="{{ category.id }}" data-fc-name="{{ category.name }}" data-test="category-{{ category.id }}">
         <p class="fl-r fz-s pr-l">
             {% if category.enabled %}
                 <span class="label-ok fz-xs mr-l">
@@ -37,9 +37,9 @@
             <a class="icon-trash-o c-ko td-n fz-l ml-l"
                title="{{ 'ui.forms.delete'|trans }}"
                href="{{ url('admin_category_delete', { id: category.id }) }}"
-               data-tc-modules="confirm"
-               data-tc-name="{{ category.name }}"
-               data-tc-text="{{ 'ui.confirm.delete'|trans }}">
+               data-fc-modules="confirm"
+               data-fc-name="{{ category.name }}"
+               data-fc-text="{{ 'ui.confirm.delete'|trans }}">
             </a>
         </p>
 
@@ -73,11 +73,11 @@
         <div class="col-2-3">
             <div class="box-background">
             <ol id="categories-list"
-                data-tc-modules="sortable"
-                data-tc-url="{{ url('admin_category_sort_component') }}"
-                data-tc-type="nested"
-                data-tc-output="json"
-                data-tc-depth="2"
+                data-fc-modules="sortable"
+                data-fc-url="{{ url('admin_category_sort_component') }}"
+                data-fc-type="nested"
+                data-fc-output="json"
+                data-fc-depth="2"
             >
                 {% for node in paginator %}
                     {{ _self.category_tree(node.entity, node.children) }}

@@ -1,4 +1,4 @@
-TinyCore.AMD.define('on-off-table', ['devicePackage' ], function () {
+FrontendCore.define('on-off-table', ['devicePackage' ], function () {
     return {
         onStart: function () {
 

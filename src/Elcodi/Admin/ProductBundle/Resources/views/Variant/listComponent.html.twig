@@ -36,8 +36,8 @@
 {% block table_body_row %}
 
     <td>
-        <a target="_blank" data-tc-modules="modal"
-           data-tc-width="95%" data-tc-height="95%"
+        <a target="_blank" data-fc-modules="modal"
+           data-fc-width="95%" data-fc-height="95%"
            href="{{
                 url( 'admin_product_variant_edit', {
                     productId: entity.product.id,
@@ -66,9 +66,9 @@
     <td class="center">
         {% if delete is not defined or delete != false %}
             <a class="icon-trash-o c-ko td-n fz-l"
-               data-tc-modules="confirm"
-               data-tc-name="{{ entity.product.name }}{% for option in entity.options %} {{ option.value }}{% endfor %}"
-               data-tc-text="{{ 'ui.confirm.delete'|trans }}"
+               data-fc-modules="confirm"
+               data-fc-name="{{ entity.product.name }}{% for option in entity.options %} {{ option.value }}{% endfor %}"
+               data-fc-text="{{ 'ui.confirm.delete'|trans }}"
                href="{{
                     url('admin_product_variant_delete', {
                         productId: entity.product.id,

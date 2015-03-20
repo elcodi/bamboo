@@ -1,4 +1,4 @@
-TinyCore.AMD.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupload/js/plupload.full.min.js','modal' ], function () {
+FrontendCore.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupload/js/plupload.full.min.js','modal' ], function () {
 	return {
 		modal:  TinyCore.Module.instantiate( 'modal' ),
 		sortable: TinyCore.Module.instantiate( 'sortable' ),

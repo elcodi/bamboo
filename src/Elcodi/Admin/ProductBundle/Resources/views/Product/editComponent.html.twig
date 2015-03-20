@@ -34,9 +34,9 @@
                     </div>
                 </div>
                 <div class="col-2-3">
-                    <div {% if elcodi_languages|length > 1 %}data-tc-modules="tabs" class="tabs-box" {% endif %}>
+                    <div {% if elcodi_languages|length > 1 %}data-fc-modules="tabs" class="tabs-box" {% endif %}>
                         {% for language in elcodi_languages %}
-                        <section id="tab-{{ language }}" data-tc-name="{% if loop.first %}{{ '<i class="icon-star"></i>'|e }} {% endif %}{{ language|capitalize }}">
+                        <section id="tab-{{ language }}" data-fc-name="{% if loop.first %}{{ '<i class="icon-star"></i>'|e }} {% endif %}{{ language|capitalize }}">
                             <div class="box">
                                 <ol>
                                     <li>
@@ -55,8 +55,8 @@
                                                     label: false,
                                                     attr: {
                                                         placeholder: 'admin.product.field.slug.placeholder',
-                                                        'data-tc-modules': 'slug',
-                                                        'data-tc-parent': form.name["#{language}_name"].vars.id,
+                                                        'data-fc-modules': 'slug',
+                                                        'data-fc-parent': form.name["#{language}_name"].vars.id,
                                                     }
                                                 })
                                             }}
@@ -68,8 +68,8 @@
                                                 label: 'admin.product.field.description.title',
                                                 attr: {
                                                     placeholder: 'admin.product.field.description.placeholder',
-                                                    'data-tc-modules': 'wysiwyg',
-                                                    'data-tc-text-help': 'ui.editor.help'|trans,
+                                                    'data-fc-modules': 'wysiwyg',
+                                                    'data-fc-text-help': 'ui.editor.help'|trans,
                                                 }
                                             })
                                         }}
@@ -99,7 +99,7 @@
                                     })
                                 }}
                                 <p class="pt-s fz-default mb-n ta-r">
-                                    <a href="{{ url('admin_category_new') }}" data-tc-modules="modal-content">
+                                    <a href="{{ url('admin_category_new') }}" data-fc-modules="modal-content">
                                         <i class="icon-plus"></i>
                                         {{ 'admin.category.new'|trans }}
                                     </a>
@@ -113,7 +113,7 @@
                                     })
                                 }}
                                 <p class="pt-s fz-default mb-n ta-r">
-                                    <a href="{{ url('admin_manufacturer_new') }}" data-tc-modules="modal-content">
+                                    <a href="{{ url('admin_manufacturer_new') }}" data-fc-modules="modal-content">
                                         <i class="icon-plus"></i>
                                         {{ 'admin.manufacturer.new'|trans }}
                                     </a>
@@ -221,11 +221,11 @@
                         <h3 class="fw-n">{{ 'admin.product.section.variants.title'|trans }}</h3>
                         <p>{{ 'admin.product.section.variants.description'|trans }}</p>
                         {% if product.id %}
-                            <a href="{{ url('admin_product_variant_new', { productId: product.id }) }}" data-tc-modules="modal-content" data-tc-width="95%" data-tc-height="95%" class="button">
+                            <a href="{{ url('admin_product_variant_new', { productId: product.id }) }}" data-fc-modules="modal-content" data-fc-width="95%" data-fc-height="95%" class="button">
                                 {{ 'admin.variant.new'|trans }}
                             </a>
                             <p>
-                                <a href="{{ url('admin_attribute_new') }}" id="modal-attribute" class="button" data-tc-modules="modal-content">
+                                <a href="{{ url('admin_attribute_new') }}" id="modal-attribute" class="button" data-fc-modules="modal-content">
                                     {{ 'admin.attribute.new'|trans }}
                                 </a>
                             </p>
@@ -233,7 +233,7 @@
 
                     </div>
                 </div>
-                <div class="col-2-3" data-tc-modules="variants">
+                <div class="col-2-3" data-fc-modules="variants">
                     <div class="box" id="variants-list">
                         {% if product.id %}
                             <input id="variants-url" type="hidden" value="{{ url('admin_product_variant_list_component', { productId: product.id }) }}" />
@@ -269,9 +269,9 @@
                             <strong>{{ 'admin.metadata.disclaimer.0'|trans }}</strong>
                             {{ 'admin.metadata.disclaimer.1'|trans }}
                         </p>
-                        <div {% if elcodi_languages|length > 1 %}data-tc-modules="tabs" class="tabs-box"{% endif %}>
+                        <div {% if elcodi_languages|length > 1 %}data-fc-modules="tabs" class="tabs-box"{% endif %}>
                             {% for language in elcodi_languages %}
-                                <section id="metadata-{{ language }}" data-tc-name="{% if loop.first %}{{ '<i class="icon-star"></i>'|e }} {% endif %}{{ language|capitalize }}">
+                                <section id="metadata-{{ language }}" data-fc-name="{% if loop.first %}{{ '<i class="icon-star"></i>'|e }} {% endif %}{{ language|capitalize }}">
                                     <div class="box">
                                         <ol>
                                             <li>
