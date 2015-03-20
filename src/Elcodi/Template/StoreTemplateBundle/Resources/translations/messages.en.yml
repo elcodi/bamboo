@@ -97,6 +97,7 @@ template:
                 new: New
 
         checkout:
+            back: Back
             layout:
                 your_cart: Your cart
                 total: Total
