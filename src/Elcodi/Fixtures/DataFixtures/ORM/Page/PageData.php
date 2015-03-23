@@ -104,12 +104,12 @@ class PageData extends AbstractFixture
          */
         $termsConditionsPage = $pageFactory
             ->create()
-            ->setTitle('Terminos y condiciones')
+            ->setTitle('Términos y condiciones')
             ->setPath('terminos-y-condiciones')
-            ->setContent('<li>Sobre nosotros</li>')
-            ->setMetaTitle('Terminos y condiciones')
-            ->setMetaDescription('Terminos y condiciones')
-            ->setMetaKeywords('terminos, condiciones')
+            ->setContent('<li>Términos y condiciones</li>')
+            ->setMetaTitle('Términos y condiciones')
+            ->setMetaDescription('Términos y condiciones')
+            ->setMetaKeywords('términos,condiciones')
             ->setType(ElcodiPageTypes::TYPE_REGULAR)
             ->setEnabled(true)
             ->setPersistent(false);
@@ -129,11 +129,11 @@ class PageData extends AbstractFixture
             ),
             'es' => array(
                 'path'            => 'terminos-y-condiciones',
-                'title'           => 'Terminos y condiciones',
-                'content'         => '<li>Sobre nosotros</li>',
-                'metaTitle'       => 'Terminos y condiciones',
-                'metaDescription' => 'Terminos y condiciones',
-                'metaKeywords'    => 'terminos,condiciones',
+                'title'           => 'Términos y condiciones',
+                'content'         => '<li>Términos y condiciones</li>',
+                'metaTitle'       => 'Términos y condiciones',
+                'metaDescription' => 'Términos y condiciones',
+                'metaKeywords'    => 'términos,condiciones',
             ),
             'fr' => array(
                 'path'            => 'mentions-legales',
