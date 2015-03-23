@@ -139,10 +139,13 @@ template:
                 total: Total
                 no_orders: There are no orders
             view:
+                order: Order
                 congratulations: CONGRATULATIONS!
                 thanks: " Thank you for your order! We are going to work to send you as fast as possible."
                 total: Total
                 continue_shopping: Continue shopping
+                status: Status:
+                shipping: Shipping:
         product:
             item:
                 offer: Offer

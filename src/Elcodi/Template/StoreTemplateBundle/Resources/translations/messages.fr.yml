@@ -139,10 +139,13 @@ template:
                 total: Total
                 no_orders: Il n'y a aucune commande
             view:
+                order: Comande
                 congratulations: Félicitations!
                 thanks: " Merci pour votre commande! Nous nous assurons qu'il vous sera envoyé le plus rapidement possible."
                 total: Total
                 continue_shopping: Continuez vos achats
+                status: Statut:
+                shipping: Livraison:
         product:
             item:
                 offer: Offre spéciale
