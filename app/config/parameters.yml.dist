@@ -16,6 +16,8 @@ parameters:
     mailer_port: ~
 
     locale: es
+    available_languages: [en, es, ca]
+
     secret: 4acbc300e57d46cb58ac0c629945c17b727f99c8
 
     use_assetic_controller: false
@@ -39,4 +41,3 @@ parameters:
     bamboo_store_firewall: store_area
 
     imagick_convert_bin_path: /usr/bin/convert
-
