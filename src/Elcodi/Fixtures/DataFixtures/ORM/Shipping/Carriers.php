@@ -65,6 +65,10 @@ class Carriers extends AbstractFixture implements DependentFixtureInterface
                 'name' => 'Minimale',
                 'description' => 'Notre système de livraison basique',
             ),
+            'ca' => array(
+                'name' => 'Bàsic',
+                'description' => 'El nostre sistema d\'entrega bàsic',
+            ),
         ));
     }
 
