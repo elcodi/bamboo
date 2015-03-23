@@ -9,9 +9,6 @@
 
 {% block content %}
     <div class="product-view">
-        {{ elcodi_hook("store.product_pin_top", {
-            'product': product
-        }) }}
        <h1 class="product-title">{{ product.name }}</h1>
        <div class="grid">
            <div class="col-1-2">
@@ -20,13 +17,13 @@
                    'width': 1024,
                    'height': 1024,
                    'type': 5
-               }) : 'http://placehold.it/772x604' }}" alt="{{ product.name }}" class="product-thumbnail">
+               }) : '//placehold.it/772x604' }}" alt="{{ product.name }}" class="product-thumbnail">
                 {% if product.reducedPrice.amount > 0 %}<span class="product-badge">{{ 'template.store_template_bundle.product.view_item.offer'|trans }}</span> {% endif %}
                    <img src="{{ product.images|length > 0 ? product.images.first|resize({
                        'width': 772,
                        'height': 604,
                        'type': 5
-                   }) : 'http://placehold.it/772x604' }}" alt="{{ product.name }}"/>
+                   }) : '//placehold.it/772x604' }}" alt="{{ product.name }}"/>
                </a>
             {% endblock %}
            </div>
