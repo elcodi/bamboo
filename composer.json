@@ -2,7 +2,7 @@
     "name": "elcodi/bamboo",
     "license": "MIT",
     "type": "project",
-    "description": "Bamboo, an ecommerce suite built with Elcodi",
+    "description": "Bamboo, an e-commerce suite built with Elcodi",
     "authors": [
         {
             "name": "Marc Morera",
@@ -81,7 +81,15 @@
         "elcodi/configuration-bundle": "~0.5.0",
         "elcodi/metric-bundle": "~0.5.0",
         "elcodi/sitemap-bundle": "~0.5.0",
-        "elcodi/fixtures-booster-bundle": "~0.5.0"
+        "elcodi/fixtures-booster-bundle": "~0.5.0",
+
+        "elcodi-plugin/google-analytics": "~0.5.0",
+        "elcodi-plugin/pinterest": "~0.5.0",
+        "elcodi-plugin/product-csv": "~0.5.0",
+        "elcodi-plugin/store-setup-wizard": "~0.5.0",
+        "elcodi-plugin/disqus": "~0.5.0",
+        "elcodi-plugin/twitter": "~0.5.0",
+        "elcodi-plugin/facebook": "~0.5.0"
     },
     "replace": {
         "elcodi-templates/template": "self.version",
