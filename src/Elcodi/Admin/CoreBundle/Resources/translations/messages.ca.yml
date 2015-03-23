@@ -309,6 +309,9 @@ admin:
             basic:
                 title: Detalles básicos
                 description: Proporciona el nombre del transportista y una descripcion interna si es necesario
+            taxes:
+                title: Taxes
+                description: Las taxes que s'aplicaràn al transportista.
             shipping_rates:
                 title: Costes de envio
                 description: Añadir costes de envio.

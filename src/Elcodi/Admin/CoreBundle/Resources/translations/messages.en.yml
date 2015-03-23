@@ -313,6 +313,9 @@ admin:
             basic:
                 title: Basic Details
                 description: Provide the name of the carrier and an internal description if needed.
+            taxes:
+                title: Carrier taxes
+                description: The taxes that will be applied for this carrier.
             shipping_rates:
                 title: Shipping Rates
                 description: Add the shipping rates.

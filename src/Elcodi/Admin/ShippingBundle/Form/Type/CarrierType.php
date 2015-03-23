@@ -19,12 +19,15 @@ namespace Elcodi\Admin\ShippingBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Elcodi\Component\EntityTranslator\EventListener\Traits\EntityTranslatableFormTrait;
 
 /**
  * Class CarrierType
  */
 class CarrierType extends AbstractType
 {
+    use EntityTranslatableFormTrait;
+
     /**
      * @var string
      *
@@ -66,6 +69,8 @@ class CarrierType extends AbstractType
             ->add('enabled', 'checkbox', array(
                 'required' => false,
             ));
+
+        $builder->addEventSubscriber($this->getEntityTranslatorFormEventListener());
     }
 
     /**

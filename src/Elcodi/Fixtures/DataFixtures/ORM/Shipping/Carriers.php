@@ -37,8 +37,10 @@ class Carriers extends AbstractFixture implements DependentFixtureInterface
     {
         /**
          * @var ObjectDirector $carrierDirector
+         * @var EntityTranslatorInterface $entityTranslator
          */
         $carrierDirector = $this->getDirector('carrier');
+        $entityTranslator = $this->get('elcodi.entity_translator');
 
         $carrier = $carrierDirector
             ->create()
@@ -49,6 +51,25 @@ class Carriers extends AbstractFixture implements DependentFixtureInterface
 
         $this->setReference('carrier-default', $carrier);
         $carrierDirector->save($carrier);
+
+        $entityTranslator->save($carrier, array(
+            'en' => array(
+                'name' => 'Basic',
+                'description' => 'Our basic delivery system',
+            ),
+            'es' => array(
+                'name' => 'Básico',
+                'description' => 'Nuestro sistema de entrega básico',
+            ),
+            'fr' => array(
+                'name' => 'Minimale',
+                'description' => 'Notre système de livraison basique',
+            ),
+            'ca' => array(
+                'name' => 'Bàsic',
+                'description' => 'El nostre sistema d\'entrega bàsic',
+            ),
+        ));
     }
 
     /**
