@@ -39,11 +39,20 @@ class Configuration extends AbstractConfiguration
     {
         $rootNode
             ->children()
+
                 ->arrayNode('errors')
+                    ->treatFalseLike([])
                     ->useAttributeAsKey('name')
+
                     ->prototype('array')
                         ->canBeDisabled()
                         ->addDefaultsIfNotSet()
+
+                        ->children()
+                            ->scalarNode('template')
+                                ->defaultValue('Exception:error.html.twig')
+                            ->end()
+                        ->end()
 
                         ->beforeNormalization()
                             ->ifString()
@@ -55,11 +64,6 @@ class Configuration extends AbstractConfiguration
                             })
                         ->end()
 
-                        ->children()
-                            ->scalarNode('template')
-                                ->defaultValue('Exception:error.html.twig')
-                            ->end()
-                        ->end()
                     ->end()
                 ->end()
             ->end();

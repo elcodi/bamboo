@@ -78,22 +78,6 @@ class StoreHttpExceptionListener
     }
 
     /**
-     * Generate a generic response for non-http exceptions
-     *
-     * @param FlattenException $exception
-     *
-     * @return Response
-     */
-    public function showExceptionAction(FlattenException $exception)
-    {
-        return $this->createResponse(
-            $exception,
-            $exception->getStatusCode(),
-            $exception->getMessage()
-        );
-    }
-
-    /**
      * @param GetResponseForExceptionEvent $event
      */
     public function onKernelException(GetResponseForExceptionEvent $event)
