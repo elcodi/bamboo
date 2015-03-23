@@ -89,6 +89,14 @@ class PageData extends AbstractFixture
                 'metaDescription' => 'A propos',
                 'metaKeywords'    => 'propos',
             ),
+            'ca' => array(
+                'path'            => 'sobre-nosaltres',
+                'title'           => 'Sobre nosaltres',
+                'content'         => '<li>Sobre nosaltres</li>',
+                'metaTitle'       => 'Sobre nosaltres',
+                'metaDescription' => 'Sobre nosaltres',
+                'metaKeywords'    => 'sobre,nosaltres',
+            ),
         ));
 
         /**
@@ -98,7 +106,7 @@ class PageData extends AbstractFixture
             ->create()
             ->setTitle('Terminos y condiciones')
             ->setPath('terminos-y-condiciones')
-            ->setContent('<li>Terminos y condiciones</li>')
+            ->setContent('<li>Sobre nosotros</li>')
             ->setMetaTitle('Terminos y condiciones')
             ->setMetaDescription('Terminos y condiciones')
             ->setMetaKeywords('terminos, condiciones')
@@ -122,7 +130,7 @@ class PageData extends AbstractFixture
             'es' => array(
                 'path'            => 'terminos-y-condiciones',
                 'title'           => 'Terminos y condiciones',
-                'content'         => '<li>Terminos y condiciones</li>',
+                'content'         => '<li>Sobre nosotros</li>',
                 'metaTitle'       => 'Terminos y condiciones',
                 'metaDescription' => 'Terminos y condiciones',
                 'metaKeywords'    => 'terminos,condiciones',
@@ -134,6 +142,14 @@ class PageData extends AbstractFixture
                 'metaTitle'       => 'Mentions legales',
                 'metaDescription' => 'Mentions legales',
                 'metaKeywords'    => 'mentions,legales',
+            ),
+            'ca' => array(
+                'path'            => 'termes-legals',
+                'title'           => 'Termes legals',
+                'content'         => '<li>Termes legals</li>',
+                'metaTitle'       => 'Termes legals',
+                'metaDescription' => 'Termes legals',
+                'metaKeywords'    => 'termes,legals',
             ),
         ));
     }

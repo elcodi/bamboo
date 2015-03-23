@@ -86,6 +86,14 @@ class ManufacturerData extends AbstractFixture
                 'metaDescription' => 'Fabricant Levis',
                 'metaKeywords'    => 'Levis, Fabricant',
             ),
+            'ca' => array(
+                'name'            => 'Levis',
+                'description'     => 'Levis',
+                'slug'            => 'levis',
+                'metaTitle'       => 'Levis',
+                'metaDescription' => 'Fabricant Levis',
+                'metaKeywords'    => 'Levis, Fabricant',
+            ),
         ));
     }
 }
