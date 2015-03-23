@@ -169,6 +169,16 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
                 'metaDescription' => 'Ibiza Lips Français',
                 'metaKeywords' => 'Ibiza Lips Français',
             ),
+            'ca' => array(
+                'name' => 'Ibiza Lips Català',
+                'slug' => 'ibiza-lips-ca',
+                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.',
+                'metaTitle' => 'Ibiza Lips Català',
+                'metaDescription' => 'Ibiza Lips Català',
+                'metaKeywords' => 'Ibiza Lips Català',
+            ),
         ));
 
         $this->storeImage(
@@ -236,6 +246,16 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
                 'metaTitle' => 'Ibiza Banana Français',
                 'metaDescription' => 'Ibiza Banana Français',
                 'metaKeywords' => 'Ibiza Banana Français',
+            ),
+            'ca' => array(
+                'name' => 'Ibiza Banana Català',
+                'slug' => 'ibiza-banana-ca',
+                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.',
+                'metaTitle' => 'Ibiza Banana Català',
+                'metaDescription' => 'Ibiza Banana Català',
+                'metaKeywords' => 'Ibiza Banana Català',
             ),
         ));
 
@@ -306,6 +326,16 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
                 'metaDescription' => 'I Was There Français',
                 'metaKeywords' => 'I Was There Français',
             ),
+            'ca' => array(
+                'name' => 'I Was There Català',
+                'slug' => 'i-was-there-ca',
+                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.',
+                'metaTitle' => 'I Was There Català',
+                'metaDescription' => 'I Was There Català',
+                'metaKeywords' => 'I Was There Català',
+            ),
         ));
 
         $this->storeImage(
@@ -374,6 +404,16 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
                 'metaTitle' => 'A Life Style Français',
                 'metaDescription' => 'A Life Style Français',
                 'metaKeywords' => 'A Life Style Français',
+            ),
+            'ca' => array(
+                'name' => 'A Life Style Català',
+                'slug' => 'a-life-style-ca',
+                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.',
+                'metaTitle' => 'A Life Style Català',
+                'metaDescription' => 'A Life Style Català',
+                'metaKeywords' => 'A Life Style Català',
             ),
         ));
 
@@ -444,6 +484,16 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
                 'metaDescription' => 'A.M. Nesia Ibiza Français',
                 'metaKeywords' => 'A.M. Nesia Ibiza Français',
             ),
+            'ca' => array(
+                'name' => 'A.M. Nesia Ibiza Català',
+                'slug' => 'a-m-nesia-ibiza-ca',
+                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.',
+                'metaTitle' => 'A.M. Nesia Ibiza Català',
+                'metaDescription' => 'A.M. Nesia Ibiza Català',
+                'metaKeywords' => 'A.M. Nesia Ibiza Català',
+            ),
         ));
 
         $this->storeImage(
@@ -512,6 +562,16 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
                 'metaTitle' => 'Amnesia Poem Français',
                 'metaDescription' => 'Amnesia Poem Français',
                 'metaKeywords' => 'Amnesia Poem Français',
+            ),
+            'ca' => array(
+                'name' => 'Amnesia Poem Català',
+                'slug' => 'amnesia-poem-ca',
+                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.',
+                'metaTitle' => 'Amnesia Poem Català',
+                'metaDescription' => 'Amnesia Poem Català',
+                'metaKeywords' => 'Amnesia Poem Català',
             ),
         ));
 
@@ -582,6 +642,16 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
                 'metaDescription' => 'Pyramid Français',
                 'metaKeywords' => 'Pyramid Français',
             ),
+            'ca' => array(
+                'name' => 'Pyramid Català',
+                'slug' => 'pyramid-ca',
+                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.',
+                'metaTitle' => 'Pyramid Català',
+                'metaDescription' => 'Pyramid Català',
+                'metaKeywords' => 'Pyramid Català',
+            ),
         ));
 
         $this->storeImage(
@@ -650,6 +720,16 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
                 'metaTitle' => 'Amnesia Pink Français',
                 'metaDescription' => 'Amnesia Pink Français',
                 'metaKeywords' => 'Amnesia Pink Français',
+            ),
+            'ca' => array(
+                'name' => 'Amnesia Pink Català',
+                'slug' => 'amnesia-pink-ca',
+                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.',
+                'metaTitle' => 'Amnesia Pink Català',
+                'metaDescription' => 'Amnesia Pink Català',
+                'metaKeywords' => 'Amnesia Pink Català',
             ),
         ));
 
@@ -720,6 +800,16 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
                 'metaDescription' => 'Pinky Fragments Français',
                 'metaKeywords' => 'Pinky Fragments Français',
             ),
+            'ca' => array(
+                'name' => 'Pinky Fragments Català',
+                'slug' => 'pinky-fragments-ca',
+                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.',
+                'metaTitle' => 'Pinky Fragments Català',
+                'metaDescription' => 'Pinky Fragments Català',
+                'metaKeywords' => 'Pinky Fragments Català',
+            ),
         ));
 
         $this->storeImage(
@@ -788,6 +878,16 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
                 'metaTitle' => 'I was there II Français',
                 'metaDescription' => 'I was there II Français',
                 'metaKeywords' => 'I was there II Français',
+            ),
+            'ca' => array(
+                'name' => 'I was there II Català',
+                'slug' => 'i-was-there-ii-ca',
+                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.',
+                'metaTitle' => 'I was there II Català',
+                'metaDescription' => 'I was there II Català',
+                'metaKeywords' => 'I was there II Català',
             ),
         ));
 
@@ -858,6 +958,16 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
                 'metaDescription' => 'Amnesia Français',
                 'metaKeywords' => 'Amnesia Français',
             ),
+            'ca' => array(
+                'name' => 'Amnesia Català',
+                'slug' => 'amnesia-ca',
+                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.',
+                'metaTitle' => 'Amnesia Català',
+                'metaDescription' => 'Amnesia Català',
+                'metaKeywords' => 'Amnesia Català',
+            ),
         ));
 
         $this->storeImage(
@@ -926,6 +1036,16 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
                 'metaTitle' => 'Amnesia 100% Français',
                 'metaDescription' => 'Amnesia 100% Français',
                 'metaKeywords' => 'Amnesia 100% Français',
+            ),
+            'ca' => array(
+                'name' => 'Amnesia 100% Català',
+                'slug' => 'amnesia-100-percent-ca',
+                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.',
+                'metaTitle' => 'Amnesia 100% Català',
+                'metaDescription' => 'Amnesia 100% Català',
+                'metaKeywords' => 'Amnesia 100% Català',
             ),
         ));
 
@@ -996,6 +1116,16 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
                 'metaDescription' => 'A life style II Français',
                 'metaKeywords' => 'A life style II Français',
             ),
+            'ca' => array(
+                'name' => 'A life style II Català',
+                'slug' => 'a-life-style-ii-ca',
+                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.',
+                'metaTitle' => 'A life style II Català',
+                'metaDescription' => 'A life style II Català',
+                'metaKeywords' => 'A life style II Català',
+            ),
         ));
 
         $this->storeImage(
@@ -1064,6 +1194,16 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
                 'metaTitle' => 'All night long Français',
                 'metaDescription' => 'All night long Français',
                 'metaKeywords' => 'All night long Français',
+            ),
+            'ca' => array(
+                'name' => 'All night long Català',
+                'slug' => 'all-night-long-ca',
+                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.',
+                'metaTitle' => 'All night long Català',
+                'metaDescription' => 'All night long Català',
+                'metaKeywords' => 'All night long Català',
             ),
         ));
 
@@ -1135,6 +1275,16 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
                 'metaDescription' => 'A.M. Nesia Ibiza II Français',
                 'metaKeywords' => 'A.M. Nesia Ibiza II Français',
             ),
+            'ca' => array(
+                'name' => 'A.M. Nesia Ibiza II Català',
+                'slug' => 'a-m-nesia-ibiza-ii-ca',
+                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.',
+                'metaTitle' => 'A.M. Nesia Ibiza II Català',
+                'metaDescription' => 'A.M. Nesia Ibiza II Català',
+                'metaKeywords' => 'A.M. Nesia Ibiza II Català',
+            ),
         ));
 
         $this->storeImage(
@@ -1204,6 +1354,16 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
                 'metaTitle' => 'High Pyramid Français',
                 'metaDescription' => 'High Pyramid Français',
                 'metaKeywords' => 'High Pyramid Français',
+            ),
+            'ca' => array(
+                'name' => 'High Pyramid Català',
+                'slug' => 'high-pyramid-ca',
+                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.',
+                'metaTitle' => 'High Pyramid Català',
+                'metaDescription' => 'High Pyramid Català',
+                'metaKeywords' => 'High Pyramid Català',
             ),
         ));
 
@@ -1275,6 +1435,16 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
                 'metaDescription' => 'Star Amnesia Français',
                 'metaKeywords' => 'Star Amnesia Français',
             ),
+            'ca' => array(
+                'name' => 'Star Amnesia Català',
+                'slug' => 'star-amnesia-ca',
+                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.',
+                'metaTitle' => 'Star Amnesia Català',
+                'metaDescription' => 'Star Amnesia Català',
+                'metaKeywords' => 'Star Amnesia Català',
+            ),
         ));
 
         $this->storeImage(
@@ -1343,6 +1513,16 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
                 'metaTitle' => 'Ibiza 4 Ever Français',
                 'metaDescription' => 'Ibiza 4 Ever Français',
                 'metaKeywords' => 'Ibiza 4 Ever Français',
+            ),
+            'ca' => array(
+                'name' => 'Ibiza 4 Ever Català',
+                'slug' => 'ibiza-4-ever-ca',
+                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                Etiam blandit erat libero. Integer a elit a tortor scelerisque
+                bibendum quis eget tortor. Donec vitae tempor tellus.',
+                'metaTitle' => 'Ibiza 4 Ever Català',
+                'metaDescription' => 'Ibiza 4 Ever Català',
+                'metaKeywords' => 'Ibiza 4 Ever Català',
             ),
         ));
 

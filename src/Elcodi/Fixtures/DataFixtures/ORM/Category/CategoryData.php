@@ -87,6 +87,13 @@ class CategoryData extends AbstractFixture
                 'metaDescription' => 'Chemises de femme',
                 'metaKeywords' => 'Chemises de femme',
             ),
+            'ca' => array(
+                'name' => 'Dona',
+                'slug' => 'samarretes-de-dona',
+                'metaTitle' => 'Samarretes de dona',
+                'metaDescription' => 'Samarretes de dona',
+                'metaKeywords' => 'Samarretes de dona',
+            ),
         ));
 
         /**
@@ -130,6 +137,13 @@ class CategoryData extends AbstractFixture
                 'metaTitle' => 'Chemises de homme',
                 'metaDescription' => 'Chemises de homme',
                 'metaKeywords' => 'Chemises de homme',
+            ),
+            'ca' => array(
+                'name' => 'Home',
+                'slug' => 'samarretes-d-home',
+                'metaTitle' => 'Samarretes d\'home',
+                'metaDescription' => 'Samarretes d\'home',
+                'metaKeywords' => 'Samarretes d\'home',
             ),
         ));
     }
