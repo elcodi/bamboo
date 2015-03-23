@@ -54,7 +54,7 @@
         "predis/predis": "0.8.7",
         "jms/i18n-routing-bundle": "1.1.1",
 
-        "mmoreram/controller-extra-bundle": "~1.0, >=1.1.10",
+        "mmoreram/controller-extra-bundle": "~1.0, >=1.1.11",
         "mmoreram/extractor": "~1.0, >=1.1.1",
         "mmoreram/cache-flush-bundle": "0.1.0",
 
