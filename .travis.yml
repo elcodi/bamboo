@@ -10,9 +10,8 @@ php:
 matrix:
     fast_finish: true
     allow_failures:
-        - php:
-            - 7.0
-            - hhvm
+        - php: 7.0
+        - php: hhvm
 
 before_install:
     - /home/travis/.phpenv/versions/$(phpenv version-name)/bin/composer self-update
