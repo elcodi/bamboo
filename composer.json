@@ -22,6 +22,7 @@
         "ext-openssl": "*",
 
         "symfony/symfony": "~2.6",
+        "symfony/framework-bundle": "~2.6, >=2.6.5",
         "symfony/assetic-bundle": "~2.5",
         "symfony/swiftmailer-bundle": "~2.3",
         "symfony/monolog-bundle": "~2.6",
