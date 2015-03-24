@@ -56,9 +56,9 @@ class ManufacturerType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'data_class' => $this->entityNamespace,
-        ));
+        ]);
     }
 
     /**
@@ -70,36 +70,36 @@ class ManufacturerType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', 'text', array(
+            ->add('name', 'text', [
                 'required' => true,
-            ))
-            ->add('slug', 'text', array(
+            ])
+            ->add('slug', 'text', [
                 'required' => false,
-            ))
-            ->add('description', 'textarea', array(
+            ])
+            ->add('description', 'textarea', [
                 'required' => false,
-            ))
-            ->add('imagesSort', 'text', array(
+            ])
+            ->add('imagesSort', 'text', [
                 'required' => false,
-            ))
-            ->add('images', 'entity', array(
+            ])
+            ->add('images', 'entity', [
                 'class'    => 'Elcodi\Component\Media\Entity\Image',
                 'required' => false,
                 'property' => 'id',
                 'multiple' => true,
-            ))
-            ->add('metaTitle', 'text', array(
+            ])
+            ->add('metaTitle', 'text', [
                 'required' => false,
-            ))
-            ->add('metaDescription', 'text', array(
+            ])
+            ->add('metaDescription', 'text', [
                 'required' => false,
-            ))
-            ->add('metaKeywords', 'text', array(
+            ])
+            ->add('metaKeywords', 'text', [
                 'required' => false,
-            ))
-            ->add('enabled', 'checkbox', array(
+            ])
+            ->add('enabled', 'checkbox', [
                 'required' => false,
-            ));
+            ]);
 
         $builder->addEventSubscriber($this->getEntityTranslatorFormEventListener());
     }

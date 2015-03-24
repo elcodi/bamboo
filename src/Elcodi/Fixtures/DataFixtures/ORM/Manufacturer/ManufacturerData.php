@@ -61,39 +61,39 @@ class ManufacturerData extends AbstractFixture
         $this->addReference('manufacturer-levis', $levisManufacturer);
         $manufacturerObjectManager->flush($levisManufacturer);
 
-        $entityTranslator->save($levisManufacturer, array(
-            'en' => array(
+        $entityTranslator->save($levisManufacturer, [
+            'en' => [
                 'name'            => 'Levis',
                 'description'     => 'Levis',
                 'slug'            => 'levis',
                 'metaTitle'       => 'Levis',
                 'metaDescription' => 'Levis Manufacturer',
                 'metaKeywords'    => 'Levis, Manufacturer',
-            ),
-            'es' => array(
+            ],
+            'es' => [
                 'name'            => 'Levis',
                 'description'     => 'Levis',
                 'slug'            => 'levis',
                 'metaTitle'       => 'Levis',
                 'metaDescription' => 'Fabricante Levis',
                 'metaKeywords'    => 'Levis, Fabricante',
-            ),
-            'fr' => array(
+            ],
+            'fr' => [
                 'name'            => 'Levis',
                 'description'     => 'Levis',
                 'slug'            => 'levis',
                 'metaTitle'       => 'Levis',
                 'metaDescription' => 'Fabricant Levis',
                 'metaKeywords'    => 'Levis, Fabricant',
-            ),
-            'ca' => array(
+            ],
+            'ca' => [
                 'name'            => 'Levis',
                 'description'     => 'Levis',
                 'slug'            => 'levis',
                 'metaTitle'       => 'Levis',
                 'metaDescription' => 'Fabricant Levis',
                 'metaKeywords'    => 'Levis, Fabricant',
-            ),
-        ));
+            ],
+        ]);
     }
 }

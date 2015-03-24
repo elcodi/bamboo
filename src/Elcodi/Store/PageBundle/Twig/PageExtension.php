@@ -54,10 +54,10 @@ class PageExtension extends Twig_Extension
      */
     public function getFunctions()
     {
-        return array(
-            new Twig_SimpleFunction('elcodi_footer_pages', array($this, 'getFooterPages')),
-            new Twig_SimpleFunction('elcodi_blog_pages', array($this, 'getBlogPages')),
-        );
+        return [
+            new Twig_SimpleFunction('elcodi_footer_pages', [$this, 'getFooterPages']),
+            new Twig_SimpleFunction('elcodi_blog_pages', [$this, 'getBlogPages']),
+        ];
     }
 
     /**

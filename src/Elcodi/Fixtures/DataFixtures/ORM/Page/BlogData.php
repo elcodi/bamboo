@@ -72,12 +72,12 @@ OEF;
         $this->addReference('blog_post-hello', $blogPostHello);
         $pageObjectManager->flush($blogPostHello);
 
-        $entityTranslator->save($blogPostHello, array(
-            'es' => array(
+        $entityTranslator->save($blogPostHello, [
+            'es' => [
                 'title'   => 'Hola mundo',
                 'path'    => 'hola-mundo',
                 'content' => $blogPostContent,
-            ),
-        ));
+            ],
+        ]);
     }
 }

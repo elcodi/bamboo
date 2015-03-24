@@ -81,8 +81,7 @@ class PageType extends AbstractType
             ])
             ->add('enabled', 'checkbox', [
                 'required' => false,
-            ])
-        ;
+            ]);
 
         $builder->addEventSubscriber($this->getEntityTranslatorFormEventListener());
         $builder->addEventSubscriber($this->permanentPageSubscriber);

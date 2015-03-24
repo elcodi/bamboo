@@ -33,7 +33,7 @@ class ConfigurationData extends AbstractFixture
      */
     public function load(ObjectManager $manager)
     {
-        $configurations = $this->parseYaml(dirname(__FILE__).'/configuration.yml');
+        $configurations = $this->parseYaml(dirname(__FILE__) . '/configuration.yml');
 
         /**
          * @var ObjectManager $configurationObjectManager
@@ -50,8 +50,7 @@ class ConfigurationData extends AbstractFixture
                 ->setNamespace($configuration['namespace'])
                 ->setName($configuration['name'])
                 ->setType($configuration['type'])
-                ->setValue($configuration['value'])
-            ;
+                ->setValue($configuration['value']);
 
             $configurationObjectManager->persist($configuration);
             $configurationEntities[] = $configuration;

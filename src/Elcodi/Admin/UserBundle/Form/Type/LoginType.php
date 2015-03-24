@@ -52,12 +52,12 @@ class LoginType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email', 'email', array(
+            ->add('email', 'email', [
                 'required' => true,
-            ))
-            ->add('password', 'password', array(
+            ])
+            ->add('password', 'password', [
                 'required' => true,
-            ))
+            ])
             ->setAction(
                 $this
                     ->router

@@ -34,30 +34,30 @@ class CurrencyType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('iso', 'text', array(
+            ->add('iso', 'text', [
                 'required' => false,
                 'label'    => 'iso',
-            ))
-            ->add('symbol', 'text', array(
+            ])
+            ->add('symbol', 'text', [
                 'required' => false,
                 'label'    => 'symbol',
-            ))
-            ->add('createdAt', 'datetime', array(
+            ])
+            ->add('createdAt', 'datetime', [
                 'widget'   => 'single_text',
                 'format'   => 'yyyy-MM-dd - HH:mm:ss',
                 'required' => false,
                 'label'    => 'createdAt',
-            ))
-            ->add('updatedAt', 'datetime', array(
+            ])
+            ->add('updatedAt', 'datetime', [
                 'widget'   => 'single_text',
                 'format'   => 'yyyy-MM-dd - HH:mm:ss',
                 'required' => false,
                 'label'    => 'updatedAt',
-            ))
-            ->add('enabled', 'checkbox', array(
+            ])
+            ->add('enabled', 'checkbox', [
                 'required' => false,
                 'label'    => 'enabled',
-            ));
+            ]);
     }
 
     /**

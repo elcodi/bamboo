@@ -109,7 +109,7 @@ class Context extends AbstractElcodiContext
         $elements = $this
             ->getSession()
             ->getPage()
-            ->findAll('xpath', '//h1[contains(., "'.$product->getName().'")]');
+            ->findAll('xpath', '//h1[contains(., "' . $product->getName() . '")]');
 
         if (count($elements) != 1) {
             throw new Exception(
@@ -140,7 +140,7 @@ class Context extends AbstractElcodiContext
                 ->getPage()
                 ->find(
                     'xpath',
-                    '//ul[contains(@class, "category-nav")]/li/'.$activeXpath.'[contains(text(), "'.$categoryName.'")]'
+                    '//ul[contains(@class, "category-nav")]/li/' . $activeXpath . '[contains(text(), "' . $categoryName . '")]'
                 );
 
             if (is_null($element)) {

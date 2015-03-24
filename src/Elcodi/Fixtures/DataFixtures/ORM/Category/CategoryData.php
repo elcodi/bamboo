@@ -65,36 +65,36 @@ class CategoryData extends AbstractFixture
         $this->addReference('category-women', $womenCategory);
         $categoryObjectManager->flush($womenCategory);
 
-        $entityTranslator->save($womenCategory, array(
-            'en' => array(
+        $entityTranslator->save($womenCategory, [
+            'en' => [
                 'name' => 'Women\'s',
                 'slug' => 'women-shirts',
                 'metaTitle' => 'Women Shirts',
                 'metaDescription' => 'Women Shirts',
                 'metaKeywords' => 'Women Shirts',
-            ),
-            'es' => array(
+            ],
+            'es' => [
                 'name' => 'Mujer',
                 'slug' => 'camisetas-de-mujer',
                 'metaTitle' => 'Camisetas de Mujer',
                 'metaDescription' => 'Camisetas de Mujer',
                 'metaKeywords' => 'Camisetas Mujer',
-            ),
-            'fr' => array(
+            ],
+            'fr' => [
                 'name' => 'Femme',
                 'slug' => 'chemises-de-femme',
                 'metaTitle' => 'Chemises de femme',
                 'metaDescription' => 'Chemises de femme',
                 'metaKeywords' => 'Chemises de femme',
-            ),
-            'ca' => array(
+            ],
+            'ca' => [
                 'name' => 'Dona',
                 'slug' => 'samarretes-de-dona',
                 'metaTitle' => 'Samarretes de dona',
                 'metaDescription' => 'Samarretes de dona',
                 'metaKeywords' => 'Samarretes de dona',
-            ),
-        ));
+            ],
+        ]);
 
         /**
          * Men's Category
@@ -116,35 +116,35 @@ class CategoryData extends AbstractFixture
         $this->addReference('category-men', $menCategory);
         $categoryObjectManager->flush($menCategory);
 
-        $entityTranslator->save($menCategory, array(
-            'en' => array(
+        $entityTranslator->save($menCategory, [
+            'en' => [
                 'name' => 'Men\'s',
                 'slug' => 'men-shirts',
                 'metaTitle' => 'Men Shirts',
                 'metaDescription' => 'Men Shirts',
                 'metaKeywords' => 'Men Shirts',
-            ),
-            'es' => array(
+            ],
+            'es' => [
                 'name' => 'Hombre',
                 'slug' => 'camisetas-de-hombre',
                 'metaTitle' => 'Camisetas de Hombre',
                 'metaDescription' => 'Camisetas de Hombre',
                 'metaKeywords' => 'Camisetas Hombre',
-            ),
-            'fr' => array(
+            ],
+            'fr' => [
                 'name' => 'Homem',
                 'slug' => 'chemises-de-homme',
                 'metaTitle' => 'Chemises de homme',
                 'metaDescription' => 'Chemises de homme',
                 'metaKeywords' => 'Chemises de homme',
-            ),
-            'ca' => array(
+            ],
+            'ca' => [
                 'name' => 'Home',
                 'slug' => 'samarretes-d-home',
                 'metaTitle' => 'Samarretes d\'home',
                 'metaDescription' => 'Samarretes d\'home',
                 'metaKeywords' => 'Samarretes d\'home',
-            ),
-        ));
+            ],
+        ]);
     }
 }

@@ -52,24 +52,24 @@ class Carriers extends AbstractFixture implements DependentFixtureInterface
         $this->setReference('carrier-default', $carrier);
         $carrierDirector->save($carrier);
 
-        $entityTranslator->save($carrier, array(
-            'en' => array(
+        $entityTranslator->save($carrier, [
+            'en' => [
                 'name' => 'Basic',
                 'description' => 'Our basic delivery system',
-            ),
-            'es' => array(
+            ],
+            'es' => [
                 'name' => 'Básico',
                 'description' => 'Nuestro sistema de entrega básico',
-            ),
-            'fr' => array(
+            ],
+            'fr' => [
                 'name' => 'Minimale',
                 'description' => 'Notre système de livraison basique',
-            ),
-            'ca' => array(
+            ],
+            'ca' => [
                 'name' => 'Bàsic',
                 'description' => 'El nostre sistema d\'entrega bàsic',
-            ),
-        ));
+            ],
+        ]);
     }
 
     /**

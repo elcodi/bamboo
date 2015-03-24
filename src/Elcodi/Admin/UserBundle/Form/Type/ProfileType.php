@@ -52,9 +52,9 @@ class ProfileType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'data_class' => $this->customerNamespace,
-        ));
+        ]);
     }
 
     /**
@@ -67,39 +67,39 @@ class ProfileType extends AbstractType
     {
         $builder
             ->setMethod('POST')
-            ->add('firstname', 'text', array(
+            ->add('firstname', 'text', [
                 'required' => true,
                 'label'    => 'Firstname',
-            ))
-            ->add('lastname', 'text', array(
+            ])
+            ->add('lastname', 'text', [
                 'required' => true,
                 'label'    => 'Lastname',
-            ))
-            ->add('email', 'email', array(
+            ])
+            ->add('email', 'email', [
                 'required' => true,
                 'label'    => 'Email',
-            ))
-            ->add('deliveryAddress', 'store_user_form_type_address', array(
+            ])
+            ->add('deliveryAddress', 'store_user_form_type_address', [
                 'required' => true,
                 'label'    => 'Delivery Address',
-            ))
-            ->add('invoiceAddress', 'store_user_form_type_address', array(
+            ])
+            ->add('invoiceAddress', 'store_user_form_type_address', [
                 'required' => true,
                 'label'    => 'Invoice Address',
-            ))
-            ->add('password', 'repeated', array(
+            ])
+            ->add('password', 'repeated', [
                 'type'           => 'password',
-                'first_options'  => array(
+                'first_options'  => [
                     'label' => 'Password',
-                ),
-                'second_options' => array(
+                ],
+                'second_options' => [
                     'label' => 'Repeat Password',
-                ),
+                ],
                 'required'       => false,
-            ))
-            ->add('send', 'submit', array(
+            ])
+            ->add('send', 'submit', [
                 'label' => 'Save',
-            ));
+            ]);
     }
 
     /**

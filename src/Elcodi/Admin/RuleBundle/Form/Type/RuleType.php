@@ -52,9 +52,9 @@ class RuleType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'data_class' => $this->entityNamespace,
-        ));
+        ]);
     }
 
     /**
@@ -66,14 +66,14 @@ class RuleType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', 'string', array(
+            ->add('name', 'string', [
                 'required' => true,
                 'label'    => 'name',
-            ))
-            ->add('expression', 'text', array(
+            ])
+            ->add('expression', 'text', [
                 'required' => true,
                 'label'    => 'code',
-            ));
+            ]);
     }
 
     /**

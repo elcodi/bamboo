@@ -22,22 +22,22 @@ $accessKeyId = 'ACCESS_KEY_ID';
 $secret = 'SECRET_ACCESS_KEY';
 
 // prepare policy
-$policy = base64_encode(json_encode(array(
+$policy = base64_encode(json_encode([
     // ISO 8601 - date('c'); generates uncompatible date, so better do it manually
     'expiration' => date('Y-m-d\TH:i:s.000\Z', strtotime('+1 day')),
-    'conditions' => array(
-        array('bucket' => $bucket),
-        array('acl' => 'public-read'),
-        array('starts-with', '$key', ''),
+    'conditions' => [
+        ['bucket' => $bucket],
+        ['acl' => 'public-read'],
+        ['starts-with', '$key', ''],
         // for demo purposes we are accepting only images
-        array('starts-with', '$Content-Type', 'image/'),
+        ['starts-with', '$Content-Type', 'image/'],
         // Plupload internally adds name field, so we need to mention it here
-        array('starts-with', '$name', ''),
+        ['starts-with', '$name', ''],
         // One more field to take into account: Filename - gets silently sent by FileReference.upload() in Flash
         // http://docs.amazonwebservices.com/AmazonS3/latest/dev/HTTPPOSTFlash.html
-        array('starts-with', '$Filename', ''),
-    ),
-)));
+        ['starts-with', '$Filename', ''],
+    ],
+]));
 
 // sign policy
 $signature = base64_encode(hash_hmac('sha1', $policy, $secret, true));

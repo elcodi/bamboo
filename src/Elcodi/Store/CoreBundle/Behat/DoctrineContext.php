@@ -48,61 +48,61 @@ class DoctrineContext extends AbstractElcodiContext
             $doctrineConnection->close();
         }
 
-        $this->application->run(new ArrayInput(array(
+        $this->application->run(new ArrayInput([
             'command'          => 'doctrine:database:drop',
             '--env'            => 'test',
             '--no-interaction' => true,
             '--force'          => true,
             '--quiet'          => true,
-        )));
+        ]));
 
         if ($doctrineConnection->isConnected()) {
             $doctrineConnection->close();
         }
 
-        $this->application->run(new ArrayInput(array(
+        $this->application->run(new ArrayInput([
             'command'          => 'doctrine:database:create',
             '--env'            => 'test',
             '--no-interaction' => true,
             '--quiet'          => true,
-        )));
+        ]));
 
-        $this->application->run(new ArrayInput(array(
+        $this->application->run(new ArrayInput([
             'command'          => 'doctrine:schema:create',
             '--env'            => 'test',
             '--no-interaction' => true,
             '--quiet'          => true,
-        )));
+        ]));
 
-        $this->application->run(new ArrayInput(array(
+        $this->application->run(new ArrayInput([
             'command'          => 'doctrine:fixtures:load',
             '--env'            => 'test',
             '--no-interaction' => false,
-            '--fixtures'       => $this->kernel->getRootDir().'/../src/Elcodi/Fixtures',
+            '--fixtures'       => $this->kernel->getRootDir() . '/../src/Elcodi/Fixtures',
             '--quiet'          => true,
-        )));
+        ]));
 
-        $this->application->run(new ArrayInput(array(
+        $this->application->run(new ArrayInput([
             'command'          => 'elcodi:templates:load',
             '--env'            => 'test',
             '--no-interaction' => false,
             '--quiet'          => true,
-        )));
+        ]));
 
-        $this->application->run(new ArrayInput(array(
+        $this->application->run(new ArrayInput([
             'command'          => 'elcodi:templates:enable',
             'template'         => 'StoreTemplateBundle',
             '--env'            => 'test',
             '--no-interaction' => false,
             '--quiet'          => true,
-        )));
+        ]));
 
-        $this->application->run(new ArrayInput(array(
+        $this->application->run(new ArrayInput([
             'command'          => 'elcodi:plugins:load',
             '--env'            => 'test',
             '--no-interaction' => false,
             '--quiet'          => true,
-        )));
+        ]));
     }
 
     /**
@@ -116,12 +116,12 @@ class DoctrineContext extends AbstractElcodiContext
             ->getConnection()
             ->close();
 
-        $this->application->run(new ArrayInput(array(
+        $this->application->run(new ArrayInput([
             'command'          => 'doctrine:database:drop',
             '--env'            => 'test',
             '--no-interaction' => true,
             '--force'          => true,
             '--quiet'          => true,
-        )));
+        ]));
     }
 }

@@ -38,73 +38,73 @@ class ProductType extends AbstractPurchasableType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', 'text', array(
+            ->add('name', 'text', [
                 'required' => true,
-            ))
-            ->add('slug', 'text', array(
+            ])
+            ->add('slug', 'text', [
                 'required' => true,
-            ))
-            ->add('description', 'textarea', array(
+            ])
+            ->add('description', 'textarea', [
                 'required' => true,
-            ))
-            ->add('showInHome', 'checkbox', array(
+            ])
+            ->add('showInHome', 'checkbox', [
                 'required' => false,
-            ))
-            ->add('stock', 'hidden', array(
+            ])
+            ->add('stock', 'hidden', [
                 'required' => true,
-            ))
-            ->add('price', 'money_object', array(
+            ])
+            ->add('price', 'money_object', [
                 'required' => true,
-            ))
-            ->add('reducedPrice', 'money_object', array(
+            ])
+            ->add('reducedPrice', 'money_object', [
                 'required' => false,
-            ))
-            ->add('imagesSort', 'text', array(
+            ])
+            ->add('imagesSort', 'text', [
                 'required' => false,
-            ))
-            ->add('enabled', 'checkbox', array(
+            ])
+            ->add('enabled', 'checkbox', [
                 'required' => false,
-            ))
-            ->add('height', 'number', array(
+            ])
+            ->add('height', 'number', [
                 'required' => false,
-            ))
-            ->add('width', 'number', array(
+            ])
+            ->add('width', 'number', [
                 'required' => false,
-            ))
-            ->add('depth', 'number', array(
+            ])
+            ->add('depth', 'number', [
                 'required' => false,
-            ))
-            ->add('weight', 'number', array(
+            ])
+            ->add('weight', 'number', [
                 'required' => false,
-            ))
-            ->add('metaTitle', 'text', array(
+            ])
+            ->add('metaTitle', 'text', [
                 'required' => false,
-            ))
-            ->add('metaDescription', 'text', array(
+            ])
+            ->add('metaDescription', 'text', [
                 'required' => false,
-            ))
-            ->add('metaKeywords', 'text', array(
+            ])
+            ->add('metaKeywords', 'text', [
                 'required' => false,
-            ))
-            ->add('stock', 'number', array(
+            ])
+            ->add('stock', 'number', [
                 'required' => false,
-            ))
-            ->add('manufacturer', 'entity', array(
+            ])
+            ->add('manufacturer', 'entity', [
                 'class'    => 'Elcodi\Component\Product\Entity\Manufacturer',
                 'required' => false,
                 'multiple' => false,
-            ))
-            ->add('principalCategory', 'entity', array(
+            ])
+            ->add('principalCategory', 'entity', [
                 'class'    => 'Elcodi\Component\Product\Entity\Category',
                 'required' => true,
                 'multiple' => false,
-            ))
-            ->add('images', 'entity', array(
+            ])
+            ->add('images', 'entity', [
                 'class'    => 'Elcodi\Component\Media\Entity\Image',
                 'required' => false,
                 'property' => 'id',
                 'multiple' => true,
-            ));
+            ]);
 
         $builder->addEventSubscriber($this->getEntityTranslatorFormEventListener());
     }

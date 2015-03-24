@@ -96,10 +96,10 @@ class MoneyType extends AbstractType
             $this->currencyWrapper->getDefaultCurrency()
         );
 
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'data_class' => 'Elcodi\Component\Currency\Entity\Money',
             'empty_data' => $money,
-        ));
+        ]);
     }
 
     /**

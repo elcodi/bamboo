@@ -61,12 +61,12 @@ class EmailData extends AbstractFixture
         $this->addReference('email-order-confirmation', $orderConfirmationEmail);
         $pageObjectManager->flush($orderConfirmationEmail);
 
-        $entityTranslator->save($orderConfirmationEmail, array(
-            'es' => array(
+        $entityTranslator->save($orderConfirmationEmail, [
+            'es' => [
                 'title'   => 'Confirmación de pedido',
                 'content' => 'Pedido confirmado para {{ order.customer.fullname }}.',
-            ),
-        ));
+            ],
+        ]);
 
         /**
          * Order shipped email
@@ -84,12 +84,12 @@ class EmailData extends AbstractFixture
         $this->addReference('email-order-shipped', $orderShippedEmail);
         $pageObjectManager->flush($orderShippedEmail);
 
-        $entityTranslator->save($orderShippedEmail, array(
-            'es' => array(
+        $entityTranslator->save($orderShippedEmail, [
+            'es' => [
                 'title'   => 'Aviso de envío de pedido para el cliente',
                 'content' => 'Hola {{ customer.fullname }}. Su pedido acaba de ser mandado.',
-            ),
-        ));
+            ],
+        ]);
 
         /**
          * Customer registration email
@@ -107,12 +107,12 @@ class EmailData extends AbstractFixture
         $this->addReference('email-customer-registration', $customerRegistrationEmail);
         $pageObjectManager->flush($customerRegistrationEmail);
 
-        $entityTranslator->save($customerRegistrationEmail, array(
-            'es' => array(
+        $entityTranslator->save($customerRegistrationEmail, [
+            'es' => [
                 'title'   => 'Confirmación de pedido',
                 'content' => 'Hola {{ customer.fullname }}.  Le damos la Bienvenida.',
-            ),
-        ));
+            ],
+        ]);
 
         /**
          * Customer password remember
@@ -130,12 +130,12 @@ class EmailData extends AbstractFixture
         $this->addReference('email-password-remember', $passwordRememberEmail);
         $pageObjectManager->flush($passwordRememberEmail);
 
-        $entityTranslator->save($passwordRememberEmail, array(
-            'es' => array(
+        $entityTranslator->save($passwordRememberEmail, [
+            'es' => [
                 'title'   => 'Recordatorio de contraseña',
                 'content' => 'Hola {{ customer.fullname }}. Para recuperar tu contraseña entra en <a href="{{ remember_url }}">este enlace</a>.',
-            ),
-        ));
+            ],
+        ]);
 
         /**
          * Customer password recover
@@ -153,11 +153,11 @@ class EmailData extends AbstractFixture
         $this->addReference('email-password-recover', $passwordRecoverEmail);
         $pageObjectManager->flush($passwordRecoverEmail);
 
-        $entityTranslator->save($passwordRecoverEmail, array(
-            'es' => array(
+        $entityTranslator->save($passwordRecoverEmail, [
+            'es' => [
                 'title'   => 'Recordatorio de contraseña',
                 'content' => 'Hola {{ customer.fullname }}. Tu contraseña ha sido recuperada.',
-            ),
-        ));
+            ],
+        ]);
     }
 }

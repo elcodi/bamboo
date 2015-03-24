@@ -19,6 +19,7 @@ namespace Elcodi\Store\CoreBundle\Behat;
 
 use Behat\Mink\Exception\ElementHtmlException;
 use Behat\Mink\Exception\ElementNotFoundException;
+
 use Elcodi\Store\CoreBundle\Behat\abstracts\AbstractElcodiContext;
 
 /**
@@ -110,6 +111,4 @@ class Context extends AbstractElcodiContext
             );
         }
     }
-
-
 }

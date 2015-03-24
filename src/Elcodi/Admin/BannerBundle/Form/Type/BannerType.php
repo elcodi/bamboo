@@ -34,44 +34,44 @@ class BannerType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', 'text', array(
+            ->add('name', 'text', [
                 'required' => false,
                 'label'    => 'name',
-            ))
-            ->add('description', 'textarea', array(
+            ])
+            ->add('description', 'textarea', [
                 'required' => false,
                 'label'    => 'description',
-            ))
-            ->add('url', 'text', array(
+            ])
+            ->add('url', 'text', [
                 'required' => false,
                 'label'    => 'url',
-            ))
-            ->add('position', 'integer', array(
+            ])
+            ->add('position', 'integer', [
                 'required' => false,
                 'label'    => 'position',
-            ))
-            ->add('enabled', 'checkbox', array(
+            ])
+            ->add('enabled', 'checkbox', [
                 'required' => false,
                 'label'    => 'enabled',
-            ))
-            ->add('image', 'entity', array(
+            ])
+            ->add('image', 'entity', [
                 'class'    => 'Elcodi\Component\Media\Entity\Image',
                 'required' => false,
                 'label'    => 'image',
                 'multiple' => false,
-            ))
-            ->add('principalImage', 'entity', array(
+            ])
+            ->add('principalImage', 'entity', [
                 'class'    => 'Elcodi\Component\Media\Entity\Image',
                 'required' => false,
                 'label'    => 'principalImage',
                 'multiple' => false,
-            ))
-            ->add('bannerZones', 'entity', array(
+            ])
+            ->add('bannerZones', 'entity', [
                 'class'    => 'Elcodi\Component\Banner\Entity\BannerZone',
                 'required' => false,
                 'label'    => 'bannerZones',
                 'multiple' => false,
-            ));
+            ]);
     }
 
     /**

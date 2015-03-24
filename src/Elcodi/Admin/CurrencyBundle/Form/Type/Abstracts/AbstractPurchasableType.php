@@ -63,8 +63,8 @@ abstract class AbstractPurchasableType extends AbstractType
     {
         $purchasable = $this->purchasableFactory->create();
 
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'empty_data' => $purchasable,
-        ));
+        ]);
     }
 }

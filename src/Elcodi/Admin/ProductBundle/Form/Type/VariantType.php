@@ -36,7 +36,7 @@ class VariantType extends AbstractPurchasableType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('options', 'entity', array(
+            ->add('options', 'entity', [
                 'class'    => 'Elcodi\Component\Attribute\Entity\Value',
                 'required' => true,
                 'multiple' => true,
@@ -47,28 +47,28 @@ class VariantType extends AbstractPurchasableType
                             ->join('v.attribute', 'a');
                     },
                 'property' => 'value',
-            ))
-            ->add('imagesSort', 'text', array(
+            ])
+            ->add('imagesSort', 'text', [
                 'required' => false,
-            ))
-            ->add('images', 'entity', array(
+            ])
+            ->add('images', 'entity', [
                 'class'    => 'Elcodi\Component\Media\Entity\Image',
                 'required' => false,
                 'property' => 'id',
                 'multiple' => true,
-            ))
-            ->add('stock', 'number', array(
+            ])
+            ->add('stock', 'number', [
                 'required' => false,
-            ))
-            ->add('price', 'money_object', array(
+            ])
+            ->add('price', 'money_object', [
                 'required' => false,
-            ))
-            ->add('reducedPrice', 'money_object', array(
+            ])
+            ->add('reducedPrice', 'money_object', [
                 'required' => false,
-            ))
-            ->add('enabled', 'checkbox', array(
+            ])
+            ->add('enabled', 'checkbox', [
                 'required' => false,
-            ));
+            ]);
     }
 
     /**
