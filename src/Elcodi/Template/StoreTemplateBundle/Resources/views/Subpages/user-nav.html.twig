@@ -2,7 +2,7 @@
     {% if customer.id %}
         <li>
             <a href="{{ url("store_user") }}">
-                <strong>{{ customer.firstname }}</strong>
+                <strong data-test="logged-username">{{ customer.firstname }}</strong>
             </a>
         </li>
         <li>

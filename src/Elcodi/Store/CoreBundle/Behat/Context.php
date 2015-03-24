@@ -17,6 +17,8 @@
 
 namespace Elcodi\Store\CoreBundle\Behat;
 
+use Behat\Mink\Exception\ElementHtmlException;
+use Behat\Mink\Exception\ElementNotFoundException;
 use Elcodi\Store\CoreBundle\Behat\abstracts\AbstractElcodiContext;
 
 /**
@@ -56,4 +58,58 @@ class Context extends AbstractElcodiContext
         $page->fillField('store_user_form_type_login_password', $password);
         $page->pressButton('store_user_form_type_login_send');
     }
+
+    /**
+     * @When /^the page contains a "(?P<value>[^"]*)" test attribute$/
+     * @Then /^the response should contain a "(?P<value>[^"]*)" test attribute$/
+     */
+    public function responseShouldContainTestAttribute($value)
+    {
+        $session = $this
+            ->getSession();
+
+        $page = $session
+            ->getPage();
+
+        $testAttribute = $page
+            ->find(
+                'xpath',
+                "//*[@data-test='$value']"
+            );
+
+        if ($testAttribute == null) {
+            throw new ElementNotFoundException(
+                $session
+            );
+        }
+    }
+
+    /**
+     * @When /^the page does not contain a "(?P<value>[^"]*)" test attribute$/
+     * @Then /^the response should not contain a "(?P<value>[^"]*)" test attribute$/
+     */
+    public function responseShouldNotContainTestAttribute($value)
+    {
+        $session = $this
+            ->getSession();
+
+        $page = $session
+            ->getPage();
+
+        $testAttribute = $page
+            ->find(
+                'xpath',
+                "//*[@data-test='$value']"
+            );
+
+        if ($testAttribute !== null) {
+            throw new ElementHtmlException(
+                "Found element attribute with value: $value",
+                $session,
+                $testAttribute
+            );
+        }
+    }
+
+
 }

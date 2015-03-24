@@ -71,7 +71,7 @@ store_order_list: /les-meves-comandes
 #
 store_cart_coupon_form_type_coupon_apply: /cistella/cupons
 store_coupon_apply: /cistella/cupo/aplicar
-store_coupon_remove: /cistella/cupo/eliminar
+store_coupon_remove: /cistella/cupo/eliminar/{code}
 
 #
 # Password

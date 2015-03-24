@@ -42,6 +42,7 @@
                                {% if not useStock or product.stock > 0 %}
                                <a title="{{ 'template.store_template_bundle.product.view_item.add_to_cart'|trans }}"
                                   class="fa fa-shopping-cart button button-secondary"
+                                  data-test="add-product-{{ product.id }}-to-cart"
                                   href="{{ url('store_cart_add_product', { id: product.id }) }}"> {{ 'template.store_template_bundle.product.view_item.add_to_cart'|trans }}</a>
                                {% else %}
                                <a title="{{ 'template.store_template_bundle.product.view_item.no_stock'|trans }}"

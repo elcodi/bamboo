@@ -71,7 +71,7 @@ store_order_list: /mis-pedidos
 #
 store_cart_coupon_form_type_coupon_apply: /mi-carrito/cupones
 store_coupon_apply: /mi-carrito/cupon/aplicar
-store_coupon_remove: /mi-carrito/cupon/eliminar
+store_coupon_remove: /mi-carrito/cupon/eliminar/{code}
 
 #
 # Contraseña

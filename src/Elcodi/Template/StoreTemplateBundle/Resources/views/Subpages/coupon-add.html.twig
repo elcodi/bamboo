@@ -1,5 +1,5 @@
 {% if cart.coupons|length == 0 %}
-    <div class="coupon-add">
+    <div class="coupon-add" data-test="coupon-add">
         {{ form_start(form) }}
                 {{ form_widget( form.code ) }}
                 {{ form_widget( form.apply, { 'attr':{ 'class':'button button-primary' } } ) }}
