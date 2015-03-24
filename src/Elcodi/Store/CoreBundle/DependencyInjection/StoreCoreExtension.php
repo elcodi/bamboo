@@ -18,7 +18,6 @@
 namespace Elcodi\Store\CoreBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
 
 use Elcodi\Bundle\CoreBundle\DependencyInjection\Abstracts\AbstractExtension;
 
@@ -95,14 +94,28 @@ class StoreCoreExtension extends AbstractExtension
     {
         parent::postLoad($config, $container);
 
-        $serviceId = 'store.core.event_listener.exception';
-        if ($container->hasDefinition($serviceId)) {
+        $this->setupExceptions($config['error_templates'], $container);
+    }
 
-            $container
-                ->getDefinition($serviceId)
-                ->addArgument($config['error_templates']['default'])
-                ->addArgument($config['error_templates']['by_code']);
+    /**
+     * Setup exception listener
+     *
+     * @param array            $config
+     * @param ContainerBuilder $container
+     */
+    protected function setupExceptions(array $config, ContainerBuilder $container)
+    {
+        $serviceId = 'store.core.event_listener.exception';
+        if (!$container->hasDefinition($serviceId)) {
+            return;
         }
+
+        $container
+            ->getDefinition($serviceId)
+            ->addArgument($config['default'])
+            ->addArgument($config['by_code'])
+            ->addArgument($config['fallback'])
+        ;
     }
 
     /**

@@ -67,23 +67,33 @@ class StoreHttpExceptionListener
     protected $templateByCode;
 
     /**
+     * @var integer|null
+     *
+     * Status code for non http-exceptions, or null for no fallback
+     */
+    protected $fallbackCode;
+
+    /**
      * Constructor
      *
      * @param EngineInterface $templating      Template engine
      * @param TemplateLocator $templateLocator Where to search for templates
      * @param string          $defaultTemplate Default template
      * @param string[]        $templateByCode  Template by status code
+     * @param integer|null    $fallbackCode    Status code for fallback exceptions
      */
     public function __construct(
         EngineInterface $templating,
         TemplateLocator $templateLocator,
                         $defaultTemplate,
-        array           $templateByCode
+        array           $templateByCode,
+                        $fallbackCode = null
     ) {
-        $this->templating = $templating;
+        $this->templating      = $templating;
         $this->templateLocator = $templateLocator;
         $this->defaultTemplate = $defaultTemplate;
-        $this->templateByCode = $templateByCode;
+        $this->templateByCode  = $templateByCode;
+        $this->fallbackCode    = $fallbackCode;
     }
 
     /**
@@ -101,7 +111,7 @@ class StoreHttpExceptionListener
 
         $statusCode = $exception instanceof HttpExceptionInterface
             ? $exception->getStatusCode()
-            : Response::HTTP_INTERNAL_SERVER_ERROR;
+            : $this->fallbackCode;
 
         $message = $exception->getMessage();
 
@@ -129,15 +139,19 @@ class StoreHttpExceptionListener
             return false;
         }
 
-        return true;
+        if ($this->fallbackCode) {
+            return true;
+        }
+
+        return $event->getException() instanceof HttpExceptionInterface;
     }
 
     /**
      * Generates a response for a status code error
      *
-     * @param Exception|FlattenException $exception
-     * @param integer                    $statusCode
-     * @param string                     $message
+     * @param Exception $exception  Exception
+     * @param integer   $statusCode Status code
+     * @param string    $message    Exception message
      *
      * @return Response
      */

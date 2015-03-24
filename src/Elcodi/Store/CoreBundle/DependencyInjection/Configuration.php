@@ -18,6 +18,7 @@
 namespace Elcodi\Store\CoreBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
+use Symfony\Component\HttpFoundation\Response;
 
 use Elcodi\Bundle\CoreBundle\DependencyInjection\Abstracts\AbstractConfiguration;
 
@@ -36,11 +37,35 @@ class Configuration extends AbstractConfiguration
     protected function setupTree(ArrayNodeDefinition $rootNode)
     {
         $templateValidation = function ($value) {
-            if (!is_string($value)) {
-                throw new \InvalidArgumentException(sprintf(
-                    'Status templates must be strings, "%s" found',
-                    $value
-                ));
+            if (is_string($value)) {
+                return $value;
+            }
+
+            throw new \InvalidArgumentException(sprintf(
+                'Status templates must be strings, "%s" found',
+                $value
+            ));
+        };
+
+        $checkForNumeric = function ($value) {
+            if (is_numeric($value)) {
+                return $value;
+            }
+
+            throw new \InvalidArgumentException(sprintf(
+                'Status code for error templates must be numeric, "%s" found',
+                $value
+            ));
+        };
+
+        $checkForNumericKeys = function (array $value) {
+            foreach ($value as $code => $template) {
+                if (!is_numeric($code)) {
+                    throw new \InvalidArgumentException(sprintf(
+                        'Status codes for error templates must be numeric, "%s" found',
+                        $code
+                    ));
+                }
             }
 
             return $value;
@@ -51,10 +76,12 @@ class Configuration extends AbstractConfiguration
             ->children()
 
                 ->arrayNode('error_templates')
+                    ->info('Error templates setup')
                     ->canBeDisabled()
 
                     ->children()
                         ->scalarNode('default')
+                            ->info('Default template for exceptions')
                             ->defaultValue('Exception:error.html.twig')
 
                             ->validate()
@@ -63,6 +90,8 @@ class Configuration extends AbstractConfiguration
                         ->end()
 
                         ->arrayNode('by_code')
+                            ->info('Specific template by status code')
+                            ->example('{ 404: Exception:error.html.twig }')
                             ->useAttributeAsKey('name')
 
                             ->prototype('scalar')
@@ -73,21 +102,20 @@ class Configuration extends AbstractConfiguration
                             ->end()
 
                             ->validate()
-                                ->always(function (array $value) {
-
-                                    foreach ($value as $code => $template) {
-                                        if (!is_numeric($code)) {
-                                            throw new \InvalidArgumentException(sprintf(
-                                                'Status codes for error templates must be numeric, "%s" found',
-                                                $code
-                                            ));
-                                        }
-                                    }
-
-                                    return $value;
-                                })
+                                ->always($checkForNumericKeys)
                             ->end()
                         ->end()
+
+                        ->scalarNode('fallback')
+                            ->info('Default status code for non-http exceptions')
+                            ->defaultFalse()
+                            ->treatTrueLike(Response::HTTP_INTERNAL_SERVER_ERROR)
+
+                            ->validate()
+                                ->always($checkForNumeric)
+                            ->end()
+                        ->end()
+
                     ->end()
                 ->end()
             ->end();

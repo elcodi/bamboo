@@ -26,6 +26,7 @@ monolog:
 
 store_core:
     error_templates:
+        fallback: true
         default: Exception:error.html.twig
         by_code:
             404: Exception:error404.html.twig
