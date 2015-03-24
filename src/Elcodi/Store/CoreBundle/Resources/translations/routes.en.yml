@@ -53,7 +53,7 @@ store_cart_nav: /cart/nav
 #
 # Checkout
 #
-store_checkout_address: /cart/direccion
+store_checkout_address: /cart/address
 store_checkout_address_save: /cart/address/save
 store_checkout_payment: /cart/payment
 store_checkout_payment_fail: /cart/payment/error
@@ -71,7 +71,7 @@ store_order_list: /my-orders
 #
 store_cart_coupon_form_type_coupon_apply: /cart/coupons
 store_coupon_apply: /cart/coupon/apply
-store_coupon_remove: /cart/coupon/remove
+store_coupon_remove: /cart/coupon/remove/{code}
 
 #
 # Password
