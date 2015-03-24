@@ -18,8 +18,6 @@
 namespace Elcodi\Store\CoreBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
-use Symfony\Component\Config\Definition\Builder\NodeDefinition;
-use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 
 use Elcodi\Bundle\CoreBundle\DependencyInjection\Abstracts\AbstractConfiguration;
 
@@ -37,64 +35,61 @@ class Configuration extends AbstractConfiguration
      */
     protected function setupTree(ArrayNodeDefinition $rootNode)
     {
+        $templateValidation = function ($value) {
+            if (!is_string($value)) {
+                throw new \InvalidArgumentException(sprintf(
+                    'Status templates must be strings, "%s" found',
+                    $value
+                ));
+            }
+
+            return $value;
+        };
+
         $rootNode
+            ->addDefaultsIfNotSet()
             ->children()
 
-                ->arrayNode('errors')
-                    ->treatFalseLike([])
-                    ->useAttributeAsKey('name')
+                ->arrayNode('error_templates')
+                    ->canBeDisabled()
 
-                    ->prototype('array')
-                        ->canBeDisabled()
-                        ->addDefaultsIfNotSet()
+                    ->children()
+                        ->scalarNode('default')
+                            ->defaultValue('Exception:error.html.twig')
 
-                        ->children()
-                            ->scalarNode('template')
-                                ->defaultValue('Exception:error.html.twig')
+                            ->validate()
+                                ->always($templateValidation)
                             ->end()
                         ->end()
 
-                        ->beforeNormalization()
-                            ->ifString()
-                            ->then(function ($value) {
-                                return array(
-                                    'enabled' => true,
-                                    'template' => $value,
-                                );
-                            })
-                        ->end()
+                        ->arrayNode('by_code')
+                            ->useAttributeAsKey('name')
 
+                            ->prototype('scalar')
+                                ->validate()
+                                    ->ifTrue(function ($value) { return null !== $value; })
+                                    ->then($templateValidation)
+                                ->end()
+                            ->end()
+
+                            ->validate()
+                                ->always(function (array $value) {
+
+                                    foreach ($value as $code => $template) {
+                                        if (!is_numeric($code)) {
+                                            throw new \InvalidArgumentException(sprintf(
+                                                'Status codes for error templates must be numeric, "%s" found',
+                                                $code
+                                            ));
+                                        }
+                                    }
+
+                                    return $value;
+                                })
+                            ->end()
+                        ->end()
                     ->end()
                 ->end()
             ->end();
-    }
-
-    /**
-     * Create a node to define a template
-     *
-     * @param string $name     Node name
-     * @param string $template Default template path
-     *
-     * @return ArrayNodeDefinition|NodeDefinition
-     */
-    protected function template($name, $template = 'TwigBundle:Exception:error.html.twig')
-    {
-        $root = new TreeBuilder();
-        $node = $root->root($name);
-
-        $node
-            ->addDefaultsIfNotSet()
-            ->treatFalseLike(['enabled' => false])
-            ->children()
-                ->booleanNode('enabled')
-                    ->defaultTrue()
-                ->end()
-                ->scalarNode('template')
-                    ->defaultValue($template)
-                ->end()
-            ->end()
-        ->end();
-
-        return $node;
     }
 }

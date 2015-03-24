@@ -8,6 +8,5 @@ services:
         arguments:
             - @templating
             - @store.core.services.template_locator
-            - []
         tags:
             - { name: firewall_listener, firewall: %bamboo_store_firewall%, event: kernel.exception, priority: -127 }

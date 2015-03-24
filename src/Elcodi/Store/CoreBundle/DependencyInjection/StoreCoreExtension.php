@@ -81,26 +81,8 @@ class StoreCoreExtension extends AbstractExtension
             'eventListeners',
             'twig',
             'services',
-            [ 'exceptions', $this->shouldActivateExceptions($config) ],
+            [ 'exceptions', $config['error_templates']['enabled'] ],
         ];
-    }
-
-    /**
-     * Check if the exception listener should be activated
-     *
-     * @param array $config Configuration
-     *
-     * @return bool
-     */
-    protected function shouldActivateExceptions(array $config)
-    {
-        foreach ($config['errors'] as $statusCode => $codeSetup) {
-            if ($codeSetup['enabled']) {
-                return true;
-            }
-        }
-
-        return false;
     }
 
     /**
@@ -116,34 +98,11 @@ class StoreCoreExtension extends AbstractExtension
         $serviceId = 'store.core.event_listener.exception';
         if ($container->hasDefinition($serviceId)) {
 
-            $exceptions = $this->collectExceptions($config['errors']);
-
             $container
                 ->getDefinition($serviceId)
-                ->replaceArgument(2, $exceptions);
+                ->addArgument($config['error_templates']['default'])
+                ->addArgument($config['error_templates']['by_code']);
         }
-    }
-
-    /**
-     * Check if the exception listener should be activated
-     *
-     * @param array $errors
-     *
-     * @return bool
-     */
-    protected function collectExceptions(array $errors)
-    {
-        $exceptions = [];
-        foreach ($errors as $statusCode => $config) {
-
-            if (!$config['enabled']) {
-                continue;
-            }
-
-            $exceptions[$statusCode] = $config['template'];
-        }
-
-        return $exceptions;
     }
 
     /**

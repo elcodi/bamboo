@@ -21,7 +21,6 @@ use Exception;
 use Symfony\Component\Debug\Exception\FlattenException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
-use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 use Symfony\Component\Templating\EngineInterface;
 
@@ -54,27 +53,37 @@ class StoreHttpExceptionListener
     protected $templateLocator;
 
     /**
+     * @var string
+     *
+     * Template by default
+     */
+    protected $defaultTemplate;
+
+    /**
      * @var string[]
      *
      * Template path by status code for rendering
      */
-    protected $templates;
+    protected $templateByCode;
 
     /**
      * Constructor
      *
      * @param EngineInterface $templating      Template engine
      * @param TemplateLocator $templateLocator Where to search for templates
-     * @param string[]        $templates       Template path by status code
+     * @param string          $defaultTemplate Default template
+     * @param string[]        $templateByCode  Template by status code
      */
     public function __construct(
         EngineInterface $templating,
         TemplateLocator $templateLocator,
-        array           $templates
+                        $defaultTemplate,
+        array           $templateByCode
     ) {
         $this->templating = $templating;
         $this->templateLocator = $templateLocator;
-        $this->templates = $templates;
+        $this->defaultTemplate = $defaultTemplate;
+        $this->templateByCode = $templateByCode;
     }
 
     /**
@@ -88,16 +97,15 @@ class StoreHttpExceptionListener
 
         $this->isHandlingException = true;
 
-        /**
-         * @var $exception HttpException
-         */
         $exception = $event->getException();
 
-        $response = $this->createResponse(
-            $exception,
-            $exception->getStatusCode(),
-            $exception->getMessage()
-        );
+        $statusCode = $exception instanceof HttpExceptionInterface
+            ? $exception->getStatusCode()
+            : Response::HTTP_INTERNAL_SERVER_ERROR;
+
+        $message = $exception->getMessage();
+
+        $response = $this->createResponse($exception, $statusCode, $message);
 
         $event->setResponse($response);
 
@@ -121,12 +129,7 @@ class StoreHttpExceptionListener
             return false;
         }
 
-        $exception = $event->getException();
-        if (!$exception instanceof HttpExceptionInterface) {
-            return false;
-        }
-
-        return array_key_exists($exception->getStatusCode(), $this->templates);
+        return true;
     }
 
     /**
@@ -146,7 +149,7 @@ class StoreHttpExceptionListener
             'status_text' => $message,
         ];
 
-        $template = $this->locateTemplateByStatusCode($statusCode);
+        $template = $this->locateTemplateByCode($statusCode);
         $content = $this->renderTemplate($template, $context);
 
         return new Response($content, $statusCode);
@@ -159,12 +162,14 @@ class StoreHttpExceptionListener
      *
      * @return string
      */
-    protected function locateTemplateByStatusCode($statusCode)
+    protected function locateTemplateByCode($statusCode)
     {
         return $this
             ->templateLocator
             ->locate(
-                $this->templates[$statusCode]
+                isset($this->templateByCode[$statusCode])
+                    ? $this->templateByCode[$statusCode]
+                    : $this->defaultTemplate
             );
     }
 
