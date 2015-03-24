@@ -9,11 +9,10 @@ Feature: admin
     Then I should be on "/admin/login"
 
   @admin @login
-  Scenario: Enter the admin with no credentials
+  Scenario: Enter the admin with credentials
     Given I am on "/admin/"
     When I fill in the following:
       | elcodi_admin_user_form_type_login_email    | admin@admin.com |
       | elcodi_admin_user_form_type_login_password | 1234            |
     And I press "submit-login"
-    Then I should be on "/admin/plugin/setup-wizard/store-setup-wizard"
-    And I should see "Elcodi Admin"
+    Then the response should contain a "admin-menu" test attribute

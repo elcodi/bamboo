@@ -1,5 +1,5 @@
 Feature: admin
-  In order to admin my products
+  In order to manage my products
   As an admin
   I need to be able to see all product views
 
@@ -7,14 +7,14 @@ Feature: admin
   Scenario: See product list in admin with new product element
     Given In admin, I am logged as "admin@admin.com" - "1234"
     And I am on "/admin/products"
-    Then the response should contain "product-1"
-    Then the response should contain "product-2"
-    Then the response should contain "product-18"
-    Then the response should not contain "product-19"
-    Then the response should contain "new-product"
+    Then the response should contain a "product-1" test attribute
+    Then the response should contain a "product-2" test attribute
+    Then the response should contain a "product-18" test attribute
+    Then the response should not contain a "product-19" test attribute
+    Then the response should contain a "new-product" test attribute
 
   @admin @product
-  Scenario: Add product
+  Scenario: Add a new product
     Given In admin, I am logged as "admin@admin.com" - "1234"
     And I am on "/admin/product/new"
     When I fill in the following:
@@ -35,4 +35,4 @@ Feature: admin
       | elcodi_admin_product_form_type_product[enabled]                   | 1                |
     And I press "submit-save"
     Then I should be on "/admin/products"
-    Then the response should contain "product-19"
+    Then the response should contain a "product-19" test attribute

@@ -3,24 +3,24 @@ Feature: user
   As a logged user
   I need to be able to view and change my information
 
-  @user
+  @user @login
   Scenario: User management should not be accessible if not logged
     Given I am on "/user"
     Then I should be on "/login"
 
-  @user
+  @user @login
   Scenario: User should be able to logout
     Given I am logged as "noncustomer@customer.com" - "1234"
     When I go to "/logout"
     Then the response should not contain a "logged-username" test attribute
 
-  @user
+  @user @login
   Scenario: Wrong login
     Given I am logged as "customer@customer.com" - "wrong-password"
     Then I should be on "/login"
     And the response should contain "message-ko"
 
-  @user
+  @user @login
   Scenario: User management should be accessible if logged
     Given I am logged as "customer@customer.com" - "1234"
     And I am on "/user"

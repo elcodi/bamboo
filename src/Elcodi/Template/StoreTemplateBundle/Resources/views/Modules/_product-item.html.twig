@@ -47,8 +47,9 @@
                }) }}#variant-add-to-cart"></a>
         {% else %}
             <a class="fa fa-shopping-cart button button-secondary"
+               data-test="add-product-{{ product.id }}-to-cart"
                href="{{ url('store_cart_add_product', { id: product.id }) }}"
-               title="Add to cart {{ product.name }}"></a>
+               title="{{ 'template.store_template_bundle.product.view_item.add_to_cart'|trans }} {{ product.name }}"></a>
         {% endif %}
 
     </p>

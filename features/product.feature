@@ -8,3 +8,4 @@ Feature: product page
   Scenario: View the product name
     Given I am on the product 1 page
     Then I should see product 1 name
+    And the response should contain a "add-product-2-to-cart" test attribute

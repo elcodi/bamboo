@@ -1,5 +1,5 @@
 Feature: admin
-  In order to categories my products
+  In order to categorize my products
   As an admin
   I need to be able to see all category views
 
@@ -7,11 +7,13 @@ Feature: admin
   Scenario: See category list in admin with new category element
     Given In admin, I am logged as "admin@admin.com" - "1234"
     And I am on "/admin/categories"
-    Then the response should contain "category-1"
-    Then the response should contain "category-2"
-    Then the response should contain "new-category"
+    Then the response should contain a "category-1" test attribute
+    And the response should contain a "category-2" test attribute
+    And the response should contain a "new-category" test attribute
 
   @admin @category
   Scenario: Remove category with products
     Given In admin, I am logged as "admin@admin.com" - "1234"
-    And I am on "http://localhost:8000/admin/category/1/delete"
+    When I go to "/admin/category/1/delete"
+    Then I am on "/admin/categories"
+    And the response should not contain a "category-1" test attribute
