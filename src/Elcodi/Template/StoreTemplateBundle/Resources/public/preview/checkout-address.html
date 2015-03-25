@@ -56,86 +56,6 @@
 <![endif]-->
     
         
-
-<header class="header">
-        <nav class="currency-nav">
-        <div class="grid">
-            <ul>
-                                    <li>
-                        <a href="#" >
-                            EUR
-                        </a>
-                    </li>
-                                    <li>
-                        <a href="#" >
-                            GBP
-                        </a>
-                    </li>
-                                    <li>
-                        <a href="#" >
-                            JPY
-                        </a>
-                    </li>
-                                    <li>
-                        <a href="#" >
-                            USD
-                        </a>
-                    </li>
-                            </ul>
-        </div>
-    </nav>
-    <div class="grid">
-        <div class="col-1-2">
-            <a href="#" class="logo">
-                store name
-            </a>
-        </div>
-        <div class="col-1-2">
-            <ul class="user-nav">
-            <li>
-            <a href="#"><i class="fa fa-sign-in"></i> Login</a>
-        </li>
-        <li>
-            <a href="#"><strong><i class="fa fa-user"></i> Create new account</strong></a>
-        </li>
-    </ul>
-            <ul class="cart-nav">
-    <li>
-        <small>Amount</small>
-        <strong>$0.00</strong>
-    </li>
-    <li>
-        <small>Items</small>
-        <strong>0</strong>
-    </li>
-    <li>
-        <a href="#" class="fa fa-shopping-cart fa-2x"></a>
-    </li>
-</ul>
-        </div>
-    </div>
-</header>
-<div class="grid desktop">
-    <ul class="category-nav">
-    <li>
-        <a href="#"  class="active">New</a>
-    </li>
-            <li >
-            <a href="#"
-                >
-                Women's
-            </a>
-                    </li>
-            <li >
-            <a href="#"
-                >
-                Men's
-            </a>
-                    </li>
-    </ul>
-</div>
-<a href="#mobile-menu" class="button mobile"><i class="fa fa-arrow-down"></i> Menu</a>
-
     
     
                     <div class="grid message-grid">
@@ -157,18 +77,24 @@
                     <div class="grid">
         <div class="col-2-3">
             
-        <h1 class="checkout-title">Select delivery and billing address</h1>
-    <form method="post" action="#" class="address-list" >
-        <p class="checkout-actions checkout-actions-top">
-            <button type="submit" name="payment" class="button button-secondary desktop"> Payment <i class="fa fa-arrow-right"></i></button>
-            <a class="button desktop" href="#"> <i class="fa fa-arrow-left"></i> </a>
-            <span class="progress">
+            <h1 class="checkout-title">Select delivery and billing address</h1>
+        <form method="post" action="#" class="address-list" >
+            <p class="checkout-actions checkout-actions-top">
+                <button type="submit" name="payment" class="button button-secondary desktop">
+                    Payment
+                    <i class="fa fa-arrow-right"></i>
+                </button>
+                <a class="button desktop" href="#">
+                    <i class="fa fa-arrow-left"></i>
+                    
+                </a>
+                <span class="progress">
     <span class="progress-complete progress-status-2">
         <span class="progress-marker"></span>
     </span>
 </span>
-        </p>
-                    <dl class="address-item">
+            </p>
+                            <dl class="address-item">
     <dt class="address-item-selection"></dt>
     <dd class="address-item-selection">
         <div class="address-item-selection-item">
@@ -202,8 +128,8 @@
     <dd>Awesome Street, 21<br/></dd>
     <dt>Phone / Mobile</dt>
     <dd>555 555 555 / 666 666 666</dd>
-    <dt>City</dt>
-    <dd>Barcelona, Catalonia, Spain, </dd>
+    <dt>Address</dt>
+    <dd></dd>
     <dt>Postal Code</dt>
     <dd>08080</dd>
     <dt>Comments</dt>
@@ -216,7 +142,7 @@
                     class="fa fa-trash-o"></i> Remove</a>
     </dd>
 </dl>
-                    <dl class="address-item">
+                            <dl class="address-item">
     <dt class="address-item-selection"></dt>
     <dd class="address-item-selection">
         <div class="address-item-selection-item">
@@ -250,8 +176,8 @@
     <dd>Awesome Street, 21<br/></dd>
     <dt>Phone / Mobile</dt>
     <dd>555 555 555 / 666 666 666</dd>
-    <dt>City</dt>
-    <dd>Barcelona, Catalonia, Spain, </dd>
+    <dt>Address</dt>
+    <dd></dd>
     <dt>Postal Code</dt>
     <dd>08080</dd>
     <dt>Comments</dt>
@@ -264,20 +190,27 @@
                     class="fa fa-trash-o"></i> Remove</a>
     </dd>
 </dl>
-                <p class="checkout-actions checkout-actions-bottom">
-            <button type="submit" name="payment" class="button button-secondary"> Payment <i class="fa fa-arrow-right"></i></button>
-            <a class="button" href="#"> <i class="fa fa-arrow-left"></i> </a>
-        </p>
-    </form>
-                <h1 class="checkout-title">Add new address</h1>
+                        <p class="checkout-actions checkout-actions-bottom">
+                <button type="submit" name="payment" class="button button-secondary">
+                    Payment
+                    <i class="fa fa-arrow-right"></i>
+                </button>
+                <a class="button" href="#">
+                    <i class="fa fa-arrow-left"></i>
+                    
+                </a>
+            </p>
+        </form>
+    
+            <h1 class="checkout-title">Add new address</h1>
     
     
 
-        
+    
         <script src=""></script>
-        
+    
 
-        <div class="form form-address">
+    <div class="form form-address">
     <form>
         <div class="grid">
         <div class="col-1-1">
@@ -330,7 +263,6 @@
     </form>
 </div>
 
-
         </div>
         <div class="col-1-3">
             <div class="cart-preview">
@@ -351,7 +283,7 @@
         </div>
                 
         <div id="mobile-menu" class="grid mobile">
-    <ul class="category-nav">
+    <ul class="category-nav" data-test="category-nav">
     <li>
         <a href="#"  class="active">New</a>
     </li>
@@ -382,19 +314,13 @@
                 
                             </ul>
         </div>
-                                <div class="col-1-3">
+        <div class="col-1-3">
             <h5>Follow us</h5>
             <ul>
-                                    <li>
-                        <a href="http://twitter.com/store social_twitter">Twitter</a>
-                    </li>
                 
-                                    <li>
-                        <a href="http://facebook.com/store social_facebook">Facebook</a>
-                    </li>
-                            </ul>
+            </ul>
         </div>
-            </div>
+    </div>
 </footer>
 
         

@@ -51,6 +51,11 @@ FrontendCore.define('modal-content', ['devicePackage','modal' ], function () {
 
 				event.preventDefault();
 
+				if ( this.id === 'new-attribute') {
+					parent.document.getElementById('modal-attribute').click();
+					return false;
+				}
+
 				nWindowWidth = $(window).width();
 
 				if (nWindowWidth < 799) {

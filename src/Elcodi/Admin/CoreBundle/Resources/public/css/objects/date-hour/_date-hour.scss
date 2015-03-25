@@ -3,7 +3,7 @@
 		margin-bottom: 0;
 	}
 	input {
-		display: inline-block !important;
+		display: inline-block;
 
 	}
 	input[type='date'] {
@@ -18,5 +18,11 @@
 		min-width: 100px;
 		max-height: $spacing*1.5;
 		margin-bottom: $spacing/2;
+	}
+	.ws-date, .ws-time {
+		width: 68% !important;
+	}
+	.input-buttons {
+		padding: 0;
 	}
 }

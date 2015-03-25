@@ -221,7 +221,7 @@
                         <h3 class="fw-n">{{ 'admin.product.section.variants.title'|trans }}</h3>
                         <p>{{ 'admin.product.section.variants.description'|trans }}</p>
                         {% if product.id %}
-                            <a href="{{ url('admin_product_variant_new', { productId: product.id }) }}" data-fc-modules="modal-content" data-fc-width="95%" data-fc-height="95%" class="button">
+                            <a href="{{ url('admin_product_variant_new', { productId: product.id }) }}" data-fc-modules="modal-content" class="button">
                                 {{ 'admin.variant.new'|trans }}
                             </a>
                             <p>
