@@ -94,7 +94,7 @@ class OrderToPaidEventListener
                 $order,
                 $order->getPaymentStateLineStack(),
                 'pay',
-                'Order paid using '.$event
+                'Order paid using ' . $event
                     ->getPaymentMethod()
                     ->getPaymentName()
             );

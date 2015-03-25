@@ -34,34 +34,34 @@ class BannerZoneType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', 'text', array(
+            ->add('name', 'text', [
                 'required' => false,
                 'label'    => 'name',
-            ))
-            ->add('code', 'text', array(
+            ])
+            ->add('code', 'text', [
                 'required' => false,
                 'label'    => 'code',
-            ))
-            ->add('height', 'integer', array(
+            ])
+            ->add('height', 'integer', [
                 'required' => false,
                 'label'    => 'height',
-            ))
-            ->add('width', 'integer', array(
+            ])
+            ->add('width', 'integer', [
                 'required' => false,
                 'label'    => 'width',
-            ))
-            ->add('language', 'entity', array(
+            ])
+            ->add('language', 'entity', [
                 'class'    => 'Elcodi\Component\Core\Entity\Language',
                 'required' => false,
                 'label'    => 'language',
                 'multiple' => false,
-            ))
-            ->add('banners', 'entity', array(
+            ])
+            ->add('banners', 'entity', [
                 'class'    => 'Elcodi\Component\Banner\Entity\Banner',
                 'required' => false,
                 'label'    => 'banners',
                 'multiple' => false,
-            ));
+            ]);
     }
 
     /**

@@ -42,7 +42,6 @@ class MappingCompilerPass extends AbstractMappingCompilerPass
                 'store.connect.entity.authorization.manager',
                 'store.connect.entity.authorization.class',
                 'store.connect.entity.authorization.mapping_file'
-            )
-        ;
+            );
     }
 }

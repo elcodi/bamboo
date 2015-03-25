@@ -109,9 +109,9 @@ class AddressType extends AbstractType
                 'required' => false,
                 'label'    => 'store.address.form.fields.comments.label',
             ])
-            ->add('send', 'submit', array(
+            ->add('send', 'submit', [
                 'label' => 'store.address.form.fields.send.label',
-            ));
+            ]);
     }
 
     /**

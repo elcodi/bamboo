@@ -52,7 +52,7 @@ class MetricIntervalsExtension extends Twig_Extension
     public function getFunctions()
     {
         return [
-            new Twig_SimpleFunction('metric_create_interval_container', array($this, 'createIntervalContainer')),
+            new Twig_SimpleFunction('metric_create_interval_container', [$this, 'createIntervalContainer']),
         ];
     }
 

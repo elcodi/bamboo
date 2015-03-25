@@ -53,37 +53,37 @@ class ShippingRangeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', 'text', array(
+            ->add('name', 'text', [
                 'required' => true,
-            ))
-            ->add('price', 'money_object', array(
+            ])
+            ->add('price', 'money_object', [
                 'required' => true,
-            ))
-            ->add('type', 'choice', array(
-                'choices'  => array(
+            ])
+            ->add('type', 'choice', [
+                'choices'  => [
                     ElcodiShippingRangeTypes::TYPE_PRICE => 'admin.shipping_range.field.type.options.price',
                     ElcodiShippingRangeTypes::TYPE_WEIGHT => 'admin.shipping_range.field.type.options.weight',
-                ),
+                ],
                 'required' => true,
-            ))
-            ->add('fromWeight', 'number', array(
+            ])
+            ->add('fromWeight', 'number', [
                 'required' => false,
-            ))
-            ->add('toWeight', 'number', array(
+            ])
+            ->add('toWeight', 'number', [
                 'required' => false,
-            ))
-            ->add('fromPrice', 'money_object', array(
+            ])
+            ->add('fromPrice', 'money_object', [
                 'required' => false,
-            ))
-            ->add('toPrice', 'money_object', array(
+            ])
+            ->add('toPrice', 'money_object', [
                 'required' => false,
-            ))
-            ->add('toZone', 'entity', array(
+            ])
+            ->add('toZone', 'entity', [
                 'class'    => $this->zoneNamespace,
                 'required' => true,
                 'property' => 'name',
                 'multiple' => false,
-            ));
+            ]);
     }
 
     /**

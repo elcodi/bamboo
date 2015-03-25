@@ -32,10 +32,10 @@ class EncryptExtension extends Twig_Extension
      */
     public function getFilters()
     {
-        return array(
-            new Twig_SimpleFilter('sha1', array($this, 'sha1')),
-            new Twig_SimpleFilter('md5', array($this, 'md5')),
-        );
+        return [
+            new Twig_SimpleFilter('sha1', [$this, 'sha1']),
+            new Twig_SimpleFilter('md5', [$this, 'md5']),
+        ];
     }
 
     /**

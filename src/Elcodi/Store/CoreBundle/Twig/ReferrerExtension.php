@@ -51,11 +51,11 @@ class ReferrerExtension extends Twig_Extension
      */
     public function getFunctions()
     {
-        return array(
-            new Twig_SimpleFunction('referrer', array($this, 'getReferrer')),
-            new Twig_SimpleFunction('referrer_domain', array($this, 'getReferrerDomain')),
-            new Twig_SimpleFunction('referrer_is_search_engine', array($this, 'referrerIsSearchEngine')),
-        );
+        return [
+            new Twig_SimpleFunction('referrer', [$this, 'getReferrer']),
+            new Twig_SimpleFunction('referrer_domain', [$this, 'getReferrerDomain']),
+            new Twig_SimpleFunction('referrer_is_search_engine', [$this, 'referrerIsSearchEngine']),
+        ];
     }
 
     /**

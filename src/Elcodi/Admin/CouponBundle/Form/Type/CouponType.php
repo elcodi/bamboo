@@ -53,66 +53,66 @@ class CouponType extends AbstractPurchasableType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('code', 'text', array(
+            ->add('code', 'text', [
                 'required' => true,
-            ))
-            ->add('name', 'text', array(
+            ])
+            ->add('name', 'text', [
                 'required' => false,
-            ))
-            ->add('type', 'choice', array(
+            ])
+            ->add('type', 'choice', [
                 'required' => true,
                 'choices'  => [
                     ElcodiCouponTypes::TYPE_AMOUNT  => 'admin.coupon.field.type.options.fixed',
                     ElcodiCouponTypes::TYPE_PERCENT => 'admin.coupon.field.type.options.percent',
                 ],
-            ))
-            ->add('enforcement', 'choice', array(
+            ])
+            ->add('enforcement', 'choice', [
                 'required' => true,
                 'choices'  => [
                     ElcodiCouponTypes::ENFORCEMENT_MANUAL    => 'admin.coupon.field.enforcement.options.manual',
                     ElcodiCouponTypes::ENFORCEMENT_AUTOMATIC => 'admin.coupon.field.enforcement.options.automatic',
                 ],
-            ))
-            ->add('price', 'money_object', array(
+            ])
+            ->add('price', 'money_object', [
                 'required' => false,
-            ))
-            ->add('discount', 'integer', array(
+            ])
+            ->add('discount', 'integer', [
                 'required' => false,
-            ))
-            ->add('count', 'integer', array(
+            ])
+            ->add('count', 'integer', [
                 'required' => false,
-            ))
-            ->add('used', 'integer', array(
+            ])
+            ->add('used', 'integer', [
                 'required' => false,
-            ))
-            ->add('priority', 'integer', array(
+            ])
+            ->add('priority', 'integer', [
                 'required' => false,
-            ))
-            ->add('minimumPurchase', 'money_object', array(
+            ])
+            ->add('minimumPurchase', 'money_object', [
                 'required' => false,
-            ))
-            ->add('rule', 'entity', array(
+            ])
+            ->add('rule', 'entity', [
                 'class'       => $this->ruleNamespace,
                 'required'    => false,
                 'property'    => 'name',
                 'placeholder' => true,
                 'empty_data'  => null,
-            ))
-            ->add('validFrom', 'datetime', array(
+            ])
+            ->add('validFrom', 'datetime', [
                 'date_widget'  => 'single_text',
                 'date_format'  => 'yyyy-MM-dd',
                 'time_widget'  => 'single_text',
                 'required'     => false,
-            ))
-            ->add('validTo', 'datetime', array(
+            ])
+            ->add('validTo', 'datetime', [
                 'date_widget'  => 'single_text',
                 'date_format'  => 'yyyy-MM-dd',
                 'time_widget'  => 'single_text',
                 'required'     => false,
-            ))
-            ->add('enabled', 'checkbox', array(
+            ])
+            ->add('enabled', 'checkbox', [
                 'required' => false,
-            ));
+            ]);
     }
 
     /**

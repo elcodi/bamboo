@@ -56,9 +56,9 @@ class AdminUserType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'empty_data' => $this->adminUserFactory->create(),
-        ));
+        ]);
     }
 
     /**
@@ -71,30 +71,30 @@ class AdminUserType extends AbstractType
     {
         $builder
             ->setMethod('POST')
-            ->add('email', 'email', array(
+            ->add('email', 'email', [
                 'required' => true,
-            ))
-            ->add('firstname', 'text', array(
+            ])
+            ->add('firstname', 'text', [
                 'required' => false,
-            ))
-            ->add('lastname', 'text', array(
+            ])
+            ->add('lastname', 'text', [
                 'required' => false,
-            ))
-            ->add('gender', 'choice', array(
-                'choices'   => array(
+            ])
+            ->add('gender', 'choice', [
+                'choices'   => [
                     ElcodiUserProperties::GENDER_MALE => 'admin.user.field.gender.options.male',
                     ElcodiUserProperties::GENDER_FEMALE => 'admin.user.field.gender.options.female',
-                ),
+                ],
                 'required' => true,
-            ))
-            ->add('birthday', 'date', array(
+            ])
+            ->add('birthday', 'date', [
                 'required' => false,
                 'widget'   => 'single_text',
                 'format'   => 'yyyy-MM-dd',
-            ))
-            ->add('enabled', 'checkbox', array(
+            ])
+            ->add('enabled', 'checkbox', [
                 'required' => false,
-            ));
+            ]);
     }
 
     /**

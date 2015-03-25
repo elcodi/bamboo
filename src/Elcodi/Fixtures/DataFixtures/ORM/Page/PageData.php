@@ -64,40 +64,40 @@ class PageData extends AbstractFixture
         $this->addReference('page-about-us', $aboutUsPage);
         $pageObjectManager->flush($aboutUsPage);
 
-        $entityTranslator->save($aboutUsPage, array(
-            'en' => array(
+        $entityTranslator->save($aboutUsPage, [
+            'en' => [
                 'path'            => 'about-us',
                 'title'           => 'About us',
                 'content'         => '<li>About us</li>',
                 'metaTitle'       => 'About us',
                 'metaDescription' => 'About us',
                 'metaKeywords'    => 'about,us',
-            ),
-            'es' => array(
+            ],
+            'es' => [
                 'path'            => 'sobre-nosotros',
                 'title'           => 'Sobre nosotros',
                 'content'         => '<li>Sobre nosotros</li>',
                 'metaTitle'       => 'Sobre nosotros',
                 'metaDescription' => 'Sobre nosotros',
                 'metaKeywords'    => 'sobre,nosotros',
-            ),
-            'fr' => array(
+            ],
+            'fr' => [
                 'path'            => 'a-propos',
                 'title'           => 'A propos',
                 'content'         => '<li>A propos</li>',
                 'metaTitle'       => 'A propos',
                 'metaDescription' => 'A propos',
                 'metaKeywords'    => 'propos',
-            ),
-            'ca' => array(
+            ],
+            'ca' => [
                 'path'            => 'sobre-nosaltres',
                 'title'           => 'Sobre nosaltres',
                 'content'         => '<li>Sobre nosaltres</li>',
                 'metaTitle'       => 'Sobre nosaltres',
                 'metaDescription' => 'Sobre nosaltres',
                 'metaKeywords'    => 'sobre,nosaltres',
-            ),
-        ));
+            ],
+        ]);
 
         /**
          * Terms and conditions page
@@ -118,39 +118,39 @@ class PageData extends AbstractFixture
         $this->addReference('page-terms-and-conditions', $termsConditionsPage);
         $pageObjectManager->flush($termsConditionsPage);
 
-        $entityTranslator->save($termsConditionsPage, array(
-            'en' => array(
+        $entityTranslator->save($termsConditionsPage, [
+            'en' => [
                 'path'            => 'terms-and-conditions',
                 'title'           => 'Terms and conditions',
                 'content'         => '<li>Terms and conditions</li>',
                 'metaTitle'       => 'Terms and conditions',
                 'metaDescription' => 'Terms and conditions',
                 'metaKeywords'    => 'terms,conditions',
-            ),
-            'es' => array(
+            ],
+            'es' => [
                 'path'            => 'terminos-y-condiciones',
                 'title'           => 'Términos y condiciones',
                 'content'         => '<li>Términos y condiciones</li>',
                 'metaTitle'       => 'Términos y condiciones',
                 'metaDescription' => 'Términos y condiciones',
                 'metaKeywords'    => 'términos,condiciones',
-            ),
-            'fr' => array(
+            ],
+            'fr' => [
                 'path'            => 'mentions-legales',
                 'title'           => 'Mentions legales',
                 'content'         => '<li>Mentions legales</li>',
                 'metaTitle'       => 'Mentions legales',
                 'metaDescription' => 'Mentions legales',
                 'metaKeywords'    => 'mentions,legales',
-            ),
-            'ca' => array(
+            ],
+            'ca' => [
                 'path'            => 'termes-legals',
                 'title'           => 'Termes legals',
                 'content'         => '<li>Termes legals</li>',
                 'metaTitle'       => 'Termes legals',
                 'metaDescription' => 'Termes legals',
                 'metaKeywords'    => 'termes,legals',
-            ),
-        ));
+            ],
+        ]);
     }
 }

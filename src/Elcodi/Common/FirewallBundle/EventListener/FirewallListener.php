@@ -68,7 +68,7 @@ class FirewallListener implements ListenerInterface
          * It may be a `TraceableEventDispatcher` in debug mode, so no hard
          * check in type
          */
-        if (!is_callable(array($this->eventDispatcher, 'addListenerService'))) {
+        if (!is_callable([$this->eventDispatcher, 'addListenerService'])) {
             return;
         }
 

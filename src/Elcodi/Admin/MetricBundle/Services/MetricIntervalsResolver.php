@@ -105,7 +105,7 @@ class MetricIntervalsResolver
         $timeElements = [$startDay];
         for ($i = 1; $i <= $iterations; $i++) {
             $time = clone $startDay;
-            $time->add(new \DateInterval($elementsIntervalFormat[0].$i * $elementsIntervalFormat[1].$elementsIntervalFormat[2]));
+            $time->add(new \DateInterval($elementsIntervalFormat[0] . $i * $elementsIntervalFormat[1] . $elementsIntervalFormat[2]));
             $timeElements[] = $time;
         }
 

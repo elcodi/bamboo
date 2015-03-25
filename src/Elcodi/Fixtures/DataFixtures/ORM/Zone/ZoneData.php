@@ -39,7 +39,7 @@ class ZoneData extends AbstractFixture
         /**
          * @var ObjectDirector $zoneDirector
          */
-        $zones = $this->parseYaml(dirname(__FILE__).'/zones.yml');
+        $zones = $this->parseYaml(dirname(__FILE__) . '/zones.yml');
         $zoneDirector = $this->getDirector('zone');
         $zoneCollection = new ArrayCollection();
 

@@ -88,7 +88,7 @@ class FirewallCompilerPass implements CompilerPassInterface
     ) {
         krsort($listeners);
         $listeners = call_user_func_array('array_merge', $listeners);
-        $contextId = 'security.firewall.map.context.'.$providerKey;
+        $contextId = 'security.firewall.map.context.' . $providerKey;
 
         $definition = $container->findDefinition($contextId);
 
@@ -111,10 +111,10 @@ class FirewallCompilerPass implements CompilerPassInterface
         $provider_key,
         array $events
     ) {
-        $listenerId = 'elcodi.firewall.listener.'.$provider_key;
+        $listenerId = 'elcodi.firewall.listener.' . $provider_key;
 
         $definition = new Definition('Elcodi\Common\FirewallBundle\EventListener\FirewallListener');
-        $definition->setArguments(array(new Reference('event_dispatcher'), $events));
+        $definition->setArguments([new Reference('event_dispatcher'), $events]);
         $container->setDefinition($listenerId, $definition);
 
         return $listenerId;
@@ -129,7 +129,7 @@ class FirewallCompilerPass implements CompilerPassInterface
      */
     protected function collectListenersByProviderKey(ContainerBuilder $container)
     {
-        $providerKeys = array();
+        $providerKeys = [];
 
         $taggedListeners = $container->findTaggedServiceIds($this->tagName);
         foreach ($taggedListeners as $listenerId => $tags) {
@@ -208,18 +208,18 @@ class FirewallCompilerPass implements CompilerPassInterface
         }
 
         if (!isset($tag['method'])) {
-            $tag['method'] = 'on'.preg_replace_callback(array(
+            $tag['method'] = 'on' . preg_replace_callback([
                     '/(?<=\b)[a-z]/i',
                     '/[^a-z0-9]/i',
-                ), function ($matches) { return strtoupper($matches[0]); }, $tag['event']);
+                ], function ($matches) { return strtoupper($matches[0]); }, $tag['event']);
 
             $tag['method'] = preg_replace('/[^a-z0-9]/i', '', $tag['method']);
         }
 
-        return array(
+        return [
             'eventName' => $tag['event'],
-            'callback' => array($listenerId, $tag['method']),
+            'callback' => [$listenerId, $tag['method']],
             'priority' => $priority,
-        );
+        ];
     }
 }

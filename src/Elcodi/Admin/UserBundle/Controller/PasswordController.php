@@ -135,10 +135,10 @@ class PasswordController extends Controller
         if ($isValid) {
             $customer = $this
                 ->get('elcodi.repository.admin_user')
-                ->findOneBy(array(
+                ->findOneBy([
                     'recoveryHash' => $hash,
                     'email' => $passwordRecoverForm->get('email')->getData(),
-                ));
+                ]);
 
             if ($customer instanceof AbstractUser) {
                 $password = $passwordRecoverForm
@@ -167,8 +167,8 @@ class PasswordController extends Controller
             return $this->redirectToRoute('admin_homepage');
         }
 
-        return array(
+        return [
             'form' => $passwordRecoverForm->createView(),
-        );
+        ];
     }
 }

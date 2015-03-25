@@ -67,8 +67,7 @@ class LoginType extends AbstractType
                 $this
                     ->router
                     ->generate('store_login_check')
-            )
-        ;
+            );
     }
 
     /**

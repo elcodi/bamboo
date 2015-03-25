@@ -64,8 +64,7 @@ class CouponData extends AbstractFixture implements DependentFixtureInterface
             ->setType(ElcodiCouponTypes::TYPE_PERCENT)
             ->setDiscount(12)
             ->setCount(5)
-            ->setEnabled(true)
-        ;
+            ->setEnabled(true);
         $manager->persist($couponPercent);
         $this->addReference('coupon-percent', $couponPercent);
 
@@ -84,8 +83,7 @@ class CouponData extends AbstractFixture implements DependentFixtureInterface
             ->setName('5 euros discount')
             ->setType(ElcodiCouponTypes::TYPE_AMOUNT)
             ->setPrice(Money::create(500, $currencyEuro))
-            ->setEnabled(true)
-        ;
+            ->setEnabled(true);
         $manager->persist($couponAmountEuro);
         $this->addReference('coupon-amount-euro', $couponAmountEuro);
 
@@ -105,8 +103,7 @@ class CouponData extends AbstractFixture implements DependentFixtureInterface
             ->setType(ElcodiCouponTypes::TYPE_AMOUNT)
             ->setPrice(Money::create(1000, $currencyDollar))
             ->setCount(20)
-            ->setEnabled(true)
-        ;
+            ->setEnabled(true);
         $manager->persist($couponAmountDollar);
         $this->addReference('coupon-amount-dollar', $couponAmountDollar);
 
@@ -131,8 +128,7 @@ class CouponData extends AbstractFixture implements DependentFixtureInterface
             ->setDiscount(50)
             ->setRule($ruleBigSpenders)
             ->setEnforcement(ElcodiCouponTypes::ENFORCEMENT_AUTOMATIC)
-            ->setEnabled(true)
-        ;
+            ->setEnabled(true);
         $manager->persist($couponBigSpenders);
         $this->addReference('coupon-big-spender', $couponBigSpenders);
 

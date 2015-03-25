@@ -122,7 +122,7 @@ class AbstractAdminController extends Controller
      *
      * @return RedirectResponse Response
      */
-    protected function redirectRoute($route, array $params = array())
+    protected function redirectRoute($route, array $params = [])
     {
         return $this->redirect($this->generateUrl($route, $params));
     }

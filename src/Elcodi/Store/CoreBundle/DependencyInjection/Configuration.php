@@ -45,8 +45,7 @@ class Configuration extends AbstractConfiguration
                         ->append($this->template('not_found'))
                     ->end()
                 ->end()
-            ->end()
-        ;
+            ->end();
     }
 
     /**
@@ -64,7 +63,7 @@ class Configuration extends AbstractConfiguration
 
         $node
             ->addDefaultsIfNotSet()
-            ->treatFalseLike(array('enabled' => false))
+            ->treatFalseLike(['enabled' => false])
             ->children()
                 ->booleanNode('enabled')
                     ->defaultTrue()

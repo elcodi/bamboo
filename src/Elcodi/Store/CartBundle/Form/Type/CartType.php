@@ -88,8 +88,7 @@ class CartType extends AbstractType
                 $this
                     ->router
                     ->generate('store_cart_update')
-            )
-        ;
+            );
     }
 
     /**

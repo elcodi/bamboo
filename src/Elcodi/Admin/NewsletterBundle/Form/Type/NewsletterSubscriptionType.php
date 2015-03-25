@@ -35,40 +35,40 @@ class NewsletterSubscriptionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email', 'text', array(
+            ->add('email', 'text', [
                 'required' => false,
                 'label'    => 'email',
-            ))
-            ->add('hash', 'text', array(
+            ])
+            ->add('hash', 'text', [
                 'required' => false,
                 'label'    => 'hash',
-            ))
-            ->add('reason', 'textarea', array(
+            ])
+            ->add('reason', 'textarea', [
                 'required' => false,
                 'label'    => 'reason',
-            ))
-            ->add('createdAt', 'datetime', array(
+            ])
+            ->add('createdAt', 'datetime', [
                 'widget'   => 'single_text',
                 'format'   => 'yyyy-MM-dd - HH:mm:ss',
                 'required' => false,
                 'label'    => 'createdAt',
-            ))
-            ->add('updatedAt', 'datetime', array(
+            ])
+            ->add('updatedAt', 'datetime', [
                 'widget'   => 'single_text',
                 'format'   => 'yyyy-MM-dd - HH:mm:ss',
                 'required' => false,
                 'label'    => 'updatedAt',
-            ))
-            ->add('enabled', 'checkbox', array(
+            ])
+            ->add('enabled', 'checkbox', [
                 'required' => false,
                 'label'    => 'enabled',
-            ))
-            ->add('language', 'entity', array(
+            ])
+            ->add('language', 'entity', [
                 'class'    => 'Elcodi\Component\Language\Entity\Language',
                 'required' => false,
                 'label'    => 'language',
                 'multiple' => false,
-            ));
+            ]);
     }
 
     /**

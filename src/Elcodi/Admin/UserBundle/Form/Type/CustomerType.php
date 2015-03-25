@@ -67,9 +67,9 @@ class CustomerType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'empty_data' => $this->customerFactory->create(),
-        ));
+        ]);
     }
 
     /**
@@ -82,50 +82,50 @@ class CustomerType extends AbstractType
     {
         $builder
             ->setMethod('POST')
-            ->add('username', 'text', array(
+            ->add('username', 'text', [
                 'required' => true,
-            ))
-            ->add('email', 'email', array(
+            ])
+            ->add('email', 'email', [
                 'required' => true,
-            ))
-            ->add('firstname', 'text', array(
+            ])
+            ->add('firstname', 'text', [
                 'required' => true,
-            ))
-            ->add('lastname', 'text', array(
+            ])
+            ->add('lastname', 'text', [
                 'required' => true,
-            ))
-            ->add('gender', 'choice', array(
-                'choices'  => array(
+            ])
+            ->add('gender', 'choice', [
+                'choices'  => [
                     ElcodiUserProperties::GENDER_MALE => 'admin.user.field.gender.options.male',
                     ElcodiUserProperties::GENDER_FEMALE => 'admin.user.field.gender.options.female',
-                ),
+                ],
                 'required' => true,
-            ))
-            ->add('language', 'entity', array(
+            ])
+            ->add('language', 'entity', [
                 'class'    => $this->languageFactory->getEntityNamespace(),
                 'property' => 'name',
                 'required' => true,
-            ))
-            ->add('birthday', 'date', array(
+            ])
+            ->add('birthday', 'date', [
                 'required' => false,
                 'widget'   => 'single_text',
                 'format'   => 'yyyy-MM-dd',
-            ))
-            ->add('phone', 'text', array(
+            ])
+            ->add('phone', 'text', [
                 'required' => false,
-            ))
-            ->add('identityDocument', 'text', array(
+            ])
+            ->add('identityDocument', 'text', [
                 'required' => false,
-            ))
-            ->add('guest', 'checkbox', array(
+            ])
+            ->add('guest', 'checkbox', [
                 'required' => false,
-            ))
-            ->add('newsletter', 'checkbox', array(
+            ])
+            ->add('newsletter', 'checkbox', [
                 'required' => false,
-            ))
-            ->add('enabled', 'checkbox', array(
+            ])
+            ->add('enabled', 'checkbox', [
                 'required' => false,
-            ));
+            ]);
     }
 
     /**

@@ -50,7 +50,6 @@ class Configuration extends AbstractConfiguration implements ConfigurationInterf
                         ))
                     ->end()
                 ->end()
-            ->end()
-        ;
+            ->end();
     }
 }
