@@ -3,6 +3,7 @@ imports:
     # Bamboo security
     #
     - { resource: firewalls.yml }
+    - { resource: firewalls_local.yml }
 
     #
     # Bamboo store & admin imported security
@@ -11,3 +12,5 @@ imports:
     - { resource: @ElcodiUserBundle/Resources/security/providers.yml }
     - { resource: @StoreUserBundle/Resources/security/roles.yml }
     - { resource: @AdminUserBundle/Resources/security/roles.yml }
+    - { resource: accessControl.yml }
+    - { resource: accessControl_local.yml }
