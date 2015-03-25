@@ -1,6 +1,8 @@
 Bamboo e-commerce
 =================
 
+[![Build Status](https://travis-ci.org/elcodi/bamboo.svg?branch=master)](https://travis-ci.org/elcodi/bamboo)
+
 > Warning. This project is not tagged as stable yet. It means that we don't
 > promise BC between minor versions or patch versions. As soon as possible, we
 > will release our first Release Candidate, and the first Stable Version will
