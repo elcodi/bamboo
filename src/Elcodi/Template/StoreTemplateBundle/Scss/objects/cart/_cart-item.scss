@@ -100,7 +100,15 @@
 		dd.cart-item-name {  width: 50%;  }
 
 		dt.cart-item-units {  left: 62%;  }
-		dd.cart-item-units {  width: 5%;  }
+		dd.cart-item-units {
+			& {
+				width: 5%;
+			}
+			input {
+				padding-left: 0;
+				padding-right: 0;
+			}
+		}
 
 		dt.cart-item-price {	left: 69%; }
 		.cart-item-price {	width: 10%; }
