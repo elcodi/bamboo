@@ -113,7 +113,7 @@ template:
                 payment_method: Payment method
                 credit_debit_card: Credit/Debit card
                 paypal: Paypal
-                bankwire: Bankwire
+                bankwire: Bank wire
                 try_again: Please try again.
 
         order:
@@ -147,6 +147,7 @@ template:
                 status: Status:
                 shipping: Shipping:
         product:
+            also_like: You might also like...
             item:
                 offer: Offer
             list:

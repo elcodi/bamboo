@@ -147,6 +147,7 @@ template:
                 status: Statut:
                 shipping: Livraison:
         product:
+            also_like: Vous aimerez peut-être aussi...
             item:
                 offer: Offre spéciale
             list:
