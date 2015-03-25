@@ -115,7 +115,11 @@ hwi_oauth:
 
 jms_i18n_routing:
     default_locale: %locale%
-    locales:        %available_languages%
+    #
+    # This value is not used anymore. Please, take a look at services.yml file
+    # in this folder. All references to this parameter are overridden
+    #
+    locales: [en]
     strategy: prefix_except_default
 
 #
