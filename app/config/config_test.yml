@@ -1,6 +1,6 @@
 imports:
     - { resource: config_dev.yml }
-    - { resource: @ElcodiBambooBundle/Resources/config/cache.test.yml }
+    - { resource: @ElcodiCoreBundle/Resources/config/test/cache.test.yml }
 
 parameters:
     database_driver: pdo_sqlite
