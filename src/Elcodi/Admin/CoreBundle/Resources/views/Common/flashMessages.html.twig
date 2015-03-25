@@ -11,3 +11,6 @@
     </script>
     <input type="hidden"  data-fc-modules="notification" data-fc-event="load" data-fc-type="ok" data-fc-text="{{ flashMessage|trans }}" />
 {% endfor %}
+{% for flashMessage in app.session.flashbag.get('error') %}
+    <input type="hidden"  data-fc-modules="notification" data-fc-event="load" data-fc-type="ko" data-fc-text="{{ flashMessage|trans }}" />
+{% endfor %}
