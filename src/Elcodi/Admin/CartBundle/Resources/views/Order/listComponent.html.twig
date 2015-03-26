@@ -41,7 +41,7 @@
         </a>
     </td>
     <td>
-        {% include 'AdminCartBundle:Order:date.html.twig' %}
+        {% include 'AdminCartBundle:Order:date.html.twig' with { date: entity.createdAt } %}
     </td>
     <td>
         <a href="{{ url('admin_customer_edit', { id: entity.customer.id }) }}">
