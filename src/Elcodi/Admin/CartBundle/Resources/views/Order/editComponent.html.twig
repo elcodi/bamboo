@@ -9,7 +9,7 @@
 {% block content %}
 
 <div class="box-background">
-    <p class="fl-r fz-s"><i class="icon-calendar-o"></i> {% include '@AdminCart/Order/date.html.twig' %}</p>
+    <p class="fl-r fz-s"><i class="icon-calendar-o"></i> {% include '@AdminCart/Order/date.html.twig' with { date: order.createdAt } %}</p>
     <h3 class="fw-n"><i class="icon-shopping-cart"></i> {{ 'admin.order.details.title'|trans }}</h3>
     <table class="table">
         <thead>
