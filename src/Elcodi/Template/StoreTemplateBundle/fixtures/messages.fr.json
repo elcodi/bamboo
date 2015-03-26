@@ -179,6 +179,7 @@
                 }
             },
             "product": {
+                "also_like": "Vous aimerez peut-être aussi...",
                 "item": {
                     "offer": "Offre spéciale"
                 },
