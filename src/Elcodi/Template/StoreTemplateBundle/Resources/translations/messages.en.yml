@@ -1,3 +1,9 @@
+store:
+    pagination:
+        last: Last
+        next: Next
+        first: First
+        previous: Previous
 template:
     store_template_bundle:
         address:
@@ -144,8 +150,8 @@ template:
                 thanks: " Thank you for your order! We are going to work to send you as fast as possible."
                 total: Total
                 continue_shopping: Continue shopping
-                status: Status:
-                shipping: Shipping:
+                status: "Status:"
+                shipping: "Shipping:"
         product:
             also_like: You might also like...
             item:

@@ -144,8 +144,8 @@ template:
                 thanks: " ¡Gràcies per la teva comanda! En breu procedirem a l'enviament de la teva comanda."
                 total: Total
                 continue_shopping: Seguir comprant
-                status: Estat:
-                shipping: Enviament:
+                status: "Estat:"
+                shipping: "Enviament:"
         product:
             also_like: També et pot interessar...
             item:

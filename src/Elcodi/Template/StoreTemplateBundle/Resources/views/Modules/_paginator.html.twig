@@ -15,7 +15,7 @@
  # - contextPages: How many pages in the context (default: 0)
  # - separator:    Add separator if context is far from edges (default: true)
  #}
-{%- spaceless %}
+{% spaceless %}
 <nav class="pagination">
     <ul>
         {% set enabled = currentPage > 1 %}
@@ -85,4 +85,4 @@
         </li>
     </ul>
 </nav>
-{% endspaceless -%}
+{% endspaceless %}
