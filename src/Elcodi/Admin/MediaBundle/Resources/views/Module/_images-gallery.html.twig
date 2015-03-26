@@ -1,13 +1,11 @@
 <div class="gallery-cont">
-
     <ul class="thumbnail-group">
     {% for image in images %}
-        {% set imageResize = image|resize({ height: 150, width: 150, type: 3}) %}
-        {% set imageView = image|viewImage %}
-
+        {% set imageResize = image|resize({ height: 150, width: 150, type: 5}) %}
+        {% set imageView = image|resize({ height: 1024, width: 1024, type: 4}) %}
         <li>
             <a href="{{ imageView }}" class="thumbnail" data-fc-modules="modal">
-                <img src="{{ imageResize }}" width="150" />
+                <img src="{{ imageResize }}" width="150" height="150" />
             </a>
             <ul class="thumbnail-actions">
                 <li>
