@@ -37,17 +37,12 @@ class PaypalTransaction
     /**
      * @var string
      */
-    protected $transaction;
+    protected $transactionId;
 
     /**
      * @var Order
      */
     protected $order;
-
-    /**
-     * @var \DateTime
-     */
-    protected $createdAt;
 
     /**
      * @return string
