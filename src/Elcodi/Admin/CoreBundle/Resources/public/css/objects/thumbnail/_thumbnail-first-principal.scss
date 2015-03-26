@@ -1,9 +1,13 @@
 .thumbnail-group-extended {
 
 	& > li {
-		min-height: 100px;
 		min-width: 150px;
 		background: $color-box-dark;
+	}
+
+	.thumbnail {
+		vertical-align: middle;
+		background: $color-background;
 	}
 
 	li:first-child .thumbnail {

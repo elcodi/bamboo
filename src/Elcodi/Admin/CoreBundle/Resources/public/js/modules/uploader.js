@@ -1,7 +1,6 @@
 FrontendCore.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupload/js/plupload.full.min.js','modal' ], function () {
 	return {
 		modal:  TinyCore.Module.instantiate( 'modal' ),
-		sortable: TinyCore.Module.instantiate( 'sortable' ),
 		onStart: function () {
 
 			var self = this,
@@ -41,7 +40,7 @@ FrontendCore.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupl
 						if (oResponse.status === 'ok') {
 							nId = oResponse.response.id;
 							sFormat = oResponse.response.extension;
-							sUrlEdit = oResponse.response.routes.view.replace('{id}', nId).replace('{_format}', sFormat);
+							sUrlEdit = oResponse.response.routes.resize.replace('{height}', '150').replace('{width}', '150').replace('{type}', '5').replace('{id}', nId).replace('{_format}', sFormat);
 							sUrlDelete = oResponse.response.routes['delete'].replace('{id}', nId);
 							self.addImageToGallery(nId, sUrlEdit, sUrlDelete);
 
@@ -73,25 +72,25 @@ FrontendCore.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupl
 		},
 		updateSelect : function() {
 
-			var oSelect = document.getElementById('thumb-gallery-select').getElementsByTagName('select')[0],
+			var oContainer = document.getElementById('elcodi_admin_product_form_type_product_images'),
 				oThumbs = document.getElementById('thumb-gallery'),
-				sName;
+				nId;
 
-			$('option' , oSelect).each( function() {
-				$(this).removeAttr('selected');
+			$('input', oContainer).each( function() {
+				$(this).removeAttr('checked');
 			});
 
 			$('img' , oThumbs).each( function() {
-				sName = parseInt(this.id.replace('image-',''), 10);
+				nId = parseInt(this.id.replace('image-',''), 10);
 
-				$('option[value='+ sName +']', oSelect).attr('selected','selected');
+				$('input[id=elcodi_admin_product_form_type_product_images_'+ nId +']', oContainer).click();
 
 			});
 		},
 		addImageToGallery : function( nId, sUrlView, sUrlDelete) {
 
 			var self = this,
-				oSelect = document.getElementById('thumb-gallery-select').getElementsByTagName('select')[0],
+				oContainer = document.getElementById('elcodi_admin_product_form_type_product_images'),
 				oThumbs = document.getElementById('thumb-gallery'),
 				oLi = document.createElement('li'),
 				oLink = document.createElement('a'),
@@ -100,13 +99,17 @@ FrontendCore.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupl
 				oActions = '<ul class="thumbnail-actions"><li><a href="' + sUrlDelete + '" class="icon-trash-o"></a></li></ul>';
 
 
-				if ($('option[value='+ nId +']' , oSelect).length === 0) {
-					oOption = document.createElement('option');
-					oOption.value = oOption.innerHTML = nId;
-					$(oSelect).append(oOption);
+				if ($('#elcodi_admin_product_form_type_product_images_' + nId , oContainer).length === 0) {
+					oOption = document.createElement('input');
+					oOption.type = 'checkbox';
+					oOption.name = 'elcodi_admin_product_form_type_product[images][]';
+					oOption.id = 'elcodi_admin_product_form_type_product_images_' + nId;
+					oOption.value = nId;
+					$(oContainer).append(oOption);
 				}
 
 				oLi.id = nId;
+				oLi.className = 'animated fadeIn';
 				oLi.setAttribute('draggable','true');
 
 				oLink.id = 'link-' + nId;
@@ -128,9 +131,6 @@ FrontendCore.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupl
 					e.preventDefault();
 					self.modal.open({ href: this.href});
 				});
-
-				$(oThumbs).unbind();
-				self.sortable.autobind(oThumbs);
 			
 				self.updateSelect();
 		}
