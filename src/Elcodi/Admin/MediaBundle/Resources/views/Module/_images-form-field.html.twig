@@ -22,13 +22,13 @@
                 <i class="icon-picture-o no-items-icon"></i>
             </div>
             {% endif %}
-            <ul id="thumb-gallery" data-fc-modules="sortable" data-fc-input="{{ form.imagesSort.vars.id }}" class="thumbnail-group thumbnail-group-extended pl-s mb-m">
+            <ul id="thumb-gallery" data-fc-modules="sortable" data-fc-input="elcodi_admin_product_form_type_product_imagesSort" class="thumbnail-group thumbnail-group-extended pl-s mb-m">
             {% for image in images %}
-                {% set imageResize = image|resize({ height: 150, width: 150, type: 4 }) %}
+                {% set imageResize = image|resize({ height: 150, width: 150, type: 5 }) %}
                 {% set imageView = image|viewImage %}
                 <li id="{{ image.id }}">
                     <a href="{{ imageView }}" data-fc-modules="modal" data-fc-width="90%" data-fc-height="90%" class="group-images thumbnail">
-                        <img id="image-{{ image.id }}" src="{{ imageResize }}" width="150" />
+                        <img id="image-{{ image.id }}" src="{{ imageResize }}" width="150" height="150" />
                     </a>
                     <ul class="thumbnail-actions">
                         <li>
