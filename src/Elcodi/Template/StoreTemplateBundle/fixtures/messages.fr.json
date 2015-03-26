@@ -1,0 +1,249 @@
+{
+    "template": {
+        "store_template_bundle": {
+            "address": {
+                "item": {
+                    "billing": "Facturation",
+                    "delivery": "Livraison",
+                    "address_name": "Nom",
+                    "fullname": "Nom complet",
+                    "address": "Adresse",
+                    "phone_and_mobile": "Téléphone / Mobile",
+                    "city": "Ville",
+                    "state": "Etat / Région",
+                    "province": "Province / Département",
+                    "country": "Pays",
+                    "postal_code": "Code postal",
+                    "comment": "Commentaires",
+                    "actions": "Actions",
+                    "edit": "Editer",
+                    "remove": "Supprimer"
+                },
+                "new": {
+                    "name": {
+                        "example": "e.g. Mon adresse par défaut"
+                    },
+                    "recipient": {
+                        "example_name": "e.g. Julien",
+                        "example_surname": "e.g. Dupont"
+                    },
+                    "address": {
+                        "example": "e.g. 1 rue de la Paix"
+                    },
+                    "address_more": {
+                        "example": "e.g. Dupont Entreprises"
+                    },
+                    "postalcode": {
+                        "example": "e.g. 75000"
+                    },
+                    "phone": {
+                        "example": "e.g. 01 02 03 04 05"
+                    },
+                    "mobile": {
+                        "example": "e.g. 06 07 08 09 10"
+                    },
+                    "comments": {
+                        "example": "e.g. C'est une maison"
+                    },
+                    "cancel": "Annuler"
+                },
+                "edit": {
+                    "edit_address": "Editer l'adresse",
+                    "add_new_address": "Ajouter nouvelle adresse"
+                },
+                "list": {
+                    "addresses": "Adresses",
+                    "no_addresses": "Il n'y a pas d'adresses",
+                    "add_new_address": "Ajouter nouvelle adresse"
+                }
+            },
+            "blog": {
+                "post": {
+                    "view": {
+                        "last_post": "Dernier article",
+                        "read_more": "Autres articles"
+                    },
+                    "list": {
+                        "blog_posts": "Articles de blog",
+                        "read_more": "Autres articles",
+                        "next_posts": "Articles suivants",
+                        "previous_posts": "Articles précédents"
+                    }
+                }
+            },
+            "cart": {
+                "item": {
+                    "image": "Image",
+                    "item": "Article",
+                    "units": "Unités",
+                    "price": "Prix",
+                    "total": "Total",
+                    "remove": "Supprimer"
+                },
+                "view": {
+                    "title": "Votre panier",
+                    "total": "Total",
+                    "checkout_title": "Vérifiez tous les articles et / ou appliquer les coupons",
+                    "checkout": "Vérification",
+                    "empty_basket": "Vider panier",
+                    "update_basket": "Mettre à jour le panier",
+                    "continue_shopping": "Continuez vos achats",
+                    "your_cart_is_empty": "Vos informations de carte bancaires sont vides"
+                },
+                "nav": {
+                    "amount": "Montant",
+                    "items": "Articles"
+                }
+            },
+            "coupon": {
+                "item": {
+                    "coupon": "Coupon",
+                    "description": "Description",
+                    "units": "Unités",
+                    "value": "Valeur",
+                    "total": "Total",
+                    "remove": "Supprimer"
+                }
+            },
+            "payment": {
+                "credit_card_owner": "Propriétaire",
+                "credit_card_numbers": "Numéro de carte bancaire",
+                "month": "Mois",
+                "year": "Année",
+                "security_code": "Code de sécurité"
+            },
+            "category": {
+                "view": {
+                    "category": "Catégorie"
+                },
+                "nav": {
+                    "new": "Nouvelle"
+                }
+            },
+            "checkout": {
+                "back": "Arrière",
+                "layout": {
+                    "your_cart": "Vos achats",
+                    "total": "Total"
+                },
+                "address": {
+                    "select_address": "Choisissez les adresses de livraison et de facturation",
+                    "payment": "Paiement",
+                    "add_new_address": "Ajouter une nouvelle adresse"
+                },
+                "payment": {
+                    "set_shipping_payment": "Choisissez les options de livraison et de paiement",
+                    "continue": "Continuer",
+                    "back": "Retour",
+                    "shipping_carrier_method": "Mode de livraison / transporteur",
+                    "payment_method": "Méthode de paiement",
+                    "credit_debit_card": "Carte de crédit / débit",
+                    "paypal": "Paypal",
+                    "bankwire": "Bankwire",
+                    "try_again": "Essayez à nouveau."
+                }
+            },
+            "order": {
+                "coupon": {
+                    "coupon": "Coupon",
+                    "description": "Description",
+                    "units": "Unités",
+                    "values": "Valeurs",
+                    "total": "Total"
+                },
+                "item": {
+                    "image": "Image",
+                    "item": "Article",
+                    "units": "Unités",
+                    "price": "Prix",
+                    "total": "Total"
+                },
+                "list": {
+                    "orders": "Commandes",
+                    "image": "Image",
+                    "number_of_order": "Numéro de commande",
+                    "order_number": "Commande #",
+                    "state": "Etat",
+                    "date": "Date",
+                    "total": "Total",
+                    "no_orders": "Il n'y a aucune commande"
+                },
+                "view": {
+                    "order": "Comande",
+                    "congratulations": "Félicitations!",
+                    "thanks": " Merci pour votre commande! Nous nous assurons qu'il vous sera envoyé le plus rapidement possible.",
+                    "total": "Total",
+                    "continue_shopping": "Continuez vos achats",
+                    "status": "Statut:",
+                    "shipping": "Livraison:"
+                }
+            },
+            "product": {
+                "also_like": "Vous aimerez peut-être aussi...",
+                "item": {
+                    "offer": "Offre spéciale"
+                },
+                "list": {
+                    "no_products_in_category": "Désolé, cette catégorie ne contient pas d'articles"
+                },
+                "view_item": {
+                    "product": "Produit",
+                    "offer": "Offre spéciale",
+                    "add_to_cart": "Ajouter au panier",
+                    "no_stock": "Plus en stock",
+                    "description": "Description",
+                    "stock": "Stock",
+                    "in_stock": "Cet article est en stock et prêt à être livré!",
+                    "not_available": "Cet article n'est actuellement plus disponible",
+                    "delivery": "Livraison",
+                    "usually_dispatched_24_hours": "Livré dans les 24h"
+                }
+            },
+            "user": {
+                "edit": {
+                    "profile": "Profil"
+                },
+                "home": {
+                    "dashboard": "Tableau de bord",
+                    "profile": "Profil",
+                    "my_orders": "Mes commandes",
+                    "my_addresses": "Mes adresses"
+                },
+                "login": {
+                    "login_with_account": "Connectez vous à votre compte",
+                    "create_new_account": "Créer un compte",
+                    "unregistered": "Pas encore enregistré?",
+                    "login_with_social": "Connectez vous avec un compte \"social\"",
+                    "forgot_your_password": "Mot de passe oublié ?"
+                },
+                "password": {
+                    "recover_password": "Récupérer un nouveau mot de passe",
+                    "password_sent": "Mot de passe envoyé",
+                    "password_sent_text": "Un email vous a été envoyé avec toutes les informations pour que vous puissiez récupérer un mot de passe.",
+                    "register": "S'enregistrer"
+                },
+                "nav": {
+                    "logout": "Se déconnecter",
+                    "login": "Se connecter",
+                    "create_new_account": "Créer un compte"
+                }
+            },
+            "header": {
+                "menu": "Menu"
+            },
+            "footer": {
+                "latest_news": "Dernières nouvelles",
+                "more": "Plus",
+                "quick_links": "Liens rapides",
+                "follow_us": "Suivez nous"
+            },
+            "shipping": {
+                "costs_will_be_calculated_after_login": "Après vous être connecté ou avoir ajouté votre adresse expédition les frais de port seront re-calculés.",
+                "carrier": "Transporteur",
+                "from": "De",
+                "costs_will_be_calculated_after_address": "Après que vous ayez choisi votre adresse, les frais de transport seront re-calculés.",
+                "no_shipping_matching": "Aucune correspondance avec un mode de livraison.Contactez nous afin de terminer le processus de livraison."
+            }
+        }
+    }
+}

@@ -33,12 +33,12 @@ module.exports = function(grunt, fixtures) {
 
 
 	var oLanguages = getFixtures(['messages.en']),
-		oFullFixtures = getFixtures(['store','currencies','categoryTree','product','products','form','related_products','cart-empty','addresses','order','orders','currencyCategoryId-null']),
-		oCategoryFullFixtures = getFixtures(['store','currencies','categoryTree','product','products','related_products','cart-empty','currencyCategoryId-1']),
-		oCategoryEmptyFixtures = getFixtures(['store','currencies','categoryTree','product','related_products','cart-empty','currencyCategoryId-1']),
-		oCartFullFixtures = getFixtures(['store','currencies','categoryTree','product','related_products','addresses','order','orders','cart-full','currencyCategoryId-1']),
-		oUserForm = getFixtures(['store','currencies','categoryTree','product','related_products','order','orders','cart-full','form']),
-		oOrderEmtpyFixtures = getFixtures(['store','currencies','categoryTree','product','related_products','cart-full','currencyCategoryId-1']);
+		oFullFixtures = getFixtures(['store','paginator','currencies','categoryTree','product','products','form','related_products','cart-empty','addresses','order','orders','currencyCategoryId-null']),
+		oCategoryFullFixtures = getFixtures(['store','paginator','currencies','categoryTree','product','products','related_products','cart-empty','currencyCategoryId-1']),
+		oCategoryEmptyFixtures = getFixtures(['store','paginator','currencies','categoryTree','product','related_products','cart-empty','currencyCategoryId-1']),
+		oCartFullFixtures = getFixtures(['store','paginator','currencies','categoryTree','product','related_products','addresses','order','orders','cart-full','currencyCategoryId-1']),
+		oUserForm = getFixtures(['store','paginator','currencies','categoryTree','product','related_products','order','orders','cart-full','form']),
+		oOrderEmtpyFixtures = getFixtures(['store','paginator','currencies','categoryTree','product','related_products','cart-full','currencyCategoryId-1']);
 
 	return {
 		options: {
@@ -55,7 +55,13 @@ module.exports = function(grunt, fixtures) {
 							currentKey = oLanguages[aKeys[0]];
 
 						for ( var nKey = 1; nKey < aKeys.length; nKey++ ) {
-							currentKey = currentKey[aKeys[nKey]];
+
+							if (currentKey[aKeys[nKey]] !== undefined){
+								currentKey = currentKey[aKeys[nKey]];
+							} else {
+								currentKey = value;
+							}
+
 						}
 
 						return currentKey;
@@ -88,7 +94,19 @@ module.exports = function(grunt, fixtures) {
 					});
 
 					Twig.exports.extendFunction("asset", function (path) {
-						return path.replace('bundles/storetemplate/', '../');
+
+						if (path !== undefined) {
+							return path.replace('bundles/storetemplate/', '../');
+						}
+
+					});
+
+					Twig.exports.extendFunction("max", function (value) {
+						return value;
+					});
+
+					Twig.exports.extendFunction("min", function (value) {
+						return value;
 					});
 
 

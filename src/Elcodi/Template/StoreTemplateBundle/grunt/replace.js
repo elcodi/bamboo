@@ -41,7 +41,12 @@ module.exports = {
 			{
 				from: "render url('store_currency_nav')",                   // string replacement
 				to: "include ('currency-nav.html.twig')"
-			},			{
+			},
+			{
+				from: "render url('store_language_nav')",                   // string replacement
+				to: "include ('language-nav.html.twig')"
+			},
+			{
 				from: "render url('store_user_nav')",                   // string replacement
 				to: "include ('user-nav.html.twig')"
 			},

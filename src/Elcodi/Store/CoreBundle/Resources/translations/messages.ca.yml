@@ -95,3 +95,10 @@ store:
         applied:
             message_ok: Cupó aplicat correctament
             message_ko: No es pot aplicar el cupó
+
+    pagination:
+        first: Primer
+        previous: Anterior
+        current: Actual
+        next: Següent
+        last: Darrer

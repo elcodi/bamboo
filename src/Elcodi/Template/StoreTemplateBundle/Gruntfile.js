@@ -10,7 +10,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('twig', ['yaml','twigRender']);
 	grunt.registerTask('scss', ['compass']);
 
-	grunt.registerTask('default', ['clean','copy','replace','twigRender','clean:temp','scss']);
+	grunt.registerTask('default', ['clean','copy','replace','twig','clean:temp','scss']);
 
 	grunt.event.on('watch', function (action, filepath) {
 		grunt.config(['default'], filepath);

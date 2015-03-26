@@ -1,0 +1,35 @@
+.pagination {
+	& {
+		display: block;
+		text-align: center;
+	}
+	li {
+		display: inline-block;
+	}
+	a {
+		& {
+			display: inline-block;
+			padding: $spacing/4;
+			background: $color-background;
+			margin: 0 $spacing/4;
+		}
+		&:hover {
+			text-decoration: none;
+			background: $color-primary;
+			color: $color-background;
+		}
+	}
+	.active {
+		padding: $spacing/4;
+		font-weight: bold;
+		background: $color-link;
+		color: $color-background;
+		margin: 0 $spacing/4;
+	}
+	.disabled {
+		padding: $spacing/4;
+		opacity: .3;
+		background: lighten($color-foreground, 25%);
+		margin: 0 $spacing/4;
+	}
+}
