@@ -96,7 +96,7 @@
         "elcodi-templates/store-template-bundle": "self.version"
     },
     "require-dev": {
-        "elcodi/elcodi": "0.5.3",
+        "elcodi/elcodi": "0.5.4",
         "elcodi/test-common-bundle": "~0.5.0",
         "doctrine/data-fixtures": "~1.0",
         "behat/behat": "~3.0",
