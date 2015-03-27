@@ -63,12 +63,13 @@ class PaymentBridge implements PaymentBridgeInterface
     /**
      * @param OrderRepository $orderRepository Order repository
      * @param CartWrapper     $cartWrapper
+     * @param CurrencyConverter $currencyConverter
      */
     public function __construct(
         OrderRepository $orderRepository,
         CartWrapper $cartWrapper,
-        CurrencyConverter $currencyConverter)
-    {
+        CurrencyConverter $currencyConverter
+    ) {
         $this->orderRepository = $orderRepository;
         $this->cartWrapper = $cartWrapper;
         $this->currencyConverter = $currencyConverter;
@@ -220,6 +221,11 @@ class PaymentBridge implements PaymentBridgeInterface
         $orderDescription = [];
 
         if ($this->order instanceof Order) {
+            $currency = $this
+                ->order
+                ->getAmount()
+                ->getCurrency();
+
             /**
              * @var OrderLine $orderLine
              *
@@ -235,21 +241,19 @@ class PaymentBridge implements PaymentBridgeInterface
                     ->getName();
                 $orderLineArray['item_name'] = $orderLineName;
 
+
                 $lineAmount = $orderLine
-                    ->getAmount();
+                    ->getProductAmount();
 
                 /*
                  * We need to convert any price to match
-                 * currenct order currency
+                 * current order currency
                  */
                 $convertedAmount = $this
                     ->currencyConverter
                     ->convertMoney(
                         $lineAmount,
-                        $this
-                            ->order
-                            ->getAmount()
-                            ->getCurrency()
+                        $currency
                     );
 
                 $orderLineArray['amount'] = $convertedAmount
@@ -265,6 +269,16 @@ class PaymentBridge implements PaymentBridgeInterface
                 $orderLineArray['quantity'] = $orderLine->getQuantity();
 
                 $extraData['items'][$orderLine->getId()] = $orderLineArray;
+            }
+
+            // We add the shipping costs as a new "shadow" line in the extraData structure.
+            if ($this->order->getShippingAmount()->isGreaterThan(Money::create(0, $currency))) {
+                $extraData['items'][] = [
+                    'item_name'=>'shipping',
+                    'item_currency_code'=> $this->getCurrency(),
+                    'quantity' => 1,
+                    'amount' => $this->order->getShippingAmount()->getAmount()
+                ];
             }
 
             $extraData['order_description'] = implode(" - ", $orderDescription);
