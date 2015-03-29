@@ -267,18 +267,4 @@ class AbstractAdminController extends Controller
             ->get('elcodi.provider.manager')
             ->getManagerByEntityNamespace(get_class($entity));
     }
-
-    /**
-     * Get entity repository from an entity
-     *
-     * @param Mixed $entity Entity
-     *
-     * @return ObjectManager specific manager
-     */
-    private function getRepositoryForClass($entity)
-    {
-        return $this
-            ->get('elcodi.provider.repository')
-            ->getRepositoryByEntityNamespace(get_class($entity));
-    }
 }
