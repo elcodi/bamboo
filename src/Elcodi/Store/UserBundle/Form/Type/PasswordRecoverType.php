@@ -45,8 +45,8 @@ class PasswordRecoverType extends AbstractType
                 ],
                 'required'       => true,
             ])
-            ->add('store.recovery.form.fields.send.label', 'submit', [
-                'label' => 'Recover',
+            ->add('send', 'submit', [
+                'label' => 'store.recovery.form.fields.send.label',
             ]);
     }
 
