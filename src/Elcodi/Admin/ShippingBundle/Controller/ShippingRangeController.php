@@ -143,9 +143,9 @@ class ShippingRangeController extends AbstractAdminController
     /**
      * Delete entity
      *
-     * @param Request $request     Request
-     * @param mixed   $entity      Entity to delete
-     * @param string  $redirectUrl Redirect url
+     * @param Request $request      Request
+     * @param mixed   $entity       Entity to delete
+     * @param string  $redirectPath Redirect path
      *
      * @return RedirectResponse Redirect response
      *
@@ -165,7 +165,7 @@ class ShippingRangeController extends AbstractAdminController
     public function deleteAction(
         Request $request,
         $entity,
-        $redirectUrl = null
+        $redirectPath = null
     ) {
         /**
          * @var ShippingRangeInterface $entity

@@ -238,9 +238,9 @@ class AdminUserController extends AbstractAdminController
     /**
      * Delete entity
      *
-     * @param Request $request     Request
-     * @param mixed   $entity      Entity to delete
-     * @param string  $redirectUrl Redirect url
+     * @param Request $request      Request
+     * @param mixed   $entity       Entity to delete
+     * @param string  $redirectPath Redirect path
      *
      * @return RedirectResponse Redirect response
      *
@@ -260,7 +260,7 @@ class AdminUserController extends AbstractAdminController
     public function deleteAction(
         Request $request,
         $entity,
-        $redirectUrl = null
+        $redirectPath = null
     ) {
         if ($this->isSameUser($entity)) {
             $this->denyWithMessage(
