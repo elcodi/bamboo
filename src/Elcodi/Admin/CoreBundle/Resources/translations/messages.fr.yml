@@ -546,7 +546,7 @@ admin:
             reduced_price:
                 title: Prix réduit
             weight:
-                title: Poids (en kg)
+                title: Poids (en g)
             height:
                 title: Hauteur (en cm)
             width:
@@ -777,7 +777,7 @@ admin:
             value:
                 title: Valeur
                 price_format: De %from% à %to%
-                weight_format: De %from%Kg à %to%Kg
+                weight_format: De %from% g à %to% g
         section:
             basic:
                 title: Détails de base
