@@ -890,6 +890,6 @@ ui:
     language:
         master_language: Master Language (Mandatory)
     delete:
-        success: Deleted correctly
+        success: Correctly deleted
     editor:
         help: Select some text to get some format options
