@@ -3,7 +3,7 @@
 /*
  * This file is part of the Elcodi package.
  *
- * Copyright (c) 2014 Elcodi.com
+ * Copyright (c) 2014-2015 Elcodi.com
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -61,8 +61,8 @@ class PaymentBridge implements PaymentBridgeInterface
     protected $currencyConverter;
 
     /**
-     * @param OrderRepository $orderRepository Order repository
-     * @param CartWrapper     $cartWrapper
+     * @param OrderRepository   $orderRepository   Order repository
+     * @param CartWrapper       $cartWrapper
      * @param CurrencyConverter $currencyConverter
      */
     public function __construct(
@@ -241,7 +241,6 @@ class PaymentBridge implements PaymentBridgeInterface
                     ->getName();
                 $orderLineArray['item_name'] = $orderLineName;
 
-
                 $lineAmount = $orderLine
                     ->getProductAmount();
 
@@ -274,10 +273,10 @@ class PaymentBridge implements PaymentBridgeInterface
             // We add the shipping costs as a new "shadow" line in the extraData structure.
             if ($this->order->getShippingAmount()->isGreaterThan(Money::create(0, $currency))) {
                 $extraData['items'][] = [
-                    'item_name'=>'shipping',
-                    'item_currency_code'=> $this->getCurrency(),
+                    'item_name' => 'shipping',
+                    'item_currency_code' => $this->getCurrency(),
                     'quantity' => 1,
-                    'amount' => $this->order->getShippingAmount()->getAmount()
+                    'amount' => $this->order->getShippingAmount()->getAmount(),
                 ];
             }
 
