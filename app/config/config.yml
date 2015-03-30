@@ -148,6 +148,12 @@ elcodi_page:
     renderers:
         - bamboo.page.renderer.template_renderer
 
+store_core:
+    error_templates:
+        by_code:
+            404: Exception/error404.html.twig
+            503: Exception/error404.html.twig
+
 store_page:
     blog:
         posts_per_page: 5

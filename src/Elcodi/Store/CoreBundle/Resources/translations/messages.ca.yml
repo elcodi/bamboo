@@ -1,7 +1,10 @@
 store:
     error:
-        store_is_disabled: La botiga està desactivada
+        store_unavailable_title:     Botiga no disponible
+        store_is_disabled:           La botiga està desactivada
         store_is_under_construction: La botiga està en construcció
+        page_not_found_title:        Pàgina no trobada
+        page_not_found:              Uh si, has descobert els nostres plans secrets per conquerir el mon
 
     address:
         save:

@@ -17,6 +17,8 @@
 
 namespace Elcodi\Store\CoreBundle\DependencyInjection;
 
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+
 use Elcodi\Bundle\CoreBundle\DependencyInjection\Abstracts\AbstractExtension;
 
 /**
@@ -59,27 +61,6 @@ class StoreCoreExtension extends AbstractExtension
     }
 
     /**
-     * Load Parametrization definition
-     *
-     * return array(
-     *      'parameter1' => $config['parameter1'],
-     *      'parameter2' => $config['parameter2'],
-     *      ...
-     * );
-     *
-     * @param array $config Bundles config values
-     *
-     * @return array Parametrization values
-     */
-    protected function getParametrizationValues(array $config)
-    {
-        return [
-            'store.core.errors.not_found.enabled' => $config['errors']['not_found']['enabled'],
-            'store.core.errors.not_found.template' => $config['errors']['not_found']['template'],
-        ];
-    }
-
-    /**
      * Config files to load
      *
      * return array(
@@ -99,8 +80,42 @@ class StoreCoreExtension extends AbstractExtension
             'eventListeners',
             'twig',
             'services',
-            [ 'notFound', $config['errors']['not_found']['enabled'] ],
+            [ 'exceptions', $config['error_templates']['enabled'] ],
         ];
+    }
+
+    /**
+     * Hook after load the full container
+     *
+     * @param array            $config    Configuration
+     * @param ContainerBuilder $container Container
+     */
+    protected function postLoad(array $config, ContainerBuilder $container)
+    {
+        parent::postLoad($config, $container);
+
+        $this->setupExceptions($config['error_templates'], $container);
+    }
+
+    /**
+     * Setup exception listener
+     *
+     * @param array            $config
+     * @param ContainerBuilder $container
+     */
+    protected function setupExceptions(array $config, ContainerBuilder $container)
+    {
+        $serviceId = 'store.core.event_listener.exception';
+        if (!$container->hasDefinition($serviceId)) {
+            return;
+        }
+
+        $container
+            ->getDefinition($serviceId)
+            ->addArgument($config['default'])
+            ->addArgument($config['by_code'])
+            ->addArgument($config['fallback'])
+        ;
     }
 
     /**

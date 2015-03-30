@@ -1,0 +1,12 @@
+services:
+
+    #
+    # Event listener for HTTP exceptions
+    #
+    store.core.event_listener.exception:
+        class: Elcodi\Store\CoreBundle\EventListener\StoreHttpExceptionListener
+        arguments:
+            - @templating
+            - @store.core.services.template_locator
+        tags:
+            - { name: firewall_listener, firewall: %bamboo_store_firewall%, event: kernel.exception, priority: -127 }

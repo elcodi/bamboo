@@ -1,7 +1,12 @@
 {% extends '@AdminCore/layouts/center_box.html.twig' %}
 
-{% block title_container %}{{ 'Store closed or under construction'|trans }} {% endblock title_container %}
+
+{% block title_container 'store.error.store_unavailable_title'|trans %}
+
+
 {% block content %}
-    <h1>Uh si! {{ exception.message|trans }}</h1>
+
+    <h1>{{ exception.message|trans }}</h1>
     <img src="{{ asset('bundles/admincore/images/uh-si.png') }}" width="250" class="fl-r ml-m" />
+
 {% endblock content %}

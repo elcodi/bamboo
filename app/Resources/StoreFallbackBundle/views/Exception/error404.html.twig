@@ -1,7 +1,12 @@
 {% extends '@AdminCore/layouts/center_box.html.twig' %}
 
-{% block title_container %}{{ '404: Page not found'|trans }} {% endblock title_container %}
+
+{% block title_container 'store.error.page_not_found_title'|trans %}
+
+
 {% block content %}
-    <h1>{{ 'Uy si! Has descubierto nuestro plan para conquistar el mundo.'|trans }}</h1>
+
+    <h1>{{ 'store.error.page_not_found'|trans }}</h1>
     <img src="{{ asset('bundles/admincore/images/dr-evil.png') }}" width="250" class="fl-r ml-m" />
+
 {% endblock content %}
