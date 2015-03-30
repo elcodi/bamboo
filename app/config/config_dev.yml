@@ -35,3 +35,6 @@ assetic:
 
 swiftmailer:
     disable_delivery: true
+
+store_core:
+    error_templates: false

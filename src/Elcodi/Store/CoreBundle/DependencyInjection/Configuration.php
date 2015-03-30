@@ -72,12 +72,11 @@ class Configuration extends AbstractConfiguration
         };
 
         $rootNode
-            ->addDefaultsIfNotSet()
             ->children()
 
                 ->arrayNode('error_templates')
                     ->info('Error templates setup')
-                    ->canBeDisabled()
+                    ->canBeEnabled()
 
                     ->children()
                         ->scalarNode('default')
