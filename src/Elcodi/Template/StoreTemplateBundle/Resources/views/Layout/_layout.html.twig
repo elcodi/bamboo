@@ -17,12 +17,28 @@
 
     {% block container %}
 
+
         {% block messages %}
             {% include "@StoreTemplate/Modules/_message-list.html.twig" %}
         {% endblock messages %}
 
         <div class="grid grid-pad">
             <div class="col-1-1">
+                {% block breadcrumb_container %}
+                    <nav class="breadcrumb desktop">
+                        <ul>
+                            <li>
+                                <a href="{{ url('store_homepage') }}" class="logo">
+                                    <i class="fa fa-home"></i> {{ elcodi_config('store.name') }}
+                                </a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            {% block breadcrumb %}{% endblock breadcrumb %}
+                        </ul>
+                    </nav>
+
+                {% endblock breadcrumb_container %}
+
                 {% block content %}{% endblock content %}
             </div>
         </div>

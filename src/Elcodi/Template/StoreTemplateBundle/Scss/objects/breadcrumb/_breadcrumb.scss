@@ -1,0 +1,12 @@
+.breadcrumb {
+	li {
+		display: inline-block;
+		margin-right: $spacing/2;
+	}
+	a {
+		display: inline-block;
+		margin-right: $spacing/4;
+		color: $color-foreground;
+
+	}
+}
