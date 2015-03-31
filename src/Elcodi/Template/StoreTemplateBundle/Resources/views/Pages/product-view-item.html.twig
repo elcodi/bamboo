@@ -6,6 +6,14 @@
 
 {% block title %}Bamboo - {{ 'template.store_template_bundle.product.view_item.product'|trans }} {{ product.name }}{% endblock title %}
 
+{% block breadcrumb %}
+    <li>
+        <a href="{{ url('store_category_products_list', { slug: product.principalCategory.slug, id: product.principalCategory.id }) }}">{{ product.principalCategory }}</a> <i class="fa fa-angle-right"></i>
+    </li>
+    <li>
+        <a href="{{ url('store_product_view', { 'slug': product.slug, 'id': product.id }) }}"><strong>{{ product.name }}</strong></a>
+    </li>
+{% endblock breadcrumb %}
 
 {% block content %}
     <div class="product-view">

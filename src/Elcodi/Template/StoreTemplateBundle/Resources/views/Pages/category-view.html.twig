@@ -3,6 +3,11 @@
 
 {% block title %}{{ "template.store_template_bundle.category.view.category"|trans }}{{ category.name }}{% endblock title %}
 
+{% block breadcrumb %}
+    <li>
+        <a href="{{ url('store_category_products_list', { slug: products.0.principalCategory.slug, id: products.0.principalCategory.id }) }}"><strong>{{ products.0.principalCategory }}</strong></a>
+    </li>
+{% endblock breadcrumb %}
 
 {% block content %}
 	{% include '@StoreTemplate/Modules/_product-list.html.twig' with {'products' : products} %}
