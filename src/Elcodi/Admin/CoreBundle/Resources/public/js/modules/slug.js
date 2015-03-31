@@ -13,14 +13,23 @@ FrontendCore.define('slug', ['devicePackage'], function () {
 					}
 				});
 		},
+		slugify: function ( sSlug ) {
+			return sSlug.replace(/_/g, '-')
+				.replace(/ /g, '-')
+				.replace(/:/g, '-')
+				.replace(/\\/g, '-')
+				.replace(/\//g, '-')
+				.replace(/[^a-zA-Z0-9\-]+/g, '')
+				.replace(/-{2,}/g, '-')
+				.toLowerCase();
+		},
 		autobind: function (oTarget) {
 
 			var oParent = document.getElementById(oTarget.getAttribute("data-fc-parent")),
-				sSlug;
+				self = this;
 
 			$(oParent).on('change', function() {
-				sSlug = this.value;
-				oTarget.value = sSlug.replace(/\s+/g, '-').toLowerCase();
+				oTarget.value = self.slugify(this.value);
 			});
 		}
 	};
