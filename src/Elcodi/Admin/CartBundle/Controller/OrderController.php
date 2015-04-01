@@ -98,7 +98,7 @@ class OrderController extends AbstractAdminController
      * @Template
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.cart.entity.order.class",
+     *      class = "elcodi.entity.order.class",
      *      name = "order",
      *      mapping = {
      *          "id" = "~id~"
@@ -178,7 +178,7 @@ class OrderController extends AbstractAdminController
      * )
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.cart.entity.order.class",
+     *      class = "elcodi.entity.order.class",
      *      name = "order",
      *      mapping = {
      *          "id" = "~id~"
@@ -224,7 +224,7 @@ class OrderController extends AbstractAdminController
      * )
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.cart.entity.order.class",
+     *      class = "elcodi.entity.order.class",
      *      name = "order",
      *      mapping = {
      *          "id" = "~id~"

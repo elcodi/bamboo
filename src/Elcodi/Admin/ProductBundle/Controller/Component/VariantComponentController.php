@@ -61,7 +61,7 @@ class VariantComponentController extends AbstractAdminController
      * @Method({"GET"})
      *
      * @PaginatorAnnotation(
-     *      class = "elcodi.core.product.entity.product_variant.class",
+     *      class = "elcodi.entity.product_variant.class",
      *      innerJoins = {
      *          {"x", "product", "p", false}
      *      },

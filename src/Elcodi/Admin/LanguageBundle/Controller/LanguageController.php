@@ -72,7 +72,7 @@ class LanguageController extends AbstractAdminController
      * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.language.entity.language.class",
+     *      class = "elcodi.entity.language.class",
      *      mapping = {
      *          "iso" = "~iso~"
      *      }
@@ -107,7 +107,7 @@ class LanguageController extends AbstractAdminController
      * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.language.entity.language.class",
+     *      class = "elcodi.entity.language.class",
      *      mapping = {
      *          "iso" = "~iso~"
      *      }

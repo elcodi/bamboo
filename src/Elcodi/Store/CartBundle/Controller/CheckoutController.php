@@ -363,7 +363,7 @@ class CheckoutController extends Controller
      *      name = "customer",
      * )
      * @EntityAnnotation(
-     *      class = "elcodi.core.cart.entity.order.class",
+     *      class = "elcodi.entity.order.class",
      *      name = "order",
      *      mapping = {
      *          "id" = "~id~",

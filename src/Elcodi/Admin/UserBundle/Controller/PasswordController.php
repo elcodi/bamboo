@@ -63,7 +63,7 @@ class PasswordController extends Controller
         if ($isValid) {
             $adminUserRepository = $this
                 ->get('elcodi.provider.repository')
-                ->getRepositoryByEntityParameter('elcodi.core.user.entity.admin_user.class');
+                ->getRepositoryByEntityParameter('elcodi.entity.admin_user.class');
 
             $email = $passwordRememberForm
                 ->get('email')

@@ -182,7 +182,7 @@ class PageController extends AbstractAdminController
      * )
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.page.entity.page.class",
+     *      class = "elcodi.entity.page.class",
      *      name = "page",
      *      mapping = {
      *          "id" = "~id~"
@@ -220,7 +220,7 @@ class PageController extends AbstractAdminController
      * )
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.page.entity.page.class",
+     *      class = "elcodi.entity.page.class",
      *      name = "page",
      *      mapping = {
      *          "id" = "~id~"
@@ -259,7 +259,7 @@ class PageController extends AbstractAdminController
      * )
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.page.entity.page.class",
+     *      class = "elcodi.entity.page.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }

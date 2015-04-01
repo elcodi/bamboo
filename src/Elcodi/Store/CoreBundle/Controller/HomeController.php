@@ -58,7 +58,7 @@ class HomeController extends Controller
      * )
      * @PaginatorAnnotation(
      *      attributes = "paginatorAttributes",
-     *      class = "elcodi.core.product.entity.product.class",
+     *      class = "elcodi.entity.product.class",
      *      page = "~page~",
      *      limit = "~limit~",
      *      wheres = {

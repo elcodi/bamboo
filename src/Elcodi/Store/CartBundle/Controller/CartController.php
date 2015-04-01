@@ -124,7 +124,7 @@ class CartController extends Controller
      * )
      *
      * @AnnotationEntity(
-     *      class = "elcodi.core.product.entity.product.class",
+     *      class = "elcodi.entity.product.class",
      *      name = "product",
      *      mapping = {
      *          "id" = "~id~",
@@ -183,7 +183,7 @@ class CartController extends Controller
      * )
      *
      * @AnnotationEntity(
-     *      class = "elcodi.core.product.entity.product_variant.class",
+     *      class = "elcodi.entity.product_variant.class",
      *      name = "variant",
      *      mapping = {
      *          "id" = "~id~",
@@ -323,7 +323,7 @@ class CartController extends Controller
      *      name = "cart"
      * )
      * @AnnotationEntity(
-     *      class = "elcodi.core.cart.entity.cart_line.class",
+     *      class = "elcodi.entity.cart_line.class",
      *      name = "cartLine",
      *      mapping = {
      *          "id" = "~id~",

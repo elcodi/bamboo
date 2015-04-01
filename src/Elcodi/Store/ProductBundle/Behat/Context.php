@@ -173,7 +173,7 @@ class Context extends AbstractElcodiContext
         $product = $this
             ->getContainer()
             ->get('elcodi.provider.repository')
-            ->getRepositoryByEntityParameter('elcodi.core.product.entity.product.class')
+            ->getRepositoryByEntityParameter('elcodi.entity.product.class')
             ->find($productId);
 
         if (!($product instanceof ProductInterface)) {
@@ -202,7 +202,7 @@ class Context extends AbstractElcodiContext
         $category = $this
             ->getContainer()
             ->get('elcodi.provider.repository')
-            ->getRepositoryByEntityParameter('elcodi.core.product.entity.category.class')
+            ->getRepositoryByEntityParameter('elcodi.entity.category.class')
             ->find($categoryId);
 
         if (!($category instanceof ProductInterface)) {

@@ -54,7 +54,7 @@ class ProductController extends Controller
      * )
      *
      * @AnnotationEntity(
-     *      class = "elcodi.core.product.entity.product.class",
+     *      class = "elcodi.entity.product.class",
      *      name = "product",
      *      mapping = {
      *          "id" = "~id~",

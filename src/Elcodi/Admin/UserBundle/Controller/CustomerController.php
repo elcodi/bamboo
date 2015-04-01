@@ -189,7 +189,7 @@ class CustomerController extends AbstractAdminController
      * )
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.user.entity.customer.class",
+     *      class = "elcodi.entity.customer.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }
@@ -220,7 +220,7 @@ class CustomerController extends AbstractAdminController
      * )
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.user.entity.customer.class",
+     *      class = "elcodi.entity.customer.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }
@@ -252,7 +252,7 @@ class CustomerController extends AbstractAdminController
      * )
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.user.entity.customer.class",
+     *      class = "elcodi.entity.customer.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }

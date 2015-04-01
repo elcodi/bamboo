@@ -72,7 +72,7 @@ class ImageController extends AbstractAdminController
      * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.media.entity.image.class",
+     *      class = "elcodi.entity.image.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }
@@ -103,7 +103,7 @@ class ImageController extends AbstractAdminController
      * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.media.entity.image.class",
+     *      class = "elcodi.entity.image.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }
@@ -135,7 +135,7 @@ class ImageController extends AbstractAdminController
      * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.media.entity.image.class",
+     *      class = "elcodi.entity.image.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }

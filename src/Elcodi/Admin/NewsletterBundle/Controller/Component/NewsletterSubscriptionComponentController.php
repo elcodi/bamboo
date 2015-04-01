@@ -71,7 +71,7 @@ class NewsletterSubscriptionComponentController
      *
      * @PaginatorAnnotation(
      *      attributes = "paginatorAttributes",
-     *      class = "elcodi.core.newsletter.entity.newsletter_subscription.class",
+     *      class = "elcodi.entity.newsletter_subscription.class",
      *      page = "~page~",
      *      limit = "~limit~",
      *      orderBy = {
@@ -188,7 +188,7 @@ class NewsletterSubscriptionComponentController
      * @Method({"GET"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.newsletter.entity.newsletter_subscription.class",
+     *      class = "elcodi.entity.newsletter_subscription.class",
      *      mapping = {
      *          "id": "~id~",
      *      }

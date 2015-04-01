@@ -91,7 +91,7 @@ class BlogController extends Controller
      * )
      *
      * @AnnotationEntity(
-     *      class = "elcodi.core.page.entity.page.class",
+     *      class = "elcodi.entity.page.class",
      *      name = "blogPost",
      *      mapping = {
      *          "id" = "~id~",

@@ -83,7 +83,7 @@ class CurrencyController extends AbstractAdminController
      * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.currency.entity.currency.class",
+     *      class = "elcodi.entity.currency.class",
      *      mapping = {
      *          "iso" = "~iso~"
      *      }
@@ -114,7 +114,7 @@ class CurrencyController extends AbstractAdminController
      * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.currency.entity.currency.class",
+     *      class = "elcodi.entity.currency.class",
      *      mapping = {
      *          "iso" = "~iso~"
      *      }

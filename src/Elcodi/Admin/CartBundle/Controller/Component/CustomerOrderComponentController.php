@@ -71,7 +71,7 @@ class CustomerOrderComponentController extends AbstractAdminController
      *
      * @PaginatorAnnotation(
      *      attributes = "paginatorAttributes",
-     *      class = "elcodi.core.cart.entity.order.class",
+     *      class = "elcodi.entity.order.class",
      *      page = "~page~",
      *      limit = "~limit~",
      *      orderBy = {
@@ -122,7 +122,7 @@ class CustomerOrderComponentController extends AbstractAdminController
      * @Method({"GET"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.cart.entity.order.class",
+     *      class = "elcodi.entity.order.class",
      *      name = "order",
      *      mapping = {
      *          "id" = "~id~"

@@ -140,7 +140,7 @@ class BannerController extends AbstractAdminController
      *
      * @PaginatorAnnotation(
      *      attributes = "paginatorAttributes",
-     *      class = "elcodi.core.banner.entity.banner.class",
+     *      class = "elcodi.entity.banner.class",
      *      page = "~page~",
      *      limit = "~limit~",
      *      orderBy = {
@@ -375,7 +375,7 @@ class BannerController extends AbstractAdminController
      * @Method({"GET"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.banner.entity.banner.class",
+     *      class = "elcodi.entity.banner.class",
      *      mapping = {
      *          "id": "~id~",
      *      }
@@ -414,7 +414,7 @@ class BannerController extends AbstractAdminController
      * @Method({"POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.banner.entity.banner.class",
+     *      class = "elcodi.entity.banner.class",
      *      mapping = {
      *          "id": "~id~",
      *      }
@@ -458,7 +458,7 @@ class BannerController extends AbstractAdminController
      * @Method({"POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.banner.entity.banner.class",
+     *      class = "elcodi.entity.banner.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }
@@ -489,7 +489,7 @@ class BannerController extends AbstractAdminController
      * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.banner.entity.banner.class",
+     *      class = "elcodi.entity.banner.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }
@@ -521,7 +521,7 @@ class BannerController extends AbstractAdminController
      * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.banner.entity.banner.class",
+     *      class = "elcodi.entity.banner.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }
