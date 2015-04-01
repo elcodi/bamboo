@@ -13,14 +13,14 @@ services:
     store.form_type.register:
         class: %store.form_type.register.class%
         arguments:
-            customer_namespace: %elcodi.core.user.entity.customer.class%
+            customer_namespace: %elcodi.entity.customer.class%
         tags:
             - { name: form.type, alias: store_user_form_type_register }
 
     store.form_type.profile:
         class: %store.form_type.profile.class%
         arguments:
-            customer_namespace: %elcodi.core.user.entity.customer.class%
+            customer_namespace: %elcodi.entity.customer.class%
         tags:
             - { name: form.type, alias: store_user_form_type_profile }
 
