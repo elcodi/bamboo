@@ -22,17 +22,14 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
+use Elcodi\Component\Core\Factory\Traits\FactoryTrait;
+
 /**
  * Class CartType
  */
 class CartType extends AbstractType
 {
-    /**
-     * @var string
-     *
-     * Cart namespace
-     */
-    protected $cartNamespace;
+    use FactoryTrait;
 
     /**
      * @var UrlGeneratorInterface
@@ -44,13 +41,11 @@ class CartType extends AbstractType
     /**
      * Constructor
      *
-     * @param string                $cartNamespace Cart names
-     * @param UrlGeneratorInterface $router        Router
+     * @param UrlGeneratorInterface $router Router
      */
-    public function __construct(UrlGeneratorInterface $router, $cartNamespace)
+    public function __construct(UrlGeneratorInterface $router)
     {
         $this->router = $router;
-        $this->cartNamespace = $cartNamespace;
     }
 
     /**
@@ -63,7 +58,14 @@ class CartType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => $this->cartNamespace,
+            'empty_data' => function () {
+                $this
+                    ->factory
+                    ->create();
+            },
+            'data_class' => $this
+                ->factory
+                ->getEntityNamespace(),
         ]);
     }
 

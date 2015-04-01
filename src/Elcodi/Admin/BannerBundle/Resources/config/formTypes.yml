@@ -5,10 +5,20 @@ services:
     #
     elcodi.admin.banner.form_type.banner:
         class: %elcodi.admin.banner.form_type.banner.class%
+        arguments:
+            - %elcodi.entity.image.class%
+            - %elcodi.entity.banner_zone.class%
+        calls:
+            - [setFactory, [@elcodi.factory.banner]]
         tags:
             - { name: form.type, alias: elcodi_admin_banner_form_type_banner }
 
     elcodi.admin.banner.form_type.banner_zone:
         class: %elcodi.admin.banner.form_type.banner_zone.class%
+        arguments:
+            - %elcodi.entity.language.class%
+            - %elcodi.entity.banner.class%
+        calls:
+            - [setFactory, [@elcodi.factory.banner_zone]]
         tags:
             - { name: form.type, alias: elcodi_admin_banner_form_type_banner_zone }

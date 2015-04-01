@@ -5,23 +5,26 @@ services:
     #
     elcodi.admin.page.form_type.page:
         class: %elcodi.admin.page.form_type.page.class%
+        arguments:
+            - @elcodi.admin.page.form_event_listener.permanent_page
+        calls:
+            - [setFactory, [@elcodi.factory.page]]
+            - [setEntityTranslatorFormEventListener, [@elcodi.entity_translator_form_event_listener]]
         tags:
             - { name: form.type, alias: elcodi_admin_page_form_type_page }
-        arguments:
-            permanent_page_subscriber: @elcodi.admin.page.form_event_listener.permanent_page
-        calls:
-            - [setEntityTranslatorFormEventListener, [@elcodi.entity_translator_form_event_listener]]
 
     elcodi.admin.page.form_type.blog_post:
         class: %elcodi.admin.page.form_type.blog_post.class%
+        calls:
+            - [setFactory, [@elcodi.factory.page]]
+            - [setEntityTranslatorFormEventListener, [@elcodi.entity_translator_form_event_listener]]
         tags:
             - { name: form.type, alias: elcodi_admin_page_form_type_blog_post }
-        calls:
-            - [setEntityTranslatorFormEventListener, [@elcodi.entity_translator_form_event_listener]]
 
     elcodi.admin.page.form_type.email:
         class: %elcodi.admin.page.form_type.email.class%
+        calls:
+            - [setFactory, [@elcodi.factory.page]]
+            - [setEntityTranslatorFormEventListener, [@elcodi.entity_translator_form_event_listener]]
         tags:
             - { name: form.type, alias: elcodi_admin_page_form_type_email }
-        calls:
-            - [setEntityTranslatorFormEventListener, [@elcodi.entity_translator_form_event_listener]]

@@ -6,9 +6,11 @@ services:
     elcodi.admin.product.form_type.product:
         class: %elcodi.admin.product.form_type.product.class%
         arguments:
-            entity: %elcodi.entity.product.class%
-            product_factory: @elcodi.factory.product
+            - %elcodi.entity.manufacturer.class%
+            - %elcodi.entity.category.class%
+            - %elcodi.entity.image.class%
         calls:
+            - [setFactory, [@elcodi.factory.product]]
             - [setEntityTranslatorFormEventListener, [@elcodi.entity_translator_form_event_listener]]
         tags:
             - { name: form.type, alias: elcodi_admin_product_form_type_product }
@@ -16,17 +18,17 @@ services:
     elcodi.admin.product.form_type.product_variant:
         class: %elcodi.admin.product.form_type.product_variant.class%
         arguments:
-            entity: %elcodi.entity.product_variant.class%
-            product_factory: @elcodi.factory.product_variant
+            - %elcodi.entity.attribute_value.class%
+            - %elcodi.entity.image.class%
+        calls:
+            - [setFactory, [@elcodi.factory.product_variant]]
         tags:
             - { name: form.type, alias: elcodi_admin_product_form_type_product_variant }
 
     elcodi.admin.product.form_type.category:
         class: %elcodi.admin.product.form_type.category.class%
-        arguments:
-            category_factory: @elcodi.factory.category
-            product_factory: @elcodi.factory.product
         calls:
+            - [setFactory, [@elcodi.factory.category]]
             - [setEntityTranslatorFormEventListener, [@elcodi.entity_translator_form_event_listener]]
         tags:
             - { name: form.type, alias: elcodi_admin_product_form_type_category }
@@ -34,8 +36,9 @@ services:
     elcodi.admin.product.form_type.manufacturer:
         class: %elcodi.admin.product.form_type.manufacturer.class%
         arguments:
-            entity: %elcodi.entity.manufacturer.class%
+            - %elcodi.entity.image.class%
         calls:
+            - [setFactory, [@elcodi.factory.manufacturer]]
             - [setEntityTranslatorFormEventListener, [@elcodi.entity_translator_form_event_listener]]
         tags:
             - { name: form.type, alias: elcodi_admin_product_form_type_manufacturer }

@@ -5,5 +5,7 @@ services:
     #
     elcodi.admin.newsletter.form_type.newsletter_subscription:
         class: %elcodi.admin.newsletter.form_type.newsletter_subscription.class%
+        calls:
+            - [setFactory, [@elcodi.factory.newsletter_subscription]]
         tags:
             - { name: form.type, alias: elcodi_admin_newsletter_form_type_newsletter_subscription }

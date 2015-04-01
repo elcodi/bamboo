@@ -17,16 +17,67 @@
 
 namespace Elcodi\Admin\ProductBundle\Form\Type;
 
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-use Elcodi\Admin\CurrencyBundle\Form\Type\Abstracts\AbstractPurchasableType;
 use Elcodi\Component\Attribute\Repository\ValueRepository;
+use Elcodi\Component\Core\Factory\Traits\FactoryTrait;
 
 /**
  * Class ProductType
  */
-class VariantType extends AbstractPurchasableType
+class VariantType extends AbstractType
 {
+    use FactoryTrait;
+
+    /**
+     * @var string
+     *
+     * Attribute Value namespace
+     */
+    protected $attributeValueNamespace;
+
+    /**
+     * @var string
+     *
+     * Image namespace
+     */
+    protected $imageNamespace;
+
+    /**
+     * Construct
+     *
+     * @param string $attributeValueNamespace Attribute Value namespace
+     * @param string $imageNamespace          Image namespace
+     */
+    public function __construct($attributeValueNamespace, $imageNamespace)
+    {
+        $this->attributeValueNamespace = $attributeValueNamespace;
+        $this->imageNamespace = $imageNamespace;
+    }
+
+    /**
+     * Default form options
+     *
+     * @param OptionsResolverInterface $resolver
+     *
+     * @return array With the options
+     */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults([
+            'empty_data' => function () {
+                $this
+                    ->factory
+                    ->create();
+            },
+            'data_class' => $this
+                ->factory
+                ->getEntityNamespace(),
+        ]);
+    }
+
     /**
      * Buildform function
      *
@@ -37,22 +88,22 @@ class VariantType extends AbstractPurchasableType
     {
         $builder
             ->add('options', 'entity', [
-                'class'    => 'Elcodi\Component\Attribute\Entity\Value',
-                'required' => true,
-                'multiple' => true,
-                'group_by' => 'attribute',
+                'class'         => $this->attributeValueNamespace,
+                'required'      => true,
+                'multiple'      => true,
+                'group_by'      => 'attribute',
                 'query_builder' => function (ValueRepository $valueRepository) {
-                        return $valueRepository
-                            ->createQueryBuilder('v')
-                            ->join('v.attribute', 'a');
-                    },
-                'property' => 'value',
+                    return $valueRepository
+                        ->createQueryBuilder('v')
+                        ->join('v.attribute', 'a');
+                },
+                'property'      => 'value',
             ])
             ->add('imagesSort', 'text', [
                 'required' => false,
             ])
             ->add('images', 'entity', [
-                'class'    => 'Elcodi\Component\Media\Entity\Image',
+                'class'    => $this->imageNamespace,
                 'required' => false,
                 'property' => 'id',
                 'multiple' => true,

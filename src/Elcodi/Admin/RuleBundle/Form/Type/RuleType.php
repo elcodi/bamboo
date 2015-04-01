@@ -21,27 +21,14 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
+use Elcodi\Component\Core\Factory\Traits\FactoryTrait;
+
 /**
  * Class RuleType
  */
 class RuleType extends AbstractType
 {
-    /**
-     * @var string
-     *
-     * Entity namespace
-     */
-    protected $entityNamespace;
-
-    /**
-     * Constructor
-     *
-     * @param string $entityNamespace Entity names
-     */
-    public function __construct($entityNamespace)
-    {
-        $this->entityNamespace = $entityNamespace;
-    }
+    use FactoryTrait;
 
     /**
      * Default form options
@@ -53,7 +40,14 @@ class RuleType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => $this->entityNamespace,
+            'empty_data' => function () {
+                $this
+                    ->factory
+                    ->create();
+            },
+            'data_class' => $this
+                ->factory
+                ->getEntityNamespace(),
         ]);
     }
 

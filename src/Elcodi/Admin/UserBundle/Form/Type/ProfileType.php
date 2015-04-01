@@ -21,27 +21,14 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
+use Elcodi\Component\Core\Factory\Traits\FactoryTrait;
+
 /**
  * Class ProfileType
  */
 class ProfileType extends AbstractType
 {
-    /**
-     * @var string
-     *
-     * Customer namespace
-     */
-    protected $customerNamespace;
-
-    /**
-     * Constructor
-     *
-     * @param string $customerNamespace Customer names
-     */
-    public function __construct($customerNamespace)
-    {
-        $this->customerNamespace = $customerNamespace;
-    }
+    use FactoryTrait;
 
     /**
      * Default form options
@@ -53,7 +40,14 @@ class ProfileType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => $this->customerNamespace,
+            'empty_data' => function () {
+                $this
+                    ->factory
+                    ->create();
+            },
+            'data_class' => $this
+                ->factory
+                ->getEntityNamespace(),
         ]);
     }
 

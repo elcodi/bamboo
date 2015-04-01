@@ -7,5 +7,7 @@ services:
         class: %elcodi.admin.rule.form_type.rule.class%
         arguments:
             entity: %elcodi.entity.rule.class%
+        calls:
+            - [setFactory, [@elcodi.factory.rule]]
         tags:
             - { name: form.type, alias: elcodi_admin_rule_form_type_rule }

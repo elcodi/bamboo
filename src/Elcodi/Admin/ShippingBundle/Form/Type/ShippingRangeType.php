@@ -19,7 +19,9 @@ namespace Elcodi\Admin\ShippingBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
+use Elcodi\Component\Core\Factory\Traits\FactoryTrait;
 use Elcodi\Component\Shipping\ElcodiShippingRangeTypes;
 
 /**
@@ -27,6 +29,8 @@ use Elcodi\Component\Shipping\ElcodiShippingRangeTypes;
  */
 class ShippingRangeType extends AbstractType
 {
+    use FactoryTrait;
+
     /**
      * @var string
      *
@@ -42,6 +46,27 @@ class ShippingRangeType extends AbstractType
     public function __construct($zoneNamespace)
     {
         $this->zoneNamespace = $zoneNamespace;
+    }
+
+    /**
+     * Default form options
+     *
+     * @param OptionsResolverInterface $resolver
+     *
+     * @return array With the options
+     */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults([
+            'empty_data' => function () {
+                $this
+                    ->factory
+                    ->create();
+            },
+            'data_class' => $this
+                ->factory
+                ->getEntityNamespace(),
+        ]);
     }
 
     /**

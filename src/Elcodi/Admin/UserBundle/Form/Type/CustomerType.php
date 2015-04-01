@@ -21,41 +21,31 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-use Elcodi\Component\Language\Factory\LanguageFactory;
+use Elcodi\Component\Core\Factory\Traits\FactoryTrait;
 use Elcodi\Component\User\ElcodiUserProperties;
-use Elcodi\Component\User\Factory\CustomerFactory;
 
 /**
  * Class CustomerType
  */
 class CustomerType extends AbstractType
 {
-    /**
-     * @var CustomerFactory
-     *
-     * Customer factory
-     */
-    protected $customerFactory;
+    use FactoryTrait;
 
     /**
-     * @var LanguageFactory
+     * @var string
      *
-     * Language factory
+     * Language namespace
      */
-    protected $languageFactory;
+    protected $languageNamespace;
 
     /**
-     * Constructor
+     * Construct
      *
-     * @param CustomerFactory $customerFactory Customer factory
-     * @param LanguageFactory $languageFactory Language factory
+     * @param string $languageNamespace Language Namespace
      */
-    public function __construct(
-        CustomerFactory $customerFactory,
-        LanguageFactory $languageFactory
-    ) {
-        $this->customerFactory = $customerFactory;
-        $this->languageFactory = $languageFactory;
+    public function __construct($languageNamespace)
+    {
+        $this->languageNamespace = $languageNamespace;
     }
 
     /**
@@ -68,7 +58,14 @@ class CustomerType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
-            'empty_data' => $this->customerFactory->create(),
+            'empty_data' => function () {
+                $this
+                    ->factory
+                    ->create();
+            },
+            'data_class' => $this
+                ->factory
+                ->getEntityNamespace(),
         ]);
     }
 
@@ -102,7 +99,7 @@ class CustomerType extends AbstractType
                 'required' => true,
             ])
             ->add('language', 'entity', [
-                'class'    => $this->languageFactory->getEntityNamespace(),
+                'class'    => $this->languageNamespace,
                 'property' => 'name',
                 'required' => true,
             ])
