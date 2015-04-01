@@ -6,7 +6,7 @@ services:
     elcodi.admin.product.form_type.product:
         class: %elcodi.admin.product.form_type.product.class%
         arguments:
-            entity: %elcodi.core.product.entity.product.class%
+            entity: %elcodi.entity.product.class%
             product_factory: @elcodi.factory.product
         calls:
             - [setEntityTranslatorFormEventListener, [@elcodi.entity_translator_form_event_listener]]
@@ -16,7 +16,7 @@ services:
     elcodi.admin.product.form_type.product_variant:
         class: %elcodi.admin.product.form_type.product_variant.class%
         arguments:
-            entity: %elcodi.core.product.entity.product_variant.class%
+            entity: %elcodi.entity.product_variant.class%
             product_factory: @elcodi.factory.product_variant
         tags:
             - { name: form.type, alias: elcodi_admin_product_form_type_product_variant }
@@ -34,7 +34,7 @@ services:
     elcodi.admin.product.form_type.manufacturer:
         class: %elcodi.admin.product.form_type.manufacturer.class%
         arguments:
-            entity: %elcodi.core.product.entity.manufacturer.class%
+            entity: %elcodi.entity.manufacturer.class%
         calls:
             - [setEntityTranslatorFormEventListener, [@elcodi.entity_translator_form_event_listener]]
         tags:
