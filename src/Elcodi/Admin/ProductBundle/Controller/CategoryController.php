@@ -169,7 +169,7 @@ class CategoryController extends AbstractAdminController
      * )
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.product.entity.category.class",
+     *      class = "elcodi.entity.category.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }
@@ -200,7 +200,7 @@ class CategoryController extends AbstractAdminController
      * )
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.product.entity.category.class",
+     *      class = "elcodi.entity.category.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }
@@ -232,7 +232,7 @@ class CategoryController extends AbstractAdminController
      * )
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.product.entity.category.class",
+     *      class = "elcodi.entity.category.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }

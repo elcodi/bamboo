@@ -65,7 +65,7 @@ class CustomerOrderController extends AbstractAdminController
      * )
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.user.entity.customer.class",
+     *      class = "elcodi.entity.customer.class",
      *      name = "customer",
      *      mapping = {
      *          "id" = "~customerId~"

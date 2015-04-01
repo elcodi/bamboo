@@ -73,7 +73,7 @@ class ManufacturerComponentController extends AbstractAdminController
      *
      * @PaginatorAnnotation(
      *      attributes = "paginatorAttributes",
-     *      class = "elcodi.core.product.entity.manufacturer.class",
+     *      class = "elcodi.entity.manufacturer.class",
      *      page = "~page~",
      *      limit = "~limit~",
      *      orderBy = {

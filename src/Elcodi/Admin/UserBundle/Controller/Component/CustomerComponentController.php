@@ -72,7 +72,7 @@ class CustomerComponentController extends AbstractAdminController
      *
      * @PaginatorAnnotation(
      *      attributes = "paginatorAttributes",
-     *      class = "elcodi.core.user.entity.customer.class",
+     *      class = "elcodi.entity.customer.class",
      *      page = "~page~",
      *      limit = "~limit~",
      *      orderBy = {

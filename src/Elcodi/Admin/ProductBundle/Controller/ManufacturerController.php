@@ -191,7 +191,7 @@ class ManufacturerController extends AbstractAdminController
      * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.product.entity.manufacturer.class",
+     *      class = "elcodi.entity.manufacturer.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }
@@ -222,7 +222,7 @@ class ManufacturerController extends AbstractAdminController
      * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.product.entity.manufacturer.class",
+     *      class = "elcodi.entity.manufacturer.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }
@@ -254,7 +254,7 @@ class ManufacturerController extends AbstractAdminController
      * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.product.entity.manufacturer.class",
+     *      class = "elcodi.entity.manufacturer.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }

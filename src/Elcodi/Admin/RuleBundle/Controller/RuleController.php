@@ -139,7 +139,7 @@ class RuleController extends AbstractAdminController
      * @Method({"GET"})
      *
      * @PaginatorAnnotation(
-     *      class = "elcodi.core.rule.entity.rule.class",
+     *      class = "elcodi.entity.rule.class",
      *      page = "~page~",
      *      limit = "~limit~",
      *      orderBy = {
@@ -374,7 +374,7 @@ class RuleController extends AbstractAdminController
      * @Method({"GET"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.rule.entity.rule.class",
+     *      class = "elcodi.entity.rule.class",
      *      mapping = {
      *          "id": "~id~",
      *      }
@@ -413,7 +413,7 @@ class RuleController extends AbstractAdminController
      * @Method({"POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.rule.entity.rule.class",
+     *      class = "elcodi.entity.rule.class",
      *      mapping = {
      *          "id": "~id~",
      *      }
@@ -457,7 +457,7 @@ class RuleController extends AbstractAdminController
      * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.rule.entity.rule.class",
+     *      class = "elcodi.entity.rule.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }
@@ -488,7 +488,7 @@ class RuleController extends AbstractAdminController
      * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.rule.entity.rule.class",
+     *      class = "elcodi.entity.rule.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }
@@ -520,7 +520,7 @@ class RuleController extends AbstractAdminController
      * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.rule.entity.rule.class",
+     *      class = "elcodi.entity.rule.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }

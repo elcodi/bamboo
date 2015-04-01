@@ -121,7 +121,7 @@ class BannerZoneController extends AbstractAdminController
      *
      * @PaginatorAnnotation(
      *      attributes = "paginatorAttributes",
-     *      class = "elcodi.core.banner.entity.banner_zone.class",
+     *      class = "elcodi.entity.banner_zone.class",
      *      page = "~page~",
      *      limit = "~limit~",
      *      orderBy = {
@@ -356,7 +356,7 @@ class BannerZoneController extends AbstractAdminController
      * @Method({"GET"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.banner_zone.entity.banner_zone.class",
+     *      class = "elcodi.entity.banner_zone.class",
      *      mapping = {
      *          "id": "~id~",
      *      }
@@ -395,7 +395,7 @@ class BannerZoneController extends AbstractAdminController
      * @Method({"POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.banner.entity.banner_zone.class",
+     *      class = "elcodi.entity.banner_zone.class",
      *      mapping = {
      *          "id": "~id~",
      *      }
@@ -439,7 +439,7 @@ class BannerZoneController extends AbstractAdminController
      * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.banner.entity.banner_zone.class",
+     *      class = "elcodi.entity.banner_zone.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }
@@ -470,7 +470,7 @@ class BannerZoneController extends AbstractAdminController
      * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.banner.entity.banner_zone.class",
+     *      class = "elcodi.entity.banner_zone.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }
@@ -502,7 +502,7 @@ class BannerZoneController extends AbstractAdminController
      * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.banner.entity.banner_zone.class",
+     *      class = "elcodi.entity.banner_zone.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }

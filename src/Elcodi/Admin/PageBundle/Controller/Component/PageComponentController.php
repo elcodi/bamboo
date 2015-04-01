@@ -72,7 +72,7 @@ class PageComponentController extends AbstractAdminController
      *
      * @PaginatorAnnotation(
      *      attributes = "paginatorAttributes",
-     *      class = "elcodi.core.page.entity.page.class",
+     *      class = "elcodi.entity.page.class",
      *      page = "~page~",
      *      limit = "~limit~",
      *      wheres = {

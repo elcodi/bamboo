@@ -190,7 +190,7 @@ class ProductController extends AbstractAdminController
      * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.product.entity.product.class",
+     *      class = "elcodi.entity.product.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }
@@ -221,7 +221,7 @@ class ProductController extends AbstractAdminController
      * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.product.entity.product.class",
+     *      class = "elcodi.entity.product.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }
@@ -253,7 +253,7 @@ class ProductController extends AbstractAdminController
      * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.product.entity.product.class",
+     *      class = "elcodi.entity.product.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }

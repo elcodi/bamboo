@@ -220,7 +220,7 @@ class NewsletterSubscriptionController extends AbstractAdminController
      * @Method({"POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.newsletter.entity.newsletter_subscription.class",
+     *      class = "elcodi.entity.newsletter_subscription.class",
      *      mapping = {
      *          "id": "~id~",
      *      }
@@ -264,7 +264,7 @@ class NewsletterSubscriptionController extends AbstractAdminController
      * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.newsletter.entity.newsletter_subscription.class",
+     *      class = "elcodi.entity.newsletter_subscription.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }
@@ -296,7 +296,7 @@ class NewsletterSubscriptionController extends AbstractAdminController
      * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.newsletter.entity.newsletter_subscription.class",
+     *      class = "elcodi.entity.newsletter_subscription.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }
@@ -329,7 +329,7 @@ class NewsletterSubscriptionController extends AbstractAdminController
      * @Method({"GET"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.newsletter.entity.newsletter_subscription.class",
+     *      class = "elcodi.entity.newsletter_subscription.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }

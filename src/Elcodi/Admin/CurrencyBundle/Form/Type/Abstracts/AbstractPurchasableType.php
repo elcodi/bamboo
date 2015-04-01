@@ -22,6 +22,9 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 use Elcodi\Component\Core\Factory\Abstracts\AbstractFactory;
 
+/**
+ * Class AbstractPurchasableType
+ */
 abstract class AbstractPurchasableType extends AbstractType
 {
     /**
@@ -61,10 +64,12 @@ abstract class AbstractPurchasableType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $purchasable = $this->purchasableFactory->create();
-
         $resolver->setDefaults([
-            'empty_data' => $purchasable,
+            'empty_data' => function () {
+                $this
+                    ->purchasableFactory
+                    ->create();
+            },
         ]);
     }
 }

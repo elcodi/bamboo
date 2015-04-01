@@ -46,7 +46,7 @@ class CustomerStatsController extends AbstractStatsController
     public function totalStatsAction()
     {
         return [
-            'total' => $this->getTotalStats('elcodi.core.user.entity.customer.class'),
+            'total' => $this->getTotalStats('elcodi.entity.customer.class'),
         ];
     }
 
@@ -65,7 +65,7 @@ class CustomerStatsController extends AbstractStatsController
     public function monthlyStatsAction()
     {
         return [
-            'total' => $this->getMonthlyStats('elcodi.core.user.entity.customer.class'),
+            'total' => $this->getMonthlyStats('elcodi.entity.customer.class'),
         ];
     }
 
@@ -84,7 +84,7 @@ class CustomerStatsController extends AbstractStatsController
     public function dailyStatsAction()
     {
         return [
-            'total' => $this->getDailyStats('elcodi.core.user.entity.customer.class'),
+            'total' => $this->getDailyStats('elcodi.entity.customer.class'),
         ];
     }
 }

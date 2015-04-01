@@ -182,7 +182,7 @@ class VariantController extends AbstractAdminController
      * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.product.entity.product_variant.class",
+     *      class = "elcodi.entity.product_variant.class",
      *      name = "variant",
      *      mapping = {
      *          "id" = "~variantId~"
@@ -214,7 +214,7 @@ class VariantController extends AbstractAdminController
      * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.product.entity.product_variant.class",
+     *      class = "elcodi.entity.product_variant.class",
      *      mapping = {
      *          "id" = "~variantId~"
      *      }
@@ -246,14 +246,14 @@ class VariantController extends AbstractAdminController
      * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
-     *     class = "elcodi.core.product.entity.product.class",
+     *     class = "elcodi.entity.product.class",
      *     name = "product",
      *     mapping = {
      *         "id": "~productId~"
      *     }
      * )
      * @EntityAnnotation(
-     *      class = "elcodi.core.product.entity.product_variant.class",
+     *      class = "elcodi.entity.product_variant.class",
      *      name = "variant",
      *      mapping = {
      *          "id" = "~id~"

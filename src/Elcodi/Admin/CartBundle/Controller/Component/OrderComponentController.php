@@ -70,7 +70,7 @@ class OrderComponentController extends AbstractAdminController
      *
      * @PaginatorAnnotation(
      *      attributes = "paginatorAttributes",
-     *      class = "elcodi.core.cart.entity.order.class",
+     *      class = "elcodi.entity.order.class",
      *      page = "~page~",
      *      limit = "~limit~",
      *      orderBy = {
@@ -118,7 +118,7 @@ class OrderComponentController extends AbstractAdminController
      * @Template("AdminCartBundle:Order:editComponent.html.twig")
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.cart.entity.order.class",
+     *      class = "elcodi.entity.order.class",
      *      name = "order",
      *      mapping = {
      *          "id" = "~id~"

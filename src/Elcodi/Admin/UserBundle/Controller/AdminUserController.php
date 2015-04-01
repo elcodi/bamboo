@@ -182,7 +182,7 @@ class AdminUserController extends AbstractAdminController
      * )
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.user.entity.admin_user.class",
+     *      class = "elcodi.entity.admin_user.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }
@@ -213,7 +213,7 @@ class AdminUserController extends AbstractAdminController
      * )
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.user.entity.admin_user.class",
+     *      class = "elcodi.entity.admin_user.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }
@@ -251,7 +251,7 @@ class AdminUserController extends AbstractAdminController
      * )
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.user.entity.admin_user.class",
+     *      class = "elcodi.entity.admin_user.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }

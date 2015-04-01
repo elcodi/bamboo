@@ -70,7 +70,7 @@ class AttributeComponentController extends AbstractAdminController
      *
      * @PaginatorAnnotation(
      *      attributes = "paginatorAttributes",
-     *      class = "elcodi.core.attribute.entity.attribute.class",
+     *      class = "elcodi.entity.attribute.class",
      *      page = "~page~",
      *      limit = "~limit~",
      *      orderBy = {

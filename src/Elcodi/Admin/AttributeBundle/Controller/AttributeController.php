@@ -186,7 +186,7 @@ class AttributeController extends AbstractAdminController
      * )
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.attribute.entity.attribute.class",
+     *      class = "elcodi.entity.attribute.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }
@@ -217,7 +217,7 @@ class AttributeController extends AbstractAdminController
      * )
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.attribute.entity.attribute.class",
+     *      class = "elcodi.entity.attribute.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }
@@ -249,7 +249,7 @@ class AttributeController extends AbstractAdminController
      * @Method({"GET", "POST"})
      *
      * @EntityAnnotation(
-     *      class = "elcodi.core.attribute.entity.attribute.class",
+     *      class = "elcodi.entity.attribute.class",
      *      mapping = {
      *          "id" = "~id~"
      *      }

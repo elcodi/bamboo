@@ -87,7 +87,7 @@ class CategoryController extends Controller
      * )
      *
      * @AnnotationEntity(
-     *      class = "elcodi.core.product.entity.category.class",
+     *      class = "elcodi.entity.category.class",
      *      name = "category",
      *      mapping = {
      *          "id" = "~id~",

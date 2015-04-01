@@ -72,7 +72,7 @@ class AdminUserComponentController extends AbstractAdminController
      *
      * @PaginatorAnnotation(
      *      attributes = "paginatorAttributes",
-     *      class = "elcodi.core.user.entity.admin_user.class",
+     *      class = "elcodi.entity.admin_user.class",
      *      page = "~page~",
      *      limit = "~limit~",
      *      orderBy = {
