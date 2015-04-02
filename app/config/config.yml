@@ -7,6 +7,7 @@ imports:
     - { resource: common/filesystem.yml }
     - { resource: common/configuration.yml }
     - { resource: common/cache.yml }
+    - { resource: common/twig.yml }
     - { resource: common/metrics.yml }
 
     # Payment-specific bundle and elcodi configuration
