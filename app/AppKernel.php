@@ -73,7 +73,6 @@ class AppKernel extends Kernel
             /**
              * Elcodi core bundles
              */
-            new \Elcodi\Bundle\BambooBundle\ElcodiBambooBundle(),
             new \Elcodi\Bundle\CoreBundle\ElcodiCoreBundle(),
             new \Elcodi\Bundle\LanguageBundle\ElcodiLanguageBundle(),
             new \Elcodi\Bundle\CartBundle\ElcodiCartBundle(),
@@ -100,7 +99,6 @@ class AppKernel extends Kernel
             new \Elcodi\Bundle\CommentBundle\ElcodiCommentBundle(),
             new \Elcodi\Bundle\ZoneBundle\ElcodiZoneBundle(),
             new \Elcodi\Bundle\ShippingBundle\ElcodiShippingBundle(),
-            new \Elcodi\Common\FirewallBundle\ElcodiFirewallBundle(),
 
             /**
              * Elcodi store bundle
@@ -142,6 +140,12 @@ class AppKernel extends Kernel
             new \Elcodi\Admin\ShippingBundle\AdminShippingBundle(),
             new \Elcodi\Bundle\FixturesBoosterBundle\ElcodiFixturesBoosterBundle(),
             new \Elcodi\Admin\GeoBundle\AdminGeoBundle(),
+
+            /**
+             * Elcodi common bundle
+             */
+            new \Elcodi\Common\FirewallBundle\ElcodiFirewallBundle(),
+            new \Elcodi\Common\BambooBundle\ElcodiBambooBundle(),
 
             /**
              * Elcodi Templates

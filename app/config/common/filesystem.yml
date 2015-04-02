@@ -1,0 +1,9 @@
+knp_gaufrette:
+    adapters:
+        local:
+            local:
+                directory: /tmp/local
+                create: true
+    filesystems:
+        local:
+            adapter: local

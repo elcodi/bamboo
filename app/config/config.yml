@@ -3,21 +3,21 @@ imports:
     - { resource: security/security.yml }
 
     # Common Elcodi configuration
-    - { resource: @ElcodiBambooBundle/Resources/config/translations.yml }
-    - { resource: @ElcodiBambooBundle/Resources/config/filesystem.yml }
-    - { resource: @ElcodiBambooBundle/Resources/config/configuration.yml }
-    - { resource: @ElcodiBambooBundle/Resources/config/cache.yml }
-    - { resource: @ElcodiBambooBundle/Resources/config/metrics.yml }
+    - { resource: common/translations.yml }
+    - { resource: common/filesystem.yml }
+    - { resource: common/configuration.yml }
+    - { resource: common/cache.yml }
+    - { resource: common/metrics.yml }
 
     # Payment-specific bundle and elcodi configuration
     - { resource: @PaymentBridgeBundle/Resources/config/configuration.yml }
     - { resource: @PaymentBridgeBundle/Resources/config/payment.yml }
 
     # Specific service overrides
-    - { resource: services.yml }
+    - { resource: common/services.yml }
 
     # Project-specific configuration
-    - { resource: config_local.yml, ignore_errors: true }
+    - { resource: config_local.yml }
 
 framework:
     secret:          "%secret%"
