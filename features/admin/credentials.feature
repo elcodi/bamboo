@@ -1,14 +1,13 @@
-Feature: admin
+@admin @credentials
+Feature: Admin credentials
   In order to access the admin interface
   As a visitor
   I need to be able to log in to the website
 
-  @admin @login
   Scenario: Enter the admin with no credentials
     Given I am on "/admin/"
     Then I should be on "/admin/login"
 
-  @admin @login
   Scenario: Enter the admin with credentials
     Given I am on "/admin/"
     When I fill in the following:

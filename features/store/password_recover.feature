@@ -1,5 +1,5 @@
-@store @password @view
-Feature: password recover
+@store @password
+Feature: Store password recover
   In order to access the customer zone
   As an anonymous user
   I need to be able to recover my password
