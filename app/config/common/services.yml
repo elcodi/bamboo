@@ -17,3 +17,22 @@ services:
             - %kernel.cache_dir%
             - %jms_i18n_routing.catalogue%
             - %jms_i18n_routing.default_locale%
+
+    #
+    # Page renderer
+    #
+    bamboo.page.renderer.template_renderer:
+        class: Elcodi\Component\Page\Renderer\TemplatedPageRenderer
+        arguments:
+            - @templating.engine.twig
+            - "Layout:_static.html.twig"
+            - [@=elcodi_config("store.template")]
+
+    #
+    # Store tracker
+    #
+    elcodi.store_tracker:
+        class: stdClass
+        factory_service: elcodi.manager.configuration
+        factory_method: get
+        arguments: ['store.tracker']
