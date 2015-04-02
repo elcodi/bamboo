@@ -40,4 +40,21 @@ class Context extends AbstractElcodiContext
         $page->fillField('elcodi_admin_user_form_type_login_password', $password);
         $page->pressButton('submit-login');
     }
+
+    /**
+     * @Given /^(?:|I )am logged in the admin as "(?P<username>[^"]*)" - "(?P<password>[^"]*)"$/
+     * @When /^(?:|I )log in the admin as "(?P<username>[^"]*)" - "(?P<password>[^"]*)"$/
+     */
+    public function iAmLoggedAs($username, $password)
+    {
+        $this->visitPath('/admin/login');
+
+        $page = $this
+            ->getSession()
+            ->getPage();
+
+        $page->fillField('elcodi_admin_user_form_type_login_email', $username);
+        $page->fillField('elcodi_admin_user_form_type_login_password', $password);
+        $page->pressButton('submit-login');
+    }
 }

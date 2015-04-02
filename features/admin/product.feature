@@ -1,9 +1,9 @@
-Feature: admin
+@admin @product
+Feature: Admin product
   In order to manage my products
   As an admin
   I need to be able to see all product views
 
-  @admin @product
   Scenario: See product list in admin with new product element
     Given In admin, I am logged as "admin@admin.com" - "1234"
     And I am on "/admin/products"
@@ -13,7 +13,6 @@ Feature: admin
     Then the response should not contain a "product-19" test attribute
     Then the response should contain a "new-product" test attribute
 
-  @admin @product
   Scenario: Add a new product
     Given In admin, I am logged as "admin@admin.com" - "1234"
     And I am on "/admin/product/new"

@@ -31,7 +31,7 @@ use Elcodi\Store\CoreBundle\Behat\abstracts\AbstractElcodiContext;
 class Context extends AbstractElcodiContext
 {
     /**
-     * @Given ~^I am on the product (\d+) page$~
+     * @Given ~^I am on the product (?P<productId>\d+) page$~
      */
     public function iAmOnTheProductPage($productId)
     {
@@ -46,7 +46,7 @@ class Context extends AbstractElcodiContext
     }
 
     /**
-     * @Then ~^I should see more than (\d+) products$~
+     * @Then ~^I should see more than (?P<numberOfProducts>\d+) products$~
      */
     public function iShouldSeeMoreThanXProducts($numberOfProducts)
     {
@@ -64,7 +64,7 @@ class Context extends AbstractElcodiContext
     }
 
     /**
-     * @Then ~^I should see less than (\d+) products$~
+     * @Then ~^I should see less than (?P<numberOfProducts>\d+) products$~
      */
     public function iShouldSeeLessThanXProducts($numberOfProducts)
     {
@@ -82,7 +82,7 @@ class Context extends AbstractElcodiContext
     }
 
     /**
-     * @Then ~^I should see exactly (\d+) products$~
+     * @Then ~^I should see exactly (?P<numberOfProducts>\d+) products$~
      */
     public function iShouldSeeExactlyXProducts($numberOfProducts)
     {
@@ -100,7 +100,7 @@ class Context extends AbstractElcodiContext
     }
 
     /**
-     * @Then ~^I should see product (\d+) name$~
+     * @Then ~^I should see product (?P<productId>\d+) name$~
      */
     public function iShouldSeeProductName($productId)
     {

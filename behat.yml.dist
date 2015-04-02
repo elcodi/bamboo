@@ -18,5 +18,6 @@ default:
                 - Elcodi\Store\CoreBundle\Behat\DoctrineContext
                 - Elcodi\Store\CoreBundle\Behat\Context
                 - Elcodi\Store\ProductBundle\Behat\Context
+                - Elcodi\Store\CartBundle\Behat\Context
                 - Elcodi\Admin\CoreBundle\Behat\Context
 

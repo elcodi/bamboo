@@ -1,5 +1,5 @@
-@store @view
-Feature: store is unavailable
+@store @unavailable
+Feature: Store is unavailable
   In order to block the store
   As an administrator
   I need to be able to mark it "disabled" or "under construction"

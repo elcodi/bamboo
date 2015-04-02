@@ -1,26 +1,23 @@
-Feature: user
+@store @user
+Feature: Store user
   In order to manage my information
   As a logged user
   I need to be able to view and change my information
 
-  @user @login
   Scenario: User management should not be accessible if not logged
     Given I am on "/user"
     Then I should be on "/login"
 
-  @user @login
   Scenario: User should be able to logout
     Given I am logged as "noncustomer@customer.com" - "1234"
     When I go to "/logout"
     Then the response should not contain a "logged-username" test attribute
 
-  @user @login
   Scenario: Wrong login
     Given I am logged as "customer@customer.com" - "wrong-password"
     Then I should be on "/login"
     And the response should contain "message-ko"
 
-  @user @login
   Scenario: User management should be accessible if logged
     Given I am logged as "customer@customer.com" - "1234"
     And I am on "/user"
@@ -29,7 +26,6 @@ Feature: user
     And the page contains a "user-dashboard-orders-link" test attribute
     And the page contains a "user-dashboard-address-link" test attribute
 
-  @user
   Scenario: User logged should see its data in edit tab
     Given I am logged as "customer@customer.com" - "1234"
     Then I am on "/user/edit"
@@ -39,13 +35,11 @@ Feature: user
     And the "store_user_form_type_profile_password_first" field should not contain "1234"
     And the "store_user_form_type_profile_password_second" field should not contain "1234"
 
-  @user
   Scenario: User logged should see its data in all pages
     Given I am logged as "customer@customer.com" - "1234"
     And I am on "/"
     And I should see "Homer"
 
-  @user
   Scenario: User logged should be able to change its data
     Given I am logged as "customer@customer.com" - "1234"
     And I am on "/user/edit"
