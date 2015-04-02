@@ -104,7 +104,6 @@ class ProductType extends AbstractPurchasableType
                 'required' => false,
                 'property' => 'id',
                 'multiple' => true,
-                'expanded' => true,
             ]);
 
         $builder->addEventSubscriber($this->getEntityTranslatorFormEventListener());
