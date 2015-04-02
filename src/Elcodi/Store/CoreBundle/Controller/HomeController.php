@@ -24,6 +24,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
+use Elcodi\Common\ConfigurationBundle\Annotation\Configuration as ConfigurationAnnotation;
 use Elcodi\Store\CoreBundle\Controller\Traits\TemplateRenderTrait;
 
 /**
@@ -44,18 +45,23 @@ class HomeController extends Controller
      * @return Response Response
      *
      * @Route(
-     *      path = "/{page}/{limit}",
+     *      path = "/{page}",
      *      name = "store_homepage",
      *      methods = {"GET"},
      *      requirements = {
      *          "page" = "\d+",
-     *          "limit" = "\d+",
      *      },
      *      defaults = {
      *          "page" = "1",
-     *          "limit" = "6",
      *      },
      * )
+     *
+     * @ConfigurationAnnotation(
+     *      name = "limit",
+     *      key = "store.home_products_per_page",
+     *      default = 6
+     * )
+     *
      * @PaginatorAnnotation(
      *      attributes = "paginatorAttributes",
      *      class = "elcodi.entity.product.class",
