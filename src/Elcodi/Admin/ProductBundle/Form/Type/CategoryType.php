@@ -21,9 +21,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
+use Elcodi\Component\Core\Factory\Traits\FactoryTrait;
 use Elcodi\Component\EntityTranslator\EventListener\Traits\EntityTranslatableFormTrait;
-use Elcodi\Component\Product\Factory\CategoryFactory;
-use Elcodi\Component\Product\Factory\ProductFactory;
 use Elcodi\Component\Product\Repository\CategoryRepository;
 
 /**
@@ -31,35 +30,7 @@ use Elcodi\Component\Product\Repository\CategoryRepository;
  */
 class CategoryType extends AbstractType
 {
-    use EntityTranslatableFormTrait;
-
-    /**
-     * @var CategoryFactory
-     *
-     * Category factory
-     */
-    protected $categoryFactory;
-
-    /**
-     * @var ProductFactory
-     *
-     * Product factory
-     */
-    protected $productFactory;
-
-    /**
-     * Constructor
-     *
-     * @param CategoryFactory $categoryFactory Category Factory
-     * @param ProductFactory  $productFactory  Product Factory
-     */
-    public function __construct(
-        CategoryFactory $categoryFactory,
-        ProductFactory $productFactory
-    ) {
-        $this->categoryFactory = $categoryFactory;
-        $this->productFactory  = $productFactory;
-    }
+    use EntityTranslatableFormTrait, FactoryTrait;
 
     /**
      * Default form options
@@ -71,7 +42,14 @@ class CategoryType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
-            'empty_data' => $this->categoryFactory->create(),
+            'empty_data' => function () {
+                $this
+                    ->factory
+                    ->create();
+            },
+            'data_class' => $this
+                ->factory
+                ->getEntityNamespace(),
         ]);
     }
 
@@ -83,7 +61,13 @@ class CategoryType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $currentCategoryId = $builder->getData()->getId();
+        $currentCategoryId = $builder
+            ->getData()
+            ->getId();
+
+        $categoryNamespace = $this
+            ->factory
+            ->getEntityNamespace();
 
         $builder
             ->add('name', 'text', [
@@ -108,13 +92,13 @@ class CategoryType extends AbstractType
                 'required' => false,
             ])
             ->add('parent', 'entity', [
-                'class'         => $this->categoryFactory->getEntityNamespace(),
+                'class'         => $categoryNamespace,
                 'query_builder' => $this->getAvailableCategories($currentCategoryId),
                 'required'      => true,
                 'multiple'      => false,
             ])
             ->add('products', 'entity', [
-                'class'    => $this->productFactory->getEntityNamespace(),
+                'class'    => $categoryNamespace,
                 'required' => false,
                 'multiple' => true,
             ]);

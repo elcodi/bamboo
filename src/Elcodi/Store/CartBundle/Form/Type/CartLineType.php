@@ -22,27 +22,14 @@ use Symfony\Component\Form\Extension\Core\DataTransformer\IntegerToLocalizedStri
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
+use Elcodi\Component\Core\Factory\Traits\FactoryTrait;
+
 /**
  * Class CartLineType
  */
 class CartLineType extends AbstractType
 {
-    /**
-     * @var string
-     *
-     * CartLine namespace
-     */
-    protected $cartLineNamespace;
-
-    /**
-     * Constructor
-     *
-     * @param string $cartLineNamespace CartLine namespace
-     */
-    public function __construct($cartLineNamespace)
-    {
-        $this->cartLineNamespace = $cartLineNamespace;
-    }
+    use FactoryTrait;
 
     /**
      * Default form options
@@ -54,7 +41,14 @@ class CartLineType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => $this->cartLineNamespace,
+            'empty_data' => function () {
+                $this
+                    ->factory
+                    ->create();
+            },
+            'data_class' => $this
+                ->factory
+                ->getEntityNamespace(),
         ]);
     }
 

@@ -19,12 +19,64 @@ namespace Elcodi\Admin\BannerBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+
+use Elcodi\Component\Core\Factory\Traits\FactoryTrait;
 
 /**
  * Class BannerZoneType
  */
 class BannerZoneType extends AbstractType
 {
+    use FactoryTrait;
+
+    /**
+     * @var string
+     *
+     * language namespace
+     */
+    protected $languageNamespace;
+
+    /**
+     * @var string
+     *
+     * Banner namespace
+     */
+    protected $bannerNamespace;
+
+    /**
+     * Construct
+     *
+     * @param string $languageNamespace language namespace
+     * @param string $bannerNamespace   Banner namespace
+     */
+    public function __construct($languageNamespace, $bannerNamespace)
+    {
+        $this->languageNamespace = $languageNamespace;
+        $this->bannerNamespace = $bannerNamespace;
+    }
+
+    /**
+     * Default form options
+     *
+     * @param OptionsResolverInterface $resolver
+     *
+     * @return array With the options
+     */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults([
+            'empty_data' => function () {
+                $this
+                    ->factory
+                    ->create();
+            },
+            'data_class' => $this
+                ->factory
+                ->getEntityNamespace(),
+        ]);
+    }
+
     /**
      * Buildform function
      *
@@ -51,13 +103,13 @@ class BannerZoneType extends AbstractType
                 'label'    => 'width',
             ])
             ->add('language', 'entity', [
-                'class'    => 'Elcodi\Component\Core\Entity\Language',
+                'class'    => $this->languageNamespace,
                 'required' => false,
                 'label'    => 'language',
                 'multiple' => false,
             ])
             ->add('banners', 'entity', [
-                'class'    => 'Elcodi\Component\Banner\Entity\Banner',
+                'class'    => $this->bannerNamespace,
                 'required' => false,
                 'label'    => 'banners',
                 'multiple' => false,

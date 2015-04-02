@@ -19,12 +19,38 @@ namespace Elcodi\Admin\CurrencyBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+
+use Elcodi\Component\Core\Factory\Traits\FactoryTrait;
 
 /**
  * Class CurrencyType
  */
 class CurrencyType extends AbstractType
 {
+    use FactoryTrait;
+
+    /**
+     * Default form options
+     *
+     * @param OptionsResolverInterface $resolver
+     *
+     * @return array With the options
+     */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults([
+            'empty_data' => function () {
+                $this
+                    ->factory
+                    ->create();
+            },
+            'data_class' => $this
+                ->factory
+                ->getEntityNamespace(),
+        ]);
+    }
+
     /**
      * Buildform function
      *

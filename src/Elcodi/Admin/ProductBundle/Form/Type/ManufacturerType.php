@@ -21,6 +21,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
+use Elcodi\Component\Core\Factory\Traits\FactoryTrait;
 use Elcodi\Component\EntityTranslator\EventListener\Traits\EntityTranslatableFormTrait;
 
 /**
@@ -28,23 +29,23 @@ use Elcodi\Component\EntityTranslator\EventListener\Traits\EntityTranslatableFor
  */
 class ManufacturerType extends AbstractType
 {
-    use EntityTranslatableFormTrait;
+    use EntityTranslatableFormTrait, FactoryTrait;
 
     /**
      * @var string
      *
-     * Entity namespace
+     * Image namespace
      */
-    protected $entityNamespace;
+    protected $imageNamespace;
 
     /**
-     * Constructor
+     * Construct
      *
-     * @param string $entityNamespace Entity names
+     * @param string $imageNamespace Image namespace
      */
-    public function __construct($entityNamespace)
+    public function __construct($imageNamespace)
     {
-        $this->entityNamespace = $entityNamespace;
+        $this->imageNamespace = $imageNamespace;
     }
 
     /**
@@ -57,7 +58,14 @@ class ManufacturerType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => $this->entityNamespace,
+            'empty_data' => function () {
+                $this
+                    ->factory
+                    ->create();
+            },
+            'data_class' => $this
+                ->factory
+                ->getEntityNamespace(),
         ]);
     }
 
@@ -83,7 +91,7 @@ class ManufacturerType extends AbstractType
                 'required' => false,
             ])
             ->add('images', 'entity', [
-                'class'    => 'Elcodi\Component\Media\Entity\Image',
+                'class'    => $this->imageNamespace,
                 'required' => false,
                 'property' => 'id',
                 'multiple' => true,

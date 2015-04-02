@@ -5,13 +5,10 @@ services:
     #
     elcodi.admin.currency.form_type.currency:
         class: %elcodi.admin.currency.form_type.currency.class%
+        calls:
+            - [setFactory, [@elcodi.factory.currency]]
         tags:
             - { name: form.type, alias: elcodi_admin_currency_form_type_currency }
-
-    elcodi.admin.currency.form_type.currency_exchange_rate:
-        class: %elcodi.admin.currency.form_type.currency_exchange_rate.class%
-        tags:
-            - { name: form.type, alias: elcodi_admin_currency_form_type_currency_exchange_rate }
 
     elcodi.admin.currency.form_type.money:
         class: %elcodi.admin.currency.form_type.money.class%

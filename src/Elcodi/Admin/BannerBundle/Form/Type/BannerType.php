@@ -19,12 +19,64 @@ namespace Elcodi\Admin\BannerBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+
+use Elcodi\Component\Core\Factory\Traits\FactoryTrait;
 
 /**
  * Class BannerType
  */
 class BannerType extends AbstractType
 {
+    use FactoryTrait;
+
+    /**
+     * @var string
+     *
+     * Image namespace
+     */
+    protected $imageNamespace;
+
+    /**
+     * @var string
+     *
+     * BannerZone namespace
+     */
+    protected $bannerZoneNamespace;
+
+    /**
+     * Construct
+     *
+     * @param string $imageNamespace      Image namespace
+     * @param string $bannerZoneNamespace BannerZone namespace
+     */
+    public function __construct($imageNamespace, $bannerZoneNamespace)
+    {
+        $this->imageNamespace = $imageNamespace;
+        $this->bannerZoneNamespace = $bannerZoneNamespace;
+    }
+
+    /**
+     * Default form options
+     *
+     * @param OptionsResolverInterface $resolver
+     *
+     * @return array With the options
+     */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults([
+            'empty_data' => function () {
+                $this
+                    ->factory
+                    ->create();
+            },
+            'data_class' => $this
+                ->factory
+                ->getEntityNamespace(),
+        ]);
+    }
+
     /**
      * Buildform function
      *
@@ -55,19 +107,19 @@ class BannerType extends AbstractType
                 'label'    => 'enabled',
             ])
             ->add('image', 'entity', [
-                'class'    => 'Elcodi\Component\Media\Entity\Image',
+                'class'    => $this->imageNamespace,
                 'required' => false,
                 'label'    => 'image',
                 'multiple' => false,
             ])
             ->add('principalImage', 'entity', [
-                'class'    => 'Elcodi\Component\Media\Entity\Image',
+                'class'    => $this->imageNamespace,
                 'required' => false,
                 'label'    => 'principalImage',
                 'multiple' => false,
             ])
             ->add('bannerZones', 'entity', [
-                'class'    => 'Elcodi\Component\Banner\Entity\BannerZone',
+                'class'    => $this->bannerZoneNamespace,
                 'required' => false,
                 'label'    => 'bannerZones',
                 'multiple' => false,

@@ -19,8 +19,8 @@ services:
 
     admin.user.form_type.profile:
         class: %admin.user.form_type.profile.class%
-        arguments:
-            customer_namespace: %elcodi.entity.customer.class%
+        calls:
+            - [setFactory, [@elcodi.factory.customer]]
         tags:
             - { name: form.type, alias: elcodi_admin_user_form_type_profile }
 
@@ -37,14 +37,15 @@ services:
     admin.user.form_type.customer:
         class: %admin.user.form_type.customer.class%
         arguments:
-            customer_factory: @elcodi.factory.customer
-            language_factory: @elcodi.factory.language
+            - %elcodi.entity.language.class%
+        calls:
+            - [setFactory, [@elcodi.factory.customer]]
         tags:
             - { name: form.type, alias: elcodi_admin_user_form_type_customer }
 
     admin.user.form_type.admin_user:
         class: %admin.user.form_type.admin_user.class%
-        arguments:
-            admin_user_factory: @elcodi.factory.admin_user
+        calls:
+            - [setFactory, [@elcodi.factory.admin_user]]
         tags:
             - { name: form.type, alias: elcodi_admin_user_form_type_admin_user }

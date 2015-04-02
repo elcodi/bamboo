@@ -17,17 +17,78 @@
 
 namespace Elcodi\Admin\ProductBundle\Form\Type;
 
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-use Elcodi\Admin\CurrencyBundle\Form\Type\Abstracts\AbstractPurchasableType;
+use Elcodi\Component\Core\Factory\Traits\FactoryTrait;
 use Elcodi\Component\EntityTranslator\EventListener\Traits\EntityTranslatableFormTrait;
 
 /**
  * Class ProductType
  */
-class ProductType extends AbstractPurchasableType
+class ProductType extends AbstractType
 {
-    use EntityTranslatableFormTrait;
+    use EntityTranslatableFormTrait, FactoryTrait;
+
+    /**
+     * @var string
+     *
+     * Manufacturer namespace
+     */
+    protected $manufacturerNamespace;
+
+    /**
+     * @var string
+     *
+     * Category namespace
+     */
+    protected $categoryNamespace;
+
+    /**
+     * @var string
+     *
+     * Image namespace
+     */
+    protected $imageNamespace;
+
+    /**
+     * Construct
+     *
+     * @param string $manufacturerNamespace Manufacturer namespace
+     * @param string $categoryNamespace     Category namespace
+     * @param string $imageNamespace        Image namespace
+     */
+    public function __construct(
+        $manufacturerNamespace,
+        $categoryNamespace,
+        $imageNamespace
+    ) {
+        $this->manufacturerNamespace = $manufacturerNamespace;
+        $this->categoryNamespace = $categoryNamespace;
+        $this->imageNamespace = $imageNamespace;
+    }
+
+    /**
+     * Default form options
+     *
+     * @param OptionsResolverInterface $resolver
+     *
+     * @return array With the options
+     */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults([
+            'empty_data' => function () {
+                $this
+                    ->factory
+                    ->create();
+            },
+            'data_class' => $this
+                ->factory
+                ->getEntityNamespace(),
+        ]);
+    }
 
     /**
      * Buildform function
@@ -90,17 +151,17 @@ class ProductType extends AbstractPurchasableType
                 'required' => false,
             ])
             ->add('manufacturer', 'entity', [
-                'class'    => 'Elcodi\Component\Product\Entity\Manufacturer',
+                'class'    => $this->manufacturerNamespace,
                 'required' => false,
                 'multiple' => false,
             ])
             ->add('principalCategory', 'entity', [
-                'class'    => 'Elcodi\Component\Product\Entity\Category',
+                'class'    => $this->categoryNamespace,
                 'required' => true,
                 'multiple' => false,
             ])
             ->add('images', 'entity', [
-                'class'    => 'Elcodi\Component\Media\Entity\Image',
+                'class'    => $this->imageNamespace,
                 'required' => false,
                 'property' => 'id',
                 'multiple' => true,

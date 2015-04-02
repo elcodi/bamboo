@@ -21,31 +21,15 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
+use Elcodi\Component\Core\Factory\Traits\FactoryTrait;
 use Elcodi\Component\User\ElcodiUserProperties;
-use Elcodi\Component\User\Factory\AdminUserFactory;
 
 /**
  * Class AdminUserType
  */
 class AdminUserType extends AbstractType
 {
-    /**
-     * @var AdminUserFactory
-     *
-     * Customer factory
-     */
-    protected $adminUserFactory;
-
-    /**
-     * Constructor
-     *
-     * @param AdminUserFactory $adminUserFactory Customer factory
-     */
-    public function __construct(
-        AdminUserFactory $adminUserFactory
-    ) {
-        $this->adminUserFactory = $adminUserFactory;
-    }
+    use FactoryTrait;
 
     /**
      * Default form options
@@ -57,7 +41,14 @@ class AdminUserType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
-            'empty_data' => $this->adminUserFactory->create(),
+            'empty_data' => function () {
+                $this
+                    ->factory
+                    ->create();
+            },
+            'data_class' => $this
+                ->factory
+                ->getEntityNamespace(),
         ]);
     }
 

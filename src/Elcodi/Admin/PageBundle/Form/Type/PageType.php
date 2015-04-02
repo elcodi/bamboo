@@ -20,7 +20,9 @@ namespace Elcodi\Admin\PageBundle\Form\Type;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
+use Elcodi\Component\Core\Factory\Traits\FactoryTrait;
 use Elcodi\Component\EntityTranslator\EventListener\Traits\EntityTranslatableFormTrait;
 use Elcodi\Component\Page\ElcodiPageTypes;
 
@@ -29,7 +31,7 @@ use Elcodi\Component\Page\ElcodiPageTypes;
  */
 class PageType extends AbstractType
 {
-    use EntityTranslatableFormTrait;
+    use EntityTranslatableFormTrait, FactoryTrait;
 
     /**
      * A permanent page form event subscriber.
@@ -46,6 +48,27 @@ class PageType extends AbstractType
     public function __construct(EventSubscriberInterface $permanentPageSubscriber)
     {
         $this->permanentPageSubscriber = $permanentPageSubscriber;
+    }
+
+    /**
+     * Default form options
+     *
+     * @param OptionsResolverInterface $resolver
+     *
+     * @return array With the options
+     */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults([
+            'empty_data' => function () {
+                $this
+                    ->factory
+                    ->create();
+            },
+            'data_class' => $this
+                ->factory
+                ->getEntityNamespace(),
+        ]);
     }
 
     /**

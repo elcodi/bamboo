@@ -21,30 +21,14 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-use Elcodi\Component\geo\Factory\AddressFactory;
+use Elcodi\Component\Core\Factory\Traits\FactoryTrait;
 
 /**
  * Class AddressType
  */
 class AddressType extends AbstractType
 {
-    /**
-     * @var string
-     *
-     * Address factory
-     */
-    protected $addressFactory;
-
-    /**
-     * Constructor
-     *
-     * @param AddressFactory $addressFactory Address factory
-     */
-    public function __construct(
-        AddressFactory $addressFactory
-    ) {
-        $this->addressFactory = $addressFactory;
-    }
+    use FactoryTrait;
 
     /**
      * Default form options
@@ -56,8 +40,14 @@ class AddressType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
-            'data_class'  => $this->addressFactory->getEntityNamespace(),
-            'empty_data'  => $this->addressFactory->create(),
+            'empty_data' => function () {
+                $this
+                    ->factory
+                    ->create();
+            },
+            'data_class' => $this
+                ->factory
+                ->getEntityNamespace(),
         ]);
     }
 

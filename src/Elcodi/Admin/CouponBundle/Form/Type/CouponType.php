@@ -17,16 +17,20 @@
 
 namespace Elcodi\Admin\CouponBundle\Form\Type;
 
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-use Elcodi\Admin\CurrencyBundle\Form\Type\Abstracts\AbstractPurchasableType;
+use Elcodi\Component\Core\Factory\Traits\FactoryTrait;
 use Elcodi\Component\Coupon\ElcodiCouponTypes;
 
 /**
  * Class CouponType
  */
-class CouponType extends AbstractPurchasableType
+class CouponType extends AbstractType
 {
+    use FactoryTrait;
+
     /**
      * @var string
      *
@@ -35,13 +39,34 @@ class CouponType extends AbstractPurchasableType
     protected $ruleNamespace;
 
     /**
-     * Set namespace for relationship with rules
+     * Constructor
      *
-     * @param string $ruleNamespace rule namespace
+     * @param string $ruleNamespace Rule namespace
      */
-    public function setRuleNamespace($ruleNamespace)
+    public function __construct($ruleNamespace)
     {
         $this->ruleNamespace = $ruleNamespace;
+    }
+
+    /**
+     * Default form options
+     *
+     * @param OptionsResolverInterface $resolver
+     *
+     * @return array With the options
+     */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults([
+            'empty_data' => function () {
+                $this
+                    ->factory
+                    ->create();
+            },
+            'data_class' => $this
+                ->factory
+                ->getEntityNamespace(),
+        ]);
     }
 
     /**
