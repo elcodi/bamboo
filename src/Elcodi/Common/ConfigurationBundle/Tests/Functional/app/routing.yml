@@ -1,0 +1,15 @@
+FakeBundleControllerConfigurationParameter:
+    pattern: /fake/parameter
+    defaults: { _controller: FakeBundle:Fake:parameter }
+
+FakeBundleControllerConfigurationParameterWithDefault:
+    pattern: /fake/parameter_with_default
+    defaults: { _controller: FakeBundle:Fake:parameterWithDefault }
+
+FakeBundleControllerConfigurationNonExistentParameter:
+    pattern: /fake/parameter_non_existent
+    defaults: { _controller: FakeBundle:Fake:nonExistentParameter }
+
+FakeBundleControllerConfigurationNonExistentParameterWithDefault:
+    pattern: /fake/parameter_non_existent_with_default
+    defaults: { _controller: FakeBundle:Fake:nonExistentParameterWithDefault }
