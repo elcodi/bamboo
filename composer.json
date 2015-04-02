@@ -70,7 +70,6 @@
         "mmoreram/extractor": "~1.0, >=1.1.1",
         "mmoreram/cache-flush-bundle": "0.1.0",
 
-        "elcodi/bamboo-bundle": "0.5.5",
         "elcodi/attribute-bundle": "0.5.5",
         "elcodi/banner-bundle": "0.5.5",
         "elcodi/cart-bundle": "0.5.5",
