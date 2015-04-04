@@ -128,9 +128,8 @@ class AddressController extends Controller
         if ($form->isValid()) {
             $addressToSave = $this
                 ->get('elcodi.manager.address')
-                ->saveAddress($address)
-                ->getSavedAddress();
-
+                ->saveAddress($address);
+            
             $customer = $this->getUser();
             $customer->removeAddress($address);
             $customer->addAddress($addressToSave);
