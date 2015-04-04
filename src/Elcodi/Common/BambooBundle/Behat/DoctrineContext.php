@@ -15,14 +15,14 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-namespace Elcodi\Store\CoreBundle\Behat;
+namespace Elcodi\Common\BambooBundle\Behat;
 
 use Behat\Behat\Hook\Scope\AfterScenarioScope;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Doctrine\DBAL\Connection;
 use Symfony\Component\Console\Input\ArrayInput;
 
-use Elcodi\Store\CoreBundle\Behat\abstracts\AbstractElcodiContext;
+use Elcodi\Common\BambooBundle\Behat\abstracts\AbstractElcodiContext;
 
 /**
  * Class DoctrineContext
