@@ -129,7 +129,7 @@ class AddressController extends Controller
             $addressToSave = $this
                 ->get('elcodi.manager.address')
                 ->saveAddress($address);
-            
+
             $customer = $this->getUser();
             $customer->removeAddress($address);
             $customer->addAddress($addressToSave);

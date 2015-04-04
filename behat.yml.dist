@@ -12,12 +12,23 @@ default:
                     symfony2: ~
 
     suites:
-        homepage:
+        store:
+            paths:
+                - %paths.base%/features/store
             contexts:
                 - Behat\MinkExtension\Context\MinkContext
-                - Elcodi\Store\CoreBundle\Behat\DoctrineContext
+                - Elcodi\Common\BambooBundle\Behat\DoctrineContext
+                - Elcodi\Common\BambooBundle\Behat\Context
                 - Elcodi\Store\CoreBundle\Behat\Context
                 - Elcodi\Store\ProductBundle\Behat\Context
                 - Elcodi\Store\CartBundle\Behat\Context
-                - Elcodi\Admin\CoreBundle\Behat\Context
+                - Elcodi\Store\GeoBundle\Behat\Context
 
+        admin:
+            paths:
+                - %paths.base%/features/admin
+            contexts:
+                - Behat\MinkExtension\Context\MinkContext
+                - Elcodi\Common\BambooBundle\Behat\DoctrineContext
+                - Elcodi\Common\BambooBundle\Behat\Context
+                - Elcodi\Admin\CoreBundle\Behat\Context

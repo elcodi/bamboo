@@ -17,7 +17,7 @@
 
 namespace Elcodi\Store\CartBundle\Behat;
 
-use Elcodi\Store\CoreBundle\Behat\abstracts\AbstractElcodiContext;
+use Elcodi\Common\BambooBundle\Behat\abstracts\AbstractElcodiContext;
 
 /**
  * Class Context
@@ -44,7 +44,7 @@ class Context extends AbstractElcodiContext
     /**
      * @When /^I remove line "(?P<lineId>\d+)" from my cart$/
      */
-    public function iFromProductInCart($lineId)
+    public function iRemoveLineFromCart($lineId)
     {
         $this->visitPath('/cart/line/' . $lineId . '/remove');
     }

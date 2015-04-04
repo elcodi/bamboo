@@ -14,7 +14,7 @@ store_language_nav: /languages/nav
 store_address_list: /my-addresses
 store_address_edit: /my-address/{id}/edit/{source}
 store_address_new: /my-address/new/{source}
-store_address_delete: /my-address/{id}/eliminar
+store_address_delete: /my-address/{id}/remove
 
 #
 # Location
