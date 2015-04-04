@@ -73,11 +73,7 @@ class AddressController extends AbstractAdminController
             $addressManager = $this
                 ->get('elcodi.manager.address');
 
-            $addressManager
-                ->saveAddress($address);
-
-            $savedAddress = $addressManager
-                ->getSavedAddress();
+            $savedAddress = $addressManager->saveAddress($address);
 
             $this
                 ->get('elcodi.service.store_address_manager')
