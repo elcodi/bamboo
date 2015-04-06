@@ -1,0 +1,5 @@
+adapter: github
+issue_tracker: github
+table-pr:
+    fixed_tickets: ['Fixed Tickets', '']
+base: master
