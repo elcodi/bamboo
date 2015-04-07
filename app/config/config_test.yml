@@ -1,5 +1,6 @@
 imports:
     - { resource: config_dev.yml }
+    - { resource: parameters_test.yml }
     - { resource: @ElcodiCoreBundle/Resources/config/test/cache.test.yml }
 
 parameters:
