@@ -57,7 +57,6 @@ class StoreCartCouponExtension extends AbstractExtension
     public function getConfigFiles(array $config)
     {
         return [
-            'classes',
             'eventListeners',
             'formTypes',
         ];

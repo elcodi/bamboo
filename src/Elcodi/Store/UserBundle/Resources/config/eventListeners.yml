@@ -4,7 +4,7 @@ services:
     # Event Listeners
     #
     store.event_listener.password_remember_credentials:
-        class: %store.event_listener.password_remember_credentials.class%
+        class: Elcodi\Store\UserBundle\EventListener\RememberPasswordCredentialsEventListener
         arguments:
             - @security.token_storage
             - %bamboo_store_firewall%
@@ -12,19 +12,19 @@ services:
             - { name: kernel.event_listener, event: password.recover, method: giveCredentialsWithNewPassword }
 
     store.event_listener.send_customer_registration_email:
-        class: %store.event_listener.send_customer_registration_email.class%
+        class: Elcodi\Store\UserBundle\EventListener\SendRegistrationEmailEventListener
         parent: store.abstract_email_sender_event_listener
         tags:
             - { name: kernel.event_listener, event: customer.register, method: sendCustomerRegistrationEmail }
 
     store.event_listener.send_password_remember_email:
-        class: %store.event_listener.send_password_remember_email.class%
+        class: Elcodi\Store\UserBundle\EventListener\SendPasswordRememberEmailEventListener
         parent: store.abstract_email_sender_event_listener
         tags:
             - { name: kernel.event_listener, event: password.remember, method: sendPasswordRememberEmail }
 
     store.event_listener.send_password_recover_email:
-        class: %store.event_listener.send_password_recover_email.class%
+        class: Elcodi\Store\UserBundle\EventListener\SendPasswordRecoverEmailEventListener
         parent: store.abstract_email_sender_event_listener
         tags:
             - { name: kernel.event_listener, event: password.recover, method: sendPasswordRecoverEmail }

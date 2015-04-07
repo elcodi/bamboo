@@ -4,7 +4,7 @@ services:
     # Form Types
     #
     elcodi.admin.banner.form_type.banner:
-        class: %elcodi.admin.banner.form_type.banner.class%
+        class: Elcodi\Admin\BannerBundle\Form\Type\BannerType
         arguments:
             - %elcodi.entity.image.class%
             - %elcodi.entity.banner_zone.class%
@@ -14,7 +14,7 @@ services:
             - { name: form.type, alias: elcodi_admin_banner_form_type_banner }
 
     elcodi.admin.banner.form_type.banner_zone:
-        class: %elcodi.admin.banner.form_type.banner_zone.class%
+        class: Elcodi\Admin\BannerBundle\Form\Type\BannerZoneType
         arguments:
             - %elcodi.entity.language.class%
             - %elcodi.entity.banner.class%

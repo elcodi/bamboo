@@ -4,7 +4,7 @@ services:
     # Event Listeners
     #
     store.payment.event_listener.cart_paid:
-        class: %store.payment.event_listener.cart_paid.class%
+        class: Elcodi\Store\PaymentBridgeBundle\EventListener\CartPaidEventListener
         arguments:
             cart_wrapper: @elcodi.wrapper.cart
             cart_order_transformer: @elcodi.transformer.cart_order
@@ -12,7 +12,7 @@ services:
             - { name: kernel.event_listener, event: payment.order.load, method: transformCartToOrder }
 
     store.payment.event_listener.order_to_paid:
-        class: %store.payment.event_listener.order_to_paid.class%
+        class: Elcodi\Store\PaymentBridgeBundle\EventListener\OrderToPaidEventListener
         arguments:
             payment_machine_manager: @elcodi.order.payment_states_machine.manager
             order_object_manager: @elcodi.object_manager.order

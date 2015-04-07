@@ -57,7 +57,6 @@ class PaymentBridgeExtension extends AbstractExtension
     public function getConfigFiles(array $config)
     {
         return [
-            'classes',
             'services',
             'eventListeners',
         ];

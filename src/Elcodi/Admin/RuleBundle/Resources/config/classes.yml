@@ -1,6 +1,0 @@
-parameters:
-
-    #
-    # Entity classes
-    #
-    elcodi.admin.rule.form_type.rule.class: Elcodi\Admin\RuleBundle\Form\Type\RuleType

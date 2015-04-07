@@ -4,6 +4,6 @@ services:
     # Form Types
     #
     elcodi.admin.media.form_type.image:
-        class: %elcodi.admin.media.form_type.image.class%
+        class: Elcodi\Admin\MediaBundle\Form\Type\ImageType
         tags:
             - { name: form.type, alias: elcodi_admin_media_form_type_image }

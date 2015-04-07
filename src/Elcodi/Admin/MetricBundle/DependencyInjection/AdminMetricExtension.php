@@ -57,7 +57,6 @@ class AdminMetricExtension extends AbstractExtension
     public function getConfigFiles(array $config)
     {
         return [
-            'classes',
             'services',
             'twig',
         ];

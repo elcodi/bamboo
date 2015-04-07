@@ -4,14 +4,14 @@ services:
     # Form Types
     #
     elcodi.admin.currency.form_type.currency:
-        class: %elcodi.admin.currency.form_type.currency.class%
+        class: Elcodi\Admin\CurrencyBundle\Form\Type\CurrencyType
         calls:
             - [setFactory, [@elcodi.factory.currency]]
         tags:
             - { name: form.type, alias: elcodi_admin_currency_form_type_currency }
 
     elcodi.admin.currency.form_type.money:
-        class: %elcodi.admin.currency.form_type.money.class%
+        class: Elcodi\Admin\CurrencyBundle\Form\Type\MoneyType
         arguments:
             currency_wrapper: @elcodi.wrapper.currency
             default_currency: %elcodi.core.currency.default_currency%

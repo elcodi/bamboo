@@ -4,7 +4,7 @@ services:
     # Event listeners
     #
     store.abstract_email_sender_event_listener:
-        class: %store.abstract_email_sender_event_listener.class%
+        class: Elcodi\Store\PageBundle\EventListener\Abstracts\AbstractEmailSenderEventListener
         abstract: true
         arguments:
             - @mailer

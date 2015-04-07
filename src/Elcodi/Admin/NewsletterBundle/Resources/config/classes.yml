@@ -1,6 +1,0 @@
-parameters:
-
-    #
-    # Entity classes
-    #
-    elcodi.admin.newsletter.form_type.newsletter_subscription.class: Elcodi\Admin\NewsletterBundle\Form\Type\NewsletterSubscriptionType

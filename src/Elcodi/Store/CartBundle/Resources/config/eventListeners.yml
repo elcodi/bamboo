@@ -4,7 +4,7 @@ services:
     # Event listeners
     #
     store.cart.event_listener.shipping_appliance:
-        class: %store.cart.event_listener.shipping_appliance.class%
+        class: Elcodi\Store\CartBundle\EventListener\ShippingApplianceEventListener
         arguments:
             - @elcodi.event_dispatcher.cart
             - @elcodi.provider.shipping_range
@@ -14,13 +14,13 @@ services:
             - { name: kernel.event_listener, event: cart.onload, method: loadCheapestShippingRange, priority: 7 }
 
     store.event_listener.send_order_confirmation_email:
-        class: %store.event_listener.send_order_confirmation_email.class%
+        class: Elcodi\Store\CartBundle\EventListener\SendOrderConfirmationEmailEventListener
         parent: store.abstract_email_sender_event_listener
         tags:
             - { name: kernel.event_listener, event: order.oncreated, method: sendOrderConfirmationEmail, priority: 0 }
 
     store.event_listener.send_order_shipped_email:
-        class: %store.event_listener.send_order_shipped_email.class%
+        class: Elcodi\Store\CartBundle\EventListener\SendOrderShippedEmailEventListener
         parent: store.abstract_email_sender_event_listener
         tags:
             - { name: kernel.event_listener, event: state_machine.order_shipping_states_machine.transition_ship, method: sendOrderShippedEmail, priority: 0 }

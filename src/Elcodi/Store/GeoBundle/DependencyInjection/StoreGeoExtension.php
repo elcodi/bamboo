@@ -57,7 +57,6 @@ class StoreGeoExtension extends AbstractExtension
     public function getConfigFiles(array $config)
     {
         return [
-            'classes',
             'formTypes',
             'services',
         ];

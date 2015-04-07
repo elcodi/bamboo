@@ -4,7 +4,7 @@ services:
     # Form Types
     #
     elcodi.admin.product.form_type.product:
-        class: %elcodi.admin.product.form_type.product.class%
+        class: Elcodi\Admin\ProductBundle\Form\Type\ProductType
         arguments:
             - %elcodi.entity.manufacturer.class%
             - %elcodi.entity.category.class%
@@ -16,7 +16,7 @@ services:
             - { name: form.type, alias: elcodi_admin_product_form_type_product }
 
     elcodi.admin.product.form_type.product_variant:
-        class: %elcodi.admin.product.form_type.product_variant.class%
+        class: Elcodi\Admin\ProductBundle\Form\Type\VariantType
         arguments:
             - %elcodi.entity.attribute_value.class%
             - %elcodi.entity.image.class%
@@ -26,7 +26,7 @@ services:
             - { name: form.type, alias: elcodi_admin_product_form_type_product_variant }
 
     elcodi.admin.product.form_type.category:
-        class: %elcodi.admin.product.form_type.category.class%
+        class: Elcodi\Admin\ProductBundle\Form\Type\CategoryType
         calls:
             - [setFactory, [@elcodi.factory.category]]
             - [setEntityTranslatorFormEventListener, [@elcodi.entity_translator_form_event_listener]]
@@ -34,7 +34,7 @@ services:
             - { name: form.type, alias: elcodi_admin_product_form_type_category }
 
     elcodi.admin.product.form_type.manufacturer:
-        class: %elcodi.admin.product.form_type.manufacturer.class%
+        class: Elcodi\Admin\ProductBundle\Form\Type\ManufacturerType
         arguments:
             - %elcodi.entity.image.class%
         calls:

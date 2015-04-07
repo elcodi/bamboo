@@ -76,7 +76,6 @@ class StoreCoreExtension extends AbstractExtension
     public function getConfigFiles(array $config)
     {
         return [
-            'classes',
             'eventListeners',
             'twig',
             'services',
