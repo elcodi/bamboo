@@ -280,6 +280,11 @@ class PaymentBridge implements PaymentBridgeInterface
                 ];
             }
 
+            // We add the coupon discounts as a new "shadow" line in the extraData structure.
+            if ($this->order->getCouponAmount()->isGreaterThan(Money::create(0, $currency))) {
+                $extraData['discount_amount_cart'] = $this->order->getCouponAmount()->getAmount();
+            }
+
             $extraData['order_description'] = implode(" - ", $orderDescription);
         }
 
