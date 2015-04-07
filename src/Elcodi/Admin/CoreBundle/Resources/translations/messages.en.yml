@@ -585,6 +585,7 @@ admin:
         error:
             no_category: Warning! This product has no associated category
             no_manufacturer: Warning! This product has no associated manufacturer
+            price_negative: Warning! The price cannot be negative
         tag:
             in_home: Home
             has_variants: Has variants

@@ -21,6 +21,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
+use Elcodi\Admin\ProductBundle\Validation\MinimumMoney;
 use Elcodi\Component\Core\Factory\Traits\FactoryTrait;
 use Elcodi\Component\EntityTranslator\EventListener\Traits\EntityTranslatableFormTrait;
 
@@ -116,9 +117,19 @@ class ProductType extends AbstractType
             ])
             ->add('price', 'money_object', [
                 'required' => true,
+                'constraints' => [
+                    new MinimumMoney([
+                        'value' => 0
+                    ]),
+                ],
             ])
             ->add('reducedPrice', 'money_object', [
                 'required' => false,
+                'constraints' => [
+                    new MinimumMoney([
+                        'value' => 0
+                    ]),
+                ],
             ])
             ->add('imagesSort', 'text', [
                 'required' => false,
