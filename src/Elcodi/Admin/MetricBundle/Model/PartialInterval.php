@@ -39,7 +39,7 @@ class PartialInterval
     /**
      * Construct
      *
-     * @param array  $elements Elemebts
+     * @param array  $elements Elements
      * @param string $first    First
      */
     public function __construct(array $elements, $first)
