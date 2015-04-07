@@ -17,8 +17,7 @@ imports:
     # Specific service overrides
     - { resource: common/services.yml }
 
-    # Project-specific configuration
-    - { resource: config_local.yml }
+
 
 framework:
     secret:          "%secret%"
@@ -158,3 +157,7 @@ store_core:
 store_page:
     blog:
         posts_per_page: 5
+
+imports:
+    # Project-specific configuration (That should be the last line)
+    - { resource: config_local.yml }

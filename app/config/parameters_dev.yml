@@ -1,3 +1,5 @@
-# This file is auto-generated during the composer install
-parameters:
-    locale: en
+#
+# Dev parameters
+#
+# You can add here your specific parameters for your dev environment.
+#
