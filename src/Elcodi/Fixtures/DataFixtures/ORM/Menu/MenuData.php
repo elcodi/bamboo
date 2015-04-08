@@ -18,10 +18,11 @@
 namespace Elcodi\Fixtures\DataFixtures\ORM\Menu;
 
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\Config\Definition\Processor;
 
 use Elcodi\Bundle\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
-use Elcodi\Component\Menu\Factory\MenuFactory;
-use Elcodi\Component\Menu\Factory\NodeFactory;
+use Elcodi\Component\Menu\Entity\Menu\Interfaces\NodeInterface;
+use Elcodi\Component\Menu\Entity\Menu\Interfaces\SubnodesAwareInterface;
 
 /**
  * Class MenuData
@@ -37,78 +38,93 @@ class MenuData extends AbstractFixture
      */
     public function load(ObjectManager $manager)
     {
-        $menuConfiguration = $this->parseYaml(dirname(__FILE__) . '/menus.yml');
+        $config = $this->loadConfiguration();
 
-        /**
-         * Menu nodes population
-         */
+        $this->processMenu($config);
+    }
 
-        /**
-         * @var ObjectManager $menuNodeObjectManager
-         * @var NodeFactory   $menuNodeFactory
-         * @var array         $menuNodeEntities
-         */
-        $menuNodeObjectManager = $this->get('elcodi.object_manager.menu_node');
-        $menuNodeFactory = $this->get('elcodi.factory.menu_node');
-        $menuNodeEntities = [];
+    /**
+     * Create root Menu nodes from configuration
+     *
+     * @param array $config Configuration
+     */
+    protected function processMenu(array $config)
+    {
+        $nodes = [];
+        $director = $this->get('elcodi.director.menu');
 
-        foreach ($menuConfiguration['menu_nodes'] as $menuNodeAlias => $menuNodeData) {
-            $menuNode = $menuNodeFactory
+        foreach ($config as $menuName => $menuConfig) {
+            $node = $director
                 ->create()
-                ->setName($menuNodeData['name'])
-                ->setCode($menuNodeData['code'])
-                ->setUrl($menuNodeData['url'])
-                ->setActiveUrls($menuNodeData['active_urls'])
-                ->setEnabled((boolean) $menuNodeData['enabled']);
+                ->setCode($menuConfig['code'])
+                ->setDescription($menuConfig['description'])
+                ->setEnabled($menuConfig['enabled']);
 
-            if (is_array($menuNodeData['subnodes'])) {
-                foreach ($menuNodeData['subnodes'] as $subnode) {
-                    $menuNode->addSubnode(
-                        $this->getReference('menu-node-' . $subnode)
-                    );
-                }
-            }
+            $this->processChildren($node, $menuConfig['children']);
 
-            $this->setReference('menu-node-' . $menuNodeAlias, $menuNode);
-            $menuNodeObjectManager->persist($menuNode);
-            $menuNodeEntities[] = $menuNode;
+            $nodes[] = $node;
         }
 
-        $menuNodeObjectManager->flush($menuNodeEntities);
+        $director->save($nodes);
+    }
 
+    /**
+     * Create a node from configuration
+     *
+     * @param string $name   Name of the node
+     * @param array  $config Node configuration
+     *
+     * @return NodeInterface
+     */
+    protected function createSubnode($name, array $config)
+    {
         /**
-         * Menus population
+         * @var NodeInterface $node
          */
+        $node = $this
+            ->get('elcodi.factory.menu_node')
+            ->create();
 
-        /**
-         * @var ObjectManager $menuObjectManager
-         * @var MenuFactory   $menuFactory
-         * @var array         $menuEntities
-         */
-        $menuObjectManager = $this->get('elcodi.object_manager.menu');
-        $menuFactory = $this->get('elcodi.factory.menu');
-        $menuEntities = [];
+        $node
+            ->setName($name)
+            ->setCode($config['code'])
+            ->setUrl($config['url'])
+            ->setActiveUrls($config['active_urls'])
+            ->setEnabled($config['enabled']);
 
-        foreach ($menuConfiguration['menus'] as $menuAlias => $menuData) {
-            $menu = $menuFactory
-                ->create()
-                ->setCode($menuData['code'])
-                ->setDescription($menuData['description'])
-                ->setEnabled((boolean) $menuData['enabled']);
-
-            if (is_array($menuData['subnodes'])) {
-                foreach ($menuData['subnodes'] as $subnode) {
-                    $menu->addSubnode(
-                        $this->getReference('menu-node-' . $subnode)
-                    );
-                }
-            }
-
-            $this->setReference('menu-' . $menuData['code'], $menu);
-            $menuObjectManager->persist($menu);
-            $menuEntities[] = $menu;
+        if (!empty($config['children'])) {
+            $this->processChildren($node, $config['children']);
         }
 
-        $menuObjectManager->flush($menuEntities);
+        return $node;
+    }
+
+    /**
+     * Process menu nodes children of a configuration
+     *
+     * @param SubnodesAwareInterface $parent Parent node
+     * @param array                  $config Menu configuration
+     */
+    protected function processChildren(SubnodesAwareInterface $parent, array $config)
+    {
+        foreach ($config as $childName => $childConfig) {
+            $child = $this->createSubnode($childName, $childConfig);
+            $parent->addSubnode($child);
+        }
+    }
+
+    /**
+     * Load fixtures from disk with configuration
+     *
+     * @return array
+     */
+    protected function loadConfiguration()
+    {
+        $config = $this->parseYaml(__DIR__.'/menus.yml');
+
+        $configuration = new Configuration('menu');
+        $processor = new Processor();
+
+        return $processor->processConfiguration($configuration, [ $config ]);
     }
 }
