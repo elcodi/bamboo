@@ -9,6 +9,7 @@ imports:
     - { resource: common/cache.yml }
     - { resource: common/twig.yml }
     - { resource: common/metrics.yml }
+    - { resource: common/sitemap.yml }
 
     # Payment-specific bundle and elcodi configuration
     - { resource: @PaymentBridgeBundle/Resources/config/configuration.yml }
