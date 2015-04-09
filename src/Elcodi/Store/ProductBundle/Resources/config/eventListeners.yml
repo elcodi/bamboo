@@ -4,7 +4,7 @@ services:
     # Event listeners
     #
     store.product.event_listener.categories_order_change:
-        class: %store.product.event_listener.categories_order_change.class%
+        class: Elcodi\Store\ProductBundle\EventListener\CategoriesOrderChangeEventListener
         arguments:
             store_category_tree: @store.product.service.store_category_tree
         tags:

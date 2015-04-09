@@ -4,6 +4,6 @@ services:
     # Event listeners
     #
     elcodi.product.category.event_listener.new_category_position:
-        class: %elcodi.admin.product.event_listener.new_category_position.class%
+        class: Elcodi\Admin\ProductBundle\EventListener\NewCategoryPositionEventListener
         tags:
             - { name: doctrine.event_listener, event: preFlush, method: preFlush }

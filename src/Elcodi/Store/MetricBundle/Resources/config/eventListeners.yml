@@ -4,7 +4,7 @@ services:
     # Event Listeners
     #
     store.event_listener.add_order_completed_metric:
-        class: %store.event_listener.add_order_completed_metric.class%
+        class: Elcodi\Store\MetricBundle\EventListener\AddOrderCompletedMetricEventListener
         arguments:
             - @elcodi.metric_manager
             - @=elcodi_config("store.tracker")

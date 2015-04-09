@@ -4,7 +4,7 @@ services:
     # Form Types
     #
     store.cart.form_type.cart:
-        class: %store.cart.form_type.cart.class%
+        class: Elcodi\Store\CartBundle\Form\Type\CartType
         arguments:
             - @router
         calls:
@@ -13,7 +13,7 @@ services:
             - { name: form.type, alias: store_cart_form_type_cart }
 
     store.cart.form_type.cart_line:
-        class: %store.cart.form_type.cart_line.class%
+        class: Elcodi\Store\CartBundle\Form\Type\CartLineType
         calls:
             - [setFactory, [@elcodi.factory.cart_line]]
         tags:

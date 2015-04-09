@@ -4,7 +4,7 @@ services:
     # Services
     #
     store.connect.service.oauth_provider:
-        class: %store.connect.service.oauth_provider.class%
+        class: Elcodi\Store\ConnectBundle\Services\OAuthUserProvider
         arguments:
             - @security.user.provider.concrete.customer
             - @store.connect.factory.authorization

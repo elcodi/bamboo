@@ -4,7 +4,7 @@ services:
     # Twig Extensions
     #
     elcodi.twig_extension.metric_intervals:
-        class: %elcodi.twig_extension.metric_intervals.class%
+        class: Elcodi\Admin\MetricBundle\Twig\MetricIntervalsExtension
         arguments:
             - @elcodi.metric_intervals_resolver
         tags:

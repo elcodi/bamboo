@@ -4,7 +4,7 @@ services:
     # Form Types
     #
     elcodi.admin.rule.form_type.rule:
-        class: %elcodi.admin.rule.form_type.rule.class%
+        class: Elcodi\Admin\RuleBundle\Form\Type\RuleType
         arguments:
             entity: %elcodi.entity.rule.class%
         calls:

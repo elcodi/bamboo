@@ -4,4 +4,4 @@ services:
     # Services
     #
     elcodi.metric_intervals_resolver:
-        class: %elcodi.metric_intervals_resolver.class%
+        class: Elcodi\Admin\MetricBundle\Services\MetricIntervalsResolver

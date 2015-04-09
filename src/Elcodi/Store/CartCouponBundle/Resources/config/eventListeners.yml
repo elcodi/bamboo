@@ -4,7 +4,7 @@ services:
     # Event listeners
     #
     store.cart_coupon.event_listener.just_one_manual:
-        class: %store.cart_coupon.event_listener.just_one_manual.class%
+        class: Elcodi\Store\CartCouponBundle\EventListener\JustOneManualCouponEventListener
         arguments:
             - @elcodi.repository.cart_coupon
         tags:

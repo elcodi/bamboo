@@ -4,7 +4,7 @@ services:
     # Services
     #
     store.core.services.template_locator:
-        class: '%store.core.services.template_locator.class%'
+        class: Elcodi\Store\CoreBundle\Services\TemplateLocator
         arguments:
             engine: @templating.engine.twig
             bundles:

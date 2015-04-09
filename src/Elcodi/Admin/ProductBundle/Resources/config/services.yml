@@ -4,7 +4,7 @@ services:
     # Services
     #
     elcodi.admin.product.services.category_sorter:
-        class: %elcodi.admin.product.services.category_sorter.class%
+        class: Elcodi\Admin\ProductBundle\Services\CategorySorter
         arguments:
             category_repository: @elcodi.repository.category
             category_object_manager: @elcodi.object_manager.category

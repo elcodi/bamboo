@@ -12,7 +12,7 @@ services:
     # Twig Extensions
     #
     store.twig_extension.store_page:
-        class: %store.twig_extension.store_page.class%
+        class: Elcodi\Store\PageBundle\Twig\PageExtension
         arguments:
             - @elcodi.repository.page
         tags:

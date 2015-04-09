@@ -4,12 +4,12 @@ services:
     # Services
     #
     elcodi.service.store_address_manager:
-        class: %elcodi.service.store_address_manage.class%
+        class: Elcodi\Admin\GeoBundle\Services\StoreAddressManager
         arguments:
             configuration_manager: @elcodi.manager.configuration
             address_repository: @elcodi.repository.address
 
     elcodi.admin.geo.form.location_selector_builder:
-        class: %elcodi.admin.geo.form.location_selector_builder.class%
+        class: Elcodi\Admin\GeoBundle\Form\LocationSelectorBuilder
         arguments:
             location_provider: @elcodi.location_provider

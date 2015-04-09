@@ -96,7 +96,6 @@ class StoreProductExtension extends AbstractExtension
     public function getConfigFiles(array $config)
     {
         return [
-            'classes',
             'services',
             'eventListeners',
         ];

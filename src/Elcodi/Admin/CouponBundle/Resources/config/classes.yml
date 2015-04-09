@@ -1,6 +1,0 @@
-parameters:
-
-    #
-    # Entity classes
-    #
-    elcodi.admin.coupon.form_type.coupon.class: Elcodi\Admin\CouponBundle\Form\Type\CouponType

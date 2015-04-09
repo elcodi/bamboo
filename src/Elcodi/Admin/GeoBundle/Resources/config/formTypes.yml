@@ -4,7 +4,7 @@ services:
     # Form Types
     #
     admin.geo.form_type.address:
-        class: %admin.geo.form_type.address.class%
+        class: Elcodi\Admin\GeoBundle\Form\Type\AddressType
         calls:
             - [setFactory, [@elcodi.factory.address]]
         tags:
