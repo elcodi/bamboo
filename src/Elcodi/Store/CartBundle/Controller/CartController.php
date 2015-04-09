@@ -150,7 +150,7 @@ class CartController extends Controller
             ->get('add-cart-quantity', 1);
 
         $this
-            ->get('elcodi.cart.manager')
+            ->get('elcodi.manager.cart')
             ->addProduct(
                 $cart,
                 $product,
@@ -209,7 +209,7 @@ class CartController extends Controller
             ->get('add-cart-quantity', 1);
 
         $this
-            ->get('elcodi.cart.manager')
+            ->get('elcodi.manager.cart')
             ->addProduct(
                 $cart,
                 $variant,
@@ -246,7 +246,7 @@ class CartController extends Controller
     public function emptyCartAction(CartInterface $cart)
     {
         $this
-            ->get('elcodi.cart.manager')
+            ->get('elcodi.manager.cart')
             ->emptyLines($cart);
 
         return $this->redirect(
@@ -335,7 +335,7 @@ class CartController extends Controller
         CartLineInterface $cartLine
     ) {
         $this
-            ->get('elcodi.cart.manager')
+            ->get('elcodi.manager.cart')
             ->removeLine(
                 $cart,
                 $cartLine
