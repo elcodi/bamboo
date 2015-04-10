@@ -20,6 +20,7 @@ namespace Elcodi\Admin\ProductBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Validator\Constraints;
 
 use Elcodi\Component\Core\Factory\Traits\FactoryTrait;
 use Elcodi\Component\EntityTranslator\EventListener\Traits\EntityTranslatableFormTrait;
@@ -80,9 +81,23 @@ class ManufacturerType extends AbstractType
         $builder
             ->add('name', 'text', [
                 'required' => true,
+                'constraints' => [
+                    new Constraints\Length(
+                        [
+                            'max' => 65,
+                        ]
+                    )
+                ],
             ])
             ->add('slug', 'text', [
                 'required' => false,
+                'constraints' => [
+                    new Constraints\Length(
+                        [
+                            'max' => 65,
+                        ]
+                    )
+                ],
             ])
             ->add('description', 'textarea', [
                 'required' => false,
