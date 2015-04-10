@@ -147,6 +147,7 @@ class AppKernel extends Kernel
              */
             new \Elcodi\Common\FirewallBundle\ElcodiFirewallBundle(),
             new \Elcodi\Common\BambooBundle\ElcodiBambooBundle(),
+            new \Elcodi\Common\ConfigurationBundle\ConfigurationAnnotationBundle(),
 
             /**
              * Elcodi Templates
