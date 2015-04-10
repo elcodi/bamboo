@@ -3,7 +3,7 @@ FrontendCore.define('form-save-on-edit', [], function () {
 		mediator : FrontendMediator,
 		onStart: function () {
 
-			var oContainer = $('[data-fc-modules="form-save-on-edit"]')[0],
+			var oContainer = $('[data-fc-modules^="form-save-on-edit"]')[0],
 				$li = $('li', oContainer),
 				$Articles = $('article', oContainer),
 				self = this;

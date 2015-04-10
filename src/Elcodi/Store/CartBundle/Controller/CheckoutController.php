@@ -286,12 +286,22 @@ class CheckoutController extends Controller
             ->get('elcodi.manager.cart_coupon')
             ->getCartCoupons($cart);
 
+        $enabledPaymentMethods = $this
+            ->container
+            ->getParameter('store.payment_bridge.enabled_methods');
+
+        $defaultPaymentMethod = $this
+            ->container
+            ->getParameter('store.payment_bridge.default_method');
+
         return $this->renderTemplate(
             'Pages:checkout-payment.html.twig',
             [
-                'shippingRanges' => $shippingRanges,
-                'cart'           => $cart,
-                'cartCoupons'    => $cartCoupons,
+                'shippingRanges'        => $shippingRanges,
+                'cart'                  => $cart,
+                'cartCoupons'           => $cartCoupons,
+                'enabledPaymentMethods' => $enabledPaymentMethods,
+                'defaultPaymentMethod'  => $defaultPaymentMethod,
             ]
         );
     }
