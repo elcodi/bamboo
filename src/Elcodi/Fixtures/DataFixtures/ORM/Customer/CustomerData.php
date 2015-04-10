@@ -78,7 +78,7 @@ class CustomerData extends AbstractFixture implements DependentFixtureInterface
     public function getDependencies()
     {
         return [
-            'Elcodi\Fixtures\DataFixtures\ORM\Geo\AddressData',
+            'Elcodi\Fixtures\DataFixtures\ORM\Address\AddressData',
         ];
     }
 }

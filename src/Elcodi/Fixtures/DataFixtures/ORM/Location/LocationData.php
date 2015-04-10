@@ -15,7 +15,7 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-namespace Elcodi\Fixtures\DataFixtures\ORM\Geo;
+namespace Elcodi\Fixtures\DataFixtures\ORM\Location;
 
 use Doctrine\Common\Persistence\ObjectManager;
 
