@@ -6,6 +6,18 @@
 
 {% block title %}Bamboo - {{ 'template.store_template_bundle.product.view_item.product'|trans }} {{ product.name }}{% endblock title %}
 
+{% block meta_tags %}
+    {% if product.metaTitle is not empty %}
+        <meta name="title" content="{{ product.metaTitle }}">
+    {% endif %}
+{% if product.metaDescription is not empty %}
+    <meta name="description" content="{{ product.metaDescription }}">
+{% endif %}
+{% if product.metaKeywords is not empty %}
+    <meta name="keywords" content="{{ product.metaKeywords }}">
+{% endif %}
+{% endblock meta_tags %}
+
 {% block breadcrumb %}
     <li>
         <a href="{{ url('store_category_products_list', { slug: product.principalCategory.slug, id: product.principalCategory.id }) }}">{{ product.principalCategory }}</a> <i class="fa fa-angle-right"></i>

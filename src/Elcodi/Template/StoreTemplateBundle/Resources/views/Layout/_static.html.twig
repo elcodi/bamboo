@@ -2,7 +2,9 @@
 
 {% block meta_tags %}
     <meta name="description" content="{{ page.metadescription }}">
-    <meta name="keywords" content="{{ page.metakeywords }}">
+    {% if page.metakeywords is not empty %}
+        <meta name="keywords" content="{{ page.metakeywords }}">
+    {% endif %}
 {% endblock meta_tags %}
 
 {% block body %}
@@ -18,7 +20,6 @@
         {% endblock messages %}
 
         <div class="grid grid-pad">
-            <div class="col-1-1">
                 {% block content %}
                     <article class="blog-post">
                         <h1>{{ block('title') }}</h1>
