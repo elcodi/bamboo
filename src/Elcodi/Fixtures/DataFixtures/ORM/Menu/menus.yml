@@ -1,322 +1,196 @@
-menu_nodes:
-    bambooadmin_dashboard:
-        name: admin.dashboard.single
-        code: tachometer
-        url: admin_homepage
-        active_urls:
-            - admin_homepage
-            - admin_reports_today
-            - admin_reports_yesterday
-            - admin_reports_last_week
-            - admin_reports_last_month
-            - admin_reports_last_quarter
-        enabled: 1
-        subnodes: ~
+admin:
+    code: admin
+    description: Admin menu
+    children:
+        dashboard:
+            name: admin.dashboard.single
+            code: dashboard
+            url: admin_homepage
+            active_urls:
+                - admin_homepage
+                - admin_reports_today
+                - admin_reports_yesterday
+                - admin_reports_last_week
+                - admin_reports_last_month
+                - admin_reports_last_quarter
 
-    bambooadmin_orders:
-        name: admin.order.plural
-        code: shopping-cart
-        url: admin_order_list
-        active_urls:
-            - admin_order_list
-            - admin_order_edit
-            - admin_customer_order_list
-            - admin_customer_order_list
-        enabled: 1
-        subnodes: ~
+        orders:
+            name: admin.order.plural
+            code: shopping-cart
+            url: admin_order_list
+            active_urls:
+                - admin_order_list
+                - admin_order_edit
+                - admin_customer_order_list
+                - admin_customer_order_list
 
-    bambooadmin_customers:
-        name: admin.customer.plural
-        code: users
-        url: admin_customer_list
-        active_urls:
-            - admin_customer_list
-            - admin_customer_edit
-        enabled: 1
-        subnodes: ~
+        customers:
+            name: admin.customer.plural
+            code: users
+            url: admin_customer_list
+            active_urls:
+                - admin_customer_list
+                - admin_customer_edit
 
-    bambooadmin_products:
-        name: admin.product.plural
-        code: ~
-        url: admin_product_list
-        active_urls:
-            - admin_product_list
-            - admin_product_edit
-            - admin_product_new
-        enabled: 1
-        subnodes: ~
+        catalog:
+            name: admin.catalog.single
+            code: tags
+            children:
+                products:
+                    name: admin.product.plural
+                    url: admin_product_list
+                    active_urls:
+                        - admin_product_list
+                        - admin_product_edit
+                        - admin_product_new
 
-    bambooadmin_categories:
-        name: admin.category.plural
-        code: ~
-        url: admin_category_list
-        active_urls:
-            - admin_category_list
-            - admin_category_edit
-            - admin_category_new
-        enabled: 1
-        subnodes: ~
+                attributes:
+                    name: admin.attribute.plural
+                    url: admin_attribute_list
+                    active_urls:
+                        - admin_attribute_list
+                        - admin_attribute_edit
+                        - admin_attribute_new
 
-    bambooadmin_manufacturers:
-        name: admin.manufacturer.plural
-        code: ~
-        url: admin_manufacturer_list
-        active_urls:
-            - admin_manufacturer_list
-            - admin_manufacturer_edit
-            - admin_manufacturer_new
-        enabled: 1
-        subnodes: ~
+                manufacturers:
+                    name: admin.manufacturer.plural
+                    url: admin_manufacturer_list
+                    active_urls:
+                        - admin_manufacturer_list
+                        - admin_manufacturer_edit
+                        - admin_manufacturer_new
 
-    bambooadmin_attributes:
-        name: admin.attribute.plural
-        code: ~
-        url: admin_attribute_list
-        active_urls:
-            - admin_attribute_list
-            - admin_attribute_edit
-            - admin_attribute_new
-        enabled: 1
-        subnodes: ~
+                categories:
+                    name: admin.category.plural
+                    url: admin_category_list
+                    active_urls:
+                        - admin_category_list
+                        - admin_category_edit
+                        - admin_category_new
 
-    bambooadmin_medias:
-        name: admin.media.plural
-        code: picture-o
-        url: admin_image_list
-        active_urls:
-            - admin_image_list
-        enabled: 1
-        subnodes: ~
+                medias:
+                    name: admin.media.plural
+                    code: picture-o
+                    url: admin_image_list
+                    active_urls:
+                        - admin_image_list
 
-    bambooadmin_catalog:
-        name: admin.catalog.single
-        code: tags
-        url: ~
-        active_urls:
-            - ~
-        enabled: 1
-        subnodes:
-            - bambooadmin_products
-            - bambooadmin_attributes
-            - bambooadmin_manufacturers
-            - bambooadmin_categories
-            - bambooadmin_medias
+        coupons:
+            name: admin.coupon.plural
+            code: ticket
+            url: admin_coupon_list
+            active_urls:
+                - admin_coupon_list
+                - admin_coupon_edit
+                - admin_coupon_new
 
-    bambooadmin_coupons:
-        name: admin.coupon.plural
-        code: ticket
-        url: admin_coupon_list
-        active_urls:
-            - admin_coupon_list
-            - admin_coupon_edit
-            - admin_coupon_new
-        enabled: 1
-        subnodes: ~
+        separator_1:
+            name: separator
+            code: separator
 
-    bambooadmin_reports:
-        name: Reports
-        code: bar-chart-o
-        url: admin_reports_today
-        active_urls:
-            - admin_reports_today
-        enabled: 1
-        subnodes: ~
+        pages:
+            name: admin.page.plural
+            code: file-text-o
+            url: admin_page_list
+            active_urls:
+                - admin_page_list
+                - admin_page_edit
+                - admin_page_new
 
-    bambooadmin_separator_1:
-        name: separator_1
-        code: separator
-        enabled: 1
-        url: ~
-        active_urls:
-            - ~
-        subnodes: ~
+        emails:
+            name: admin.mailing.plural
+            code: envelope-o
+            url: admin_email_list
+            active_urls:
+                - admin_email_list
+                - admin_email_edit
 
-    bambooadmin_pages:
-        name: admin.page.plural
-        code: file-text-o
-        url: admin_page_list
-        active_urls:
-            - admin_page_list
-            - admin_page_edit
-            - admin_page_new
-        enabled: 1
-        subnodes: ~
+        blog:
+            name: admin.blog.single
+            code: pencil
+            url: admin_blog_post_list
+            active_urls:
+                - admin_blog_post_list
+                - admin_blog_post_edit
+                - admin_blog_post_new
 
-    bambooadmin_emails:
-        name: admin.mailing.plural
-        code: envelope-o
-        url: admin_email_list
-        active_urls:
-            - admin_email_list
-            - admin_email_edit
-        enabled: 1
-        subnodes: ~
+        separator_2:
+            name: separator
+            code: separator
+            enabled: false
 
-    bambooadmin_blog:
-        name: admin.blog.single
-        code: pencil
-        url: admin_blog_post_list
-        active_urls:
-            - admin_blog_post_list
-            - admin_blog_post_edit
-            - admin_blog_post_new
-        enabled: 1
-        subnodes: ~
+        banners:
+            enabled: false
+            name: banners
+            children:
+                zones:
+                    name: Banner Zones
+                    url: admin_banner_zone_list
+                    active_urls:
+                        - admin_banner_zone_list
+                banners:
+                    name: Banners
+                    url: admin_banner_list
+                    active_urls:
+                        - admin_banner_list
 
-    bambooadmin_bannerzones:
-        name: Banner Zones
-        code: ~
-        url: admin_banner_zone_list
-        active_urls:
-            - admin_banner_zone_list
-        enabled: 1
-        subnodes: ~
+        separator_3:
+            name: separator
+            code: separator
 
-    bambooadmin_banners:
-        name: Banners
-        code: ~
-        url: admin_banner_list
-        active_urls:
-            - admin_banner_list
-        enabled: 1
-        subnodes: ~
+        plugins:
+            name: admin.plugin.plural
+            code: puzzle-piece
+            url: admin_plugin_list
+            active_urls:
+                - admin_plugin_list
 
-    bambooadmin_banner_server:
-        name: Banners
-        code: ~
-        url: ~
-        active_urls:
-            - ~
-        enabled: 1
-        subnodes:
-            - bambooadmin_bannerzones
-            - bambooadmin_banners
+        templates:
+            name: admin.template.plural
+            code: adjust
+            url: admin_template_list
+            active_urls:
+                - admin_template_list
 
-    bambooadmin_separator_2:
-        name: separator_2
-        code: separator
-        enabled: 1
-        url: ~
-        active_urls:
-            - ~
-        subnodes: ~
+        settings:
+            name: admin.settings.single
+            code: gear
+            children:
+                configurations:
+                    name: admin.settings.section.store.title
+                    url: admin_configuration_list
+                    active_urls:
+                        - admin_configuration_list
+                address:
+                    name: admin.order.field.billing_address
+                    url: admin_address_edit
+                    active_urls:
+                        - admin_address_edit
+                        - admin_address_new
+                carriers:
+                    name: admin.carrier.plural
+                    code: truck
+                    url: admin_carrier_list
+                    active_urls:
+                        - admin_carrier_list
+                        - admin_carrier_new
+                        - admin_carrier_edit
+                currencies:
+                    name: admin.currency.plural
+                    url: admin_currency_list
+                    active_urls:
+                        - admin_currency_list
+                languages:
+                    name: admin.language.plural
+                    url: admin_language_list
+                    active_urls:
+                        - admin_language_list
+                payment:
+                    name: admin.settings.section.payment.title
+                    url: admin_payment_configuration_list
+                    active_urls:
+                        - admin_payment_configuration_list
 
-    bambooadmin_templates:
-        name: admin.template.plural
-        code: adjust
-        url: admin_template_list
-        active_urls:
-            - admin_template_list
-        enabled: 1
-        subnodes: ~
-
-    bambooadmin_plugins:
-        name: admin.plugin.plural
-        code: puzzle-piece
-        url: admin_plugin_list
-        active_urls:
-            - admin_plugin_list
-        enabled: 1
-        subnodes: ~
-
-    bambooadmin_configurations:
-        name: admin.settings.section.store.title
-        code: ~
-        url: admin_configuration_list
-        active_urls:
-            - admin_configuration_list
-        enabled: 1
-        subnodes: ~
-
-    bambooadmin_address:
-        name: admin.order.field.billing_address
-        code: ~
-        url: admin_address_edit
-        active_urls:
-            - admin_address_edit
-            - admin_address_new
-        enabled: 1
-        subnodes: ~
-
-    bambooadmin_payment:
-        name: admin.settings.section.payment.title
-        code: ~
-        url: admin_payment_configuration_list
-        active_urls:
-            - admin_payment_configuration_list
-        enabled: 1
-        subnodes: ~
-
-    bambooadmin_carriers:
-        name: admin.carrier.plural
-        code: truck
-        url: admin_carrier_list
-        active_urls:
-            - admin_carrier_list
-            - admin_carrier_new
-            - admin_carrier_edit
-        enabled: 1
-        subnodes: ~
-
-    bambooadmin_currencies:
-        name: admin.currency.plural
-        code: ~
-        url: admin_currency_list
-        active_urls:
-            - admin_currency_list
-        enabled: 1
-        subnodes: ~
-
-    bambooadmin_languages:
-        name: admin.language.plural
-        code: ~
-        url: admin_language_list
-        active_urls:
-            - admin_language_list
-        enabled: 1
-        subnodes: ~
-
-    bambooadmin_settings:
-        name: admin.settings.single
-        code: gear
-        url: ~
-        active_urls:
-            - ~
-        enabled: 1
-        subnodes:
-          - bambooadmin_configurations
-          - bambooadmin_address
-          - bambooadmin_carriers
-          - bambooadmin_currencies
-          - bambooadmin_languages
-          - bambooadmin_payment
-
-    bambooadmin_separator_3:
-        name: separator_3
-        code: separator
-        enabled: 1
-        url: ~
-        active_urls:
-            - ~
-        subnodes: ~
-
-menus:
-    admin:
-        code: admin
-        description: Admin menu
-        enabled: 1
-        subnodes:
-            - bambooadmin_dashboard
-            - bambooadmin_orders
-            - bambooadmin_customers
-            - bambooadmin_catalog
-            - bambooadmin_coupons
-            - bambooadmin_separator_1
-            - bambooadmin_separator_2
-            - bambooadmin_pages
-            - bambooadmin_templates
-            - bambooadmin_plugins
-            - bambooadmin_settings
-            - bambooadmin_blog
-            - bambooadmin_emails
-            - bambooadmin_separator_3
+        separator_4:
+            name: separator
+            code: separator
