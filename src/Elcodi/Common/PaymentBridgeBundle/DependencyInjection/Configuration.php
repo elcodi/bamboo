@@ -15,12 +15,11 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-namespace Elcodi\Store\PaymentBridgeBundle\DependencyInjection;
+namespace Elcodi\Common\PaymentBridgeBundle\DependencyInjection;
+
+use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 
 use Elcodi\Bundle\CoreBundle\DependencyInjection\Abstracts\AbstractConfiguration;
-use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
-use Symfony\Component\Config\Definition\Builder\TreeBuilder;
-use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 /**
  * Class Configuration

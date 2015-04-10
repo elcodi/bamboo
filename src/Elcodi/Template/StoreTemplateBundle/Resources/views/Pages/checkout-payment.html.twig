@@ -33,38 +33,38 @@
         <ol class="grid grid-pad">
             <h2>{{ 'template.store_template_bundle.checkout.payment.payment_method'|trans }}</h2>
             {% if enabledPaymentMethods['paymill'] %}
-            <li class="col-1-3">
-                <label>
-                    <input data-url="" type="radio" id="field-paymill" name="field-method"{% if defaultPaymentMethod == 'paymill' %} checked="checked"{% endif %} />
-                    {{ 'template.store_template_bundle.checkout.payment.credit_debit_card'|trans }}
-                </label>
-            </li>
+                <li class="col-1-3">
+                    <label>
+                        <input data-url="" type="radio" id="field-paymill" name="field-method"{% if defaultPaymentMethod == 'paymill' %} checked="checked"{% endif %} />
+                        {{ 'template.store_template_bundle.checkout.payment.credit_debit_card'|trans }}
+                    </label>
+                </li>
             {% endif %}
             {% if enabledPaymentMethods['paypal'] %}
-            <li class="col-1-3">
-                <label>
-                    <input data-url="{{ url('paypal_web_checkout_execute') }}" type="radio" id="field-paypal" name="field-method"{% if defaultPaymentMethod == 'paypal' %} checked="checked"{% endif %} />
-                    {{ 'template.store_template_bundle.checkout.payment.paypal'|trans }}
-                </label>
-            </li>
+                <li class="col-1-3">
+                    <label>
+                        <input data-url="{{ url('paypal_web_checkout_execute') }}" type="radio" id="field-paypal" name="field-method"{% if defaultPaymentMethod == 'paypal' %} checked="checked"{% endif %} />
+                        {{ 'template.store_template_bundle.checkout.payment.paypal'|trans }}
+                    </label>
+                </li>
             {% endif %}
             {% if enabledPaymentMethods['bankwire'] %}
-            <li class="col-1-3">
-                <label>
-                    <input data-url="{{ url('freepayment_execute') }}" type="radio" id="field-card" name="field-method"{% if defaultPaymentMethod == 'bankwire' %} checked="checked"{% endif %} />
-                    {{ 'template.store_template_bundle.checkout.payment.bankwire'|trans }}
-                </label>
-            </li>
+                <li class="col-1-3">
+                    <label>
+                        <input data-url="{{ url('freepayment_execute') }}" type="radio" id="field-card" name="field-method"{% if defaultPaymentMethod == 'bankwire' %} checked="checked"{% endif %} />
+                        {{ 'template.store_template_bundle.checkout.payment.bankwire'|trans }}
+                    </label>
+                </li>
             {% endif %}
         </ol>
     </div>
 </form>
 {% if enabledPaymentMethods['paymill'] %}
-<div id="paymill_form_div" {% if defaultPaymentMethod != 'paymill' %} class="hidden"{% endif %}>
-    {{ paymill_render(
-    "@StoreTemplate/Modules/_payment-paymill.html.twig"
-    ) }}
-</div>
+    <div id="paymill_form_div" {% if defaultPaymentMethod != 'paymill' %} class="hidden"{% endif %}>
+        {{ paymill_render(
+        "@StoreTemplate/Modules/_payment-paymill.html.twig"
+        ) }}
+    </div>
 {% endif %}
 <p class="checkout-actions checkout-actions-bottom">
     <a class="button" href="{{ url('store_checkout_address') }}"> <i class="fa fa-arrow-left"></i> {{ 'template.store_template_bundle.checkout.back'|trans }}</a>
@@ -78,7 +78,7 @@
     {{ parent() }}
 
     {% if enabledPaymentMethods['paymill'] %}
-    {{ paymill_scripts() }}
+        {{ paymill_scripts() }}
     {% endif %}
 
     <script type="application/javascript">

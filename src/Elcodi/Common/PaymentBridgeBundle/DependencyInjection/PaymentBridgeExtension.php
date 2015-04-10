@@ -15,7 +15,7 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-namespace Elcodi\Store\PaymentBridgeBundle\DependencyInjection;
+namespace Elcodi\Common\PaymentBridgeBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -76,10 +76,8 @@ class PaymentBridgeExtension extends AbstractExtension
     protected function getParametrizationValues(array $config)
     {
         return [
-            'store.payment_bridge.enabled_methods' =>
-                $config['enabled_methods'],
-            'store.payment_bridge.default_method' =>
-                $config['default_method']
+            'store.payment_bridge.enabled_methods' => $config['enabled_methods'],
+            'store.payment_bridge.default_method' => $config['default_method'],
         ];
     }
 

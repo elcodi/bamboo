@@ -15,12 +15,12 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-namespace Elcodi\Store\PaymentBridgeBundle;
+namespace Elcodi\Common\PaymentBridgeBundle;
 
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-use Elcodi\Store\PaymentBridgeBundle\DependencyInjection\PaymentBridgeExtension;
+use Elcodi\Common\PaymentBridgeBundle\DependencyInjection\PaymentBridgeExtension;
 
 /**
  * Class PaymentBridgeBundle

@@ -15,7 +15,7 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-namespace Elcodi\Store\PaymentBridgeBundle\Entity;
+namespace Elcodi\Common\PaymentBridgeBundle\Entity;
 
 use Elcodi\Component\Cart\Entity\Order;
 use Elcodi\Component\Core\Entity\Interfaces\DateTimeInterface;

@@ -112,7 +112,6 @@ class AppKernel extends Kernel
             new \Elcodi\Store\CurrencyBundle\StoreCurrencyBundle(),
             new \Elcodi\Store\CartCouponBundle\StoreCartCouponBundle(),
             new \Elcodi\Store\ConnectBundle\StoreConnectBundle(),
-            new \Elcodi\Store\PaymentBridgeBundle\PaymentBridgeBundle(),
             new \Elcodi\Store\MetricBundle\StoreMetricBundle(),
             new \Elcodi\Store\PageBundle\StorePageBundle(),
             new \Elcodi\Store\LanguageBundle\StoreLanguageBundle(),
@@ -147,6 +146,7 @@ class AppKernel extends Kernel
             new \Elcodi\Common\FirewallBundle\ElcodiFirewallBundle(),
             new \Elcodi\Common\BambooBundle\ElcodiBambooBundle(),
             new \Elcodi\Common\ConfigurationBundle\ConfigurationAnnotationBundle(),
+            new \Elcodi\Common\PaymentBridgeBundle\PaymentBridgeBundle(),
 
             /**
              * Elcodi Templates

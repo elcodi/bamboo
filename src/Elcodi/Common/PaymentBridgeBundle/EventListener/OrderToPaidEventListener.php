@@ -15,7 +15,7 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-namespace Elcodi\Store\PaymentBridgeBundle\EventListener;
+namespace Elcodi\Common\PaymentBridgeBundle\EventListener;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use PaymentSuite\PaymentCoreBundle\Event\Abstracts\AbstractPaymentEvent;
