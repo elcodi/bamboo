@@ -159,3 +159,18 @@ store_core:
 store_page:
     blog:
         posts_per_page: 5
+
+elcodi_sitemap:
+    blocks:
+        default_block:
+            transformer: bamboo.sitemap.transformer
+            repository_service: arepo
+            method: findBy
+            arguments:
+                name1: aname
+    profiles:
+        default_profile:
+            path: web/sitemap.xml
+            render: elcodi.core.sitemap.render.xml
+            blocks:
+                name2: default_block

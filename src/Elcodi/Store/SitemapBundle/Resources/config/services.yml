@@ -1,0 +1,3 @@
+services:
+    bamboo.sitemap.transformer:
+        class: Elcodi\Store\SitemapBundle\Transformer\DefaultTransformer
