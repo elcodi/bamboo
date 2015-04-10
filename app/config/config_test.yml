@@ -3,11 +3,6 @@ imports:
     - { resource: parameters_test.yml }
     - { resource: @ElcodiCoreBundle/Resources/config/test/cache.test.yml }
 
-parameters:
-    database_driver: pdo_sqlite
-    database_name: bamboo_test
-    database_path: /tmp/Bamboo/bamboo.test
-
 framework:
     test: ~
     session:

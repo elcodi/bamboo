@@ -2,4 +2,9 @@
 # Test parameters
 #
 parameters:
+
+    database_driver: pdo_sqlite
+    database_name: bamboo_test
+    database_path: /tmp/Bamboo/bamboo.test
+
     locale: en

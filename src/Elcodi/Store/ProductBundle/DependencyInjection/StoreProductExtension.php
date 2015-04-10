@@ -98,6 +98,7 @@ class StoreProductExtension extends AbstractExtension
         return [
             'services',
             'eventListeners',
+            'sitemapTransformers',
         ];
     }
 

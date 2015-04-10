@@ -1,0 +1,36 @@
+elcodi_sitemap:
+    blocks:
+        enabled_products:
+            transformer: elcodi.sitemap_transformer.product
+            repository_service: elcodi.repository.product
+            method: findBy
+            arguments:
+                enabled: true
+            changeFrequency: daily
+            priority: "0,5"
+        enabled_categories:
+            transformer: elcodi.sitemap_transformer.category
+            repository_service: elcodi.repository.category
+            method: findBy
+            arguments:
+                enabled: true
+            changeFrequency: daily
+            priority: "0,5"
+    statics:
+        store_homepage: ~
+
+    builders:
+        main:
+            path: %kernel.root_dir%/../web/sitemap/sitemap_{_locale}.xml
+            renderer: elcodi.sitemap_renderer.xml
+            blocks:
+                - enabled_products
+                - enabled_categories
+            statics:
+                - store_homepage
+
+    profiles:
+        main:
+            languages: elcodi.languages_iso_array
+            builders:
+                - main
