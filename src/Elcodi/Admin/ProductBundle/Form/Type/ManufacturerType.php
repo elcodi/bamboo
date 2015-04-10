@@ -116,6 +116,13 @@ class ManufacturerType extends AbstractType
             ])
             ->add('metaDescription', 'text', [
                 'required' => false,
+                'constraints' => [
+                    new Constraints\Length(
+                        [
+                            'max' => 159,
+                        ]
+                    )
+                ],
             ])
             ->add('metaKeywords', 'text', [
                 'required' => false,
