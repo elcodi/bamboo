@@ -10,4 +10,4 @@ elcodi_comment:
 
 elcodi_location:
     resource: "@ElcodiGeoBundle/Resources/config/routing.yml"
-    prefix: /%bamboo_api_prefix%
+    prefix: /%elcodi.route.location_api.prefix%
