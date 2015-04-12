@@ -9,6 +9,7 @@ parameters:
     database_name: bamboo
     database_user: root
     database_password: root
+    database_path: false
 
     # Mailer
     mailer_transport: smtp
