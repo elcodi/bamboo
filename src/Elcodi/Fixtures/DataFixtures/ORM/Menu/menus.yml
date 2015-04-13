@@ -153,7 +153,7 @@ admin:
                 - admin_template_list
 
         settings:
-            name: admin.settings.single
+            name: admin.settings.plural
             code: gear
             children:
                 configurations:
