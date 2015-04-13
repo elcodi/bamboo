@@ -139,7 +139,6 @@ class AppKernel extends Kernel
             new \Elcodi\Admin\MetricBundle\AdminMetricBundle(),
             new \Elcodi\Admin\PluginBundle\AdminPluginBundle(),
             new \Elcodi\Admin\ShippingBundle\AdminShippingBundle(),
-            new \Elcodi\Bundle\FixturesBoosterBundle\ElcodiFixturesBoosterBundle(),
             new \Elcodi\Admin\GeoBundle\AdminGeoBundle(),
 
             /**
@@ -169,6 +168,7 @@ class AppKernel extends Kernel
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
+            $bundles[] = new \Elcodi\Bundle\FixturesBoosterBundle\ElcodiFixturesBoosterBundle();
         }
 
         return $bundles;
