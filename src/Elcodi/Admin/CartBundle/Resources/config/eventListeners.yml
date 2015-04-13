@@ -1,0 +1,11 @@
+services:
+
+    #
+    # Event Listeners
+    #
+    store.plugin.event_listener.order_count_in_menu:
+        class: Elcodi\Admin\CartBundle\Listener\OrderCountInMenuListener
+        arguments:
+            - @elcodi.repository.order
+        tags:
+            - { name: kernel.event_listener, event: menu.post_load }

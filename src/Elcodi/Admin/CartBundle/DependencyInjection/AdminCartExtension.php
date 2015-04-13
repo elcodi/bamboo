@@ -56,7 +56,9 @@ class AdminCartExtension extends AbstractExtension
      */
     public function getConfigFiles(array $config)
     {
-        return [];
+        return [
+            'eventListeners',
+        ];
     }
 
     /**
