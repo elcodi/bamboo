@@ -33,7 +33,7 @@
                     <ul class="thumbnail-actions">
                         <li>
                             <a
-                                href="{{ url('admin_image_delete', { id: image.id }) }}{% if redirect_url is defined %}{{ '?redirect-path=' ~ redirect_url }}{% endif %}"
+                                href="{{ url('admin_image_delete', { id: image.id }) }}{% if redirect_path is defined %}{{ '?redirect-path=' ~ redirect_path }}{% endif %}"
                                 class="icon-trash-o">
                             </a>
                         </li>
