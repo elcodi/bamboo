@@ -55,6 +55,9 @@ admin_geo:
 admin_languages:
     resource: "@AdminLanguageBundle/Resources/config/routing.yml"
 
+admin_rule:
+    resource: "@AdminRuleBundle/Resources/config/routing.yml"
+
 admin_login_check:
     path:  /login_check
 
