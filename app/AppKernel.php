@@ -169,6 +169,7 @@ class AppKernel extends Kernel
             $bundles[] = new Elcodi\Bundle\FixturesBoosterBundle\ElcodiFixturesBoosterBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
+            $bundles[] = new \Elcodi\Bundle\FixturesBoosterBundle\ElcodiFixturesBoosterBundle();
         }
 
         return $bundles;
