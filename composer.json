@@ -141,7 +141,11 @@
             "Elcodi\\": [
                 "src/Elcodi"
             ]
-        }
+        },
+        "classmap": [
+            "app/AppKernel.php",
+            "app/AppCache.php"
+        ]
     },
     "config": {
         "bin-dir": "bin"
