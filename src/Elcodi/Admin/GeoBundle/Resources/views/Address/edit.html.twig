@@ -7,13 +7,13 @@
 {% block breadcrumb %}
 
     {% include '@AdminCore/Common/breadcrumb.html.twig' with {
-        breadcrumb: [
+    breadcrumb: [
+            { name: 'admin.settings.plural'|trans },
             { name: 'admin.address.edit.billing_address'|trans, active: true },
-        ]
+        ],
     } %}
 
 {% endblock breadcrumb %}
-
 
 {% block content %}
     <div class="msg-info">

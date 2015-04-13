@@ -108,7 +108,7 @@ class MenuData extends AbstractFixture
     protected function processChildren(SubnodesAwareInterface $parent, array $config)
     {
         foreach ($config as $childName => $childConfig) {
-            $child = $this->createSubnode($childName, $childConfig);
+            $child = $this->createSubnode($childConfig['name'], $childConfig);
             $parent->addSubnode($child);
         }
     }
