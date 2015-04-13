@@ -1,5 +1,3 @@
-#
-# Dev parameters
-#
-# You can add here your specific parameters for your dev environment.
-#
+parameters:
+
+    database_path: ~
