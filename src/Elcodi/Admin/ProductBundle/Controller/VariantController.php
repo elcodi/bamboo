@@ -233,9 +233,9 @@ class VariantController extends AbstractAdminController
     /**
      * Delete element action
      *
-     * @param Request $request     Request
-     * @param mixed   $variant     Variant to delete
-     * @param string  $redirectUrl Redirect url
+     * @param Request $request      Request
+     * @param mixed   $variant      Variant to delete
+     * @param string  $redirectPath Redirect path
      *
      * @return RedirectResponse Redirect response
      *
@@ -263,7 +263,7 @@ class VariantController extends AbstractAdminController
     public function deleteAction(
         Request $request,
         $variant,
-        $redirectUrl = null
+        $redirectPath = null
     ) {
         /**
          * @var ProductInterface $product

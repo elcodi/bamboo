@@ -18,6 +18,7 @@
 namespace Elcodi\Admin\MediaBundle\Controller;
 
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
+use Mmoreram\ControllerExtraBundle\Annotation\Get;
 use Mmoreram\ControllerExtraBundle\Annotation\JsonResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -122,9 +123,9 @@ class ImageController extends AbstractAdminController
     /**
      * Delete entity
      *
-     * @param Request $request     Request
-     * @param mixed   $entity      Entity to delete
-     * @param string  $redirectUrl Redirect url
+     * @param Request $request      Request
+     * @param mixed   $entity       Entity to delete
+     * @param string  $redirectPath Redirect path
      *
      * @return RedirectResponse Redirect response
      *
@@ -144,12 +145,20 @@ class ImageController extends AbstractAdminController
     public function deleteAction(
         Request $request,
         $entity,
-        $redirectUrl = null
+        $redirectPath = null
     ) {
+        $redirectPathParam = $request
+            ->query
+            ->get('redirect-path');
+
+        $redirectPath = is_null($redirectPathParam)
+            ? $this->generateUrl('admin_image_list')
+            : $redirectPath;
+
         return parent::deleteAction(
             $request,
             $entity,
-            'admin_image_list'
+            $redirectPath
         );
     }
 

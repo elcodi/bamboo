@@ -81,16 +81,16 @@ class AbstractAdminController extends Controller
     /**
      * Updated edited element action
      *
-     * @param Request $request     Request
-     * @param Mixed   $entity      Entity to delete
-     * @param string  $redirectUrl Redirect url
+     * @param Request $request      Request
+     * @param Mixed   $entity       Entity to delete
+     * @param string  $redirectPath Redirect path
      *
      * @return RedirectResponse Redirect response
      */
     protected function deleteAction(
         Request $request,
         $entity,
-        $redirectUrl = null
+        $redirectPath = null
     ) {
         return $this->getResponse($request, function () use ($entity) {
             /**
@@ -107,7 +107,7 @@ class AbstractAdminController extends Controller
                     ->trans('ui.delete.success')
             );
 
-        }, $redirectUrl);
+        }, $redirectPath);
     }
 
     /**
@@ -136,9 +136,9 @@ class AbstractAdminController extends Controller
      *
      * This method takes into account the type of the request ( GET or POST )
      *
-     * @param Request $request     Request
-     * @param Closure $closure     Closure
-     * @param string  $redirectUrl Redirect url
+     * @param Request $request      Request
+     * @param Closure $closure      Closure
+     * @param string  $redirectPath Redirect path
      *
      * @return mixed Response
      *
@@ -147,12 +147,15 @@ class AbstractAdminController extends Controller
     protected function getResponse(
         Request $request,
         Closure $closure,
-        $redirectUrl = null
+        $redirectPath = null
     ) {
         try {
             $closure();
 
-            return $this->getOkResponse($request, $redirectUrl);
+            return $this->getOkResponse(
+                $request,
+                $redirectPath
+            );
         } catch (Exception $exception) {
             return $this->getFailResponse($request, $exception);
         }
@@ -163,23 +166,24 @@ class AbstractAdminController extends Controller
      *
      * This method takes into account the type of the request ( GET or POST )
      *
-     * @param Request $request     Request
-     * @param string  $redirectUrl Redirect url
+     * @param Request $request      Request
+     * @param string  $redirectPath Redirect path
      *
      * @return mixed Response
      */
-    protected function getOkResponse(Request $request, $redirectUrl = null)
-    {
-        if (null === $redirectUrl) {
-            $redirectRoute = $request->headers->get('referer');
-        } elseif ($redirectUrl instanceof Closure) {
-            $redirectRoute = $redirectUrl();
+    protected function getOkResponse(
+        Request $request,
+        $redirectPath = null
+    ) {
+        if (null === $redirectPath) {
+            $redirectUrl = $request->headers->get('referer');
         } else {
-            $redirectRoute = $this->generateUrl($redirectUrl);
+            $redirectUrl = $request
+                ->getUriForPath($redirectPath);
         }
 
         return ('GET' === $request->getMethod())
-            ? $this->redirect($redirectRoute)
+            ? $this->redirect($redirectUrl)
             : new Response(json_encode([
                 'result'  => 'ok',
                 'code'    => '0',

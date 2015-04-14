@@ -168,9 +168,9 @@ class BlogPostController extends AbstractAdminController
     /**
      * Delete a blog post
      *
-     * @param Request $request     Request
-     * @param mixed   $entity      Entity to delete
-     * @param string  $redirectUrl Redirect url
+     * @param Request $request      Request
+     * @param mixed   $entity       Entity to delete
+     * @param string  $redirectPath Redirect path
      *
      * @return RedirectResponse Redirect response
      *
@@ -190,7 +190,7 @@ class BlogPostController extends AbstractAdminController
     public function deleteAction(
         Request $request,
         $entity,
-        $redirectUrl = null
+        $redirectPath = null
     ) {
         return parent::deleteAction(
             $request,
