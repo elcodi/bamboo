@@ -15,7 +15,7 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-namespace Elcodi\Store\PaymentBridgeBundle\Repository;
+namespace Elcodi\Common\PaymentBridgeBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 

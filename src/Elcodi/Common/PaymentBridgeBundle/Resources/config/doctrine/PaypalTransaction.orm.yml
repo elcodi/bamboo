@@ -1,6 +1,6 @@
-Elcodi\Store\PaymentBridgeBundle\Entity\PaypalTransaction:
+Elcodi\Common\PaymentBridgeBundle\Entity\PaypalTransaction:
     type: entity
-    repositoryClass: Elcodi\Store\PaymentBridgeBundle\Repository\PaypalTransactionRepository
+    repositoryClass: Elcodi\Common\PaymentBridgeBundle\Repository\PaypalTransactionRepository
     table: paypal_transaction
     id:
         id:

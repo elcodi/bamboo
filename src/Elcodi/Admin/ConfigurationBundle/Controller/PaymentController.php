@@ -46,6 +46,12 @@ class PaymentController extends AbstractAdminController
      */
     public function listAction()
     {
-        return [];
+        $enabledPaymentMethods = $this
+            ->container
+            ->getParameter('store.payment_bridge.enabled_methods');
+
+        return [
+            'enabledPaymentMethods' => $enabledPaymentMethods,
+        ];
     }
 }
