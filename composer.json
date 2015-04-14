@@ -32,6 +32,8 @@
     "require": {
         "php": ">=5.4",
         "ext-openssl": "*",
+        "ext-imagick": "*",
+        "ext-redis": "*",
 
         "symfony/symfony": "~2.6",
         "symfony/framework-bundle": "~2.6, >=2.6.5",
