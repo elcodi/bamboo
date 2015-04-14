@@ -78,7 +78,7 @@ class CategoryType extends AbstractType
                         [
                             'max' => 65,
                         ]
-                    )
+                    ),
                 ],
             ])
             ->add('slug', 'text', [
@@ -88,7 +88,7 @@ class CategoryType extends AbstractType
                         [
                             'max' => 65,
                         ]
-                    )
+                    ),
                 ],
             ])
             ->add('root', 'checkbox', [
@@ -107,7 +107,7 @@ class CategoryType extends AbstractType
                         [
                             'max' => 159,
                         ]
-                    )
+                    ),
                 ],
             ])
             ->add('metaKeywords', 'text', [

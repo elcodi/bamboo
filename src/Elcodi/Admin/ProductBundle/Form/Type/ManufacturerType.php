@@ -86,7 +86,7 @@ class ManufacturerType extends AbstractType
                         [
                             'max' => 65,
                         ]
-                    )
+                    ),
                 ],
             ])
             ->add('slug', 'text', [
@@ -96,7 +96,7 @@ class ManufacturerType extends AbstractType
                         [
                             'max' => 65,
                         ]
-                    )
+                    ),
                 ],
             ])
             ->add('description', 'textarea', [
@@ -121,7 +121,7 @@ class ManufacturerType extends AbstractType
                         [
                             'max' => 159,
                         ]
-                    )
+                    ),
                 ],
             ])
             ->add('metaKeywords', 'text', [
