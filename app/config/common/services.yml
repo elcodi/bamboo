@@ -36,3 +36,11 @@ services:
         factory_service: elcodi.manager.configuration
         factory_method: get
         arguments: ['store.tracker']
+
+    #
+    # Store address
+    #
+    elcodi.store_address:
+        class: %elcodi.entity.address.class%
+        factory_service: elcodi.service.store_address_manager
+        factory_method: getStoreAddress

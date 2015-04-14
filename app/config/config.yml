@@ -51,6 +51,7 @@ twig:
         elcodi_context: []
         currency_wrapper: @elcodi.wrapper.currency
         store_tracker: @elcodi.store_tracker
+        store_address: @elcodi.store_address
 
 # Doctrine Configuration
 doctrine:
