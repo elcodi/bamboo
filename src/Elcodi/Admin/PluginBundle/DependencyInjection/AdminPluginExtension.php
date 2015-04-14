@@ -15,21 +15,21 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-namespace Elcodi\Admin\CartBundle\DependencyInjection;
+namespace Elcodi\Admin\PluginBundle\DependencyInjection;
 
 use Elcodi\Bundle\CoreBundle\DependencyInjection\Abstracts\AbstractExtension;
 
 /**
- * Class AdminCartExtension
+ * Class AdminPageExtension
  */
-class AdminCartExtension extends AbstractExtension
+class AdminPluginExtension extends AbstractExtension
 {
     /**
      * @var string
      *
      * Extension name
      */
-    const EXTENSION_NAME = 'admin_cart';
+    const EXTENSION_NAME = 'admin_plugin';
 
     /**
      * Get the Config file location

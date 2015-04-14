@@ -19,6 +19,8 @@ namespace Elcodi\Admin\PluginBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
+use Elcodi\Admin\PluginBundle\DependencyInjection\AdminPluginExtension;
+
 /**
  * Class AdminPluginBundle
  */
@@ -27,10 +29,10 @@ class AdminPluginBundle extends Bundle
     /**
      * Returns the bundle's container extension.
      *
-     * @return null
+     * @return AdminPluginExtension
      */
     public function getContainerExtension()
     {
-        return;
+        return new AdminPluginExtension();
     }
 }

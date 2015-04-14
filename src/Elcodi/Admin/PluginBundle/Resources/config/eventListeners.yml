@@ -1,0 +1,12 @@
+services:
+
+    #
+    # Event Listeners
+    #
+    store.plugin.event_listener.add_to_menu:
+        class: Elcodi\Admin\PluginBundle\Listener\AddPluginToMenuListener
+        arguments:
+            - @elcodi.factory.menu_node
+            - @=elcodi_config("store.plugins")
+        tags:
+            - { name: kernel.event_listener, event: menu.post_load }
