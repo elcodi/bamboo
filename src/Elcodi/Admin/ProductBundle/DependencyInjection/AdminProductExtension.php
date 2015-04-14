@@ -60,6 +60,7 @@ class AdminProductExtension extends AbstractExtension
             'formTypes',
             'eventListeners',
             'services',
+            'validator',
         ];
     }
 

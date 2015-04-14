@@ -53,6 +53,10 @@
             <p class="msg-warning">{{ 'admin.product.error.no_manufacturer'|trans }}</p>
         {% endif %}
 
+        {% if product.price.amount < 0 %}
+            <p class="msg-warning">{{ 'admin.product.error.price_negative'|trans }}</p>
+        {% endif %}
+
         {{ render(url('admin_product_edit_component', { id: product.id })) }}
     {% else %}
         {{ render(url('admin_product_new_component')) }}
