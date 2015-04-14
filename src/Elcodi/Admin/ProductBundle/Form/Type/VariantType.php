@@ -116,7 +116,7 @@ class VariantType extends AbstractType
                 'required' => false,
                 'constraints' => [
                     new MinimumMoney([
-                        'value' => 0
+                        'value' => 0,
                     ]),
                 ],
             ])
@@ -124,7 +124,7 @@ class VariantType extends AbstractType
                 'required' => false,
                 'constraints' => [
                     new MinimumMoney([
-                        'value' => 0
+                        'value' => 0,
                     ]),
                 ],
             ])

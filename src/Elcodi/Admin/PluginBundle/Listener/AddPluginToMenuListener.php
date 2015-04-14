@@ -63,7 +63,6 @@ class AddPluginToMenuListener
         $plugins = $this->filterValidPlugins();
 
         if (empty($plugins)) {
-
             return;
         }
 

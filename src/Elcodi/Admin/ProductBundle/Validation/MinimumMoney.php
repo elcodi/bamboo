@@ -17,9 +17,10 @@
 
 namespace Elcodi\Admin\ProductBundle\Validation;
 
-use Elcodi\Component\Currency\Entity\Money;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\Exception\ConstraintDefinitionException;
+
+use Elcodi\Component\Currency\Entity\Money;
 
 /**
  * Class MinimumMoney

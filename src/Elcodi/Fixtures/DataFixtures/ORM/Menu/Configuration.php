@@ -51,8 +51,7 @@ class Configuration extends AbstractConfiguration
                     ->booleanNode('enabled')
                         ->defaultTrue()
                     ->end()
-                    ->append($this->childNode('children'))
-        ;
+                    ->append($this->childNode('children'));
     }
 
     /**
@@ -97,8 +96,7 @@ class Configuration extends AbstractConfiguration
                 ->end()
 
                 ->append($this->childNode('children'))
-            ->end()
-        ;
+            ->end();
     }
 
     /**
@@ -120,7 +118,7 @@ class Configuration extends AbstractConfiguration
                 ->ifTrue(function ($entry) {
                     return !is_array($entry);
                 })
-                ->thenInvalid('The "'.$name.'" element must be an array.')
+                ->thenInvalid('The "' . $name . '" element must be an array.')
             ->end()
 
             ->validate()
@@ -138,8 +136,7 @@ class Configuration extends AbstractConfiguration
 
                     return $configuration;
                 })
-            ->end()
-        ;
+            ->end();
 
         return $root;
     }

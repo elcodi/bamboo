@@ -108,7 +108,7 @@ class ProductType extends AbstractType
                         [
                             'max' => 65,
                         ]
-                    )
+                    ),
                 ],
             ])
             ->add('slug', 'text', [
@@ -118,7 +118,7 @@ class ProductType extends AbstractType
                         [
                             'max' => 65,
                         ]
-                    )
+                    ),
                 ],
             ])
             ->add('description', 'textarea', [
@@ -134,7 +134,7 @@ class ProductType extends AbstractType
                 'required' => true,
                 'constraints' => [
                     new MinimumMoney([
-                        'value' => 0
+                        'value' => 0,
                     ]),
                 ],
             ])
@@ -142,7 +142,7 @@ class ProductType extends AbstractType
                 'required' => false,
                 'constraints' => [
                     new MinimumMoney([
-                        'value' => 0
+                        'value' => 0,
                     ]),
                 ],
             ])
@@ -174,7 +174,7 @@ class ProductType extends AbstractType
                         [
                             'max' => 159,
                         ]
-                    )
+                    ),
                 ],
             ])
             ->add('metaKeywords', 'text', [

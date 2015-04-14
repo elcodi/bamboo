@@ -120,7 +120,7 @@ class MenuData extends AbstractFixture
      */
     protected function loadConfiguration()
     {
-        $config = $this->parseYaml(__DIR__.'/menus.yml');
+        $config = $this->parseYaml(__DIR__ . '/menus.yml');
 
         $configuration = new Configuration('menu');
         $processor = new Processor();
