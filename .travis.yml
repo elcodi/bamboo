@@ -14,6 +14,7 @@ matrix:
         - php: hhvm
 
 before_install:
+    - sh -c "echo 'extension = redis.so' >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini"
     - /home/travis/.phpenv/versions/$(phpenv version-name)/bin/composer self-update
     - sh -c "sudo mkdir vendor"
     - sh -c "sudo mount -t tmpfs -o size=512M tmpfs vendor"
@@ -22,7 +23,6 @@ install:
     - composer install --prefer-source --no-interaction
 
 before_script:
-    - sh -c "echo 'extension = redis.so' >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini"
     - sh -c "sudo mkdir /tmp/Bamboo"
     - sh -c "sudo mount -t tmpfs -o size=512M tmpfs /tmp/Bamboo/"
 
