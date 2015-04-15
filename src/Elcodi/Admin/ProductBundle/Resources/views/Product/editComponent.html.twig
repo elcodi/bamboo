@@ -178,7 +178,9 @@
 
             {% include '@AdminMedia/Module/_images-form-field.html.twig' with {
                 images: product.getSortedImages,
-                redirect_path: path('admin_product_edit', { id: product.id })
+                redirect_path: product.id
+                    ? path('admin_product_edit', { id: product.id })
+                    : path('admin_product_new')
             } %}
             <div class="ph-n pt-m mb-n">
                 <div class="box-background pv-s mb-n">
