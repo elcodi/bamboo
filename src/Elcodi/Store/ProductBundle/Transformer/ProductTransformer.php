@@ -82,7 +82,7 @@ class ProductTransformer implements SitemapTransformerInterface
                 'id' => $element->getId(),
                 'slug' => $element->getSlug(),
                 '_locale' => $language,
-            ], true);
+            ], false);
     }
 
     /**
