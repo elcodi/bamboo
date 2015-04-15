@@ -1,0 +1,25 @@
+// ------------------------------
+// MAIN PACKAGE
+// CORE CSS framework
+//
+// ------------------------------
+// INTERNAL CORE CSS IMPORT
+// BASE
+@import 'skins/_index';
+@import 'basic-tools';
+
+.mobile, .tablet {
+	display: none !important;
+}
+
+.desktop {
+	display: block !important;
+}
+
+.navigation, .navigation-vertical, .subnavigation-vertical, .subnavigation {
+	display: block;
+}
+
+[class*='box-'] {
+	display: block;
+}

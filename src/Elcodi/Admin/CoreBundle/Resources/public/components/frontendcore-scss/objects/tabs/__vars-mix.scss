@@ -1,0 +1,3 @@
+$object-tabs-vars-custom: () !global !default;
+
+$object-tabs-vars: map-merge($object-tabs-vars-default, $object-tabs-vars-custom) !global;

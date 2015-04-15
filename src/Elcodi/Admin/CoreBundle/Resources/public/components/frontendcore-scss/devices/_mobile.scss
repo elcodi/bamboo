@@ -1,0 +1,34 @@
+@mixin mobile-core {
+
+	@if $ui != true {
+		.desktop, .tablet {
+			& {
+				display: none;
+			}
+			&.d-ib, &.d-b {
+				display: none !important;
+			}
+		}
+		.mobile {
+			& {
+				display: block !important;
+			}
+			&.d-ib, &.inline-block {
+				display: inline-block !important;
+			}
+		}
+
+		td.mobile, th.mobile {
+			display: table-cell !important;
+		}
+
+		@include mobile-tabs;
+
+		@include mobile-grid;
+
+		@include mobile-header;
+
+		@include mobile-tables;
+
+	}
+}

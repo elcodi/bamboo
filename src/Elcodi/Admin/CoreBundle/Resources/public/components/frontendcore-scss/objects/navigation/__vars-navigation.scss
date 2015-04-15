@@ -1,0 +1,22 @@
+$object-navigation-vars-default: (
+
+	/* First level */
+	background-color: $color-primary,
+	color: contrast-color($color-primary),
+	border-radius: $default-border-radius,
+	font-family: $font-face-default,
+	font-weight: normal,
+	font-weight-active: bold,
+	font-size: $font-size-default,
+	vertical-separator: true,
+	text-transform: capitalize,
+
+	/* Inner levels */
+	background-color-dark: $color-primary-dark,
+	background-color-light: $color-primary-light,
+	inner-font-family: $font-face-default,
+	inner-font-weight: normal,
+	inner-font-size: $font-size-s,
+	inner-text-transform: capitalize,
+
+) !global !default;

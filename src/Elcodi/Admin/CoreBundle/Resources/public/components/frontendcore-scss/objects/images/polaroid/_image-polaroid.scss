@@ -1,0 +1,18 @@
+@if $object-image-polaroid != false and $ui != true {
+
+	img.image-polaroid {
+		@extend %images-polaroid;
+	}
+
+	a.image-polaroid {
+		& {
+			text-decoration: none;
+			display: inline-block;
+			@extend %images-polaroid;
+		}
+		&.left, &.right {
+			margin-bottom: $spacing;
+		}
+	}
+
+}

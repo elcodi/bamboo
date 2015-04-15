@@ -1,0 +1,18 @@
+{
+  "name": "frontendcore-scss",
+  "version": "1.6.0",
+  "authors": [
+    "Toni Pinel <tonipinel@gmail.com>"
+  ],
+  "main": "Gruntfile.js",
+  "moduleType": [
+    "amd"
+  ],
+  "homepage": "http://www.frontendcore.com",
+  "private": true,
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "tests"
+  ]
+}

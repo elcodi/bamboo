@@ -1,0 +1,16 @@
+$defaults-default: (
+		spacing: 1.6em,
+		border-radius: 1px,
+		box-shadow-color: rgba(0, 0, 0, .2),
+		box-shadow-h-offset: .2em,
+		box-shadow-v-offset: .2em,
+		box-shadow-blur: .2em,
+		box-shadow-spread: false,
+		box-shadow-inset: false,
+		ranking-scale: 5,
+		text-shadow-color: rgba(0, 0, 0, .2),
+		text-shadow-h-offset: 1px,
+		text-shadow-v-offset: 1px,
+		text-shadow-blur: 0,
+		text-shadow-spread: false
+) !global !default;

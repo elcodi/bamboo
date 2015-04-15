@@ -1,0 +1,18 @@
+@if $object-ratings != false and $ui != true {
+	@for $rank from 0 through $default-rank-max {
+		.rating-#{$rank}-5 {
+			@extend %rating;
+		}
+		.rating-#{$rank}-5:before {
+			$star-content: '';
+			@for $star from 1 through 5 {
+				@if $star > $rank {
+					$star-content: $star-content + '\f006';
+				} @else {
+					$star-content: $star-content + '\f005';
+				}
+			}
+			content: $star-content;
+		}
+	}
+}

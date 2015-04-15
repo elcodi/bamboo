@@ -1,0 +1,5 @@
+$object-navigation-vars-custom: () !global !default;
+$object-navigation-sub-vars-custom: () !global !default;
+
+$object-navigation-vars: map-merge($object-navigation-vars-default, $object-navigation-vars-custom) !global;
+$object-navigation-sub-vars: map-merge($object-navigation-sub-vars-default, $object-navigation-sub-vars-custom) !global;

@@ -1,0 +1,56 @@
+@if $object-tags != false and $ui != true {
+	.tags {
+		& {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		li,
+		a {
+			float: left;
+			line-height: $spacing*1.5;
+			position: relative;
+		}
+		a {
+			& {
+				@include border-radius(0 $spacing/4 $spacing/4 0);
+				background: $color-box-dark;
+				color: contrast-color($color-box-dark);
+				margin: 0 $spacing/2 $spacing/2;
+				padding: 0 $spacing 0 $spacing/2;
+				text-decoration: none;
+			}
+			&:before {
+				border-color: transparent $color-box-dark transparent transparent;
+				border-style: solid;
+				border-width: $spacing*.8 $spacing*.8 $spacing*.8 0;
+				content: '';
+				float: left;
+				height: 0;
+				left: -$spacing*.75;
+				position: absolute;
+				top: 0;
+				width: 0;
+			}
+			&:after {
+				@include border-radius;
+				@include box-shadow(-1px -1px 2px $color-box-dark);
+				background: $color-background;
+				content: '';
+				float: left;
+				height: $spacing/4;
+				left: 0;
+				position: absolute;
+				top: $spacing*.7;
+				width: $spacing/4;
+			}
+			&:hover {
+				background: $color-link;
+				color: contrast-color($color-link);
+			}
+			&:hover:before {
+				border-color: transparent $color-link transparent transparent;
+			}
+		}
+	}
+}

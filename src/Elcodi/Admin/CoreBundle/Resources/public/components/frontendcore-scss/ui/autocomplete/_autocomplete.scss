@@ -1,0 +1,73 @@
+@if $ui-autocomplete == true and $ui == true {
+	.autocompleter {
+		width: 100%;
+		background: $color-background;
+		position: absolute;
+		left: 0;
+		z-index: 100;
+	}
+
+	.autocompleter,
+	.autocompleter-hint {
+		position: absolute;
+	}
+
+	.autocompleter-list {
+		@include box-shadow(inset 0px 0px 6px rgba($color-foreground, 0.1));
+		@include box-sizing(border-box);
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		text-align: left;
+	}
+
+	.autocompleter-item-selected {
+		background: $color-background;
+	}
+
+	.autocompleter-item {
+		padding: $spacing/4 $spacing/2;
+		color: $color-foreground;
+		font-size: $font-size-s;
+		cursor: pointer;
+		border-bottom: 1px solid $color-box;
+	}
+
+	.autocompleter-item:hover {
+		background: $color-link;
+		color: contrast-color($color-link);
+	}
+
+	.autocompleter-item strong {
+		background: #f9de8f;
+		text-shadow: 0 1px 0 #ffffff;
+	}
+
+	.autocompleter-item span {
+		color: #bbbbbb;
+	}
+
+	.autocompleter-hint {
+		color: $color-box;
+		text-align: left;
+		top: -56px;
+		font-weight: 400;
+		left: 0;
+		width: 100%;
+		padding: $spacing/2;
+		font-size: $font-size-ml;
+		display: none;
+	}
+
+	.autocompleter-hint span {
+		color: transparent;
+	}
+
+	.autocompleter-hint-show {
+		display: block;
+	}
+
+	.autocompleter-closed {
+		display: none;
+	}
+}

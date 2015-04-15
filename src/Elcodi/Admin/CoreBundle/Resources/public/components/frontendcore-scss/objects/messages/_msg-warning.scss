@@ -1,0 +1,18 @@
+@if $object-messages != false and $ui != true {
+	.msg-warning {
+		& {
+			border-color: $color-warning;
+			@include background-transparent($color-warning, .1);
+		}
+		i {
+			color: adjust-lightness($color-warning, -35%);
+		}
+		i {
+			color: $color-warning;
+		}
+		&:before {
+			content: '\f071';
+			color: $color-warning;
+		}
+	}
+}

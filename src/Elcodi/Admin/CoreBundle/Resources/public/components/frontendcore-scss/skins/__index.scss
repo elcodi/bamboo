@@ -1,0 +1,12 @@
+/**
+ * Skin used
+ * @group general
+ */
+$skin: default !global !default;
+
+
+@import "blue-day";
+
+@import 'default/_index';
+
+@import 'maps';

@@ -1,0 +1,15 @@
+/**
+ * Returns the pixel equivalent for the REM passed value
+ *
+ * @author Toni Pinel
+ *
+ * @param {string}	$rem-value (empty) - Desired REM value to convert
+ * @return {string (Value in px) }
+ * @group fonts
+ */
+
+@function rem-to-px($rem-value) {
+	$px-value: strip-unit( $rem-value ) * $px-to-em-proportions + 'px';
+	@return $px-value;
+}
+

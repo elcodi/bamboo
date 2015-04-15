@@ -1,0 +1,22 @@
+@if $object-lists != false and $ui != true {
+	.list-horizontal {
+		& {
+			padding-left: 0 !important;
+		}
+		li {
+			& {
+				display: inline-block;
+				margin-right: $spacing/4;
+			}
+		}
+		dt, dd {
+			float: left;
+		}
+		dt {
+			clear: left;
+		}
+		dd {
+			margin-left: $spacing/2;
+		}
+	}
+}

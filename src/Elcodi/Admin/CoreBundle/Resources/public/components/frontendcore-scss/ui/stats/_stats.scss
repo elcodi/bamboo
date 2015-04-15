@@ -1,0 +1,192 @@
+@if $ui-stats == true and $ui == true {
+	/*plugin styles*/
+	.visualize {
+		& {
+			position:relative;
+			background:$color-box;
+			@include box-sizing(content-box);
+			@include border-radius;
+			padding:$spacing*3 $spacing*2;
+			margin-bottom:$spacing;
+		}
+		.label {
+			background: none;
+			padding:0;
+			font-weight: normal;
+		}
+		canvas {
+			position:absolute;
+			background: $color-background;
+			margin:-1px;
+			@include border-radius;
+		}
+		ul, li {
+			margin:0;
+			padding:0;
+		}
+		.visualize-info {
+			padding:$spacing/8 $spacing/4;
+			position:static;
+			top:-$spacing;
+			right:$spacing/2;
+			opacity:.8;
+		}
+		.visualize-title {
+			display:block;
+			color: $color-foreground;
+			margin-bottom:$spacing/8;
+			@extend %fz-h3;
+			position:absolute;
+			top:$spacing/2;
+			left:0;
+			width:100%;
+			text-align:center;
+			z-index:100;
+		}
+		ul.visualize-key {
+			& {
+				list-style:none;
+				position:absolute;
+				bottom:0;
+				width:100%;
+				text-align:center;
+				z-index:10;
+				padding:$spacing/2 0;
+				color:#aaa;
+				left:0;
+			}
+			li {
+				list-style:none;
+				display:inline-block;
+				margin-right:$spacing;
+				padding-left:$spacing/2;
+				position:relative;
+				margin-left:$spacing;
+				padding-left:$spacing;
+			}
+			.visualize-key-color {
+				width:$spacing/4;
+				height:$spacing/4;
+				left:0;
+				position:absolute;
+				top:50%;
+				margin-top:-$spacing/8;
+				width:$spacing/2;
+				height:$spacing/2;
+				margin-top:-$spacing/8;
+			}
+			.visualize-key-label {
+				color: $color-foreground;
+			}
+		}
+	}
+
+	.visualize-pie {
+		.visualize-labels {
+			list-style:none;
+		}
+		.visualize-label-pos,
+		.visualize-pie .visualize-label {
+			position:absolute;
+			margin:0;
+			padding:0;
+		}
+		.visualize-label {
+			display:block;
+			color: $color-background;
+			font-weight:bold;
+			font-size:$font-size-default;
+			@include background-transparent($color-foreground,.4);
+			@include border-radius;
+			padding:$spacing/4;
+		}
+	}
+
+	.visualize-pie-outside {
+		.visualize-label {
+			color: $color-foreground;
+			font-weight:normal;
+		}
+	}
+	.visualize-pie {
+		.visualize-labels {
+			position:absolute;
+			top:$spacing*2.5;
+			left:$spacing;
+			@include text-shadow;
+		}
+		ul.visualize-key {
+			padding-bottom:$spacing;
+		}
+	}
+
+	.visualize-icon-table {
+		& {
+			position: absolute;
+			z-index: 100;
+			margin: $spacing/2;
+			background: $color-background;
+			padding: $spacing/4 $spacing/12 $spacing/4 $spacing/4;
+			@include border-radius(50px);
+			text-align: center;
+			display: block;
+			color: $color-foreground;
+		}
+		&:hover {
+			background: $color-link;
+			color: contrast-color($color-link);
+			text-decoration: none;
+		}
+	}
+
+	.visualize-labels-x,
+	.visualize-labels-y {
+		position:absolute;
+		top: $spacing*3;
+		left: $spacing*2;
+		z-index:100;
+	}
+
+	.visualize-labels-y {
+		li {
+			span.line {
+				border-style:solid;
+				opacity:.7;
+			}
+		}
+	}
+
+	/*line,bar, area labels*/
+	.visualize-labels-x li, .visualize-labels-y li { position:absolute; bottom:0; }
+	.visualize-labels-x li span.label, .visualize-labels-y li span.label { position:absolute; color:#555; }
+	.visualize-labels-x li span.line, .visualize-labels-y li span.line { position:absolute; border:0 solid #ccc; }
+	.visualize-labels-x li { height:100%; }
+	.visualize-labels-x li span.label { top:100%; margin-top:5px; }
+	.visualize-labels-x li span.line { border-left-width:1px; height:100%; display:block; }
+	.visualize-labels-x li span.line { border:0; }
+	/*hide vertical lines on area, line, bar*/
+	.visualize-labels-y li { width:100%; }
+	.visualize-labels-y li span.label { right:100%; margin-right:5px; display:block; width:100px; text-align:right; }
+	.visualize-labels-y li span.line { border-top-width:1px; width:100%; }
+	.visualize-bar .visualize-labels-x li span.label { width:100%; text-align:center; }
+
+	/*visualize extension styles*/
+/*
+	.visualize
+
+
+	.visualize-labels-x li span.label, .visualize-labels-y li span.label { color:#444; font-size:1.3em; padding-right:5px; }
+
+	.visualize .visualize-info { border:0;  opacity:1; background:none; }
+	.visualize .visualize-title {
+
+		color:#333;
+		margin-bottom:0;
+
+	}
+	.visualize ul.visualize-key {background:#eee;  }
+	.visualize ul.visualize-key li { }
+	.visualize ul.visualize-key
+	.visualize ul.visualize-key .visualize-key-label { color:#333; }
+*/
+}

@@ -1,0 +1,212 @@
+/**
+ * Defines the design style of all the objects.
+ * Posible values: flat (default), gradient
+ * @type string
+ * @group objects
+ */
+$object-style: map-get($objects, style) !global;
+
+/**
+ * Defines the availabilty and style of the Navigation object. To avoid this object to be included in your scss set it to false.
+ * Posible values: default, tabbed, false
+ * @type string
+ * @link http://www.frontendcore.com/css/navigation.html
+ * @group objects
+ */
+$object-navigation: map-get($objects, navigation) !global;
+
+/**
+ * Defines the availability and style of the SubNavigation object. To avoid this object to be included in your scss set it to false.
+ * Posible values: default, tabbed, false
+ * @type string
+ * @link http://www.frontendcore.com/css/navigation.html
+ * @group objects
+ */
+$object-navigation-sub: map-get($objects, navigation-sub) !global;
+
+/**
+ * Defines the availability and style of the Boxes objects. To avoid this object to be included in your scss set it to false.
+ * Posible values: default, false
+ * @type string
+ * @link http://www.frontendcore.com/css/boxes.html
+ * @group objects
+ */
+$object-boxes: map-get($objects, boxes) !global;
+
+/**
+ * Defines the availabilty and style of the button objects. To avoid this object to be included in your scss set it to false.
+ * Posible values: default, false
+ * @type string
+ * @link http://www.frontendcore.com/css/buttons.html
+ * @group objects
+ */
+$object-buttons: map-get($objects, buttons) !global;
+
+/**
+ * Defines the availability and style of the filters objects. To avoid this object to be included in your scss set it to false.
+ * Posible values: default, false
+ * @type string
+ * @link http://www.frontendcore.com/css/filters.html
+ * @group objects
+ */
+$object-filters: map-get($objects, filters) !global;
+
+/**
+ * Defines the availability and style of the footer object. To avoid this object to be included in your scss set it to false.
+ * Posible values: default, false
+ * @type string
+ * @group objects
+ */
+$object-footer: map-get($objects, footer) !global;
+
+/**
+ * Defines the availability and style of the forms objects. To avoid this object to be included in your scss set it to false.
+ * Posible values: default, false
+ * @type string
+ * @link http://www.frontendcore.com/css/forms.html
+ * @group objects
+ */
+$object-form: map-get($objects, form) !global;
+
+/**
+ * Defines the availability and style of the form-search object. To avoid this object to be included in your scss set it to false.
+ * Posible values: default, false
+ * @type string
+ * @link http://www.frontendcore.com/css/forms.html
+ * @group objects
+ */
+$object-form-search: map-get($objects, form-search) !global;
+
+/**
+ * Defines the availability and style of the header object. To avoid this object to be included in your scss set it to false.
+ * Posible values: default, false
+ * @type string
+ * @group objects
+ */
+$object-header: map-get($objects, header) !global;
+
+/**
+ * Defines the availability and style of the image-circle object. To avoid this object to be included in your scss set it to false.
+ * Posible values: default, false
+ * @type string
+ * @link http://www.frontendcore.com/media/image-circle.html
+ * @group objects
+ */
+$object-image-circle: map-get($objects, image-circle) !global;
+
+/**
+ * Defines the availability and style of the image-polaroid object. To avoid this object to be included in your scss set it to false.
+ * Posible values: default, false
+ * @type string
+ * @link http://www.frontendcore.com/media/image-polaroid.html
+ * @group objects
+ */
+$object-image-polaroid: map-get($objects, image-polaroid) !global;
+
+/**
+ * Defines the availability and style of the image-thumbnail object. To avoid this object to be included in your scss set it to false.
+ * Posible values: default, false
+ * @type string
+ * @link http://www.frontendcore.com/media/image-thumb.html
+ * @group objects
+ */
+$object-image-thumbnail: map-get($objects, image-thumbnail) !global;
+
+/**
+ * Defines the availability and style of the switch object. To avoid this object to be included in your scss set it to false.
+ * Posible values: default, false
+ * @type string
+ * @link http://www.frontendcore.com/forms/option-fields.html
+ * @group objects
+ */
+$object-switch: map-get($objects, switch) !global;
+
+/**
+ * Defines the availability and style of the lists objects. To avoid this object to be included in your scss set it to false.
+ * Posible values: default, false
+ * @type string
+ * @link http://www.frontendcore.com/css/list.html
+ * @group objects
+ */
+$object-lists: map-get($objects, lists) !global;
+
+/**
+ * Defines the availability and style of the messages objects. To avoid this object to be included in your scss set it to false.
+ * Posible values: default, false
+ * @type string
+ * @link http://www.frontendcore.com/css/messages.html
+ * @group objects
+ */
+$object-messages: map-get($objects, messages) !global;
+
+/**
+ * Defines the availability and style of the pagination object. To avoid this object to be included in your scss set it to false.
+ * Posible values: default, false
+ * @type string
+ * @link http://www.frontendcore.com/css/pagination.html
+ * @group objects
+ */
+$object-pagination: map-get($objects, pagination) !global;
+
+/**
+ * Defines the availability and style of the rating object. To avoid this object to be included in your scss set it to false.
+ * Posible values: default, false
+ * @type string
+ * @link http://www.frontendcore.com/css/rating.html
+ * @group objects
+ */
+$object-ratings: map-get($objects, ratings) !global;
+
+/**
+ * Defines the availability and style of the steps object. To avoid this object to be included in your scss set it to false.
+ * Posible values: default, false
+ * @type string
+ * @link http://www.frontendcore.com/css/steps.html
+ * @group objects
+ */
+$object-steps: map-get($objects, steps) !global;
+
+/**
+ * Defines the availability and style of the tabs objects. To avoid this object to be included in your scss set it to false.
+ * Posible values: default, false
+ * @type string
+ * @link http://www.frontendcore.com/css/tabs.html
+ * @group objects
+ */
+$object-tabs: map-get($objects, tabs) !global;
+
+/**
+ * Defines the availability and style of the tags objects. To avoid this object to be included in your scss set it to false.
+ * Posible values: default, false
+ * @type string
+ * @link http://www.frontendcore.com/css/tabs.html
+ * @group objects
+ */
+$object-tags: map-get($objects, tags) !global;
+
+/**
+ * Defines the availability and style of the labels objects. To avoid this object to be included in your scss set it to false.
+ * Posible values: default, false
+ * @type string
+ * @link http://www.frontendcore.com/css/labels.html
+ * @group objects
+ */
+$object-labels: map-get($objects, labels) !global;
+
+/**
+ * Includes the classes at main css for animations
+ * Posible values: default, false
+ * @type string
+ * @link http://www.frontendcore.com/architecture-css/animations.html
+ * @group objects
+ */
+$object-animations: map-get($objects, animations) !global;
+
+/**
+ * Includes the classes at main css for balloons
+ * Posible values: default, false
+ * @type string
+ * @link http://www.frontendcore.com/content/balloons.html
+ * @group objects
+ */
+$object-balloons: map-get($objects, balloons) !global;

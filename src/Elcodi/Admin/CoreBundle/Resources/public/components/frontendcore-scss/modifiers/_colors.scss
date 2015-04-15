@@ -1,0 +1,46 @@
+/* Description:
+Provides a common system for setting colors between HTML elements.
+
+Usage:
+Mark the element with the desired color class.
+
+Complete acronym reference based on Emmet:
+
+FIRST 2 LETTERS
+c = color
+bg = background
+
+WORDS AFTER THE DASH
+The words after the dash are based on the name of the sass variables to assign colors:
+primary
+secondary
+box
+ok
+ko
+foreground
+background
+foreground-light
+
+EXAMPLES
+c-secondary
+c-box
+bg-primary
+bg-ok
+*/
+
+$colors-list: 'foreground', 'background', 'foreground-light', 'primary', 'secondary', 'box', 'ko', 'ok', 'info', 'warning';
+
+@if $ui != true {
+
+	@each $color in $colors-list {
+
+		.c-#{$color}, .c-#{$color}:before, .c-#{$color}:after {
+			color: map-get($colors, $color) !important;
+		}
+
+		.bg-#{$color}, .bg-#{$color}:before, .bg-#{$color}:after {
+			background-color: map-get($colors, $color) !important;
+		}
+	}
+}
+

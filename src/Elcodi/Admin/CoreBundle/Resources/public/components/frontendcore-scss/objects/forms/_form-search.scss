@@ -1,0 +1,60 @@
+@if ($object-form != false) and ($object-form-search != false) and $ui != true {
+
+	.form-search {
+		& {
+			@extend %field;
+			position: relative;
+			overflow: hidden;
+			padding: 0;
+		}
+		input[type='search'] {
+			border: none;
+			width: 100%;
+		}
+		button {
+			& {
+				position: absolute;
+				top: 1px;
+				right: 1px;
+				border: 1px solid $color-box-dark;
+				padding-left: $spacing/2;
+				padding-right: $spacing/2;
+				margin: 0;
+			}
+		}
+	}
+
+	@if $object-navigation != false {
+		.navigation, .navigation-sub {
+			.form-search {
+				& {
+					font-family: $font-face-title;
+					@include rem-fallback(font-size, $font-size-m, true);
+					width: 35%;
+					min-width: 210px;
+					float: right;
+					margin: $spacing/6 $spacing/6 0 0;
+					height: 38px;
+				}
+				button {
+					height: 34px;
+				}
+			}
+		}
+	}
+
+	@if $object-navigation-sub != false {
+
+		.navigation-sub {
+			.form-search {
+				& {
+					margin: -4px 2px 0 0;
+					height: 38px;
+				}
+				button {
+					height: 34px;
+				}
+			}
+		}
+	}
+}

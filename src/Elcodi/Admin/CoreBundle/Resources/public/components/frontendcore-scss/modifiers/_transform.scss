@@ -1,0 +1,35 @@
+/* Description:
+Provides a common system for setting transform properties between HTML elements.
+
+Usage:
+Mark the element with the desired text class.
+
+Complete acronym reference based on Emmet:
+
+FIRST THREE LETTERS
+trf = transform
+
+FOURTH LETTER
+r = rotate
+
+LAST NUMBERS
+Value multiple of 5 to 100. You can add an extra dash to set a negative value.
+
+EXAMPLES:
+trf-r-10
+trf-r--20
+*/
+
+$measures: 5 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90 95 100;
+
+@if $ui != true {
+
+	@each $measure in $measures {
+		.trf-r-#{$measure} {
+			transform: rotate($measure + deg) !important;
+		}
+		.trf-r--#{$measure} {
+			transform: rotate(-$measure + deg) !important;
+		}
+	}
+}

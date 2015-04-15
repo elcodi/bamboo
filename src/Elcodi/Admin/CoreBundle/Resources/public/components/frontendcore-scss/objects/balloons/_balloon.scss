@@ -1,0 +1,114 @@
+@if $object-balloons != false and $ui != true {
+
+	$triange-size: map-get($object-balloons-vars, triangle-size);
+	$default-color: map-get($object-balloons-vars, default-background-color);
+
+	.balloon {
+		& {
+			position: relative;
+			font-family: map-get($object-balloons-vars, font-family);
+			font-size: map-get($object-balloons-vars, font-size);
+			font-weight: map-get($object-balloons-vars, font-weight);
+			padding: map-get($object-balloons-vars, padding);
+			width: auto;
+			margin-bottom: $spacing/2;
+			background: $default-color;
+			@include box-sizing(border-box);
+			@include border-radius(map-get($object-balloons-vars, border-radius))
+		}
+		&:after {
+			content: '';
+			position: absolute;
+			border-style: solid;
+			display: block;
+			width: 0;
+			z-index: 1;
+		}
+		p:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+
+	.balloon-left, .balloon-right {
+		&:after {
+			margin-top: -( $triange-size );
+			top: 50%;
+			border-color: transparent $default-color;
+		}
+	}
+
+	.balloon-left {
+		& {
+			margin-left: $triange-size;
+		}
+		&:after {
+			border-width: $triange-size $triange-size $triange-size 0;
+			left: -( $triange-size );
+
+		}
+	}
+
+	.balloon-right {
+		& {
+			margin-right: $triange-size;
+		}
+		&:after {
+			border-width: $triange-size 0 $triange-size $triange-size;
+			right: -( $triange-size );
+		}
+	}
+
+	.balloon-top, .balloon-bottom {
+		&:after {
+			margin-left: -( $triange-size );
+			left: 50%;
+			border-color: $default-color transparent;
+		}
+	}
+
+	.balloon-top {
+		& {
+			margin-top: $triange-size;
+		}
+		&:after {
+			border-width: 0 $triange-size $triange-size;
+			top: -( $triange-size );
+
+		}
+	}
+
+	.balloon-bottom {
+		& {
+			margin-bottom: $triange-size;
+		}
+		&:after {
+			border-width: $triange-size $triange-size 0;
+			bottom: -( $triange-size );
+
+		}
+	}
+
+	$colors-list: 'foreground', 'background', 'foreground-light', 'primary', 'secondary', 'box', 'ko', 'ok', 'info', 'warning';
+
+	@each $color in $colors-list {
+
+		.balloon-#{$color} {
+			& {
+				background-color: map-get($colors, $color);
+				color: contrast-color(map-get($colors, $color))
+			}
+			&.balloon-top, &.balloon-bottom {
+				&:after {
+					border-color: map-get($colors, $color) transparent;
+				}
+			}
+			&.balloon-left, &.balloon-right {
+				&:after {
+					border-color: transparent map-get($colors, $color);
+				}
+			}
+		}
+
+	}
+
+}

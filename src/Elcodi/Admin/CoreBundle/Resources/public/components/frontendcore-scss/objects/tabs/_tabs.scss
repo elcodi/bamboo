@@ -1,0 +1,161 @@
+@if $object-tabs != false and $ui != true {
+	.tabs {
+		& {
+			@if ( map-get($object-tabs-vars, background-style) == gradient ) {
+				@include background-image(
+					linear-gradient(map-get($object-tabs-vars, background-color)
+					map-get($object-tabs-vars, background-gradient-percent),
+					map-get($object-tabs-vars, background-color-dark))
+				);
+			} @else {
+				background-color: map-get($object-tabs-vars, background-color);
+			}
+			overflow: hidden;
+			padding: 0 $spacing/4;
+		}
+		li {
+			& {
+				display: block;
+				float: left;
+				position: relative;
+				margin-left: 0;
+				margin-right: $spacing/4;
+			}
+			a {
+				& {
+					display: block;
+					text-decoration: none;
+					border-width: map-get($object-tabs-vars, border-width-tab);
+					border-style: solid;
+					border-color: map-get($object-tabs-vars, border-color-tab);
+					background-color: map-get($object-tabs-vars, background-color-tab);
+					color: map-get($object-tabs-vars, color-tab);
+					padding: $spacing/4 $spacing;
+					font-family: map-get($object-tabs-vars, font-family);
+					font-weight: map-get($object-tabs-vars, font-weight);
+					@include rem-fallback(font-size, map-get($object-tabs-vars, font-size));
+					@include border-radius(map-get($object-tabs-vars, border-radius));
+				}
+				&:hover {
+					color: map-get($object-tabs-vars, color-hover-tab);
+					border-color: map-get($object-tabs-vars, border-color-hover-tab);
+					background-color: map-get($object-tabs-vars, background-color-hover-tab);
+					text-decoration: none;
+				}
+				[class^='icon-'] {
+					color: $color-foreground-light;
+				}
+			}
+			&.active {
+				a {
+					font-weight: map-get($object-tabs-vars, font-weight-active);
+					color: map-get($object-tabs-vars, color-active-tab);
+					border-color: map-get($object-tabs-vars, border-color-active-tab);
+					background-color: map-get($object-tabs-vars, background-color-active-tab);
+					border-width: map-get($object-tabs-vars, border-width-active-tab);
+				}
+			}
+		}
+	}
+
+	header.tab {
+		& {
+			margin-bottom: $spacing;
+		}
+		a {
+			& {
+				display: block;
+				position: relative;
+				padding: $spacing/4 $spacing/2;
+				border-width: map-get($object-tabs-vars, border-width-tab);
+				border-style: solid;
+				border-color: map-get($object-tabs-vars, border-color-tab);
+				background-color: map-get($object-tabs-vars, background-color-tab);
+				color: map-get($object-tabs-vars, color-tab);
+				text-decoration: none;
+				margin: 0;
+			}
+			&:hover {
+				color: map-get($object-tabs-vars, color-hover-tab);
+				border-color: map-get($object-tabs-vars, border-color-hover-tab);
+				background-color: map-get($object-tabs-vars, background-color-hover-tab);
+			}
+			&:after {
+				font-family: 'FontAwesome';
+				content: '\f078';
+				position: absolute;
+				right: $spacing/2;
+				top: $spacing/4;
+			}
+		}
+		&.active {
+			& {
+				margin-bottom: 0;
+			}
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+			> a {
+				&, &:hover {
+					font-weight: map-get($object-tabs-vars, font-weight-active);
+					color: map-get($object-tabs-vars, color-active-tab);
+					border-color: map-get($object-tabs-vars, border-color-active-tab);
+					background-color: map-get($object-tabs-vars, background-color-active-tab);
+					border-width: map-get($object-tabs-vars, border-width-mobile-active-tab);
+					cursor: default;
+				}
+				&:after {
+					@include opacity(.2);
+				}
+			}
+
+		}
+		&:last-of-type {
+			margin-bottom: $spacing;
+		}
+
+	}
+	.tab-container {
+		& > section {
+			clear: both;
+		}
+	}
+
+	$colors-list: 'foreground', 'background', 'primary', 'secondary', 'box', 'info';
+
+	@each $color in $colors-list {
+
+		.tabs-#{$color} > nav li.active > a, .tabs-#{$color} > ul li.active > a {
+			background-color: map-get($colors, $color) !important;
+			color: contrast-color(map-get($colors, $color)) !important;
+		}
+	}
+
+	.tabs-darken > nav li.active > a {
+		@include background-transparent($color-foreground, .3);
+		color: $color-background;
+	}
+
+	.tabs-lighten > nav li.active > a {
+		@include background-transparent($color-background, .3);
+		color: $color-foreground;
+		@include box-shadow(none);
+	}
+
+}
+
+@mixin desktop-tabs {
+	@if $object-tabs != false {
+		header.tab {
+			display: none !important;
+		}
+	}
+}
+
+@mixin mobile-tabs {
+	@if $object-tabs != false {
+		.tabs {
+			display: none !important;
+		}
+	}
+}

@@ -1,0 +1,25 @@
+/**
+ * **Font size**
+ *  Mixin to put a font-size and its correct line-height in rems (with fallback in px) into an element.
+ *
+ * @author Toni Pinel
+ *
+ * @param {Value}	$size-value (1.6) Size value of the font.
+ * @param {Boolean}	$line-height (true) If false, line-height property is not added.
+ * @param {Boolean} $force-line-height (false)	If true, force line height to be the same as first parameter passed.
+ * @group fonts
+ */
+
+@mixin font-size($size-value: 1.6, $line-height: true, $force-line-height: false) {
+	@include rem-fallback(font-size, $size-value);
+
+	@if ($line-height == true) {
+		@include line-height-standard($size-value);
+	} @else if ($line-height == false) {
+		// Do nothing
+	} @else if ($force-line-height == true) {
+		line-height: $line-height;
+	} @else {
+		@include line-height-standard($line-height);
+	}
+}

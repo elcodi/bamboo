@@ -1,0 +1,18 @@
+%header-footer {
+	& {
+		width: 100%;
+		background: $color-header;
+		color: $color-background;
+		position: relative;
+		padding: $spacing/2 $spacing;
+	}
+	& > a {
+		color: $color-background;
+	}
+	h1.logo, .logo {
+		font-family: $font-face-logo;
+		@include rem-fallback(font-size, $font-size-xl * $font-logo-exponential, true);
+		font-weight: $font-weight-logo;
+		max-width: 75%;
+	}
+}

@@ -1,0 +1,13 @@
+/**
+ * **Line height standard**
+ *  This mixin creates a standard line-height property, depending of the font size.
+ *
+ * @author Toni Pinel
+ *
+ * @param {Value}	$font-size ($font-size-default)	Font size
+ * @group fonts
+ */
+
+@mixin line-height-standard($font-size: $font-size-default) {
+	@include rem-fallback(line-height, $font-size);
+}

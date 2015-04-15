@@ -1,0 +1,120 @@
+/**
+ * Default font weight, used in the body.
+ * @group fonts
+ */
+$font-weight-default: unquote(map-get($fonts, weight-default)) !global;
+
+/**
+ * Titles font weight, used in the body.
+ * @group fonts
+ */
+$font-weight-title: unquote(map-get($fonts, weight-title)) !global;
+
+/**
+ * Logo font weight, used in the body.
+ * @group fonts
+ */
+$font-weight-logo: unquote(map-get($fonts, weight-logo)) !global;
+
+/**
+ * Default font face, used in the body.
+ * @group fonts
+ */
+$font-face-default: unquote(map-get($fonts, face-default)) !global;
+
+/**
+ * Font face used for titles
+ * @group fonts
+ */
+$font-face-title: unquote(map-get($fonts, face-title)) !global;
+
+/**
+ * Font face used for logo
+ * @group fonts
+ */
+$font-face-logo: unquote(map-get($fonts, face-logo)) !global;
+
+$px-to-em-proportion: strip-unit(map-get($fonts, size-base)) !global;
+
+$icons-font: map-get($fonts, face-icons) !global !global;
+
+// Defaults for compass
+
+$base-font-size: map-get($fonts, size-base) !global;
+// Sets the base font size
+$base-line-height: map-get($fonts, line-height-base) !global;
+// Sets the base line height
+$round-to-nearest-half-line: true !global;
+// Allows compass to round to  multiples of 0.5x line height
+$rhythm-unit: 'rem' !global;
+// Sets rhythm unit to rem. Remove to use default em unit.
+
+/**
+ * @group fonts
+ */
+$font-size-xxxl: map-get($fonts, size-xxxl) !global;
+
+/**
+ * @group fonts
+ */
+$font-size-xxl: map-get($fonts, size-xxl) !global;
+
+/**
+ * @group fonts
+ */
+$font-size-xl: map-get($fonts, size-xl) !global;
+
+/**
+ * @group fonts
+ */
+$font-size-l: map-get($fonts, size-l) !global;
+
+/**
+ * @group fonts
+ */
+$font-size-ml: map-get($fonts, size-ml) !global;
+
+/**
+ * @group fonts
+ */
+$font-size-m: map-get($fonts, size-m) !global;
+
+/**
+ * @group fonts
+ */
+$font-size-default: map-get($fonts, size-default) !global;
+
+/**
+ * @group fonts
+ */
+$font-size-s: map-get($fonts, size-s) !global;
+
+/**
+ * @group fonts
+ */
+$font-size-xs: map-get($fonts, size-xs) !global;
+
+/**
+ * @group fonts
+ */
+$font-size-xxs: map-get($fonts, size-xxs) !global;
+
+/**
+ * @group fonts
+ */
+$font-size-xxxs: map-get($fonts, size-xxxs) !global;
+
+/**
+ * @group fonts
+ */
+$font-size-xxxxs: map-get($fonts, size-xxxxs) !global;
+
+/**
+ * @group fonts
+ */
+$font-title-exponential: map-get($fonts, size-title-exponential) !global;
+
+/**
+ * @group fonts
+ */
+$font-logo-exponential: map-get($fonts, size-logo-exponential) !global;

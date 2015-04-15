@@ -1,0 +1,16 @@
+$object-balloons-vars-default: (
+	/* Default Background color: */
+		default-background-color: $color-box,
+	/* Padding: */
+		padding: $spacing,
+	/* Triangle size */
+		triangle-size: $spacing/2,
+	/* Border Radius */
+		border-radius: $default-border-radius,
+	/* Font family first level */
+		font-family: $font-face-default,
+	/* Font weight first level */
+		font-weight: normal,
+	/* Font size first level */
+		font-size: $font-size-default,
+) !global !default;

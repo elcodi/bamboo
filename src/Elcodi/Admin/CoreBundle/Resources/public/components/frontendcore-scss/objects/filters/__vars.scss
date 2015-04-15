@@ -1,0 +1,14 @@
+$object-filters-vars-default: (
+	/* Filters */
+	background-color: transparent,
+	color: $color-link,
+	border-radius: $default-border-radius,
+	font-family: $font-face-title,
+	font-weight: normal,
+	font-size: $font-size-default,
+
+	/* Filter Active */
+	color-active: $color-foreground,
+	font-weight-active: bold,
+
+) !global !default;

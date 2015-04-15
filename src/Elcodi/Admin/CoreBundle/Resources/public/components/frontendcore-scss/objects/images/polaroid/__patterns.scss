@@ -1,0 +1,16 @@
+%images-polaroid {
+	& {
+		border-color: $color-box;
+		border-width: $spacing/2 $spacing/2 $spacing*1.5;
+		border-style: solid;
+		@include box-shadow;
+	}
+	&.left {
+		@include rotate(-20deg);
+		display: inline-block;
+	}
+	&.right {
+		@include rotate(20deg);
+		display: inline-block;
+	}
+}

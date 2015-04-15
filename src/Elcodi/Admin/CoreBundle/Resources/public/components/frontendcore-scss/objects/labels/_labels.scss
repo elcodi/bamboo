@@ -1,0 +1,34 @@
+@if $object-labels != false and $ui != true {
+	[class*='label-'], .label {
+		display: inline-block;
+		position: relative;
+		white-space: nowrap;
+		padding: 0 $spacing/3;
+		@include border-radius;
+		font-size: $font-size-xs;
+		font-weight: bold;
+		text-align: center;
+		margin-bottom: auto;
+		vertical-align: baseline;
+	}
+	.label {
+		background: $color-box;
+		color: rgba(contrast-color($color-box), .8);
+	}
+	.label-ok {
+		background: $color-ok;
+		color: rgba(contrast-color(darken($color-ok, 10%)), .8);
+	}
+	.label-ko {
+		background: $color-ko;
+		color: rgba(contrast-color(darken($color-ko, 10%)), .8);
+	}
+	.label-info {
+		background: $color-info;
+		color: rgba(contrast-color(darken($color-info, 10%)), .8);
+	}
+	.label-warning {
+		background: $color-warning;
+		color: rgba(contrast-color(darken($color-warning, 10%)), .8);
+	}
+}

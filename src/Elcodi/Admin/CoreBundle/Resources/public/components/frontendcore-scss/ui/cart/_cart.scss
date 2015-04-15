@@ -1,0 +1,80 @@
+@if $ui-cart == true and $ui == true {
+	.cart {
+		& {
+			position: relative;
+			padding: $spacing/2;
+			background: $color-box;
+			@include border-radius;
+		}
+		.item-custom {
+			& {
+				display: block;
+			}
+		}
+
+	}
+
+	#cart-list {
+		& {
+			position: absolute;
+			min-width: 300px;
+			z-index: 9999;
+			color: $color-foreground;
+			font-family: 'FreightSansMedium', sans-serif;
+			@include border-radius;
+			@include box-shadow(0 1px 3px rgba($color-foreground, .5));
+			@include background($color-background);
+		}
+		.actions {
+			padding: $spacing/2 $spacing/4 $spacing/4;
+			text-align: right;
+		}
+		.itemRow, .item-row {
+			& {
+				border-bottom: 1px dotted $color-box-dark;
+				padding: $spacing/2;
+				overflow: hidden;
+			}
+			div {
+				float: left;
+			}
+			.item-total {
+				float: right;
+			}
+			&:nth-child(even) {
+				background: $color-box;
+			}
+		}
+		.item-row {
+			padding-left: $spacing*2.5;
+		}
+		.item-custom {
+			& {
+				width: $spacing*2;
+			}
+			span {
+				float: left;
+				display: inline-block;
+				text-align: right;
+				width: 20px;
+			}
+			div {
+				float: left;
+				height: 13px;
+				margin-left: 3px;
+			}
+		}
+		.simpleCart_increment, .simpleCart_decrement {
+			line-height: 1;
+			display: block;
+			height: $spacing/3;
+		}
+		.item-name {
+			float: left;
+			min-width: 190px;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
+}
