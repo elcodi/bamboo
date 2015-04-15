@@ -1,0 +1,236 @@
+@if $ui-modals == true and $ui == true {
+	/*
+		Colorbox Core Style:
+		The following CSS is consistent between example themes and should not be altered.
+	*/
+	#colorbox, #cboxOverlay, #cboxWrapper {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 9999;
+		overflow: hidden;
+	}
+	#cboxWrapper {
+		max-width: none;
+	}
+	#cboxOverlay {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+	}
+	#cboxMiddleLeft, #cboxBottomLeft {
+		clear: left;
+	}
+	#cboxContent {
+		position: relative;
+	}
+	#cboxLoadedContent {
+		overflow: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+	#cboxTitle {
+		margin: 0;
+	}
+	#cboxLoadingOverlay, #cboxLoadingGraphic {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+	#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow {
+		cursor: pointer;
+	}
+	.cboxPhoto {
+		float: left;
+		margin: auto;
+		border: 0;
+		display: block;
+		max-width: none;
+		-ms-interpolation-mode: bicubic;
+	}
+	.cboxIframe {
+		width: 100%;
+		height: 100%;
+		display: block;
+		border: 0;
+	}
+	#colorbox, #cboxContent, #cboxLoadedContent {
+		box-sizing: content-box;
+		moz-box-sizing: content-box;
+		-webkit-box-sizing: content-box;
+	}
+
+	/*
+		User Style:
+		Change the following styles to modify the appearance of Colorbox.  They are
+		ordered & tabbed in a way that represents the nesting of the generated HTML.
+	*/
+	#cboxOverlay {
+		background: $color-foreground;
+	}
+	#colorbox {
+		outline: 0;
+	}
+	#cboxContent {
+		margin-top: $spacing;
+		background: $color-foreground;
+	}
+	.cboxIframe {
+		background: #fff;
+	}
+	#cboxError {
+		padding: $spacing*2;
+		border: 1px solid $color-foreground-light;
+	}
+	#cboxLoadedContent {
+		border: $spacing/4 solid $color-foreground;
+		background: $color-background;
+	}
+	#cboxTitle {
+		position: absolute;
+		top: -$spacing;
+		left: 0;
+		color: $color-foreground-light;
+		@include text-shadow();
+	}
+	#cboxCurrent {
+		position: absolute;
+		top: -$spacing;
+		right: 0px;
+		color: $color-foreground-light;
+		@include text-shadow();
+	}
+	#cboxLoadingGraphic {
+		& {
+			text-indent: -9999px;
+		}
+		&:after {
+			color: $color-foreground;
+			position: absolute;
+			content: '\f110';
+			font-family: FontAwesome;
+			text-indent: 0;
+			top: 50%;
+			left: 50%;
+			@include rem-fallback(font-size, $font-size-l);
+			display: inline-block;
+			-moz-animation: spin 2s infinite linear;
+			-o-animation: spin 2s infinite linear;
+			-webkit-animation: spin 2s infinite linear;
+			animation: spin 2s infinite linear;
+		}
+
+	}
+
+	/* these elements are buttons, and may need to have additional styles reset to avoid unwanted base styles */
+	#cboxPrevious, #cboxNext, #cboxSlideshow, #cboxClose {
+		border: 0;
+		padding: 0;
+		margin: 0;
+		overflow: visible;
+		width: auto;
+		background: none;
+	}
+
+	/* avoid outlines on :active (mouseclick), but preserve outlines on :focus (tabbed navigating) */
+	#cboxPrevious:active, #cboxNext:active, #cboxSlideshow:active, #cboxClose:active {
+		outline: 0;
+	}
+
+	#cboxSlideshow {
+		position: absolute;
+		top: -$spacing;
+		right: 90px;
+		color: $color-background;
+	}
+
+	%cBoxGalleryButtons {
+		& {
+			position: absolute;
+			top: 50%;
+			margin-top: -$spacing;
+			width: $spacing*1.5;
+			height: $spacing*2;
+			background: $color-foreground;
+			color: $color-background;
+			@include box-shadow(none);
+			text-indent: -9999px;
+			@include opacity(.5);
+		}
+		&:after {
+			position: absolute;
+			font-family: FontAwesome;
+			text-indent: 0;
+		}
+		&:hover {
+			@include opacity(1);
+		}
+	}
+
+	#cboxPrevious {
+		@extend %cBoxGalleryButtons;
+		& {
+			left: 0;
+			@include border-radius(0 $spacing*4 $spacing*4 0);
+		}
+		&:after {
+			left: $spacing/2;
+			content: '\f060';
+		}
+	}
+	#cboxNext {
+		@extend %cBoxGalleryButtons;
+		& {
+			right: 0;
+			@include border-radius($spacing*4 0 0 $spacing*4);
+		}
+		&:after {
+			right: $spacing/2;
+			content: '\f061';
+		}
+	}
+
+	#cboxClose {
+		& {
+			position: absolute;
+			top: $spacing/2;
+			right: $spacing/2;
+			display: block;
+			text-indent: -9999px;
+			background: $color-background;
+			@include box-shadow(none);
+			@include border-radius($spacing*4);
+			width: $spacing;
+			height: $spacing;
+			@include opacity(.5);
+		}
+		&:after {
+			color: $color-foreground;
+			position: absolute;
+			right: $spacing/4;
+			font-family: FontAwesome;
+			content: '\f00d';
+			text-indent: 0;
+		}
+		&:hover {
+			@include opacity(1);
+		}
+	}
+
+	/*
+	  The following fixes a problem where IE7 and IE8 replace a PNG's alpha transparency with a black fill
+	  when an alpha filter (opacity change) is set on the element or ancestor element.  This style is not applied to or needed in IE9.
+	  See: http://jacklmoore.com/notes/ie-transparency-problems/
+	*/
+	.cboxIE #cboxTopLeft,
+	.cboxIE #cboxTopCenter,
+	.cboxIE #cboxTopRight,
+	.cboxIE #cboxBottomLeft,
+	.cboxIE #cboxBottomCenter,
+	.cboxIE #cboxBottomRight,
+	.cboxIE #cboxMiddleLeft,
+	.cboxIE #cboxMiddleRight {
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF, endColorstr=#00FFFFFF);
+	}
+}

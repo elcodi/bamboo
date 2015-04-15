@@ -1,0 +1,15 @@
+@if $object-image-thumbnail != false and $ui != true {
+	.thumbnail-group {
+		& {
+			overflow: hidden;
+			width: auto;
+			padding-top: $spacing/4;
+			margin-bottom: $spacing;
+		}
+		li {
+			display: inline-block;
+			margin: 0 $spacing/2 $spacing/2 0;
+			position: relative;
+		}
+	}
+}

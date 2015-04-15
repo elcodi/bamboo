@@ -1,0 +1,55 @@
+/* Description:
+Provides a common system for setting text properties between HTML elements.
+
+Usage:
+Mark the element with the desired text class.
+
+Complete acronym reference based on Emmet:
+
+FIRST TWO LETTERS
+va = vertical-align
+ta = text-align
+td = text-decoration
+
+LAST LETTER
+l = left
+c = center
+r = right
+u = underline
+n = none
+m = middle
+t = top
+b = bottom
+*/
+
+@if $ui != true {
+
+	.va-m {
+		vertical-align: middle !important;
+	}
+	.va-b {
+		vertical-align: bottom !important;
+	}
+	.va-t {
+		vertical-align: top !important;
+	}
+	.ta-l {
+		text-align: left !important;
+	}
+
+	.ta-c {
+		text-align: center !important;
+	}
+
+	.ta-r {
+		text-align: right !important;
+	}
+
+	.td-u {
+		text-decoration: underline !important;
+	}
+
+	.td-n {
+		text-decoration: none !important;
+	}
+}

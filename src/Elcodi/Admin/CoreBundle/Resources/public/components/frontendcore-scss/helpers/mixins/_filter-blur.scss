@@ -1,0 +1,29 @@
+/**
+ * **Blur Filter**
+ *  Applies blur on DOM elements. Fully compatible with all browsers for blur effect on images
+ *
+ * @author Toni Pinel
+ *
+ * @param {Number}	$radius ($default-border-radius)	- Size in pixels of the blur effect
+ * @param {Boolean}	$hardware (false)	- As blur requires a lot of ressources, with this variables a seemless 3d scale is applied to force hardware acceleration
+ * @group utilities
+ */
+
+@mixin filter-blur($radius: $default-border-radius, $hardware: false) {
+	// Exception for IE as blur behaviour/amount is different
+	$mixin-ie-blur: strip-unit( $radius ) * 3;
+	@if $mixin-ie-blur > 99 {
+		$mixin-ie-blur: 99;
+	}
+	-webkit-filter: blur($radius);
+	-moz-filter: blur($radius);
+	-o-filter: blur($radius);
+	-ms-filter: blur($radius);
+	filter: unquote('url(\'data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'svg-blur\'><feGaussianBlur stdDeviation=\'' + strip-unit( $radius ) + '\'/></filter></svg>#svg-blur\')');
+	filter: blur($radius);
+	filter: unquote('progid:DXImageTransform.Microsoft.Blur(PixelRadius='' + $mixin-ie-blur + '')');
+
+	@if $hardware != false {
+		@include transform(scale3d(1, 1, 1.001));
+	}
+}

@@ -1,0 +1,85 @@
+/**
+ * Default spacing for margin and paddings
+ * @group measures
+ */
+$spacing: map-get($defaults, spacing) !global;
+
+/**
+ * Compass variable: Default border-radius
+ * @group measures
+ */
+$default-border-radius: map-get($defaults, border-radius) !global;
+
+/**
+ * Compass variable: Default border radius for inputs
+ * @group measures
+ */
+$default-border-radius-input: map-get($defaults, border-radius-input) !global;
+
+/**
+ * Compass variable: The default color for box shadows
+ * @group measures
+ */
+$default-box-shadow-color: map-get($defaults, box-shadow-color) !global;
+
+/**
+ * Compass variable: The default horizontal offset for box shadows. Positive is to the right.
+ * @group measures
+ */
+$default-box-shadow-h-offset: map-get($defaults, box-shadow-h-offset) !global;
+
+/**
+ * Compass variable: The default vertical offset for box shadows. Positive is down.
+ * @group measures
+ */
+$default-box-shadow-v-offset: map-get($defaults, box-shadow-v-offset) !global;
+
+/**
+ * Compass variable: The default blur length for box shadows.
+ * @group measures
+ */
+$default-box-shadow-blur: map-get($defaults, box-shadow-blur) !global;
+
+/**
+ * Compass variable:  The default spread length for box shadows.
+ * @group measures
+ */
+$default-box-shadow-spread: map-get($defaults, box-shadow-spread) !global;
+
+/**
+ * Compass variable:  The default shadow inset: inset or false (for standard  box shadow).
+ * @group measures
+ */
+$default-box-shadow-inset: map-get($defaults, box-shadow-inset) !global;
+
+/**
+ * Compass variable:  The default color for box texts (for standard text shadow).
+ * @group measures
+ */
+$default-text-shadow-color: map-get($defaults, text-shadow-color) !global;
+
+/**
+ * Compass variable:  The default horizontal offset. Positive is to the right.
+ * @group measures
+ */
+$default-text-shadow-h-offset: map-get($defaults, text-shadow-h-offset) !global;
+
+/**
+ * Compass variable: The default vertical offset for text shadows. Positive is down.
+ * @group measures
+ */
+$default-text-shadow-v-offset: map-get($defaults, text-shadow-v-offset) !global;
+
+/**
+ * Compass variable: The default blur length for text shadows.
+ * @group measures
+ */
+$default-text-shadow-blur: map-get($defaults, text-shadow-blur) !global;
+
+/**
+ * Compass variable: The default shadow inset: inset or false (for standard text shadow).
+ * @group measures
+ */
+$default-text-shadow-spread: map-get($defaults, text-shadow-spread) !global;
+
+$default-rank-max: map-get($defaults, ranking-scale) !global;

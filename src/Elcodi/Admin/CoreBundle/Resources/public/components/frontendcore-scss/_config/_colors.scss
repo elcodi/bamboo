@@ -1,0 +1,227 @@
+/**
+ * Color used for foreground elements, such as text.
+ * TIP: color-foreground can be used as background in a box with color-background for the text to create elements in negative
+ * @group colors
+ */
+$color-foreground: map-get($colors, foreground) !global;
+
+/**
+ * Light variant of $color-foreground.
+ * By Default is set to auto, so it should use lighten or darken functions (depends on the brightness) to create the variant.
+ * You can specify a color in your $colors map to avoid the auto color.
+ * @group colors
+ */
+$color-foreground-light: map-get($colors, foreground-light) !global;
+
+/**
+ * Dark variant of $color-foreground.
+ * By Default is set to auto, so it should use lighten or darken functions (depends on the brightness) to create the variant.
+ * You can specify a color in your $colors map to avoid the auto color.
+ * @group colors
+ */
+$color-foreground-dark: map-get($colors, foreground-dark) !global;
+
+/**
+ * Color used for background elements, for  as box-text.
+ * TIP: color-background can be used as color for the text in a box with color-foreground as background to create elements in negative.
+ * @group colors
+ */
+$color-background: map-get($colors, background) !global;
+
+/**
+ * Color used for the html body element background.
+ * @group colors
+ */
+$color-body: map-get($colors, body) !global;
+
+/**
+ * Primary color used for the objects. It should be your brand primary color.
+ * @group colors
+ */
+$color-primary: map-get($colors, primary) !global;
+
+/**
+ * Light variant of $color-primary.
+ * By Default is set to auto, so it should use lighten or darken functions (depends on the brightness) to create the variant.
+ * You can specify a color in your $colors map to avoid the auto color.
+ * @group colors
+ */
+$color-primary-light: map-get($colors, primary-light) !global;
+
+/**
+ * Dark variant of $color-primary.
+ * By Default is set to auto, so it should use lighten or darken functions (depends on the brightness) to create the variant.
+ * You can specify a color in your $colors map to avoid the auto color.
+ * @group colors
+ */
+$color-primary-dark: map-get($colors, primary-dark) !global;
+
+/**
+ * Secondary color used for the objects. It should be your brand secondary color. If you don't have one, a black or grey could be a great alternative.
+ * @group colors
+ */
+$color-secondary: map-get($colors, secondary) !global;
+
+/**
+ * Light variant of $color-secondary.
+ * By Default is set to auto, so it should use lighten or darken functions (depends on the brightness) to create the variant.
+ * You can specify a color in your $colors map to avoid the auto color.
+ * @group colors
+ */
+$color-secondary-light: map-get($colors, secondary-light) !global;
+
+/**
+ * Dark variant of $color-secondary.
+ * By Default is set to auto, so it should use lighten or darken functions (depends on the brightness) to create the variant.
+ * You can specify a color in your $colors map to avoid the auto color.
+ * @group colors
+ */
+$color-secondary-dark: map-get($colors, secondary-dark) !global;
+
+/**
+ * Color used for the links.
+ * @group colors
+ */
+$color-link: map-get($colors, link) !global;
+
+/**
+ * Color used for the links hover.
+ * @group colors
+ */
+$color-link-hover: map-get($colors, link-hover) !global;
+
+/**
+ * Color used for the links hover background.
+ * @group colors
+ */
+$color-link-background: map-get($colors, link-hover-background) !global;
+
+/**
+ * Color used for the default box. Grey can be a great candidate here.
+ * @group colors
+ */
+$color-box: map-get($colors, box) !global;
+
+/**
+ * Light variant of $color-box.
+ * By Default is set to auto, so it should use lighten or darken functions (depends on the brightness) to create the variant.
+ * You can specify a color in your $colors map to avoid the auto color.
+ * @group colors
+ */
+$color-box-light: map-get($colors, box-light) !global;
+
+/**
+ * Dark variant of $color-box.
+ * By Default is set to auto, so it should use lighten or darken functions (depends on the brightness) to create the variant.
+ * You can specify a color in your $colors map to avoid the auto color.
+ * @group colors
+ */
+$color-box-dark: map-get($colors, box-dark) !global;
+
+/**
+ * Background color for the header.
+ * @group colors
+ */
+$color-header: map-get($colors, header-background) !global;
+
+/**
+ * Color for the rank stars.
+ * @group colors
+ */
+$color-rank: map-get($colors, rank) !global;
+
+/**
+ * Color for the info message boxes.
+ * @group colors
+ */
+$color-info: map-get($colors, info) !global;
+
+/**
+ * Color for the success objects, such as msg-ok boxes.
+ * @group colors
+ */
+$color-ok: map-get($colors, ok) !global;
+
+/**
+ * Color for the error objects, such as msg-ko boxes.
+ * @group colors
+ */
+$color-ko: map-get($colors, ko) !global;
+
+/**
+ * Color for the warning objects, such as msg-warning boxes.
+ * @group colors
+ */
+$color-warning: map-get($colors, warning) !global;
+
+/**
+ * Color for the input focus.
+ * @group colors
+ */
+$color-focus: map-get($colors, input-focus) !global;
+
+$color-box-invert: map-get($colors, megacontrast) !global;
+
+@if $color-foreground-light == auto {
+	@if (brightness( $color-foreground ) > 30%) {
+		$color-text-light: lighten($color-foreground, 15%) !global;
+	} @else {
+		$color-text-light: darken($color-foreground, 15%) !global;
+	}
+}
+
+@if $color-foreground-dark == auto {
+	@if (brightness( $color-foreground ) > 30%) {
+		$color-text-dark: darken($color-foreground, 15%) !global;
+	} @else {
+		$color-text-dark: lighten($color-foreground, 15%) !global;
+	}
+}
+
+@if $color-primary-light == auto {
+	@if (brightness( $color-primary ) > 30%) {
+		$color-primary-light: lighten($color-primary, 15%) !global;
+	} @else {
+		$color-primary-light: darken($color-primary, 15%) !global;
+	}
+}
+
+@if $color-primary-dark == auto {
+	@if (brightness( $color-primary ) > 30%) {
+		$color-primary-dark: darken($color-primary, 15%) !global;
+	} @else {
+		$color-primary-dark: lighten($color-primary, 15%) !global;
+	}
+}
+
+@if $color-secondary-light == auto {
+	@if (brightness( $color-secondary ) > 30%) {
+		$color-secondary-light: lighten($color-secondary, 10%) !global;
+	} @else {
+		$color-secondary-light: darken($color-secondary, 10%) !global;
+	}
+}
+
+@if $color-secondary-dark == auto {
+	@if (brightness( $color-secondary ) > 30%) {
+		$color-secondary-dark: darken($color-secondary, 10%) !global;
+	} @else {
+		$color-secondary-dark: lighten($color-secondary, 10%) !global;
+	}
+}
+
+@if $color-box-light == auto {
+	@if (brightness( $color-box ) > 30%) {
+		$color-box-light: lighten($color-box, 10%) !global;
+	} @else {
+		$color-box-light: darken($color-box, 15%) !global;
+	}
+}
+
+@if $color-box-dark == auto {
+	@if (brightness( $color-box ) > 30%) {
+		$color-box-dark: darken($color-box, 15%) !global;
+	} @else {
+		$color-box-dark: lighten($color-box, 15%) !global;
+	}
+}

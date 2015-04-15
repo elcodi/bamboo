@@ -1,0 +1,18 @@
+@if $object-messages != false and $ui != true {
+	.msg-ok {
+		& {
+			border-color: $color-ok;
+			@include background-transparent($color-ok, .1);
+		}
+		i {
+			color: adjust-lightness($color-ok, -25%);
+		}
+		i {
+			color: $color-ok;
+		}
+		&:before {
+			content: '\f00c';
+			color: $color-ok;
+		}
+	}
+}

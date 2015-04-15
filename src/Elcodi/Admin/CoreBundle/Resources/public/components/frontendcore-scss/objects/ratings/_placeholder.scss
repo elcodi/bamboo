@@ -1,0 +1,14 @@
+%rating {
+	& {
+		display: inline-block;
+		font-family: 'FontAwesome';
+		overflow: hidden;
+		max-height: 1.5em;
+		vertical-align: middle;
+	}
+	&:before {
+		display: block;
+		color: $color-rank;
+	}
+}
+

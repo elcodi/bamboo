@@ -1,0 +1,42 @@
+@if $object-header != false and $ui != true {
+
+	.header {
+		& {
+			@extend %header-footer;
+			margin-bottom: $spacing;
+		}
+		.navigation {
+			border: 0px none;
+			@include box-shadow(none);
+		}
+		.menu {
+			& {
+				background: $color-primary;
+			}
+			.navigation {
+				min-height: 44px;
+			}
+		}
+	}
+
+	.header-spacing {
+		display: none;
+	}
+
+}
+
+@mixin mobile-header() {
+	.header-spacing {
+		height: 68px;
+		display: block;
+	}
+	.header {
+		& {
+			position: fixed;
+			top: 0;
+		}
+		.logo img {
+			max-width: 180px !important;
+		}
+	}
+}

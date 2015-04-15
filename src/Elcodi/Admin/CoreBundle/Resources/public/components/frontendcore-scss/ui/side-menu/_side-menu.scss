@@ -1,0 +1,65 @@
+@if $ui-side-menu == true and $ui == true {
+
+	.sidr {
+		&{
+			display:none;
+			position:absolute;
+			position:fixed;
+			top:0;
+			height:100%;
+			z-index:999999;
+			width:260px;
+			overflow-x:none;
+			overflow-y:auto;
+			background:map-get($object-navigation-vars, background-color);
+			color: contrast-color(map-get($object-navigation-vars, background-color));
+			@include box-shadow(0 0 $spacing/4 rgba($color-foreground, .4))
+		}
+		.sidr-inner {
+			padding:0 0 $spacing;
+			> p {
+				margin-left:$spacing;
+				margin-right:$spacing;
+			}
+		}
+		&.right {
+			left:auto;
+			right:-260px;
+		}
+		&.left {
+			left:-260px;
+			right:auto;
+		}
+		h1, h2, h3, h4, h5, h6 {
+			font-size: $font-size-s;
+			font-weight:normal;
+			padding:0 $spacing;
+			margin:0 0 $spacing/3;
+			color: $color-background;
+			line-height: $font-size-s*2;
+			@include background(linear-gradient(lighten($color-foreground, 10%), lighten($color-foreground, 5%)));
+			@include box-shadow(0 0 5px 3px rgba($color-foreground, .2));
+		}
+		p {
+			font-size: $font-size-s;
+			margin:0 0 $spacing/2;
+			a {
+				color:rgba(map-get($object-navigation-vars, color), 0.9);
+			}
+		}
+		> p {
+			margin-left:$spacing;
+			margin-right:$spacing;
+		}
+		.sidr-inner {
+			@extend %navigation;
+			@extend .navigation;
+			@extend %navigation-vertical;
+			@extend .navigation-vertical;
+			.hidden {
+				display: block !important;
+			}
+		}
+	}
+
+}

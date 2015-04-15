@@ -1,0 +1,48 @@
+@if $ui != true {
+	html {
+		font-family: $font-face-default;
+		font-size: $font-size-default;
+		font-weight: $font-weight-default;
+		text-rendering: optimizelegibility;
+	}
+
+	/* @group FONT-FAMILIES */
+	.code, code, pre, kbd, samp {
+		font-family: Menlo, Consolas, monospace;
+	}
+
+	.text {
+		font-family: $font-face-default;
+	}
+
+	/* @endgroup FONT-FAMILIES */
+
+	/* @group FONT-SIZES */
+
+	@include establish-baseline;
+
+	/* @endgroup FONT-SIZES */
+
+	/* @group FONT-SPACINGS */
+	h1, h2, h3, h4, h5, h6,
+	ul, ol, dl,
+	fieldset,
+	p,
+	table,
+	pre,
+	hr {
+		margin: 0 0 1em;
+	}
+
+	.form ul {
+		margin-bottom: 0;
+	}
+
+	hr.section {
+		height: 1px;
+		margin-top: -1px;
+		border-color: transparent;
+	}
+
+	/* @endgroup FONT-SPACINGS */
+}

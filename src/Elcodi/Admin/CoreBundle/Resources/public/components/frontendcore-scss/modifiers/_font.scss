@@ -1,0 +1,136 @@
+/* Description:
+Provides a common system for setting font sizes and font title appearance between HTML elements.
+
+Usage:
+Mark the element with the desired font class.
+
+Complete acronym reference based on Emmet:
+
+FIRST 2 LETTERS
+fz = font-size
+
+WORDS AFTER THE DASH
+The words after the dash are based on shirt sizes or heading elements:
+h1, h2, h3, h4, h5
+xs, s, m, l, xl, xxl
+
+EXAMPLES
+fz-l
+fz-h1
+*/
+
+%title {
+	& {
+		font-family: $font-face-title;
+		line-height: map-get($fonts, line-height-title);
+		font-weight: map-get($fonts, weight-title);;
+		margin-bottom: $spacing/4;
+	}
+	small {
+		font-size: .6em;
+		@include opacity(.7);
+	}
+}
+
+%fz-h1 {
+	@include rem-fallback(font-size, $font-size-xxl*$font-title-exponential, true);
+	@extend %title;
+}
+
+%fz-h2 {
+	@include rem-fallback(font-size, $font-size-xl*$font-title-exponential, true);
+	@extend %title;
+}
+
+%fz-h3 {
+	@include rem-fallback(font-size, $font-size-l*$font-title-exponential, true);
+	@extend %title;
+}
+
+%fz-h4 {
+	@include rem-fallback(font-size, $font-size-ml*$font-title-exponential, true);
+	@extend %title;
+}
+
+%fz-h5 {
+	@include rem-fallback(font-size, $font-size-m*$font-title-exponential, true);
+	@extend %title;
+}
+
+@if $ui != true {
+
+	h1, .fz-h1 {
+		@extend %fz-h1;
+	}
+
+	h2, .fz-h2 {
+		@extend %fz-h2;
+	}
+
+	h3, .fz-h3 {
+		@extend %fz-h3;
+	}
+
+	h4, .fz-h4 {
+		@extend %fz-h4;
+	}
+
+	h5, .fz-h5 {
+		@extend %fz-h5;
+	}
+
+	h1, h2, h3, h4, h5, .fz-h1, .fz-h2, .fz-h3, .fz-h4 , .fz-h5 {
+		&.logo {
+			font-family: $font-face-logo;
+			font-weight: $font-weight-logo;
+		}
+	}
+
+	.fz-xxxl {
+		@include rem-fallback(font-size, $font-size-xxxl, true);
+		line-height: $base-line-height;
+	}
+
+	.fz-xxl {
+		@include rem-fallback(font-size, $font-size-xxl, true);
+		line-height: $base-line-height;
+	}
+
+	.fz-xl {
+		@include rem-fallback(font-size, $font-size-xl, true);
+		line-height: $base-line-height;
+	}
+
+	.fz-l {
+		@include rem-fallback(font-size, $font-size-l, true);
+		line-height: $base-line-height;
+	}
+
+	.fz-m {
+		@include rem-fallback(font-size, $font-size-m, true);
+		line-height: $base-line-height;
+	}
+
+	.fz-default {
+		@include rem-fallback(font-size, $font-size-default, true);
+		line-height: $base-line-height;
+	}
+
+	.fz-s {
+		@include rem-fallback(font-size, $font-size-xs, true);
+		line-height: $base-line-height;
+	}
+
+	.fz-xs {
+		@include rem-fallback(font-size, $font-size-xxs, true);
+		line-height: $base-line-height;
+	}
+
+	.fw-n {
+		font-weight: normal;
+	}
+
+	.fw-b {
+		font-weight: bold;
+	}
+}

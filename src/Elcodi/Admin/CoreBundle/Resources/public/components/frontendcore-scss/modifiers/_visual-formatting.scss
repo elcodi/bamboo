@@ -1,0 +1,59 @@
+/* Description:
+Provides a common system for setting visual formatting between properties HTML elements.
+
+Usage:
+Mark the element with the desired visual formatting  class.
+
+Complete acronym reference based on Emmet:
+
+LETTERS BEFORE THE DASH
+fl = padding
+d = display
+o = overflow
+
+LETTERS AFTER THE DASH
+l = left
+r = right
+n = none
+b = block
+i = inline
+ib = inline-block
+h = hidden
+v = visible
+
+*/
+
+@if $ui != true {
+
+	.fl-n {
+		float: none !important;
+	}
+	.fl-l {
+		float: left !important;
+	}
+	.fl-r {
+		float: right !important;
+	}
+
+	//	Displays
+	.d-n {
+		display: none !important;
+	}
+	.d-b {
+		display: block !important;
+	}
+	.d-i {
+		display: inline !important;
+	}
+	.d-ib {
+		display: inline-block !important;
+	}
+
+	.o-h {
+		overflow: hidden !important;
+	}
+
+	.o-v {
+		overflow: visible !important;
+	}
+}

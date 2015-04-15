@@ -1,0 +1,48 @@
+@if $object-navigation != false and $ui != true {
+
+	.navigation-dropdown {
+		& > a {
+			padding-right: $spacing !important;
+			margin-bottom: 0;
+		}
+		&:after {
+			@extend .#{$fa-css-prefix} !optional;
+			content: $fa-var-angle-down;
+			color: $color-background;
+			position: absolute;
+			@if map-get($object-navigation-vars, style) == 'tabbed' {
+				top: $spacing;
+				right: $spacing/3;
+			} @else {
+				top: $spacing/1.5;
+				right: $spacing/3;
+			}
+		}
+		.opened {
+			background: rgba($color-background, .5);
+		}
+		ul {
+			display: none;
+			position: absolute !important;
+			right: 0;
+			margin-top: 0;
+			background: map-get($object-navigation-vars, background-color);
+			@include box-shadow(0 0 $spacing/2 rgba($color-foreground, .25));
+			@include border-radius(0 0 map-get($object-navigation-vars, border-radius) map-get($object-navigation-vars, border-radius));
+		}
+		li {
+			& {
+				display: block;
+			}
+			a {
+				& {
+					margin: 0;
+					@include border-radius(0);
+				}
+				&:hover {
+					background: contrast-color(map-get($object-navigation-vars, background-color));
+				}
+			}
+		}
+	}
+}

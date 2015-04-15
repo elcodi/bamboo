@@ -1,0 +1,40 @@
+/**
+ * **Parallax slides**
+ *  Mixin to create a landing with parallax slides
+ *
+ * @author Toni Pinel
+ *
+ * @param {String}	$slide-class ('slide') name fo the classes for divs.
+ * @param {Array}	$slides-height (600px) Array of heights for each slide slides.
+ * @param {Array}	$slides-bg-img (none)	Array of background images for the slides. Each background image passed will add an slide.
+ * @group utilities
+ */
+
+@mixin parallax-slides($slide-class: 'slide',
+$slides-heights: (600px),
+$slides-bg-img: (none)) {
+
+	[class^='#{$slide-class}'] {
+		& {
+			margin: 0;
+			padding: $spacing 0;
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: 50% 0;
+			background-attachment: fixed;
+		}
+
+	}
+
+	@for $i from 0 to length($slides-bg-img) {
+		.#{$slide-class}-#{$i+1} {
+			background-image: url(nth($slides-bg-img, $i+1))
+		}
+	}
+
+	@for $i from 0 to length($slides-heights) {
+		.#{$slide-class}-#{$i+1} {
+			height: nth($slides-heights, $i+1)
+		}
+	}
+}

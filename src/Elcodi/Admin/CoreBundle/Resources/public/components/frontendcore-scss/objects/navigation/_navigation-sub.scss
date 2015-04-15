@@ -1,0 +1,308 @@
+@if $object-navigation != false and $ui != true {
+
+	@if map-get($object-navigation-sub-vars, style) == default {
+
+		.navigation-sub {
+			& {
+				@include background-gradient-ie-old(map-get($object-navigation-sub-vars, background-color), map-get($object-navigation-sub-vars, background-color-dark));
+				@include background-image(linear-gradient(map-get($object-navigation-sub-vars, background-color) 75%, map-get($object-navigation-sub-vars, background-color-dark)));
+				@include border-radius(0);
+			}
+			a {
+				& {
+					font-family: map-get($object-navigation-sub-vars, font-family);
+					font-size: map-get($object-navigation-sub-vars, font-size);
+					color: $color-foreground;
+					text-rendering: optimizeLegibility;
+					margin: 0;
+				}
+				&:hover {
+					@include background-transparent(#000, .05);
+				}
+			}
+			& > ul {
+				.active {
+					a {
+						& {
+							border-bottom: 2px solid map-get($object-navigation-sub-vars, color);
+						}
+						&:before {
+							border: $spacing/3 solid transparent;
+							border-style: outset outset solid outset;
+							content: '';
+							height: 0;
+							left: 50%;
+							margin-left: -$spacing/3;
+							overflow: hidden;
+							position: absolute;
+							width: 0;
+							background: transparent;
+							border-bottom-color: map-get($object-navigation-sub-vars, color);
+							bottom: -2px;
+							z-index: 100;
+						}
+					}
+				}
+			}
+			ul ul {
+				a {
+					font-family: map-get($object-navigation-sub-vars, inner-font-family);
+					font-weight: map-get($object-navigation-sub-vars, inner-font-weight);
+					font-size: map-get($object-navigation-sub-vars, inner-font-size);
+				}
+			}
+		}
+
+		.navigation-sub.navigation-vertical {
+			& {
+				background: none;
+			}
+			a {
+				margin-right: 0 !important;
+			}
+			> ul {
+				.active {
+					a {
+						& {
+							border-bottom: 0px none;
+							background: map-get($object-navigation-sub-vars, background-color);
+							color: contrast-color(map-get($object-navigation-sub-vars, background-color));
+							border-left: 2px solid map-get($object-navigation-sub-vars, background-color);
+							@include border-radius;
+						}
+						&:before {
+							left: 0;
+							margin-bottom: -$spacing/3;
+							margin-left: 0;
+							bottom: 50%;
+							@include transform(rotate(90deg));
+						}
+					}
+					ul {
+						margin: 0;
+						@include background-gradient-ie-old(map-get($object-navigation-sub-vars, background-color), map-get($object-navigation-sub-vars, background-color-dark));
+						@include background-image(linear-gradient(map-get($object-navigation-sub-vars, background-color) 75%, map-get($object-navigation-sub-vars, background-color-dark)));
+					}
+					li {
+						a {
+							& {
+								border-bottom: 0px none;
+								background: transparent;
+								border-left: 0px none;
+								padding-left: $spacing*1.8;
+								color: $color-foreground;
+							}
+							&:hover {
+								@include background-transparent(#000, .05);
+							}
+							&:before {
+								display: none;
+							}
+						}
+						&.active {
+							a {
+								& {
+									font-weight: map-get($object-navigation-sub-vars, font-weight-active);
+								}
+								&:before {
+									display: block;
+									left: $spacing;
+
+								}
+							}
+						}
+					}
+
+				}
+			}
+
+		}
+	}
+
+	@if map-get($object-navigation-sub-vars, style) == tabbed {
+		.navigation-sub {
+
+			$arrow-size: 8px;
+
+			& {
+				@include background-gradient-ie-old(map-get($object-navigation-sub-vars, background-color), map-get($object-navigation-sub-vars, background-color-dark));
+				@include background-image(linear-gradient(map-get($object-navigation-sub-vars, background-color) 45%, map-get($object-navigation-sub-vars, background-color-dark) 152%));
+			}
+			a {
+				& {
+					font-family: map-get($object-navigation-sub-vars, font-family);
+					margin: 0;
+					padding: $spacing/2 $spacing;
+					@include rem-fallback(font-size, map-get($object-navigation-sub-vars, font-size));
+				}
+				&:hover {
+					text-decoration: underline;
+				}
+				[class^='icon-'] {
+					@include opacity(.5);
+				}
+			}
+			.active {
+				& {
+					position: relative;
+				}
+				a {
+					& {
+						color: $color-foreground;
+						font-weight: map-get($object-navigation-sub-vars, font-weight-active);
+					}
+					&:hover {
+						text-decoration: none;
+					}
+					&:after {
+						border: $arrow-size solid transparent;
+						border-style: outset outset solid outset;
+						content: '';
+						height: 0;
+						left: 50%;
+						margin-left: -$arrow-size;
+						overflow: hidden;
+						position: absolute;
+						width: 0;
+						background: transparent;
+						border-bottom-color: map-get($object-navigation-sub-vars, background-color);
+						bottom: -2px;
+						z-index: 100;
+					}
+				}
+				ul {
+					& {
+						margin-left: $spacing;
+					}
+				}
+				.active {
+					a {
+						font-weight: map-get($object-navigation-sub-vars, font-weight-active);
+					}
+				}
+			}
+		}
+
+		.navigation-sub.navigation-vertical {
+			& {
+				background-image: none;
+				filter: none;
+			}
+			li {
+				& {
+					margin-bottom: $spacing/4;
+				}
+				a {
+					& {
+						font-family: $font-face-title;
+						@include rem-fallback(font-size, $font-size-m, true);
+						@if $object-style == gradient {
+							@include background-image(linear-gradient(map-get($object-navigation-sub-vars, background-color-light), map-get($object-navigation-sub-vars, background-color)));
+							@include background-gradient-ie-old(map-get($object-navigation-sub-vars, background-color-light), map-get($object-navigation-sub-vars, background-color));
+							@include box-shadow(inset 0 1px 2px rgba(map-get($object-navigation-sub-vars, background-color), .5));
+							border-top: 1px solid map-get($object-navigation-sub-vars, background-color);
+							border-bottom: 1px solid map-get($object-navigation-sub-vars, background-color);
+						} @else {
+							background: map-get($object-navigation-sub-vars, background-color);
+						}
+
+						color: map-get($object-navigation-sub-vars, background-color);
+						padding: $spacing/4 $spacing/2;
+						@include border-radius(map-get($object-navigation-sub-vars, border-radius));
+					}
+					&:hover {
+						text-decoration: none;
+						@if $object-style == gradient {
+							@include background-image(linear-gradient(map-get($object-navigation-sub-vars, background-color-light), lighten(map-get($object-navigation-sub-vars, background-color-light), 5%)));
+							@include background-gradient-ie-old(map-get($object-navigation-sub-vars, background-color-light), lighten(map-get($object-navigation-sub-vars, background-color-light), 5%));
+						} @else {
+							background: map-get($object-navigation-sub-vars, background-color-light);
+						}
+					}
+					&:after {
+						display: none;
+					}
+					[class^='icon-'] {
+						@include opacity(.5);
+						margin-right: $spacing/4;
+						min-width: 1em;
+						text-align: center;
+					}
+				}
+			}
+			.active {
+				& {
+					position: relative;
+				}
+				a {
+					&, &:hover {
+						@if $object-style == gradient {
+							@include background-image(linear-gradient($color-secondary-light, $color-secondary));
+							@include background-gradient-ie-old($color-secondary-light, $color-secondary);
+							border-color: $color-secondary;
+						} @else {
+							background: $color-secondary;
+						}
+						text-decoration: none;
+					}
+				}
+				ul {
+					& {
+						margin: 0 $spacing/2 $spacing/2;
+						@include background-transparent($color-foreground, .05);
+						@include border-radius(0 0 $default-border-radius $default-border-radius);
+						border: 1px solid darken(map-get($object-navigation-sub-vars, background-color-dark), 5%);
+					}
+					li {
+						& {
+							padding: $spacing/4 $spacing/2;
+							margin-bottom: 0;
+							border-bottom: 1px solid lighten(map-get($object-navigation-sub-vars, background-color-dark), 5%);
+							border-top: 1px solid darken(map-get($object-navigation-sub-vars, background-color-dark), 5%);
+						}
+						a {
+							&, &:hover {
+								background: none;
+								filter: none;
+								color: $color-link;
+								border: 0px none;
+								padding: 0;
+								@include box-shadow(none);
+								@include rem-fallback(font-size, $font-size-default, true);
+							}
+							& {
+								font-weight: normal;
+							}
+							&:hover {
+								text-decoration: underline;
+							}
+							&:before {
+								font-family: 'FontAwesome';
+								content: '\f111';
+								@include rem-fallback(font-size, .4em);
+								@include opacity(.5);
+								min-width: 16px;
+								display: inline-block;
+								vertical-align: middle;
+							}
+						}
+					}
+				}
+				.active {
+					a {
+						& {
+							font-weight: map-get($object-navigation-sub-vars, font-weight-active);
+							color: $color-foreground;
+						}
+						&:before {
+							content: '\f0da ';
+							@include rem-fallback(font-size, $font-size-default);
+							color: $color-ok;
+							@include opacity(1);
+						}
+					}
+				}
+			}
+		}
+	}
+}

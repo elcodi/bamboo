@@ -1,0 +1,19 @@
+@if $object-messages != false and $ui != true {
+	.msg-ko {
+		& {
+			border-color: $color-ko;
+			@include background-transparent($color-ko, .1);
+		}
+		i {
+			color: adjust-lightness($color-ko, -25%);
+		}
+		i {
+			color: $color-ko;
+		}
+		&:before {
+			content: '\f00d';
+			color: $color-ko;
+
+		}
+	}
+}

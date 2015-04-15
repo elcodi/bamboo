@@ -1,0 +1,33 @@
+$object-pagination-vars-default: (
+
+	/* Page container */
+	font-family: $font-face-default,
+	font-size: $font-size-default,
+	font-weight: normal,
+	border-radius: $default-border-radius,
+	background-color: transparent,
+	color: $color-foreground,
+	text-align: center,
+	padding: 0,
+
+	/* Page item */
+	padding-page: $spacing/4,
+	min-width-page: $spacing,
+	color-page: $color-foreground,
+	background-color-page: $color-box,
+	border-width-page: 1px,
+	border-style-page: solid,
+	border-color-page: $color-box,
+	border-radius-page: $default-border-radius,
+
+	/* Page active */
+	background-color-active: $color-background,
+	color-active: $color-foreground,
+	border-color-active: rgba($color-foreground, .1),
+	font-weight-active: bold,
+
+	/* Page hover */
+	background-color-hover: $color-link,
+	color-hover: contrast-color($color-link),
+
+) !global !default;

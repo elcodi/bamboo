@@ -1,0 +1,122 @@
+@if $skin == 'blue-day' {
+
+	$colors-custom: (
+			foreground: #666666,
+			foreground-light: #9b9b9b,
+			foreground-dark: auto,
+			background: #fdfdfd,
+			background-light: auto,
+			background-dark: auto,
+			body: #FFF,
+			primary: #3d7293,
+			primary-light: auto,
+			primary-dark: #315F72,
+			secondary: #666666,
+			secondary-light: auto,
+			secondary-dark: auto,
+			link: #3ACED1,
+			link-hover: #006bc1,
+			link-hover-background: transparent,
+			box: #f4f2f2,
+			box-light: auto,
+			box-dark: auto,
+			megacontrast: #000,
+			header-background: #3d7293,
+			rank: #FCCB04,
+			info: #1E72A6,
+			ok: #879436,
+			ko: #b32d20,
+			warning: #DFB84F,
+			input-focus: #ffffea
+	) !global !default;
+
+	$defaults-custom: (
+			spacing: 1.6em,
+			border-radius: 1px,
+			box-shadow-color: rgba(0, 0, 0, .2),
+			box-shadow-h-offset: .2em,
+			box-shadow-v-offset: .2em,
+			box-shadow-blur: .2em,
+			box-shadow-spread: false,
+			box-shadow-inset: false,
+			ranking-scale: 5,
+			text-shadow-color: rgba(0, 0, 0, .2),
+			text-shadow-h-offset: 1px,
+			text-shadow-v-offset: 1px,
+			text-shadow-blur: 0,
+			text-shadow-spread: false
+	) !global !default;
+
+	$fonts-custom: (
+			line-height-base: 1.5em,
+			line-height-title: 1.2em,
+			face-custom: '"Source Sans Pro", Helvetica, Helvetica, Arial, sans-serif',
+			face-title: '"Roboto Condensed","Arial Narrow", Tahoma, sans-serif',
+			face-logo: '"Roboto Condensed","Arial Narrow", Tahoma, sans-serif',
+			weight-custom: normal,
+			weight-title: bold,
+			weight-logo: bold,
+			icons: true,
+			size-base: 16px,
+			size-xxxl: 2.2rem,
+			size-xxl: 1.7rem,
+			size-xl: 1.4rem,
+			size-l: 1.3rem,
+			size-ml: 1.2rem,
+			size-m: 1.1rem,
+			size-custom: 1rem,
+			size-s: .9rem,
+			size-xs: .8rem,
+			size-xxs: .75rem,
+			size-xxxs: .7rem,
+			size-xxxxs: .6rem,
+			size-title-exponential: 1.2,
+			size-logo-exponential: 1.6
+	) !global !default;
+
+	$grid-custom: (
+			container-width: 1140px,
+			gutters: .40,
+			flow: ltr,
+			container-position: center,
+	) !global !default;
+
+	$objects-custom: (
+			style: flat,
+			boxes: default,
+			buttons: default,
+			filters: default,
+			footer: default,
+			form: default,
+			form-search: default,
+			header: default,
+			image-circle: default,
+			image-polaroid: default,
+			image-thumbnail: default,
+			lists: default,
+			messages: default,
+			navigation: true,
+			navigation-sub: true,
+			pagination: default,
+			ratings: default,
+			slides: default,
+			steps: default,
+			tabs: default,
+			tags: default,
+			labels: default,
+			switch: default,
+			animations: default,
+			balloons: default
+	) !global !default;
+
+	$object-navigation-vars-custom: (
+
+		/* First level */
+			text-transform: uppercase,
+
+		/* Inner levels */
+			inner-text-transform: capitalize,
+
+	) !global !default;
+
+}

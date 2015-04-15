@@ -1,0 +1,16 @@
+@if $object-tags != false and $ui != true {
+	.tag-cloud {
+		h1,
+		h2,
+		h3,
+		h4,
+		h5 {
+			line-height: 1;
+			margin: 0;
+			padding: 0;
+		}
+		li {
+			display: inline-block;
+		}
+	}
+}

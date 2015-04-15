@@ -1,0 +1,20 @@
+@if $object-image-circle != false and $ui != true {
+
+	img.image-circle {
+		@extend %images-circle;
+	}
+
+	a.image-circle {
+		& {
+			@extend %images-circle;
+			text-decoration: none;
+			display: inline-block;
+			vertical-align: middle;
+			overflow: hidden;
+		}
+		img {
+			display: block;
+		}
+	}
+
+}

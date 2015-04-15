@@ -1,0 +1,327 @@
+@if $ui-tags == true and $ui == true {
+
+	.ms-ctn {
+		@extend %field;
+		padding-top: $spacing/4;
+		padding-bottom: $spacing/4;
+		position: relative;
+		height: auto;
+	}
+
+	.ms-ctn-readonly {
+		cursor: pointer;
+	}
+
+	.ms-ctn-disabled {
+		cursor: not-allowed;
+		background-color: #eeeeee;
+	}
+
+	.ms-ctn-bootstrap-focus {
+		& {
+			-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6) !important;
+			-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6) !important;
+			box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6) !important;
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+		.ms-res-ctn {
+			-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6) !important;
+			-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6) !important;
+			box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6) !important;
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+	}
+
+	.ms-ctn-focus {
+		outline: 0;
+		-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+	}
+
+	.ms-ctn {
+		input {
+			border: 0;
+			box-shadow: none;
+			-webkit-transition: none;
+			outline: none;
+			display: block;
+			padding: $spacing/8 0;
+			line-height: 1.42857143;
+			margin: 1px 0;
+			width: 100%;
+		}
+		.ms-sel-ctn input {
+			& {
+				float: left;
+				padding: $spacing/8 0;
+				border: 0px none;
+				box-shadow: none;
+				max-width: 50%;
+			}
+		}
+	}
+
+	.ms-ctn-disabled input {
+		cursor: not-allowed;
+		background-color: #eeeeee;
+	}
+
+	.ms-ctn {
+		.ms-input-readonly {
+			cursor: pointer;
+		}
+		.ms-empty-text {
+			color: #DDD;
+		}
+		input {
+			&:focus {
+				border: 0;
+				box-shadow: none;
+				-webkit-transition: none;
+				background: #fff;
+			}
+			&::-ms-clear {
+				width: 0;
+				height: 0;
+			}
+		}
+		.ms-trigger {
+			& {
+				top: 0;
+				width: 25px;
+				height: 100%;
+				position: absolute;
+				right: 0;
+				background: transparent;
+				border-left: 1px solid $color-box-dark;
+				cursor: pointer;
+			}
+			.ms-trigger-ico {
+				position: absolute;
+				width: 0;
+				height: 0;
+				vertical-align: top;
+				border-top: 4px solid rgba($color-foreground, .5);
+				border-right: 4px solid transparent;
+				border-left: 4px solid transparent;
+				content: '';
+				margin-left: -4px;
+				margin-top: -4px;
+				left: 50%;
+				top: 50%;
+			}
+			&:hover {
+				& {
+					cursor: pointer;
+					background-color: rgba($color-link, .2);
+					color: contrast-color($color-link);
+				}
+				.ms-trigger-ico {
+					border-top-color: contrast-color($color-link) !important;
+				}
+			}
+		}
+	}
+
+	.ms-ctn-disabled .ms-trigger {
+		cursor: not-allowed;
+		background-color: #eeeeee;
+	}
+
+	.ms-ctn-bootstrap-focus {
+		border-bottom: 1px solid #CCC;
+	}
+
+	.ms-res-ctn {
+		& {
+			width: 100%;
+			display: block;
+			overflow-y: auto;
+		}
+		.ms-res-group {
+			line-height: 23px;
+			text-align: left;
+			padding: 2px 5px;
+			font-weight: bold;
+			border-bottom: 1px dotted #CCC;
+			border-top: 1px solid #CCC;
+			background: #f3edff;
+			color: #333;
+		}
+		.ms-res-item {
+			line-height: 25px;
+			text-align: left;
+			padding: 2px 5px;
+			color: $color-foreground;
+			cursor: pointer;
+		}
+		.ms-res-item-grouped {
+			padding-left: 15px;
+		}
+		.ms-res-odd {
+			background: $color-box;
+		}
+		.ms-res-item-active {
+			background-color: rgba($color-link, .2);
+		}
+		.ms-res-item-disabled {
+			color: $color-box-dark;
+			cursor: default;
+		}
+	}
+
+	.ms-sel-ctn {
+		overflow: auto;
+		line-height: 18px;
+		padding-right: 25px;
+	}
+
+	.ms-no-trigger .ms-sel-ctn {
+		padding-right: 0;
+	}
+
+	.ms-sel-ctn {
+		.ms-sel-item {
+			float: left;
+			background: $color-box;
+			color: $color-foreground;
+			padding: $spacing/2 $spacing/4;
+			border-radius: $default-border-radius;
+			margin: 3px 0px 1px 0;
+		}
+		.ms-sel-invalid {
+			background: #FDF2F2 !important;
+		}
+	}
+
+	.ms-ctn .ms-sel-item {
+		& {
+			float: left;
+			background: $color-box;
+			color: $color-foreground;
+			padding: $spacing/8 $spacing/4;
+			border-radius: $default-border-radius;
+			margin: 1px $spacing/4 1px 0;
+		}
+		&:hover {
+			cursor: default;
+			background-color: rgba($color-link, .2);
+			color: $color-foreground;
+		}
+	}
+
+	.ms-sel-ctn .ms-sel-text {
+		background: #fff;
+		color: #666;
+		padding-right: 0;
+		margin-left: 0;
+		font-size: 14px;
+		font-weight: normal;
+	}
+
+	.ms-res-ctn .ms-res-item em {
+		font-style: normal;
+		background: #565656;
+		color: #fff;
+	}
+
+	.ms-sel-ctn {
+		.ms-sel-text:hover {
+			background: #fff;
+		}
+		.ms-sel-item-active {
+			background: #757575;
+		}
+	}
+
+	.ms-stacked .ms-sel-item {
+		float: inherit;
+	}
+
+	.ms-sel-ctn .ms-sel-item .ms-close-btn {
+		&:after {
+			cursor: pointer;
+			float: right;
+			margin: 1px 0 0 $spacing/4;
+			font-family: 'FontAwesome';
+			content: $fa-var-times;
+			@include opacity(.1);
+		}
+		&:hover {
+			&:after {
+				@include opacity(.3);
+			}
+		}
+	}
+
+	.ms-stacked .ms-sel-item .ms-close-btn {
+		margin-left: 0px;
+	}
+
+	.ms-helper {
+		color: #AAA;
+		font-size: 10px;
+		position: absolute;
+		top: -$spacing*1.5;
+		right: 0;
+	}
+
+	.ms-ctn {
+		&.input-lg .ms-trigger .ms-trigger-ico {
+			margin-top: 17px;
+		}
+		&.input-sm .ms-trigger .ms-trigger-ico {
+			margin-top: 13px;
+		}
+		&.input-lg .ms-sel-ctn .ms-sel-item {
+			padding-top: 2px;
+			padding-bottom: 3px;
+		}
+		&.input-sm .ms-sel-ctn {
+			& {
+				line-height: 15px;
+			}
+			.ms-sel-item {
+				padding-top: 1px;
+				padding-bottom: 1px;
+				margin-top: 0;
+				margin-bottom: 0;
+				.ms-close-btn {
+					margin-top: 4px;
+				}
+			}
+		}
+		.ms-sel-ctn {
+			margin-left: -7px;
+		}
+		.ms-trigger:hover {
+			width: 24px;
+			right: 1px;
+			border-radius: 0 3px 3px 0;
+		}
+	}
+
+	.ms-res-ctn.dropdown-menu {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		z-index: 1000;
+		display: none;
+		float: left;
+		min-width: 160px;
+		padding: 5px 0;
+		margin: 2px 0 0;
+		list-style: none;
+		font-size: 14px;
+		background-color: #fff;
+		border: 1px solid #ccc;
+		border: 1px solid rgba(0, 0, 0, .15);
+		border-radius: 4px;
+		-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+		box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+		background-clip: padding-box;
+	}
+
+}

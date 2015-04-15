@@ -1,0 +1,100 @@
+/* @group navigation-vars */
+
+$object-navigation-vars-default: (
+
+	// Background  first level:
+	background-color: $color-primary,
+
+	// Background second level:
+	background-color-dark: $color-primary-dark,
+
+	// Background gradients (from background-color to background-color-light)
+	background-color-light: $color-primary-light,
+
+	// Link color
+		color: contrast-color($color-primary, $color-foreground, $color-background),
+
+	// Border Radius
+		border-radius: $default-border-radius,
+
+	// Font family first level
+		font-family: $font-face-default,
+
+	// Font weight first level
+		font-weight: normal,
+
+	// Font size first level
+		font-size: $font-size-m,
+
+	// Font family inner levels
+		inner-font-family: $font-face-default,
+
+	// Font weight inner levels
+		inner-font-weight: normal,
+
+	// Font size inner levels
+		inner-font-size: $font-size-s,
+
+	// Vertical separator for first level
+		vertical-separator: true,
+
+	// Object style (Default or tabbed)
+		style: default
+
+) !global !default;
+
+/* @endgroup navigation-vars */
+
+
+/* @group navigation-sub-vars */
+
+$object-navigation-sub-vars-default: (
+
+	// Background  first level:
+		background-color: $color-primary,
+
+	// Background second level:
+		background-color-dark: $color-primary-dark,
+
+	// Background gradients (from background-color to background-color-light)
+		background-color-light: $color-primary-light,
+
+	// Link color
+		color: contrast-color($color-primary, $color-foreground, $color-background),
+
+	// Border Radius
+		border-radius: $default-border-radius,
+
+	// Font family first level
+		font-family: $font-face-default,
+
+	// Font weight first level
+		font-weight: normal,
+
+	// Font size first level
+		font-size: $font-size-m,
+
+	// Font family inner levels
+		inner-font-family: $font-face-default,
+
+	// Font weight inner levels
+		inner-font-weight: normal,
+
+	// Font size inner levels
+		inner-font-size: $font-size-s,
+
+	// Vertical separator for first level
+		vertical-separator: true,
+
+	// Object style (Default or tabbed)
+		style: default
+
+) !global !default;
+
+/* @endgroup navigation-sub-vars */
+
+$object-navigation-vars-custom: () !global !default;
+$object-navigation-sub-vars-custom: () !global !default;
+
+$object-navigation-vars: map-merge($object-navigation-vars-default, $object-navigation-vars-custom) !global;
+$object-navigation-sub-vars: map-merge($object-navigation-sub-vars-default, $object-navigation-sub-vars-custom) !global;

@@ -1,0 +1,129 @@
+/* Description:
+Provides a common system for setting border properties between HTML elements.
+
+Usage:
+Mark the element with the desired border class.
+
+Complete acronym reference based on Emmet:
+
+FIRST 2 LETTERS
+bd = border
+
+THIRD LETTERS
+a = all
+t = top
+r = right
+b = bottom
+l = left
+h = horizontal
+v = vertical
+
+LAST LETTER
+n = none
+s = small (1px)
+m = medium
+l = large
+xl = extra large
+*/
+
+@if $ui != true {
+	.bda-n {
+		border-width: 0 !important;
+	}
+
+	.bdt-n, .bdv-n {
+		border-top-width: 0 !important;
+	}
+
+	.bdb-n, .bdv-n {
+		border-bottom-width: 0 !important;
+	}
+
+	.bdr-n, .bdh-n {
+		border-right-width: 0 !important;
+	}
+
+	.bdl-n, .bdh-n {
+		border-left-width: 0 !important;
+	}
+
+	.bda-s {
+		border-width: 1px !important;
+	}
+
+	.bdt-s, .bdv-s {
+		border-top-width: 1px !important;
+	}
+
+	.bdb-s, .bdv-s {
+		border-bottom-width: 1px !important;
+	}
+
+	.bdr-s, .bdh-s {
+		border-right-width: 1px !important;
+	}
+
+	.bdl-s, .bdh-s {
+		border-left-width: 1px !important;
+	}
+
+	.bda-m {
+		border-width: $spacing/4 !important;
+	}
+
+	.bdt-m, .bdv-m {
+		border-top-width: $spacing/4 !important;
+	}
+
+	.bdb-m, .bdv-m {
+		border-bottom-width: $spacing/4 !important;
+	}
+
+	.bdr-m, .bdh-m {
+		border-right-width: $spacing/4 !important;
+	}
+
+	.bdl-m, .bdh-m {
+		border-left-width: $spacing/4 !important;
+	}
+
+	.bda-l {
+		border-width: $spacing/2 !important;
+	}
+
+	.bdt-l, .bdv-l {
+		border-top-width: $spacing/2 !important;
+	}
+
+	.bdb-l, .bdv-l {
+		border-bottom-width: $spacing/2 !important;
+	}
+
+	.bdr-l, .bdh-l {
+		border-right-width: $spacing/2 !important;
+	}
+
+	.bdl-l, .bdh-l {
+		border-left-width: $spacing/2 !important;
+	}
+
+	.bda-xl {
+		border-width: $spacing !important;
+	}
+
+	.bdt-xl, .bdv-xl {
+		border-top-width: $spacing !important;
+	}
+
+	.bdb-xl, .bdv-xl {
+		border-bottom-width: $spacing !important;
+	}
+
+	.bdr-xl, .bdh-xl {
+		border-right-width: $spacing !important;
+	}
+
+	.bdl-xl, .bdh-xl {
+		border-left-width: $spacing !important;
+	}
+}

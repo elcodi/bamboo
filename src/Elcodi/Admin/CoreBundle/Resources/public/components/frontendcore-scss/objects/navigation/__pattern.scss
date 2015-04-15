@@ -1,0 +1,36 @@
+%navigation {
+	& {
+		position: relative;
+		width: auto;
+	}
+	&.navigation-slim {
+		a {
+			padding: $spacing/8 $spacing/2;
+		}
+	}
+	li {
+		& {
+			display: inline-block;
+			vertical-align: top;
+		}
+		&.active {
+			a {
+				position: relative;
+			}
+		}
+	}
+	a {
+		display: block;
+		padding: $spacing/3 $spacing/2;
+		text-decoration: none;
+		margin: $spacing/6 0 $spacing/8 $spacing/6;
+	}
+
+}
+
+%navigation-vertical {
+	li {
+		float: none !important;
+		display: block !important;
+	}
+}

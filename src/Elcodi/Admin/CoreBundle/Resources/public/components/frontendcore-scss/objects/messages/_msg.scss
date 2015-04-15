@@ -1,0 +1,37 @@
+@if $object-messages != false and $ui != true {
+
+	[class*='msg-'] {
+		& {
+			padding: $spacing/1.5 $spacing $spacing/2 $spacing*3;
+			margin: 0 0 $spacing;
+			color: $color-foreground;
+			@include border-radius($default-border-radius $default-border-radius 0 0);
+			overflow: hidden;
+			border-style: solid;
+			border-width: 0 0 3px 0;
+			background: $color-background;
+			position: relative;
+			@include box-shadow(0 0 3px rgba($color-foreground, .2));
+			min-height: 54px;
+		}
+		&:before {
+			position: absolute;
+			left: $spacing/3;
+			min-width: $spacing;
+			top: 50%;
+			padding: $spacing/4;
+			margin: -18px 6px 0 0;
+			font-family: 'fontawesome';
+			font-style: normal;
+			font-weight: normal;
+			text-align: center;
+			@include rem-fallback(font-size, $font-size-xl);
+			text-decoration: inherit;
+			vertical-align: baseline;
+			@include border-radius(200px);
+			text-align: center;
+			@include background-transparent($color-background, .7);
+		}
+	}
+
+}

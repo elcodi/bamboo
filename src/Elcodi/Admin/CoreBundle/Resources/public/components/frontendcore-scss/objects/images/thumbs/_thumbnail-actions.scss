@@ -1,0 +1,26 @@
+@if $object-image-thumbnail != false and $ui != true {
+	.thumbnail-actions {
+		& {
+			position: absolute;
+			overflow: hidden;
+			z-index: 100;
+			bottom: $spacing/2;
+			right: $spacing/2;
+		}
+		li {
+			margin: 0;
+		}
+		a {
+			& {
+				padding: $spacing/4;
+				background: rgba($color-background, .7);
+				color: $color-foreground;
+			}
+			&:hover {
+				background: $color-link;
+				color: contrast-color($color-link);
+				text-decoration: none;
+			}
+		}
+	}
+}

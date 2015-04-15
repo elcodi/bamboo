@@ -1,0 +1,19 @@
+@if $object-buttons != false and $ui != true {
+	.buttons-group {
+		& {
+			padding: 0;
+			margin: 0;
+			display: initial;
+		}
+		[class*='button-'], .button {
+			margin-right: 1px;
+			border-radius: 0;
+		}
+		[class*='button']:first-child {
+			@include border-radius($default-border-radius 0 0 $default-border-radius);
+		}
+		[class*='button']:last-child {
+			@include border-radius(0 $default-border-radius $default-border-radius 0);
+		}
+	}
+}

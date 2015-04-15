@@ -1,0 +1,63 @@
+// Returns the passed property/value in px and rem units
+// Asumes font size in HTML is set to 62.5%
+//
+// @group fonts
+// @param {Property} Desired property.
+// @param {Array} Values.
+//
+// @return {Property : value} // in px, only if IE support enabled
+// @return {Property : value} // in rem
+//
+// Example:
+// 	body { @include rem-fallback( font-size, 1.6 ); }
+//
+//	returns:
+//
+//	 body {
+//	 	font-size:16px;
+//	 	font-size:1.6rem;
+//	 }
+// Example 2:
+// 	.elem { @include rem-fallback( margin, 1.5, 2 ); }
+//
+//	returns:
+//
+//	 .elem {
+//	 	margin: 15px 20px;
+//	 	margin: 1.5rem 2rem;
+//	 }
+//
+
+@mixin rem-fallback($property, $values, $force: '') {
+	$values-length: length($values);
+	$rem-values: '';
+	$px-values: '';
+
+	@if $force == true {
+		$force: '!important';
+	}
+
+	@if $legacy-support-for-ie6 == true or $legacy-support-for-ie7 == true or $legacy-support-for-ie8 == true {
+		@for $i from 1 through $values-length {
+			$value: strip-unit(nth($values, $i));
+			$px-values: #{$px-values + $value * $px-to-em-proportion}px;
+
+			@if $i < $values-length {
+				$px-values: #{$px-values + ' '};
+			}
+		}
+
+		#{$property}: $px-values #{$force};
+	}
+
+	@for $i from 1 through $values-length {
+		$value: strip-unit(nth($values, $i));
+		$rem-values: #{$rem-values + $value}rem;
+
+		@if $i < $values-length {
+			$rem-values: #{$rem-values + ' '};
+		}
+	}
+
+	#{$property}: $rem-values #{$force};
+}

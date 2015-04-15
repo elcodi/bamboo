@@ -1,0 +1,76 @@
+@if $ui != true {
+
+	.table {
+		& {
+			max-width: 100%;
+			min-width: 100%;
+			@include box-sizing(border-box);
+			border: 0px none;
+			margin-left: 2px;
+		}
+		caption {
+			margin: 0 0 $spacing/4;
+			padding: 0;
+			text-transform: uppercase;
+		}
+		thead th, thead td {
+			padding: $spacing/4 $spacing/2;
+			margin: 0 0 $spacing/2;
+			border-bottom: 1px solid $color-box;
+			font-weight: normal;
+			background: transparent;
+			text-align: left;
+			color: $color-foreground;
+			vertical-align: middle;
+		}
+		tbody {
+			outline: 2px solid $color-background;
+			border: 1px solid $color-box-light;
+			background: $color-background;
+		}
+		tbody tr:nth-child(odd) td {
+			background-color: rgba($color-box, .5);
+		}
+
+		tbody tr:hover td {
+			@include background-transparent($color-primary, .1);
+		}
+		tbody tr > td {
+			padding: $spacing/2 $spacing/2;
+			border-right: 1px solid $color-box;
+			border-bottom: 1px solid $color-box;
+			text-align: left;
+			vertical-align: middle;
+		}
+		tbody tr > td:last-child {
+			border-right: none;
+		}
+		tbody tr > td.sort {
+			background-color: rgba(0, 0, 0, .03);
+		}
+		tbody td .subcell {
+			vertical-align: top;
+		}
+		form {
+			padding: 0;
+		}
+	}
+
+}
+
+@mixin mobile-tables() {
+	.table {
+		& {
+			display: block;
+			overflow-x: auto;
+			width: 100%;
+			@include box-sizing(border-box);
+			max-width: 100%;
+			position: relative;
+
+		}
+		td, th {
+			white-space: nowrap;
+		}
+	}
+}

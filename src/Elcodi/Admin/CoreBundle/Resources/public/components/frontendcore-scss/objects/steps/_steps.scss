@@ -1,0 +1,77 @@
+@if $object-steps != false and $ui != true {
+
+	$steps-color: contrast-color($color-primary, lighten($color-primary, 30%), darken($color-primary, 30%));
+
+	/* @group STEPS */
+	.steps {
+		display: block;
+		overflow: hidden;
+		margin: 0 auto;
+		padding: 0;
+		background: $color-box-light;
+		font: bold 14px 'Century Gothic', Arial, sans-serif;
+		@include border-radius;
+	}
+
+	.steps li {
+		display: block;
+		float: left;
+		padding: $spacing/2 $spacing;
+		margin: 0;
+		text-transform: uppercase;
+		color: $color-foreground;
+		font-family: $font-face-title;
+		@include rem-fallback(font-size, $font-size-l);
+	}
+
+	.steps li:first-child {
+		padding-left: 30px;
+	}
+
+	.steps li:last-child {
+		padding-right: 0;
+	}
+
+	.steps li:last-child:after {
+		width: 0;
+		content: '';
+	}
+
+	.steps .active {
+		@include border-radius(0 $default-border-radius $default-border-radius 0);
+		color: contrast-color($color-primary);
+		font-weight: bold;
+	}
+
+	.steps .active:after {
+		margin-right: 10px;
+	}
+
+	.steps .done {
+		padding-right: 0;
+	}
+
+	.steps .active,
+	.steps .done {
+		background: $color-primary;
+	}
+
+	/* @group DARK */
+	.steps li {
+		color: #818181;
+	}
+
+	.steps .active {
+		color: $color-background;
+	}
+
+	.steps .done {
+		color: $steps-color;
+	}
+
+	.steps .active,
+	.steps .done {
+		background: $color-primary;
+	}
+
+}

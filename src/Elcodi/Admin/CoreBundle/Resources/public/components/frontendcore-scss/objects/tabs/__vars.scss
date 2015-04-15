@@ -1,0 +1,33 @@
+$object-tabs-vars-default: (
+
+	/* Tabs container */
+	background-color: transparent,
+	background-color-dark: rgba($color-foreground, .05),
+	background-style: gradient, // gradient or solid
+	background-gradient-percent: 80%,
+	border-radius: $default-border-radius,
+	font-family: $font-face-default,
+	font-weight: normal,
+	font-size: $font-size-default,
+
+	/* Tab default */
+	background-color-tab: rgba($color-foreground, .05),
+	color-tab: $color-foreground,
+	border-color-tab: transparent,
+	border-width-tab: 1px 1px 0 1px,
+	border-radius-tab: $default-border-radius $default-border-radius 0 0,
+
+	/* Tab hover */
+	background-color-hover-tab: rgba($color-link, .1),
+	color-hover-tab: $color-foreground,
+	border-color-hover-tab: transparent,
+
+	/* Tab active */
+	background-color-active-tab: $color-background,
+	color-active-tab: $color-foreground,
+	border-color-active-tab: $color-primary rgba($color-foreground, .1) transparent rgba($color-foreground, .1),
+	border-width-active-tab: 2px 1px 0 1px,
+	border-width-mobile-active-tab: 2px 0 0 0,
+	font-weight-active: bold,
+
+) !global !default;

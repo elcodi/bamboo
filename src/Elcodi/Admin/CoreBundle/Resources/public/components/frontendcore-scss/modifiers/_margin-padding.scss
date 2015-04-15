@@ -1,0 +1,196 @@
+/* Description:
+Provides a common system for setting paddings and margins between HTML elements.
+We have setted 4 sizes for each property, so when we have to add some spacing between elements we can use them.
+
+
+Usage:
+Mark the element with the desired spacing class.
+
+Spacing classnames are an acronym of three properties: type, position an size.
+
+E.g. .pt-m   it's the class needed for setting padding top medium ($spacing/2)
+
+Complete acronym reference based on Emmet:
+
+FIRST LETTER
+p = padding
+
+SECOND LETTER
+a = all
+t = top
+r = right
+b = bottom
+l = left
+h = horizontal
+v = vertical
+
+LAST LETTER
+n = none ( 0 )
+s = small ( $spacing/4 )
+m = medium ( $spacing/2 )
+l = large ( $spacing )
+xl = extra large ( $spacing*2 )
+*/
+
+@if $ui != true {
+
+	.pt-n, .pv-n, .pa-n {
+		padding-top: 0 !important;
+	}
+
+	.pt-s, .pv-s, .pa-s {
+		padding-top: $spacing/4 !important;
+	}
+
+	.pt-m, .pv-m, .pa-m {
+		padding-top: $spacing/2 !important;
+	}
+
+	.pt-l, .pv-l, .pa-l {
+		padding-top: $spacing !important;
+	}
+
+	.pt-xl, .pv-xl, .pa-xl {
+		padding-top: $spacing*2 !important;
+	}
+
+	.pr-n, .ph-n, .pa-n {
+		padding-right: 0 !important;
+	}
+
+	.pr-s, .phs, .pa-s {
+		padding-right: $spacing/4 !important;
+	}
+
+	.pr-m, .ph-m, .pa-m {
+		padding-right: $spacing/2 !important;
+	}
+
+	.pr-l, .ph-l, .pa-l {
+		padding-right: $spacing !important;
+	}
+
+	.pr-xl, .ph-xl, .pa-xl {
+		padding-right: $spacing*2 !important;
+	}
+
+	.pb-n, .pv-n, .pa-n {
+		padding-bottom: 0 !important;
+	}
+
+	.pb-s, .pv-s, .pa-s {
+		padding-bottom: $spacing/4 !important;
+	}
+
+	.pb-m, .pv-m, .pa-m {
+		padding-bottom: $spacing/2 !important;
+	}
+
+	.pb-l, .pv-l, .pa-l {
+		padding-bottom: $spacing !important;
+	}
+
+	.pb-xl, .pv-xl, .pa-xl {
+		padding-bottom: $spacing*2 !important;
+	}
+
+	.pl-n, .ph-n, .pa-n {
+		padding-left: 0 !important;
+	}
+
+	.pl-s, .ph-s, .pa-s {
+		padding-left: $spacing/4 !important;
+	}
+
+	.pl-m, .ph-m, .pa-m {
+		padding-left: $spacing/2 !important;
+	}
+
+	.pl-l, .ph-l, .pa-l {
+		padding-left: $spacing !important;
+	}
+
+	.pl-xl, .ph-xl, .pa-xl {
+		padding-left: $spacing*2 !important;
+	}
+
+	.mt-n, .mv-n, .ma-n {
+		margin-top: 0 !important;
+	}
+
+	.mt-s, .mv-s, .ma-s {
+		margin-top: $spacing/4 !important;
+	}
+
+	.mt-m, .mv-m, .ma-m {
+		margin-top: $spacing/2 !important;
+	}
+
+	.mt-l, .mv-l, .ma-l {
+		margin-top: $spacing !important;
+	}
+
+	.mt-xl, .mv-xl, .ma-xl {
+		margin-top: $spacing*2 !important;
+	}
+
+	.mr-n, .mh-n, .ma-n {
+		margin-right: 0 !important;
+	}
+
+	.mr-s, .mh-s, .ma-s {
+		margin-right: $spacing/4 !important;
+	}
+
+	.mr-m, .mh-m, .ma-m {
+		margin-right: $spacing/2 !important;
+	}
+
+	.mr-l, .mh-l, .ma-l {
+		margin-right: $spacing !important;
+	}
+
+	.mr-xl, .mh-xl, .ma-xl {
+		margin-right: $spacing*2 !important;
+	}
+
+	.mb-n, .mv-n, .ma-n {
+		margin-bottom: 0 !important;
+	}
+
+	.mb-s, .mv-s, .ma-s {
+		margin-bottom: $spacing/4 !important;
+	}
+
+	.mb-m, .mv-m, .ma-m {
+		margin-bottom: $spacing/2 !important;
+	}
+
+	.mb-l, .mv-l, .ma-l {
+		margin-bottom: $spacing !important;
+	}
+
+	.mb-xl, .mv-xl, .ma-xl {
+		margin-bottom: $spacing*2 !important;
+	}
+
+	.ml-n, .mh-n, .ma-n {
+		margin-left: 0 !important;
+	}
+
+	.ml-s, .mh-s, .ma-s {
+		margin-left: $spacing/4 !important;
+	}
+
+	.ml-m, .mh-m, .ma-m {
+		margin-left: $spacing/2 !important;
+	}
+
+	.ml-l, .mh-l, .ma-l {
+		margin-left: $spacing !important;
+	}
+
+	.ml-xl, .mh-xl, .ma-xl {
+		margin-left: $spacing*2 !important;
+	}
+}

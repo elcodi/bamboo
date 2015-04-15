@@ -1,0 +1,13 @@
+$fonts-custom: () !global !default;
+$colors-custom: () !global !default;
+$objects-custom: () !global !default;
+$defaults-custom: () !global !default;
+$grid-custom: () !global !default;
+$user-interface-custom: () !global !default;
+
+$fonts: map-merge($fonts-default, $fonts-custom) !global;
+$colors: map-merge($colors-default, $colors-custom) !global;
+$objects: map-merge($objects-default, $objects-custom) !global;
+$defaults: map-merge($defaults-default, $defaults-custom) !global;
+$grid: map-merge($grid-default, $grid-custom) !global;
+$user-interface: map-merge($user-interface-default, $user-interface-custom) !global;

@@ -1,0 +1,45 @@
+/**
+ * **Mixin for transparent backgrounds**
+ * Crossbrowser Mixin for simple transparent backgrounds
+ *
+ * @author Toni Pinel
+ *
+ * @param {hex-color}	$bg-color ($color-text-background) 	- Background color
+ * @param {number}	$opacity (0.7)	- Opacity from 0 to 1
+ * @link https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient
+ * @group colors
+ */
+
+@mixin background-transparent($bg-color: $color-background, $opacity: 0.7) {
+	background-color: rgba($bg-color, $opacity);
+
+	@if $legacy-support-for-ie6 or $legacy-support-for-ie7 or $legacy-support-for-ie8 {
+		@include has-layout;
+
+		// MS filter alpha channel has a different format from standard browsers.
+		$final-bg-color-ie: ie-hex-str(rgba($bg-color, $opacity));
+		// IE9 supports rgba & filters, so remember to disable the filter targeting IE9 only.
+		filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#{$final-bg-color-ie}', endColorstr='#{$final-bg-color-ie}');
+	}
+}
+
+/**
+ * **Mixins for transparent backgrounds**
+ * Crossbrowser Mixin for simple transparent backgrounds on old IE browsers (ie9 and older). Just generates code if $legacy-support-for-ie9 is set to true.
+ *
+ * @author Toni Pinel
+ *
+ * @param {hex-color}	$start-color ($color-box-dark) 	- Start color
+ * @param {hex-color}	$end-color ($color-box-light)	- End color
+ * @param {string}		$orientation (vertical)	- vertical or horizontal orientation of the gradient
+ * @link http://msdn.microsoft.com/en-us/library/ms532997(v=vs.85).aspx
+ * @group colors
+ */
+
+@mixin background-gradient-ie-old($start-color: $color-box-dark, $end-color: $color-box-light, $orientation: vertical) {
+	@if $legacy-support-for-ie9 == true {
+		@include filter-gradient($start-color, $end-color, $orientation);
+	}
+}
+
+;

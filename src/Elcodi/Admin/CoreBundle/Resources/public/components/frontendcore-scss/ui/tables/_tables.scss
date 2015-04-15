@@ -1,0 +1,90 @@
+@if $ui-tables == true and $ui == true {
+
+	.dynatable-search {
+		& {
+			right: $spacing;
+			position: absolute;
+			margin: $spacing/4 $spacing/2;
+			min-width: 40%;
+			text-align: right;
+		}
+		&:after {
+			font-family: 'FontAwesome';
+			position: absolute;
+			top: $spacing/4;
+			right: $spacing/2;
+			content: $fa-var-search;
+		}
+		input {
+			@extend %field;
+			position: absolute;
+			top: 0;
+			right: 0;
+			padding-top: $spacing/4 !important;
+			padding-bottom: $spacing/4 !important;
+			width: 70%;
+		}
+	}
+
+	.dynatable-per-page {
+		padding: $spacing/2;
+		display: block;
+		position: absolute;
+	}
+
+	.dynatable-record-count {
+		display: none;
+		padding: 5px 0;
+	}
+
+	.dynatable-active-page {
+		background: $color-background !important;
+		color: $color-foreground !important;
+	}
+
+	.dynatable-pagination {
+		& {
+			float: right;
+		}
+		li:first-child {
+			display: none;
+		}
+	}
+
+	.dynatable-disabled-page,
+	.dynatable-disabled-page:hover {
+		background: none;
+		color: #999;
+	}
+
+	.table-dynamic {
+		& {
+			outline: 1px solid $color-box;
+
+		}
+		thead {
+			& {
+				background: $color-box;
+				border-color: $color-box;
+				outline: $color-box;
+			}
+			th {
+				height: 70px;
+				vertical-align: bottom;
+			}
+		}
+	}
+
+	.dynatable-arrow {
+		& {
+			color: rgba($color-foreground, .5);
+			font-size: $font-size-s;
+			text-decoration: none !important;
+			margin-left: $spacing/4;
+			float: left;
+		}
+		&:hover {
+			text-decoration: none !important;
+		}
+	}
+}

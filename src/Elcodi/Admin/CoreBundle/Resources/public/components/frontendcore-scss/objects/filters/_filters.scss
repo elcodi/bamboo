@@ -1,0 +1,56 @@
+@if $object-filters != false and $ui != true {
+
+	.filters {
+		& {
+			@extend ul[class*='list-'], ul.list;
+			@extend .list-horizontal;
+			background: map-get($object-filters-vars, background-color);
+		}
+		li {
+			& {
+				position: relative;
+				padding: $spacing/8 $spacing/1.5;
+				margin-right: 0 !important;
+			}
+			&:hover {
+				a {
+					color: rgba(map-get($object-filters-vars, color), .9);
+					text-decoration: underline;
+				}
+			}
+			a {
+				font-weight: map-get($object-filters-vars, font-weight);
+				font-size: map-get($object-filters-vars, font-size);
+				color: map-get($object-filters-vars, color);
+			}
+			&.active {
+				&:after {
+					border: 8px solid transparent;
+					border-style: outset outset solid outset;
+					content: '';
+					height: 0;
+					left: 0;
+					overflow: hidden;
+					position: absolute;
+					width: 0;
+					@include rotate(90deg);
+					top: 50%;
+					border-width: 6px;
+					margin-top: -6px;
+					border-bottom-color: map-get($object-filters-vars, color);
+				}
+				a {
+					& {
+						font-weight: map-get($object-filters-vars, font-weight-active);
+						color: map-get($object-filters-vars, color-active);
+						text-decoration: none;
+					}
+					&:hover {
+						background: transparent;
+						cursor: default;
+					}
+				}
+			}
+		}
+	}
+}

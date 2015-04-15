@@ -1,0 +1,15 @@
+@if $object-messages != false and $ui != true {
+	.msg-info {
+		& {
+			border-color: $color-info;
+			@include background-transparent($color-info, .1);
+		}
+		i {
+			color: $color-info;
+		}
+		&:before {
+			content: '\f129';
+			color: $color-info;
+		}
+	}
+}
