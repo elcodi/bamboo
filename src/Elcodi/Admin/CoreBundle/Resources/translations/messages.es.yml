@@ -241,7 +241,7 @@ admin:
             path:
                 title: Ruta
                 placeholder: ej. mi/magnifico/articulo
-                customize: Personalizar ruta
+                customize: Personalizar enlace
             link:
                 title: Enlace
             enabled:
@@ -407,7 +407,7 @@ admin:
 
     image:
         single: Imagen
-        plural: Imagenes
+        plural: Imágenes
         info:
             principal: La primera imagen será la imagen principal.
             reorder: "Puedes arrastrar las imágenes para reordenarlas."
@@ -494,7 +494,7 @@ admin:
             path:
                 title: Ruta
                 placeholder: ej. my/genial/pagina
-                customize: Personalizar ruta
+                customize: Personalizar enlace
             link:
                 title: Enlace
             enabled:
@@ -538,12 +538,12 @@ admin:
             slug:
                 title: Slug
                 placeholder: ej. my/genial/producto
-                customize: Personalizar ruta
+                customize: Personalizar enlace
             description:
                 title: Descripción
                 placeholder: ej. Este genial producto es exactamente lo que buscabas.
             main_category:
-                title: Categoria
+                title: Categoría
                 placeholder: 'ej. Ordenadores, bolsas de mano...'
             manufacturer:
                 title: Fabricante
@@ -553,7 +553,7 @@ admin:
             stock:
                 title: Unidades
             reduced_price:
-                title: Precio reducido
+                title: Precio de oferta
             weight:
                 title: Peso (en g)
             height:
@@ -583,8 +583,8 @@ admin:
         info:
             variants_before_saving: Podrás añadir variantes una vez hayas guardo el producto
         error:
-            no_category: ¡Atención! Este producto no está asociado a ninguna categoria
-            no_manufacturer: ¡Atención! Este producto no está asociado a ningun fabricante
+            no_category: ¡Atención! Este producto no está asociado a ninguna categoría
+            no_manufacturer: ¡Atención! Este producto no está asociado a ningún fabricante
         tag:
             in_home: Portada
             has_variants: Tiene variantes
@@ -596,13 +596,13 @@ admin:
                 description: Proporciona un título muy específico que ayude a explicar y vender tu producto y propocione toda la información necesaria para tus clientes.
             categorization:
                 title: Categorización
-                description: El producto debe ser clasificado en una categoria y un fabricante. Estos serán visibles en la tienda y ayudarán a los clientes a navegar por ella.
+                description: El producto debe ser clasificado en una categoría y un fabricante. Estos serán visibles en la tienda y ayudarán a los clientes a navegar por ella.
             pricing:
                 title: Precio
                 description: "Configura el precio para tu producto, no incluyas tasas ni costes de envio. También puedes configurar un precio de oferta."
             dimensions:
                 title: Dimensiones
-                description: "Configura las dimensiones y peso de tu producto. Esta información será realmenteútil para calcular los costes de envio."
+                description: "Configura las dimensiones y peso de tu producto. Esta información será realmente útil para calcular los costes de envio."
             variants:
                 title: Variantes
                 description: 'Las variantes son versiones diferentes del mismo producto (Color, talla...). Las variantes pueden tener diferente precio o atributos.'
@@ -661,7 +661,7 @@ admin:
                 placeholder: ej. Mi genial fabricante
             slug:
                 title: Ruta
-                customize: Personalizar ruta
+                customize: Personalizar enlace
                 placeholder: ej. mi/genial/fabricante
             description:
                 title: Descripción
@@ -693,7 +693,7 @@ admin:
 
     category:
         single:   Categoría
-        plural:   Categorias
+        plural:   Categorías
         edit:     Editar "%name%"
         new:      Nueva categoría
         saved:    Categoría guardada
@@ -706,9 +706,9 @@ admin:
             slug:
                 title: Ruta
                 placeholder: ej. mi/genial/categoria
-                customize: Personalizar ruta
+                customize: Personalizar enlace
             root:
-                title: Categoria principal
+                title: Categoría principal
             enabled:
                 title: Habilitada
                 options:
@@ -730,7 +730,7 @@ admin:
                 description: Proporciona un nombre tan corto como sea posible para ayudar a tus clientes a encontrar el producto de esta categoria.
             categorization:
                 title: Categorización
-                description: Configura la categoria como principal si no tiene ningun padre o va a ser padre de otras categorias.
+                description: Configura la categoria como principal si no tiene ningún padre o va a ser padre de otras categorías.
             visibility:
                 title: Visibilidad
                 description: Configurar la categoria como visible u oculta.
