@@ -17,6 +17,7 @@
 
 namespace Elcodi\Plugin\StoreSetupWizardBundle;
 
+use Elcodi\Component\Plugin\Interfaces\PluginInterface;
 use Symfony\Component\Console\Application;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
@@ -27,7 +28,7 @@ use Elcodi\Plugin\StoreSetupWizardBundle\DependencyInjection\ElcodiStoreSetupWiz
 /**
  * Class ElcodiStoreSetupWizardBundle
  */
-class ElcodiStoreSetupWizardBundle extends Bundle implements DependentBundleInterface
+class ElcodiStoreSetupWizardBundle extends Bundle implements DependentBundleInterface, PluginInterface
 {
     /**
      * Returns the bundle's container extension.
