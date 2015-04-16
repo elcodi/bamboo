@@ -97,7 +97,15 @@
     },
     "replace": {
         "elcodi-templates/template": "self.version",
-        "elcodi-templates/store-template-bundle": "self.version"
+        "elcodi-templates/store-template-bundle": "self.version",
+
+        "elcodi-plugin/google-analytics": "self.version",
+        "elcodi-plugin/pinterest": "self.version",
+        "elcodi-plugin/product-csv": "self.version",
+        "elcodi-plugin/store-setup-wizard": "self.version",
+        "elcodi-plugin/disqus": "self.version",
+        "elcodi-plugin/twitter": "self.version",
+        "elcodi-plugin/facebook": "self.version"
     },
     "require-dev": {
         "elcodi/elcodi": "0.5.8",
