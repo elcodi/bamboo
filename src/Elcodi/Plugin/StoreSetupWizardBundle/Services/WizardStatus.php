@@ -209,6 +209,7 @@ class WizardStatus
         ) {
             return false;
         }
+
         return true;
     }
 
