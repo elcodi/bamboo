@@ -17,12 +17,11 @@
 
 namespace Elcodi\Plugin\StoreSetupWizardBundle;
 
-use Elcodi\Component\Plugin\Interfaces\PluginInterface;
-use Symfony\Component\Console\Application;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 use Elcodi\Bundle\CoreBundle\Interfaces\DependentBundleInterface;
+use Elcodi\Component\Plugin\Interfaces\PluginInterface;
 use Elcodi\Plugin\StoreSetupWizardBundle\DependencyInjection\ElcodiStoreSetupWizardExtension;
 
 /**
