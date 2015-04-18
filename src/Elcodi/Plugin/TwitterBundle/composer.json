@@ -8,7 +8,7 @@
         "social",
         "ecommerce"
     ],
-    "homepage": "https://github.com/elcodi-plugins/TwitterAnalyticsBundle",
+    "homepage": "https://github.com/elcodi-plugins/TwitterBundle",
     "type": "symfony-bundle",
     "license": "MIT",
     "support": {
@@ -28,7 +28,7 @@
         },
         {
             "name": "The Awesome Elcodi Community",
-            "homepage": "https://github.com/elcodi-plugins/TwitterAnalyticsBundle/contributors"
+            "homepage": "https://github.com/elcodi-plugins/TwitterBundle/contributors"
         }
     ],
     "require": {
