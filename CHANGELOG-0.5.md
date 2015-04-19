@@ -8,8 +8,10 @@ https://github.com/elcodi/bamboo/commit/XXX where XXX is the change hash To
 get the diff between two versions, go to
 https://github.com/elcodi/bamboo/compare/v0.5.2...v0.5.3
 
-### v0.5.9 (19-04-2015)
+### v0.5.10 (19-04-2015)
 
+* [`4967f8d`](https://github.com/elcodi/bamboo/commit/4967f8d1a9a7c6235535c4099bd6bf4cab1a1ae6) Updated doctrine versions (2.5) and Elcodi (0.5.10) (mmoreram)
+* [`01f38b8`](https://github.com/elcodi/bamboo/commit/01f38b814cc2e4d99b6866d34dce5895c8dc6c61) Updated CHANGELOG with 0.5.9 (mmoreram)
 * [`a0303ec`](https://github.com/elcodi/bamboo/commit/a0303ece9a25af5c0f5c1791389c4ebd77ba69d8) Updated Elcodi dependency to 0.5.9 (mmoreram)
 * [`34a4925`](https://github.com/elcodi/bamboo/commit/34a4925062b01dc43aae5fc7851e7703edc0cccd) Fixed code (mmoreram)
 * [`5a8a319`](https://github.com/elcodi/bamboo/commit/5a8a319c95248b2c53fc5d7fe3e2714733f694b3) Update composer.json (Sebastiaan Stok)
