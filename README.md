@@ -190,9 +190,10 @@ Any collaboration is welcome! We look forward to hearing from you!
 
 Yes, we are doing some tests, and this will be **in cresciendo**. You can ensure
 yourself that all the cases we've been working on are actually green. We are
-using Behat, so you only need to execute all Behat suites
+using Behat and PHPUnit, so you only need to execute all Behat suites and phpunit tests
 
 ```bash
+   php bin/phpunit -c app/
    php bin/behat
 ```
 
