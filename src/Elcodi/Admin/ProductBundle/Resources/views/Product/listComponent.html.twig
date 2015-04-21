@@ -20,12 +20,19 @@
 
 {% block table_head %}
 
+
+    {% set stockClass = 'ta-r' %}
+    {% if not elcodi_config('product.use_stock') %}
+        {% set stockClass = 'd-n ta-r' %}
+    {% endif %}
+
     {% include '@AdminCore/Tables/head.html.twig' with {
         rows: [
             { name: 'admin.product.field.image.title'|trans, width: 10 },
             { name: 'admin.product.field.name_details.title'|trans },
-            { name: 'admin.product.field.main_category.title'|trans, widht: 20 },
-            { name: 'admin.product.field.price.title'|trans, width: 10 },
+            { name: 'admin.product.field.main_category.title'|trans, width: 15 },
+            { name: 'admin.product.field.price.title'|trans, width: 10, class: 'ta-r' },
+            { name: 'admin.product.field.stock.title'|trans, class: stockClass }
         ],
         class: 'product',
     } %}
@@ -42,7 +49,6 @@
             </a>
         {% endif %}
     </td>
-
     <td>
         <a href="{{ url('admin_product_edit', { id: entity.id }) }}">
             <strong>{{ entity.name }}</strong>
@@ -92,10 +98,19 @@
             </a>
         {% endif %}
     </td>
-    <td>
+    <td class="ta-r">
         {{ entity.price|print_money }}
     </td>
-
+    <td class="ta-r {% if not elcodi_config('product.use_stock') %}d-n{% endif %}">
+        {% if entity.stock >= 5 %}
+            {% set stockColor = 'c-ok' %}
+        {% elseif entity.stock > 0 and entity.stock < 10 %}
+            {% set stockColor = 'icon-warning c-warning' %}
+        {% else %}
+            {% set stockColor = 'icon-times icon-2x c-ko' %}
+        {% endif %}
+        <span class="{{ stockColor }}">{% if entity.stock > 0 %}{{ entity.stock }}{% endif %}</span>
+    </td>
     {% include '@AdminCore/Tables/actions.html.twig' with {
         entity: entity,
         class: 'product',

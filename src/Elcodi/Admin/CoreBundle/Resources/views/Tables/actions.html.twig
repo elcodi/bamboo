@@ -3,7 +3,7 @@
         {% if delete_url is not defined %}
             {% set delete_url = url("admin_#{class}_delete", { id: id|default(entity.id) }) %}
         {% endif %}
-        <a class="icon-trash-o c-ko td-n fz-l"
+        <a class="icon-trash-o c-foreground td-n fz-l"
            title="{{ 'ui.forms.delete'|trans }}"
            href="{{ delete_url }}"
            data-fc-modules="confirm" data-fc-name="{{ name|default(entity.name) }}"
