@@ -120,6 +120,14 @@ class SecurityController extends Controller
         FormView $registerFormView,
         $isValid
     ) {
+        /**
+         * If user is already logged, go to redirect url
+         */
+        $authorizationChecker = $this->get('security.authorization_checker');
+        if ($authorizationChecker->isGranted('ROLE_CUSTOMER')) {
+            return $this->redirectToRoute('store_homepage');
+        }
+
         if ($isValid) {
             $customerManager = $this->get('elcodi.object_manager.customer');
             $customerManager->persist($customer);
