@@ -8,6 +8,19 @@ https://github.com/elcodi/bamboo/commit/XXX where XXX is the change hash To
 get the diff between two versions, go to
 https://github.com/elcodi/bamboo/compare/v0.5.2...v0.5.3
 
+### v0.5.11 (21-04-2015)
+
+* [`38a26f1`](https://github.com/elcodi/bamboo/commit/38a26f12a3a3096af4c31b64ad232560ab863568) Updated elcodi dependency to 0.5.11 (mmoreram)
+* [`8613c1c`](https://github.com/elcodi/bamboo/commit/8613c1ccc760861e624d7d3e8393d93c82b9af6a) Added registration redirection in store (mmoreram)
+* [`9a8b5da`](https://github.com/elcodi/bamboo/commit/9a8b5dad616d80a8961d5995768fff71ecf1ebe3) Fixed security configuration and added tests (mmoreram)
+* [`ccec07d`](https://github.com/elcodi/bamboo/commit/ccec07da58530cbf9dd587f2e60f64df3a5a7cab) Better readability for separator (Berny Cantos)
+* [`3e3066e`](https://github.com/elcodi/bamboo/commit/3e3066e5c9bd56ae4eced51def1d5eb3607d7fc3) fix default language namespace in configuration (Berny Cantos)
+* [`eaad3d7`](https://github.com/elcodi/bamboo/commit/eaad3d719f1c0933e65256c0e03a8734964fc872) If user activates the stock control, then the stock will appear on lists (Toni Pinel)
+* [`929248d`](https://github.com/elcodi/bamboo/commit/929248d80026c2bd1a612b53c9b289b504f4dd85) plug missing use statemetn (Luis Cordova)
+* [`58f24ba`](https://github.com/elcodi/bamboo/commit/58f24bab1d60630e2f29bda589dfde29730c364d) update instructions to run test suite (Luis Cordova)
+* [`6f10cdf`](https://github.com/elcodi/bamboo/commit/6f10cdfd9764b5144edb924cddedc7138f8b5e52) Updated CHANGELOG with 0.5.10 (mmoreram)
+* [`b03a1ad`](https://github.com/elcodi/bamboo/commit/b03a1add8f5c093c67557df93609ea91d26d9c6a) adapt location api prefix from elcodi/elcodi change to bamboo (Luis Cordova)
+
 ### v0.5.10 (19-04-2015)
 
 * [`4967f8d`](https://github.com/elcodi/bamboo/commit/4967f8d1a9a7c6235535c4099bd6bf4cab1a1ae6) Updated doctrine versions (2.5) and Elcodi (0.5.10) (mmoreram)
