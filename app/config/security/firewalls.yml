@@ -12,17 +12,10 @@ security:
             pattern:  ^/%bamboo_api_prefix%/
             security: false
 
-        admin_login_area:
-            pattern: ^/%bamboo_admin_prefix%/login$
-            anonymous: ~
-
-        admin_password_area:
-            pattern: ^/%bamboo_admin_prefix%/password/
-            anonymous: ~
-
         admin_area:
             provider: adminuser
             pattern: ^/%bamboo_admin_prefix%/
+            anonymous: true
             simple-preauth:
                 authenticator: admin.user.security.one_time_login_authenticator
             form_login:
@@ -38,6 +31,7 @@ security:
 
         store_area:
             provider: customer
+            pattern: ^/
             anonymous: true
             form_login:
                 login_path: store_login
