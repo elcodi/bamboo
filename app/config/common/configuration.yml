@@ -105,7 +105,7 @@ elcodi_configuration:
         store_default_language:
             key: default_language
             name: Default language
-            namespace: default_language
+            namespace: store
             type: string
 
         #
