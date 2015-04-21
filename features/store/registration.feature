@@ -19,3 +19,8 @@ Feature: Store registration
     And I press "store_user_form_type_register_send"
     Then the response should contain a "logged-username" test attribute
     And the response should contain "John"
+
+  Scenario: Logged user is redirected to home when goes to register page
+    Given I am logged as "customer@customer.com" - "1234"
+    When I go to "/register"
+    Then I am on "/user"
