@@ -84,7 +84,7 @@ admin:
                 - admin_coupon_edit
                 - admin_coupon_new
 
-        -
+        separator_1:
             name: separator
             code: separator
 
@@ -114,7 +114,7 @@ admin:
                 - admin_blog_post_edit
                 - admin_blog_post_new
 
-        -
+        separator_2:
             name: separator
             code: separator
             enabled: false
@@ -134,7 +134,7 @@ admin:
                     active_urls:
                         - admin_banner_list
 
-        -
+        separator_3:
             name: separator
             code: separator
 
@@ -191,6 +191,6 @@ admin:
                     active_urls:
                         - admin_payment_configuration_list
 
-        -
+        separator_4:
             name: separator
             code: separator
