@@ -193,6 +193,8 @@ yourself that all the cases we've been working on are actually green. We are
 using Behat and PHPUnit, so you only need to execute all Behat suites and phpunit tests
 
 ```bash
+   redis-cli flushall
+   rm -rf /tmp/Bamboo /tmp/*.backup.database app/cache/*
    php bin/phpunit -c app/
    php bin/behat
 ```
