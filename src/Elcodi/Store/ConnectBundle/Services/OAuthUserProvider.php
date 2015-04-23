@@ -25,10 +25,13 @@ use HWI\Bundle\OAuthBundle\Security\Core\User\OAuthAwareUserProviderInterface;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 use Elcodi\Component\Core\Factory\Abstracts\AbstractFactory;
 use Elcodi\Component\User\Entity\Interfaces\CustomerInterface;
 use Elcodi\Store\ConnectBundle\Entity\Authorization;
+use Elcodi\Component\User\Event\CustomerRegisterEvent;
+use Elcodi\Component\User\ElcodiUserEvents;
 
 /**
  * Class OAuthUserProvider
@@ -80,12 +83,20 @@ class OAuthUserProvider implements OAuthAwareUserProviderInterface
     private $customerManager;
 
     /**
+     * @var EventDispatcherInterface
+     *
+     * EventDispatcher instance
+     */
+    protected $eventDispatcher;
+
+    /**
      * @param UserProviderInterface $userProvider            User provider
      * @param AbstractFactory       $authorizationFactory    Authorization factory
      * @param ObjectRepository      $authorizationRepository Authorization repository
      * @param ObjectManager         $authorizationManager    Authorization manager
      * @param AbstractFactory       $customerFactory         Customer factory
      * @param ObjectManager         $customerManager         Customer manager
+     * @param EventDispatcherInterface $eventDispatcher Event dispatcher
      */
     public function __construct(
         UserProviderInterface $userProvider,
@@ -93,7 +104,8 @@ class OAuthUserProvider implements OAuthAwareUserProviderInterface
         ObjectRepository $authorizationRepository,
         ObjectManager $authorizationManager,
         AbstractFactory $customerFactory,
-        ObjectManager $customerManager
+        ObjectManager $customerManager,
+        EventDispatcherInterface $eventDispatcher
     ) {
         $this->userProvider = $userProvider;
         $this->authorizationFactory = $authorizationFactory;
@@ -101,6 +113,7 @@ class OAuthUserProvider implements OAuthAwareUserProviderInterface
         $this->authorizationManager = $authorizationManager;
         $this->customerFactory = $customerFactory;
         $this->customerManager = $customerManager;
+        $this->eventDispatcher = $eventDispatcher;
     }
 
     /**
@@ -266,6 +279,12 @@ class OAuthUserProvider implements OAuthAwareUserProviderInterface
 
         $this->authorizationManager->persist($customer);
         $this->authorizationManager->flush($customer);
+
+        $event = new CustomerRegisterEvent($customer);
+        $this->eventDispatcher->dispatch(
+            ElcodiUserEvents::CUSTOMER_REGISTER,
+            $event
+        );
 
         return $customer;
     }

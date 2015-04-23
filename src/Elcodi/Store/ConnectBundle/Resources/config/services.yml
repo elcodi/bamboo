@@ -12,3 +12,4 @@ services:
             - @store.connect.object_manager.authorization
             - @elcodi.factory.customer
             - @elcodi.object_manager.customer
+            - @event_dispatcher
