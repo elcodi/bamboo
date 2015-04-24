@@ -17,6 +17,8 @@
 
 namespace Elcodi\Store\ConnectBundle\DependencyInjection;
 
+use Symfony\Component\Config\Definition\ConfigurationInterface;
+
 use Elcodi\Bundle\CoreBundle\DependencyInjection\Abstracts\AbstractExtension;
 use Elcodi\Bundle\CoreBundle\DependencyInjection\Interfaces\EntitiesOverridableExtensionInterface;
 
@@ -43,7 +45,16 @@ class StoreConnectExtension extends AbstractExtension implements EntitiesOverrid
     }
 
     /**
-     * @return Configuration
+     * Return a new Configuration instance.
+     *
+     * If object returned by this method is an instance of
+     * ConfigurationInterface, extension will use the Configuration to read all
+     * bundle config definitions.
+     *
+     * Also will call getParametrizationValues method to load some config values
+     * to internal parameters.
+     *
+     * @return ConfigurationInterface Configuration file
      */
     protected function getConfigurationInstance()
     {
@@ -58,10 +69,10 @@ class StoreConnectExtension extends AbstractExtension implements EntitiesOverrid
     protected function getParametrizationValues(array $config)
     {
         return [
-            'store.connect.entity.authorization.class' => $config['mapping']['authorization']['class'],
+            'store.connect.entity.authorization.class'        => $config['mapping']['authorization']['class'],
             'store.connect.entity.authorization.mapping_file' => $config['mapping']['authorization']['mapping_file'],
-            'store.connect.entity.authorization.manager' => $config['mapping']['authorization']['manager'],
-            'store.connect.entity.authorization.enabled' => $config['mapping']['authorization']['enabled'],
+            'store.connect.entity.authorization.manager'      => $config['mapping']['authorization']['manager'],
+            'store.connect.entity.authorization.enabled'      => $config['mapping']['authorization']['enabled'],
         ];
     }
 
@@ -77,6 +88,7 @@ class StoreConnectExtension extends AbstractExtension implements EntitiesOverrid
             'objectManagers',
             'repositories',
             'services',
+            'directors',
         ];
     }
 
