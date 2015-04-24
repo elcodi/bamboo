@@ -20,7 +20,7 @@ namespace Elcodi\Admin\CartBundle\Listener;
 use Doctrine\Common\Persistence\ObjectRepository;
 
 use Elcodi\Component\Cart\Repository\OrderRepository;
-use Elcodi\Component\Menu\Event\MenuEvent;
+use Elcodi\Component\Menu\Event\Abstracts\AbstractMenuEvent;
 
 /**
  * Class OrderCountInMenuListener
@@ -49,9 +49,9 @@ class OrderCountInMenuListener
     /**
      * Add a badge with pending orders number to the order menu
      *
-     * @param MenuEvent $event
+     * @param AbstractMenuEvent $event
      */
-    public function onMenuPostLoad(MenuEvent $event)
+    public function onMenuPostLoad(AbstractMenuEvent $event)
     {
         $pendingOrders = $this
             ->orderRepository
