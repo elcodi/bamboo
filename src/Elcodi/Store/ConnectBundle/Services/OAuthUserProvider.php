@@ -19,15 +19,15 @@ namespace Elcodi\Store\ConnectBundle\Services;
 
 use DateTime;
 use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\Common\Persistence\ObjectRepository;
 use HWI\Bundle\OAuthBundle\OAuth\Response\UserResponseInterface;
 use HWI\Bundle\OAuthBundle\Security\Core\User\OAuthAwareUserProviderInterface;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 
-use Elcodi\Component\Core\Factory\Abstracts\AbstractFactory;
+use Elcodi\Component\Core\Services\ObjectDirector;
 use Elcodi\Component\User\Entity\Interfaces\CustomerInterface;
+use Elcodi\Component\User\EventDispatcher\Interfaces\UserEventDispatcherInterface;
 use Elcodi\Store\ConnectBundle\Entity\Authorization;
 
 /**
@@ -45,62 +45,54 @@ class OAuthUserProvider implements OAuthAwareUserProviderInterface
     protected $userProvider;
 
     /**
-     * @var AbstractFactory
+     * @var ObjectDirector
      *
-     * Authorization factory
+     * Authorization Director
      */
-    protected $authorizationFactory;
+    protected $authorizationDirector;
 
     /**
-     * @var ObjectRepository
+     * @var ObjectDirector
      *
-     * Authorization repository
+     * Customer Director
      */
-    protected $authorizationRepository;
-
-    /**
-     * @var ObjectManager
-     *
-     * Authorization manager
-     */
-    protected $authorizationManager;
-
-    /**
-     * @var AbstractFactory
-     *
-     * Customer factory
-     */
-    private $customerFactory;
+    protected $customerDirector;
 
     /**
      * @var ObjectManager
      *
-     * Customer manager
+     * Customer ObjectManager
      */
-    private $customerManager;
+    protected $authorizationObjectManager;
 
     /**
-     * @param UserProviderInterface $userProvider            User provider
-     * @param AbstractFactory       $authorizationFactory    Authorization factory
-     * @param ObjectRepository      $authorizationRepository Authorization repository
-     * @param ObjectManager         $authorizationManager    Authorization manager
-     * @param AbstractFactory       $customerFactory         Customer factory
-     * @param ObjectManager         $customerManager         Customer manager
+     * @var UserEventDispatcherInterface
+     *
+     * User event dispatcher
+     */
+    protected $userEventDispatcher;
+
+    /**
+     * Constructor
+     *
+     * @param UserProviderInterface        $userProvider               Where to search for valid users
+     * @param ObjectDirector               $authorizationDirector      Authorization Director
+     * @param ObjectDirector               $customerDirector           Customer Director
+     * @param ObjectManager                $authorizationObjectManager Customer Object Manager
+     * @param UserEventDispatcherInterface $userEventDispatcher        User event dispatcher
      */
     public function __construct(
         UserProviderInterface $userProvider,
-        AbstractFactory $authorizationFactory,
-        ObjectRepository $authorizationRepository,
-        ObjectManager $authorizationManager,
-        AbstractFactory $customerFactory,
-        ObjectManager $customerManager
+        ObjectDirector $authorizationDirector,
+        ObjectDirector $customerDirector,
+        ObjectManager $authorizationObjectManager,
+        UserEventDispatcherInterface $userEventDispatcher
     ) {
         $this->userProvider = $userProvider;
-        $this->authorizationFactory = $authorizationFactory;
-        $this->authorizationRepository = $authorizationRepository;
-        $this->authorizationManager = $authorizationManager;
-        $this->customerFactory = $customerFactory;
-        $this->customerManager = $customerManager;
+        $this->authorizationDirector = $authorizationDirector;
+        $this->customerDirector = $customerDirector;
+        $this->authorizationObjectManager = $authorizationObjectManager;
+        $this->userEventDispatcher = $userEventDispatcher;
     }
 
     /**
@@ -142,10 +134,10 @@ class OAuthUserProvider implements OAuthAwareUserProviderInterface
         $username = $response->getUsername();
 
         return $this
-            ->authorizationRepository
+            ->authorizationDirector
             ->findOneBy([
                 'resourceOwnerName' => $resourceOwnerName,
-                'username' => $username,
+                'username'          => $username,
             ]);
     }
 
@@ -166,7 +158,7 @@ class OAuthUserProvider implements OAuthAwareUserProviderInterface
         $username = $response->getUsername();
 
         $authorization = $this
-            ->authorizationFactory
+            ->authorizationDirector
             ->create();
 
         $authorization
@@ -200,13 +192,20 @@ class OAuthUserProvider implements OAuthAwareUserProviderInterface
      * Persist an authorization
      *
      * @param Authorization $authorization Authorization to persist
+     *
+     * @return $this Self object
      */
     protected function save(Authorization $authorization)
     {
-        $authorization = $this->authorizationManager->merge($authorization);
+        $authorization = $this
+            ->authorizationObjectManager
+            ->merge($authorization);
 
-        $this->authorizationManager->persist($authorization);
-        $this->authorizationManager->flush($authorization);
+        $this
+            ->authorizationDirector
+            ->save($authorization);
+
+        return $this;
     }
 
     /**
@@ -231,7 +230,7 @@ class OAuthUserProvider implements OAuthAwareUserProviderInterface
      *
      * @param UserResponseInterface $response
      *
-     * @return UserInterface
+     * @return UserInterface|null
      */
     protected function findUser(UserResponseInterface $response)
     {
@@ -258,14 +257,21 @@ class OAuthUserProvider implements OAuthAwareUserProviderInterface
         /**
          * @var CustomerInterface $customer
          */
-        $customer = $this->customerFactory->create();
+        $customer = $this
+            ->customerDirector
+            ->create();
 
         $customer
             ->setEmail($response->getEmail())
             ->setFirstname($response->getRealName());
 
-        $this->authorizationManager->persist($customer);
-        $this->authorizationManager->flush($customer);
+        $this
+            ->customerDirector
+            ->save($customer);
+
+        $this
+            ->userEventDispatcher
+            ->dispatchOnCustomerRegisteredEvent($customer);
 
         return $customer;
     }
