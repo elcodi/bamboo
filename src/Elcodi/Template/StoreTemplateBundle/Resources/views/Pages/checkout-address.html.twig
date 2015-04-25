@@ -8,7 +8,7 @@
         <h1 class="checkout-title">{{ 'template.store_template_bundle.checkout.address.select_address'|trans }}</h1>
         <form method="post" action="{{ url('store_checkout_address_save') }}" {% if addresses|length > 1 %}class="address-list" {% endif %}>
             <p class="checkout-actions checkout-actions-top">
-                <button type="submit" name="payment" class="button button-secondary desktop">
+                <button type="submit" name="payment" class="button button-secondary desktop" data-test="payment-button">
                     {{ 'template.store_template_bundle.checkout.address.payment'|trans }}
                     <i class="fa fa-arrow-right"></i>
                 </button>
@@ -22,7 +22,7 @@
                 {% include '@StoreTemplate/Modules/_address-item.html.twig' with { address: address, source: 'checkout' } %}
             {% endfor %}
             <p class="checkout-actions checkout-actions-bottom">
-                <button type="submit" name="payment" class="button button-secondary">
+                <button type="submit" name="payment" class="button button-secondary" data-test="payment-button">
                     {{ 'template.store_template_bundle.checkout.address.payment'|trans }}
                     <i class="fa fa-arrow-right"></i>
                 </button>

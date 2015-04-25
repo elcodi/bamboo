@@ -12,10 +12,10 @@
         {% endfor %}
     </div>
     {% else %}
-        <div class="empty-page">
+        <div class="empty-page" data-test="empty-addresses-page">
             <i class="fa fa-map-marker fa-3x"></i>
             <h2 class="product-title">{{ "template.store_template_bundle.address.list.no_addresses"|trans}}</h2>
-            <a href="{{ url('store_address_new') }}" class="button button-secondary">{{ "template.store_template_bundle.address.list.add_new_address"|trans }}</a>
+            <a href="{{ url('store_address_new') }}" class="button button-secondary" data-test="add-address">{{ "template.store_template_bundle.address.list.add_new_address"|trans }}</a>
         </div>
 
     {% endif %}

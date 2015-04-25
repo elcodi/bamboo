@@ -66,6 +66,23 @@ class CustomerData extends AbstractFixture implements DependentFixtureInterface
         $manager->persist($customer);
         $this->addReference('customer', $customer);
 
+        /**
+         * @var CustomerInterface $anotherCustomer
+         */
+        $anotherCustomer = $this
+            ->container
+            ->get('elcodi.factory.customer')
+            ->create()
+            ->setPassword('1234')
+            ->setEmail('another-customer@customer.com')
+            ->setFirstName('Santa')
+            ->setLastName('Claus')
+            ->setGender(ElcodiUserProperties::GENDER_FEMALE)
+            ->setEnabled(true);
+
+        $manager->persist($anotherCustomer);
+        $this->addReference('another-customer', $anotherCustomer);
+
         $manager->flush();
     }
 

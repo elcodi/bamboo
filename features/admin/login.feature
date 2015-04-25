@@ -1,4 +1,4 @@
-@admin @login @now
+@admin @login
 Feature: Admin login
   In order to access into the admin zone
   As an anonymous user
