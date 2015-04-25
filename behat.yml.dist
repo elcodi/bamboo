@@ -8,7 +8,7 @@ default:
                 debug: false
         Behat\MinkExtension:
             sessions:
-                symfony2:
+                default:
                     symfony2: ~
 
     suites:

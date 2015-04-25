@@ -1,4 +1,4 @@
-<dl class="address-item">
+<dl class="address-item" data-test="address-{{ address.id }}">
     <dt class="address-item-selection"></dt>
     <dd class="address-item-selection">
         <div class="address-item-selection-item">
@@ -42,9 +42,11 @@
     <dd>{{ address.comments|default('-') }}</dd>
     <dt class="address-item-actions">{{ 'template.store_template_bundle.address.item.actions'|trans }}</dt>
     <dd class="address-item-actions">
-        <a href="{{ url('store_address_edit',{id:address.id,source:source}) }}" class="button button-primary"><i
-                    class="fa fa-pencil"></i> {{ 'template.store_template_bundle.address.item.edit'|trans }}</a>
-        <a href="{{ url('store_address_delete',{id:address.id,source:source}) }}" class="button button-ko"><i
-                    class="fa fa-trash-o"></i> {{ 'template.store_template_bundle.address.item.remove'|trans }}</a>
+        <a href="{{ url('store_address_edit',{id:address.id,source:source}) }}" class="button button-primary" data-test="address-{{ address.id }}-edit"><i
+                    class="fa fa-pencil"></i> {{ 'template.store_template_bundle.address.item.edit'|trans }}
+        </a>
+        <a href="{{ url('store_address_delete',{id:address.id,source:source}) }}" class="button button-ko" data-test="address-{{ address.id }}-remove"><i
+                    class="fa fa-trash-o"></i> {{ 'template.store_template_bundle.address.item.remove'|trans }}
+        </a>
     </dd>
 </dl>

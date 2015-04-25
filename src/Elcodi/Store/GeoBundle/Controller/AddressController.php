@@ -20,6 +20,7 @@ namespace Elcodi\Store\GeoBundle\Controller;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\Request;
@@ -33,6 +34,7 @@ use Elcodi\Store\CoreBundle\Controller\Traits\TemplateRenderTrait;
 /**
  * Address controllers
  *
+ * @Security("has_role('ROLE_CUSTOMER')")
  * @Route(
  *      path = "/user/address",
  * )
@@ -113,7 +115,7 @@ class AddressController extends Controller
                 $id
             );
 
-        if (false === $address) {
+        if (!($address instanceof AddressInterface)) {
             throw new NotFoundHttpException('Address not found');
         }
 
@@ -219,7 +221,8 @@ class AddressController extends Controller
                 ->loadCustomer()
                 ->addAddress($address);
 
-            $this->get('elcodi.object_manager.customer')
+            $this
+                ->get('elcodi.object_manager.customer')
                 ->flush();
 
             $message = $translator->trans('store.address.save.response_ok');
@@ -277,7 +280,7 @@ class AddressController extends Controller
                 $id
             );
 
-        if (false === $address) {
+        if (!($address instanceof AddressInterface)) {
             throw new NotFoundHttpException('Address not found');
         }
 

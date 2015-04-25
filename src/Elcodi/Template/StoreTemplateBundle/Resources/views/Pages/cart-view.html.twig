@@ -27,7 +27,7 @@
             <p class="cart-total"><span>{{ 'template.store_template_bundle.cart.view.total'|trans }} </span>{{ cart.amount|print_convert_money() }}</p>
 
             <div class="cart-actions">
-                <a class="button button-secondary" href="{{ url('store_checkout_address') }}">{{ 'template.store_template_bundle.cart.view.checkout'|trans }} &nbsp;<i class="fa fa-arrow-right"></i> </a>
+                <a class="button button-secondary" href="{{ url('store_checkout_address') }}" data-test="checkout-button">{{ 'template.store_template_bundle.cart.view.checkout'|trans }} &nbsp;<i class="fa fa-arrow-right"></i> </a>
                 {{
                     form_widget(form.update, {
                         label: 'template.store_template_bundle.cart.view.update_basket',

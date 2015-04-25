@@ -78,4 +78,21 @@ class Context extends AbstractElcodiContext
             );
         }
     }
+
+    /**
+     * @When /^I wait "(?P<seconds>[\d]*)" seconds$/
+     */
+    public function iWaitSeconds($seconds)
+    {
+        sleep($seconds);
+    }
+
+    /**
+     * @Given /^I fill hidden field "([^"]*)" with "([^"]*)"$/
+     */
+    public function iFillHiddenFieldWith($field, $value)
+    {
+        $this->getSession()->getPage()->find('css',
+            'input[id="' . $field . '"]')->setValue($value);
+    }
 }
