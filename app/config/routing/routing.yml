@@ -7,6 +7,15 @@ store_routes:
         i18n: true
 
 #
+# Static pages
+#
+elcodi_page:
+    resource: "@ElcodiPageBundle/Resources/config/routing.yml"
+    prefix: /
+    options:
+        i18n: true
+
+#
 # Admin routes
 #
 admin_routes:
@@ -38,14 +47,5 @@ api_routes:
 #
 elcodi_custom_routes:
     resource: "routing_local.yml"
-    options:
-        i18n: false
-
-#
-# Must be the last route!
-#
-elcodi_page:
-    resource: "@ElcodiPageBundle/Resources/config/routing.yml"
-    prefix: /
     options:
         i18n: false

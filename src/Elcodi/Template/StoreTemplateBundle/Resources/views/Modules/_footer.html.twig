@@ -33,7 +33,12 @@
                 {% set pages = elcodi_footer_pages() %}
 
                 {% for page in pages %}
-                    <li><a href="{{ url("elcodi_page_render_view", {"path": page.path}) }}">{{ page.title }}</a></li>
+                    <li>
+                        <a href="{{ url("elcodi.route.page_render", {
+                            "id": page.id,
+                            "path": page.path
+                        }) }}">{{ page.title }}</a>
+                    </li>
                 {% endfor %}
             </ul>
         </div>

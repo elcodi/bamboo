@@ -191,7 +191,7 @@ class OrderController extends AbstractAdminController
         $transition
     ) {
         $stateLineStack = $this
-            ->get('elcodi.order.payment_states_machine.manager')
+            ->get('elcodi.order_payment_states_machine_manager')
             ->transition(
                 $order,
                 $order->getPaymentStateLineStack(),
@@ -237,7 +237,7 @@ class OrderController extends AbstractAdminController
         $transition
     ) {
         $stateLineStack = $this
-            ->get('elcodi.order.shipping_states_machine.manager')
+            ->get('elcodi.order_shipping_states_machine_manager')
             ->transition(
                 $order,
                 $order->getShippingStateLineStack(),

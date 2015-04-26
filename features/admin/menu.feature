@@ -4,7 +4,6 @@ Feature: Admin menus
   As an admin
   I need to be able to see all the menus entries
 
-  @now
   Scenario: See all menus in the website
     Given In admin, I am logged as "admin@admin.com" - "1234"
     And I am on "/admin/categories"
