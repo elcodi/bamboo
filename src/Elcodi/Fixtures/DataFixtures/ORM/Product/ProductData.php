@@ -55,7 +55,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
         $imageManager = $this->container->get('elcodi.manager.media_image');
         $productFactory = $this->container->get('elcodi.factory.product');
         $variantFactory = $this->container->get('elcodi.factory.product_variant');
-        $filesystem = $this->container->get('elcodi.core.media.filesystem.default');
+        $filesystem = $this->container->get('elcodi.media_filesystem');
         $fileIdentifierTransformer = $this->container->get('elcodi.transformer.media_file_identifier');
         $menCategory = $this->getReference('category-men');
         $womenCategory = $this->getReference('category-women');
