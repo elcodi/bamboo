@@ -12,7 +12,7 @@
     </div>
     <nav id="sidebar-user-dropdown" class="navigation navigation-vertical sidebar-user-dropdown hidden">
         <ul>
-            <li>
+            <li data-test="menu-profile">
                 <a href="{{ url('admin_admin_user_edit', {id: app.user.id }) }}">
                     <span class="mobile tablet">
                         <i class="icon-user fz-xl"></i> {{ 'admin.profile.single'|trans }}
@@ -22,7 +22,7 @@
                     </span>
                 </a>
             </li>
-            <li>
+            <li data-test="menu-logout">
                 <a href="{{ url('admin_logout') }}">
                     <span class="mobile tablet">
                         <i class="icon-sign-out fz-xl"></i> {{ 'admin.login.action.logout'|trans }}
@@ -39,15 +39,15 @@
     <ul>
         {% for menu_item in menu_items %}
         {% if menu_item.code != 'separator' %}
-            <li class="{% if menu_item.active %}active{% endif %}{% if menu_item.subnodes|length %}parent{% endif %}">
+            <li class="{% if menu_item.active %}active{% endif %}{% if menu_item.subnodes|length %}parent{% endif %}" data-test="{{ menu_item.name }}">
                 {% if generate_url(menu_item.url) != '' %}
-                <a href="{{ generate_url(menu_item.url) }}">
-                    {% else %}
+                    <a href="{{ generate_url(menu_item.url) }}">
+                {% else %}
                     <a href="#{{ menu_item.id }}" data-fc-modules="toggle">
                         <i class="icon-caret-down fl-r"></i>
-                        {% endif %}
-                        {% if menu_item.badge is defined %}<span class="badge {% if menu_item.badge > 0 %}badge-alert{% endif %}">{{ menu_item.badge }}</span>{% endif %}
-                        <span class="mobile tablet">
+                {% endif %}
+                {% if menu_item.badge is defined %}<span class="badge {% if menu_item.badge > 0 %}badge-alert{% endif %}">{{ menu_item.badge }}</span>{% endif %}
+                    <span class="mobile tablet">
                         <i class="icon-{{ menu_item.code|default("folder") }} fz-xl va-m mr-s"></i>
                             <span class="c-foreground-light">{{ menu_item.name|trans }}</span>
                         </span>
@@ -60,7 +60,7 @@
                         {% if loop.first %}
                             <ul id="{{ menu_item.id }}" {% if not menu_item.expanded %}class="hidden"{% endif %}>
                         {% endif %}
-                        <li {% if submenu_item.active %}class="active"{% endif %}>
+                        <li {% if submenu_item.active %}class="active"{% endif %} data-test="{{ submenu_item.name }}">
                             <a href="{{ generate_url(submenu_item.url) }}" class="pl-l"><i class="icon-angle-right"></i> {{ submenu_item.name|trans }}</a>
                         </li>
                         {% if loop.last %}

@@ -37,7 +37,7 @@ class CsvController extends Controller
     public function exportAction()
     {
         $plugin = $this
-            ->get('elcodi.plugin_manager')
+            ->get('elcodi.manager.plugin')
             ->getPlugin('Elcodi\Plugin\ProductCsvBundle');
 
         if (!$plugin->isEnabled()) {

@@ -18,7 +18,7 @@
 namespace Elcodi\Plugin\PinterestBundle\Templating;
 
 use Elcodi\Component\Plugin\Entity\Plugin;
-use Elcodi\Component\Plugin\Interfaces\EventInterface;
+use Elcodi\Component\Plugin\EventDispatcher\Interfaces\EventInterface;
 use Elcodi\Component\Plugin\Templating\Traits\TemplatingTrait;
 
 /**

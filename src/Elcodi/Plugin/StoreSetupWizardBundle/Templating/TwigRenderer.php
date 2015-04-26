@@ -21,7 +21,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 use Elcodi\Component\Configuration\Services\ConfigurationManager;
 use Elcodi\Component\Plugin\Entity\Plugin;
-use Elcodi\Component\Plugin\Interfaces\EventInterface;
+use Elcodi\Component\Plugin\EventDispatcher\Interfaces\EventInterface;
 use Elcodi\Component\Plugin\Templating\Traits\TemplatingTrait;
 use Elcodi\Component\Shipping\Entity\Interfaces\CarrierInterface;
 use Elcodi\Component\Shipping\Repository\CarrierRepository;

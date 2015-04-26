@@ -41,12 +41,12 @@ class AdminController extends Controller
          * @var Plugin $plugin
          */
         $plugin = $this
-            ->get('elcodi.plugin_manager')
+            ->get('elcodi.manager.plugin')
             ->getPlugin('Elcodi\Plugin\FacebookBundle');
 
         if ($request->isMethod(Request::METHOD_POST)) {
             $pluginManager = $this
-                ->get('elcodi.plugin_manager');
+                ->get('elcodi.manager.plugin');
 
             $pluginManager
                 ->updatePlugin(

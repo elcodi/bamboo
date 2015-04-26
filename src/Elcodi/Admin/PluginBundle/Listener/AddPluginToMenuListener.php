@@ -18,7 +18,7 @@
 namespace Elcodi\Admin\PluginBundle\Listener;
 
 use Elcodi\Component\Core\Factory\Abstracts\AbstractFactory;
-use Elcodi\Component\Menu\Event\MenuEvent;
+use Elcodi\Component\Menu\Event\Abstracts\AbstractMenuEvent;
 
 /**
  * Class AddPluginToMenuListener
@@ -56,9 +56,9 @@ class AddPluginToMenuListener
     /**
      * Add a new menu entry for each enabled plugin
      *
-     * @param MenuEvent $event
+     * @param AbstractMenuEvent $event
      */
-    public function onMenuPostLoad(MenuEvent $event)
+    public function onMenuPostLoad(AbstractMenuEvent $event)
     {
         $plugins = $this->filterValidPlugins();
 

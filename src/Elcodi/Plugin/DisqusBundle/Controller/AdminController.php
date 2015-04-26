@@ -33,12 +33,12 @@ class AdminController extends Controller
          * @var Plugin $plugin
          */
         $plugin = $this
-            ->get('elcodi.plugin_manager')
+            ->get('elcodi.manager.plugin')
             ->getPlugin('Elcodi\Plugin\DisqusBundle');
 
         if ($request->isMethod(Request::METHOD_POST)) {
             $this
-                ->get('elcodi.plugin_manager')
+                ->get('elcodi.manager.plugin')
                 ->updatePlugin(
                     'Elcodi\Plugin\DisqusBundle',
                     $plugin->isEnabled(),

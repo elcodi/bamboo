@@ -48,7 +48,7 @@ class PluginController extends AbstractAdminController
     public function listAction()
     {
         $plugins = $this
-            ->get('elcodi.plugin_manager')
+            ->get('elcodi.manager.plugin')
             ->getVisiblePlugins();
 
         return [
@@ -79,7 +79,7 @@ class PluginController extends AbstractAdminController
             ->get('value');
 
         $this
-            ->get('elcodi.plugin_manager')
+            ->get('elcodi.manager.plugin')
             ->updatePlugin($plugin, $enabled);
 
         return [

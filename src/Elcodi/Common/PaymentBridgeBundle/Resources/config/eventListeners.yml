@@ -14,7 +14,7 @@ services:
     store.payment.event_listener.order_to_paid:
         class: Elcodi\Common\PaymentBridgeBundle\EventListener\OrderToPaidEventListener
         arguments:
-            payment_machine_manager: @elcodi.order.payment_states_machine.manager
+            payment_machine_manager: @elcodi.order_payment_states_machine_manager
             order_object_manager: @elcodi.object_manager.order
             cart_line_object_manager: @elcodi.object_manager.state_transition_machine_state_line
         tags:
