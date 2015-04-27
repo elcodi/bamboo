@@ -44,7 +44,7 @@ class CouponData extends AbstractFixture implements DependentFixtureInterface
          * @var CurrencyInterface $currencyDollar
          * @var CurrencyInterface $currencyEuro
          */
-        $couponFactory = $this->container->get('elcodi.factory.coupon');
+        $couponFactory = $this->getFactory('coupon');
         $currencyDollar = $this->getReference('currency-USD');
         $currencyEuro = $this->getReference('currency-EUR');
 

@@ -38,8 +38,7 @@ class AddressData extends AbstractFixture
          * @var AddressInterface $homeAddress
          */
         $homeAddress = $this
-            ->container
-            ->get('elcodi.factory.address')
+            ->getFactory('address')
             ->create()
             ->setName('My home')
             ->setRecipientName('Maggie')
@@ -60,8 +59,7 @@ class AddressData extends AbstractFixture
          * @var AddressInterface $workAddress
          */
         $workAddress = $this
-            ->container
-            ->get('elcodi.factory.address')
+            ->getFactory('address')
             ->create()
             ->setName('Work')
             ->setRecipientName('Homer')
