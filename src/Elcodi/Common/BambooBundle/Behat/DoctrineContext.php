@@ -19,6 +19,7 @@ namespace Elcodi\Common\BambooBundle\Behat;
 
 use Behat\Behat\Hook\Scope\AfterScenarioScope;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
+use Behat\Testwork\Hook\Scope\BeforeSuiteScope;
 use Doctrine\DBAL\Connection;
 use Symfony\Component\Console\Input\ArrayInput;
 
@@ -30,79 +31,39 @@ use Elcodi\Common\BambooBundle\Behat\abstracts\AbstractElcodiContext;
 class DoctrineContext extends AbstractElcodiContext
 {
     /**
+     * @var boolean
+     *
+     * Debug mode
+     */
+    protected $debug = false;
+
+    /**
      * @BeforeScenario
      */
     public function prepare(BeforeScenarioScope $scope)
     {
         gc_collect_cycles();
 
-        /**
-         * @var Connection $doctrineConnection
-         */
-        $doctrineConnection = $this
-            ->getContainer()
-            ->get('doctrine')
-            ->getConnection();
-
-        if ($doctrineConnection->isConnected()) {
-            $doctrineConnection->close();
-        }
-
-        $this->application->run(new ArrayInput([
-            'command'          => 'doctrine:database:drop',
-            '--env'            => 'test',
-            '--no-interaction' => true,
-            '--force'          => true,
-            '--quiet'          => true,
-        ]));
-
-        if ($doctrineConnection->isConnected()) {
-            $doctrineConnection->close();
-        }
-
-        $this->application->run(new ArrayInput([
-            'command'          => 'doctrine:database:create',
-            '--env'            => 'test',
-            '--no-interaction' => true,
-            '--quiet'          => true,
-        ]));
-
-        $this->application->run(new ArrayInput([
-            'command'          => 'doctrine:schema:create',
-            '--env'            => 'test',
-            '--no-interaction' => true,
-            '--quiet'          => true,
-        ]));
-
-        $this->application->run(new ArrayInput([
-            'command'          => 'doctrine:fixtures:load',
-            '--env'            => 'test',
-            '--no-interaction' => false,
-            '--fixtures'       => $this->kernel->getRootDir() . '/../src/Elcodi/Fixtures',
-            '--quiet'          => true,
-        ]));
-
-        $this->application->run(new ArrayInput([
-            'command'          => 'elcodi:templates:load',
-            '--env'            => 'test',
-            '--no-interaction' => false,
-            '--quiet'          => true,
-        ]));
-
-        $this->application->run(new ArrayInput([
-            'command'          => 'elcodi:templates:enable',
-            'template'         => 'StoreTemplateBundle',
-            '--env'            => 'test',
-            '--no-interaction' => false,
-            '--quiet'          => true,
-        ]));
-
-        $this->application->run(new ArrayInput([
-            'command'          => 'elcodi:plugins:load',
-            '--env'            => 'test',
-            '--no-interaction' => false,
-            '--quiet'          => true,
-        ]));
+        $this
+            ->executeCommand('assets:install')
+            ->executeCommand('assetic:dump')
+            ->checkDoctrineConnection()
+            ->executeCommand('doctrine:database:drop', [
+                '--force' => true,
+            ])
+            ->checkDoctrineConnection()
+            ->executeCommand('doctrine:database:create')
+            ->executeCommand('doctrine:schema:create')
+            ->executeCommand('doctrine:fixtures:load', [
+                '--fixtures' => $this
+                        ->kernel
+                        ->getRootDir() . '/../src/Elcodi/Fixtures',
+            ])
+            ->executeCommand('elcodi:templates:load')
+            ->executeCommand('elcodi:templates:enable', [
+                'template' => 'StoreTemplateBundle',
+            ])
+            ->executeCommand('elcodi:plugins:load');
     }
 
     /**
@@ -123,5 +84,67 @@ class DoctrineContext extends AbstractElcodiContext
             '--force'          => true,
             '--quiet'          => true,
         ]));
+    }
+
+    /**
+     */
+    public function prepareSuite(BeforeSuiteScope $scope)
+    {
+        $this
+            ->executeCommand('assets:install')
+            ->executeCommand('assetic:dump');
+    }
+
+    /**
+     * Execute a command
+     *
+     * @param string $command    Command
+     * @param array  $parameters Parameters
+     *
+     * @return $this Self object
+     */
+    protected function executeCommand(
+        $command,
+        array $parameters = []
+    ) {
+        $definition = array_merge(
+            [
+                'command'          => $command,
+                '--no-interaction' => true,
+                '--quiet'          => true,
+            ], $parameters
+        );
+
+        if (!$this->debug) {
+            $definition['--quiet'] = true;
+        }
+
+        $this
+            ->application
+            ->run(new ArrayInput($definition));
+
+        return $this;
+    }
+
+    /**
+     * Check the doctrine connection
+     *
+     * @return $this Self object
+     */
+    protected function checkDoctrineConnection()
+    {
+        /**
+         * @var Connection $doctrineConnection
+         */
+        $doctrineConnection = $this
+            ->getContainer()
+            ->get('doctrine')
+            ->getConnection();
+
+        if ($doctrineConnection->isConnected()) {
+            $doctrineConnection->close();
+        }
+
+        return $this;
     }
 }

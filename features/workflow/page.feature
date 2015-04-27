@@ -1,5 +1,5 @@
 @workflow @page
-Feature: Store pages
+Feature: Workflow pages
   In order to make the pages engine work
   As an admin user
   I need to be able to create a page from admin panel, and view it in store
