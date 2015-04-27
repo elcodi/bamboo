@@ -127,5 +127,5 @@ elcodi_configuration:
             name: Default Currency
             namespace: currency
             type: string
-            reference: elcodi.core.currency.default_currency
+            reference: elcodi.default_currency
             read_only: false
