@@ -9,7 +9,10 @@
 {% block header_actions %}
 
     {% if page.id > 0 %}
-        <a target="_blank" href="{{ url('elcodi_page_render_view', { path: page.path }) }}" class="button-primary">
+        <a target="_blank" href="{{ url('elcodi.route.page_render', {
+            id: page.id,
+            path: page.path
+        }) }}" class="button-primary">
             <i class="icon-eye"></i>
             <span>{{ 'admin.page.in_store'|trans }}</span>
         </a>

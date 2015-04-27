@@ -37,7 +37,10 @@
         </a>
     </td>
     <td>
-        {% set path = url('store_homepage') ~ entity.path %}
+        {% set path = url('elcodi.route.page_render', {
+            'id': entity.id,
+            'path': entity.path
+        }) %}
         <a target="_blank" href="{{ path }}">
             {{ entity.path }}
         </a>
