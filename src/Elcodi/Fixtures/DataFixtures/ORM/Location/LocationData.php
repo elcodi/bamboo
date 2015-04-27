@@ -34,27 +34,27 @@ class LocationData extends AbstractFixture
      */
     public function load(ObjectManager $manager)
     {
+        $locationObjectmanager = $this->getObjectManager('location');
+
         /**
          * @var LocationInterface $locationSpain
          */
         $locationSpain = $this
-            ->container
-            ->get('elcodi.factory.location')
+            ->getFactory('location')
             ->create()
             ->setId('ES')
             ->setName('Spain')
             ->setCode('ES')
             ->setType('country');
 
-        $manager->persist($locationSpain);
+        $locationObjectmanager->persist($locationSpain);
         $this->addReference('location_spain', $locationSpain);
 
         /**
          * @var LocationInterface $locationCatalunya
          */
         $locationCatalunya = $this
-            ->container
-            ->get('elcodi.factory.location')
+            ->getFactory('location')
             ->create()
             ->setId('ES_CT')
             ->setName('Catalunya')
@@ -62,15 +62,14 @@ class LocationData extends AbstractFixture
             ->setType('state')
             ->addParent($locationSpain);
 
-        $manager->persist($locationCatalunya);
+        $locationObjectmanager->persist($locationCatalunya);
         $this->addReference('location_catalunya', $locationCatalunya);
 
         /**
          * @var LocationInterface $locationBarcelonaProvince
          */
         $locationBarcelonaProvince = $this
-            ->container
-            ->get('elcodi.factory.location')
+            ->getFactory('location')
             ->create()
             ->setId('ES_CT_B')
             ->setName('Barcelona')
@@ -78,7 +77,7 @@ class LocationData extends AbstractFixture
             ->setType('province')
             ->addParent($locationCatalunya);
 
-        $manager->persist($locationBarcelonaProvince);
+        $locationObjectmanager->persist($locationBarcelonaProvince);
         $this->addReference(
             'location_barcelona_province',
             $locationBarcelonaProvince
@@ -88,8 +87,7 @@ class LocationData extends AbstractFixture
          * @var LocationInterface $locationBarcelonaCity
          */
         $locationBarcelonaCity = $this
-            ->container
-            ->get('elcodi.factory.location')
+            ->getFactory('location')
             ->create()
             ->setId('ES_CT_B_Barcelona')
             ->setName('Barcelona')
@@ -97,12 +95,12 @@ class LocationData extends AbstractFixture
             ->setType('city')
             ->addParent($locationBarcelonaProvince);
 
-        $manager->persist($locationBarcelonaCity);
+        $locationObjectmanager->persist($locationBarcelonaCity);
         $this->addReference(
             'location_barcelona_city',
             $locationBarcelonaCity
         );
 
-        $manager->flush();
+        $locationObjectmanager->flush();
     }
 }

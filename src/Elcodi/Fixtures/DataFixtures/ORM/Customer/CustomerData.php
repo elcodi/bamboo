@@ -51,8 +51,7 @@ class CustomerData extends AbstractFixture implements DependentFixtureInterface
          * @var CustomerInterface $customer
          */
         $customer = $this
-            ->container
-            ->get('elcodi.factory.customer')
+            ->getFactory('customer')
             ->create()
             ->setPassword('1234')
             ->setEmail('customer@customer.com')
@@ -70,8 +69,7 @@ class CustomerData extends AbstractFixture implements DependentFixtureInterface
          * @var CustomerInterface $anotherCustomer
          */
         $anotherCustomer = $this
-            ->container
-            ->get('elcodi.factory.customer')
+            ->getFactory('customer')
             ->create()
             ->setPassword('1234')
             ->setEmail('another-customer@customer.com')

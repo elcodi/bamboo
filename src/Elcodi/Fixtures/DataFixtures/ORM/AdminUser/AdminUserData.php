@@ -39,8 +39,7 @@ class AdminUserData extends AbstractFixture
          * @var AdminUserInterface $adminUser
          */
         $adminUser = $this
-            ->container
-            ->get('elcodi.factory.admin_user')
+            ->getFactory('admin_user')
             ->create()
             ->setPassword('1234')
             ->setEmail('admin@admin.com')
