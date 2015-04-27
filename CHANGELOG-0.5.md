@@ -8,6 +8,29 @@ https://github.com/elcodi/bamboo/commit/XXX where XXX is the change hash To
 get the diff between two versions, go to
 https://github.com/elcodi/bamboo/compare/v0.5.2...v0.5.3
 
+### v0.5.14 (27-04-2015)
+
+* [`2ce0ada`](https://github.com/elcodi/bamboo/commit/2ce0adaedacd955ad6d10fafb95d1e95bd501eb0) Updated elcodi/elcodi dependency to 0.5.14 (mmoreram)
+* [`49edd4c`](https://github.com/elcodi/bamboo/commit/49edd4c66b1e7710fb1dc66223e573c06b32eb71) Fixed service usage, because the name has changed (mmoreram)
+* [`d4005de`](https://github.com/elcodi/bamboo/commit/d4005de356658279103356f1e16f4cdd49464e78) Updated code for Elcodi changes, added Features (mmoreram)
+* [`8c06440`](https://github.com/elcodi/bamboo/commit/8c06440a831dfbb5f2bfc170dd7653a46a3db5a3) Added features for admin menus (mmoreram)
+* [`79e5237`](https://github.com/elcodi/bamboo/commit/79e52375b921cf1908ae485e8a447c46b9df5323) Added some address Behat scenarios (mmoreram)
+
+### v0.5.13 (24-04-2015)
+
+* [`2db2ee5`](https://github.com/elcodi/bamboo/commit/2db2ee523dc8742723a629db35724cfc9fbb31f5) Updated Elcodi dependency to 0.5.13 (mmoreram)
+* [`ef81535`](https://github.com/elcodi/bamboo/commit/ef815351ffa5abea605cb0bb28ff0b7a72753152) Added all favicons and icons of Elcodi (mmoreram)
+* [`0ff5a9c`](https://github.com/elcodi/bamboo/commit/0ff5a9c548a717a0b9787e8ad4acec4c45a81e1e) Added robots file in web directory (mmoreram)
+* [`b02f7bc`](https://github.com/elcodi/bamboo/commit/b02f7bc9a6fe77456a4a666716d143aede788c28) Customer registration event in OAuthUserProvider (mmoreram)
+* [`5666683`](https://github.com/elcodi/bamboo/commit/56666838c881aba747e806e7c023e08284b55f0d) remove dependency on frameworkextrabundle on plugins (Luis Cordova)
+
+### v0.5.12 (23-04-2015)
+
+* [`1381b7f`](https://github.com/elcodi/bamboo/commit/1381b7f8e70943204c75bdc0b425f9991c2619bc) Updated elcodi dependency to 0.5.12 (mmoreram)
+* [`d0e4a7d`](https://github.com/elcodi/bamboo/commit/d0e4a7dbe20122a86d0c462798e22f1332527206) added important flushall line on the reamd instructions for tests (Luis Cordova)
+* [`3a93422`](https://github.com/elcodi/bamboo/commit/3a9342289a4de8ff832b3d14f3958c2e7509a1d8) Fixed menu.yml syntax error (Issel Guberna)
+* [`26a3280`](https://github.com/elcodi/bamboo/commit/26a32808d4c7b6f33e90f8177af7d3bcc2e84156) Fixed menu.yml syntax error with separators (Issel Guberna)
+
 ### v0.5.11 (21-04-2015)
 
 * [`38a26f1`](https://github.com/elcodi/bamboo/commit/38a26f12a3a3096af4c31b64ad232560ab863568) Updated elcodi dependency to 0.5.11 (mmoreram)
