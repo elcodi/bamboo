@@ -32,3 +32,16 @@ default:
                 - Elcodi\Common\BambooBundle\Behat\DoctrineContext
                 - Elcodi\Common\BambooBundle\Behat\Context
                 - Elcodi\Admin\CoreBundle\Behat\Context
+
+        workflow:
+            paths:
+                - %paths.base%/features/workflow
+            contexts:
+                - Behat\MinkExtension\Context\MinkContext
+                - Elcodi\Common\BambooBundle\Behat\DoctrineContext
+                - Elcodi\Common\BambooBundle\Behat\Context
+                - Elcodi\Store\CoreBundle\Behat\Context
+                - Elcodi\Store\ProductBundle\Behat\Context
+                - Elcodi\Store\CartBundle\Behat\Context
+                - Elcodi\Store\GeoBundle\Behat\Context
+                - Elcodi\Admin\CoreBundle\Behat\Context

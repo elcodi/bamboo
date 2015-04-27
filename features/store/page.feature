@@ -1,4 +1,4 @@
-@store @page @now
+@store @page
 Feature: Store pages
   In order to see the static pages of my store
   As an anonymous user
