@@ -14,7 +14,7 @@ security:
 
         admin_area:
             provider: adminuser
-            pattern: ^/%bamboo_admin_prefix%/
+            pattern: ^/%bamboo_admin_prefix%(?:$|/)
             anonymous: true
             simple-preauth:
                 authenticator: admin.user.security.one_time_login_authenticator

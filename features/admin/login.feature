@@ -4,6 +4,11 @@ Feature: Admin login
   As an anonymous user
   I need to be able to login
 
+  Scenario: Access admin from root
+    Given I am on "/admin"
+    Then I should be on "/admin/login"
+    And the response status code should be 200
+
   Scenario: Access login form
     Given I am on "/admin/logout"
     And I go to "/admin/login"
