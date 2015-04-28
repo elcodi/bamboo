@@ -61,7 +61,7 @@ module.exports = function (grunt) {
 
 	require('load-grunt-tasks')(grunt, {pattern: ['*', '!grunt-template-jasmine-requirejs', '!grunt-lib-phantomjs', '!bower', '!load-grunt-tasks']});
 
-    grunt.registerTask('javascript', ['uglify', 'jshint','jasmine']);
+    grunt.registerTask('javascript', ['uglify', 'jshint']);
 	grunt.registerTask('scss', ['compass']);
 
 	grunt.registerTask('default', ['scss','javascript']);

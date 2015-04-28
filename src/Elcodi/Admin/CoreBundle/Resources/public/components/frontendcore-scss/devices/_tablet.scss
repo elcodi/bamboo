@@ -26,6 +26,7 @@
 		}
 
 		@include tablet-grid;
+		@include grid-fixed;
 
 		@include mobile-tabs;
 

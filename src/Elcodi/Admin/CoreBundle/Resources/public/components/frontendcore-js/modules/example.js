@@ -2,9 +2,9 @@
 FrontendCore.define('print-to-blue', [], function () {
 	return {
 
-		// Uses FrontendTools to get all the DOM elements
-		// with the "data-fc-modules" attributes as print-to-blue
-		aTargets : FrontendTools.getDataModules('print-to-blue'),
+		// Uses oTools to get all the DOM elements
+		// with the "data-tc-modules" attributes as print-to-blue
+		aTargets : oTools.getDataModules('print-to-blue'),
 
 		// This is the method called when the module is required
 		onStart: function () {

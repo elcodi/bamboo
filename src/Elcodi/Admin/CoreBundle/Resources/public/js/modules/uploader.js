@@ -72,7 +72,7 @@ FrontendCore.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupl
 		},
 		updateSelect : function() {
 
-			var oContainer = document.getElementById('elcodi_admin_product_form_type_product_images'),
+			var oContainer = $('.js-images-form-field')[0],
 				oThumbs = document.getElementById('thumb-gallery'),
 				nId;
 

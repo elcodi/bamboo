@@ -1,6 +1,6 @@
 .boxpopuli-container {
 	& {
-		background: lighten($color-primary, 25%);
+		background: $color-box;
 		padding: 0;
 	}
 	textarea {

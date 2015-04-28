@@ -1,6 +1,6 @@
 {
   "name": "frontendcore-scss",
-  "version": "1.6.0",
+  "version": "1.6.2",
   "authors": [
     "Toni Pinel <tonipinel@gmail.com>"
   ],
@@ -15,11 +15,11 @@
     "bower_components",
     "tests"
   ],
-  "_release": "1.6.0",
+  "_release": "1.6.2",
   "_resolution": {
     "type": "version",
-    "tag": "1.6.0",
-    "commit": "a9551808f555320831d10479ec0ecada39473fbf"
+    "tag": "1.6.2",
+    "commit": "9b343c3e8043064f8a99a1b88688d39797f0b535"
   },
   "_source": "https://github.com/Frontendcore/scss.git",
   "_target": "*",

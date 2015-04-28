@@ -1,5 +1,5 @@
 
-FrontendCore.define('skin-selector', [], function () {
+TinyCore.AMD.define('skin-selector', [], function () {
 	return {
 		onStart: function () {
 			var oSelect = document.getElementById('skin-selector'),
