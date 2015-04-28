@@ -16,7 +16,7 @@ wizard:
         action: Create my first product
     step2:
         title: Setup your address
-        description: To start selling online you need to setup your business address.
+        description: In order to be able to sell online we need you to introduce your shop address.
         action: Add an address
     step3:
         title: Setup the payments
