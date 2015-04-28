@@ -40,7 +40,7 @@ services:
     - redis-server
 
 script:
-    - bin/behat -fprogress
+    - bin/behat -fprogress --tags="~javascript"
     - bin/phpunit -c app
 
 notifications:
