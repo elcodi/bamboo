@@ -1,4 +1,5 @@
 admin:
+    name: Administrateur
     dashboard:
         single: Tableau de bord
         plural: Tableaux de bord

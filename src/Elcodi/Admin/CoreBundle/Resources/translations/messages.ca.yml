@@ -1,4 +1,5 @@
 admin:
+    name: Administració
     dashboard:
         single: Panell de contol
         plural: Panells de control
