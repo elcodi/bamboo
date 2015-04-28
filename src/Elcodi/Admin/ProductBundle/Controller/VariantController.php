@@ -17,6 +17,7 @@
 
 namespace Elcodi\Admin\ProductBundle\Controller;
 
+use Elcodi\Component\Media\Entity\Interfaces\ImageInterface;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -124,6 +125,13 @@ class VariantController extends AbstractAdminController
         $isValid
     ) {
         if ($isValid) {
+            $firstImage = $variant
+                ->getSortedImages()
+                ->first();
+
+            if ($firstImage instanceof ImageInterface) {
+                $variant->setPrincipalImage($firstImage);
+            }
 
             /**
              * @var VariantInterface $entity
