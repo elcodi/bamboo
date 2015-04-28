@@ -42,6 +42,14 @@ api_routes:
         i18n: false
 
 #
+# Media routes
+#
+media_routes:
+    resource: "@ElcodiMediaBundle/Resources/config/routing.yml"
+    options:
+        i18n: false
+
+#
 # Per project routes
 # Add your routes in this file
 #
