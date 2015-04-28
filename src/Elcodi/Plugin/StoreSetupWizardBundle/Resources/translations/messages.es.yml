@@ -16,7 +16,7 @@ wizard:
         action: Añadir un producto
     step2:
         title: Añade tu dirección
-        description: Para empezar a vender en internet necesitas añadir la dirección fiscal de tu tienda.
+        description: Introduce la dirección de tu tienda (o tu dirección si no tienes tienda física) para poder vender.
         action: Añadir dirección
     step3:
         title: Configura los pagos
