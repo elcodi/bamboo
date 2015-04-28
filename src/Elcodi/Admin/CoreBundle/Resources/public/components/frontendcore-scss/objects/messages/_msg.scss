@@ -2,7 +2,7 @@
 
 	[class*='msg-'] {
 		& {
-			padding: $spacing/1.5 $spacing $spacing/2 $spacing*3;
+			padding: $spacing/4 $spacing 0 $spacing*3;
 			margin: 0 0 $spacing;
 			color: $color-foreground;
 			@include border-radius($default-border-radius $default-border-radius 0 0);
@@ -20,7 +20,7 @@
 			min-width: $spacing;
 			top: 50%;
 			padding: $spacing/4;
-			margin: -18px 6px 0 0;
+			margin: -24px 6px 0 0;
 			font-family: 'fontawesome';
 			font-style: normal;
 			font-weight: normal;

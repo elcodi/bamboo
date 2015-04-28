@@ -72,7 +72,7 @@ FrontendCore.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupl
 		},
 		updateSelect : function() {
 
-			var oContainer = $('.js-images-form-field')[0],
+			var oContainer = document.getElementById('thumb-gallery-select'),
 				oThumbs = document.getElementById('thumb-gallery'),
 				nId;
 
@@ -131,6 +131,12 @@ FrontendCore.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupl
 					e.preventDefault();
 					self.modal.open({ href: this.href});
 				});
+
+				if ( $('.js-image-order').val() === '') {
+					$('.js-image-order').val( $('input:checked', '#thumb-gallery-select').val() + ',' +  nId + ',' );
+				} else {
+					$('.js-image-order').val( $('.js-image-order').val() + '' +  nId + ',' );
+				}
 			
 				self.updateSelect();
 		}
