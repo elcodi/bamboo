@@ -37,9 +37,6 @@ store_address:
 store_languages:
     resource: "@StoreLanguageBundle/Resources/config/routing.yml"
 
-store_media:
-    resource: "@ElcodiMediaBundle/Resources/config/routing.yml"
-
 store_hwi_oauth_redirect:
     resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
     prefix:   /login
