@@ -6,8 +6,8 @@
             <a href="{{ url('admin_image_upload') }}" id="pickfiles" class="button" data-fc-modules="uploader">
                 {{ 'admin.image.info.upload'|trans }}
             </a>
-            <div id="image-order-container" class="d-n">
-                {{ form_row(form.imagesSort, { attr: { class: 'js-image-order' }}) }}
+            <div class="d-n">
+                {{ form_row(form.imagesSort) }}
             </div>
             <progress id="progresBar" value="0" max="100" style="display: none"></progress>
         </div>
@@ -15,7 +15,7 @@
     <div class="col-2-3">
         <div class="box">
             <div id="thumb-gallery-select">
-                {{ form_row(form.images, { attr: { class: 'd-n' } }) }}
+                {{ form_row(form.images, { attr: { class: 'd-n js-images-select' } }) }}
             </div>
             {% if images|length == 0 %}
             <div id="thumb-no-items" class="no-items">
@@ -25,9 +25,9 @@
             <ul id="thumb-gallery" data-fc-modules="sortable" data-fc-input="elcodi_admin_product_form_type_product_imagesSort" class="thumbnail-group thumbnail-group-extended pl-s mb-m">
             {% for image in images %}
                 {% set imageResize = image|resize({ height: 150, width: 150, type: 5 }) %}
-                {% set imageView = image|viewImage %}
+                {% set imageView = image|resize({ height: 1024, width: 1024, type: 5 }) %}
                 <li id="{{ image.id }}">
-                    <a href="{{ imageView }}" data-fc-modules="modal" data-fc-width="90%" data-fc-height="90%" class="group-images thumbnail">
+                    <a href="{{ imageView }}" data-fc-modules="modal" class="group-images thumbnail">
                         <img id="image-{{ image.id }}" src="{{ imageResize }}" width="150" height="150" />
                     </a>
                     <ul class="thumbnail-actions">

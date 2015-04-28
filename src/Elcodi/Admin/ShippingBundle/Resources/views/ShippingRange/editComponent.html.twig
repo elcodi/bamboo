@@ -58,14 +58,14 @@
             <div class="col-2-3">
                 <div class="box">
                     <ol class="grid">
-                        <li class="col-1-2 pr-l">
+                        <li class="col-1-2">
                             {{
                                 form_row(form.price, {
                                     label: 'admin.shipping_range.field.price.title',
                                 })
                             }}
                         </li>
-                        <li class="col-1-2 pr-l">
+                        <li class="col-1-2">
                             {{
                                 form_row(form.type, {
                                     label: 'admin.shipping_range.field.type.title',
@@ -74,7 +74,7 @@
                         </li>
                     </ol>
                     <ol id="apply-price" class="grid">
-                        <li class="col-1-2 pr-l">
+                        <li class="col-1-2">
                             {{
                                 form_row(form.fromPrice, {
                                     label: 'admin.shipping_range.field.fromPrice.title',
@@ -90,12 +90,14 @@
                         </li>
                     </ol>
                     <ol id="apply-weight" class="grid">
-                        <li class="col-1-2 pr-l">
+                        <li class="col-1-2">
+                            <div class="pr-l">
                             {{
                                 form_row(form.fromWeight, {
                                     label: 'admin.shipping_range.field.fromWeight.title',
                                 })
                             }}
+                            </div>
                         </li>
                         <li class="col-1-2">
                             {{

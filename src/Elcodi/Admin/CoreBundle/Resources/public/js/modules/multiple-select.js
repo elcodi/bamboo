@@ -43,9 +43,9 @@ FrontendCore.define('multiple-select', ['devicePackage' ], function () {
 
                 var oCol = document.createElement('div');
 
-                oCol.className = 'pr-l col-1-' + nTotal;
+                oCol.className = 'col-1-' + nTotal;
 
-                oCol.innerHTML = '<label>'+ oSelects[nKey].label + '</label>' + oSelects[nKey].outerHTML;
+                oCol.innerHTML = '<div class="pr-l"><label>'+ oSelects[nKey].label + '</label>' + oSelects[nKey].outerHTML + '</div>';
 
                 oGrid.appendChild(oCol);
 

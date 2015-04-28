@@ -84,13 +84,14 @@ FrontendCore.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupl
 				nId = parseInt(this.id.replace('image-',''), 10);
 
 				$('input[id=elcodi_admin_product_form_type_product_images_'+ nId +']', oContainer).click();
+				$('input[id=elcodi_admin_product_form_type_product_variant_images_'+ nId +']', oContainer).click();
 
 			});
 		},
 		addImageToGallery : function( nId, sUrlView, sUrlDelete) {
 
 			var self = this,
-				oContainer = document.getElementById('elcodi_admin_product_form_type_product_images'),
+				oContainer = $('.js-images-select')[0],
 				oThumbs = document.getElementById('thumb-gallery'),
 				oLi = document.createElement('li'),
 				oLink = document.createElement('a'),
@@ -104,6 +105,15 @@ FrontendCore.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupl
 					oOption.type = 'checkbox';
 					oOption.name = 'elcodi_admin_product_form_type_product[images][]';
 					oOption.id = 'elcodi_admin_product_form_type_product_images_' + nId;
+					oOption.value = nId;
+					$(oContainer).append(oOption);
+				}
+
+				if ($('#elcodi_admin_product_form_type_product_variant_images_' + nId , oContainer).length === 0) {
+					oOption = document.createElement('input');
+					oOption.type = 'checkbox';
+					oOption.name = 'elcodi_admin_product_form_type_product_variant[images][]';
+					oOption.id = 'elcodi_admin_product_form_type_product_variant_images_' + nId;
 					oOption.value = nId;
 					$(oContainer).append(oOption);
 				}

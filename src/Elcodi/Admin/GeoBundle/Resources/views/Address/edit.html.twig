@@ -25,7 +25,7 @@
     <fieldset>
         <div class="box">
             <ol class="grid">
-                <li class="col-1-2 pr-l">
+                <li class="col-1-2">
                     {{
                         form_row(form.recipientName, {
                             label: 'admin.address.field.recipient_name.title',
@@ -85,15 +85,17 @@
                 </li>
             </ol>
             <ol class="grid">
-                <li class="col-1-2 pr-l">
-                    {{
+                <li class="col-1-2 ">
+                    <div class="pr-l">
+                        {{
                         form_row(form.phone, {
                             label: 'admin.address.field.phone.title',
                             attr: {
                                 placeholder: 'admin.address.field.phone.placeholder',
                             }
                         })
-                    }}
+                        }}
+                    </div>
                 </li>
                 <li class="col-1-2">
                     {{
