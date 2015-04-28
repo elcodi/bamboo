@@ -1,4 +1,5 @@
 admin:
+    name: Admin
     dashboard:
         single: Dashboard
         plural: Dashboards
