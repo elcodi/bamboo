@@ -1,5 +1,8 @@
 language: php
 
+env:
+    - COMPOSER_OPTIONS="install --prefer-source"
+
 php:
     - 5.4
     - 5.5
@@ -12,6 +15,9 @@ matrix:
     allow_failures:
         - php: 7.0
         - php: hhvm
+    include:
+        - php: 5.4
+          env: COMPOSER_OPTIONS="update --prefer-lowest"
 
 before_install:
     - sh -c "echo 'extension = redis.so' >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini"
@@ -20,7 +26,7 @@ before_install:
     - sh -c "sudo mount -t tmpfs -o size=512M tmpfs vendor"
 
 install:
-    - composer install --prefer-source --no-interaction
+    - composer ${COMPOSER_OPTIONS} --no-interaction
 
 before_script:
     - sh -c "sudo mkdir /tmp/Bamboo"
