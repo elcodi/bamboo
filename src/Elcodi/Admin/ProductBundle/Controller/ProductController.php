@@ -17,6 +17,7 @@
 
 namespace Elcodi\Admin\ProductBundle\Controller;
 
+use Elcodi\Component\Media\Entity\Interfaces\ImageInterface;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -157,6 +158,14 @@ class ProductController extends AbstractAdminController
         $isValid
     ) {
         if ($isValid) {
+            $firstImage = $product
+                ->getSortedImages()
+                ->first();
+
+            if ($firstImage instanceof ImageInterface) {
+                $product->setPrincipalImage($firstImage);
+            }
+
             $this->flush($product);
 
             $this->addFlash(

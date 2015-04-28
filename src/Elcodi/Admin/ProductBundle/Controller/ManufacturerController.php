@@ -17,6 +17,7 @@
 
 namespace Elcodi\Admin\ProductBundle\Controller;
 
+use Elcodi\Component\Media\Entity\Interfaces\ImageInterface;
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as FormAnnotation;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -153,6 +154,14 @@ class ManufacturerController extends AbstractAdminController
         Request $request
     ) {
         if ($isValid) {
+            $firstImage = $manufacturer
+                ->getSortedImages()
+                ->first();
+
+            if ($firstImage instanceof ImageInterface) {
+                $manufacturer->setPrincipalImage($firstImage);
+            }
+
             $this->flush($manufacturer);
 
             $this->addFlash('success', 'admin.manufacturer.saved');
