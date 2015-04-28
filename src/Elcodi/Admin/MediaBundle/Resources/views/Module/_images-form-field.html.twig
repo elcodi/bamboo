@@ -6,8 +6,8 @@
             <a href="{{ url('admin_image_upload') }}" id="pickfiles" class="button" data-fc-modules="uploader">
                 {{ 'admin.image.info.upload'|trans }}
             </a>
-            <div class="d-n">
-                {{ form_row(form.imagesSort) }}
+            <div id="image-order-container" class="d-n">
+                {{ form_row(form.imagesSort, { attr: { class: 'js-image-order' }}) }}
             </div>
             <progress id="progresBar" value="0" max="100" style="display: none"></progress>
         </div>

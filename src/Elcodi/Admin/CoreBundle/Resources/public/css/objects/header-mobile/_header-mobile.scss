@@ -1,0 +1,16 @@
+.header-mobile {
+
+	.header-mobile-container {
+		background: #354051;
+		padding-top: $spacing/4;
+		height: 35px;
+		overflow: hidden;
+	}
+	a {
+		color: contrast-color(#354051);
+	}
+	.logo {
+		padding-top: $spacing/8;
+		font-size: $font-size-xl;
+	}
+}

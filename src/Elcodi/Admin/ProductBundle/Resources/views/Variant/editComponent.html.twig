@@ -156,8 +156,10 @@
             <div class="col-2-3">
                 <button type="submit" class="button-primary">{{ 'ui.forms.save'|trans }}</button>
                 <script type="text/javascript">
-                    var oParent = window.parent,
-                        oModal = oParent.TinyCore.Module.instantiate( 'modal' );
+                    if ( window!=window.top ) {
+                        var oParent = window.parent,
+                            oModal = oParent.TinyCore.Module.instantiate('modal');
+                    }
                 </script>
                 <a href="javascript:oModal.close();" class="button">{{ 'ui.forms.cancel'|trans }}</a>
             </div>

@@ -24,6 +24,8 @@
 			display: table-cell !important;
 		}
 
+		@include desktop-grid;
+		@include grid-fixed;
 		@include desktop-tabs;
 
 		@if $object-boxes != false {

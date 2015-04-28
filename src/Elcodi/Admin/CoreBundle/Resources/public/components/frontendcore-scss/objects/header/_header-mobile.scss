@@ -1,0 +1,65 @@
+@if $object-header != false and $ui != true {
+
+	.header-mobile {
+		& {
+			position: relative;
+			min-height: $spacing*2;
+		}
+
+		.header-mobile-container {
+			background: $color-primary;
+			overflow: hidden;
+			text-align: center;
+			position: fixed;
+			z-index: 100;
+			width: 100%;
+			box-shadow: 0 0 $spacing/4 rgba($color-foreground, .5);
+		}
+
+		.logo {
+			& {
+				display: inline-block;
+			}
+			img {
+				max-height: 43px;
+			}
+		}
+
+		[class^='button'] {
+			background: none;
+			color: contrast-color($color-primary);
+			margin: 0;
+		}
+	}
+
+	.header-mobile-buttons-left {
+		display: inline-block;
+		vertical-align: middle;
+		float: left;
+	}
+
+	.header-mobile-buttons-right {
+		display: inline-block;
+		vertical-align: middle;
+		float: right;
+	}
+
+
+
+}
+
+@mixin mobile-header() {
+	.header-spacing {
+		height: 68px;
+		display: block;
+	}
+	.header {
+		& {
+			position: fixed;
+			top: 0;
+		}
+		.logo img {
+			max-width: 180px !important;
+		}
+	}
+}

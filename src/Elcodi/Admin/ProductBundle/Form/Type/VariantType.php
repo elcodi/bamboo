@@ -108,6 +108,7 @@ class VariantType extends AbstractType
                 'required' => false,
                 'property' => 'id',
                 'multiple' => true,
+                'expanded' => true,
             ])
             ->add('stock', 'number', [
                 'required' => false,
