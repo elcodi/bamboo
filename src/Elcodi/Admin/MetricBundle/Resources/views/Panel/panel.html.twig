@@ -84,21 +84,25 @@
 
 <div class="box-background dashboard-panels">
     <div class="grid">
-        <div class="col-1-2 pr-l">
+        <div class="col-1-2">
+            <div class="pr-l">
             <h2>{{ 'admin.dashboard.chart.visitors.title'|trans }}</h2>
             {% include 'AdminMetricBundle:Metric:metricLine.html.twig' with {
                 'tracker': store_tracker,
                 'event': 'pv',
                 'intervalContainer': intervalContainer,
             } %}
+            </div>
         </div>
-        <div class="col-1-2 pr-l">
+        <div class="col-1-2">
+            <div class="pr-l">
             <h2>{{ 'admin.dashboard.chart.sales.title'|trans }}</h2>
             {% include 'AdminMetricBundle:Metric:metricOrderTotals.html.twig' with {
                 'tracker': store_tracker,
                 'event': 'order_total',
                 'intervalContainer': intervalContainer,
             } %}
+            </div>
         </div>
     </div>
     <div class="grid">
