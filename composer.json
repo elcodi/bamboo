@@ -117,6 +117,7 @@
         "behat/symfony2-extension": "~2.0",
         "behat/mink-extension": "~2.0, >=2.0.1",
         "behat/mink-browserkit-driver": "~1.2",
+        "behat/mink-selenium2-driver": "~1.2",
         "behat/mink": "~1.6",
         "phpunit/phpunit": "4.5.0",
 

@@ -7,9 +7,18 @@ default:
                 env: test
                 debug: false
         Behat\MinkExtension:
+            base_url: http://localhost:8000/app_test.php
+            show_auto: false
+            selenium2:
+                wd_host: 127.0.0.1:4444/wd/hub
+                capabilities:
+                    "browser": "firefox"
+                    "version": "21"
             sessions:
                 default:
                     symfony2: ~
+                javascript:
+                    selenium2: ~
 
     suites:
         store:

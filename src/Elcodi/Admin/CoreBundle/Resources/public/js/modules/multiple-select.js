@@ -65,6 +65,7 @@ FrontendCore.define('multiple-select', ['devicePackage' ], function () {
 
                 oSelects[nCounter].setAttribute('data-rel', oData.properties.id );
                 oSelects[nCounter].setAttribute('data-group', oData.data[nCounter].properties.name );
+                oSelects[nCounter].setAttribute('id', 'select-' + oData.data[nCounter].properties.name );
 
                 oOption = document.createElement('option');
                 oOption.value = '';
