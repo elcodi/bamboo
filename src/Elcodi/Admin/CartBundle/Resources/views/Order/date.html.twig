@@ -6,15 +6,15 @@
 
 
 {% if date|date('dmy') == 'now'|date('dmy') %}
-    {{ 'ui.date.today_at'|trans({ '%time%': date|date('G:ia', 'Europe/Paris') }) }}
+    {{ 'ui.date.today_at'|trans({ '%time%': date|date('G:ia', false) }) }}
 
 {% elseif date|date('dmy')|number_format == 'now'|date('dmy') -1 %}
-    {{ 'ui.date.yesterday_at'|trans({ '%time%': date|date('G:ia', 'Europe/Paris') }) }}
+    {{ 'ui.date.yesterday_at'|trans({ '%time%': date|date('G:ia', false) }) }}
 
 {% elseif date|date('d')|number_format > 'now'|date('dmy') - 5 and date|date('my')|number_format == 'now'|date('my') %}
-    {{ date|date('l d \\a\\t G:ia', 'Europe/Paris') }}
+    {{ date|date('l d \\a\\t G:ia', false) }}
 
 {% else %}
-    {{ date|date('M d \\a\\t G:ia', 'Europe/Paris') }}
+    {{ date|date('M d \\a\\t G:ia', false) }}
 
 {% endif %}
