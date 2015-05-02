@@ -182,7 +182,7 @@ class AbstractAdminController extends Controller
                 ->getUriForPath($redirectPath);
         }
 
-        return ('GET' === $request->getMethod())
+        return ($request->isMethod(Request::METHOD_GET))
             ? $this->redirect($redirectUrl)
             : new Response(json_encode([
                 'result'  => 'ok',
@@ -205,7 +205,7 @@ class AbstractAdminController extends Controller
      */
     protected function getFailResponse(Request $request, Exception $exception)
     {
-        if ('GET' === $request->getMethod()) {
+        if ($request->isMethod(Request::METHOD_GET)) {
             throw $exception;
         }
 
