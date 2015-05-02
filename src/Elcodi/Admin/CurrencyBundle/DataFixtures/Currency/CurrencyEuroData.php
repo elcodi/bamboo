@@ -20,6 +20,7 @@ namespace Elcodi\Admin\CurrencyBundle\DataFixtures\ORM\Currency;
 use Doctrine\Common\Persistence\ObjectManager;
 
 use Elcodi\Bundle\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
+use Elcodi\Component\Core\Services\ObjectDirector;
 use Elcodi\Component\Currency\Factory\CurrencyFactory;
 
 /**
@@ -36,20 +37,17 @@ class CurrencyEuroData extends AbstractFixture
     {
         /**
          * @var array           $currencies
-         * @var ObjectManager   $currencyObjectManager
-         * @var CurrencyFactory $currencyFactory
+         * @var ObjectDirector   $currencyDirector
          */
-        $currencyObjectManager = $this->get('elcodi.object_manager.currency');
-        $currencyFactory = $this->get('elcodi.factory.currency');
+        $currencyDirector = $this->getDirector('currency');
 
-        $currency = $currencyFactory
+        $currency = $currencyDirector
             ->create()
             ->setIso('EUR')
             ->setName('Euro')
             ->setSymbol('€')
             ->setEnabled(true);
 
-        $currencyObjectManager->persist($currency);
-        $currencyObjectManager->flush($currency);
+        $currencyDirector->save($currency);
     }
 }
