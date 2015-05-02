@@ -107,8 +107,12 @@ class CurrencyController extends Controller
                 ->set($currency);
         }
 
-        $referrer = $request->headers->get('referer')
-            ?: $this->generateUrl('store_homepage');
+        $referrer = $request
+            ->headers
+            ->get(
+                'referer',
+                $this->generateUrl('store_homepage')
+            );
 
         return $this->redirect($referrer);
     }
