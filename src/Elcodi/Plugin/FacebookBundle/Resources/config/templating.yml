@@ -15,8 +15,8 @@ services:
     elcodi_plugin.facebook.share_post_renderer:
         class: Elcodi\Plugin\FacebookBundle\Templating\SharePostRenderer
         arguments:
-            url_generator: @router
-            translator: @translator
+            - @router
+            - @translator
         calls:
             - [setTemplating, [@twig]]
             - [setPlugin, [@=elcodi_plugin("Elcodi\\Plugin\\FacebookBundle")]]

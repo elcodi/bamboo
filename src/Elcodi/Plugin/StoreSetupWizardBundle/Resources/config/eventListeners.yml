@@ -6,9 +6,9 @@ services:
     elcodi_plugin.event_listener.dashboard_redirection:
         class: Elcodi\Plugin\StoreSetupWizardBundle\EventListener\DashboardRedirectionEventListener
         arguments:
-            router: @router
-            wizard_status: @elcodi_templates.wizard_status.service
-            wizard_routes: @elcodi_templates.wizard_routes.service
+            - @router
+            - @elcodi_templates.wizard_status.service
+            - @elcodi_templates.wizard_routes.service
         calls:
             - [setPlugin, [@=elcodi_plugin("Elcodi\\Plugin\\StoreSetupWizardBundle")]]
         tags:
@@ -17,9 +17,9 @@ services:
     elcodi_plugin.event_listener.disable_wizard:
         class: Elcodi\Plugin\StoreSetupWizardBundle\EventListener\DisableWizardEventListener
         arguments:
-            wizard_status: @elcodi_templates.wizard_status.service
-            plugin_manager: @elcodi.manager.plugin
-            configuration_manger: @elcodi.manager.configuration
+            - @elcodi_templates.wizard_status.service
+            - @elcodi.manager.plugin
+            - @elcodi.manager.configuration
         calls:
             - [setPlugin, [@=elcodi_plugin("Elcodi\\Plugin\\StoreSetupWizardBundle")]]
         tags:
@@ -28,10 +28,10 @@ services:
     elcodi_plugin.event_listener.disable_under_construction:
         class: Elcodi\Plugin\StoreSetupWizardBundle\EventListener\DisableUnderConstructionEventListener
         arguments:
-            translator: @translator
-            router: @router
-            wizard_status: @elcodi_templates.wizard_status.service
-            configuration_manager: @elcodi.manager.configuration
+            - @translator
+            - @router
+            - @elcodi_templates.wizard_status.service
+            - @elcodi.manager.configuration
         calls:
             - [setPlugin, [@=elcodi_plugin("Elcodi\\Plugin\\StoreSetupWizardBundle")]]
         tags:

@@ -15,8 +15,8 @@ services:
     elcodi_plugin.twitter.share_tweet_renderer:
         class: Elcodi\Plugin\TwitterBundle\Templating\ShareTweetRenderer
         arguments:
-            url_generator: @router
-            translator: @translator
+            - @router
+            - @translator
         calls:
             - [setTemplating, [@twig]]
             - [setPlugin, [@=elcodi_plugin("Elcodi\\Plugin\\TwitterBundle")]]
