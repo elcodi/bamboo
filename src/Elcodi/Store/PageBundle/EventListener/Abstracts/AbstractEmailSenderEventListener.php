@@ -17,6 +17,7 @@
 
 namespace Elcodi\Store\PageBundle\EventListener\Abstracts;
 
+use Elcodi\Component\Store\Entity\Interfaces\StoreInterface;
 use Swift_Mailer;
 use Twig_Environment;
 
@@ -51,40 +52,33 @@ abstract class AbstractEmailSenderEventListener
     protected $pageRepository;
 
     /**
-     * @var TemplateLocator
+     * @var StoreInterface
      *
-     * Template locator
+     * Store
      */
-    protected $templateLocator;
-
-    /**
-     * @var string
-     *
-     * Store email
-     */
-    protected $storeEmail;
+    protected $store;
 
     /**
      * Construct
      *
-     * @param Swift_Mailer     $mailer          Mailer
-     * @param Twig_Environment $twig            Twig
-     * @param PageRepository   $pageRepository  Page repository
+     * @param Swift_Mailer     $mailer         Mailer
+     * @param Twig_Environment $twig           Twig
+     * @param PageRepository   $pageRepository Page repository
      * @param TemplateLocator  $templateLocator A template locator
-     * @param string           $storeEmail      Store email
+     * @param StoreInterface $store     Store
      */
     public function __construct(
         Swift_Mailer $mailer,
         Twig_Environment $twig,
         PageRepository $pageRepository,
-        TemplateLocator $templateLocator,
-        $storeEmail
+        StoreInterface $store,
+        TemplateLocator $templateLocator
     ) {
         $this->mailer = $mailer;
         $this->twig = $twig;
         $this->pageRepository = $pageRepository;
+        $this->store = $store;
         $this->templateLocator = $templateLocator;
-        $this->storeEmail = $storeEmail;
     }
 
     /**
@@ -118,7 +112,7 @@ abstract class AbstractEmailSenderEventListener
                 ->mailer
                 ->createMessage()
                 ->setSubject($page->getTitle())
-                ->setFrom($this->storeEmail)
+                ->setFrom($this->store->getEmail())
                 ->setTo($receiverEmail)
                 ->setBody($resolvedPage, 'text/html');
 

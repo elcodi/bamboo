@@ -99,6 +99,8 @@ class AppKernel extends Kernel
             new Elcodi\Bundle\ZoneBundle\ElcodiZoneBundle(),
             new Elcodi\Bundle\ShippingBundle\ElcodiShippingBundle(),
             new Elcodi\Bundle\SitemapBundle\ElcodiSitemapBundle(),
+            new Elcodi\Bundle\StoreBundle\ElcodiStoreBundle(),
+
 
             /**
              * Elcodi store bundle

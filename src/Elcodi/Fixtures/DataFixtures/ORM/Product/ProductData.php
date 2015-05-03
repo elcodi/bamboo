@@ -1587,6 +1587,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             'Elcodi\Fixtures\DataFixtures\ORM\Currency\CurrencyData',
             'Elcodi\Fixtures\DataFixtures\ORM\Category\CategoryData',
             'Elcodi\Fixtures\DataFixtures\ORM\Attribute\AttributeData',
+            'Elcodi\Fixtures\DataFixtures\ORM\Store\StoreData',
         ];
     }
 }

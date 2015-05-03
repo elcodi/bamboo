@@ -9,5 +9,5 @@ services:
             engine: @templating.engine.twig
             bundles:
                 - StoreOverrideBundle
-                - @=elcodi_config("store.template")
+                - @elcodi.store_template
                 - StoreFallbackBundle

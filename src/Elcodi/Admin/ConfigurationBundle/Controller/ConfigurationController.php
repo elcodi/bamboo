@@ -48,20 +48,8 @@ class ConfigurationController extends AbstractAdminController
      */
     public function listAction()
     {
-        $currencies = $this
-            ->get('elcodi.repository.currency')
-            ->findBy([
-                'enabled' => true,
-            ]);
-
-        $languages = $this
-            ->get('elcodi.repository.language')
-            ->findBy([
-                'enabled' => true,
-            ]);
-
         return [
-            'languages' => $languages,
+            'languages'  => $languages,
             'currencies' => $currencies,
         ];
     }
@@ -80,6 +68,14 @@ class ConfigurationController extends AbstractAdminController
      *      methods = {"POST"},
      * )
      *
+     * @FormAnnotation(
+     *      class = "elcodi_admin_product_form_type_product",
+     *      name  = "formView",
+     *      entity = "product",
+     *      handleRequest = true,
+     *      validate = "isValid"
+     * )
+     *
      * @JsonResponse()
      */
     public function updateAction(Request $request, $name)
@@ -88,16 +84,17 @@ class ConfigurationController extends AbstractAdminController
             ->request
             ->get('value');
 
-        $this
-            ->get('elcodi.manager.configuration')
-            ->set($name, $value);
+        $storeManager = $this->get('elcodi.object_manager.store');
+        $store = $this
+            ->get('elcodi.store')
+            ->$name($value);
 
-        $translator = $this->get('translator');
+        $storeManager->flush($store);
 
         return [
-            'status' => 200,
+            'status'   => 200,
             'response' => [
-                $translator->trans('admin.settings.saved'),
+                $this->translate('admin.settings.saved'),
             ],
         ];
     }

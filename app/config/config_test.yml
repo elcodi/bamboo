@@ -28,10 +28,3 @@ doctrine:
 web_profiler:
     toolbar: false
     intercept_redirects: false
-
-elcodi_bamboo:
-    cache_prefix:         ''
-    store_name:           'Elcodi Store'
-    store_tracker:        '101010101010'
-    store_enabled:        true
-    store_under_construction:  false

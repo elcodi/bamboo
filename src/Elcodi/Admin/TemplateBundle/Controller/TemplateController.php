@@ -58,8 +58,8 @@ class TemplateController extends AbstractAdminController
 
         $assetPaths = [];
         $currentTemplate = $this
-            ->get('elcodi.manager.configuration')
-            ->get('store.template');
+            ->get('elcodi.store')
+            ->getTemplate();
 
         foreach ($templates as $plugin) {
             $assetPath = str_replace('bundle', '', strtolower($plugin->getBundleName()));

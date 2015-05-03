@@ -76,13 +76,7 @@ class ElcodiBambooExtension extends AbstractExtension
     protected function getParametrizationValues(array $config)
     {
         return [
-            "elcodi.core.bamboo.cache_prefix"             => $config['cache_prefix'],
-            "elcodi.core.bamboo.store_tracker"            => $config['store_tracker'],
-            "elcodi.core.bamboo.store_name"               => $config['store_name'],
-            "elcodi.core.bamboo.store_slug"               => $config['store_slug'],
-            "elcodi.core.bamboo.store_enabled"            => $config['store_enabled'],
-            "elcodi.core.bamboo.store_under_construction" => $config['store_under_construction'],
-            "elcodi.core.bamboo.store_address"            => $config['store_address'],
+            "elcodi.core.bamboo.cache_prefix" => $config['cache_prefix'],
         ];
     }
 

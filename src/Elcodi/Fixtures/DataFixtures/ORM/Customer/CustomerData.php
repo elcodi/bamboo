@@ -40,12 +40,12 @@ class CustomerData extends AbstractFixture implements DependentFixtureInterface
         /**
          * @var $homeAddress AddressInterface
          */
-        $homeAddress = $this->getReference('home_address');
+        $homeAddress = $this->getReference('address-home');
 
         /**
          * @var $workAddress AddressInterface
          */
-        $workAddress = $this->getReference('work_address');
+        $workAddress = $this->getReference('address-work');
 
         /**
          * @var CustomerInterface $customer

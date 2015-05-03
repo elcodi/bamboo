@@ -17,6 +17,7 @@
 
 namespace Elcodi\Store\CoreBundle\EventListener;
 
+use Elcodi\Component\Store\Entity\Interfaces\StoreInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\Exception\ServiceUnavailableHttpException;
 use Symfony\Component\Security\Http\Firewall\ListenerInterface;
@@ -27,11 +28,11 @@ use Symfony\Component\Security\Http\Firewall\ListenerInterface;
 class StoreUnavailableEventListener implements ListenerInterface
 {
     /**
-     * @var boolean
+     * @var StoreInterface
      *
-     * Store is available
+     * Store
      */
-    protected $isAvailable;
+    protected $store;
 
     /**
      * @var string
@@ -43,26 +44,32 @@ class StoreUnavailableEventListener implements ListenerInterface
     /**
      * Constructor
      *
-     * @param boolean $isAvailable Store is available
-     * @param string  $message     Error message
+     * @param StoreInterface $store Store
+     * @param string         $message          Error message
      */
-    public function __construct($isAvailable, $message = '')
+    public function __construct(
+        StoreInterface $store,
+        $message = ''
+    )
     {
-        $this->isAvailable = $isAvailable;
+        $this->store = $store;
         $this->message = $message;
     }
 
     /**
-     * This interface must be implemented by firewall listeners.
+     * Throws an exception when the store is not available
      *
-     * @param GetResponseEvent $event
+     * @param GetResponseEvent $event Event
+     *
+     * @throws ServiceUnavailableHttpException Service not available
      */
     public function handle(GetResponseEvent $event)
     {
-        if ($this->isAvailable) {
-            return null;
+        if (
+            !$this->store->isEnabled() ||
+            $this->store->isUnderConstruction()
+        ) {
+            throw new ServiceUnavailableHttpException(null, $this->message);
         }
-
-        throw new ServiceUnavailableHttpException(null, $this->message);
     }
 }

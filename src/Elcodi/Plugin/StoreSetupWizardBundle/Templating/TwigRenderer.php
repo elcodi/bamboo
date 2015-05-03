@@ -19,12 +19,12 @@ namespace Elcodi\Plugin\StoreSetupWizardBundle\Templating;
 
 use Symfony\Component\HttpFoundation\RequestStack;
 
-use Elcodi\Component\Configuration\Services\ConfigurationManager;
 use Elcodi\Component\Plugin\Entity\Plugin;
 use Elcodi\Component\Plugin\EventDispatcher\Interfaces\EventInterface;
 use Elcodi\Component\Plugin\Templating\Traits\TemplatingTrait;
 use Elcodi\Component\Shipping\Entity\Interfaces\CarrierInterface;
 use Elcodi\Component\Shipping\Repository\CarrierRepository;
+use Elcodi\Component\Store\Entity\Interfaces\StoreInterface;
 use Elcodi\Plugin\StoreSetupWizardBundle\Services\WizardRoutes;
 use Elcodi\Plugin\StoreSetupWizardBundle\Services\WizardStatus;
 
@@ -57,11 +57,11 @@ class TwigRenderer
     protected $requestStack;
 
     /**
-     * @var ConfigurationManager
+     * @var StoreInterface
      *
-     * A configuration manager
+     * Store
      */
-    protected $configurationManager;
+    protected $store;
 
     /**
      * @var WizardRoutes
@@ -80,22 +80,22 @@ class TwigRenderer
     /**
      * Builds a new class
      *
-     * @param WizardStatus         $wizardStatus         The Wizard status
-     * @param RequestStack         $requestStack         A request stack
-     * @param ConfigurationManager $configurationManager A configuration manager
-     * @param WizardRoutes         $wizardRoutes         A wizard routes service
-     * @param CarrierRepository    $carrierRepository    A carrier repository
+     * @param WizardStatus      $wizardStatus      The Wizard status
+     * @param RequestStack      $requestStack      A request stack
+     * @param StoreInterface    $store             Store
+     * @param WizardRoutes      $wizardRoutes      A wizard routes service
+     * @param CarrierRepository $carrierRepository A carrier repository
      */
     public function __construct(
         WizardStatus $wizardStatus,
         RequestStack $requestStack,
-        ConfigurationManager $configurationManager,
+        StoreInterface $store,
         WizardRoutes $wizardRoutes,
         CarrierRepository $carrierRepository
     ) {
-        $this->wizardStatus = $wizardStatus;
         $this->requestStack = $requestStack;
-        $this->configurationManager = $configurationManager;
+        $this->wizardStatus = $wizardStatus;
+        $this->store = $store;
         $this->wizardRoutes = $wizardRoutes;
         $this->carrierRepository = $carrierRepository;
     }
@@ -171,9 +171,9 @@ class TwigRenderer
             ->isUsable()
         ) {
             $storeUnderConstruction =
-                'on' == $this
-                    ->configurationManager
-                    ->get('store.under_construction');
+                $this
+                    ->store
+                    ->isUnderConstruction();
 
             $masterRequest = $this
                 ->requestStack

@@ -87,6 +87,7 @@ class TemplateLocator
     protected function findTemplate($templatePath)
     {
         foreach ($this->bundles as $bundleName) {
+
             $templateName = "{$bundleName}:{$templatePath}";
 
             if ($this->engine->exists($templateName)) {

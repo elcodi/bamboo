@@ -1,0 +1,14 @@
+services:
+
+    #
+    # Form Types
+    #
+    elcodi.admin.store.form_type.store:
+        class: Elcodi\Admin\StoreBundle\Form\Type\StoreType
+        arguments:
+            - %elcodi.entity.currency.class%
+            - %elcodi.entity.language.class%
+        calls:
+            - [setFactory, [@elcodi.factory.store]]
+        tags:
+            - { name: form.type, alias: elcodi_admin_store_form_type_store }

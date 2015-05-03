@@ -6,15 +6,7 @@ services:
     store.core.event_listener.store_disabled:
         class: Elcodi\Store\CoreBundle\EventListener\StoreUnavailableEventListener
         arguments:
-            - @=elcodi_config("store.enabled")
+            - @elcodi.store
             - store.error.store_is_disabled
-        tags:
-            - { name: firewall_listener, firewall: %bamboo_store_firewall%, priority: -16 }
-
-    store.core.event_listener.store_under_construction:
-        class: Elcodi\Store\CoreBundle\EventListener\StoreUnavailableEventListener
-        arguments:
-            - @=!elcodi_config("store.under_construction")
-            - store.error.store_is_under_construction
         tags:
             - { name: firewall_listener, firewall: %bamboo_store_firewall%, priority: -16 }

@@ -5,10 +5,10 @@
                 <span class='dashboard-tabs-range'>{{ 'admin.dashboard.chart_range.today'|trans }}</span>
                 {% set todayIntervalContainer = metric_create_interval_container(1) %}
                 <span class='dashboard-tabs-amount'>
-                    {{ metric_accumulation(store_tracker, 'order_total', todayIntervalContainer.elements)|print_money_from_value }}
+                    {{ metric_accumulation(store.tracker, 'order_total', todayIntervalContainer.elements)|print_money_from_value }}
                 </span>
                 <span class='dashboard-tabs-orders'>
-                    {{ metric_beacon_total(store_tracker, 'order_nb', todayIntervalContainer.elements) }} {{ order|trans }}
+                    {{ metric_beacon_total(store.tracker, 'order_nb', todayIntervalContainer.elements) }} {{ order|trans }}
                 </span>
                 {% if type == 1 %}
                     {% set intervalContainer = todayIntervalContainer %}
@@ -21,10 +21,10 @@
                 <span class='dashboard-tabs-range'>{{ 'admin.dashboard.chart_range.yesterday'|trans }}</span>
                 {% set yesterdayIntervalContainer = metric_create_interval_container(2) %}
                 <span class='dashboard-tabs-amount'>
-                    {{ metric_accumulation(store_tracker, 'order_total', yesterdayIntervalContainer.elements)|print_money_from_value }}
+                    {{ metric_accumulation(store.tracker, 'order_total', yesterdayIntervalContainer.elements)|print_money_from_value }}
                 </span>
                 <span class='dashboard-tabs-orders'>
-                    {{ metric_beacon_total(store_tracker, 'order_nb', yesterdayIntervalContainer.elements) }} {{ order|trans }}
+                    {{ metric_beacon_total(store.tracker, 'order_nb', yesterdayIntervalContainer.elements) }} {{ order|trans }}
                 </span>
                 {% if type == 2 %}
                     {% set intervalContainer = yesterdayIntervalContainer %}
@@ -37,10 +37,10 @@
                 <span class='dashboard-tabs-range'>{{ 'admin.dashboard.chart_range.last7days'|trans }}</span>
                 {% set lastWeekIntervalContainer = metric_create_interval_container(1) %}
                 <span class='dashboard-tabs-amount'>
-                    {{ metric_accumulation(store_tracker, 'order_total', lastWeekIntervalContainer.elements)|print_money_from_value }}
+                    {{ metric_accumulation(store.tracker, 'order_total', lastWeekIntervalContainer.elements)|print_money_from_value }}
                 </span>
                 <span class='dashboard-tabs-orders'>
-                    {{ metric_beacon_total(store_tracker, 'order_nb', lastWeekIntervalContainer.elements) }} {{ order|trans }}
+                    {{ metric_beacon_total(store.tracker, 'order_nb', lastWeekIntervalContainer.elements) }} {{ order|trans }}
                 </span>
                 {% if type == 3 %}
                     {% set intervalContainer = lastWeekIntervalContainer %}
@@ -53,10 +53,10 @@
                 <span class='dashboard-tabs-range'>{{ 'admin.dashboard.chart_range.last30days'|trans }}</span>
                 {% set lastMonthIntervalContainer = metric_create_interval_container(4) %}
                 <span class='dashboard-tabs-amount'>
-                    {{ metric_accumulation(store_tracker, 'order_total', lastMonthIntervalContainer.elements)|print_money_from_value }}
+                    {{ metric_accumulation(store.tracker, 'order_total', lastMonthIntervalContainer.elements)|print_money_from_value }}
                 </span>
                 <span class='dashboard-tabs-orders'>
-                    {{ metric_beacon_total(store_tracker, 'order_nb', lastMonthIntervalContainer.elements) }} {{ order|trans }}
+                    {{ metric_beacon_total(store.tracker, 'order_nb', lastMonthIntervalContainer.elements) }} {{ order|trans }}
                 </span>
                 {% if type == 4 %}
                     {% set intervalContainer = lastMonthIntervalContainer %}
@@ -69,10 +69,10 @@
                 <span class='dashboard-tabs-range'>{{ 'admin.dashboard.chart_range.last90days'|trans }}</span>
                 {% set lastQuarterIntervalContainer = metric_create_interval_container(5) %}
                 <span class='dashboard-tabs-amount'>
-                    {{ metric_accumulation(store_tracker, 'order_total', lastQuarterIntervalContainer.elements)|print_money_from_value }}
+                    {{ metric_accumulation(store.tracker, 'order_total', lastQuarterIntervalContainer.elements)|print_money_from_value }}
                 </span>
                 <span class='dashboard-tabs-orders'>
-                    {{ metric_beacon_total(store_tracker, 'order_nb', lastQuarterIntervalContainer.elements) }} {{ order|trans }}
+                    {{ metric_beacon_total(store.tracker, 'order_nb', lastQuarterIntervalContainer.elements) }} {{ order|trans }}
                 </span>
                 {% if type == 5 %}
                     {% set intervalContainer = lastQuarterIntervalContainer %}
@@ -88,7 +88,7 @@
             <div class="pr-l">
             <h2>{{ 'admin.dashboard.chart.visitors.title'|trans }}</h2>
             {% include 'AdminMetricBundle:Metric:metricLine.html.twig' with {
-                'tracker': store_tracker,
+                'tracker': store.tracker,
                 'event': 'pv',
                 'intervalContainer': intervalContainer,
             } %}
@@ -98,7 +98,7 @@
             <div class="pr-l">
             <h2>{{ 'admin.dashboard.chart.sales.title'|trans }}</h2>
             {% include 'AdminMetricBundle:Metric:metricOrderTotals.html.twig' with {
-                'tracker': store_tracker,
+                'tracker': store.tracker,
                 'event': 'order_total',
                 'intervalContainer': intervalContainer,
             } %}
@@ -110,7 +110,7 @@
             <div class="box-none pa-n ta-c">
                 <h2>{{ 'admin.dashboard.chart.cart_conversion.title'|trans }}</h2>
                 {% include 'AdminMetricBundle:Metric:metricCheese.html.twig' with {
-                    'tracker': store_tracker,
+                    'tracker': store.tracker,
                     'events': {
                         ('admin.dashboard.chart.cart_conversion.cart_view'|trans): 'pv_store_cart_view',
                         ('admin.dashboard.chart.cart_conversion.billing_shipping'|trans): 'pv_store_checkout_address',
@@ -125,7 +125,7 @@
             <div class="box-none pa-n ta-c">
                 <h2>{{ 'admin.dashboard.chart.devices.title'|trans }}</h2>
                 {% include 'AdminMetricBundle:Metric:metricCheese.html.twig' with {
-                    'tracker': store_tracker,
+                    'tracker': store.tracker,
                     'events': {
                         ('admin.dashboard.chart.devices.mobile'|trans): 'mob',
                         ('admin.dashboard.chart.devices.desktop'|trans): 'no_mob',
@@ -138,7 +138,7 @@
             <div class="box-none pa-n ta-c">
                 <h2>{{ 'admin.dashboard.chart.traffic_source.title'|trans }}</h2>
                 {% include 'AdminMetricBundle:Metric:metricCheese.html.twig' with {
-                    'tracker': store_tracker,
+                    'tracker': store.tracker,
                     'events': {
                         ('admin.dashboard.chart.traffic_source.direct'|trans): 'source_dir',
                         ('admin.dashboard.chart.traffic_source.referrals'|trans): 'source_ref',

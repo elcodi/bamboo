@@ -18,10 +18,12 @@
 namespace Elcodi\Plugin\StoreSetupWizardBundle\Services;
 
 use Elcodi\Component\Configuration\Services\ConfigurationManager;
+use Elcodi\Component\Geo\Entity\Interfaces\AddressInterface;
 use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
 use Elcodi\Component\Product\Repository\ProductRepository;
 use Elcodi\Component\Shipping\Entity\Interfaces\ShippingPriceRangeInterface;
 use Elcodi\Component\Shipping\Repository\ShippingRangeRepository;
+use Elcodi\Component\Store\Entity\Interfaces\StoreInterface;
 
 /**
  * Class WizardStatus
@@ -54,30 +56,30 @@ class WizardStatus
      *
      * The payment enabled methods
      */
-    private $paymentEnabledMethods;
+    protected $paymentEnabledMethods;
 
     /**
      * Builds a new WizardStepChecker
      *
-     * @param ConfigurationManager    $configurationManager    Configuration
-     *                                                         manager
-     * @param ProductRepository       $productRepository       Product
-     *                                                         repository
-     * @param ShippingRangeRepository $shippingRangeRepository A shipping range
-     *                                                         repository
-     * @param array                   $paymentEnabledMethods   The enabled
-     *                                                         payment methods
+     * @param ConfigurationManager    $configurationManager    Configuration manager
+     * @param ProductRepository       $productRepository       Product repository
+     * @param ShippingRangeRepository $shippingRangeRepository A shipping range repository
+     * @param StoreInterface          $store                   Store
+     * @param array                   $paymentEnabledMethods   The enabled payment methods
      */
     public function __construct(
         ConfigurationManager $configurationManager,
         ProductRepository $productRepository,
         ShippingRangeRepository $shippingRangeRepository,
+        StoreInterface $store,
         array $paymentEnabledMethods
-    ) {
-        $this->configurationManager    = $configurationManager;
-        $this->productRepository       = $productRepository;
+    )
+    {
+        $this->configurationManager = $configurationManager;
+        $this->productRepository = $productRepository;
         $this->shippingRangeRepository = $shippingRangeRepository;
-        $this->paymentEnabledMethods   = $paymentEnabledMethods;
+        $this->store = $store;
+        $this->paymentEnabledMethods = $paymentEnabledMethods;
     }
 
     /**
@@ -101,7 +103,7 @@ class WizardStatus
 
         foreach ($stepsFinishedStatus as $step => $stepIsFinished) {
             if (!$stepIsFinished) {
-                return (int) $step;
+                return (int)$step;
             }
         }
 
@@ -154,10 +156,10 @@ class WizardStatus
     protected function isAddressFulfilled()
     {
         $storeAddress = $this
-            ->configurationManager
-            ->get('store.address');
+            ->store
+            ->getPhysicalAddress();
 
-        return !empty($storeAddress);
+        return !($storeAddress instanceof AddressInterface);
     }
 
     /**
@@ -186,7 +188,7 @@ class WizardStatus
         $paymillPrivateKey = $this
             ->configurationManager
             ->get('store.paymill_private_key');
-        $paymillPublicKey  = $this
+        $paymillPublicKey = $this
             ->configurationManager
             ->get('store.paymill_public_key');
         if (

@@ -50,8 +50,7 @@ twig:
     globals:
         elcodi_context: []
         currency_wrapper: @elcodi.wrapper.currency
-        store_tracker: @elcodi.store_tracker
-        store_address: @elcodi.store_address
+        store: @elcodi.store
 
 # Doctrine Configuration
 doctrine:
@@ -128,10 +127,6 @@ jms_i18n_routing:
 #
 # Elcodi related configuration
 #
-
-elcodi_bamboo:
-    store_tracker: 7s89da7s8d9a
-
 elcodi_media:
     images:
         resize:
