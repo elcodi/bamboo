@@ -41,7 +41,8 @@ services:
 
 script:
     - bin/behat -fprogress --tags="~javascript"
-    - bin/phpunit -c app
+    - bin/phpunit
+    - php app/console visithor:go --format=pretty --env=test
 
 notifications:
     email: false

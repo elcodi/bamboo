@@ -52,6 +52,7 @@ class ZoneData extends AbstractFixture
                 ->setLocations($locations);
 
             $zoneCollection->add($zone);
+            $this->setReference('zone-' . $zoneCode, $zone);
             $zoneDirector->save($zone);
         }
 

@@ -18,7 +18,7 @@ Feature: Product engine
     And I check "elcodi_admin_product_form_type_product_enabled"
     And I press "submit-save"
     And I am on "/admin/product/19/variant/new"
-    And I wait "1" seconds
+    And I wait "3" seconds
     And I select "1" from "select-Size"
     And I select "4" from "select-Color"
     And I fill in the following:

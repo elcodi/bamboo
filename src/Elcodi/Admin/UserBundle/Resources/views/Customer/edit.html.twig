@@ -31,10 +31,12 @@
 
 {% block header_actions %}
 
-    <a href="{{ url('admin_customer_order_list', { customerId: customer.id }) }}" type="button" class="button-primary">
-        <i class="icon-shopping-cart"></i>
-        <span>{{ 'admin.order.from_user'|trans({ '%name%': customer.firstname }) }}</span>
-    </a>
+    {% if customer.id %}
+        <a href="{{ url('admin_customer_order_list', { customerId: customer.id }) }}" type="button" class="button-primary">
+            <i class="icon-shopping-cart"></i>
+            <span>{{ 'admin.order.from_user'|trans({ '%name%': customer.firstname }) }}</span>
+        </a>
+    {% endif %}
 
 {% endblock header_actions %}
 

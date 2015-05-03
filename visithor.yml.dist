@@ -1,0 +1,197 @@
+defaults:
+        verb: GET
+
+profiles:
+    admin:
+        firewall: admin_area
+        role: ROLE_ADMIN
+
+urls:
+    - [[admin_shipping_range_edit_component, {carrierId: 1, id: 1}], 200, {profile: admin}]
+    #
+    # Store
+    #
+    - [store_homepage, 200]
+    - [store_categories_nav, 200]
+    - [[store_category_products_list, {'slug': 'women-shirts', 'id': 1}], 200]
+    - [[store_category_products_list, {'slug': 'another-name', 'id': 1}], 301]
+    - [[store_product_view, {'slug': 'ibiza-lips-en', 'id': 1}], 200]
+    - [[store_product_view, {'slug': 'another-name', 'id': 1}], 301]
+    - [store_password_recover_sent, 200]
+    - [store_login, 200]
+    - [store_user_nav, 200]
+    - [store_user, 302]
+    - [store_cart_view, 200]
+    - [store_cart_nav, 200]
+    - [store_order_list, 302]
+    - [store_currency_nav, 200]
+    - [store_blog_view, 200]
+    - [[store_blog_post_view, {'slug': 'hola-mundo', 'id': 1}], 200]
+    - [store_address_list, 302]
+    - [store_language_nav, 200]
+
+    #
+    # Admin User
+    #
+    - [admin_admin_user_list, 200, {profile: admin}]
+    - [admin_admin_user_list_component, 200, {profile: admin}]
+    - [[admin_admin_user_edit, {id: 1}], 200, {profile: admin}]
+    - [[admin_admin_user_edit_component, {id: 1}], 200, {profile: admin}]
+    - [admin_admin_user_new, 200, {profile: admin}]
+    - [admin_admin_user_new_component, 200, {profile: admin}]
+
+    #
+    # Customer
+    #
+    - [admin_customer_list, 200, {profile: admin}]
+    - [admin_customer_list_component, 200, {profile: admin}]
+    - [[admin_customer_edit, {id: 1}], 200, {profile: admin}]
+    - [[admin_customer_edit_component, {id: 1}], 200, {profile: admin}]
+    - [admin_customer_new, 200, {profile: admin}]
+    - [admin_customer_new_component, 200, {profile: admin}]
+    - [[admin_customer_order_list_component, {customerId: 1}], 200, {profile: admin}]
+    - [[admin_customer_order_list_component, {customerId: 1}], 200, {profile: admin}]
+
+    #
+    # Security
+    #
+    - [admin_password_recover_sent, 200, {profile: admin}]
+    - [admin_profile_view, 200, {profile: admin}]
+
+    #
+    # Orders
+    #
+    - [admin_order_list, 200, {profile: admin}]
+    - [admin_order_list_component, 200, {profile: admin}]
+
+    #
+    # Products
+    #
+    - [[admin_product_view, {id:1}], 200, {profile: admin}]
+    - [admin_product_list, 200, {profile: admin}]
+    - [admin_product_list_component, 200, {profile: admin}]
+    - [[admin_product_edit, {id: 1}], 200, {profile: admin}]
+    - [[admin_product_edit_component, {id: 1}], 200, {profile: admin}]
+    - [admin_product_new, 200, {profile: admin}]
+    - [admin_product_new_component, 200, {profile: admin}]
+
+    #
+    # Product Variants
+    #
+    - [[admin_product_variant_list_component, {productId: 1}], 200, {profile: admin}]
+    - [[admin_product_variant_edit, {productId: 1, id:1}], 200, {profile: admin}]
+    - [[admin_product_variant_edit_component, {productId: 1, id:1}], 200, {profile: admin}]
+    - [[admin_product_variant_new, {productId: 1}], 200, {profile: admin}]
+    - [[admin_product_variant_new_component, {productId: 1}], 200, {profile: admin}]
+
+    #
+    # Attributes
+    #
+    - [admin_attribute_list, 200, {profile: admin}]
+    - [admin_attribute_new, 200, {profile: admin}]
+    - [admin_attribute_list_component, 200, {profile: admin}]
+    - [admin_attribute_new_component, 200, {profile: admin}]
+    - [[admin_attribute_edit, {id: 1}], 200, {profile: admin}]
+
+    #
+    # Categories
+    #
+    - [admin_category_list, 200, {profile: admin}]
+    - [admin_category_list_component, 200, {profile: admin}]
+    - [[admin_category_edit, {id: 1}], 200, {profile: admin}]
+    - [[admin_category_edit_component, {id: 1}], 200, {profile: admin}]
+    - [admin_category_new, 200, {profile: admin}]
+    - [admin_category_new_component, 200, {profile: admin}]
+
+    #
+    # Manufacturers
+    #
+    - [admin_manufacturer_list, 200, {profile: admin}]
+    - [admin_manufacturer_list_component, 200, {profile: admin}]
+    - [[admin_manufacturer_edit, {id: 1}], 200, {profile: admin}]
+    - [[admin_manufacturer_edit_component, {id: 1}], 200, {profile: admin}]
+    - [admin_manufacturer_new, 200, {profile: admin}]
+    - [admin_manufacturer_new_component, 200, {profile: admin}]
+
+    #
+    # Carriers
+    #
+    - [admin_carrier_list, 200, {profile: admin}]
+    - [admin_carrier_list_component, 200, {profile: admin}]
+    - [[admin_carrier_edit, {id: 1}], 200, {profile: admin}]
+    - [[admin_carrier_edit_component, {id: 1}], 200, {profile: admin}]
+    - [admin_carrier_new, 200, {profile: admin}]
+    - [admin_carrier_new_component, 200, {profile: admin}]
+
+    #
+    # Currencies
+    #
+    - [admin_currency_list_component, 200, {profile: admin}]
+    - [admin_currency_nav, 200, {profile: admin}]
+    - [admin_currency_list, 200, {profile: admin}]
+
+    #
+    # Shipping Ranges
+    #
+    - [[admin_shipping_range_list_component, {carrierId: 1}], 200, {profile: admin}]
+    - [[admin_shipping_range_edit_component, {carrierId: 1, id: 2}], 200, {profile: admin}]
+    - [[admin_shipping_range_new_component, {carrierId: 1}], 200, {profile: admin}]
+    - [[admin_shipping_range_edit, {carrierId: 1, id: 2}], 200, {profile: admin}]
+    - [[admin_shipping_range_new, {carrierId: 1}], 200, {profile: admin}]
+
+    #
+    # Images
+    #
+    - [admin_image_list_component, 200, {profile: admin}]
+    - [admin_image_list, 200, {profile: admin}]
+
+    #
+    # Blog, Emails & Pages
+    #
+    - [admin_blog_post_list, 200, {profile: admin}]
+    - [admin_blog_post_list_component, 200, {profile: admin}]
+    - [[admin_blog_post_edit, {id: 1}], 200, {profile: admin}]
+    - [[admin_blog_post_edit_component, {id: 1}], 200, {profile: admin}]
+    - [admin_blog_post_new, 200, {profile: admin}]
+    - [admin_blog_post_new_component, 200, {profile: admin}]
+    - [admin_email_list_component, 200, {profile: admin}]
+    - [admin_page_list_component, 200, {profile: admin}]
+    - [[admin_page_edit_component, {id: 1}], 200, {profile: admin}]
+    - [admin_page_new_component, 200, {profile: admin}]
+    - [[admin_email_edit, {id: 4}], 200, {profile: admin}]
+    - [admin_email_list, 200, {profile: admin}]
+    - [admin_page_list, 200, {profile: admin}]
+    - [[admin_page_edit, {id: 1}], 200, {profile: admin}]
+    - [admin_page_new, 200, {profile: admin}]
+
+    #
+    # Metrics & Reports
+    #
+    - [admin_metric_panel_today, 200, {profile: admin}]
+    - [admin_metric_panel_yesterday, 200, {profile: admin}]
+    - [admin_metric_panel_last_week, 200, {profile: admin}]
+    - [admin_metric_panel_last_month, 200, {profile: admin}]
+    - [admin_metric_panel_last_quarter, 200, {profile: admin}]
+
+    - [admin_reports_today, 200, {profile: admin}]
+    - [admin_reports_yesterday, 200, {profile: admin}]
+    - [admin_reports_last_week, 200, {profile: admin}]
+    - [admin_reports_last_month, 200, {profile: admin}]
+    - [admin_reports_last_quarter, 200, {profile: admin}]
+
+    #
+    # Languages
+    #
+    - [admin_language_list_component, 200, {profile: admin}]
+    - [admin_language_list, 200, {profile: admin}]
+
+    #
+    # Miscelania
+    #
+    - [admin_configuration_list, 200, {profile: admin}]
+    - [admin_homepage, 302, {profile: admin}]
+    - [admin_payment_configuration_list, 200, {profile: admin}]
+    - [admin_template_list, 200, {profile: admin}]
+    - [admin_plugin_list, 200, {profile: admin}]
+    - [admin_store_setup_wizard, 200, {profile: admin}]
+
