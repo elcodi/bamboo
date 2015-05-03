@@ -1,8 +1,23 @@
+html {
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
 .header {
 	& {
 		text-align: center;
-		background: $color-primary;
+		background: rgba($color-primary, .9);
 		box-shadow: 0 0 2px rgba($color-foreground, .1);
+		background-position: center center;
+		background-repeat: no-repeat;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
 	}
 	.grid {
 		overflow: visible;

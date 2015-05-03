@@ -14,7 +14,7 @@ function locationSelectors() {
             if(optionSelectedValue) {
 
                 if (undefined != optionSelected.parent().data('max-type')) {
-                    document.getElementById('admin_geo_form_type_address_city').value = optionSelectedValue;
+                    document.getElementsByClassName('address-city')[0].value = optionSelectedValue;
                 }
                 else{
                     $(container).append('<i class="icon-spin icon-refresh"></i>');

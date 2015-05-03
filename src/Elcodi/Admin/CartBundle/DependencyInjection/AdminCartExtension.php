@@ -58,6 +58,7 @@ class AdminCartExtension extends AbstractExtension
     {
         return [
             'eventListeners',
+            'menu',
         ];
     }
 

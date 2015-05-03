@@ -1,0 +1,7 @@
+elcodi_entity_translator:
+    configuration:
+        Elcodi\Plugin\CustomShippingBundle\Entity\Interfaces\CarrierInterface:
+            alias: carrier
+            fields:
+                name: ~
+                description: ~

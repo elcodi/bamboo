@@ -17,7 +17,6 @@
 
 namespace Elcodi\Admin\UserBundle\Controller;
 
-use JMS\SecurityExtraBundle\Annotation\Secure;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as AnnotationForm;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -43,7 +42,6 @@ class PasswordController extends Controller
      *
      * @return array
      *
-     * @Secure(roles="IS_AUTHENTICATED_ANONYMOUSLY")
      * @Route(
      *      path = "/remember",
      *      name = "admin_password_remember",
@@ -90,7 +88,6 @@ class PasswordController extends Controller
      *
      * @return array
      *
-     * @Secure(roles="IS_AUTHENTICATED_ANONYMOUSLY")
      * @Route(
      *      path = "/sent",
      *      name = "admin_password_recover_sent",
@@ -112,7 +109,6 @@ class PasswordController extends Controller
      *
      * @return array
      *
-     * @Secure(roles="IS_AUTHENTICATED_ANONYMOUSLY")
      * @Route(
      *      path = "/recover/{hash}",
      *      name = "admin_password_recover",

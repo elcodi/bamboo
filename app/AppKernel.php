@@ -86,7 +86,6 @@ class AppKernel extends Kernel
             new Elcodi\Bundle\TaxBundle\ElcodiTaxBundle(),
             new Elcodi\Bundle\EntityTranslatorBundle\ElcodiEntityTranslatorBundle(),
             new Elcodi\Bundle\StateTransitionMachineBundle\ElcodiStateTransitionMachineBundle(),
-            new Elcodi\Bundle\ConfigurationBundle\ElcodiConfigurationBundle(),
             new Elcodi\Bundle\PageBundle\ElcodiPageBundle(),
             new Elcodi\Bundle\MetricBundle\ElcodiMetricBundle(),
             new Elcodi\Bundle\PluginBundle\ElcodiPluginBundle($this),
@@ -95,6 +94,7 @@ class AppKernel extends Kernel
             new Elcodi\Bundle\ShippingBundle\ElcodiShippingBundle(),
             new Elcodi\Bundle\SitemapBundle\ElcodiSitemapBundle(),
             new Elcodi\Bundle\PaymentBundle\ElcodiPaymentBundle(),
+            new Elcodi\Bundle\StoreBundle\ElcodiStoreBundle(),
 
             /**
              * Elcodi store bundle
@@ -133,15 +133,14 @@ class AppKernel extends Kernel
             new Elcodi\Admin\PluginBundle\AdminPluginBundle(),
             new Elcodi\Admin\ShippingBundle\AdminShippingBundle(),
             new Elcodi\Admin\GeoBundle\AdminGeoBundle(),
-            new Elcodi\Admin\ConfigurationBundle\AdminConfigurationBundle(),
             new Elcodi\Admin\PaymentBundle\AdminPaymentBundle(),
+            new Elcodi\Admin\StoreBundle\AdminStoreBundle(),
 
             /**
              * Elcodi common bundle
              */
             new Elcodi\Common\FirewallBundle\ElcodiFirewallBundle(),
-            new Elcodi\Common\BambooBundle\ElcodiBambooBundle(),
-            new Elcodi\Common\ConfigurationBundle\ConfigurationAnnotationBundle(),
+            new Elcodi\Common\CommonBundle\ElcodiCommonBundle(),
 
             /**
              * Elcodi Plugins
@@ -157,6 +156,7 @@ class AppKernel extends Kernel
             new Elcodi\Plugin\PaypalWebCheckoutBundle\ElcodiPaypalWebCheckoutBundle(),
             new Elcodi\Plugin\FreePaymentBundle\ElcodiFreePaymentBundle(),
             new Elcodi\Plugin\StripeBundle\ElcodiStripeBundle(),
+            new Elcodi\Plugin\CustomShippingBundle\ElcodiCustomShippingBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

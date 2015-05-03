@@ -171,7 +171,8 @@
                     "image": "Image",
                     "number_of_order": "Number of order",
                     "order_number": "Order #",
-                    "state": "State",
+                    "payment_state": "Payment state",
+                    "shipping_state": "Shipping state",
                     "date": "Date",
                     "total": "Total",
                     "no_orders": "There are no orders"

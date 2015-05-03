@@ -25,6 +25,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 use Elcodi\Component\Product\Entity\Interfaces\CategoryInterface;
 use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
+use Elcodi\Component\Product\Repository\CategoryRepository;
+use Elcodi\Component\Product\Repository\ProductRepository;
 use Elcodi\Store\CoreBundle\Controller\Traits\TemplateRenderTrait;
 
 /**
@@ -109,18 +111,21 @@ class CategoryController extends Controller
             ], 301);
         }
 
-        $childrenCategories = $this
-            ->get('elcodi.repository.category')
-            ->getChildrenCategories($category);
+        /**
+         * @var CategoryRepository Category Repository
+         * @var ProductRepository Product Repository
+         */
+        $categoryRepository = $this->get('elcodi.repository.category');
+        $productRepository = $this->get('elcodi.repository.product');
 
         $categories = array_merge(
             [$category],
-            $childrenCategories->toArray()
+            $categoryRepository
+                ->getChildrenCategories($category)
+                ->toArray()
         );
 
-        $products = $this
-            ->get('elcodi.repository.product')
-            ->getAllFromCategories($categories);
+        $products = $productRepository->getAllFromCategories($categories);
 
         return $this->renderTemplate(
             'Pages:category-view.html.twig',

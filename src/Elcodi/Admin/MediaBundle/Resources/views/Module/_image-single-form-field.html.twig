@@ -1,0 +1,37 @@
+<div class="grid">
+    <div class="col-1-3">
+        <div class="box-none">
+            <h2 class="fw-n">{{ sectionTitle|trans }}</h2>
+            <p class="mr-l" data-fc-modules="truncate" data-fc-max="90">{{ sectionDescription|trans }}</p>
+        </div>
+    </div>
+    <div class="col-2-3">
+        <div class="d-n">
+            {{ form_row( imageForm, { attr: { class: 'js-images-select' } }) }}
+        </div>
+        <div class="box">
+            {% if image %}
+                {% set logo = image|resize({ height: imageHeight|default(100), width: imageWidth|default(300), type: 2 })  %}
+                {% set display = 'block' %}
+            {% else %}
+                {% set logo = asset('bundles/admincore/images/grey.png') %}
+                {% set display = 'none' %}
+            {% endif %}
+            <ul id="upload-{{ imageName }}-image" class="thumbnail-group thumbnail-group-extended mb-m" style="display: {{ display }};">
+                <li style="min-width: 0; min-height: 0;">
+                    <img  src="{{ logo }}" class="group-images thumbnail" />
+                    <ul class="thumbnail-actions">
+                        <li>
+                            <a href="{% if image.id  %}{{ url('admin_image_delete', { id: image.id }) }}{% if redirect_path is defined %}{{ '?redirect-path=' ~ redirect_path }}{% endif %}{% endif %}" id="upload-{{ imageName }}-delete" {% if not image.id %}style="display: none"{% endif %}> <i class="icon-trash-o"></i> </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <progress id="upload-{{ imageName }}-progress" value="0" max="100" style="display: none"></progress>
+            <p class="mb-n">
+                <a href="{{ url('admin_image_upload') }}" id="upload-{{ imageName }}"  data-fc-modules="upload-single" data-fc-height="{{ imageHeight|default(100) }}" data-fc-width="{{ imageWidth|default(300) }}" class="button mb-m">{{ 'admin.image.info.upload_single'|trans }}</a>
+            </p>
+            <p class="fz-s mb-n">{{ 'admin.image.info.format'|trans }}</p>
+        </div>
+    </div>
+</div>

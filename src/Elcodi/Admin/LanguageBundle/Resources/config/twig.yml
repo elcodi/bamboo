@@ -10,6 +10,6 @@ services:
         decorates: elcodi.twig_extension.language
         arguments:
             - @elcodi.manager.language
-            - @=elcodi_config('store.default_language')
+            - @elcodi.store_default_language
         tags:
             - { name: twig.extension }

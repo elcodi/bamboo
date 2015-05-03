@@ -19,24 +19,22 @@ namespace Elcodi\Fixtures\DataFixtures\ORM\Product;
 
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Gaufrette\Adapter;
-use Gaufrette\Filesystem;
-use Symfony\Component\HttpFoundation\File\File;
 
 use Elcodi\Bundle\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
 use Elcodi\Component\Currency\Entity\Interfaces\CurrencyInterface;
 use Elcodi\Component\Currency\Entity\Money;
 use Elcodi\Component\EntityTranslator\Services\Interfaces\EntityTranslatorInterface;
-use Elcodi\Component\Media\Services\ImageManager;
-use Elcodi\Component\Media\Transformer\FileIdentifierTransformer;
 use Elcodi\Component\Product\Entity\Interfaces\CategoryInterface;
 use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
+use Elcodi\Fixtures\DataFixtures\ORM\Media\Traits\ImageManagerTrait;
 
 /**
  * Class ProductData
  */
 class ProductData extends AbstractFixture implements DependentFixtureInterface
 {
+    use ImageManagerTrait;
+
     /**
      * Load data fixtures with the passed EntityManager
      *
@@ -45,30 +43,20 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
     public function load(ObjectManager $manager)
     {
         /**
-         * @var ImageManager              $imageManager
-         * @var FileSystem                $filesystem
-         * @var FileIdentifierTransformer $fileIdentifierTransformer
          * @var CategoryInterface         $menCategory
          * @var CategoryInterface         $womenCategory
-         * @var CurrencyInterface         $currency
-         */
-        $imageManager = $this->get('elcodi.manager.media_image');
-        $productFactory = $this->getFactory('product');
-        $variantFactory = $this->getFactory('product_variant');
-        $filesystem = $this->get('elcodi.media_filesystem');
-        $fileIdentifierTransformer = $this->get('elcodi.transformer.media_file_identifier');
-        $menCategory = $this->getReference('category-men');
-        $womenCategory = $this->getReference('category-women');
-        $currency = $this->getReference('currency-USD');
-        $currencyEuros = $this->getReference('currency-EUR');
-
-        /**
-         * @var ObjectManager $productObjectManager
-         * @var ObjectManager $imageObjectManager
+         * @var CurrencyInterface         $currencyUsd
+         * @var CurrencyInterface         $currencyEur
+         * @var ObjectManager             $productObjectManager
          * @var EntityTranslatorInterface $entityTranslator
          */
+        $productFactory = $this->getFactory('product');
+        $variantFactory = $this->getFactory('product_variant');
+        $menCategory = $this->getReference('category-men');
+        $womenCategory = $this->getReference('category-women');
+        $currencyUsd = $this->getReference('currency-USD');
+        $currencyEur = $this->getReference('currency-EUR');
         $productObjectManager = $this->get('elcodi.object_manager.product');
-        $imageObjectManager = $this->get('elcodi.object_manager.image');
         $entityTranslator = $this->get('elcodi.entity_translator');
 
         /**
@@ -90,14 +78,14 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ->setPrincipalCategory($womenCategory)
             ->setShowInHome(true)
             ->setStock(10000)
-            ->setPrice(Money::create(799, $currency))
+            ->setPrice(Money::create(799, $currencyUsd))
             ->setEnabled(true);
 
         $variantWhiteSmall = $variantFactory->create();
         $variantWhiteSmall
             ->setProduct($product)
             ->setStock(10000)
-            ->setPrice(Money::create(1099, $currency))
+            ->setPrice(Money::create(1099, $currencyUsd))
             ->addOption($this->getReference('value-size-small'))
             ->addOption($this->getReference('value-color-white'))
             ->setEnabled(true);
@@ -106,7 +94,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
         $variantBlackSmall
             ->setProduct($product)
             ->setStock(10000)
-            ->setPrice(Money::create(1199, $currency))
+            ->setPrice(Money::create(1199, $currencyUsd))
             ->addOption($this->getReference('value-size-small'))
             ->addOption($this->getReference('value-color-black'))
             ->setEnabled(true);
@@ -115,7 +103,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
         $variantWhiteMedium
             ->setProduct($product)
             ->setStock(10000)
-            ->setPrice(Money::create(1299, $currency))
+            ->setPrice(Money::create(1299, $currencyUsd))
             ->addOption($this->getReference('value-size-medium'))
             ->addOption($this->getReference('value-color-white'))
             ->setEnabled(true);
@@ -124,7 +112,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
         $variantBlackMedium
             ->setProduct($product)
             ->setStock(10000)
-            ->setPrice(Money::create(1399, $currency))
+            ->setPrice(Money::create(1399, $currencyUsd))
             ->addOption($this->getReference('value-size-medium'))
             ->addOption($this->getReference('value-color-black'))
             ->setEnabled(true);
@@ -140,52 +128,48 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
 
         $entityTranslator->save($product, [
             'en' => [
-                'name' => 'Ibiza Lips English',
-                'slug' => 'ibiza-lips-en',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Ibiza Lips English',
+                'slug'            => 'ibiza-lips-en',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Ibiza Lips English',
+                'metaTitle'       => 'Ibiza Lips English',
                 'metaDescription' => 'Ibiza Lips English',
-                'metaKeywords' => 'Ibiza Lips English',
+                'metaKeywords'    => 'Ibiza Lips English',
             ],
             'es' => [
-                'name' => 'Ibiza Lips Spanish',
-                'slug' => 'ibiza-lips-es',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Ibiza Lips Spanish',
+                'slug'            => 'ibiza-lips-es',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Ibiza Lips Spanish',
+                'metaTitle'       => 'Ibiza Lips Spanish',
                 'metaDescription' => 'Ibiza Lips Spanish',
-                'metaKeywords' => 'Ibiza Lips Spanish',
+                'metaKeywords'    => 'Ibiza Lips Spanish',
             ],
             'fr' => [
-                'name' => 'Ibiza Lips Français',
-                'slug' => 'ibiza-lips-fr',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Ibiza Lips Français',
+                'slug'            => 'ibiza-lips-fr',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Ibiza Lips Français',
+                'metaTitle'       => 'Ibiza Lips Français',
                 'metaDescription' => 'Ibiza Lips Français',
-                'metaKeywords' => 'Ibiza Lips Français',
+                'metaKeywords'    => 'Ibiza Lips Français',
             ],
             'ca' => [
-                'name' => 'Ibiza Lips Català',
-                'slug' => 'ibiza-lips-ca',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Ibiza Lips Català',
+                'slug'            => 'ibiza-lips-ca',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Ibiza Lips Català',
+                'metaTitle'       => 'Ibiza Lips Català',
                 'metaDescription' => 'Ibiza Lips Català',
-                'metaKeywords' => 'Ibiza Lips Català',
+                'metaKeywords'    => 'Ibiza Lips Català',
             ],
         ]);
 
-        $this->storeImage(
-            $imageObjectManager,
-            $imageManager,
-            $filesystem,
-            $fileIdentifierTransformer,
+        $this->storeProductImage(
             $product,
             'product-1.jpg'
         );
@@ -209,7 +193,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
             ->setStock(10000)
-            ->setPrice(Money::create(399, $currencyEuros))
+            ->setPrice(Money::create(399, $currencyEur))
             ->setEnabled(true);
 
         $productObjectManager->persist($product);
@@ -218,52 +202,48 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
 
         $entityTranslator->save($product, [
             'en' => [
-                'name' => 'Ibiza Banana English',
-                'slug' => 'ibiza-banana-en',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Ibiza Banana English',
+                'slug'            => 'ibiza-banana-en',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Ibiza Banana English',
+                'metaTitle'       => 'Ibiza Banana English',
                 'metaDescription' => 'Ibiza Banana English',
-                'metaKeywords' => 'Ibiza Banana English',
+                'metaKeywords'    => 'Ibiza Banana English',
             ],
             'es' => [
-                'name' => 'Ibiza Banana Spanish',
-                'slug' => 'ibiza-banana-es',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Ibiza Banana Spanish',
+                'slug'            => 'ibiza-banana-es',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Ibiza Banana Spanish',
+                'metaTitle'       => 'Ibiza Banana Spanish',
                 'metaDescription' => 'Ibiza Banana Spanish',
-                'metaKeywords' => 'Ibiza Banana Spanish',
+                'metaKeywords'    => 'Ibiza Banana Spanish',
             ],
             'fr' => [
-                'name' => 'Ibiza Banana Français',
-                'slug' => 'ibiza-banana-fr',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Ibiza Banana Français',
+                'slug'            => 'ibiza-banana-fr',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Ibiza Banana Français',
+                'metaTitle'       => 'Ibiza Banana Français',
                 'metaDescription' => 'Ibiza Banana Français',
-                'metaKeywords' => 'Ibiza Banana Français',
+                'metaKeywords'    => 'Ibiza Banana Français',
             ],
             'ca' => [
-                'name' => 'Ibiza Banana Català',
-                'slug' => 'ibiza-banana-ca',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Ibiza Banana Català',
+                'slug'            => 'ibiza-banana-ca',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Ibiza Banana Català',
+                'metaTitle'       => 'Ibiza Banana Català',
                 'metaDescription' => 'Ibiza Banana Català',
-                'metaKeywords' => 'Ibiza Banana Català',
+                'metaKeywords'    => 'Ibiza Banana Català',
             ],
         ]);
 
-        $this->storeImage(
-            $imageObjectManager,
-            $imageManager,
-            $filesystem,
-            $fileIdentifierTransformer,
+        $this->storeProductImage(
             $product,
             'product-2.jpg'
         );
@@ -288,7 +268,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
             ->setStock(10000)
-            ->setPrice(Money::create(2105, $currency))
+            ->setPrice(Money::create(2105, $currencyUsd))
             ->setEnabled(true);
 
         $productObjectManager->persist($product);
@@ -297,52 +277,48 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
 
         $entityTranslator->save($product, [
             'en' => [
-                'name' => 'I Was There English',
-                'slug' => 'i-was-there-en',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'I Was There English',
+                'slug'            => 'i-was-there-en',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'I Was There English',
+                'metaTitle'       => 'I Was There English',
                 'metaDescription' => 'I Was There English',
-                'metaKeywords' => 'I Was There English',
+                'metaKeywords'    => 'I Was There English',
             ],
             'es' => [
-                'name' => 'I Was There Spanish',
-                'slug' => 'i-was-there-es',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'I Was There Spanish',
+                'slug'            => 'i-was-there-es',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'I Was There Spanish',
+                'metaTitle'       => 'I Was There Spanish',
                 'metaDescription' => 'I Was There Spanish',
-                'metaKeywords' => 'I Was There Spanish',
+                'metaKeywords'    => 'I Was There Spanish',
             ],
             'fr' => [
-                'name' => 'I Was There Français',
-                'slug' => 'i-was-there-fr',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'I Was There Français',
+                'slug'            => 'i-was-there-fr',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'I Was There Français',
+                'metaTitle'       => 'I Was There Français',
                 'metaDescription' => 'I Was There Français',
-                'metaKeywords' => 'I Was There Français',
+                'metaKeywords'    => 'I Was There Français',
             ],
             'ca' => [
-                'name' => 'I Was There Català',
-                'slug' => 'i-was-there-ca',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'I Was There Català',
+                'slug'            => 'i-was-there-ca',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'I Was There Català',
+                'metaTitle'       => 'I Was There Català',
                 'metaDescription' => 'I Was There Català',
-                'metaKeywords' => 'I Was There Català',
+                'metaKeywords'    => 'I Was There Català',
             ],
         ]);
 
-        $this->storeImage(
-            $imageObjectManager,
-            $imageManager,
-            $filesystem,
-            $fileIdentifierTransformer,
+        $this->storeProductImage(
             $product,
             'product-3.jpg'
         );
@@ -367,7 +343,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
             ->setStock(10000)
-            ->setPrice(Money::create(1290, $currency))
+            ->setPrice(Money::create(1290, $currencyUsd))
             ->setEnabled(true);
 
         $productObjectManager->persist($product);
@@ -376,52 +352,48 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
 
         $entityTranslator->save($product, [
             'en' => [
-                'name' => 'A Life Style English',
-                'slug' => 'a-life-style-en',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'A Life Style English',
+                'slug'            => 'a-life-style-en',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'A Life Style English',
+                'metaTitle'       => 'A Life Style English',
                 'metaDescription' => 'A Life Style English',
-                'metaKeywords' => 'A Life Style English',
+                'metaKeywords'    => 'A Life Style English',
             ],
             'es' => [
-                'name' => 'A Life Style Spanish',
-                'slug' => 'a-life-style-es',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'A Life Style Spanish',
+                'slug'            => 'a-life-style-es',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'A Life Style Spanish',
+                'metaTitle'       => 'A Life Style Spanish',
                 'metaDescription' => 'A Life Style Spanish',
-                'metaKeywords' => 'A Life Style Spanish',
+                'metaKeywords'    => 'A Life Style Spanish',
             ],
             'fr' => [
-                'name' => 'A Life Style Français',
-                'slug' => 'a-life-style-fr',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'A Life Style Français',
+                'slug'            => 'a-life-style-fr',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'A Life Style Français',
+                'metaTitle'       => 'A Life Style Français',
                 'metaDescription' => 'A Life Style Français',
-                'metaKeywords' => 'A Life Style Français',
+                'metaKeywords'    => 'A Life Style Français',
             ],
             'ca' => [
-                'name' => 'A Life Style Català',
-                'slug' => 'a-life-style-ca',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'A Life Style Català',
+                'slug'            => 'a-life-style-ca',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'A Life Style Català',
+                'metaTitle'       => 'A Life Style Català',
                 'metaDescription' => 'A Life Style Català',
-                'metaKeywords' => 'A Life Style Català',
+                'metaKeywords'    => 'A Life Style Català',
             ],
         ]);
 
-        $this->storeImage(
-            $imageObjectManager,
-            $imageManager,
-            $filesystem,
-            $fileIdentifierTransformer,
+        $this->storeProductImage(
             $product,
             'product-4.jpg'
         );
@@ -446,7 +418,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
             ->setStock(10000)
-            ->setPrice(Money::create(1190, $currency))
+            ->setPrice(Money::create(1190, $currencyUsd))
             ->setEnabled(true);
 
         $productObjectManager->persist($product);
@@ -455,52 +427,48 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
 
         $entityTranslator->save($product, [
             'en' => [
-                'name' => 'A.M. Nesia Ibiza English',
-                'slug' => 'a-m-nesia-ibiza-en',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'A.M. Nesia Ibiza English',
+                'slug'            => 'a-m-nesia-ibiza-en',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'A.M. Nesia Ibiza English',
+                'metaTitle'       => 'A.M. Nesia Ibiza English',
                 'metaDescription' => 'A.M. Nesia Ibiza English',
-                'metaKeywords' => 'A.M. Nesia Ibiza English',
+                'metaKeywords'    => 'A.M. Nesia Ibiza English',
             ],
             'es' => [
-                'name' => 'A.M. Nesia Ibiza Spanish',
-                'slug' => 'a-m-nesia-ibiza-es',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'A.M. Nesia Ibiza Spanish',
+                'slug'            => 'a-m-nesia-ibiza-es',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'A.M. Nesia Ibiza Spanish',
+                'metaTitle'       => 'A.M. Nesia Ibiza Spanish',
                 'metaDescription' => 'A.M. Nesia Ibiza Spanish',
-                'metaKeywords' => 'A.M. Nesia Ibiza Spanish',
+                'metaKeywords'    => 'A.M. Nesia Ibiza Spanish',
             ],
             'fr' => [
-                'name' => 'A.M. Nesia Ibiza Français',
-                'slug' => 'a-m-nesia-ibiza-fr',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'A.M. Nesia Ibiza Français',
+                'slug'            => 'a-m-nesia-ibiza-fr',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'A.M. Nesia Ibiza Français',
+                'metaTitle'       => 'A.M. Nesia Ibiza Français',
                 'metaDescription' => 'A.M. Nesia Ibiza Français',
-                'metaKeywords' => 'A.M. Nesia Ibiza Français',
+                'metaKeywords'    => 'A.M. Nesia Ibiza Français',
             ],
             'ca' => [
-                'name' => 'A.M. Nesia Ibiza Català',
-                'slug' => 'a-m-nesia-ibiza-ca',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'A.M. Nesia Ibiza Català',
+                'slug'            => 'a-m-nesia-ibiza-ca',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'A.M. Nesia Ibiza Català',
+                'metaTitle'       => 'A.M. Nesia Ibiza Català',
                 'metaDescription' => 'A.M. Nesia Ibiza Català',
-                'metaKeywords' => 'A.M. Nesia Ibiza Català',
+                'metaKeywords'    => 'A.M. Nesia Ibiza Català',
             ],
         ]);
 
-        $this->storeImage(
-            $imageObjectManager,
-            $imageManager,
-            $filesystem,
-            $fileIdentifierTransformer,
+        $this->storeProductImage(
             $product,
             'product-5.jpg'
         );
@@ -525,7 +493,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
             ->setStock(10000)
-            ->setPrice(Money::create(1390, $currency))
+            ->setPrice(Money::create(1390, $currencyUsd))
             ->setEnabled(true);
 
         $productObjectManager->persist($product);
@@ -534,52 +502,48 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
 
         $entityTranslator->save($product, [
             'en' => [
-                'name' => 'Amnesia Poem English',
-                'slug' => 'amnesia-poem-en',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Amnesia Poem English',
+                'slug'            => 'amnesia-poem-en',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Amnesia Poem English',
+                'metaTitle'       => 'Amnesia Poem English',
                 'metaDescription' => 'Amnesia Poem English',
-                'metaKeywords' => 'Amnesia Poem English',
+                'metaKeywords'    => 'Amnesia Poem English',
             ],
             'es' => [
-                'name' => 'Amnesia Poem Spanish',
-                'slug' => 'amnesia-poem-es',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Amnesia Poem Spanish',
+                'slug'            => 'amnesia-poem-es',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Amnesia Poem Spanish',
+                'metaTitle'       => 'Amnesia Poem Spanish',
                 'metaDescription' => 'Amnesia Poem Spanish',
-                'metaKeywords' => 'Amnesia Poem Spanish',
+                'metaKeywords'    => 'Amnesia Poem Spanish',
             ],
             'fr' => [
-                'name' => 'Amnesia Poem Français',
-                'slug' => 'amnesia-poem-fr',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Amnesia Poem Français',
+                'slug'            => 'amnesia-poem-fr',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Amnesia Poem Français',
+                'metaTitle'       => 'Amnesia Poem Français',
                 'metaDescription' => 'Amnesia Poem Français',
-                'metaKeywords' => 'Amnesia Poem Français',
+                'metaKeywords'    => 'Amnesia Poem Français',
             ],
             'ca' => [
-                'name' => 'Amnesia Poem Català',
-                'slug' => 'amnesia-poem-ca',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Amnesia Poem Català',
+                'slug'            => 'amnesia-poem-ca',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Amnesia Poem Català',
+                'metaTitle'       => 'Amnesia Poem Català',
                 'metaDescription' => 'Amnesia Poem Català',
-                'metaKeywords' => 'Amnesia Poem Català',
+                'metaKeywords'    => 'Amnesia Poem Català',
             ],
         ]);
 
-        $this->storeImage(
-            $imageObjectManager,
-            $imageManager,
-            $filesystem,
-            $fileIdentifierTransformer,
+        $this->storeProductImage(
             $product,
             'product-6.jpg'
         );
@@ -604,7 +568,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
             ->setStock(10000)
-            ->setPrice(Money::create(1090, $currency))
+            ->setPrice(Money::create(1090, $currencyUsd))
             ->setEnabled(true);
 
         $productObjectManager->persist($product);
@@ -613,52 +577,48 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
 
         $entityTranslator->save($product, [
             'en' => [
-                'name' => 'Pyramid English',
-                'slug' => 'pyramid-en',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Pyramid English',
+                'slug'            => 'pyramid-en',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Pyramid English',
+                'metaTitle'       => 'Pyramid English',
                 'metaDescription' => 'Pyramid English',
-                'metaKeywords' => 'Pyramid English',
+                'metaKeywords'    => 'Pyramid English',
             ],
             'es' => [
-                'name' => 'Pyramid Spanish',
-                'slug' => 'pyramid-es',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Pyramid Spanish',
+                'slug'            => 'pyramid-es',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Pyramid Spanish',
+                'metaTitle'       => 'Pyramid Spanish',
                 'metaDescription' => 'Pyramid Spanish',
-                'metaKeywords' => 'Pyramid Spanish',
+                'metaKeywords'    => 'Pyramid Spanish',
             ],
             'fr' => [
-                'name' => 'Pyramid Français',
-                'slug' => 'pyramid-fr',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Pyramid Français',
+                'slug'            => 'pyramid-fr',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Pyramid Français',
+                'metaTitle'       => 'Pyramid Français',
                 'metaDescription' => 'Pyramid Français',
-                'metaKeywords' => 'Pyramid Français',
+                'metaKeywords'    => 'Pyramid Français',
             ],
             'ca' => [
-                'name' => 'Pyramid Català',
-                'slug' => 'pyramid-ca',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Pyramid Català',
+                'slug'            => 'pyramid-ca',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Pyramid Català',
+                'metaTitle'       => 'Pyramid Català',
                 'metaDescription' => 'Pyramid Català',
-                'metaKeywords' => 'Pyramid Català',
+                'metaKeywords'    => 'Pyramid Català',
             ],
         ]);
 
-        $this->storeImage(
-            $imageObjectManager,
-            $imageManager,
-            $filesystem,
-            $fileIdentifierTransformer,
+        $this->storeProductImage(
             $product,
             'product-7.jpg'
         );
@@ -683,7 +643,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
             ->setStock(10000)
-            ->setPrice(Money::create(1290, $currency))
+            ->setPrice(Money::create(1290, $currencyUsd))
             ->setEnabled(true);
 
         $productObjectManager->persist($product);
@@ -692,52 +652,48 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
 
         $entityTranslator->save($product, [
             'en' => [
-                'name' => 'Amnesia Pink English',
-                'slug' => 'amnesia-pink-en',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Amnesia Pink English',
+                'slug'            => 'amnesia-pink-en',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Amnesia Pink English',
+                'metaTitle'       => 'Amnesia Pink English',
                 'metaDescription' => 'Amnesia Pink English',
-                'metaKeywords' => 'Amnesia Pink English',
+                'metaKeywords'    => 'Amnesia Pink English',
             ],
             'es' => [
-                'name' => 'Amnesia Pink Spanish',
-                'slug' => 'amnesia-pink-es',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Amnesia Pink Spanish',
+                'slug'            => 'amnesia-pink-es',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Amnesia Pink Spanish',
+                'metaTitle'       => 'Amnesia Pink Spanish',
                 'metaDescription' => 'Amnesia Pink Spanish',
-                'metaKeywords' => 'Amnesia Pink Spanish',
+                'metaKeywords'    => 'Amnesia Pink Spanish',
             ],
             'fr' => [
-                'name' => 'Amnesia Pink Français',
-                'slug' => 'amnesia-pink-fr',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Amnesia Pink Français',
+                'slug'            => 'amnesia-pink-fr',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Amnesia Pink Français',
+                'metaTitle'       => 'Amnesia Pink Français',
                 'metaDescription' => 'Amnesia Pink Français',
-                'metaKeywords' => 'Amnesia Pink Français',
+                'metaKeywords'    => 'Amnesia Pink Français',
             ],
             'ca' => [
-                'name' => 'Amnesia Pink Català',
-                'slug' => 'amnesia-pink-ca',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Amnesia Pink Català',
+                'slug'            => 'amnesia-pink-ca',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Amnesia Pink Català',
+                'metaTitle'       => 'Amnesia Pink Català',
                 'metaDescription' => 'Amnesia Pink Català',
-                'metaKeywords' => 'Amnesia Pink Català',
+                'metaKeywords'    => 'Amnesia Pink Català',
             ],
         ]);
 
-        $this->storeImage(
-            $imageObjectManager,
-            $imageManager,
-            $filesystem,
-            $fileIdentifierTransformer,
+        $this->storeProductImage(
             $product,
             'product-8.jpg'
         );
@@ -762,7 +718,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
             ->setStock(10000)
-            ->setPrice(Money::create(1190, $currency))
+            ->setPrice(Money::create(1190, $currencyUsd))
             ->setEnabled(true);
 
         $productObjectManager->persist($product);
@@ -771,52 +727,48 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
 
         $entityTranslator->save($product, [
             'en' => [
-                'name' => 'Pinky Fragments English',
-                'slug' => 'pinky-fragments-en',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Pinky Fragments English',
+                'slug'            => 'pinky-fragments-en',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Pinky Fragments English',
+                'metaTitle'       => 'Pinky Fragments English',
                 'metaDescription' => 'Pinky Fragments English',
-                'metaKeywords' => 'Pinky Fragments English',
+                'metaKeywords'    => 'Pinky Fragments English',
             ],
             'es' => [
-                'name' => 'Pinky Fragments Spanish',
-                'slug' => 'pinky-fragments-es',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Pinky Fragments Spanish',
+                'slug'            => 'pinky-fragments-es',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Pinky Fragments Spanish',
+                'metaTitle'       => 'Pinky Fragments Spanish',
                 'metaDescription' => 'Pinky Fragments Spanish',
-                'metaKeywords' => 'Pinky Fragments Spanish',
+                'metaKeywords'    => 'Pinky Fragments Spanish',
             ],
             'fr' => [
-                'name' => 'Pinky Fragments Français',
-                'slug' => 'pinky-fragments-fr',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Pinky Fragments Français',
+                'slug'            => 'pinky-fragments-fr',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Pinky Fragments Français',
+                'metaTitle'       => 'Pinky Fragments Français',
                 'metaDescription' => 'Pinky Fragments Français',
-                'metaKeywords' => 'Pinky Fragments Français',
+                'metaKeywords'    => 'Pinky Fragments Français',
             ],
             'ca' => [
-                'name' => 'Pinky Fragments Català',
-                'slug' => 'pinky-fragments-ca',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Pinky Fragments Català',
+                'slug'            => 'pinky-fragments-ca',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Pinky Fragments Català',
+                'metaTitle'       => 'Pinky Fragments Català',
                 'metaDescription' => 'Pinky Fragments Català',
-                'metaKeywords' => 'Pinky Fragments Català',
+                'metaKeywords'    => 'Pinky Fragments Català',
             ],
         ]);
 
-        $this->storeImage(
-            $imageObjectManager,
-            $imageManager,
-            $filesystem,
-            $fileIdentifierTransformer,
+        $this->storeProductImage(
             $product,
             'product-9.jpg'
         );
@@ -841,7 +793,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
             ->setStock(10000)
-            ->setPrice(Money::create(1190, $currency))
+            ->setPrice(Money::create(1190, $currencyUsd))
             ->setEnabled(true);
 
         $productObjectManager->persist($product);
@@ -850,52 +802,48 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
 
         $entityTranslator->save($product, [
             'en' => [
-                'name' => 'I was there II English',
-                'slug' => 'i-was-there-ii-en',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'I was there II English',
+                'slug'            => 'i-was-there-ii-en',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'I was there II English',
+                'metaTitle'       => 'I was there II English',
                 'metaDescription' => 'I was there II English',
-                'metaKeywords' => 'I was there II English',
+                'metaKeywords'    => 'I was there II English',
             ],
             'es' => [
-                'name' => 'I was there II Spanish',
-                'slug' => 'i-was-there-ii-es',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'I was there II Spanish',
+                'slug'            => 'i-was-there-ii-es',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'I was there II Spanish',
+                'metaTitle'       => 'I was there II Spanish',
                 'metaDescription' => 'I was there II Spanish',
-                'metaKeywords' => 'I was there II Spanish',
+                'metaKeywords'    => 'I was there II Spanish',
             ],
             'fr' => [
-                'name' => 'I was there II Français',
-                'slug' => 'i-was-there-ii-fr',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'I was there II Français',
+                'slug'            => 'i-was-there-ii-fr',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'I was there II Français',
+                'metaTitle'       => 'I was there II Français',
                 'metaDescription' => 'I was there II Français',
-                'metaKeywords' => 'I was there II Français',
+                'metaKeywords'    => 'I was there II Français',
             ],
             'ca' => [
-                'name' => 'I was there II Català',
-                'slug' => 'i-was-there-ii-ca',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'I was there II Català',
+                'slug'            => 'i-was-there-ii-ca',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'I was there II Català',
+                'metaTitle'       => 'I was there II Català',
                 'metaDescription' => 'I was there II Català',
-                'metaKeywords' => 'I was there II Català',
+                'metaKeywords'    => 'I was there II Català',
             ],
         ]);
 
-        $this->storeImage(
-            $imageObjectManager,
-            $imageManager,
-            $filesystem,
-            $fileIdentifierTransformer,
+        $this->storeProductImage(
             $product,
             'product-10.jpg'
         );
@@ -920,7 +868,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
             ->setStock(10000)
-            ->setPrice(Money::create(1800, $currency))
+            ->setPrice(Money::create(1800, $currencyUsd))
             ->setEnabled(true);
 
         $productObjectManager->persist($product);
@@ -929,52 +877,48 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
 
         $entityTranslator->save($product, [
             'en' => [
-                'name' => 'Amnesia English',
-                'slug' => 'amnesia-en',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Amnesia English',
+                'slug'            => 'amnesia-en',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Amnesia English',
+                'metaTitle'       => 'Amnesia English',
                 'metaDescription' => 'Amnesia English',
-                'metaKeywords' => 'Amnesia English',
+                'metaKeywords'    => 'Amnesia English',
             ],
             'es' => [
-                'name' => 'Amnesia Spanish',
-                'slug' => 'amnesia-es',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Amnesia Spanish',
+                'slug'            => 'amnesia-es',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Amnesia Spanish',
+                'metaTitle'       => 'Amnesia Spanish',
                 'metaDescription' => 'Amnesia Spanish',
-                'metaKeywords' => 'Amnesia Spanish',
+                'metaKeywords'    => 'Amnesia Spanish',
             ],
             'fr' => [
-                'name' => 'Amnesia Français',
-                'slug' => 'amnesia-fr',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Amnesia Français',
+                'slug'            => 'amnesia-fr',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Amnesia Français',
+                'metaTitle'       => 'Amnesia Français',
                 'metaDescription' => 'Amnesia Français',
-                'metaKeywords' => 'Amnesia Français',
+                'metaKeywords'    => 'Amnesia Français',
             ],
             'ca' => [
-                'name' => 'Amnesia Català',
-                'slug' => 'amnesia-ca',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Amnesia Català',
+                'slug'            => 'amnesia-ca',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Amnesia Català',
+                'metaTitle'       => 'Amnesia Català',
                 'metaDescription' => 'Amnesia Català',
-                'metaKeywords' => 'Amnesia Català',
+                'metaKeywords'    => 'Amnesia Català',
             ],
         ]);
 
-        $this->storeImage(
-            $imageObjectManager,
-            $imageManager,
-            $filesystem,
-            $fileIdentifierTransformer,
+        $this->storeProductImage(
             $product,
             'product-11.jpg'
         );
@@ -999,7 +943,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
             ->setStock(10000)
-            ->setPrice(Money::create(1650, $currency))
+            ->setPrice(Money::create(1650, $currencyUsd))
             ->setEnabled(true);
 
         $productObjectManager->persist($product);
@@ -1008,52 +952,48 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
 
         $entityTranslator->save($product, [
             'en' => [
-                'name' => 'Amnesia 100% English',
-                'slug' => 'amnesia-100-percent-en',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Amnesia 100% English',
+                'slug'            => 'amnesia-100-percent-en',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Amnesia 100% English',
+                'metaTitle'       => 'Amnesia 100% English',
                 'metaDescription' => 'Amnesia 100% English',
-                'metaKeywords' => 'Amnesia 100% English',
+                'metaKeywords'    => 'Amnesia 100% English',
             ],
             'es' => [
-                'name' => 'Amnesia 100% Spanish',
-                'slug' => 'amnesia-100-percent-es',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Amnesia 100% Spanish',
+                'slug'            => 'amnesia-100-percent-es',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Amnesia 100% Spanish',
+                'metaTitle'       => 'Amnesia 100% Spanish',
                 'metaDescription' => 'Amnesia 100% Spanish',
-                'metaKeywords' => 'Amnesia 100% Spanish',
+                'metaKeywords'    => 'Amnesia 100% Spanish',
             ],
             'fr' => [
-                'name' => 'Amnesia 100% Français',
-                'slug' => 'amnesia-100-percent-fr',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Amnesia 100% Français',
+                'slug'            => 'amnesia-100-percent-fr',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Amnesia 100% Français',
+                'metaTitle'       => 'Amnesia 100% Français',
                 'metaDescription' => 'Amnesia 100% Français',
-                'metaKeywords' => 'Amnesia 100% Français',
+                'metaKeywords'    => 'Amnesia 100% Français',
             ],
             'ca' => [
-                'name' => 'Amnesia 100% Català',
-                'slug' => 'amnesia-100-percent-ca',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Amnesia 100% Català',
+                'slug'            => 'amnesia-100-percent-ca',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Amnesia 100% Català',
+                'metaTitle'       => 'Amnesia 100% Català',
                 'metaDescription' => 'Amnesia 100% Català',
-                'metaKeywords' => 'Amnesia 100% Català',
+                'metaKeywords'    => 'Amnesia 100% Català',
             ],
         ]);
 
-        $this->storeImage(
-            $imageObjectManager,
-            $imageManager,
-            $filesystem,
-            $fileIdentifierTransformer,
+        $this->storeProductImage(
             $product,
             'product-12.jpg'
         );
@@ -1078,7 +1018,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
             ->setStock(10000)
-            ->setPrice(Money::create(1550, $currency))
+            ->setPrice(Money::create(1550, $currencyUsd))
             ->setEnabled(true);
 
         $productObjectManager->persist($product);
@@ -1087,52 +1027,48 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
 
         $entityTranslator->save($product, [
             'en' => [
-                'name' => 'A life style II English',
-                'slug' => 'a-life-style-ii-en',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'A life style II English',
+                'slug'            => 'a-life-style-ii-en',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'A life style II English',
+                'metaTitle'       => 'A life style II English',
                 'metaDescription' => 'A life style II English',
-                'metaKeywords' => 'A life style II English',
+                'metaKeywords'    => 'A life style II English',
             ],
             'es' => [
-                'name' => 'A life style II Spanish',
-                'slug' => 'a-life-style-ii-es',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'A life style II Spanish',
+                'slug'            => 'a-life-style-ii-es',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'A life style II Spanish',
+                'metaTitle'       => 'A life style II Spanish',
                 'metaDescription' => 'A life style II Spanish',
-                'metaKeywords' => 'A life style II Spanish',
+                'metaKeywords'    => 'A life style II Spanish',
             ],
             'fr' => [
-                'name' => 'A life style II Français',
-                'slug' => 'a-life-style-ii-fr',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'A life style II Français',
+                'slug'            => 'a-life-style-ii-fr',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'A life style II Français',
+                'metaTitle'       => 'A life style II Français',
                 'metaDescription' => 'A life style II Français',
-                'metaKeywords' => 'A life style II Français',
+                'metaKeywords'    => 'A life style II Français',
             ],
             'ca' => [
-                'name' => 'A life style II Català',
-                'slug' => 'a-life-style-ii-ca',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'A life style II Català',
+                'slug'            => 'a-life-style-ii-ca',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'A life style II Català',
+                'metaTitle'       => 'A life style II Català',
                 'metaDescription' => 'A life style II Català',
-                'metaKeywords' => 'A life style II Català',
+                'metaKeywords'    => 'A life style II Català',
             ],
         ]);
 
-        $this->storeImage(
-            $imageObjectManager,
-            $imageManager,
-            $filesystem,
-            $fileIdentifierTransformer,
+        $this->storeProductImage(
             $product,
             'product-13.jpg'
         );
@@ -1157,7 +1093,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
             ->setStock(10000)
-            ->setPrice(Money::create(1710, $currency))
+            ->setPrice(Money::create(1710, $currencyUsd))
             ->setEnabled(true);
 
         $productObjectManager->persist($product);
@@ -1166,52 +1102,48 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
 
         $entityTranslator->save($product, [
             'en' => [
-                'name' => 'All night long English',
-                'slug' => 'all-night-long-en',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'All night long English',
+                'slug'            => 'all-night-long-en',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'All night long English',
+                'metaTitle'       => 'All night long English',
                 'metaDescription' => 'All night long English',
-                'metaKeywords' => 'All night long English',
+                'metaKeywords'    => 'All night long English',
             ],
             'es' => [
-                'name' => 'All night long Spanish',
-                'slug' => 'all-night-long-es',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'All night long Spanish',
+                'slug'            => 'all-night-long-es',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'All night long Spanish',
+                'metaTitle'       => 'All night long Spanish',
                 'metaDescription' => 'All night long Spanish',
-                'metaKeywords' => 'All night long Spanish',
+                'metaKeywords'    => 'All night long Spanish',
             ],
             'fr' => [
-                'name' => 'All night long Français',
-                'slug' => 'all-night-long-fr',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'All night long Français',
+                'slug'            => 'all-night-long-fr',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'All night long Français',
+                'metaTitle'       => 'All night long Français',
                 'metaDescription' => 'All night long Français',
-                'metaKeywords' => 'All night long Français',
+                'metaKeywords'    => 'All night long Français',
             ],
             'ca' => [
-                'name' => 'All night long Català',
-                'slug' => 'all-night-long-ca',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'All night long Català',
+                'slug'            => 'all-night-long-ca',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'All night long Català',
+                'metaTitle'       => 'All night long Català',
                 'metaDescription' => 'All night long Català',
-                'metaKeywords' => 'All night long Català',
+                'metaKeywords'    => 'All night long Català',
             ],
         ]);
 
-        $this->storeImage(
-            $imageObjectManager,
-            $imageManager,
-            $filesystem,
-            $fileIdentifierTransformer,
+        $this->storeProductImage(
             $product,
             'product-14.jpg'
         );
@@ -1237,7 +1169,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
             ->setStock(10000)
-            ->setPrice(Money::create(18000, $currency))
+            ->setPrice(Money::create(18000, $currencyUsd))
             ->setEnabled(true);
 
         $productObjectManager->persist($product);
@@ -1246,52 +1178,48 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
 
         $entityTranslator->save($product, [
             'en' => [
-                'name' => 'A.M. Nesia Ibiza II English',
-                'slug' => 'a-m-nesia-ibiza-ii-en',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'A.M. Nesia Ibiza II English',
+                'slug'            => 'a-m-nesia-ibiza-ii-en',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'A.M. Nesia Ibiza II English',
+                'metaTitle'       => 'A.M. Nesia Ibiza II English',
                 'metaDescription' => 'A.M. Nesia Ibiza II English',
-                'metaKeywords' => 'A.M. Nesia Ibiza II English',
+                'metaKeywords'    => 'A.M. Nesia Ibiza II English',
             ],
             'es' => [
-                'name' => 'A.M. Nesia Ibiza II Spanish',
-                'slug' => 'a-m-nesia-ibiza-ii-es',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'A.M. Nesia Ibiza II Spanish',
+                'slug'            => 'a-m-nesia-ibiza-ii-es',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'A.M. Nesia Ibiza II Spanish',
+                'metaTitle'       => 'A.M. Nesia Ibiza II Spanish',
                 'metaDescription' => 'A.M. Nesia Ibiza II Spanish',
-                'metaKeywords' => 'A.M. Nesia Ibiza II Spanish',
+                'metaKeywords'    => 'A.M. Nesia Ibiza II Spanish',
             ],
             'fr' => [
-                'name' => 'A.M. Nesia Ibiza II Français',
-                'slug' => 'a-m-nesia-ibiza-ii-fr',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'A.M. Nesia Ibiza II Français',
+                'slug'            => 'a-m-nesia-ibiza-ii-fr',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'A.M. Nesia Ibiza II Français',
+                'metaTitle'       => 'A.M. Nesia Ibiza II Français',
                 'metaDescription' => 'A.M. Nesia Ibiza II Français',
-                'metaKeywords' => 'A.M. Nesia Ibiza II Français',
+                'metaKeywords'    => 'A.M. Nesia Ibiza II Français',
             ],
             'ca' => [
-                'name' => 'A.M. Nesia Ibiza II Català',
-                'slug' => 'a-m-nesia-ibiza-ii-ca',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'A.M. Nesia Ibiza II Català',
+                'slug'            => 'a-m-nesia-ibiza-ii-ca',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'A.M. Nesia Ibiza II Català',
+                'metaTitle'       => 'A.M. Nesia Ibiza II Català',
                 'metaDescription' => 'A.M. Nesia Ibiza II Català',
-                'metaKeywords' => 'A.M. Nesia Ibiza II Català',
+                'metaKeywords'    => 'A.M. Nesia Ibiza II Català',
             ],
         ]);
 
-        $this->storeImage(
-            $imageObjectManager,
-            $imageManager,
-            $filesystem,
-            $fileIdentifierTransformer,
+        $this->storeProductImage(
             $product,
             'product-15.jpg'
         );
@@ -1317,7 +1245,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
             ->setStock(10000)
-            ->setPrice(Money::create(2000, $currency))
+            ->setPrice(Money::create(2000, $currencyUsd))
             ->setEnabled(true);
 
         $productObjectManager->persist($product);
@@ -1326,52 +1254,48 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
 
         $entityTranslator->save($product, [
             'en' => [
-                'name' => 'High Pyramid English',
-                'slug' => 'high-pyramid-en',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'High Pyramid English',
+                'slug'            => 'high-pyramid-en',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'High Pyramid English',
+                'metaTitle'       => 'High Pyramid English',
                 'metaDescription' => 'High Pyramid English',
-                'metaKeywords' => 'High Pyramid English',
+                'metaKeywords'    => 'High Pyramid English',
             ],
             'es' => [
-                'name' => 'High Pyramid Spanish',
-                'slug' => 'high-pyramid-es',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'High Pyramid Spanish',
+                'slug'            => 'high-pyramid-es',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'High Pyramid Spanish',
+                'metaTitle'       => 'High Pyramid Spanish',
                 'metaDescription' => 'High Pyramid Spanish',
-                'metaKeywords' => 'High Pyramid Spanish',
+                'metaKeywords'    => 'High Pyramid Spanish',
             ],
             'fr' => [
-                'name' => 'High Pyramid Français',
-                'slug' => 'high-pyramid-fr',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'High Pyramid Français',
+                'slug'            => 'high-pyramid-fr',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'High Pyramid Français',
+                'metaTitle'       => 'High Pyramid Français',
                 'metaDescription' => 'High Pyramid Français',
-                'metaKeywords' => 'High Pyramid Français',
+                'metaKeywords'    => 'High Pyramid Français',
             ],
             'ca' => [
-                'name' => 'High Pyramid Català',
-                'slug' => 'high-pyramid-ca',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'High Pyramid Català',
+                'slug'            => 'high-pyramid-ca',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'High Pyramid Català',
+                'metaTitle'       => 'High Pyramid Català',
                 'metaDescription' => 'High Pyramid Català',
-                'metaKeywords' => 'High Pyramid Català',
+                'metaKeywords'    => 'High Pyramid Català',
             ],
         ]);
 
-        $this->storeImage(
-            $imageObjectManager,
-            $imageManager,
-            $filesystem,
-            $fileIdentifierTransformer,
+        $this->storeProductImage(
             $product,
             'product-16.jpg'
         );
@@ -1397,7 +1321,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
             ->setStock(10000)
-            ->setPrice(Money::create(1145, $currency))
+            ->setPrice(Money::create(1145, $currencyUsd))
             ->setEnabled(true);
 
         $productObjectManager->persist($product);
@@ -1406,52 +1330,48 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
 
         $entityTranslator->save($product, [
             'en' => [
-                'name' => 'Star Amnesia English',
-                'slug' => 'star-amnesia-en',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Star Amnesia English',
+                'slug'            => 'star-amnesia-en',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Star Amnesia English',
+                'metaTitle'       => 'Star Amnesia English',
                 'metaDescription' => 'Star Amnesia English',
-                'metaKeywords' => 'Star Amnesia English',
+                'metaKeywords'    => 'Star Amnesia English',
             ],
             'es' => [
-                'name' => 'Star Amnesia Spanish',
-                'slug' => 'star-amnesia-es',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Star Amnesia Spanish',
+                'slug'            => 'star-amnesia-es',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Star Amnesia Spanish',
+                'metaTitle'       => 'Star Amnesia Spanish',
                 'metaDescription' => 'Star Amnesia Spanish',
-                'metaKeywords' => 'Star Amnesia Spanish',
+                'metaKeywords'    => 'Star Amnesia Spanish',
             ],
             'fr' => [
-                'name' => 'Star Amnesia Français',
-                'slug' => 'star-amnesia-fr',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Star Amnesia Français',
+                'slug'            => 'star-amnesia-fr',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Star Amnesia Français',
+                'metaTitle'       => 'Star Amnesia Français',
                 'metaDescription' => 'Star Amnesia Français',
-                'metaKeywords' => 'Star Amnesia Français',
+                'metaKeywords'    => 'Star Amnesia Français',
             ],
             'ca' => [
-                'name' => 'Star Amnesia Català',
-                'slug' => 'star-amnesia-ca',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Star Amnesia Català',
+                'slug'            => 'star-amnesia-ca',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Star Amnesia Català',
+                'metaTitle'       => 'Star Amnesia Català',
                 'metaDescription' => 'Star Amnesia Català',
-                'metaKeywords' => 'Star Amnesia Català',
+                'metaKeywords'    => 'Star Amnesia Català',
             ],
         ]);
 
-        $this->storeImage(
-            $imageObjectManager,
-            $imageManager,
-            $filesystem,
-            $fileIdentifierTransformer,
+        $this->storeProductImage(
             $product,
             'product-17.jpg'
         );
@@ -1476,7 +1396,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ->addCategory($menCategory)
             ->setPrincipalCategory($menCategory)
             ->setStock(10000)
-            ->setPrice(Money::create(1020, $currency))
+            ->setPrice(Money::create(1020, $currencyUsd))
             ->setEnabled(true);
 
         $productObjectManager->persist($product);
@@ -1485,52 +1405,48 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
 
         $entityTranslator->save($product, [
             'en' => [
-                'name' => 'Ibiza 4 Ever English',
-                'slug' => 'ibiza-4-ever-en',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Ibiza 4 Ever English',
+                'slug'            => 'ibiza-4-ever-en',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Ibiza 4 Ever English',
+                'metaTitle'       => 'Ibiza 4 Ever English',
                 'metaDescription' => 'Ibiza 4 Ever English',
-                'metaKeywords' => 'Ibiza 4 Ever English',
+                'metaKeywords'    => 'Ibiza 4 Ever English',
             ],
             'es' => [
-                'name' => 'Ibiza 4 Ever Spanish',
-                'slug' => 'ibiza-4-ever-es',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Ibiza 4 Ever Spanish',
+                'slug'            => 'ibiza-4-ever-es',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Ibiza 4 Ever Spanish',
+                'metaTitle'       => 'Ibiza 4 Ever Spanish',
                 'metaDescription' => 'Ibiza 4 Ever Spanish',
-                'metaKeywords' => 'Ibiza 4 Ever Spanish',
+                'metaKeywords'    => 'Ibiza 4 Ever Spanish',
             ],
             'fr' => [
-                'name' => 'Ibiza 4 Ever Français',
-                'slug' => 'ibiza-4-ever-fr',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Ibiza 4 Ever Français',
+                'slug'            => 'ibiza-4-ever-fr',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Ibiza 4 Ever Français',
+                'metaTitle'       => 'Ibiza 4 Ever Français',
                 'metaDescription' => 'Ibiza 4 Ever Français',
-                'metaKeywords' => 'Ibiza 4 Ever Français',
+                'metaKeywords'    => 'Ibiza 4 Ever Français',
             ],
             'ca' => [
-                'name' => 'Ibiza 4 Ever Català',
-                'slug' => 'ibiza-4-ever-ca',
-                'description' => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
+                'name'            => 'Ibiza 4 Ever Català',
+                'slug'            => 'ibiza-4-ever-ca',
+                'description'     => 'Sed venenatis mauris eros, sit amet dapibus turpis consectetur et.
                 Etiam blandit erat libero. Integer a elit a tortor scelerisque
                 bibendum quis eget tortor. Donec vitae tempor tellus.',
-                'metaTitle' => 'Ibiza 4 Ever Català',
+                'metaTitle'       => 'Ibiza 4 Ever Català',
                 'metaDescription' => 'Ibiza 4 Ever Català',
-                'metaKeywords' => 'Ibiza 4 Ever Català',
+                'metaKeywords'    => 'Ibiza 4 Ever Català',
             ],
         ]);
 
-        $this->storeImage(
-            $imageObjectManager,
-            $imageManager,
-            $filesystem,
-            $fileIdentifierTransformer,
+        $this->storeProductImage(
             $product,
             'product-18.jpg'
         );
@@ -1541,33 +1457,17 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
     /**
      * Steps necessary to store an image
      *
-     * @param ObjectManager             $imageObjectManager        Image ObjectManager
-     * @param ImageManager              $imageManager              ImageManager
-     * @param Filesystem                $filesystem                Filesystem
-     * @param fileIdentifierTransformer $fileIdentifierTransformer fileIdentifierTransformer
-     * @param ProductInterface          $product                   Product
-     * @param string                    $imageName                 Image name
+     * @param ProductInterface $product   Product
+     * @param string           $imageName Image name
      *
      * @return $this Self object
      */
-    protected function storeImage(
-        ObjectManager $imageObjectManager,
-        ImageManager $imageManager,
-        Filesystem $filesystem,
-        fileIdentifierTransformer $fileIdentifierTransformer,
+    protected function storeProductImage(
         ProductInterface $product,
         $imageName
     ) {
         $imagePath = realpath(dirname(__FILE__) . '/images/' . $imageName);
-        $image = $imageManager->createImage(new File($imagePath));
-        $imageObjectManager->persist($image);
-        $imageObjectManager->flush($image);
-
-        $filesystem->write(
-            $fileIdentifierTransformer->transform($image),
-            file_get_contents($imagePath),
-            true
-        );
+        $image = $this->storeImage($imagePath);
 
         $product->addImage($image);
         $product->setPrincipalImage($image);
@@ -1587,6 +1487,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             'Elcodi\Fixtures\DataFixtures\ORM\Currency\CurrencyData',
             'Elcodi\Fixtures\DataFixtures\ORM\Category\CategoryData',
             'Elcodi\Fixtures\DataFixtures\ORM\Attribute\AttributeData',
+            'Elcodi\Fixtures\DataFixtures\ORM\Store\StoreData',
         ];
     }
 }

@@ -1,0 +1,199 @@
+{% extends 'AdminCoreBundle::layout.html.twig' %}
+
+
+{% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
+
+
+{% set elcodi_context = {
+    entity_type: 'store',
+} %}
+
+
+{% block breadcrumb %}
+
+    {% include '@AdminCore/Common/breadcrumb.html.twig' with {
+        breadcrumb: [
+            { name: 'admin.settings.plural'|trans, active: false },
+            { name: 'admin.settings.section.address.title'|trans, active: true },
+        ]
+    } %}
+
+{% endblock breadcrumb %}
+
+
+{% block content %}
+
+    {% if
+        store.address.city is null or
+        store.address.postalcode is empty or
+        store.address.address is empty
+    %}
+        <div class="msg-warning">
+            {{ 'admin.address.incomplete'|trans }}
+        </div>
+    {% endif %}
+
+    <div class="msg-info">
+        {{ 'admin.address.edit.description'|trans }}
+    </div>
+
+    {{ form_start(form) }}
+    {{ form_row(form.address.name, { value: 'Store address' }) }}
+    <fieldset>
+        <div class="box">
+            <ol class="grid">
+                <li>
+                    {{
+                    form_widget(form.isCompany)
+                    }}
+                </li>
+            </ol>
+            <ol class="grid">
+                <li class="col-1-5">
+                    <div class="pr-l">
+                        {{
+                        form_row(form.cif, {
+                            label: 'admin.address.field.cif.title',
+                            attr: {
+                                placeholder: 'admin.address.field.cif.placeholder'
+                            }
+                        })
+                        }}
+                    </div>
+                </li>
+                <li class="col-1-5">
+                    <div class="pr-l">
+                        {{
+                        form_row(form.address.recipientName, {
+                            label: 'admin.address.field.recipient_name.title',
+                            attr: {
+                                placeholder: 'admin.address.field.recipient_name.placeholder',
+                            }
+                        })
+                        }}
+                    </div>
+                </li>
+                <li class="col-3-5">
+                    {{
+                    form_row(form.address.recipientSurname, {
+                        label: 'admin.address.field.recipient_surname.title',
+                        attr: {
+                            placeholder: 'admin.address.field.recipient_surname.placeholder',
+                        }
+                    })
+                    }}
+                </li>
+            </ol>
+            <ol>
+                <li>
+                    {{
+                        form_row(form.address.address, {
+                            label: 'admin.address.field.address.title',
+                            attr: {
+                                placeholder: 'admin.address.field.address.placeholder',
+                            }
+                        })
+                    }}
+                </li>
+            </ol>
+            <ol class="grid">
+                <li class="col-2-3">
+                    <div class="pr-l">
+                        {{
+                        form_row(form.address.addressMore, {
+                            label: 'admin.address.field.address_more.title',
+                            attr: {
+                                placeholder: 'admin.address.field.address_more.placeholder',
+                            }
+                        })
+                        }}
+                    </div>
+                </li>
+                <li class="col-1-3">
+                    {{
+                        form_row(form.address.postalcode, {
+                            label: 'admin.address.field.postalcode.title',
+                            attr: {
+                                placeholder: 'admin.address.field.postalcode.placeholder',
+                            }
+                        })
+                    }}
+                </li>
+            </ol>
+            <ol>
+                <li class="pb-n">
+                    {% render url('admin_location_selectors', { locationId: store.address.city }) %}
+                    {{ form_row(form.address.city, {
+                        attr: {
+                            class: "address-city"
+                        }
+                    }) }}
+                </li>
+            </ol>
+            <ol class="grid">
+                <li class="col-1-3 ">
+                    <div class="pr-l">
+                        {{
+                        form_row(form.address.phone, {
+                            label: 'admin.address.field.phone.title',
+                            attr: {
+                                placeholder: 'admin.address.field.phone.placeholder',
+                            }
+                        })
+                        }}
+                    </div>
+                </li>
+                <li class="col-1-3">
+                    <div class="pr-l">
+                        {{
+                            form_row(form.address.mobile, {
+                                label: 'admin.address.field.mobile.title',
+                                attr: {
+                                    placeholder: 'admin.address.field.mobile.placeholder',
+                                }
+                            })
+                        }}
+                    </div>
+                </li>
+                <li class="col-1-3">
+                    {{
+                        form_row(form.email, {
+                            label: 'admin.address.field.email.title',
+                            attr: {
+                                placeholder: 'admin.address.field.email.placeholder',
+                            }
+                        })
+                    }}
+                </li>
+            </ol>
+            <ol>
+                <li>
+                    {{
+                        form_row(form.address.comments, {
+                            label: 'admin.address.field.comments.title',
+                            attr: {
+                                placeholder: 'admin.address.field.comments.placeholder',
+                            }
+                        })
+                    }}
+                </li>
+            </ol>
+        </div>
+        <div class="grid fixed-bottom animated fade-in-up ta-c">
+            {{
+            form_widget(form.send, {
+                label: 'admin.address.field.save',
+                attr: {
+                    class: 'button-primary button-fat pv-s mr-l',
+                }
+            })
+            }}
+        </div>
+    </fieldset>
+    {{ form_end(form) }}
+
+    {% javascripts '@AdminGeoBundle/Resources/public/js/LocationSelectors.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+{% endblock content %}

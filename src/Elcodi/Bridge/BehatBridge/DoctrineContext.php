@@ -35,7 +35,7 @@ class DoctrineContext extends AbstractElcodiContext
      *
      * Debug mode
      */
-    protected $debug = false;
+    protected $debug = true;
 
     /**
      * @BeforeScenario
@@ -58,10 +58,6 @@ class DoctrineContext extends AbstractElcodiContext
                         ->getRootDir() . '/../src/Elcodi/Fixtures',
             ])
             ->executeCommand('elcodi:plugins:load')
-            ->executeCommand('elcodi:configuration:set', [
-                'identifier' => 'store.template',
-                'value' => '"StoreTemplateBundle"',
-            ])
             ->executeCommand('assets:install')
             ->executeCommand('assetic:dump');
     }

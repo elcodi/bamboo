@@ -10,41 +10,56 @@ FrontendCore.define('upload-single', [ oGlobalSettings.sPathJs + '../components/
 			});
 
 		},
-		updateSelect : function( nId ) {
+		updateSelect : function( oContainer, nId , nodeName ) {
 
-			var oContainer = document.getElementById('thumb-gallery-select');
+			if (nodeName === 'SELECT') {
+				$('option', oContainer ).filter(function() {
+					//may want to use $.trim in here
+					return $(this).val() == nId;
+				}).prop('selected', true);
 
-			$('input', oContainer).each( function() {
-				$(this).removeAttr('checked');
-			});
+			} else {
+				$('input', oContainer).each( function() {
+					$(this).removeAttr('checked');
+				});
 
-			if (nId !== undefined ) {
-				$('input[id=elcodi_admin_product_form_type_manufacturer_'+ nId +']', oContainer).click();
+				if (nId !== undefined ) {
+					$('input[id=elcodi_admin_product_form_type_manufacturer_'+ nId +']', oContainer).click();
 
+				}
 			}
+
 		},
-		addImageToGallery : function( nId) {
+		addImageToGallery : function( oContainer, nId) {
 
 			var self = this,
-				oContainer = $('.js-images-select')[0],
 				oOption;
 
+			if (oContainer.nodeName === 'SELECT') {
+				oOption = document.createElement('option');
+				oOption.id = 'elcodi_admin_product_form_type_manufacturer_' + nId;
+				oOption.value = nId;
+				oOption.innerHTML = nId;
 
-			if ($('#elcodi_admin_product_form_type_manufacturer_images_' + nId , oContainer).length === 0) {
+			} else if ($('#elcodi_admin_product_form_type_manufacturer_images_' + nId , oContainer).length === 0) {
+
 				oOption = document.createElement('input');
 				oOption.type = 'checkbox';
 				oOption.name = 'elcodi_admin_product_form_type_manufacturer[images][]';
 				oOption.id = 'elcodi_admin_product_form_type_manufacturer_' + nId;
-				oOption.value = nId;
-				$(oContainer).append(oOption);
+
 			}
 
-			self.updateSelect( nId );
+			oOption.value = nId;
+			$(oContainer).append(oOption);
+
+			self.updateSelect( oContainer, nId, oContainer.nodeName );
 		},
 		autoBind: function( oTarget ) {
 
 			var self = this,
 				sName = oTarget.id,
+				oContainer = $(oTarget).closest('.grid').find('.js-images-select')[0],
 				uploader = new plupload.Uploader({
 					runtimes : 'html5,flash,silverlight,html4',
 
@@ -75,21 +90,34 @@ FrontendCore.define('upload-single', [ oGlobalSettings.sPathJs + '../components/
 						FileUploaded: function(up, file, response) {
 
 							var oResponse = $.parseJSON(response.response),
-								nId, sFormat, sUrlView, sUrlDelete, sUrlSave, nWidth, nHeight, nType;
+								nId, sFormat, sUrlView, sUrlDelete, sUrlSave, nWidth = 0, nHeight = 0, nType = 2;
 
-							if ( sName.indexOf('header') !== -1 ) {
-								nHeight = 150;
-								nWidth = 600;
-								nType = 5;
-							} else if ( sName.indexOf('background') !== -1 ) {
-								nHeight = 400;
-								nWidth = 600;
-								nType = 4;
-							} else {
-								nHeight = 100;
-								nWidth = 300;
-								nType = 4;
+
+							if ( oTarget.getAttribute('data-fc-width') !== null) {
+								nWidth = oTarget.getAttribute('data-fc-width');
 							}
+
+							if ( oTarget.getAttribute('data-fc-height') !== null) {
+								nHeight = oTarget.getAttribute('data-fc-height');
+							}
+
+							if ( nHeight === 0 & nWidth === 0  ){
+								if ( sName.indexOf('header') !== -1 ) {
+									nHeight = 150;
+									nWidth = 600;
+									nType = 5;
+								} else if ( sName.indexOf('background') !== -1 ) {
+									nHeight = 400;
+									nWidth = 600;
+									nType = 4;
+								} else {
+									nHeight = 100;
+									nWidth = 300;
+									nType = 4;
+								}
+							}
+
+
 							if (oResponse.status === 'ok') {
 								nId = oResponse.response.id;
 								sFormat = oResponse.response.extension;
@@ -100,14 +128,14 @@ FrontendCore.define('upload-single', [ oGlobalSettings.sPathJs + '../components/
 
 							if (oTarget.getAttribute('data-url') !== null ) {
 								if (oResponse.status === 'ok') {
-									self.saveImage(sName, nId, sUrlSave, sUrlView, sUrlDelete);
+									self.saveImage(oContainer, sName, nId, sUrlSave, sUrlView, sUrlDelete);
 								} else {
 									alert('Ops! Looks like something is wrong. Sorry, try again later or contact your administrator to inform about the error.');
 								}
 							} else {
 								if (oResponse.status === 'ok') {
-									self.addImageToGallery( oResponse.response.id  );
-									self.updateImage(sName, sUrlView, sUrlDelete);
+									self.addImageToGallery( oContainer, oResponse.response.id  );
+									self.updateImage( oContainer, sName, sUrlView, sUrlDelete);
 								}
 							}
 
@@ -120,17 +148,16 @@ FrontendCore.define('upload-single', [ oGlobalSettings.sPathJs + '../components/
 						},
 
 						UploadComplete: function() {
-							$('#thumb-no-items').slideUp('fast');
 							$(document.getElementById(sName + '-progress')).fadeOut();
 						}
 					}
 				});
 
-			self.bindDelete( sName );
+			self.bindDelete( oContainer, sName );
 
 			uploader.init();
 		},
-		bindDelete : function( sName ) {
+		bindDelete : function( oContainer, sName ) {
 
 			var self = this;
 
@@ -140,27 +167,34 @@ FrontendCore.define('upload-single', [ oGlobalSettings.sPathJs + '../components/
 
 				var oTarget = this;
 
-				$.ajax({
-					url: oTarget.href,
-					type: 'post',
-					data: {
-						value: null
-					},
-					success: function() {
+					if (oContainer.nodeName === 'SELECT') {
+						$('option:first', oContainer).prop('selected', true);
 						oTarget.style.display = 'none';
 						document.getElementById(sName + '-image').style.display = 'none';
-						self.updateSelect();
+						self.updateSelect(oContainer);
+					} else {
+						$.ajax({
+							url: oTarget.href,
+							type: 'post',
+							data: {
+								value: null
+							},
+							success: function() {
+								oTarget.style.display = 'none';
+								document.getElementById(sName + '-image').style.display = 'none';
+								self.updateSelect(oContainer);
+							}
+						});
 					}
-				});
 			});
 		},
-		updateImage : function( sName, sUrlView, sUrlDelete ) {
+		updateImage : function( oContainer, sName, sUrlView, sUrlDelete ) {
 			$('img', '#' + sName + '-image').attr('src', sUrlView);
 			document.getElementById(sName + '-image').style.display = 'block';
 			document.getElementById(sName + '-delete').style.display = 'inline-block';
 			document.getElementById(sName + '-delete').href = sUrlDelete;
 		},
-		saveImage : function( sName, nId, sUrlSave, sUrlView, sUrlDelete) {
+		saveImage : function( oContainer, sName, nId, sUrlSave, sUrlView, sUrlDelete) {
 
 			var self = this;
 
@@ -171,7 +205,7 @@ FrontendCore.define('upload-single', [ oGlobalSettings.sPathJs + '../components/
 					value: nId
 				},
 				success: function() {
-					self.updateImage(sName, sUrlView, sUrlDelete);
+					self.updateImage(oContainer, sName, sUrlView, sUrlDelete);
 				}
 			});
 		}

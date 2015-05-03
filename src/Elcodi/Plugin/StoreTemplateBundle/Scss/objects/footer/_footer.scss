@@ -2,7 +2,7 @@
 	& {
 		clear: both;
 		text-align: left;
-		background: $color-primary;
+		background: rgba($color-primary, .9);
 		color: rgba($color-background, .7);
 		box-shadow: 0 0 2px rgba($color-foreground, .1);
 		min-height: 150px;
@@ -12,10 +12,12 @@
 	a {
 		color: $color-background;
 	}
-
+	.leitmotiv {
+		margin-top: $spacing/2;
+	}
 	.logo {
 		& {
-			float: right;
+			float: left;
 			font-family: $font-face-logo;
 			font-size: $font-size-xxl;
 			display: inline-block;

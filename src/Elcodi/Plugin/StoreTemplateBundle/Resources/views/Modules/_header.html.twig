@@ -1,21 +1,24 @@
 
-
-<header class="header">
-    {% render url('store_currency_nav') %}
-    {% render url('store_language_nav') %}
+<header class="header" {% if store.headerImage %}style="background-image:url('{{ store.headerImage|resize({ height: 1200, width: 1200, type: 2 })  }}')"{% endif %}>
+    {{ render(url('store_currency_nav')) }}
+    {{ render(url('store_language_nav')) }}
     <div class="grid">
         <div class="col-1-2">
             <a href="{{ url('store_homepage') }}" class="logo">
-                {{ elcodi_config('store.name') }}
+                {% if store.logo %}
+                    <img src="{{ store.logo|resize({ height: 100, width: 300, type: 2 })  }}" />
+                {% else %}
+                    {{ store.name }}
+                {% endif %}
             </a>
         </div>
         <div class="col-1-2">
-            {% render url('store_user_nav') %}
-            {% render url('store_cart_nav') %}
+            {{ render(url('store_user_nav')) }}
+            {{ render(url('store_cart_nav')) }}
         </div>
     </div>
 </header>
 <div class="grid desktop">
-    {% render url('store_categories_nav') %}
+    {{ render(url('store_categories_nav')) }}
 </div>
 <a href="#mobile-menu" class="button mobile"><i class="fa fa-arrow-down"></i> {{ 'template.store_template_bundle.header.menu'|trans }}</a>

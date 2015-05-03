@@ -1,10 +1,17 @@
 <div id="mobile-menu" class="grid mobile">
-    {% render url('store_categories_nav') %}
+    {{ render(url('store_categories_nav')) }}
 </div>
 <footer class="footer">
     <div class="grid">
         <div class="col-1-1">
-            <p><strong>{{ elcodi_config('store.leitmotiv') }}</strong></p>
+            <a href="{{ url('store_homepage') }}" class="logo">
+                {% if store.secondaryLogo %}
+                    <img src="{{ store.secondaryLogo|resize({ height: 59, width: 200, type: 2 })  }}" />
+                {% else %}
+                    {{ store.name }}
+                {% endif %}
+            </a>
+            <p class="leitmotiv"><strong>{{ store.leitmotiv }}</strong></p>
         </div>
     </div>
     <div class="grid">

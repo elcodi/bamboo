@@ -58,6 +58,7 @@ class AdminCurrencyExtension extends AbstractExtension
     {
         return [
             'formTypes',
+            'menu',
         ];
     }
 

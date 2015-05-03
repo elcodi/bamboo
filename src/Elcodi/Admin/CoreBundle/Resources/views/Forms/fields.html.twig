@@ -41,19 +41,43 @@
 {% endspaceless %}
 {% endblock form_row %}
 
+{% block choice_widget %}
+    {% spaceless %}
+        {% if expanded %}
+            {{ block('choice_widget_expanded') }}
+        {% else %}
+            {{ block('choice_widget_collapsed') }}
+        {% endif %}
+    {% endspaceless %}
+{% endblock choice_widget %}
+
+{% block choice_widget_expanded %}
+    {% spaceless %}
+        <ul {{ block('widget_container_attributes') }} class="list-horizontal">
+            {% for child in form %}
+                <li>
+                    {{ form_widget(child) }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endspaceless %}
+{% endblock choice_widget_expanded %}
 
 {% block radio_widget %}
-{% spaceless %}
-    <input type="radio"
-        {{ block('widget_attributes') }}
-        {% if value is defined %}
-            value="{{ value }}"
-        {% endif %}
-        {% if checked %}
-            checked="checked"
-        {% endif %}
-    />
-{% endspaceless %}
+    {% spaceless %}
+        <label>
+            <input type="radio"
+                    {{ block('widget_attributes') }}
+                    {% if value is defined %}
+                        value="{{ value }}"
+                    {% endif %}
+                    {% if checked %}
+                        checked="checked"
+                    {% endif %}
+                    />
+            {{ label|trans }}
+        </label>
+    {% endspaceless %}
 {% endblock radio_widget %}
 
 

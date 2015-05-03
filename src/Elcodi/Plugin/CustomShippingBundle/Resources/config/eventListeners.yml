@@ -1,0 +1,13 @@
+services:
+
+    #
+    # Event Listeners
+    #
+    elcodi_plugin.custom_shipping.event_listener.shipping_collect:
+        class: Elcodi\Plugin\CustomShippingBundle\EventListener\ShippingCollectEventListener
+        arguments:
+            - @elcodi.repository.carrier
+            - @elcodi.converter.currency
+            - @elcodi.matcher.zone
+        tags:
+            - { name: kernel.event_listener, event: shipping.collect, method: addCustomShippingMethods }

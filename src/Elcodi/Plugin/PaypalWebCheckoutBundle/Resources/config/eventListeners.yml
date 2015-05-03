@@ -1,7 +1,7 @@
 services:
 
     #
-    # Twig renderer
+    # Event Listeners
     #
     elcodi_plugin.paypal.event_listener.payment_collect:
         class: Elcodi\Plugin\PaypalWebCheckoutBundle\EventListener\PaymentCollectEventListener

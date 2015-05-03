@@ -57,7 +57,7 @@ class AdminShippingExtension extends AbstractExtension
     public function getConfigFiles(array $config)
     {
         return [
-            'formTypes',
+            'menu',
         ];
     }
 

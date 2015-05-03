@@ -19,6 +19,8 @@ namespace Elcodi\Admin\CoreBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
+use Elcodi\Admin\CoreBundle\DependencyInjection\AdminCoreExtension;
+
 /**
  * Class AdminCoreBundle
  */
@@ -31,6 +33,6 @@ class AdminCoreBundle extends Bundle
      */
     public function getContainerExtension()
     {
-        return null;
+        return new AdminCoreExtension();
     }
 }

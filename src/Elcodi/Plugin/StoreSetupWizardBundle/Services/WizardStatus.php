@@ -17,25 +17,16 @@
 
 namespace Elcodi\Plugin\StoreSetupWizardBundle\Services;
 
-use Elcodi\Component\Configuration\Services\ConfigurationManager;
 use Elcodi\Component\Plugin\Entity\Plugin;
 use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
 use Elcodi\Component\Product\Repository\ProductRepository;
-use Elcodi\Component\Shipping\Entity\Interfaces\ShippingPriceRangeInterface;
-use Elcodi\Component\Shipping\Repository\ShippingRangeRepository;
+use Elcodi\Component\Store\Entity\Interfaces\StoreInterface;
 
 /**
  * Class WizardStatus
  */
 class WizardStatus
 {
-    /**
-     * @var ConfigurationManager
-     *
-     * Configuration manager
-     */
-    protected $configurationManager;
-
     /**
      * @var ProductRepository
      *
@@ -44,11 +35,11 @@ class WizardStatus
     protected $productRepository;
 
     /**
-     * @var ShippingRangeRepository
+     * @var StoreInterface
      *
-     * Shipping range repository
+     * Store
      */
-    protected $shippingRangeRepository;
+    protected $store;
 
     /**
      * @var Plugin[]
@@ -58,23 +49,30 @@ class WizardStatus
     private $enabledPaymentPlugins;
 
     /**
+     * @var Plugin[]
+     *
+     * The shipping enabled Plugins
+     */
+    private $enabledShippingPlugins;
+
+    /**
      * Builds a new WizardStepChecker
      *
-     * @param ConfigurationManager    $configurationManager    Configuration manager
-     * @param ProductRepository       $productRepository       Product repository
-     * @param ShippingRangeRepository $shippingRangeRepository A shipping range repository
-     * @param array                   $enabledPaymentPlugins   The enabled payment methods
+     * @param ProductRepository $productRepository      Product repository
+     * @param StoreInterface    $store                  Store
+     * @param array             $enabledPaymentPlugins  The enabled payment methods
+     * @param array             $enabledShippingPlugins The enabled shipping methods
      */
     public function __construct(
-        ConfigurationManager $configurationManager,
         ProductRepository $productRepository,
-        ShippingRangeRepository $shippingRangeRepository,
-        array $enabledPaymentPlugins
+        StoreInterface $store,
+        array $enabledPaymentPlugins,
+        array $enabledShippingPlugins
     ) {
-        $this->configurationManager = $configurationManager;
         $this->productRepository = $productRepository;
-        $this->shippingRangeRepository = $shippingRangeRepository;
+        $this->store = $store;
         $this->enabledPaymentPlugins = $enabledPaymentPlugins;
+        $this->enabledShippingPlugins = $enabledShippingPlugins;
     }
 
     /**
@@ -122,7 +120,7 @@ class WizardStatus
             case 3:
                 return $this->isPaymentFulfilled();
             case 4:
-                return $this->isThereAnyShippingRange();
+                return $this->isShippingFulfilled();
             default:
                 return true;
         }
@@ -151,10 +149,14 @@ class WizardStatus
     protected function isAddressFulfilled()
     {
         $storeAddress = $this
-            ->configurationManager
-            ->get('store.address');
+            ->store
+            ->getAddress();
 
-        return !empty($storeAddress);
+        return
+            $storeAddress->getCity() != '' &&
+            $storeAddress->getCity() != null &&
+            $storeAddress->getAddress() != '' &&
+            $storeAddress->getPostalcode() != '';
     }
 
     /**
@@ -195,12 +197,15 @@ class WizardStatus
      *
      * @return boolean
      */
-    protected function isThereAnyShippingRange()
+    protected function isShippingFulfilled()
     {
-        $shippingRange = $this
-            ->shippingRangeRepository
-            ->findOneBy([]);
+        return array_reduce(
+            $this->enabledShippingPlugins,
+            function ($value, Plugin $plugin) {
 
-        return ($shippingRange instanceof ShippingPriceRangeInterface);
+                return $value || $plugin->guessIsUsable();
+            },
+            false
+        );
     }
 }

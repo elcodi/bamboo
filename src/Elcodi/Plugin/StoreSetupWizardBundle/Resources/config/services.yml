@@ -6,10 +6,10 @@ services:
     elcodi_plugin.store_setup_wizard.wizard_status:
         class: Elcodi\Plugin\StoreSetupWizardBundle\Services\WizardStatus
         arguments:
-            - @elcodi.manager.configuration
             - @elcodi.repository.product
-            - @elcodi.repository.shipping_range
+            - @elcodi.store
             - @elcodi.enabled_payment_plugins
+            - @elcodi.enabled_shipping_plugins
 
     elcodi_plugin.store_setup_wizard.wizard_routes:
         class: Elcodi\Plugin\StoreSetupWizardBundle\Services\WizardRoutes

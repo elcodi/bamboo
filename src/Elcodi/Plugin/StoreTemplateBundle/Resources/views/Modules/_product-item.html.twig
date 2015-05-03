@@ -2,11 +2,6 @@
  # Base display block for a Product with no variants in listing page.
  #}
 <div class="product-item">
-
-    {{ elcodi_hook("store.product_pin_top", {
-        'product': product
-    }) }}
-
     {% set productRoute = url('store_product_view', { 'slug': product.slug, 'id': product.id }) %}
 
     {% block pin_title %}

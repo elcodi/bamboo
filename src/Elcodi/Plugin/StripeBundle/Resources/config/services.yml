@@ -41,5 +41,7 @@ services:
             stripe.public.key: @elcodi_plugin.stripe.public_key
             form.factory: @form.factory
             payment.bridge: @payment.bridge
+            view_template: %stripe.templates.view_template%
+            scripts_template: %stripe.templates.scripts_template%
         tags:
             - { name: twig.extension }

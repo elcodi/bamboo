@@ -1,0 +1,11 @@
+services:
+
+    #
+    # Menu builders
+    #
+    elcodi.admin.menu_builder.product:
+        class: Elcodi\Admin\ProductBundle\Builder\MenuBuilder
+        arguments:
+            - @elcodi.factory.menu_node
+        tags:
+            - { name: menu.builder }

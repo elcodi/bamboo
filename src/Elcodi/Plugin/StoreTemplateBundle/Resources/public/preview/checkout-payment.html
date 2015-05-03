@@ -54,10 +54,9 @@
 <!--[if lt IE 8]>
     <!-- should warn for outdated browser -->
 <![endif]-->
-    
         
-
-<header class="header">
+        
+<header class="header" >
         <nav class="currency-nav">
         <div class="grid">
             <ul>
@@ -87,8 +86,8 @@
         <div class="grid">
         <div class="col-1-2">
             <a href="#" class="logo">
-                store name
-            </a>
+                                    My Awesome Store
+                            </a>
         </div>
         <div class="col-1-2">
             <ul class="user-nav">
@@ -158,49 +157,7 @@
                 
                     <div class="grid">
         <div class="col-2-3">
-            <h1 class="checkout-title">Set the shipping & the payment</h1>
-<p class="checkout-actions checkout-actions-top">
-    <button class="button button-secondary js-continue desktop" type="submit">Continue  <i class="fa fa-arrow-right"></i></button>
-    <a class="button desktop" href="#"> <i class="fa fa-arrow-left"></i> Back</a>
-    <span class="progress">
-    <span class="progress-complete progress-status-3">
-        <span class="progress-marker"></span>
-    </span>
-</span>
-</p>
-<form id="form-payment-execute" action="" method="post">
-        <div class="form form-checkout">
-        <ol class="grid grid-pad">
-            <h2>Payment method</h2>
-            <li class="col-1-3">
-                <label>
-                    <input data-url="" type="radio" id="field-paymill" name="field-method" checked="checked" />
-                    Credit/Debit card
-                </label>
-            </li>
-            <li class="col-1-3">
-                <label>
-                    <input data-url="#" type="radio" id="field-paypal" name="field-method" />
-                    Paypal
-                </label>
-            </li>
-            <li class="col-1-3">
-                <label>
-                    <input data-url="#" type="radio" id="field-card" name="field-method"  />
-                    Bank wire
-                </label>
-            </li>
-        </ol>
-    </div>
-</form>
-<div id="paymill_form_div">
-    false
-</div>
-<p class="checkout-actions checkout-actions-bottom">
-    <a class="button" href="#"> <i class="fa fa-arrow-left"></i> Back</a>
-    <button class="button button-secondary js-continue" type="submit">Continue  <i class="fa fa-arrow-right"></i></button>
-</p>
-        </div>
+                                </div>
         <div class="col-1-3">
             <div class="cart-preview">
                 <h2>Your cart</h2>
@@ -241,7 +198,10 @@
 <footer class="footer">
     <div class="grid">
         <div class="col-1-1">
-            <p><strong>store leitmotiv</strong></p>
+            <a href="#" class="logo">
+                                    My Awesome Store
+                            </a>
+            <p class="leitmotiv"><strong></strong></p>
         </div>
     </div>
     <div class="grid">
@@ -264,56 +224,8 @@
         <script>
         _etc.push(["", 'page_view']);
     </script>
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
-
-
-    false
-
-    <script type="application/javascript">
-
-        $(function() {
-
-            /* Setting payment execute URL to first selected
-            *  payment method from the radio-button choices */
-            var formPaymentExecute = $("#form-payment-execute"),
-                paymentRadioInput = $("input[name=field-method]"),
-                selectedRadioInput = $("input[name=field-method]:checked"),
-                selectedPaymentExecuteUrl = selectedRadioInput.data("url"),
-                paymmillForm = $('#paymill_form'),
-                activeForm = paymmillForm;
-
-            formPaymentExecute.attr("action", selectedPaymentExecuteUrl);
-
-            paymentRadioInput.change(function() {
-                /* We are storing the execute action url
-                 * into a data attribute which will be copied
-                 * to the form "action" when changing payment
-                 * method */
-                var executeUrl = $(this).data("url");
-
-                if (executeUrl) {
-                    /* When no data-url is present in the radios,
-                     * it means we selected the "paymill" method */
-                    $(".js-continue").removeClass("hidden");
-                    $("#paymill_form_div").addClass("hidden");
-                    activeForm = formPaymentExecute;
-
-                    formPaymentExecute.attr("action", executeUrl);
-                } else {
-                    $(".js-continue").addClass("hidden");
-                    $("#paymill_form_div").removeClass("hidden");
-                    activeForm = paymmillForm;
-                }
-            });
-
-            $(".js-continue").on('click', function(){
-                activeForm.submit();
-            })
-        });
-
-    </script>
 
 
 </body>

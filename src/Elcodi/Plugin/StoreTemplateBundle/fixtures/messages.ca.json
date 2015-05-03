@@ -163,7 +163,8 @@
                     "image": "Imatge",
                     "number_of_order": "Nº de Comanda",
                     "order_number": "Comanda #",
-                    "state": "Comunitat autònoma",
+                    "payment_state": "Estat de pagament",
+                    "shipping_state": "Estat d'enviament",
                     "date": "Data",
                     "total": "Total",
                     "no_orders": "Encara no tens cap comanda"

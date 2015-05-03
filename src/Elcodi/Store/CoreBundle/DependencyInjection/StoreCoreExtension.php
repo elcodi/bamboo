@@ -101,6 +101,8 @@ class StoreCoreExtension extends AbstractExtension
      *
      * @param array            $config
      * @param ContainerBuilder $container
+     *
+     * @return null
      */
     protected function setupExceptions(array $config, ContainerBuilder $container)
     {

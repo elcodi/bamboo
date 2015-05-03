@@ -57,17 +57,14 @@ class LocationController extends Controller
      *      }
      * )
      */
-    public function showCitySelectorAction(
-        $locationId
-    ) {
-        $citySelectorBuilder = $this->get(
-            'elcodi.store.geo.form.location_selector_builder'
-        );
-
-        $selects = $citySelectorBuilder->getSelects(
-            $locationId,
-            $this->maxLocationType
-        );
+    public function showCitySelectorAction($locationId)
+    {
+        $selects = $this
+            ->get('elcodi.store.geo.form.location_selector_builder')
+            ->getSelects(
+                $locationId,
+                $this->maxLocationType
+            );
 
         return $this->renderTemplate(
             'Subpages:location-selector.html.twig',

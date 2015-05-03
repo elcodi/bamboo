@@ -33,7 +33,7 @@
         </div>
     </div>
 
-    {% render url('location_selectors',{locationId:address.city}) %}
+    {{ render(url('location_selectors',{locationId:address.city})) }}
 
     {{ form_row(form.city) }}
     <div class="grid">

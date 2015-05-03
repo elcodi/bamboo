@@ -11,7 +11,7 @@ services:
         arguments:
             - @elcodi_plugin.store_setup_wizard.wizard_status
             - @request_stack
-            - @elcodi.manager.configuration
+            - @elcodi.store
             - @elcodi_plugin.store_setup_wizard.wizard_routes
             - @elcodi.repository.carrier
         tags:

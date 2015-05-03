@@ -25,9 +25,6 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
-use Elcodi\Component\Configuration\Exception\ConfigurationNotEditableException;
-use Elcodi\Component\Configuration\Services\ConfigurationManager;
-
 /**
  * Class AbstractElcodiContext
  */
@@ -98,34 +95,5 @@ class AbstractElcodiContext extends RawMinkContext implements Context, KernelAwa
         return $this
             ->getUrlGenerator()
             ->generate($routeName, $routeParameters);
-    }
-
-    /**
-     * Set a value in the configuration manager
-     *
-     * @param string $identifier Name of the setting in configuration
-     * @param mixed  $newValue   New value
-     *
-     * @throws ConfigurationNotEditableException
-     */
-    protected function setConfiguration($identifier, $newValue)
-    {
-        $this
-            ->getConfigurationManager()
-            ->set($identifier, $newValue);
-    }
-
-    /**
-     * Get configuration manager
-     *
-     * @return ConfigurationManager
-     */
-    protected function getConfigurationManager()
-    {
-        $manager = $this
-            ->getContainer()
-            ->get('elcodi.manager.configuration');
-
-        return $manager;
     }
 }

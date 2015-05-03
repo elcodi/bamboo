@@ -36,7 +36,7 @@
             </a>
             <legend>{{ 'template.store_template_bundle.user.login.login_with_social'|trans }}</legend>
             <div class="login-social">
-                {% render url('hwi_oauth_connect') %}
+                {{ render(url('hwi_oauth_connect')) }}
             </div>
         </div>
     </div>

@@ -30,7 +30,7 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Elcodi\Component\Cart\Entity\Interfaces\CartInterface;
 use Elcodi\Component\Cart\Entity\Interfaces\OrderInterface;
 use Elcodi\Component\Geo\Entity\Interfaces\AddressInterface;
-use Elcodi\Component\Shipping\Entity\Interfaces\ShippingRangeInterface;
+use Elcodi\Component\Shipping\Entity\ShippingMethod;
 use Elcodi\Component\User\Entity\Interfaces\CustomerInterface;
 use Elcodi\Store\CoreBundle\Controller\Traits\TemplateRenderTrait;
 
@@ -130,9 +130,9 @@ class CheckoutController extends Controller
         return $this->renderTemplate(
             'Pages:checkout-address.html.twig',
             [
-                'cart'        => $cart,
-                'addresses'   => $addressesFormatted,
-                'form'        => $formView,
+                'cart'      => $cart,
+                'addresses' => $addressesFormatted,
+                'form'      => $formView,
             ]
         );
     }
@@ -189,7 +189,7 @@ class CheckoutController extends Controller
                 }
             } else {
                 $translator = $this->get('translator');
-                $type       = $translator->trans($addressType);
+                $type = $translator->trans($addressType);
                 $this->addFlash(
                     'success',
                     $translator->trans(
@@ -256,11 +256,18 @@ class CheckoutController extends Controller
         }
 
         /**
-         * Available shipping ranges
+         * Available payment methods
          */
-        $shippingRanges = $this
-            ->get('elcodi.provider.shipping_range')
-            ->getValidShippingRangesSatisfiedWithCart($cart);
+        $paymentMethods = $this
+            ->get('elcodi.wrapper.payment_methods')
+            ->get();
+
+        /**
+         * Available shipping methods
+         */
+        $shippingMethods = $this
+            ->get('elcodi.wrapper.shipping_methods')
+            ->get($cart);
 
         /**
          * By default, if the cart has not shipping data and we have available
@@ -268,11 +275,11 @@ class CheckoutController extends Controller
          * Then we reload page to recalculate cart values
          */
         if (
-            !($cart->getShippingRange() instanceof ShippingRangeInterface) &&
-            !empty($shippingRanges)
+            $cart->getShippingMethod() == null &&
+            !empty($shippingMethods)
         ) {
-            $shippingRangeApplied = reset($shippingRanges);
-            $cart->setShippingRange($shippingRangeApplied);
+            $shippingMethodApplied = reset($shippingMethods);
+            $cart->setShippingAmount($shippingMethodApplied->getId());
             $this
                 ->get('elcodi.object_manager.cart')
                 ->flush($cart);
@@ -289,9 +296,10 @@ class CheckoutController extends Controller
         return $this->renderTemplate(
             'Pages:checkout-payment.html.twig',
             [
-                'shippingRanges'        => $shippingRanges,
-                'cart'                  => $cart,
-                'cartCoupons'           => $cartCoupons,
+                'shippingMethods' => $shippingMethods,
+                'paymentMethods'  => $paymentMethods,
+                'cart'            => $cart,
+                'cartCoupons'     => $cartCoupons,
             ]
         );
     }
@@ -304,8 +312,8 @@ class CheckoutController extends Controller
      * @return Response Response
      *
      * @Route(
-     *      path = "/shipping/range/change/{rangeId}",
-     *      name = "store_checkout_shipping_range_apply",
+     *      path = "/shipping/method/change/{shippingMethod}",
+     *      name = "store_checkout_shipping_method_apply",
      *      methods = {"GET"}
      * )
      * @EntityAnnotation(
@@ -317,17 +325,17 @@ class CheckoutController extends Controller
      *      name = "cart"
      * )
      */
-    public function applyShippingRangeAction(CartInterface $cart, $rangeId)
+    public function applyShippingMethodAction(CartInterface $cart, $shippingMethod)
     {
         /**
-         * Available shipping ranges
+         * Desired shipping method
          */
-        $shippingRanges = $this
-            ->get('elcodi.provider.shipping_range')
-            ->getValidShippingRangesSatisfiedWithCart($cart);
+        $shippingMethods = $this
+            ->get('elcodi.wrapper.shipping_methods')
+            ->getOneById($cart, $shippingMethod);
 
-        if (isset($shippingRanges[$rangeId])) {
-            $cart->setShippingRange($shippingRanges[$rangeId]);
+        if ($shippingMethods instanceof ShippingMethod) {
+            $cart->setShippingMethod($shippingMethods);
             $this
                 ->get('elcodi.object_manager.cart')
                 ->flush($cart);

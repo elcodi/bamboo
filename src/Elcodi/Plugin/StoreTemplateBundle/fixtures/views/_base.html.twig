@@ -13,7 +13,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>{% block title %}{{ elcodi_config('store.name') }}{% endblock title %}</title>
+    <title>{% block title %}{{ store.name }}{% endblock title %}</title>
     {% block meta_tags %}{% endblock meta_tags %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript">document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/,'js');</script>
@@ -60,7 +60,7 @@
 {% block pixels %}{% endblock %}
 {% block view_pixel %}
     <script>
-        _etc.push(["{{ store_tracker }}", 'page_view']);
+        _etc.push(["{{ store.tracker }}", 'page_view']);
     </script>
 {% endblock view_pixel %}
 {% block foot_script %}{% endblock foot_script %}

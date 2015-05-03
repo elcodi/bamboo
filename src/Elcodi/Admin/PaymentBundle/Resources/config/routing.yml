@@ -1,3 +1,0 @@
-AdminPaymentBundle:
-    resource: "@AdminPaymentBundle/Controller/"
-    type:     annotation

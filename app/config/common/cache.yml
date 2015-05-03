@@ -16,13 +16,6 @@ doctrine_cache:
             namespace: %elcodi.core.bamboo.cache_prefix%menus
 
         #
-        # Configuration values cache
-        #
-        elcodi_configurations:
-            type: redis
-            namespace: %elcodi.core.bamboo.cache_prefix%configuration
-
-        #
         # Entity translations cache
         #
         elcodi_translations:

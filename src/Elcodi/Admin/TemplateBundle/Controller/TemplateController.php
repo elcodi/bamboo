@@ -17,12 +17,16 @@
 
 namespace Elcodi\Admin\TemplateBundle\Controller;
 
+use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
+use Mmoreram\ControllerExtraBundle\Annotation\JsonResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Response;
 
 use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\Component\Plugin\Entity\Plugin;
 use Elcodi\Component\Plugin\PluginTypes;
+use Elcodi\Component\Store\Entity\Interfaces\StoreInterface;
 
 /**
  * Class Controller for Templates
@@ -57,9 +61,6 @@ class TemplateController extends AbstractAdminController
             ]);
 
         $assetPaths = [];
-        $currentTemplate = $this
-            ->get('elcodi.manager.configuration')
-            ->get('store.template');
 
         foreach ($templates as $plugin) {
             $assetPath = str_replace('bundle', '', strtolower($plugin->getBundleName()));
@@ -68,8 +69,56 @@ class TemplateController extends AbstractAdminController
 
         return [
             'templates'       => $templates,
-            'currentTemplate' => $currentTemplate,
             'assetPaths'      => $assetPaths,
+        ];
+    }
+
+    /**
+     * Assign a template selection to the store
+     *
+     * @param StoreInterface $store Store
+     *
+     * @return Response Response
+     *
+     * @Route(
+     *      path = "/assign/{hash}",
+     *      name = "admin_template_assign",
+     *      methods = {"POST"}
+     * )
+     *
+     * @EntityAnnotation(
+     *      class = {
+     *          "factory" = "elcodi.wrapper.store",
+     *          "method" = "get",
+     *          "static" = false
+     *      },
+     *      name = "store"
+     * )
+     * @JsonResponse()
+     */
+    public function assignAction(
+        StoreInterface $store,
+        $hash
+    ) {
+        /**
+         * @var Plugin $plugin
+         */
+        $plugin = $this
+            ->get('elcodi.repository.plugin')
+            ->findOneBy([
+                'hash' => $hash,
+                'type' => PluginTypes::TYPE_TEMPLATE,
+            ]);
+
+        $store->setTemplate($plugin->getHash());
+
+        $this
+            ->get('elcodi.object_manager.store')
+            ->flush($store);
+
+        return [
+            'status'  => 200,
+            'message' => 'ok',
         ];
     }
 }
