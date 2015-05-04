@@ -72,7 +72,7 @@ class ProductController extends Controller
             return $this->redirectToRoute('store_product_view', [
                 'id'   => $product->getId(),
                 'slug' => $product->getSlug(),
-            ]);
+            ], 301);
         }
 
         $useStock = $this->get('elcodi.manager.configuration')

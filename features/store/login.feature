@@ -21,4 +21,4 @@ Feature: Store login
   Scenario: Logged user is redirected to home when goes to login page
     Given I am logged as "customer@customer.com" - "1234"
     When I go to "/login"
-    Then I am on "/user"
+    Then I should be on "/"

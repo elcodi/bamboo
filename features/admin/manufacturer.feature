@@ -6,6 +6,6 @@ Feature: Admin manufacturer
 
   Scenario: See manufacturer list in admin with new manufacturer element
     Given In admin, I am logged as "admin@admin.com" - "1234"
-    And I am on "/admin/manufacturers"
+    When I go to "/admin/manufacturers"
     Then the response should contain a "manufacturer-1" test attribute
     And the response should contain a "new-manufacturer" test attribute

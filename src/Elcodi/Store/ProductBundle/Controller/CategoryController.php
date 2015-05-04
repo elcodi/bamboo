@@ -24,6 +24,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 use Elcodi\Component\Product\Entity\Interfaces\CategoryInterface;
+use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
 use Elcodi\Store\CoreBundle\Controller\Traits\TemplateRenderTrait;
 
 /**
@@ -95,8 +96,19 @@ class CategoryController extends Controller
      *      }
      * )
      */
-    public function viewAction(CategoryInterface $category)
+    public function viewAction(CategoryInterface $category, $slug)
     {
+        /**
+         * We must check that the product slug is right. Otherwise we must
+         * return a Redirection 301 to the right url
+         */
+        if ($slug !== $category->getSlug()) {
+            return $this->redirectToRoute('store_category_products_list', [
+                'id'   => $category->getId(),
+                'slug' => $category->getSlug(),
+            ], 301);
+        }
+
         $products = $this
             ->get('elcodi.repository.product')
             ->findBy([
@@ -125,9 +137,16 @@ class CategoryController extends Controller
         $masterRoute = $request->get('_route');
         $category = null;
 
+        /**
+         * @var CategoryInterface $category
+         */
         if ($masterRoute === 'store_product_view') {
             $productId = $request->get('id');
             $productRepository = $this->get('elcodi.repository.product');
+
+            /**
+             * @var ProductInterface $product
+             */
             $product = $productRepository->find($productId);
             $category = $product->getPrincipalCategory();
         } elseif ($masterRoute === 'store_category_products_list') {
