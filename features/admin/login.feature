@@ -11,7 +11,7 @@ Feature: Admin login
 
   Scenario: Access login form
     Given I am on "/admin/logout"
-    And I go to "/admin/login"
+    When I go to "/admin/login"
     Then the response status code should be 200
 
   Scenario: User can login
@@ -26,4 +26,4 @@ Feature: Admin login
   Scenario: Logged user is redirected to home when goes to login page
     Given In admin, I am logged as "admin@admin.com" - "1234"
     When I go to "/admin/login"
-    Then I am on "admin/plugin/setup-wizard/store-setup-wizard"
+    Then I should be on "admin/plugin/setup-wizard/store-setup-wizard"

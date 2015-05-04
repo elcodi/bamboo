@@ -20,6 +20,6 @@ Feature: Store cart
 
   Scenario: See the cart checkout being logged in
     Given I am logged as "customer@customer.com" - "1234"
-    And I am on "/cart/product/10/add"
-    When I go to "/cart/address"
-    And I should be on "/cart/address"
+    When I go to "/cart/product/10/add"
+    And I go to "/cart/address"
+    Then I should be on "/cart/address"

@@ -10,8 +10,8 @@ Feature: Store pages
 
   Scenario: See an existing page but in another language
     Given I am on "/es/page/2/about-us"
-    Then I am on "/es/page/2/sobre-nosotros"
-    Then the response status code should be 200
+    Then I should be on "/es/page/2/sobre-nosotros"
+    And the response status code should be 200
 
   Scenario: See a non regular page (for example, an email)
     Given I am on "/page/1/hello-world"

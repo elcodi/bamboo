@@ -20,7 +20,7 @@ Feature: Store user
 
   Scenario: User management should be accessible if logged
     Given I am logged as "customer@customer.com" - "1234"
-    And I am on "/user"
+    When I go to "/user"
     Then I should be on "/user"
     And the page contains a "user-dashboard-profile-link" test attribute
     And the page contains a "user-dashboard-orders-link" test attribute
@@ -28,8 +28,8 @@ Feature: Store user
 
   Scenario: User logged should see its data in edit tab
     Given I am logged as "customer@customer.com" - "1234"
-    Then I am on "/user/edit"
-    And the "store_user_form_type_profile_firstname" field should contain "Homer"
+    When I go to "/user/edit"
+    Then the "store_user_form_type_profile_firstname" field should contain "Homer"
     And the "store_user_form_type_profile_lastname" field should contain "Simpson"
     And the "store_user_form_type_profile_email" field should contain "customer@customer.com"
     And the "store_user_form_type_profile_password_first" field should not contain "1234"
@@ -42,13 +42,13 @@ Feature: Store user
 
   Scenario: User logged should be able to change its data
     Given I am logged as "customer@customer.com" - "1234"
-    And I am on "/user/edit"
+    And I go to "/user/edit"
     When I fill in the following:
       | store_user_form_type_profile_firstname | Engonga                 |
       | store_user_form_type_profile_lastname  | Flipencio               |
       | store_user_form_type_profile_email     | engonga@uhsinoseque.com |
     And I press "store_user_form_type_profile_send"
-    And I am on "/user/edit"
+    Then I should be on "/user/edit"
     And the "store_user_form_type_profile_firstname" field should contain "Engonga"
     And the "store_user_form_type_profile_lastname" field should contain "Flipencio"
     And the "store_user_form_type_profile_email" field should contain "engonga@uhsinoseque.com"

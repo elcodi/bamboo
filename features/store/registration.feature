@@ -23,4 +23,4 @@ Feature: Store registration
   Scenario: Logged user is redirected to home when goes to register page
     Given I am logged as "customer@customer.com" - "1234"
     When I go to "/register"
-    Then I am on "/user"
+    Then I should be on "/"
