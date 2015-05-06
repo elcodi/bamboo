@@ -94,7 +94,10 @@
         "elcodi/configuration-bundle": "0.5.14",
         "elcodi/metric-bundle": "0.5.14",
         "elcodi/sitemap-bundle": "0.5.14",
-        "elcodi/fixtures-booster-bundle": "0.5.14"
+        "elcodi/fixtures-booster-bundle": "0.5.14",
+        "elcodi/plugin-bundle": "0.5.14",
+        "elcodi/template-bundle": "0.5.14",
+        "elcodi/comment-bundle": "0.5.14"
     },
     "replace": {
         "elcodi-templates/template": "self.version",
