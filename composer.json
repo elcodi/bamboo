@@ -142,6 +142,7 @@
     },
     "autoload": {
         "psr-4": {
+            "": "src/",
             "Elcodi\\": [
                 "src/Elcodi"
             ]
