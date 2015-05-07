@@ -273,7 +273,7 @@ admin:
             title:
                 title: Título
                 placeholder: p.e. Mi magnífico correo
-            title:
+            content:
                 title: Contenido
                 placeholder: p.e. Este magnífico correo es exactamente lo que buscabas.
         section:

@@ -277,7 +277,7 @@ admin:
             title:
                 title: Title
                 placeholder: e.g. My Awesome Mailing
-            title:
+            content:
                 title: Content
                 placeholder: e.g. This awesome mailing is exactly what you are lookin for.
         section:
