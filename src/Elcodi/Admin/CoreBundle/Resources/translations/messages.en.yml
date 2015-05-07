@@ -413,6 +413,7 @@ admin:
             principal: First image will be the principal image.
             reorder: "You can drag & drop the images to reorder."
             upload: Upload images
+            deleted: Image deleted
 
     language:
         single: Language

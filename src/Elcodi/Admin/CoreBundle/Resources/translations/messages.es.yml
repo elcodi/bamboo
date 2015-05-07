@@ -413,6 +413,7 @@ admin:
             principal: La primera imagen será la imagen principal.
             reorder: "Puedes arrastrar las imágenes para reordenarlas."
             upload: Subir imágenes
+            deleted: Imagen Borrada
 
     language:
         single: Idioma
