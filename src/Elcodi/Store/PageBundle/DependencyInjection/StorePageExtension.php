@@ -98,6 +98,7 @@ class StorePageExtension extends AbstractExtension
         return [
             'eventListeners',
             'twig',
+            'services',
         ];
     }
 

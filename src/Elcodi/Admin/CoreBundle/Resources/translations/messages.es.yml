@@ -277,7 +277,7 @@ admin:
             title:
                 title: Título
                 placeholder: ej. Mi magnífico correo
-            title:
+            content:
                 title: Contenido
                 placeholder: ej. Este magnífico correo es exactamente lo que buscabas.
         section:

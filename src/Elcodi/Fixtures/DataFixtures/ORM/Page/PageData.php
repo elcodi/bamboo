@@ -232,7 +232,7 @@ OEF;
          */
         $customerRegistrationEmail = $pageDirector
             ->create()
-            ->setTitle('Registro de nuevo usuario')
+            ->setTitle('Bienvenido!')
             ->setContent('Hola {{ customer.fullname }}. Le damos la Bienvenida.')
             ->setName('customer_registration')
             ->setType(ElcodiPageTypes::TYPE_EMAIL)
@@ -244,7 +244,7 @@ OEF;
 
         $entityTranslator->save($customerRegistrationEmail, [
             'es' => [
-                'title'   => 'Confirmación de pedido',
+                'title'   => 'Bienvenido!',
                 'content' => 'Hola {{ customer.fullname }}.  Le damos la Bienvenida.',
             ],
         ]);
@@ -276,7 +276,7 @@ OEF;
          */
         $passwordRecoverEmail = $pageDirector
             ->create()
-            ->setTitle('Recordatorio de contraseña')
+            ->setTitle('Contraseña recuperada')
             ->setContent('Hola {{ customer.fullname }}. Tu contraseña ha sido recuperada.')
             ->setName('password_recover')
             ->setType(ElcodiPageTypes::TYPE_EMAIL)
@@ -288,7 +288,7 @@ OEF;
 
         $entityTranslator->save($passwordRecoverEmail, [
             'es' => [
-                'title'   => 'Recordatorio de contraseña',
+                'title'   => 'Contraseña recuperada',
                 'content' => 'Hola {{ customer.fullname }}. Tu contraseña ha sido recuperada.',
             ],
         ]);

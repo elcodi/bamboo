@@ -22,6 +22,7 @@ use Twig_Environment;
 
 use Elcodi\Component\Page\Entity\Interfaces\PageInterface;
 use Elcodi\Component\Page\Repository\PageRepository;
+use Elcodi\Store\CoreBundle\Services\TemplateLocator;
 
 /**
  * Class AbstractEmailSenderEventListener
@@ -50,6 +51,13 @@ abstract class AbstractEmailSenderEventListener
     protected $pageRepository;
 
     /**
+     * @var TemplateLocator
+     *
+     * Template locator
+     */
+    protected $templateLocator;
+
+    /**
      * @var string
      *
      * Store email
@@ -59,20 +67,23 @@ abstract class AbstractEmailSenderEventListener
     /**
      * Construct
      *
-     * @param Swift_Mailer     $mailer         Mailer
-     * @param Twig_Environment $twig           Twig
-     * @param PageRepository   $pageRepository Page repository
-     * @param string           $storeEmail     Store email
+     * @param Swift_Mailer     $mailer          Mailer
+     * @param Twig_Environment $twig            Twig
+     * @param PageRepository   $pageRepository  Page repository
+     * @param TemplateLocator  $templateLocator A template locator
+     * @param string           $storeEmail      Store email
      */
     public function __construct(
         Swift_Mailer $mailer,
         Twig_Environment $twig,
         PageRepository $pageRepository,
+        TemplateLocator $templateLocator,
         $storeEmail
     ) {
         $this->mailer = $mailer;
         $this->twig = $twig;
         $this->pageRepository = $pageRepository;
+        $this->templateLocator = $templateLocator;
         $this->storeEmail = $storeEmail;
     }
 
@@ -92,9 +103,14 @@ abstract class AbstractEmailSenderEventListener
             ]);
 
         if ($page instanceof PageInterface) {
+            $template = $this
+                ->templateLocator
+                ->locate(':email.html.twig');
+
             $resolvedPage = $this
                 ->twig
-                ->render('StorePageBundle::email.html.twig', array_merge([
+                ->render($template, array_merge([
+                    'title' => $page->getTitle(),
                     'content' => $page->getContent(),
                 ], $context));
 

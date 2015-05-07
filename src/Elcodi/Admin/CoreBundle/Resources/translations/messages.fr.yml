@@ -273,7 +273,7 @@ admin:
             title:
                 title: Titre
                 placeholder: e.g. Ma super campagne
-            title:
+            content:
                 title: Contenu
                 placeholder: e.g. Cette super campagne est exactement ce que vous recherchez.
         section:
