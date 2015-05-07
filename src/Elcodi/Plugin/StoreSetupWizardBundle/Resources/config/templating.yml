@@ -9,11 +9,11 @@ services:
             - [setTemplating, [@twig]]
             - [setPlugin, [@=elcodi_plugin("Elcodi\\Plugin\\StoreSetupWizardBundle")]]
         arguments:
-            wizard_status: @elcodi_templates.wizard_status.service
-            request_stack: @request_stack
-            configuration_manger: @elcodi.manager.configuration
-            wizard_routes: @elcodi_templates.wizard_routes.service
-            carrier_repository: @elcodi.repository.carrier
+            - @elcodi_templates.wizard_status.service
+            - @request_stack
+            - @elcodi.manager.configuration
+            - @elcodi_templates.wizard_routes.service
+            - @elcodi.repository.carrier
         tags:
             - { name: kernel.event_listener, event: admin.body_top, method: renderMiniWizard }
             - { name: kernel.event_listener, event: admin.body_top, method: renderEnableStoreMessage }
