@@ -1,7 +1,4 @@
-// sRGB BT-709 BRIGHTNESS
-@function brightness($c) {
-	$rlin: de-gamma(red($c)/255);
-	$glin: de-gamma(green($c)/255);
-	$blin: de-gamma(blue($c)/255);
-	@return re-gamma(0.2126 * $rlin + 0.7152 * $glin + 0.0722 * $blin) * 100;
+@function brightness($color) {
+	$sum: red($color) + green($color) + blue($color);
+	@return percentage($sum / (255*3));
 }

@@ -1,0 +1,11 @@
+// THE CONFIG OF YOUR PROJECT
+@import '_config/__index.scss';
+
+// FRONTEND CORE BASE & SKIN
+@import '../public/components/frontendcore-scss/ui';
+
+// CUSTOM HELPERS
+@import 'helpers/__index.scss';
+
+// OBJECTS
+@import 'ui/__index.scss';

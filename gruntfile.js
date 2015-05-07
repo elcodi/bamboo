@@ -2,11 +2,20 @@
 module.exports = function (grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
-		compass: {
-			dist: {
-				options: {
-					config: 'src/Elcodi/Admin/CoreBundle/Resources/public/css/config.rb'
-				}
+		sass : {
+			admin: {
+				files: [{
+					expand: true,
+					cwd: 'src/Elcodi/Admin/CoreBundle/Resources/scss',
+					src: ['*.scss'],
+					dest: 'src/Elcodi/Admin/CoreBundle/Resources/public/css',
+					ext: '.css'
+				}]
+			},
+			options: {
+				sourceMap: false,
+				outputStyle: 'compressed',
+				imagePath: "../"
 			}
 		},
 		uglify: {
@@ -62,7 +71,7 @@ module.exports = function (grunt) {
 	require('load-grunt-tasks')(grunt, {pattern: ['*', '!grunt-template-jasmine-requirejs', '!grunt-lib-phantomjs', '!bower', '!load-grunt-tasks']});
 
     grunt.registerTask('javascript', ['uglify', 'jshint']);
-	grunt.registerTask('scss', ['compass']);
+	grunt.registerTask('scss', ['sass']);
 
 	grunt.registerTask('default', ['scss','javascript']);
 
