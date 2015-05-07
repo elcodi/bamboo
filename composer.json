@@ -94,6 +94,7 @@
         "elcodi/configuration-bundle": "0.5.15",
         "elcodi/metric-bundle": "0.5.15",
         "elcodi/sitemap-bundle": "0.5.15",
+        "elcodi/shipping-bundle": "0.5.15",
         "elcodi/fixtures-booster-bundle": "0.5.15",
         "elcodi/plugin-bundle": "0.5.15",
         "elcodi/template-bundle": "0.5.15",
