@@ -7,6 +7,7 @@
 			text-decoration: none;
 			text-align: center;
 			cursor: pointer;
+			box-sizing: border-box;
 		}
 		&.button-icon {
 			padding: $spacing/4 0 $spacing/4 $spacing/4;

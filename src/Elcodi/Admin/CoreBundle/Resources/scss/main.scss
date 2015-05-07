@@ -1,0 +1,14 @@
+// THE CONFIG OF YOUR PROJECT
+@import '_config/__index.scss';
+
+// FRONTEND CORE BASE & SKIN
+@import '../public/components/frontendcore-scss/main';
+
+// CUSTOM HELPERS
+@import 'helpers/__index.scss';
+
+// OBJECTS
+@import 'objects/__index.scss';
+
+// MEDIA QUERIES FOR DEVICES
+@import 'devices/__index-devices.scss';
