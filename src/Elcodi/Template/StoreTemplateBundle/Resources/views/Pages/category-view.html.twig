@@ -4,8 +4,13 @@
 {% block title %}{{ "template.store_template_bundle.category.view.category"|trans }}{{ category.name }}{% endblock title %}
 
 {% block breadcrumb %}
+    {% if category.parent is not null %}
+        <li>
+            <a href="{{ url('store_category_products_list', { slug: category.parent.slug, id: category.parent.id }) }}">{{ category.parent.name }}</a> >
+        </li>
+    {% endif %}
     <li>
-        <a href="{{ url('store_category_products_list', { slug: products.0.principalCategory.slug, id: products.0.principalCategory.id }) }}"><strong>{{ products.0.principalCategory }}</strong></a>
+        <a href="{{ url('store_category_products_list', { slug: category.slug, id: category.id }) }}"><strong>{{ category.name }}</strong></a>
     </li>
 {% endblock breadcrumb %}
 

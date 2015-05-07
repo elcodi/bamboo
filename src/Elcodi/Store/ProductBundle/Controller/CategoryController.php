@@ -109,12 +109,18 @@ class CategoryController extends Controller
             ], 301);
         }
 
+        $childrenCategories = $this
+            ->get('elcodi.repository.category')
+            ->getChildrenCategories($category);
+
+        $categories = array_merge(
+            [$category],
+            $childrenCategories->toArray()
+        );
+
         $products = $this
             ->get('elcodi.repository.product')
-            ->findBy([
-                'principalCategory' => $category,
-                'enabled'           => true,
-            ]);
+            ->getAllFromCategories($categories);
 
         return $this->renderTemplate(
             'Pages:category-view.html.twig',
