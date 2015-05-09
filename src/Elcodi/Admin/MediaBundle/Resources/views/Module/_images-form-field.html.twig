@@ -13,7 +13,7 @@
         </div>
     </div>
     <div class="col-2-3">
-        <div class="box">
+        <div class="box" data-fc-modules="image-delete">
             <div id="thumb-gallery-select">
                 {{ form_row(form.images, { attr: { class: 'd-n js-images-select' } }) }}
             </div>
@@ -32,10 +32,7 @@
                     </a>
                     <ul class="thumbnail-actions">
                         <li>
-                            <a
-                                href="{{ url('admin_image_delete', { id: image.id }) }}{% if redirect_path is defined %}{{ '?redirect-path=' ~ redirect_path }}{% endif %}"
-                                class="icon-trash-o">
-                            </a>
+                            <a href="{{ url('admin_image_delete', { id: image.id }) }}{% if redirect_path is defined %}{{ '?redirect-path=' ~ redirect_path }}{% endif %}" class="icon-trash-o" data-fc-delete="{{ image.id }}"></a>
                         </li>
                     </ul>
                 </li>

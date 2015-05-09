@@ -87,6 +87,10 @@ FrontendCore.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupl
 				$('input[id=elcodi_admin_product_form_type_product_variant_images_'+ nId +']', oContainer).click();
 
 			});
+
+			if ( $('img', oThumbs)[0] === undefined ) {
+				$('#thumb-no-items').slideDown('fast');
+			}
 		},
 		addImageToGallery : function( nId, sUrlView, sUrlDelete) {
 
@@ -97,7 +101,7 @@ FrontendCore.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupl
 				oLink = document.createElement('a'),
 				oThumb = document.createElement('img'),
 				oOption,
-				oActions = '<ul class="thumbnail-actions"><li><a href="' + sUrlDelete + '" class="icon-trash-o"></a></li></ul>';
+				oActions = '<ul class="thumbnail-actions"><li><a href="' + sUrlDelete + '" class="icon-trash-o" data-fc-modules="ajax-link" data-fc-delete="'+ nId +'"></a></li></ul>';
 
 
 				if ($('#elcodi_admin_product_form_type_product_images_' + nId , oContainer).length === 0) {
