@@ -15,7 +15,7 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-namespace Elcodi\Fixtures\DataFixtures\ORM\Base\Page;
+namespace Elcodi\Fixtures\DataFixtures\ORM\Sandbox\Page;
 
 use Doctrine\Common\Persistence\ObjectManager;
 
