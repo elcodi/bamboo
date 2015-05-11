@@ -15,7 +15,7 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-namespace Elcodi\Fixtures\DataFixtures\ORM\Sandbox\Currency;
+namespace Elcodi\Fixtures\DataFixtures\ORM\Base\Currency;
 
 use Doctrine\Common\Persistence\ObjectManager;
 
