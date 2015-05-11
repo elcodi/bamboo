@@ -230,10 +230,29 @@ OEF;
         /**
          * Customer registration email
          */
+        $contentEs = <<<CONTENT
+Bienvenido {{ customer.fullname }},<br/><br/>
+
+Tu cuenta se ha creado correctamente.<br/>
+Deseamos que en nuestra tienda encuentres productos de tu agrado y que el proceso de compra te resulte lo más cómodo posible.<br/><br/>
+
+Atentamente,
+CONTENT;
+
+        $contentEn = <<<CONTENT
+Welcome {{ customer.fullname }},<br/><br/>
+
+Your account has been successful created.<br/>
+We hope you like our products and the buying process be flawless.<br/><br/>
+
+Sincerely,
+CONTENT;
+
+
         $customerRegistrationEmail = $pageDirector
             ->create()
-            ->setTitle('Bienvenido!')
-            ->setContent('Hola {{ customer.fullname }}. Le damos la Bienvenida.')
+            ->setTitle('Confirmación de registro')
+            ->setContent($contentEs)
             ->setName('customer_registration')
             ->setType(ElcodiPageTypes::TYPE_EMAIL)
             ->setEnabled(true)
@@ -244,8 +263,12 @@ OEF;
 
         $entityTranslator->save($customerRegistrationEmail, [
             'es' => [
-                'title'   => 'Bienvenido!',
-                'content' => 'Hola {{ customer.fullname }}.  Le damos la Bienvenida.',
+                'title'   => 'Confirmación de registro',
+                'content' => $contentEs,
+            ],
+            'en' => [
+                'title'   => 'Confirmación de registro',
+                'content' => $contentEn,
             ],
         ]);
 
