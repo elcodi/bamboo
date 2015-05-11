@@ -109,7 +109,7 @@ admin:
         action:
             login: Log In
             logout: Log Out
-            remember: Remember
+            remember: Do you forgot your password?
 
     user:
         field:

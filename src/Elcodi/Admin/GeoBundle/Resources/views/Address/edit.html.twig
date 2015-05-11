@@ -26,14 +26,16 @@
         <div class="box">
             <ol class="grid">
                 <li class="col-1-2">
-                    {{
+                    <div class="pr-l">
+                        {{
                         form_row(form.recipientName, {
                             label: 'admin.address.field.recipient_name.title',
                             attr: {
                                 placeholder: 'admin.address.field.recipient_name.placeholder',
                             }
                         })
-                    }}
+                        }}
+                    </div>
                 </li>
                 <li class="col-1-2">
                     {{
@@ -57,15 +59,17 @@
                 </li>
             </ol>
             <ol class="grid">
-                <li class="col-2-3 pr-l">
-                    {{
+                <li class="col-2-3">
+                    <div class="pr-l">
+                        {{
                         form_row(form.addressMore, {
                             label: 'admin.address.field.address_more.title',
                             attr: {
                                 placeholder: 'admin.address.field.address_more.placeholder',
                             }
                         })
-                    }}
+                        }}
+                    </div>
                 </li>
                 <li class="col-1-3">
                     {{
@@ -125,11 +129,11 @@
             form_widget(form.send, {
                 label: 'admin.address.field.save',
                 attr: {
-                    class: 'button button-primary',
+                    class: 'button-primary button-fat pv-s mr-l',
                 }
             })
         }}
-        <a href="{{ url('store_address_list') }}" class="button">{{ 'ui.forms.cancel'|trans }}</a>
+        <a href="{{ url('store_address_list') }}" >{{ 'ui.forms.cancel'|trans }}</a>
     </fieldset>
     {{ form_end(form) }}
 

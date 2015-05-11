@@ -109,7 +109,7 @@ admin:
         action:
             login: Iniciar sesión
             logout: Cerrar sesión
-            remember: No recuerdo mi contraseña
+            remember: Olvidaste la contraseña?
 
     user:
         field:
