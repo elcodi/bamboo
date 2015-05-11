@@ -1,8 +1,7 @@
 .welcome {
 	& {
 		overflow: hidden;
-		margin-bottom: 0;
-		background: rgba($color-ok, .1);
+		background: lighten(map-get($object-navigation-vars, background-color), 68);
 		padding-bottom: $spacing/4;
 	}
 	h2 {
@@ -10,8 +9,8 @@
 			display: block;
 			position: relative;
 			padding: $spacing/4;
-			background: $color-ok;
-			color: contrast-color($color-ok);
+			background: map-get($object-navigation-vars, background-color);
+			color: contrast-color(map-get($object-navigation-vars, background-color));
 			text-align: center;
 			margin-bottom: $spacing/8;
 			overflow: hidden;
@@ -25,6 +24,16 @@
 	}
 }
 
+.welcome-mini {
+	& {
+		border-bottom:1px solid map-get($object-navigation-vars, background-color);
+		padding-bottom: 0px;
+	}
+	h2 {
+		font-size: $font-size-l !important;
+		padding: $spacing/4;
+	}
+}
 
 .welcome-item {
 	& {
@@ -35,7 +44,7 @@
 	}
 	i {
 		@extend %icon-rounded;
-		min-width: 116px;
+		min-width: 60px;
 
 	}
 	.welcome-done-sign {
@@ -61,22 +70,16 @@
 	& {
 		@include opacity(.3);
 	}
-	i {
-		border-color: $color-ok;
-		color: $color-ok;
-	}
-	h5 {
-		color: $color-ok;
-	}
 	.button {
-		background: $color-ok;
+		background: map-get($object-navigation-vars, background-color);
+		color: contrast-color(map-get($object-navigation-vars, background-color));
 	}
 	.welcome-done-sign {
 		position: absolute;
 		@include transform(rotate(-15deg));
-		background: $color-ok;
+		background: map-get($object-navigation-vars, background-color);
 		display: inline-block;
-		color: $color-background;
+		color: contrast-color(map-get($object-navigation-vars, background-color));
 		padding: $spacing/8 $spacing/2;
 		top: 103px;
 		font-size: 2rem;

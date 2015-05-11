@@ -3,26 +3,18 @@
         <div id="upload-container" class="box-none">
             <h3 class="fw-n">{{ 'admin.image.plural'|trans }}</h3>
             <p>{{ 'admin.image.info.principal'|trans }}{{ 'admin.image.info.reorder'|trans }}</p>
-            <a href="{{ url('admin_image_upload') }}" id="pickfiles" class="button" data-fc-modules="uploader">
-                {{ 'admin.image.info.upload'|trans }}
-            </a>
             <div class="d-n">
                 {{ form_row(form.imagesSort) }}
             </div>
-            <progress id="progresBar" value="0" max="100" style="display: none"></progress>
+
         </div>
     </div>
     <div class="col-2-3">
         <div class="box" data-fc-modules="image-delete">
-            <div id="thumb-gallery-select">
-                {{ form_row(form.images, { attr: { class: 'd-n js-images-select' } }) }}
+            <div id="thumb-gallery-select" class="d-n">
+                {{ form_row(form.images, { attr: { class: 'js-images-select' } }) }}
             </div>
-            {% if images|length == 0 %}
-            <div id="thumb-no-items" class="no-items">
-                <i class="icon-picture-o no-items-icon"></i>
-            </div>
-            {% endif %}
-            <ul id="thumb-gallery" data-fc-modules="sortable" data-fc-input="elcodi_admin_product_form_type_product_imagesSort" class="thumbnail-group thumbnail-group-extended pl-s mb-m">
+            <ul id="thumb-gallery" data-fc-modules="sortable" data-fc-input="elcodi_admin_product_form_type_product_imagesSort" class="thumbnail-group thumbnail-group-extended pl-s mb-n">
             {% for image in images %}
                 {% set imageResize = image|resize({ height: 150, width: 150, type: 5 }) %}
                 {% set imageView = image|resize({ height: 1024, width: 1024, type: 5 }) %}
@@ -38,6 +30,11 @@
                 </li>
             {% endfor %}
             </ul>
+            <a href="{{ url('admin_image_upload') }}" id="pickfiles" class="button" data-fc-modules="uploader">
+                <i class="icon-file-image-o mr-s"></i> {{ 'admin.image.info.upload'|trans }}
+            </a>
+            <progress id="progresBar" value="0" max="100" style="display: none"></progress>
+            <p class="fz-s">{{ 'admin.image.info.format'|trans }}</p>
         </div>
     </div>
 </div>

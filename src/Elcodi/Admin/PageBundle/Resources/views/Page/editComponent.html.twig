@@ -67,7 +67,10 @@
                                                 attr: {
                                                     placeholder: 'admin.page.field.content.placeholder',
                                                     'data-fc-modules': 'wysiwyg',
-                                                    'data-fc-text-help': 'ui.editor.help'|trans
+                                                    'data-fc-fullscreen': 'false',
+                                                    'data-fc-text-html': 'admin.UI.show_code'|trans,
+                                                    'data-fc-text-visual': 'admin.UI.show_visual'|trans,
+                                                    'data-fc-text-help': 'ui.editor.help'|trans,
                                                 }
                                             })
                                         }}
@@ -169,8 +172,8 @@
                 &nbsp;
             </div>
             <div class="col-2-3">
-                <button type="submit" class="button-primary" id="submit-page">{{ 'ui.forms.save'|trans }}</button>
-                <a href="{{ path('admin_page_list') }}" class="button">{{ 'ui.forms.cancel'|trans }}</a>
+                <button type="submit" class="button-primary button-fat pv-s mr-l" id="submit-page">{{ 'ui.forms.save'|trans }}</button>
+                <a href="{{ path('admin_page_list') }}">{{ 'ui.forms.cancel'|trans }}</a>
             </div>
         </div>
     {{ form_end(form) }}

@@ -1,0 +1,11 @@
+.fc-wysiwyg-switch {
+	.button {
+		& {
+			background: none;
+			color: $color-link;
+		}
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}

@@ -55,7 +55,6 @@ FrontendCore.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupl
 					},
 
 					UploadComplete: function() {
-						$('#thumb-no-items').slideUp('fast');
 						$(document.getElementById('progresBar')).fadeOut();
 					},
 
@@ -88,9 +87,6 @@ FrontendCore.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupl
 
 			});
 
-			if ( $('img', oThumbs)[0] === undefined ) {
-				$('#thumb-no-items').slideDown('fast');
-			}
 		},
 		addImageToGallery : function( nId, sUrlView, sUrlDelete) {
 

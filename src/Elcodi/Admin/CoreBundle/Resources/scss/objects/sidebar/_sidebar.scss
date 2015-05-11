@@ -1,6 +1,6 @@
 .sidebar {
 	&{
-		background: map-get($object-navigation-vars, background-color);;
+		background: map-get($object-navigation-vars, background-color);
 		overflow: hidden;
 		@include text-shadow(1px 1px 0 rgba($color-foreground,.2))
 	}

@@ -78,12 +78,13 @@
 {% block content %}
 
     <div class="grid pr-l">
-        <div class="col-8-12 pr-l">
-            {{ render(url('admin_order_edit_component', { id: order.id })) }}
-            <div class="box-background">
-                <h3 class="fw-n"><i class="icon-clock-o"></i>{{ 'admin.order.states.title'|trans }}</h3>
-                <table class="table order-history">
-                    <tbody>
+        <div class="col-8-12">
+            <div class="pr-l">
+                {{ render(url('admin_order_edit_component', { id: order.id })) }}
+                <div class="box-background">
+                    <h3 class="fw-n"><i class="icon-clock-o"></i>{{ 'admin.order.states.title'|trans }}</h3>
+                    <table class="table order-history">
+                        <tbody>
                         <tr>
                             <td class="w-70">
                                 <i class="icon-shopping-cart bg-ok mr-s"></i>
@@ -92,7 +93,7 @@
                             </td>
                             <td class="ta-r">
                                 {% include 'AdminCartBundle:Order:date.html.twig' with {
-                                    date: allStates.0.createdAt,
+                                date: allStates.0.createdAt,
                                 } %}
                             </td>
                         </tr>
@@ -108,21 +109,22 @@
                             {% elseif 'ship' in stateLine.name  %}
                                 {% set iconClass = 'icon-truck' %}
                             {% endif %}
-                             <tr>
-                                 <td>
-                                     <i class="{{ iconClass }} {{ colorClass }} mr-s"></i>
-                                     <em></em>
-                                     {{ "admin.order.states.#{stateLine.name}"|trans }}
-                                 </td>
-                                 <td class="ta-r">
-                                     {% include 'AdminCartBundle:Order:date.html.twig' with {
-                                        date: stateLine.createdAt,
-                                     } %}
-                                 </td>
+                            <tr>
+                                <td>
+                                    <i class="{{ iconClass }} {{ colorClass }} mr-s"></i>
+                                    <em></em>
+                                    {{ "admin.order.states.#{stateLine.name}"|trans }}
+                                </td>
+                                <td class="ta-r">
+                                    {% include 'AdminCartBundle:Order:date.html.twig' with {
+                                    date: stateLine.createdAt,
+                                    } %}
+                                </td>
                             </tr>
                         {% endfor %}
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
         <div class="col-4-12">

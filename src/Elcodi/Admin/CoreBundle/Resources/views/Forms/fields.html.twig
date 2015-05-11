@@ -158,18 +158,13 @@
 
 {% block checkbox_widget %}
 {% spaceless %}
-    <div class="switch">
+    <label for="{{ id }}" class="checkbox">
         <input type="checkbox" {{ block('widget_attributes') }}
-            value="{{ value|default(1) }}"
-            {% if checked is defined and checked %}checked="checked"{% endif %}
-        >
-        <label for="{{ id }}">
-            {% if label_help is defined %}
-                <em>{{ label_help }}</em>
-            {% endif %}
-        </label>
-    </div>
-    {{ label|trans }}
+               value="{{ value|default(1) }}"
+                {% if checked is defined and checked %}checked="checked"{% endif %}
+                >
+        {{ label|trans }}
+    </label>
 {% endspaceless %}
 {% endblock checkbox_widget %}
 

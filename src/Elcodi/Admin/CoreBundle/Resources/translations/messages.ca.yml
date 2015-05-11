@@ -33,7 +33,9 @@ admin:
             last7days: Ultims 7 dies
             last30days: Ultims 30 dies
             last90days: Ultims 90 dies
-
+    UI:
+      show_code: Mostrar codi font
+      show_visual: Ocultar codi font
     address:
         single: Adreça fiscal
         plural: Adreçes fiscals
@@ -323,7 +325,15 @@ admin:
     catalog:
         single: Catálogo
         plural: Catálogos
-
+    categorization:
+        single: Categorització
+        plural: Categoritzacions
+    communication:
+        single: Comunicació
+        plural: Comunicacions
+    shipping_payment:
+        single: Pagament / Enviament
+        plural: Pagaments / Enviaments
     coupon:
         single: Cupón
         plural: Cupones
@@ -409,6 +419,7 @@ admin:
             reorder: "Puedes arrastrar las imágenes para reordenarlas."
             upload: Subir imágenes
             deleted: Imatge esborrada
+            format: Format JPG, PNG o GIF d'un maxim de 20 MB
 
     language:
         single: Idioma
@@ -799,8 +810,8 @@ admin:
                 description: Configura el rango de envio como activo o inactivo.
 
     plugin:
-        single: App
-        plural: Apps
+        single: Complement
+        plural: Complements
         saved:  Estado de la app guardado
         field:
             visibility: Activo:

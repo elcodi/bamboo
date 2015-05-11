@@ -34,7 +34,9 @@ admin:
             last7days: Últimos 7 días
             last30days: Últimos 30 días
             last90days: Últimos 90 días
-
+    UI:
+      show_code: Ver Código fuente
+      show_visual: Ocultar Código fuente
     address:
         single: Dirección fiscal
         plural: Direcciones fiscales
@@ -107,7 +109,7 @@ admin:
         action:
             login: Iniciar sesión
             logout: Cerrar sesión
-            remember: No recuerdo mi contraseña
+            remember: Olvidaste la contraseña?
 
     user:
         field:
@@ -327,7 +329,15 @@ admin:
     catalog:
         single: Catálogo
         plural: Catálogos
-
+    categorization:
+        single: Categorización
+        plural: Categorizaciones
+    communication:
+        single: Comunicación
+        plural: Comunicaciones
+    shipping_payment:
+        single: Pago y envío
+        plural: Pagos / envíos
     coupon:
         single: Cupón
         plural: Cupones
@@ -414,6 +424,7 @@ admin:
             reorder: "Puedes arrastrar las imágenes para reordenarlas."
             upload: Subir imágenes
             deleted: Imagen Borrada
+            format: Formato JPG, PNG o GIF de un máximo 20 MB
 
     language:
         single: Idioma
@@ -804,8 +815,8 @@ admin:
                 description: Configura el rango de envio como activo o inactivo.
 
     plugin:
-        single: App
-        plural: Apps
+        single: Complemento
+        plural: Complementos
         saved:  Estado de la app guardado
         field:
             visibility: Activo:

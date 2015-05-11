@@ -2,6 +2,7 @@
 	.fc-wysiwyg {
 		& {
 			@extend %field;
+			overflow: hidden;
 			position: relative;
 			padding-bottom: $spacing*2;
 			min-height: 100px;
@@ -12,7 +13,7 @@
 			content: '\f129';
 			color: $color-info;
 			position: absolute;
-			bottom: $spacing/2;
+			bottom: $spacing/4;
 			left: $spacing/2;
 			min-width: $spacing;
 			@include border-radius(200px);
@@ -26,7 +27,7 @@
 			font-size: $font-size-default;
 			background: rgba($color-info, .2);
 			width: 100%;
-			padding: $spacing/2 $spacing/2 $spacing/2 $spacing*2;
+			padding: $spacing/4 $spacing/2 $spacing/4 $spacing*2;
 			bottom: 0;
 			left: 0;
 			position: absolute;
@@ -44,11 +45,16 @@
 
 		}
 	}
+
+	.fc-wysiwyg-switch-full-screen {
+		display: block !important;
+	}
+
 	.fc-wysiwyg-full-screen {
 		position: fixed !important;
-		top: 0;
 		border-top: $spacing*2 solid $color-primary !important;
 		left: 0;
+		top: 0;
 		height: 100% !important;
 		width: 100% !important;
 		z-index: 1000;
@@ -56,10 +62,11 @@
 	}
 	.fc-wysiwyg-switch {
 		position: absolute;
-		right: 0;
+		right: -$spacing/4;
 		margin-top: -$spacing*2;
-		font-size: $font-size-default;
+		font-size: $font-size-s;
 		z-index: 1001;
+		display:none;
 	}
 	.fc-wysiwyg-switch-full-screen {
 		position: fixed;
@@ -294,7 +301,6 @@
 		min-width: 20px;
 		display: inline-block;
 		padding: 8px 10px;
-		height: 35px;
 		overflow: hidden;
 		color: $color-background;
 		text-align: center;

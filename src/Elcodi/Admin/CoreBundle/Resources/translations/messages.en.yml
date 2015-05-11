@@ -34,7 +34,9 @@ admin:
             last7days: Last 7 days
             last30days: Last 30 days
             last90days: Last 90 days
-
+    UI:
+      show_code: Show HTML code
+      show_visual: Hide HTML code
     address:
         single: Address
         plural: Addresses
@@ -107,7 +109,7 @@ admin:
         action:
             login: Log In
             logout: Log Out
-            remember: Remember
+            remember: Do you forgot your password?
 
     user:
         field:
@@ -323,11 +325,18 @@ admin:
             visibility:
                 title: Visibility
                 description: Set this carrier as enabled or disabled.
-
     catalog:
         single: Catalog
         plural: Catalogs
-
+    categorization:
+        single: Categorization
+        plural: Categorizations
+    communication:
+        single: Communication
+        plural: Communications
+    shipping_payment:
+        single: Payment & Shipping
+        plural: Payments & Shipping
     coupon:
         single: Coupon
         plural: Coupons
@@ -414,6 +423,7 @@ admin:
             reorder: "You can drag & drop the images to reorder."
             upload: Upload images
             deleted: Image deleted
+            format: Format JPG, PNG or GIF. Max 20mb.
 
     language:
         single: Language
