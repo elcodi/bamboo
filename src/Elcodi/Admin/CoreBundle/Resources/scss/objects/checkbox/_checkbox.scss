@@ -1,0 +1,13 @@
+.checkbox {
+	& {
+		display: inline-block !important;
+		padding: $spacing/2;
+		background: rgba($color-background, .8);
+		margin-right: $spacing;
+	}
+	input {
+		width: 14px;
+		height: 14px;
+		box-shadow: 1px 1px 1px rgba($color-foreground, .4);
+	}
+}

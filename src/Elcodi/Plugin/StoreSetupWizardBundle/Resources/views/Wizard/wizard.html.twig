@@ -1,4 +1,4 @@
-<div id="step1" class="grid welcome">
+<div id="step1" class="grid welcome {% if isMiniWizard %}welcome-mini{% endif %}">
     {% set minutesStepOne = 4 %}
     {% set minutesStepTwo = 2 %}
     {% set minutesStepThree = 2 %}
@@ -15,7 +15,6 @@
             {% if not isMiniWizard %}
                 <i class="icon-dropbox"></i>
                 <span class="welcome-done-sign">{{ 'wizard.done'|trans }}</span>
-            {% endif %}
             <h5>
                 {% if stepsFinished[1] %}
                     <span class="icon-check"></span>
@@ -24,19 +23,19 @@
                 {% endif %}
                 {{ 'wizard.step1.title'|trans }}
             </h5>
-            {% if not isMiniWizard %}
+
                 <p>{{ 'wizard.step1.description'|trans }}</p>
             {% endif %}
             <p class="mb-n"><a href="{{ url('admin_product_new') }}" class="button button-primary">{{ 'wizard.step1.action'|trans }}</a></p>
+            {% if not isMiniWizard %}
             <p class="fz-s">{% trans with {'%1': minutesStepOne } %}wizard.estimated_time{% endtrans %}</p>
+            {% endif %}
         </div>
     </div>
     <div class="col-1-4">
         <div class="welcome-item{% if activeStep == 2 %} welcome-active animated bounce{% endif %}{% if stepsFinished[2] %} welcome-done{% endif %}">
             {% if not isMiniWizard %}
                 <i class="icon-map-marker"></i>
-                <span class="welcome-done-sign">{{ 'wizard.done'|trans }}</span>
-            {% endif %}
             <h5>
                 {% if stepsFinished[2] %}
                     <span class="icon-check"></span>
@@ -45,11 +44,12 @@
                 {% endif %}
                 {{ 'wizard.step2.title'|trans }}
             </h5>
-            {% if not isMiniWizard %}
                 <p>{{ 'wizard.step2.description'|trans }}</p>
             {% endif %}
             <p class="mb-n"><a href="{{ url('admin_address_edit') }}" class="button button-primary">{{ 'wizard.step2.action'|trans }}</a></p>
+            {% if not isMiniWizard %}
             <p class="fz-s">{% trans with {'%1': minutesStepTwo } %}wizard.estimated_time{% endtrans %}</p>
+            {% endif %}
         </div>
     </div>
     <div class="col-1-4">
@@ -57,7 +57,6 @@
             {% if not isMiniWizard %}
                 <i class="icon-credit-card"></i>
                 <span class="welcome-done-sign">{{ 'wizard.done'|trans }}</span>
-            {% endif %}
             <h5>
                 {% if stepsFinished[3] %}
                     <span class="icon-check"></span>
@@ -66,11 +65,12 @@
                 {% endif %}
                 {{ 'wizard.step3.title'|trans }}
             </h5>
-            {% if not isMiniWizard %}
                 <p>{{ 'wizard.step3.description'|trans }}</p>
             {% endif %}
             <p class="mb-n"><a href="{{ url('admin_payment_configuration_list') }}" class="button button-primary">{{ 'wizard.step3.action'|trans }}</a></p>
+            {% if not isMiniWizard %}
             <p class="fz-s">{% trans with {'%1': minutesStepThree } %}wizard.estimated_time{% endtrans %}</p>
+            {% endif %}
         </div>
     </div>
     <div class="col-1-4">
@@ -78,7 +78,6 @@
             {% if not isMiniWizard %}
                 <i class="icon-truck"></i>
                 <span class="welcome-done-sign">{{ 'wizard.done'|trans }}</span>
-            {% endif %}
             <h5>
                 {% if stepsFinished[4] %}
                     <span class="icon-check"></span>
@@ -87,7 +86,6 @@
                 {% endif %}
                 {{ 'wizard.step4.title'|trans }}
             </h5>
-            {% if not isMiniWizard %}
                 <p>{{ 'wizard.step4.description'|trans }}</p>
             {% endif %}
             <p class="mb-n">
@@ -97,7 +95,9 @@
                 <a href="{{ url('admin_carrier_new') }}" class="button button-primary">{{ 'wizard.step4.action_carrier'|trans }}</a>
                 {% endif %}
             </p>
+            {% if not isMiniWizard %}
             <p class="fz-s">{% trans with {'%1': minutesStepFour } %}wizard.estimated_time{% endtrans %}</p>
+            {% endif %}
         </div>
     </div>
 </div>
