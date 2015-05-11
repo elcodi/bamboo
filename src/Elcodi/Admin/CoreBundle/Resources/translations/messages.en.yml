@@ -34,7 +34,9 @@ admin:
             last7days: Last 7 days
             last30days: Last 30 days
             last90days: Last 90 days
-
+    UI:
+      show_code: Show HTML code
+      show_visual: Hide HTML code
     address:
         single: Address
         plural: Addresses

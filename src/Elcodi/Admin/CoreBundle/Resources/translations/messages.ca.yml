@@ -33,7 +33,9 @@ admin:
             last7days: Ultims 7 dies
             last30days: Ultims 30 dies
             last90days: Ultims 90 dies
-
+    UI:
+      show_code: Mostrar codi font
+      show_visual: Ocultar codi font
     address:
         single: Adreça fiscal
         plural: Adreçes fiscals

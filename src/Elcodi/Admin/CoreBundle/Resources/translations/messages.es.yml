@@ -34,7 +34,9 @@ admin:
             last7days: Últimos 7 días
             last30days: Últimos 30 días
             last90days: Últimos 90 días
-
+    UI:
+      show_code: Ver Código fuente
+      show_visual: Ocultar Código fuente
     address:
         single: Dirección fiscal
         plural: Direcciones fiscales
