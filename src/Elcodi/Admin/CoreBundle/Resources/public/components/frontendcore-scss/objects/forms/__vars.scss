@@ -1,0 +1,15 @@
+$object-forms-vars-default: (
+	/* Field */
+	field-padding: $spacing/2 $spacing/2,
+	field-border-radius: 2px,
+	field-border: 1px solid rgba($color-foreground, .3),
+	field-box-shadow: "inset 0 2px 8px rgba(#{$color-foreground}, .2), 0 1px 1px rgba(#{$color-background}, .5)",
+
+	/* Field focus */
+	field-focus-border: rgba($color-primary, .5),
+	field-focus-background: lighten($color-primary, 50),
+
+	/* Field error */
+	field-error-border: 1px solid adjust-lightness($color-ko, 10%),
+	field-error-background: adjust-lightness($color-ko, 42%)
+) !global !default;

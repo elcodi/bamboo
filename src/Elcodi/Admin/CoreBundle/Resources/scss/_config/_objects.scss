@@ -21,10 +21,7 @@ $objects-custom: (
 	tags: default
 ) !global !default;
 
-
-
 $object-navigation-vars-custom : (
-
 	background-color: #354051,
 	background-color-dark: #2E3847,
 	color: #FFF,
@@ -32,4 +29,10 @@ $object-navigation-vars-custom : (
 	font-size: map_get($fonts-custom, size-m),
 	vertical-separator: false
 
+) !global !default;
+
+$object-forms-vars-custom: (
+	// Field focus
+	field-focus-border: rgba(map-get($colors-custom, info), .5),
+	field-focus-background: lighten(map-get($colors-custom, info), 55),
 ) !global !default;

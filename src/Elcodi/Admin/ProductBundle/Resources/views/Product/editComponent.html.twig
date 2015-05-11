@@ -94,19 +94,21 @@
                 <div class="col-2-3">
                     <div class="box">
                         <ol class="grid">
-                            <li class="col-1-2 pb-n pr-l">
-                                {{
+                            <li class="col-1-2 pb-n">
+                                <div class="pr-l">
+                                    {{
                                     form_row(form.principalCategory, {
                                         label: 'admin.product.field.main_category.title',
                                         label_help: 'admin.product.field.main_category.placeholder'|trans,
                                     })
-                                }}
-                                <p class="pt-s fz-default mb-n ta-r">
-                                    <a href="{{ url('admin_category_new') }}" data-fc-modules="modal-content">
-                                        <i class="icon-plus"></i>
-                                        {{ 'admin.category.new'|trans }}
-                                    </a>
-                                </p>
+                                    }}
+                                    <p class="pt-s fz-default mb-n ta-r">
+                                        <a href="{{ url('admin_category_new') }}" data-fc-modules="modal-content">
+                                            <i class="icon-plus"></i>
+                                            {{ 'admin.category.new'|trans }}
+                                        </a>
+                                    </p>
+                                </div>
                             </li>
                             <li class="col-1-2 pb-n">
                                 {{

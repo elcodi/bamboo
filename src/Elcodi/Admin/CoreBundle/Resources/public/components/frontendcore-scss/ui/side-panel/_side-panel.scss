@@ -1,5 +1,14 @@
 @if $ui-side-panel == true and $ui == true {
 
+	.black-panel {
+		background: rgba(#000, .7);
+		position: fixed;
+		height: 100%;
+		width: 100%;
+		z-index: 100;
+		top: 0;
+	}
+
 	.header, .grid {
 		transition: left 300ms ease-in-out, right 300ms ease-in-out;
 	}
