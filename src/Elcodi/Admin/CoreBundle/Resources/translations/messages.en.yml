@@ -423,6 +423,7 @@ admin:
             reorder: "You can drag & drop the images to reorder."
             upload: Upload images
             deleted: Image deleted
+            format: Format JPG, PNG or GIF. Max 20mb.
 
     language:
         single: Language

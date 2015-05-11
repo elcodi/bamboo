@@ -424,6 +424,7 @@ admin:
             reorder: "Puedes arrastrar las imágenes para reordenarlas."
             upload: Subir imágenes
             deleted: Imagen Borrada
+            format: Formato JPG, PNG o GIF de un máximo 20 MB
 
     language:
         single: Idioma
