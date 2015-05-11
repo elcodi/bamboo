@@ -329,7 +329,15 @@ admin:
     catalog:
         single: Catálogo
         plural: Catálogos
-
+    categorization:
+        single: Categorización
+        plural: Categorizaciones
+    communication:
+        single: Comunicación
+        plural: Comunicaciones
+    shipping_payment:
+        single: Pago y envío
+        plural: Pagos / envíos
     coupon:
         single: Cupón
         plural: Cupones
@@ -806,8 +814,8 @@ admin:
                 description: Configura el rango de envio como activo o inactivo.
 
     plugin:
-        single: App
-        plural: Apps
+        single: Complemento
+        plural: Complementos
         saved:  Estado de la app guardado
         field:
             visibility: Activo:

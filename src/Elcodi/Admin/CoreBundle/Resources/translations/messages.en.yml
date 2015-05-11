@@ -325,11 +325,18 @@ admin:
             visibility:
                 title: Visibility
                 description: Set this carrier as enabled or disabled.
-
     catalog:
         single: Catalog
         plural: Catalogs
-
+    categorization:
+        single: Categorization
+        plural: Categorizations
+    communication:
+        single: Communication
+        plural: Communications
+    shipping_payment:
+        single: Payment & Shipping
+        plural: Payments & Shipping
     coupon:
         single: Coupon
         plural: Coupons
