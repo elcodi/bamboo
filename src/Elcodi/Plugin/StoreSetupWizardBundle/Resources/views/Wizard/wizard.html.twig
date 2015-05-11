@@ -4,11 +4,12 @@
     {% set minutesStepThree = 2 %}
     {% set minutesStepFour = 2 %}
 
-    {% if not stepsFinished[1] %}{% set minutes = minutes + minutesStepOne %}{% endif %}
-    {% if not stepsFinished[2] %}{% set minutes = minutes + minutesStepTwo %}{% endif %}
-    {% if not stepsFinished[3] %}{% set minutes = minutes + minutesStepThree %}{% endif %}
-    {% if not stepsFinished[4] %}{% set minutes = minutes + minutesStepFour %}{% endif %}
-    <h2><span class="icon-clock-o icon-3x mr-s"></span> {% trans with {'%1': minutes } %}wizard.time_to_sell{% endtrans %}</h2>
+    {% set steps = 0 %}
+    {% if not stepsFinished[1] %}{% set steps = steps + 1 %}{% endif %}
+    {% if not stepsFinished[2] %}{% set steps = steps + 1 %}{% endif %}
+    {% if not stepsFinished[3] %}{% set steps = steps + 1 %}{% endif %}
+    {% if not stepsFinished[4] %}{% set steps = steps + 1 %}{% endif %}
+    <h2><span class="icon-clock-o icon-3x mr-s"></span> {% trans with {'%1': steps } %}wizard.time_to_sell{% endtrans %}</h2>
     <div class="col-1-4">
         <div class="welcome-item{% if activeStep == 1 %} welcome-active animated bounce{% endif %}{% if stepsFinished[1] %} welcome-done{% endif %}">
             {% if not isMiniWizard %}
