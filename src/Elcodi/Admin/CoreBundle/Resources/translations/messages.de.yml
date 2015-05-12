@@ -263,7 +263,7 @@ admin:
         section:
             basic:
                 title: Basisinformationen
-                description: Gebe einen sehr genauen Titel für deinen Blogeintrag an, welcher deinen Eintrag besser verkauft und beschreibt und alle Erklärungen für deine Kunden bereithält.
+                description: Gib einen sehr genauen Titel für deinen Blogeintrag an, welcher deinen Eintrag besser verkauft und beschreibt und alle Erklärungen für deine Kunden bereithält.
             visibility:
                 title: Sichtbarkeit
                 description: Setze diesen Eintrag auf sichtbar oder versteckt.
@@ -288,380 +288,379 @@ admin:
                 description: Provide a descriptive title for your mailing and the content to deliver.
 
     carrier:
-        single: Carrier
-        plural: Carriers
-        saved:  Changes saved
-        edit:   Edit "%name%"
-        new:    New Carrier
-        list:   Carrier list
+        single: Lieferweg
+        plural: Lieferwege
+        saved:  Änderungen gespeichert
+        edit:   Bearbeite "%name%"
+        new:    Neuen Lieferweg
+        list:   Lieferwegliste
         error:
-            no_active_carrier: Warning! You have no active carrier
+            no_active_carrier: Achtung! Es existiert kein aktiver Lieferweg.
         field:
             name:
                 title: Name
-                placeholder: e.g. AwesomeCarrier
+                placeholder: z.B. Paketdienst
             description:
-                title: Description
-                placeholder: e.g. Best option for local shipping
+                title: Beschreibung
+                placeholder: z.B. Beste Option für lokale Lieferungen
             taxes:
-                title: Taxes
-                format: %value%% Tax
+                title: Gebühren
+                format: %value%% Gebühr
             status:
-                title: Enabled
+                title: Aktiviert
         info:
-            shipping_rates_before_saving: You will be able to add shipping rates after save the carrier
+            shipping_rates_before_saving: Versandkosten können nach dem Speichern hinzugefügt werden
         action:
-            add_shipping_range: Add range
+            add_shipping_range: Umfang hinzufügen
         section:
             basic:
-                title: Basic Details
-                description: Provide the name of the carrier and an internal description if needed.
+                title: Basisinformationen
+                description: Gib den Namen und eine interne Beschriebung (optional) des Lieferwegs an.
             taxes:
-                title: Carrier taxes
-                description: The taxes that will be applied for this carrier.
+                title: Lieferweg Gebühren
+                description: Die Gebühren die auf diesen Lieferweg angewandt werden.
             shipping_rates:
-                title: Shipping Rates
-                description: Add the shipping rates.
+                title: Versandkosten
+                description: Füge Versandkosten hinzu.
             visibility:
-                title: Visibility
-                description: Set this carrier as enabled or disabled.
+                title: Sichtbarkeit
+                description: Setze den Lieferweg auf aktiviert oder deaktiviert.
     catalog:
-        single: Catalog
-        plural: Catalogs
+        single: Katalog
+        plural: Kataloge
     categorization:
-        single: Categorization
-        plural: Categorizations
+        single: Kategorisierung
+        plural: Kategorisierungen
     communication:
-        single: Communication
-        plural: Communications
+        single: Kommunikation
+        plural: Kommunikationen
     shipping_payment:
-        single: Payment & Shipping
-        plural: Payments & Shipping
+        single: Bezahlung & Versand
+        plural: Bezahlungen & Versendungen
     coupon:
-        single: Coupon
-        plural: Coupons
-        edit:   Edit "%code%"
-        new:    New coupon
-        saved:  Coupon saved
-        list:   Coupon list
+        single: Gutschein
+        plural: Gutscheine
+        edit:   Bearbeite "%code%"
+        new:    Neuer Gutschein
+        saved:  Gutschein gespeichert
+        list:   Gutscheinliste
         field:
             code:
-                placeholder: e.g. MYCODE
-                title:        Code
+                placeholder: z.B. MEINGUTSCHEIN
+                title: Code
             count:
-                title: Usage Limit
+                title: Benutzungslimit
             datetime:
-                title: 'Date & Time'
+                title: 'Datum & Zeit'
             description:
-                placeholder: e.g. 10% Discount code
-                title:       Description
+                placeholder: z.B 10% Rabatt auf Tiernahrung
+                title:       Beschreibung
             discount:
-                title: "% Amount"
+                title: "% Höhe"
             enabled:
                 title: Status
             enforcement:
-                title: Mode
+                title: Modus
                 options:
-                    manual: Manual application
-                    automatic: Automatic application
+                    manual: Manuelle anwendung
+                    automatic: Automatische anwendung
             minimum_purchase:
-                title: Minimum purchase
+                title: Mindestmenge
             price:
-                title: Amount
+                title: Höhe
             priority:
-                title: Priority
+                title: Priorität
             rule:
-                title:       Rule
-                placeholder: No rule
+                title:       Regel
+                placeholder: Keine Regel
             status:
                 title: Status
             type:
-                title: Type
+                title: Typ
                 options:
-                    fixed:  Fixed amount
-                    percent: Percent amount
+                    fixed:  Festbetrag
+                    percent: Prozentwert
             used:
-                title: Used
+                title: Benutzt
             valid_from:
-                title: From
+                title: Von
             valid_to:
-                title: To
+                title: Bis
         section:
             basic:
-                title: Basic Data
+                title: Basisinformationen
                 description:
-                    - 'Set the code name (what users should type in the cart to activate the coupon)'
-                    - 'Set also the description to identify the coupon, the type and the mode to be applied.'
+                    - 'Lege den Gutscheincode fest (Der Code wird im Warenkorb eingegeben um den Gutschein zu benutzen)'
+                    - 'Setze auch eine Beschreibung ein um den Gutschein zu identifizieren, ebenso den Typ und den Modus.'
             fixed_amount:
-                title:       Fixed amount
-                description: Set the fixed amount to discount directly in the cart.
+                title:       Festbetrag
+                description: Setze einen Festbetrag fest welcher direkt im Warenkorb rabattiert.
             percent_amount:
-                title:       Percent amount
-                description: Set the percentage amount to discount directly in the cart.
+                title:       Prozentbetrag
+                description: Setze einen Prozentbetrag fest welcher direkt im Warenkorb rabattiert.
             rules:
-                title:       Rules
-                description: Select the rule the coupon will use and a minimum purchase necessary to apply the coupon (optional).
+                title:       Regeln
+                description: Wähle Regeln aus welche der Gutschein beachtet, sowie eine optionale Mindestbestellmenge.
             validity:
-                title:       Validity
-                description: Set the time validity of the coupon and the status.
+                title:       Gültigkeit
+                description: Lege die Gültigkeitsdauer und den Status fest.
 
     currency:
-        single: Currency
-        plural: Currencies
-        list:   Currency list
+        single: Währung
+        plural: Währungen
+        list:   Währungsliste
         field:
             symbol: Symbol
             iso: ISO
             name: Name
-            status: Enabled
+            status: Aktiviert
 
     image:
-        single: Image
-        plural: Images
+        single: Bild
+        plural: Bilder
         info:
-            principal: First image will be the principal image.
-            reorder: "You can drag & drop the images to reorder."
-            upload: Upload images
-            deleted: Image deleted
-            format: Format JPG, PNG or GIF. Max 20mb.
+            principal: Das erste Bild wird das Hauptbild sein.
+            reorder: "Du kannst die Bilder per Drag & Drop neu anordnen."
+            upload: Bilder hochladen
+            deleted: Bild gelöscht
+            format: Format JPG, PNG oder GIF. Max 20mb.
 
     language:
-        single: Language
-        plural: Languages
-        list:   Language list
+        single: Sprache
+        plural: Sprachen
+        list:   Sprachliste
         field:
             iso: ISO
-            master: Master language
-            status: Enabled
+            master: Master Sprache
+            status: Aktiviert
 
     media:
-        single: Media
-        plural: Media
-        list:   Media list
+        single: Medium
+        plural: Medien
+        list:   Medienliste
 
     metrics:
-        single: Metric
-        plural: Metrics
+        single: Metrik
+        plural: Metriken
         info:
-            visitors: Visitors
-            no_data: No data
+            visitors: Besucher
+            no_data: Keine Daten
         action:
-            show: Show Metrics
+            show: Zeige Metriken
         type:
             line:
-                unique: Unique
-                total: Total
+                unique: Eindeutig
+                total: Gesamt
 
     order:
-        single:    Order
-        plural:    Orders
-        edit:      'Edit #%id%'
-        new:       New order
-        all:       All orders
-        list:      Order list
-        from_user: %name%'s orders
-        to_user:   Go to customer
+        single:    Bestellung
+        plural:    Bestellungen
+        edit:      'Bearbeite #%id%'
+        new:       Neue Bestellung
+        all:       Alle Bestellungen
+        list:      Bestellungsliste
+        from_user: Bestellungen von %name%
+        to_user:   Gehe zu Kunde
         field:
-            id:               'Order #%id%'
-            date:             Date
-            carrier:          Carrier
-            customer:         Customer
+            id:               'Bestellung #%id%'
+            date:             Datum
+            carrier:          Lieferweg
+            customer:         Kunde
             status:           Status
-            delivery_address: Delivery address
-            billing_address:  Billing address
-            both_addresses:   'Delivery & Billing address'
-            total:            Total
+            delivery_address: Lieferadresse
+            billing_address:  Rechnungsadresse
+            both_addresses:   'Liefer- & Rechnungsadresse'
+            total:            Summe
         details:
             title:    Details
-            item:     Item
-            units:    Units
-            price:    Price
-            subtotal: Subtotal
-            discount: Coupon Discount
-            shipping: Shipping
+            item:     Position
+            units:    Einheiten
+            price:    Preis
+            subtotal: Zwischensumme
+            discount: Gutschein-Rabatt
+            shipping: Versand
         states:
-            title:       History
-            initial:     New order
-            unpaid:      Unpaid
-            refunded:    Refunded
-            shipped:     Shipped
-            not shipped: Not shipped
-            paid:        Paid
+            title:       Verlauf
+            initial:     Neue Bestellung
+            unpaid:      Unbezahlt
+            refunded:    Zurückerstattet
+            shipped:     Versendet
+            not shipped: Nicht versendet
+            paid:        Bezahlt
         transition:
-            refund: Refund
-            ship:   Ship
+            refund: Rückerstattung
+            ship:   Versenden
 
     page:
-        single:   Page
-        plural:   Pages
-        edit:     Edit "%name%"
-        new:      New Page
-        list:     Page list
-        saved:    Changes saved
-        in_store: View at store
+        single:   Seite
+        plural:   Seiten
+        edit:     Bearbeite "%name%"
+        new:      Neue Seite
+        list:     Seitenliste
+        saved:    Änderungen gespeichert
+        in_store: Im Store ansehen
         field:
             title:
-                title: Title
-                placeholder: e.g. My Awesome Page
+                title: Titel
+                placeholder: z.B. Meine tolle Seite
             path:
-                title: Path
-                placeholder: e.g. my/awesome/page
-                customize: Customize path
+                title: Pfad
+                placeholder: z.B. meine/tolle/seite
+                customize: Pfad anpassen
             link:
-                title: Link
+                title: Verknüpfung
             enabled:
-                title: Enabled
+                title: Aktiviert
             content:
-                title: Content
-                placeholder: e.g. This awesome page is exactly what you are lookin for.
+                title: Inhalt
+                placeholder: z.B. Diese Seite ist genau das wonach du suchst.
             metatitle:
-                placeholder: e.g. My Awesome Page
+                placeholder: z.B. Meine tolle Seite
             metadescription:
-                placeholder: e.g. This awesome page is exactly what you are lookin for.
+                placeholder: z.B. Diese Seite ist genau das wonach du suchst.
             metakeywords:
-                placeholder: 'e.g. page,awesome'
+                placeholder: 'z.B. meine,tolle,seite'
         section:
             basic:
-                title: Basic Details
-                description: Provide a very specific title for your page that explains and help sell your page and description that provides all the information required for your consumers.
+                title: Basisinformationen
+                description: Gib einen sehr genauen Titel für deine Seite an, welcher deine Seite besser verkauft und beschreibt und alle Erklärungen für deine Kunden bereithält.
             visibility:
-                title: Visibility
-                description: Set this page as visible or hidden, and make it visible in your home.
+                title: Sichtbarkeit
+                description: Setze diese Seite auf sichtbar oder unsichtbar und füge sie deiner Homepage hinzu.
         error:
-            cant_modify_permanent: This page is permanent and can't be modified
+            cant_modify_permanent: Diese Seite wurde als Permanent gekennzeichnet und kann nicht verändert werden
 
     profile:
-        single: Profile
-        plural: Profiles
+        single: Profil
+        plural: Profile
 
     product:
-        single:   Product
-        plural:   Products
-        edit:     Edit "%name%"
-        new:      New Product
-        list:     Product list
-        saved:    Product saved
-        in_store:     View at the store
-        show_metrics: Show metrics
+        single:   Produkt
+        plural:   Produkte
+        edit:     Bearbeite "%name%"
+        new:      Neues Produkt
+        list:     Produktliste
+        saved:    Produkt gespeichert
+        in_store:     Im Store zeigen
+        show_metrics: Metriken anzeigen
         field:
             name:
-                title: Title
-                placeholder: e.g. My Awesome Product
+                title: Titel
+                placeholder: z.B. mein tolles Produkt
             slug:
                 title: Slug
-                placeholder: e.g. my/awesome/product
-                customize: Customize slug
+                placeholder: z.B. mein/tolles/produkt
+                customize: Slug anpassen
             description:
-                title: Description
-                placeholder: e.g. This awesome product is exactly what you are lookin for.
+                title: Beschreibung
+                placeholder: z.B. Dieses Produkt ist genau das wonach du suchst.
             main_category:
-                title: Category
-                placeholder: 'e.g. Computers, handbags...'
+                title: Kategorie
+                placeholder: 'z.B. Computer, Handtaschen, ...'
             manufacturer:
-                title: Manufacturer
-                placeholder: 'e.g. Apple, Disney...'
+                title: Hersteller
+                placeholder: 'z.B. Apple, Disney...'
             price:
-                title: Price
+                title: Preis
             stock:
-                title: Stock
+                title: auf Lager
             reduced_price:
-                title: Reduced price
+                title: Reduziert
             weight:
-                title: Weight (in g)
+                title: Gewicht (in g)
             height:
-                title: Height (in cm)
+                title: Höhe (in cm)
             width:
-                title: Width (in cm)
+                title: Breite (in cm)
             depth:
-                title: Depth (in cm)
+                title: Tiefe (in cm)
             in_home:
-                title: Show in home
+                title: Auf der Startseite zeigen
             image:
-                title: Image
+                title: Bild
             name_details:
                 title: "Name & Details"
             enabled:
-                title: Visibility
+                title: Sichtbarkeit
                 options:
-                    active: Active
-                    inactive: Inactive
-
+                    active: Aktiv
+                    inactive: Inaktiv
             metatitle:
-                placeholder: e.g. My Awesome Product
+                placeholder: z.B. mein tolles Produkt
             metadescription:
-                placeholder: e.g. This awesome product is exactly what you are lookin for.
+                placeholder: z.B. Dieses Produkt ist genau das wonach du suchst.
             metakeywords:
-                placeholder: 'e.g. product,awesome'
+                placeholder: 'z.B. produkt,toll'
         info:
-            variants_before_saving: You will be able to add variants after saving the product
+            variants_before_saving: Varianten können nach dem Speichern hinzugefügt werden
         error:
-            no_category: Warning! This product has no associated category
-            no_manufacturer: Warning! This product has no associated manufacturer
-            price_negative: Warning! The price cannot be negative
+            no_category: Achtung! Dieses Produkt ist keiner Kategorie zugeordnet
+            no_manufacturer: Achtung! Dieses Produkt ist keinem Hersteller zugeordnet
+            price_negative: Achtung! Der Preis darf nicht negativ sein
         tag:
-            in_home: Home
-            has_variants: Has variants
-            no_category: No category
-            no_manufacturer: No manufacturer
+            in_home: Startseite
+            has_variants: Hat Varianten
+            no_category: Keine Kategorie
+            no_manufacturer: Kein Hersteller
         section:
             basic:
-                title: Basic Details
-                description: Provide a very specific title for your product that explains and help sell your product and description that provides all the information required for your consumers.
+                title: Basisinformationen
+                description: Gib einen sehr genauen Titel für dein Produkt an, welcher dein Produkt besser verkauft und beschreibt und alle Erklärungen für deine Kunden bereithält.
             categorization:
-                title: Categorization
-                description: The product must be clasified under one category and one manufacturer. They will be visible in your store and must help your customers to navigate in your store.
+                title: Kategorisierung
+                description: Das Produkt muss unter einer Kategorie und einem Hersteller eingeordnet werden. Diese werden im Store sichtbar sein und deinen Kunden helfen sich zurecht tu finden.
             pricing:
-                title: Pricing
-                description: "Set the price for your product, without including taxes nor shipping. Also you can set an offer price."
+                title: Preisbildung
+                description: "Gib den Preis für dein Produkt ohne Steurn, Gebühren und Versandkosten an. Es kann auch ein Angebotspreis eingesetzt werden."
             dimensions:
-                title: Dimensions
-                description: "Set the dimensions and weight for your product. This information will be useful to calculate shipping costs."
+                title: Abmessungen
+                description: "Gib die Abmessungen und das Gewicht deines Produkts an. Diese Informationen kann bei der Berechnung der Versandkosten hilfreich sein."
             variants:
-                title: Variants
-                description: 'Variants are diferent versions of this product (color, size... ). Variants can have different prices or other attributes.'
+                title: Varianten
+                description: 'Varianten sind verschiedene Ausführungen eines Produkts, z.B. Farbe und Größe. Varianten können andere Preise oder andere Attribute haben.'
             visibility:
-                title: Visibility
-                description: "Set this product as visible or hidden, and make it visible in your home."
+                title: Sichtbarkeit
+                description: "Setze das Produkt auf sichtbar oder unsichtbar und mache es auf der Startseite verfügbar."
             stock:
-                title: Stock
-                description: "Configure the stock for your product. Each order will reduce this number."
+                title: Vorrat
+                description: "Konfiguriere den Lagervorrat deines Produkts. Jede Bestellung wird diese Zahl reduzieren."
 
     variant:
-        single: Variant
-        plural: Variants
-        edit:   Edit variant "%name%"
-        new:    New Variant
-        list:   Variant list
-        saved:  Variant saved
+        single: Variante
+        plural: Varianten
+        edit:   Variante "%name%" bearbeiten
+        new:    Neue Variante
+        list:   Variantenliste
+        saved:  Variante gespeichert
         field:
             name:
-                title: Variant name
+                title: Variantenname
             price:
-                title: Price
+                title: Preis
             stock:
-                title: Stock
+                title: Vorrat
             reduced_price:
-                title: Reduced price
+                title: Reduzierter Preis
             enabled:
                 title: Status
                 options:
-                    active: Active
-                    inactive: Inactive
+                    active: Aktiv
+                    inactive: Inaktiv
             options:
-                title: "Select one or more attributes:"
+                title: "Wähle ein oder mehrere Attribute aus:"
         section:
             attributes:
-                title: Attributes
-                description: "Set the principal attributes of this variant."
+                title: Attribute
+                description: "Lege die Hauptattribute dieser Variante fest."
             pricing:
-                title: Pricing
-                description: "Set the price for your variant, without including taxes or shipping. Also you can set an offer price."
+                title: Preisbildung
+                description: "Gib den Preis für dein Produkt ohne Steurn, Gebühren und Versandkosten an. Es kann auch ein Angebotspreis eingesetzt werden."
             visibility:
-                title: Visibility
-                description: "Set this variant as visible or hidden."
+                title: Sichtbarkeit
+                description: "Setze diese Variante auf sichtbar oder unsichtbar."
 
     manufacturer:
-        single:   Manufacturer
+        single:   Hersteller
         plural:   Manufacturers
         edit:     Edit "%name%"
         new:      New Manufacturer
