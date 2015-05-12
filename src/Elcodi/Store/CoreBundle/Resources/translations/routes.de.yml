@@ -1,0 +1,94 @@
+#
+# Currencies
+#
+store_currency_nav: /waehrungen/nav
+
+#
+# Languages
+#
+store_language_nav: /sprachen/nav
+
+#
+# Addresses
+#
+store_address_list: /meine-adressen
+store_address_edit: /meine-adressen/{id}/bearbeiten/{source}
+store_address_new: /meine-adressen/neu/{source}
+store_address_delete: /meine-adressen/{id}/loeschen
+
+#
+# Location
+#
+location_selectors: /ort/waehler/{locationId}
+
+#
+# Blog
+#
+store_blog_view: /blog/{page}
+store_blog_post_view: /blog/{id}/{slug}
+
+#
+# Category
+#
+store_categories_nav: /kategorien/nav
+store_category_products_list: /kategorie/{slug}/{id}
+
+#
+# Product
+#
+store_product_view: /produkt/{slug}/{id}
+
+
+#
+# Cart
+#
+store_cart_view: /warenkorb
+store_cart_add_product: /warenkorb/produkt/{id}/add
+store_cart_add_product_variant: /warenkorb/produkt/variante/{id}/hinzu
+store_cart_empty: /warenkorb/leeren
+store_cart_update: /warenkorb/erweitern
+store_cartline_remove: /warenkorb/artikel/{id}/löschen
+store_cart_nav: /warenkorb/nav
+
+#
+# Checkout
+#
+store_checkout_address: /warenkorb/adresse
+store_checkout_address_save: /warenkorb/adresse/save
+store_checkout_payment: /warenkorb/bezahlung
+store_checkout_payment_fail: /warenkorb/bezahlung/fehler
+store_checkout_shipping_range_apply: /warenkorb/versand/umfang/aendern/{rangeId}
+
+#
+# Order
+#
+store_order_view: /bestellung/{id}
+store_order_view_thanks: /bestellung/{id}/danke
+store_order_list: /meine-bestellungen
+
+#
+# Cart Coupon
+#
+store_cart_coupon_form_type_coupon_apply: /warenkorb/gutscheine
+store_coupon_apply: /warenkorb/gutschein/einloesen
+store_coupon_remove: /warenkorb/gutschein/entfernen/{code}
+
+#
+# Password
+#
+store_password_remember: /passwort/erinnern
+store_password_recover_sent: /passwort/gesendet
+store_password_recover: /passwort/widerherstellen
+
+#
+# Security
+#
+store_register: /registrieren
+store_login: /login
+
+#
+# User
+#
+store_user_nav: /benutzer/nav
+store_user: /benutzer
+store_user_edit: /benutzer/bearbeiten
