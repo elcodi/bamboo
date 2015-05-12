@@ -1,11 +1,10 @@
-author: Marc Morera
-description: |
-    Pinterest integration for your shop
-year: 2015
-url: https://www.pinterest.com/
-name: Pinterest
-fa_icon: pinterest
-configuration_route: admin_pinterest_configuration
-enabled: false
-version: ~0.4
-visible: true
+plugin:
+    type: plugin
+    name: Pinterest
+    description: |
+        Pinterest integration for your shop
+    fa_icon: pinterest
+    fields:
+        asynchronous:
+            type: checkbox
+            label: elcodi_plugin.pinterest.asynchronous

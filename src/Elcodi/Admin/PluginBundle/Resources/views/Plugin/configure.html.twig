@@ -1,0 +1,27 @@
+{% extends 'AdminCoreBundle::layout.html.twig' %}
+
+
+{% set elcodi_context = {
+    entity_type: 'plugin',
+} %}
+
+
+{% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
+
+
+{% block breadcrumb %}
+
+    {% include '@AdminCore/Common/breadcrumb.html.twig' with {
+        breadcrumb: [
+            { name: 'admin.plugin.plural'|trans, active: true },
+        ]
+    } %}
+
+{% endblock breadcrumb %}
+
+
+{% block content %}
+
+    {{ form(form) }}
+
+{% endblock content %}

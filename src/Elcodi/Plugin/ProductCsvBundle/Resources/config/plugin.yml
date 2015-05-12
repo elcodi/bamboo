@@ -1,0 +1,9 @@
+services:
+
+    #
+    # Plugin
+    #
+    elcodi_plugin.product_csv:
+        parent: elcodi.abstract_plugin
+        arguments:
+            - "Elcodi\\Plugin\\ProductCsvBundle"

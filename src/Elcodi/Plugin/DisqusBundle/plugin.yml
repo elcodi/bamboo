@@ -1,11 +1,16 @@
-author: Marc Morera
-description: |
-    Disqus integration for your shop
-year: 2015
-name: Disqus
-url: http://url-ga.com
-fa_icon: comment-o
-configuration_route: admin_disqus_configuration
-version: ~0.4
-enabled: false
-visible: true
+plugin:
+    type: plugin
+    name: Discuss
+    description: |
+        Disqus integration for your shop
+    fa_icon: comment-o
+    fields:
+        disqus_identifier:
+            type: text
+            label: elcodi_plugin.disqus.disqus_identifier
+        disqus_enabled_product:
+            type: checkbox
+            label: elcodi_plugin.disqus.disqus_enabled_product
+        disqus_enabled_blog_post:
+            type: checkbox
+            label: elcodi_plugin.disqus.disqus_enabled_blog_post

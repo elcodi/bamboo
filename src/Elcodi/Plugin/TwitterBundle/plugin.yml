@@ -1,11 +1,10 @@
-author: Roger Gros
-description: |
-    Twitter social plugin.
-year: 2015
-name: Twitter
-url: https://twitter.com
-fa_icon: twitter
-configuration_route: admin_twitter_configuration
-version: ~0.5
-enabled: false
-visible: true
+plugin:
+    type: plugin
+    name: Twitter
+    description: |
+        Twitter social plugin.
+    fa_icon: twitter
+    fields:
+        twitter_account:
+            type: text
+            label: elcodi_plugin.twitter.facebook_account

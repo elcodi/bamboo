@@ -3,36 +3,36 @@ services:
     #
     # Event listeners
     #
-    elcodi_plugin.event_listener.dashboard_redirection:
+    elcodi_plugin.store_setup_wizard.event_listener.dashboard_redirection:
         class: Elcodi\Plugin\StoreSetupWizardBundle\EventListener\DashboardRedirectionEventListener
         arguments:
             - @router
-            - @elcodi_templates.wizard_status.service
-            - @elcodi_templates.wizard_routes.service
+            - @elcodi_plugin.store_setup_wizard.wizard_status
+            - @elcodi_plugin.store_setup_wizard.wizard_routes
         calls:
-            - [setPlugin, [@=elcodi_plugin("Elcodi\\Plugin\\StoreSetupWizardBundle")]]
+            - [setPlugin, [@elcodi_plugin.store_setup_wizard]]
         tags:
             - { name: firewall_listener, firewall: admin_area }
 
-    elcodi_plugin.event_listener.disable_wizard:
+    elcodi_plugin.store_setup_wizard.event_listener.disable_wizard:
         class: Elcodi\Plugin\StoreSetupWizardBundle\EventListener\DisableWizardEventListener
         arguments:
-            - @elcodi_templates.wizard_status.service
+            - @elcodi_plugin.store_setup_wizard.wizard_status
             - @elcodi.manager.plugin
             - @elcodi.manager.configuration
         calls:
-            - [setPlugin, [@=elcodi_plugin("Elcodi\\Plugin\\StoreSetupWizardBundle")]]
+            - [setPlugin, [@elcodi_plugin.store_setup_wizard]]
         tags:
             - { name: firewall_listener, firewall: admin_area }
 
-    elcodi_plugin.event_listener.disable_under_construction:
+    elcodi_plugin.store_setup_wizard.event_listener.disable_under_construction:
         class: Elcodi\Plugin\StoreSetupWizardBundle\EventListener\DisableUnderConstructionEventListener
         arguments:
             - @translator
             - @router
-            - @elcodi_templates.wizard_status.service
+            - @elcodi_plugin.store_setup_wizard.wizard_status
             - @elcodi.manager.configuration
         calls:
-            - [setPlugin, [@=elcodi_plugin("Elcodi\\Plugin\\StoreSetupWizardBundle")]]
+            - [setPlugin, [@elcodi_plugin.store_setup_wizard]]
         tags:
             - { name: firewall_listener, firewall: admin_area }

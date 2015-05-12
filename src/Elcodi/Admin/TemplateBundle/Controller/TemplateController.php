@@ -21,6 +21,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
+use Elcodi\Component\Plugin\Entity\Plugin;
+use Elcodi\Component\Plugin\PluginTypes;
 
 /**
  * Class Controller for Templates
@@ -45,19 +47,29 @@ class TemplateController extends AbstractAdminController
      */
     public function listAction()
     {
-        $configurationManager = $this->get('elcodi.manager.configuration');
+        /**
+         * @var Plugin[] $templates
+         */
+        $templates = $this
+            ->get('elcodi.repository.plugin')
+            ->findBy([
+                'type' => PluginTypes::TYPE_TEMPLATE,
+            ]);
 
-        $templates = $configurationManager->get('store.templates');
-        $currentTemplate = $configurationManager->get('store.template');
+        $assetPaths = [];
+        $currentTemplate = $this
+            ->get('elcodi.manager.configuration')
+            ->get('store.template');
 
-        foreach ($templates as $position => $template) {
-            $assetPath = str_replace('bundle', '', strtolower($template['bundle']));
-            $templates[$position]['assetPath'] = $assetPath;
+        foreach ($templates as $plugin) {
+            $assetPath = str_replace('bundle', '', strtolower($plugin->getBundleName()));
+            $assetPaths[$plugin->getHash()] = $assetPath;
         }
 
         return [
             'templates'       => $templates,
             'currentTemplate' => $currentTemplate,
+            'assetPaths'      => $assetPaths,
         ];
     }
 }

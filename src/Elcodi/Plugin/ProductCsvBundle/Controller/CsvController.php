@@ -22,6 +22,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
+use Elcodi\Component\Plugin\Entity\Plugin;
 use Elcodi\Plugin\ProductCsvBundle\Services\ProductExporter;
 
 /**
@@ -32,15 +33,20 @@ use Elcodi\Plugin\ProductCsvBundle\Services\ProductExporter;
 class CsvController extends Controller
 {
     /**
-     * @return Response
+     * Export all plugins
+     *
+     * @return Response Exportation file
      */
     public function exportAction()
     {
+        /**
+         * @var Plugin $plugin
+         */
         $plugin = $this
             ->get('elcodi.manager.plugin')
             ->getPlugin('Elcodi\Plugin\ProductCsvBundle');
 
-        if (!$plugin->isEnabled()) {
+        if (!$plugin->isUsable()) {
             $this->createNotFoundException(
                 $this
                     ->get('translator')
@@ -54,7 +60,7 @@ class CsvController extends Controller
         $exporter = $this->get('elcodi_plugin.product_csv.exporter');
         $repository = $this->get('elcodi.repository.product');
 
-        $response = new StreamedResponse();
+        $response = StreamedResponse::create();
         $response->setCallback(function () use ($repository, $exporter) {
             $rows = $repository->findAll();
 
@@ -68,7 +74,12 @@ class CsvController extends Controller
             $filename = 'products.csv';
         }
 
-        return $this->makeDownloadable($response, $filename, 'text/csv');
+        return $this
+            ->makeDownloadable(
+                $response,
+                $filename,
+                'text/csv'
+            );
     }
 
     /**

@@ -45,8 +45,6 @@ class DoctrineContext extends AbstractElcodiContext
         gc_collect_cycles();
 
         $this
-            ->executeCommand('assets:install')
-            ->executeCommand('assetic:dump')
             ->checkDoctrineConnection()
             ->executeCommand('doctrine:database:drop', [
                 '--force' => true,
@@ -59,11 +57,13 @@ class DoctrineContext extends AbstractElcodiContext
                         ->kernel
                         ->getRootDir() . '/../src/Elcodi/Fixtures',
             ])
-            ->executeCommand('elcodi:templates:load')
-            ->executeCommand('elcodi:templates:enable', [
-                'template' => 'StoreTemplateBundle',
+            ->executeCommand('elcodi:plugins:load')
+            ->executeCommand('elcodi:configuration:set', [
+                'identifier' => 'store.template',
+                'value' => '"StoreTemplateBundle"',
             ])
-            ->executeCommand('elcodi:plugins:load');
+            ->executeCommand('assets:install')
+            ->executeCommand('assetic:dump');
     }
 
     /**
@@ -111,7 +111,6 @@ class DoctrineContext extends AbstractElcodiContext
             [
                 'command'          => $command,
                 '--no-interaction' => true,
-                '--quiet'          => true,
             ], $parameters
         );
 

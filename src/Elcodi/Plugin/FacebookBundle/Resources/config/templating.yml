@@ -7,7 +7,7 @@ services:
         class: Elcodi\Plugin\FacebookBundle\Templating\JavascriptRenderer
         calls:
             - [setTemplating, [@twig]]
-            - [setPlugin, [@=elcodi_plugin("Elcodi\\Plugin\\FacebookBundle")]]
+            - [setPlugin, [@elcodi_plugin.facebook]]
         tags:
             - { name: kernel.event_listener, event: store.body_bottom, method: renderJavascript }
             - { name: kernel.event_listener, event: admin.footer_script, method: renderJavascript }
@@ -19,7 +19,7 @@ services:
             - @translator
         calls:
             - [setTemplating, [@twig]]
-            - [setPlugin, [@=elcodi_plugin("Elcodi\\Plugin\\FacebookBundle")]]
+            - [setPlugin, [@elcodi_plugin.facebook]]
         tags:
             - { name: kernel.event_listener, event: store.product_pin_top, method: renderShareProduct }
             - { name: kernel.event_listener, event: store.order_thanks, method: renderShareOrder }
@@ -28,6 +28,6 @@ services:
         class: Elcodi\Plugin\FacebookBundle\Templating\FollowRenderer
         calls:
             - [setTemplating, [@twig]]
-            - [setPlugin, [@=elcodi_plugin("Elcodi\\Plugin\\FacebookBundle")]]
+            - [setPlugin, [@elcodi_plugin.facebook]]
         tags:
             - { name: kernel.event_listener, event: store.footer_social, method: renderFollowButton }

@@ -3,7 +3,5 @@
     class="twitter-share-button"
     data-url="{{ url }}"
     data-text="{{ text|escape('html_attr') }}"
-    {% if twitter_account %}
-    data-via="{{ twitter_account }}"
-    {% endif %}
+    data-via="{{ plugin.getFieldValue('twitter_account') }}"
 >Tweet</a>

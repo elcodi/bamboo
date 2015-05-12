@@ -1,11 +1,11 @@
-author: Roger Gros
-description: |
-    Google analytics integration for your shop
-year: 2015
-name: Google Analytics
-url: http://www.google.com/analytics/
-fa_icon: google
-configuration_route: admin_google_analytics_configuration
-version: ~0.4
-enabled: false
-visible: true
+plugin:
+    type: plugin
+    name: Google Analytics
+    description: |
+        Google analytics integration for your shop
+    fa_icon: google
+    fields:
+        analytics_tracker_id:
+            type: text
+            required: true
+            label: elcodi_plugin.google_analytics.analytics_tracker_id

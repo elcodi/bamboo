@@ -56,10 +56,14 @@ class JavascriptRenderer
      */
     public function renderJavascript(EventInterface $event)
     {
-        if ($this->plugin->isEnabled()) {
+        if ($this
+            ->plugin
+            ->isUsable()
+        ) {
             $this->appendTemplate(
                 '@ElcodiFacebook/javascript.html.twig',
-                $event
+                $event,
+                $this->plugin
             );
         }
     }

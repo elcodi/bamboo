@@ -1,4 +1,0 @@
-admin_facebook_configuration:
-    path: /configuration
-    defaults: { _controller: ElcodiFacebookBundle:Admin:configuration }
-    methods: ['GET', 'POST']

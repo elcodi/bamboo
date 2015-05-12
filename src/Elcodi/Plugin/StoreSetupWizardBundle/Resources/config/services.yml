@@ -3,7 +3,7 @@ services:
     #
     # Services
     #
-    elcodi_templates.wizard_status.service:
+    elcodi_plugin.store_setup_wizard.wizard_status:
         class: Elcodi\Plugin\StoreSetupWizardBundle\Services\WizardStatus
         arguments:
             - @elcodi.manager.configuration
@@ -11,7 +11,7 @@ services:
             - @elcodi.repository.shipping_range
             - %store.payment_bridge.enabled_methods%
 
-    elcodi_templates.wizard_routes.service:
+    elcodi_plugin.store_setup_wizard.wizard_routes:
         class: Elcodi\Plugin\StoreSetupWizardBundle\Services\WizardRoutes
         arguments:
-            - @elcodi_templates.wizard_status.service
+            - @elcodi_plugin.store_setup_wizard.wizard_status

@@ -1,11 +1,10 @@
-author: Roger Gros
-description: |
-    facebook social plugin.
-year: 2015
-name: facebook
-url: https://facebook.com
-fa_icon: facebook
-configuration_route: admin_facebook_configuration
-version: ~0.5
-enabled: false
-visible: true
+plugin:
+    type: plugin
+    name: Facebook
+    description: |
+        Facebook social plugin.
+    fa_icon: facebook
+    fields:
+        facebook_account:
+            type: text
+            label: elcodi_plugin.facebook.facebook_account

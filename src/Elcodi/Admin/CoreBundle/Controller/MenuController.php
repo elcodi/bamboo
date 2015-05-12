@@ -39,13 +39,13 @@ class MenuController extends Controller
      */
     public function sideNavAction()
     {
-        $root = $this
+        $menu = $this
             ->container
             ->get('elcodi.manager.menu')
             ->loadMenuByCode('admin');
 
         return [
-            'menu_items' => $root,
+            'menu' => $menu,
         ];
     }
 }

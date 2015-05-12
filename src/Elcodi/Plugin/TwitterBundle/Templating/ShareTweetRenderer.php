@@ -89,7 +89,10 @@ class ShareTweetRenderer
      */
     public function renderShareProduct(EventInterface $event)
     {
-        if ($this->plugin->isEnabled()) {
+        if ($this
+            ->plugin
+            ->isUsable(['twitter_account'])
+        ) {
             $pluginConfiguration = $this->plugin->getConfiguration();
 
             /**
@@ -108,7 +111,7 @@ class ShareTweetRenderer
                     true
                 );
 
-            $text     = $product->getName();
+            $text = $product->getName();
             $category = $product->getPrincipalCategory();
             if ($category instanceof CategoryInterface) {
                 $text = $category->getName() . ' - ' . $text;
@@ -117,10 +120,11 @@ class ShareTweetRenderer
             $this->appendTemplate(
                 '@ElcodiTwitter/Tweet/share.html.twig',
                 $event,
+                $this->plugin,
                 [
                     'url'             => $shareUrl,
                     'text'            => $text,
-                    'twitter_account' => $pluginConfiguration['twitter_account'],
+                    'twitter_account' => $pluginConfiguration->getField('twitter_account'),
                 ]
             );
         }
@@ -133,9 +137,10 @@ class ShareTweetRenderer
      */
     public function renderShareOrder(EventInterface $event)
     {
-        if ($this->plugin->isEnabled()) {
-            $pluginConfiguration = $this->plugin->getConfiguration();
-
+        if ($this
+            ->plugin
+            ->isUsable(['twitter_account'])
+        ) {
             $shareUrl = $this
                 ->urlGenerator
                 ->generate(
@@ -147,10 +152,10 @@ class ShareTweetRenderer
             $this->appendTemplate(
                 '@ElcodiTwitter/Tweet/share.html.twig',
                 $event,
+                $this->plugin,
                 [
-                    'url'             => $shareUrl,
-                    'text'            => $this->translator->trans('twitter_plugin.tweet.take_look'),
-                    'twitter_account' => $pluginConfiguration['twitter_account'],
+                    'url'  => $shareUrl,
+                    'text' => $this->translator->trans('twitter_plugin.tweet.take_look'),
                 ]
             );
         }

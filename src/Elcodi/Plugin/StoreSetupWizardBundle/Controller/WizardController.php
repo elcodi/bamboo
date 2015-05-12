@@ -34,8 +34,8 @@ class WizardController extends Controller
     public function viewAction()
     {
         $wizardStatusService = $this
-            ->get('elcodi_templates.wizard_status.service');
-        $stepsFinished       = $wizardStatusService->getStepsFinishStatus();
+            ->get('elcodi_plugin.store_setup_wizard.wizard_status');
+        $stepsFinished = $wizardStatusService->getStepsFinishStatus();
 
         $firstCarrier = $this
             ->get('elcodi.repository.carrier')

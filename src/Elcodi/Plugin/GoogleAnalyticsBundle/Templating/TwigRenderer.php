@@ -56,14 +56,16 @@ class TwigRenderer
      */
     public function renderJavascript(EventInterface $event)
     {
-        if ($this->pluginCanBeUsed($this->plugin, [
-            'analytics_tracker_id',
-        ])
+        if ($this
+            ->plugin
+            ->isUsable([
+                'analytics_tracker_id',
+            ])
         ) {
             $this->appendTemplate(
                 '@ElcodiGoogleAnalytics/javascript.html.twig',
                 $event,
-                ['analytics_tracker_id' => $this->plugin->getConfiguration()['analytics_tracker_id']]
+                $this->plugin
             );
         }
     }

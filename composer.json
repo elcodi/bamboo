@@ -97,7 +97,6 @@
         "elcodi/shipping-bundle": "0.5.17",
         "elcodi/fixtures-booster-bundle": "0.5.17",
         "elcodi/plugin-bundle": "0.5.17",
-        "elcodi/template-bundle": "0.5.17",
         "elcodi/comment-bundle": "0.5.17"
     },
     "replace": {

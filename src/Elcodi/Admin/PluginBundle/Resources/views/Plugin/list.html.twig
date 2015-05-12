@@ -21,19 +21,21 @@
 
     <form class="form-grid form-save-on-edit" data-fc-modules="form-save-on-edit">
         {% for plugin in plugins %}
+            {% set pluginName = plugin.getConfigurationValue('name') %}
             <article class="box-background">
-                <h4 class="fw-n">{{ plugin.name }}{{ plugin.version }}</h4>
-                <p>{{ plugin.author }}</p>
+                <h4 class="fw-n">{{ pluginName }}</h4>
 
-                <input type="hidden" id="url-{{ plugin.name }}" value="{{ url('admin_plugin_enable', { plugin: plugin.namespace }) }}" />
+                <input type="hidden" id="url-enable-plugin-{{ plugin.hash }}" value="{{ url('admin_plugin_enable', {pluginHash: plugin.hash}) }}" />
 
-                <a href="{{ url( plugin.configurationRoute ) }}" class="button icon-cogs"> {{ 'admin.plugin.section.settings'|trans }}</a>
+                {% if plugin.hasFields() %}
+                    <a href="{{ url('admin_plugin_configure', {pluginHash: plugin.hash}) }}" class="button icon-cogs"> {{ 'admin.plugin.section.settings'|trans }}</a>
+                {% endif %}
 
                 <div class="fl-r pt-s">
                     {{ 'admin.plugin.field.visibility'|trans }}
                     <div class="switch">
-                        <input type="checkbox" id="{{ plugin.name }}"{% if plugin.enabled %} checked="checked"{% endif %} />
-                        <label for="{{ plugin.name }}" class="mr-n"></label>
+                        <input type="checkbox" id="enable-plugin-{{ plugin.hash }}"{% if plugin.enabled %} checked="checked"{% endif %} />
+                        <label for="enable-plugin-{{ plugin.hash }}" class="mr-n"></label>
                     </div>
                 </div>
             </article>

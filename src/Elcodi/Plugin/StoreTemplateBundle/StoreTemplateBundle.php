@@ -15,24 +15,27 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-namespace Elcodi\Template\StoreTemplateBundle;
+namespace Elcodi\Plugin\StoreTemplateBundle;
 
+use Symfony\Component\Console\Application;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-use Elcodi\Component\Template\Interfaces\TemplateInterface;
+use Elcodi\Component\Plugin\Interfaces\PluginInterface;
 
 /**
  * Class StoreTemplateBundle
  */
-class StoreTemplateBundle extends Bundle implements TemplateInterface
+class StoreTemplateBundle extends Bundle implements PluginInterface
 {
     /**
-     * Get the template bundle
+     * Register Commands.
      *
-     * @return string Template name
+     * Disabled as commands are registered as services.
+     *
+     * @param Application $application An Application instance
      */
-    public function getTemplateName()
+    public function registerCommands(Application $application)
     {
-        return 'store_template';
+        return;
     }
 }

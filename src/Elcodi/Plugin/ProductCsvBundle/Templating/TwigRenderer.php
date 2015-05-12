@@ -64,9 +64,15 @@ class TwigRenderer
             return;
         }
 
-        if ($this->pluginCanBeUsed($this->plugin)
+        if ($this
+            ->plugin
+            ->isUsable()
         ) {
-            $this->appendTemplate('ElcodiProductCsvBundle::buttons.html.twig', $event);
+            $this->appendTemplate(
+                'ElcodiProductCsvBundle::buttons.html.twig',
+                $event,
+                $this->plugin
+            );
         }
     }
 }

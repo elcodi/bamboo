@@ -56,18 +56,16 @@ class FollowRenderer
      */
     public function renderFollowButton(EventInterface $event)
     {
-        $pluginConfiguration = $this
+        if ($this
             ->plugin
-            ->getConfiguration();
-
-        if (
-            $this->plugin->isEnabled() &&
-            !empty($pluginConfiguration['facebook_account'])
+            ->isUsable([
+                'facebook_account',
+            ])
         ) {
             $this->appendTemplate(
                 '@ElcodiFacebook/Follow/follow.html.twig',
                 $event,
-                ['facebook_account' => $pluginConfiguration['facebook_account']]
+                $this->plugin
             );
         }
     }

@@ -7,7 +7,7 @@ services:
         class: Elcodi\Plugin\PinterestBundle\Templating\TwigRenderer
         calls:
             - [setTemplating, [@twig]]
-            - [setPlugin, [@=elcodi_plugin("Elcodi\\Plugin\\PinterestBundle")]]
+            - [setPlugin, [@elcodi_plugin.pinterest]]
         tags:
             - { name: kernel.event_listener, event: store.head_bottom, method: renderAsynchronousJavascript }
             - { name: kernel.event_listener, event: store.body_bottom, method: renderJavascript }

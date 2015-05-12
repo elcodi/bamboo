@@ -56,14 +56,16 @@ class TwigRenderer
      */
     public function renderJavascript(EventInterface $event)
     {
-        if ($this->pluginCanBeUsed($this->plugin, [
-            'disqus_identifier',
-        ])
+        if ($this
+            ->plugin
+            ->isUsable([
+                'disqus_identifier',
+            ])
         ) {
             $this->appendTemplate(
                 '@ElcodiDisqus/javascript.html.twig',
                 $event,
-                ['disqus_identifier' => $this->plugin->getConfiguration()['disqus_identifier']]
+                $this->plugin
             );
         }
     }
@@ -75,15 +77,17 @@ class TwigRenderer
      */
     public function renderDisqusBlogPostBlock(EventInterface $event)
     {
-        if ($this->pluginCanBeUsed($this->plugin, [
-            'disqus_identifier',
-            'disqus_enabled_blog_post',
-        ])
+        if ($this
+            ->plugin
+            ->isUsable([
+                'disqus_identifier',
+                'disqus_enabled_blog_post',
+            ])
         ) {
             $this->appendTemplate(
                 '@ElcodiDisqus/block.html.twig',
                 $event,
-                ['disqus_identifier' => $this->plugin->getConfiguration()['disqus_identifier']]
+                $this->plugin
             );
         }
     }
@@ -95,15 +99,17 @@ class TwigRenderer
      */
     public function renderDisqusProductBlock(EventInterface $event)
     {
-        if ($this->pluginCanBeUsed($this->plugin, [
-            'disqus_identifier',
-            'disqus_enabled_product',
-        ])
+        if ($this
+            ->plugin
+            ->isUsable([
+                'disqus_identifier',
+                'disqus_enabled_product',
+            ])
         ) {
             $this->appendTemplate(
                 '@ElcodiDisqus/block.html.twig',
                 $event,
-                ['disqus_identifier' => $this->plugin->getConfiguration()['disqus_identifier']]
+                $this->plugin
             );
         }
     }
