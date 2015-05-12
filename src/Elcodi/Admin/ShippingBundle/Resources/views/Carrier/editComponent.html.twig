@@ -18,17 +18,21 @@
      %}
 
     {{ form_start(form, { action: formAction }) }}
+    <fieldset>
         <div class="grid">
             <div class="col-1-3">
                 <div class="box-none">
                     <h3 class="fw-n">{{ 'admin.carrier.section.basic.title'|trans }}</h3>
                     <p>{{ 'admin.carrier.section.basic.description'|trans }}</p>
+                    {% if elcodi_languages|length > 1 %}
+                        <p><i class="icon-star"></i> = {{ 'ui.language.master_language'|trans }}</p>
+                    {% endif %}
                 </div>
             </div>
             <div class="col-2-3">
-                <div {% if elcodi_languages|length > 1 %}data-tc-modules="tabs" class="tabs-box" {% endif %}>
+                <div {% if elcodi_languages|length > 1 %}data-fc-modules="tabs" class="tabs-box" {% endif %}>
                     {% for language in elcodi_languages %}
-                    <section id="tab-{{ language }}" data-tc-name="{% if loop.first %}{{ '<i class="icon-star"></i>'|e }} {% endif %}{{ language|capitalize }}">
+                    <section id="tab-{{ language }}" data-fc-name="{% if loop.first %}{{ '<i class="icon-star"></i>'|e }} {% endif %}{{ language|capitalize }}">
                         <div class="box">
                             <ol>
                                 <li>
@@ -122,8 +126,8 @@
                 </div>
             </div>
         </div>
-
-        <div class="grid">
+        </fieldset>
+        <div class="grid fixed-bottom animated fade-in-up">
             <div class="col-1-3">
                 &nbsp;
             </div>

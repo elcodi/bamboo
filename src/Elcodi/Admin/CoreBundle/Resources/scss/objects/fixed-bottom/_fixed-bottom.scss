@@ -1,0 +1,14 @@
+@mixin papa-fixed-bottom {
+	.fixed-bottom {
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		background: $color-background;
+		padding: $spacing/2 0 $spacing/4 17%;
+		right: 0;
+		text-align: left;
+		box-sizing: border-box;
+		@include box-shadow(1px 0 10px rgba($color-foreground, .5));
+		z-index: 99;
+	}
+}
