@@ -12,7 +12,7 @@ store:
         delete:
             response_ok: Adresse gelöscht
         select_address_type: Wähle eine %1-Adresse aus
-        billing: Zahlung
+        billing: Rechnungslegung
         delivery: Lieferung
         form:
             fields:
