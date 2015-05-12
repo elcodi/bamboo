@@ -78,8 +78,7 @@
                 </div>
             </div>
         </div>
-
-        <div class="grid">
+        <div class="grid {% if form.parent.vars.choices|length <= 0 %}d-n{% endif %}">
             <div class="col-1-3">
                 <div class="box-none mb-n pb-m">
                     <h3 class="fw-n">{{ 'admin.category.section.categorization.title'|trans }}</h3>
