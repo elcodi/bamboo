@@ -105,11 +105,11 @@
         {% if entity.stock >= 5 %}
             {% set stockColor = 'c-ok' %}
         {% elseif entity.stock > 0 and entity.stock < 10 %}
-            {% set stockColor = 'icon-warning c-warning' %}
+            {% set stockColor = 'c-warning' %}
         {% else %}
-            {% set stockColor = 'icon-times icon-2x c-ko' %}
+            {% set stockColor = 'c-ko' %}
         {% endif %}
-        <span class="{{ stockColor }}">{% if entity.stock > 0 %}{{ entity.stock }}{% endif %}</span>
+        <span class="{{ stockColor }}"> {{ entity.stock }}</span>
     </td>
     {% include '@AdminCore/Tables/actions.html.twig' with {
         entity: entity,
