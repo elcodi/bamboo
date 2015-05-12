@@ -269,23 +269,23 @@ admin:
                 description: Setze diesen Eintrag auf sichtbar oder versteckt.
 
     mailing:
-        single: Mailing
-        plural: Mailings
-        edit:   Edit "%title%"
-        new:    Create new mailing
-        saved:  Mailing saved
-        list:   Mailing list
+        single: Email
+        plural: Emails
+        edit:   "%title%" bearbeiten
+        new:    Erstelle eine neue Email
+        saved:  Email erstellt
+        list:   Emailliste
         field:
             title:
-                title: Title
-                placeholder: e.g. My Awesome Mailing
+                title: Titel
+                placeholder: z.B. Meine tolle Email
             content:
-                title: Content
-                placeholder: e.g. This awesome mailing is exactly what you are lookin for.
+                title: Inhalt
+                placeholder: z.B. Diese Email ist genau das wonach Sie suchen
         section:
             basic:
-                title: Basic content
-                description: Provide a descriptive title for your mailing and the content to deliver.
+                title: Basisinformationen
+                description: Gib einen bezeichnenden Titel für die Email und ihren Inhalt an.
 
     carrier:
         single: Lieferweg
