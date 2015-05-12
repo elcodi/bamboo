@@ -1,7 +1,7 @@
 .welcome {
 	& {
 		overflow: hidden;
-		background: lighten(map-get($object-navigation-vars, background-color), 68);
+		background: $color-box;
 		padding-bottom: $spacing/4;
 	}
 	h2 {
@@ -30,7 +30,8 @@
 		padding-bottom: 0px;
 	}
 	h2 {
-		font-size: $font-size-l !important;
+		font-size: $font-size-xl !important;
+		min-height: 28px;
 		padding: $spacing/4;
 	}
 }

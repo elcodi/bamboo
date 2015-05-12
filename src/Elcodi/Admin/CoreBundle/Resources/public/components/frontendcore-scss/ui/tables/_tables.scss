@@ -38,8 +38,10 @@
 	}
 
 	.dynatable-active-page {
-		background: $color-background !important;
-		color: $color-foreground !important;
+		a {
+			background: $color-background !important;
+			color: $color-foreground !important;
+		}
 	}
 
 	.dynatable-pagination {

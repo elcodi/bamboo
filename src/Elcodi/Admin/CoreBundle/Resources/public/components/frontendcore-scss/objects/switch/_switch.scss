@@ -29,15 +29,13 @@
 				position: relative;
 				text-indent: 100%;
 				width: $spacing*2.5;
-				height: $spacing;
+				height: $spacing*1.4;
 				cursor: pointer;
 				transition: left 0.15s ease-out;
 				@include border-radius(100px);
 			}
 			&:after {
-				width: $spacing;
-				height: $spacing;
-				padding-top: 1px;
+				padding: $spacing/4;
 				font-family: 'fontawesome';
 				content: $fa-var-power-off;
 				text-indent: 0;
@@ -77,6 +75,9 @@
 			margin-right: $spacing/2;
 			margin-bottom: 0;
 			vertical-align: baseline;
+			font-size: 1rem;
+			line-height: 1rem;
+			padding: 0;
 		}
 
 	}
