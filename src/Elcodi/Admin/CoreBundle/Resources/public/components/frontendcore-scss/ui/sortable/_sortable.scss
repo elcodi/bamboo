@@ -6,6 +6,8 @@
 		}
 		ol, ul {
 			min-height: $spacing/4;
+			width: 97%;
+			margin-left: 3%;
 		}
 		& > li {
 			min-height: $spacing*2.2;
@@ -15,7 +17,28 @@
 			margin-bottom: $spacing/4;
 		}
 		& > li > ol, & > li > ul {
-			overflow: hidden;
+			overflow: visible;
+		}
+		& ol > li, & ul > li {
+			& {
+				position: relative;
+				overflow: visible;
+			}
+			&:before {
+				content: "-- ";
+				position: absolute;
+				left: -$spacing/2;
+				color: rgba($color-foreground, .5);
+				border-left: 1px solid rgba($color-foreground, .5);
+				padding: $spacing/4 0;
+				top: 0;
+			}
+			&:last-of-type {
+				&:before {
+					height: 20%;
+					overflow: hidden;
+				}
+			}
 		}
 		li {
 			display: block;
