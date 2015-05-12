@@ -4,117 +4,269 @@ admin:
         single: Dashboard
         plural: Dashboards
         title:  Dashboard
+        view_store: Zeige meinen Store
         chart:
             visitors:
+                title: Besucher
+                unique: Eindeutig
+                total: Gesamt
             sales:
+                title: Verkäufe
+                sales: Verkäufe
             cart_conversion:
+                title: Warenkorb Umsatz
+                cart_view: Warenkorb Ansicht
+                billing_shipping: Rechnungslegung/Versand
+                payment: Bezahlung
+                ordered: Bestellt
             devices:
+                title: Geräte
+                mobile: Mobil
                 desktop: Desktop
             traffic_source:
+                title: Traffic Quellen
+                direct: Direkt
+                referrals: Überweisung
+                search_engine: Suchmaschinen
         chart_range:
+            today: Heute
+            yesterday: Gestern
+            last7days: letzte 7 Tage
+            last30days: letzte 30 Tage
+            last90days: letzte 90 Tage
     UI:
+      show_code: Zeige HTML
+      show_visual: Verstecke HTML
     address:
+        single: Adresse
+        plural: Adressen
+        saved:  Adressen gespeichert
         edit:
+            billing_address: Rechnungsadresse für deinen Store
+            description: "Die Adresse welche auf den Rechnungen deines Stores stehen soll. Falls du eine Firma hast, sollte diese die relevante Adresse sein. Andernfalls ist es deine tatsächliche Heimatadresse."
         select:
+            placeholder: Wähle etwas aus
         field:
             recipient_name:
+                title:       Emfpänger Nachname
+                placeholder: z.B. Heisenberg
             recipient_surname:
+                title:       Emfpänger Vorname
+                placeholder: z.B. Werner
             address:
+                title:       Adresse
+                placeholder: "z.B. Einsteinstrasse 42"
             address_more:
+                title:       Adresszusatz (optional)
+                placeholder: z.B. Atom GmbH
             postalcode:
+                title:       Postleitzahl
+                placeholder: z.B. 01187
             phone:
+                title:       Telefonnummer
+                placeholder: z.B. 0351 5103508063
             mobile:
+                title:       Handynummer
+                placeholder: z.B. 0176 666666666
             comments:
+                title:       Kommentare
+                placeholder: z.B. hinterm Wald
             country:
+                title: Land
             state:
+                title: Bundesland
             province:
+                title: Region
             city:
+                title: Stadt
+            save: Adresse Speichern
 
     remember_user:
+        title: Hast du dein Passwort vergessen?
+        description: "Keine Sorge, wir senden dir eine Email um dein Passwort zurückzusetzen!"
 
     recover_user:
+        title: Neues Passwort
         field:
             email:
+                placeholder: Gebe deine Email ein
             password:
+                placeholder: Neues Passwort
             repeat_password:
+                placeholder: Passwort wiederholen
         action:
             email_sent:
+                title: Email gesendet
+                description: "Bitte schau nach deinen Emails und folge den Anweisungen um dein Passwort wiederherzustellen."
 
     login:
+        title: Login erforderlich
         field:
             email:
+                placeholder: Gebe deine Email ein
             password:
+                placeholder: Gebe dein Passwort ein
         action:
+            login: Login
+            logout: Logout
+            remember: Hast du dein Passwort vergessen?
 
     user:
         field:
             email:
                 title: Email
+                placeholder: z.B. john.doe@mail.com
             firstname:
+                title: Vorname
+                placeholder: z.B. Werner
             lastname:
+                title: Nachname
+                placeholder: z.B. Heisenberg
             fullname:
+                title: Vollständiger Name
             username:
+                title: Benutzername
             birthday:
+                title: Geburtstag
             gender:
+                title: Geschlecht
                 options:
+                    male: Männlich
+                    female: Weiblich
             password:
+                title: Passwort
             enabled:
                 title: Status
                 options:
+                    active:   Aktiv
+                    inactive: Inaktiv
 
     admin_user:
         single: Administrator
+        plural: Administratoren
+        list:   Administratoren Liste
+        edit:   Bearbeite "%name%"
+        new:    Erstelle einen neuen Admin-Benutzer
+        saved:  Änderungen gespeichert
         error:
+            cant_disable_yourself: Du kannst deinen eigenen Account nicht deaktivieren
+            cant_remove_yourself: Du kannst deinen eigenen Account nicht löschen
         section:
             login:
+                title: Anmeldedetails
+                description: Jeder Benutzer sollte eine eindeutige Email haben.
             contact:
+                title: Kontaktdetails
+                description: Die Kontaktinformationen für diesen Admin.
             status:
+                title: Benutzerstatus
+                description: Du kannst Administratoren aktiv oder inaktiv setzen.
 
     customer:
+        single: Kunde
+        plural: Kunden
+        list:   Kundenliste
+        edit:   Bearbeite "%name%"
+        new:    Neuen Kunden erstellen
+        saved:  Änderungen gespeichert
         info:
+            password_changed: Passwort erfolgreich geändert
         error:
+            password_change: Fehler beim ändern des Passworts
         field:
             username:
+                title: Benutzername
+                placeholder: z.B. w.heisenberg
             identity_document:
+                title: Identität
+                placeholder: z.B. 12345678A
             phone:
+                title: Telefonnummer
+                placeholder: z.B. 0351 5103508063
             language:
+                title: Bevorzugte Sprache
             guest:
+                title: Gast
             newsletter:
                 title: Newsletter
             order_count:
+                title: '# Bestellungen'
         section:
             login:
+                title: Anmeldedetails
+                description: Jeder Nutzer sollte eine eindeutige Email und einen eindeutigen Bnutzernamen haben.
             contact:
+                title: Kontaktdetails
+                description: Die Kontaktinformationen für diesen Nutzer.
             status:
+                title: 'Status & Einstellungen'
+                description: Setze die Einstellungen des Benutzers.
 
     attribute:
+        single: Attribut
+        plural: Attribute
+        edit:   Bearbeite "%name%"
+        new:    Neues Attribut
+        saved:  Attribut gespeichert
+        list:   Attributliste
         field:
             name:
+                placeholder: z.B. Farbe
                 title:       Name
+                values:      Werte
             enabled:
                 title:       Status
         section:
             basic:
+                title:       Basisinformationen
+                description: Definiere den Namen und die Werte (durch Komma getrennt) des Attributs.
             visibility:
+                title:       Sichtbarkeit
+                description: Setze das Attribut auf sichtbar oder versteckt.
 
     blog:
         single: Blog
         plural: Blogs
 
     blog_post:
+        single: Blogeintrag
+        plural: Blogeinträge
+        edit:   Bearbeite "%name%"
+        new:    Erstelle einen Blogeintrag
+        list:   Blogeintragsliste
+        saved:  Eintrag gespeichert
+        in_store: Zeige im Store
+        show_metrics: Zeige Metriken
         field:
             title:
+                title: Titel
+                placeholder: z.B. Mein toller Blogeintrag
             path:
+                title: Pfad
+                placeholder: z.B. mein/toller/blog-eintrag
+                customize: Personalisiere den Pfad (Slug)
             link:
+                title: Verknüpfung
             enabled:
+                title: Aktiv
             content:
+                title: Inhalt
+                placeholder: z.B. Dieser Blogeintrag ist genau das wonach du suchst.
             publication_date:
+                title: Veröffentlichungsdatum
             metatitle:
+                placeholder: z.B. Mein toller Blogeintrag
             metadescription:
+                placeholder: z.B. Dieser Blogeintrag ist genau das wonach du suchst.
             metakeywords:
+                placeholder: 'z.B. blog,eintrag,toll'
         section:
             basic:
+                title: Basisinformationen
+                description: Gebe einen sehr genauen Titel für deinen Blogeintrag an, welcher deinen Eintrag besser verkauft und beschreibt und alle Erklärungen für deine Kunden bereithält.
             visibility:
+                title: Sichtbarkeit
+                description: Setze diesen Eintrag auf sichtbar oder versteckt.
 
     mailing:
         single: Mailing
@@ -754,4 +906,3 @@ ui:
         success: Correctly deleted
     editor:
         help: Select some text to get some format options
-
