@@ -457,6 +457,7 @@ admin:
         plural:    Orders
         edit:      'Edit #%id%'
         new:       New order
+        notes:      Notes
         all:       All orders
         list:      Order list
         from_user: %name%'s orders
@@ -537,11 +538,12 @@ admin:
     product:
         single:   Product
         plural:   Products
+        note:     Notes
         edit:     Edit "%name%"
         new:      New Product
         list:     Product list
         saved:    Product saved
-        in_store:     View at the store
+        in_store:     View
         show_metrics: Show metrics
         field:
             name:

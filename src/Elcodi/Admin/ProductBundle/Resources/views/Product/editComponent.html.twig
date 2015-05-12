@@ -17,7 +17,7 @@
             : url('admin_product_save')
      %}
 
-    <div class="pr-l">
+
     {{ form_start(form, { action: formAction }) }}
         <fieldset class="mb-n">
             {{ elcodi_hook("admin.product_top", {
@@ -365,6 +365,5 @@
             </div>
         </div>
     {{ form_end(form) }}
-    </div>
 
 {% endblock content %}

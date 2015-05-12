@@ -10,7 +10,6 @@
         {% set author_token = app.user.token %}
         {% set context = 'admin' %}
         {% set source = "order-#{order.id}" %}
-        <a data-fc-modules="side-panel" data-fc-position="right" data-fc-width="60%" data-fc-tab-top="48%" href="#box-populi" data-fc-tab="true" class="button-primary ph-m"><i class="icon-comment"></i> </a>
         <div id="box-populi" class="boxpopuli-container">
             <div class="boxpopuli-overflow" data-fc-modules="boxpopuli"
                  data-token="{{ author_token }}"
@@ -31,26 +30,10 @@
         <i class="icon-shopping-cart"></i>
         <span>{{ 'admin.order.from_user'|trans({ '%name%': order.customer.firstname }) }}</span>
     </a>
-
-    {% for paymentTransition in nextPaymentTransitions %}
-        <a href="{{ url('admin_order_change_payment_state', {
-            id: order.id,
-            transition: paymentTransition.name,
-        }) }}" class="button-primary">
-            <i class="icon-credit-card"></i>
-            {{ "admin.order.transition.#{paymentTransition.name}"|trans }}
-        </a>
-    {% endfor %}
-
-    {% for shippingTransition in nextShippingTransitions %}
-        <a href="{{ url('admin_order_change_shipping_state', {
-            id: order.id,
-            transition: shippingTransition.name
-        }) }}" class="button-secondary">
-            <i class="icon-truck"></i>
-            {{ "admin.order.transition.#{shippingTransition.name}"|trans }}
-        </a>
-    {% endfor %}
+    <a data-fc-modules="side-panel" data-fc-position="right" data-fc-width="60%" href="#box-populi" class="button ph-m">
+        <i class="icon-pencil"></i>
+        <span>{{ 'admin.order.notes'|trans }}</span>
+    </a>
 
 {% endblock header_actions %}
 
@@ -77,7 +60,7 @@
 
 {% block content %}
 
-    <div class="grid pr-l">
+    <div class="grid">
         <div class="col-8-12">
             <div class="pr-l">
                 {{ render(url('admin_order_edit_component', { id: order.id })) }}
@@ -128,6 +111,27 @@
             </div>
         </div>
         <div class="col-4-12">
+            <div class="box-background ta-c mb-n">
+                {% for paymentTransition in nextPaymentTransitions %}
+                    <a href="{{ url('admin_order_change_payment_state', {
+                        id: order.id,
+                        transition: paymentTransition.name,
+                    }) }}" class="button-primary">
+                        <i class="icon-credit-card"></i>
+                        {{ "admin.order.transition.#{paymentTransition.name}"|trans }}
+                    </a>
+                {% endfor %}
+
+                {% for shippingTransition in nextShippingTransitions %}
+                    <a href="{{ url('admin_order_change_shipping_state', {
+                        id: order.id,
+                        transition: shippingTransition.name
+                    }) }}" class="button-secondary">
+                        <i class="icon-truck"></i>
+                        {{ "admin.order.transition.#{shippingTransition.name}"|trans }}
+                    </a>
+                {% endfor %}
+            </div>
             <div class="box ph-n">
                 <div class="box-none pv-n">
                     <h3 class="fw-n"><a href="{{ url('admin_customer_edit', { id: order.customer.id }) }}">{{ order.customer.fullName }}</a></h3>
