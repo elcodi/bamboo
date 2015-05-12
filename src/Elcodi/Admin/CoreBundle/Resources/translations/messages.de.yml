@@ -48,10 +48,10 @@ admin:
             placeholder: Wähle etwas aus
         field:
             recipient_name:
-                title:       Emfpänger Nachname
+                title:       Empfänger Nachname
                 placeholder: z.B. Heisenberg
             recipient_surname:
-                title:       Emfpänger Vorname
+                title:       Empfänger Vorname
                 placeholder: z.B. Werner
             address:
                 title:       Adresse
@@ -145,7 +145,7 @@ admin:
         single: Administrator
         plural: Administratoren
         list:   Administratoren Liste
-        edit:   Bearbeite "%name%"
+        edit:   "%name%" bearbeiten
         new:    Erstelle einen neuen Admin-Benutzer
         saved:  Änderungen gespeichert
         error:
@@ -166,7 +166,7 @@ admin:
         single: Kunde
         plural: Kunden
         list:   Kundenliste
-        edit:   Bearbeite "%name%"
+        edit:   "%name%" bearbeiten
         new:    Neuen Kunden erstellen
         saved:  Änderungen gespeichert
         info:
@@ -205,7 +205,7 @@ admin:
     attribute:
         single: Attribut
         plural: Attribute
-        edit:   Bearbeite "%name%"
+        edit:   "%name%" bearbeiten
         new:    Neues Attribut
         saved:  Attribut gespeichert
         list:   Attributliste
@@ -231,12 +231,12 @@ admin:
     blog_post:
         single: Blogeintrag
         plural: Blogeinträge
-        edit:   Bearbeite "%name%"
+        edit:   "%name%" bearbeiten
         new:    Erstelle einen Blogeintrag
         list:   Blogeintragsliste
         saved:  Eintrag gespeichert
-        in_store: Zeige im Store
-        show_metrics: Zeige Metriken
+        in_store: Im Store zeigen
+        show_metrics: Metriken zeigen
         field:
             title:
                 title: Titel
@@ -251,13 +251,13 @@ admin:
                 title: Aktiv
             content:
                 title: Inhalt
-                placeholder: z.B. Dieser Blogeintrag ist genau das wonach du suchst.
+                placeholder: z.B. Dieser Blogeintrag ist genau das wonach Sie suchen.
             publication_date:
                 title: Veröffentlichungsdatum
             metatitle:
                 placeholder: z.B. Mein toller Blogeintrag
             metadescription:
-                placeholder: z.B. Dieser Blogeintrag ist genau das wonach du suchst.
+                placeholder: z.B. Dieser Blogeintrag ist genau das wonach Sie suchen.
             metakeywords:
                 placeholder: 'z.B. blog,eintrag,toll'
         section:
@@ -291,8 +291,8 @@ admin:
         single: Lieferweg
         plural: Lieferwege
         saved:  Änderungen gespeichert
-        edit:   Bearbeite "%name%"
-        new:    Neuen Lieferweg
+        edit:   "%name%" bearbeiten
+        new:    Neuen Lieferweg erstellen
         list:   Lieferwegliste
         error:
             no_active_carrier: Achtung! Es existiert kein aktiver Lieferweg.
@@ -340,7 +340,7 @@ admin:
     coupon:
         single: Gutschein
         plural: Gutscheine
-        edit:   Bearbeite "%code%"
+        edit:   "%code%" bearbeiten
         new:    Neuer Gutschein
         saved:  Gutschein gespeichert
         list:   Gutscheinliste
@@ -431,7 +431,7 @@ admin:
         list:   Sprachliste
         field:
             iso: ISO
-            master: Master Sprache
+            master: Hauptsprache
             status: Aktiviert
 
     media:
@@ -446,7 +446,7 @@ admin:
             visitors: Besucher
             no_data: Keine Daten
         action:
-            show: Zeige Metriken
+            show: Metriken zeigen
         type:
             line:
                 unique: Eindeutig
@@ -455,7 +455,7 @@ admin:
     order:
         single:    Bestellung
         plural:    Bestellungen
-        edit:      'Bearbeite #%id%'
+        edit:      '#%id% bearbeiten'
         new:       Neue Bestellung
         all:       Alle Bestellungen
         list:      Bestellungsliste
@@ -494,7 +494,7 @@ admin:
     page:
         single:   Seite
         plural:   Seiten
-        edit:     Bearbeite "%name%"
+        edit:     "%name%" bearbeiten
         new:      Neue Seite
         list:     Seitenliste
         saved:    Änderungen gespeichert
@@ -526,7 +526,7 @@ admin:
                 description: Gib einen sehr genauen Titel für deine Seite an, welcher deine Seite besser verkauft und beschreibt und alle Erklärungen für deine Kunden bereithält.
             visibility:
                 title: Sichtbarkeit
-                description: Setze diese Seite auf sichtbar oder unsichtbar und füge sie deiner Homepage hinzu.
+                description: Setze diese Seite auf sichtbar oder unsichtbar und füge sie der Startseite hinzu.
         error:
             cant_modify_permanent: Diese Seite wurde als Permanent gekennzeichnet und kann nicht verändert werden
 
@@ -537,7 +537,7 @@ admin:
     product:
         single:   Produkt
         plural:   Produkte
-        edit:     Bearbeite "%name%"
+        edit:     "%name%" bearbeiten
         new:      Neues Produkt
         list:     Produktliste
         saved:    Produkt gespeichert
@@ -900,7 +900,7 @@ ui:
         placeholder:
             comma_separated: Füge Tags durch ein Komma getrennt hinzu.
     language:
-        master_language: Master Sprache (erforderlich)
+        master_language: Hauptsprache (erforderlich)
     delete:
         success: Vollständig gelöscht
     editor:
