@@ -661,247 +661,247 @@ admin:
 
     manufacturer:
         single:   Hersteller
-        plural:   Manufacturers
-        edit:     Edit "%name%"
-        new:      New Manufacturer
-        saved:    Manufacturer saved
-        list:     Manufacturer list
+        plural:   Hersteller
+        edit:     "%name%" bearbeiten
+        new:      Neuen Hersteller
+        saved:    Hersteller gespeichert
+        list:     Herstellerliste
         field:
             name:
-                title: Manufacturer name
-                placeholder: e.g. My Awesome Manufacturer
+                title: Herstellername
+                placeholder: z.B. Mein toller Hersteller
             slug:
                 title: Slug
-                customize: Customize slug
-                placeholder: e.g. my/awesome/manufacturer
+                customize: Slug anpassen
+                placeholder: z.B. mein/toller/hersteller
             description:
-                title: Description
-                placeholder: e.g. This awesome manufacturer is exactly what you are lookin for.
+                title: Beschreibung
+                placeholder: z.B. Dieser Hersteller ist genau das wonach Sie suchen!
             enabled:
-                title: Enabled
+                title: Aktiviert
                 options:
-                    active: Active
-                    inactive: Inactive
+                    active: Aktiv
+                    inactive: Inaktiv
             image:
-                title: Image
+                title: Bild
             name_slug:
-                title: "Name & slug"
+                title: "Name & Slug"
             product_count:
-                title: Products
+                title: Produkte
             metatitle:
-                placeholder: e.g. My Awesome Manufacturer
+                placeholder: z.B. Mein toller Hersteller
             metadescription:
-                placeholder: e.g. This awesome manufacturer is exactly what you are lookin for.
+                placeholder: z.B. Dieser Hersteller ist genau das wonach Sie suchen!
             metakeywords:
-                placeholder: 'e.g. manufacturer,awesome'
+                placeholder: 'z.B. hersteller,toll'
         section:
             basic:
-                title: Basic Details
-                description: Provide a very specific name as short as you can that helps your consumers to find the products of this manufacturer. Also you can add a description that will be shown in the manufacturer page in your store.
+                title: Basisinformationen
+                description: Gib einen spezifischen und so kurz wie möglichen Namen an welcher deinen Kunden hilft mehr Produkte dieses Herstellers zu finden.
             visibility:
-                title: Visibility
-                description: Set this manufacturer as visible or hidden.
+                title: Sichtbarkeit
+                description: Setze diesen Hersteller auf sichtbar oder unsichtbar.
 
     category:
-        single:   Category
-        plural:   Categories
-        edit:     Edit "%name%"
-        new:      New Category
-        saved:    Category saved
-        list:     Category list
-        in_store: View at the store
+        single:   Kategorie
+        plural:   Kategorien
+        edit:     "%name%" bearbeiten
+        new:      Neue Kategorie
+        saved:    Kategorie gespeichert
+        list:     Kategorienliste
+        in_store: Im Store anzeigen
         field:
             name:
-                title: Category name
-                placeholder: e.g. My Awesome Category
+                title: Kategorie Name
+                placeholder: z.B. Meine tolle Kategorie
             slug:
                 title: Slug
-                placeholder: e.g. my/awesome/category
-                customize: Customize slug
+                placeholder: z.B. meine/tolle/kategorie
+                customize: Slug anpassen
             root:
-                title: Root Category
+                title: Stammkategorie
             enabled:
-                title: Enabled
+                title: Aktiviert
                 options:
-                    active: Active
-                    inactive: Inactive
+                    active: Aktiv
+                    inactive: Inaktiv
             parent:
-                title: Parent
+                title: Vorgänger
             contains:
-                title: %count% products inside
+                title: %count% Produkte enthalten
             metatitle:
-                placeholder: e.g. My Awesome Category
+                placeholder: z.B. Meine tolle Kategorie
             metadescription:
-                placeholder: e.g. This awesome category is exactly what you are lookin for.
+                placeholder: z.B. Diese Kategorie ist genau das wonach Sie suchen
             metakeywords:
-                placeholder: 'e.g. category,awesome'
+                placeholder: 'z.B. kategorie,toll'
         section:
             basic:
-                title: Basic Details
-                description: Provide a very specific name as short as you can that helps your consumers to find the products of this category.
+                title: Basisinformationen
+                description: Gib einen spezifischen und so kurz wirmöglichen Namen an, welcher deinen Kunden hilft Produkte dieser Kategorie zu finden.
             categorization:
-                title: Categorization
-                description: Set your category as root if doesn't have any parent or it's going to be parent of others.
+                title: Kategorisierung
+                description: Mache deine Kategorie zur Stammkategorie falls sie keine Vorgänger hat.
             visibility:
-                title: Visibility
-                description: Set this category as visible or hidden.
+                title: Sichtbarkeit
+                description: Setze diese Kategorie auf sichtbar oder unsichtbar.
             edit:
-                title: "Order & Edit"
+                title: "Sortieren & Bearbeiten"
                 description:
-                    - "Drag & Drop the categories to order or nest one inside others. (2 Level max)."
-                    - "Click a category to edit."
-                    - "Click the trash to delete a category."
+                    - "Verschiebe oder verschachtle Kategorien per Drag & Drop. (2 Level max)."
+                    - "Klicke auf eine Kategorie um sie zu bearbeiten."
+                    - "Klicke auf den Papierkorb um eine Kategorie zu löschen."
 
     metadata:
-        customize: Customize Metadata
+        customize: Metadaten anpassen
         disclaimer:
-            - This area for advanced users.
-            - Leave this fields in blank to obtain automatically the metadata of your page.
+            - Dieser Bereich ist für fortgeschrittende Benutzer gedacht.
+            - Lasse diese Felder leer um automatisch Daten generieren zu lassen.
         section:
             metadata:
-                title: Metadata
-                description: Description and keywords in meta tags are commonly used to describe the Web page's content. Most search engines use these data when adding pages to their search index.
+                title: Metadaten
+                description: Die Beschreibung und Schlüsselworte in Metatags werden dafür genutzt den Webseiteninhalt zu beschreiben. Die meisten Suchmaschinen nutzen diese Daten wenn sie Webseiten indexieren.
         field:
             metatitle:
-                title: MetaTitle
+                title: MetaTitel
             metadescription:
-                title: MetaDescription
+                title: MetaBeschreibung
             metakeywords:
-                title: MetaKeywords
+                title: MetaSchlüsselworte
 
     shipping_range:
-        single: Shipping range
-        plural: Shipping ranges
-        edit:   Edit Range "%name%"
-        new:    Create New Range
-        list:   Shipping Range list
-        saved:  Changes saved
+        single: Lieferzeitraum
+        plural: Lieferzeiträume
+        edit:   Zeitraum "%name%" bearbeiten
+        new:    Neuen Lieferzeitraum erstellen
+        list:   Lieferzeitraumliste
+        saved:  Änderungen gespeichert
         field:
             name:
-                title: Shipping range name
-                placeholder: e.g. Delivery in 3-5 days
+                title: Lieferzeitraum Name
+                placeholder: z.B. Lieferung in 3-5 Tagen
             to_zone:
-                title: To Zone
+                title: In Zone
             price:
-                title: Price
+                title: Preis
             type:
-                title: Prices will be calculated…
+                title: Preise werden kalkuliert...
                 options:
-                    price: Based on order price
-                    weight: Based on order weight
+                    price: Basiert auf Bestell-Preis
+                    weight: Basiert auf Bestell-Gewicht
             fromPrice:
-                title: From price
+                title: Von Preis
             toPrice:
-                title: To price
+                title: Zu Preis
             fromWeight:
-                title: From weight
+                title: Von Gewicht
             toWeight:
-                title: To weight
+                title: To Gewicht
             value:
-                title: Value
-                price_format: From %from% to %to%
-                weight_format: From %from% g to %to% g
+                title: Wert
+                price_format: Von %from% bis %to%
+                weight_format: Von %from% g bis %to% g
         section:
             basic:
-                title: Basic Details
-                description: Provide the name of the shipping range and in what zone it will be available.
+                title: Basisinformationen
+                description: Gib einen Lieferzeitraum an und in welchen Zonen er verfügbar sein wird.
             pricing:
                 title: Pricing
-                description: Set the price for this shipping range and define if it's going to be calculated based on order price or order weight.
+                description: Setze den Preis für diesen Lieferzeitraum und definiere ob er sich auf das Gewicht oder den Preis der Bestellung bezieht.
             visibility:
-                title: Visibility
-                description: Set this shipping range as enabled or disabled.
+                title: Sichtbarkeit
+                description: Setze diesen Lieferzeitraum auf sichtbar oder unsichtbar.
 
     plugin:
         single: App
         plural: Apps
-        saved:  Plugin status saved
+        saved:  Plugin Status gespeichert
         field:
-            visibility: Enable:
+            visibility: Aktiviere:
         section:
-            settings: Settings
+            settings: Einstellungen
 
     settings:
-        single: Setting
-        plural: Settings
-        saved: Settings saved
+        single: Einstellung
+        plural: Einstellungen
+        saved: Einstellungen gespeichert
         section:
             store:
                 title: Store Setup
-                description: Set the Store data.
+                description: Lege die Storedaten fest.
             products:
-                title: Products Setup
-                description: Set the product data.
+                title: Produkte Setup
+                description: Lege die Produktdaten fest.
             payment:
-                title: Payment methods
+                title: Zahlungsmethoden
         field:
-            store_enabled: Store enabled
-            store_under_construction: Store under construction
+            store_enabled: Store aktiviert
+            store_under_construction: Store im Aufbau
             store_name: Store Name
             store_leitmotiv: Store Leitmotiv
-            store_phone: Store Phone
+            store_phone: Store Telefonnummer
             store_email: Store e-mail
-            currency: Currency configuration
+            currency: Währungseinstellung
             product_stock:
-                title: Stock
-                description: Enable this option to activate stock control
+                title: Vorrat
+                description: Aktiviere diese Option um die Bestandskontrole zu aktivieren
 
     template:
         single: Theme
         plural: Themes
         label:
-            status: Enable:
+            status: Aktivieren:
         action:
-            preview: Preview
+            preview: Vorschau
 
 plugin:
     paypal:
-        title: Paypal Account Setup
+        title: Paypal Account Einrichtung
         register:
-            title: Don't you have a PayPal account?
-            call_to_action: Create a PayPal account
+            title: Hast du noch keinen PayPal account?
+            call_to_action: Einen PayPal Account anlegen
         settings:
-            recipient_email: Payment Paypal recipient email
+            recipient_email: PayPal Zahlungsempfänger Email
     paymill:
-        title: Paymill Account Setup
+        title: Paymill Account Einrichtung
         register:
-            title: Don't you have a Paymill account?
-            call_to_action: Create a Paymill account NOW!
+            title: Hast du noch keinen Paymill account?
+            call_to_action: Einen Paymill Account anlegen
         settings:
-            private_key: Paymill payment private key
-            public_key: Paymill payment public key
+            private_key: Paymill Zahlung privater Schlüssel
+            public_key: Paymill Zahlung öffentlicher Schlüssel
 
 ui:
     address:
-        full_name: Full name
-        phone:     Phone
-        address:   Address
-        city:      City
-        zipcode:   Zipcode
-        comment:   Comment
+        full_name: Voller Name
+        phone:     Telefonnummer
+        address:   Adresse
+        city:      Stadt
+        zipcode:   Postleitzahl
+        comment:   Kommentar
     date:
-        today_at: Today at %time%
-        yesterday_at: Yesterday at %time%
+        today_at: Heute um %time%
+        yesterday_at: Gestern um %time%
     list:
-        no_items:     There are no %items%.
-        create_first: Create my first %item%.
+        no_items:     Es gibt keine %items%.
+        create_first: %item% erstellen.
     label:
-        enabled:  Enabled
-        disabled: Disabled
+        enabled:  Aktiviert
+        disabled: Deaktiviert
     paginator:
-        elements: Showing %first% to %last% from %total% entries.
+        elements: Zeige %first% bis %last% von insgesamt %total% Einträgen.
     forms:
-        cancel: Cancel
-        save:   Save
-        delete: Delete
+        cancel: Abbrechen
+        save:   Speichern
+        delete: Löschen
     confirm:
-        delete: Are you sure you want to delete it?
+        delete: Bist du sicher dass du es löschen möchtest?
     tags:
         placeholder:
-            comma_separated: Add tags separated by comma.
+            comma_separated: Füge Tags durch ein Komma getrennt hinzu.
     language:
-        master_language: Master Language (Mandatory)
+        master_language: Master Sprache (erforderlich)
     delete:
-        success: Correctly deleted
+        success: Vollständig gelöscht
     editor:
-        help: Select some text to get some format options
+        help: Wähle Text aus um Formatoptionen zu erhalten
