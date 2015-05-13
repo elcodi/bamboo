@@ -1,0 +1,31 @@
+$object-buttons-vars-default: (
+	/* General settings */
+	text-shadow: 0 1px rgba($color-foreground, .3),
+
+	/* Default button */
+	default-background: rgba($color-foreground, .35),
+	default-color: $color-background,
+	default-background-active: rgba($color-foreground, .25),
+	default-color-active: $color-background,
+
+	/* Button primary */
+	primary-background: $color-primary,
+	primary-color: contrast-color($color-primary),
+
+	/* Button secondary */
+	secondary-background: $color-secondary,
+	secondary-color: contrast-color($color-secondary),
+
+	/* Button ok */
+	ok-background: $color-ok,
+	ok-color: contrast-color($color-ok),
+
+	/* Button ko */
+	ko-background: $color-ko,
+	ko-color: contrast-color($color-ko),
+
+	/* Button empty */
+	empty-background: none,
+	empty-color: $color-link,
+
+) !global !default;

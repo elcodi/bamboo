@@ -12,8 +12,6 @@
         {% set author_token = app.user.token %}
         {% set context = 'admin' %}
         {% set source = "customer-#{customer.id}" %}
-
-        <a data-fc-modules="side-panel" data-fc-position="right" data-fc-width="60%" data-fc-tab-top="48%" href="#box-populi" data-fc-tab="true" class="button-primary ph-m"><i class="icon-comment"></i> </a>
         <div id="box-populi" class="boxpopuli-container">
 
             <div class="boxpopuli-overflow" data-fc-modules="boxpopuli"
@@ -32,11 +30,16 @@
 {% block header_actions %}
 
     {% if customer.id %}
-        <a href="{{ url('admin_customer_order_list', { customerId: customer.id }) }}" type="button" class="button-primary">
+        <a href="{{ url('admin_customer_order_list', { customerId: customer.id }) }}" type="button" class="button">
             <i class="icon-shopping-cart"></i>
             <span>{{ 'admin.order.from_user'|trans({ '%name%': customer.firstname }) }}</span>
         </a>
     {% endif %}
+    <a data-fc-modules="side-panel" data-fc-position="right" data-fc-width="60%" href="#box-populi" class="button ph-m">
+        <i class="icon-pencil"></i>
+        <span>{{ 'admin.order.notes'|trans }}</span>
+    </a>
+
 
 {% endblock header_actions %}
 

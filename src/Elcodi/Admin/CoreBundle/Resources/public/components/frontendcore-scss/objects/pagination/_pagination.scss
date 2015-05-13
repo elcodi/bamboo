@@ -42,6 +42,7 @@
 				border-width: map-get($object-pagination-vars, border-width-page);
 				border-style: map-get($object-pagination-vars, border-style-page);
 				border-color: map-get($object-pagination-vars, border-color-page);
+				min-height: 1rem;
 			}
 			&:hover {
 				background: map-get($object-pagination-vars, background-color-hover);

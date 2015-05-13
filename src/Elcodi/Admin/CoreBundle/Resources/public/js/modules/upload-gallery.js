@@ -1,4 +1,4 @@
-FrontendCore.define('uploader', [ oGlobalSettings.sPathJs + '../components/plupload/js/plupload.full.min.js','modal' ], function () {
+FrontendCore.define('upload-gallery', [ oGlobalSettings.sPathJs + '../components/plupload/js/plupload.full.min.js','modal' ], function () {
 	return {
 		modal:  TinyCore.Module.instantiate( 'modal' ),
 		onStart: function () {

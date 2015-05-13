@@ -23,16 +23,14 @@
     <li class="pr-n" data-fc-id="{{ category.id }}" data-fc-name="{{ category.name }}" data-test="category-{{ category.id }}">
         <p class="fl-r fz-s pr-l">
             {% if category.enabled %}
-                <span class="label-ok fz-xs mr-l">
+                <span class="label-ok fz-xs">
                     {{ 'admin.category.field.enabled.options.active'|trans }}
                 </span>
             {% else %}
-                <span class="label fz-xs mr-l">
+                <span class="label fz-xs">
                     {{ 'admin.category.field.enabled.options.inactive'|trans }}
                 </span>
             {% endif %}
-
-            {{ 'admin.category.field.contains.title'|trans({ '%count%': category.products|length }) }}
 
             <a class="icon-trash-o c-ko td-n fz-l ml-l"
                title="{{ 'ui.forms.delete'|trans }}"

@@ -125,15 +125,17 @@
                 </li>
             </ol>
         </div>
-        {{
+        <div class="grid fixed-bottom animated fade-in-up ta-c">
+            {{
             form_widget(form.send, {
                 label: 'admin.address.field.save',
                 attr: {
                     class: 'button-primary button-fat pv-s mr-l',
                 }
             })
-        }}
-        <a href="{{ url('store_address_list') }}" >{{ 'ui.forms.cancel'|trans }}</a>
+            }}
+            <a href="{{ url('store_address_list') }}" >{{ 'ui.forms.cancel'|trans }}</a>
+        </div>
     </fieldset>
     {{ form_end(form) }}
 

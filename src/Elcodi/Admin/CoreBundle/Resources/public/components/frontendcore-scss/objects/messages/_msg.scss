@@ -2,7 +2,7 @@
 
 	[class*='msg-'] {
 		& {
-			padding: $spacing/4 $spacing 0 $spacing*3;
+			padding: $spacing/4 $spacing $spacing/4 $spacing*2.5;
 			margin: 0 0 $spacing;
 			color: $color-foreground;
 			@include border-radius($default-border-radius $default-border-radius 0 0);
@@ -12,15 +12,15 @@
 			background: $color-background;
 			position: relative;
 			@include box-shadow(0 0 3px rgba($color-foreground, .2));
-			min-height: 54px;
+			min-height: 26px;
 		}
 		&:before {
 			position: absolute;
 			left: $spacing/3;
 			min-width: $spacing;
 			top: 50%;
-			padding: $spacing/4;
-			margin: -24px 6px 0 0;
+			padding: $spacing/8 0;
+			margin: -17px 6px 0 0;
 			font-family: 'fontawesome';
 			font-style: normal;
 			font-weight: normal;
@@ -28,7 +28,7 @@
 			@include rem-fallback(font-size, $font-size-xl);
 			text-decoration: inherit;
 			vertical-align: baseline;
-			@include border-radius(200px);
+			@include border-radius(50%);
 			text-align: center;
 			@include background-transparent($color-background, .7);
 		}

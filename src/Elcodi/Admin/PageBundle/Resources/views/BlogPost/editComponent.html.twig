@@ -18,7 +18,7 @@
      %}
 
     {{ form_start(form, { action: formAction }) }}
-        <fieldset class="mb-n">
+        <fieldset>
             <div class="grid">
                 <div class="col-1-3">
                     <div class="box-none">
@@ -44,8 +44,8 @@
                                                 }
                                             })
                                         }}
-                                        <div class="mt-m">
-                                            <a data-fc-modules="toggle" href="#slug-{{ language }}" class="fz-default"><i class="icon-plus"></i> {{ 'admin.blog_post.field.path.customize'|trans }}</a>
+                                        <div class="mt-m ta-r">
+                                            <a data-fc-modules="toggle" href="#slug-{{ language }}" class="fz-default"><i class="icon-plus-circle"></i> {{ 'admin.blog_post.field.path.customize'|trans }}</a>
                                         </div>
                                         <div id="slug-{{ language }}" class="ph-n pt-m mb-n hidden">
                                             {{
@@ -174,13 +174,13 @@
             {% endif %}
         </fieldset>
 
-        <div class="grid">
+        <div class="grid fixed-bottom animated fade-in-up">
             <div class="col-1-3">
                 &nbsp;
             </div>
             <div class="col-2-3">
-                <button type="submit" class="button-primary">{{ 'ui.forms.save'|trans }}</button>
-                <a href="{{ path('admin_blog_post_list') }}" class="button">{{ 'ui.forms.cancel'|trans }}</a>
+                <button type="submit" class="button-primary button-fat pv-s mr-l" id="submit-page">{{ 'ui.forms.save'|trans }}</button>
+                <a href="{{ path('admin_page_list') }}">{{ 'ui.forms.cancel'|trans }}</a>
             </div>
         </div>
     {{ form_end(form) }}

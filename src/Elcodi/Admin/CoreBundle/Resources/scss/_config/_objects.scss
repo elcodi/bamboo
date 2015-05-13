@@ -36,3 +36,14 @@ $object-forms-vars-custom: (
 	field-focus-border: rgba(map-get($colors-custom, info), .5),
 	field-focus-background: lighten(map-get($colors-custom, info), 55),
 ) !global !default;
+
+$object-buttons-vars-custom: (
+
+	// Default button
+	default-background: rgba(#354051, .8),
+	default-color: #FFF,
+
+	// Button primary
+	primary-color: #FFF,
+
+) !global !default;

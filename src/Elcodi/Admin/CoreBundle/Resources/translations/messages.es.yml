@@ -458,6 +458,7 @@ admin:
         plural:    Pedidos
         edit:      'Editar #%id%'
         new:       Nuevo pedido
+        notes:      Notas
         all:       Todos los pedidos
         list:      Listado de pedidos
         from_user: Pedidos de %name%
@@ -540,10 +541,11 @@ admin:
         plural:   Productos
         edit:     Editar "%name%"
         new:      Nuevo producto
+        note:     Notas
         list:     Listado de productos
         saved:    Producto guardado
-        in_store:     Ver en la tienda
-        show_metrics: Ver métricas
+        in_store:     Visualizar
+        show_metrics: Estadísticas
         field:
             name:
                 title: Título

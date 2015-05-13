@@ -1,6 +1,6 @@
 FrontendCore.define('image-delete', [], function () {
 	return {
-		uploader: TinyCore.Module.instantiate('uploader'),
+		uploader: TinyCore.Module.instantiate('upload-gallery'),
 		onStart: function () {
 
 			var aTargets = FrontendTools.getDataModules('image-delete'),
