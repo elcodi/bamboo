@@ -145,7 +145,7 @@ admin:
         single: Administrator
         plural: Administratoren
         list:   Administratoren Liste
-        edit:   "%name%" bearbeiten
+        edit:   "%name% bearbeiten"
         new:    Erstelle einen neuen Admin-Benutzer
         saved:  Änderungen gespeichert
         error:
@@ -166,7 +166,7 @@ admin:
         single: Kunde
         plural: Kunden
         list:   Kundenliste
-        edit:   "%name%" bearbeiten
+        edit:   "%name% bearbeiten"
         new:    Neuen Kunden erstellen
         saved:  Änderungen gespeichert
         info:
@@ -205,7 +205,7 @@ admin:
     attribute:
         single: Attribut
         plural: Attribute
-        edit:   "%name%" bearbeiten
+        edit:   "%name% bearbeiten"
         new:    Neues Attribut
         saved:  Attribut gespeichert
         list:   Attributliste
@@ -231,7 +231,7 @@ admin:
     blog_post:
         single: Blogeintrag
         plural: Blogeinträge
-        edit:   "%name%" bearbeiten
+        edit:   "%name% bearbeiten"
         new:    Erstelle einen Blogeintrag
         list:   Blogeintragsliste
         saved:  Eintrag gespeichert
@@ -271,7 +271,7 @@ admin:
     mailing:
         single: Email
         plural: Emails
-        edit:   "%title%" bearbeiten
+        edit:   "%title% bearbeiten"
         new:    Erstelle eine neue Email
         saved:  Email erstellt
         list:   Emailliste
@@ -291,7 +291,7 @@ admin:
         single: Lieferweg
         plural: Lieferwege
         saved:  Änderungen gespeichert
-        edit:   "%name%" bearbeiten
+        edit:   "%name% bearbeiten"
         new:    Neuen Lieferweg erstellen
         list:   Lieferwegliste
         error:
@@ -304,8 +304,8 @@ admin:
                 title: Beschreibung
                 placeholder: z.B. Beste Option für lokale Lieferungen
             taxes:
-                title: Gebühren
-                format: %value%% Gebühr
+                title:  Gebühren
+                format: "%value%% Gebühr"
             status:
                 title: Aktiviert
         info:
@@ -340,7 +340,7 @@ admin:
     coupon:
         single: Gutschein
         plural: Gutscheine
-        edit:   "%code%" bearbeiten
+        edit:   "%code% bearbeiten"
         new:    Neuer Gutschein
         saved:  Gutschein gespeichert
         list:   Gutscheinliste
@@ -494,7 +494,7 @@ admin:
     page:
         single:   Seite
         plural:   Seiten
-        edit:     "%name%" bearbeiten
+        edit:     "%name% bearbeiten"
         new:      Neue Seite
         list:     Seitenliste
         saved:    Änderungen gespeichert
@@ -537,7 +537,7 @@ admin:
     product:
         single:   Produkt
         plural:   Produkte
-        edit:     "%name%" bearbeiten
+        edit:     "%name% bearbeiten"
         new:      Neues Produkt
         list:     Produktliste
         saved:    Produkt gespeichert
@@ -662,7 +662,7 @@ admin:
     manufacturer:
         single:   Hersteller
         plural:   Hersteller
-        edit:     "%name%" bearbeiten
+        edit:     "%name% bearbeiten"
         new:      Neuen Hersteller
         saved:    Hersteller gespeichert
         list:     Herstellerliste
@@ -705,7 +705,7 @@ admin:
     category:
         single:   Kategorie
         plural:   Kategorien
-        edit:     "%name%" bearbeiten
+        edit:     "%name% bearbeiten"
         new:      Neue Kategorie
         saved:    Kategorie gespeichert
         list:     Kategorienliste
@@ -728,7 +728,7 @@ admin:
             parent:
                 title: Vorgänger
             contains:
-                title: %count% Produkte enthalten
+                title: "%count% Produkte enthalten"
             metatitle:
                 placeholder: z.B. Meine tolle Kategorie
             metadescription:
@@ -817,7 +817,7 @@ admin:
         plural: Apps
         saved:  Plugin Status gespeichert
         field:
-            visibility: Aktiviere:
+            visibility: "Aktiviere:"
         section:
             settings: Einstellungen
 
@@ -850,7 +850,7 @@ admin:
         single: Theme
         plural: Themes
         label:
-            status: Aktivieren:
+            status: "Aktivieren:"
         action:
             preview: Vorschau
 
@@ -884,7 +884,7 @@ ui:
         yesterday_at: Gestern um %time%
     list:
         no_items:     Es gibt keine %items%.
-        create_first: %item% erstellen.
+        create_first: "%item% erstellen."
     label:
         enabled:  Aktiviert
         disabled: Deaktiviert
