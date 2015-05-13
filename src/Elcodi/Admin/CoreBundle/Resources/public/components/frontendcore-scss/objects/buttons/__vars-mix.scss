@@ -1,0 +1,3 @@
+$object-buttons-vars-custom: () !global !default;
+
+$object-buttons-vars: map-merge($object-buttons-vars-default, $object-buttons-vars-custom) !global;

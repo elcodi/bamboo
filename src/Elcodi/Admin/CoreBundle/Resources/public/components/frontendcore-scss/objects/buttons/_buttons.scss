@@ -8,12 +8,20 @@
 			text-align: center;
 			cursor: pointer;
 			box-sizing: border-box;
+			text-shadow: map-get($object-buttons-vars, text-shadow);
 		}
 		&.button-icon {
 			padding: $spacing/4 0 $spacing/4 $spacing/4;
 			font-family: 'FontAwesome' !important;
 			min-height: 26px;
 			min-width: 26px;
+		}
+		&:hover {
+			@include opacity(.9);
+		}
+		&:active {
+			@include opacity(.8);
+			outline: 0;
 		}
 	}
 
@@ -26,7 +34,7 @@
 
 	.button-fat {
 		& {
-			padding: $spacing/2 $spacing;
+			padding: $spacing/4 $spacing;
 			@include rem-fallback(font-size, $font-size-xl);
 		}
 		&.button-icon {
@@ -47,77 +55,41 @@
 		}
 	}
 
-}
-
-@if $object-style == flat and $ui != true {
-
 	.button {
-		@include background-transparent($color-foreground, .25);
-		color: $color-background;
-		@include text-shadow(0 1px rgba($color-foreground, .3));
-	}
-	.button:hover {
-		@include background-transparent($color-foreground, .20);
-	}
-
-	.button:active {
-		@include background-transparent($color-foreground, .15);
+		background: map-get($object-buttons-vars, default-background);
+		color: map-get($object-buttons-vars, default-color);
 	}
 
 	.button-primary {
-		background: $color-primary;
-		color: $color-background;
-		@include text-shadow(0 1px rgba($color-foreground, .3));
+		background: map-get($object-buttons-vars, primary-background);
+		color: map-get($object-buttons-vars, primary-color);
 	}
 
-	.button-primary:hover {
-		@include background-transparent($color-primary, .8);
-	}
-
-	.button-primary:active {
-		@include background-transparent($color-primary, .7);
-	}
 
 	.button-secondary {
-		background: $color-secondary;
-		color: $color-background;
-		@include text-shadow(0 1px rgba($color-foreground, .3));
+		background: map-get($object-buttons-vars, secondary-background);
+		color: map-get($object-buttons-vars, secondary-color);
 	}
 
-	.button-secondary:hover {
-		@include background-transparent($color-secondary, .8);
-	}
-
-	.button-secondary:active {
-		@include background-transparent($color-secondary, .7);
-	}
 
 	.button-ok {
-		background: $color-ok;
-		color: $color-background;
-		@include text-shadow(0 1px rgba($color-foreground, .3));
+		background: map-get($object-buttons-vars, ok-background);
+		color: map-get($object-buttons-vars, ok-color);
 	}
 
-	.button-ok:hover {
-		@include background-transparent($color-ok, .8);
-	}
-
-	.button-ok:active {
-		@include background-transparent($color-ok, .7);
-	}
 
 	.button-ko {
-		background: $color-ko;
-		color: $color-background;
-		@include text-shadow(0 1px rgba($color-foreground, .3));
+		background: map-get($object-buttons-vars, ko-background);
+		color: map-get($object-buttons-vars, ko-color);
 	}
 
-	.button-ko:hover {
-		@include background-transparent($color-ko, .8);
-	}
+	.button-empty {
+		background: map-get($object-buttons-vars, empty-background);
+		color: map-get($object-buttons-vars, empty-color);
 
-	.button-ko:active {
-		@include background-transparent($color-ko, .7);
+		&:hover {
+			text-decoration: underline;
+		}
 	}
 
 	.button-disabled,
@@ -141,68 +113,4 @@
 			font-weight: normal;
 		}
 	}
-}
-
-@if $object-style == gradient and $ui != true {
-
-	.button {
-		@include background-image(linear-gradient($color-box 30%, $color-box-dark 70%));
-		@include background-gradient-ie-old($color-box, $color-box-dark);
-		border: 1px solid $color-box-dark;
-		color: $color-foreground;
-	}
-
-	.button-primary {
-		@include background-image(linear-gradient($color-primary-light 20%, $color-primary 80%));
-		@include background-gradient-ie-old($color-primary-light, $color-primary);
-		border: 1px solid $color-primary;
-		color: contrast-color($color-primary);
-	}
-
-	.button-secondary {
-		@include background-image(linear-gradient($color-secondary-light 20%, $color-secondary 80%));
-		@include background-gradient-ie-old($color-secondary-light, $color-secondary);
-		border: 1px solid $color-secondary;
-		color: contrast-color($color-secondary);
-	}
-
-	.button-ok {
-		@include background-image(linear-gradient(lighten($color-ok, 10%) 20%, $color-ok 80%));
-		@include background-gradient-ie-old(lighten($color-ok, 10%), $color-ok);
-		border: 1px solid $color-ok;
-		color: $color-background;
-	}
-
-	.button-ko {
-		@include background-image(linear-gradient(lighten($color-ko, 10%) 20%, $color-ko 80%));
-		@include background-gradient-ie-old(lighten($color-ko, 10%), $color-ko);
-		border: 1px solid $color-ko;
-		color: contrast-color($color-ko);
-	}
-
-	[class*='button-'], .button {
-		& {
-			font-weight: bold;
-			font-family: $font-face-title;
-			padding: $font-size-m/3 $font-size-m;
-			@include rem-fallback(font-size, $font-size-m);
-			@include box-shadow(0px 1px 0px rgba($color-foreground, .5));
-		}
-		&:hover {
-			@include box-shadow(0px 1px 0px rgba($color-foreground, .5), inset 0 0 100px rgba($color-background, .5));
-		}
-		&:active {
-			@include box-shadow(inset 1px 1px 3px rgba($color-foreground, .5));
-		}
-		&.button-slim {
-			font-family: $font-face-default;
-			padding: $font-size-s/2 $font-size-s;
-			font-weight: normal;
-		}
-		&.button-fat {
-			padding: $font-size-l/2 $font-size-l;
-			@include rem-fallback(font-size, $font-size-l);
-		}
-	}
-
 }
