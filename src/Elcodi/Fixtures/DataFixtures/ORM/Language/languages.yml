@@ -69,7 +69,7 @@ ka:
     enabled: 0
 de:
     name: German
-    enabled: 0
+    enabled: 1
 el:
     name: Greek
     enabled: 0

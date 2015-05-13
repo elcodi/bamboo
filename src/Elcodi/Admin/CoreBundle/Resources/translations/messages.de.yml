@@ -1,0 +1,907 @@
+admin:
+    name: Admin
+    dashboard:
+        single: Dashboard
+        plural: Dashboards
+        title:  Dashboard
+        view_store: Zeige meinen Store
+        chart:
+            visitors:
+                title: Besucher
+                unique: Eindeutig
+                total: Gesamt
+            sales:
+                title: Verkäufe
+                sales: Verkäufe
+            cart_conversion:
+                title: Warenkorb Umsatz
+                cart_view: Warenkorb Ansicht
+                billing_shipping: Rechnungslegung/Versand
+                payment: Bezahlung
+                ordered: Bestellt
+            devices:
+                title: Geräte
+                mobile: Mobil
+                desktop: Desktop
+            traffic_source:
+                title: Traffic Quellen
+                direct: Direkt
+                referrals: Überweisung
+                search_engine: Suchmaschinen
+        chart_range:
+            today: Heute
+            yesterday: Gestern
+            last7days: letzte 7 Tage
+            last30days: letzte 30 Tage
+            last90days: letzte 90 Tage
+    UI:
+      show_code: Zeige HTML
+      show_visual: Verstecke HTML
+    address:
+        single: Adresse
+        plural: Adressen
+        saved:  Adressen gespeichert
+        edit:
+            billing_address: Rechnungsadresse für deinen Store
+            description: "Die Adresse welche auf den Rechnungen deines Stores stehen soll. Falls du eine Firma hast, sollte diese die relevante Adresse sein. Andernfalls ist es deine tatsächliche Heimatadresse."
+        select:
+            placeholder: Wähle etwas aus
+        field:
+            recipient_name:
+                title:       Empfänger Nachname
+                placeholder: z.B. Heisenberg
+            recipient_surname:
+                title:       Empfänger Vorname
+                placeholder: z.B. Werner
+            address:
+                title:       Adresse
+                placeholder: "z.B. Einsteinstrasse 42"
+            address_more:
+                title:       Adresszusatz (optional)
+                placeholder: z.B. Atom GmbH
+            postalcode:
+                title:       Postleitzahl
+                placeholder: z.B. 01187
+            phone:
+                title:       Telefonnummer
+                placeholder: z.B. 0351 5103508063
+            mobile:
+                title:       Handynummer
+                placeholder: z.B. 0176 666666666
+            comments:
+                title:       Kommentare
+                placeholder: z.B. hinterm Wald
+            country:
+                title: Land
+            state:
+                title: Bundesland
+            province:
+                title: Region
+            city:
+                title: Stadt
+            save: Adresse Speichern
+
+    remember_user:
+        title: Hast du dein Passwort vergessen?
+        description: "Keine Sorge, wir senden dir eine Email um dein Passwort zurückzusetzen!"
+
+    recover_user:
+        title: Neues Passwort
+        field:
+            email:
+                placeholder: Gebe deine Email ein
+            password:
+                placeholder: Neues Passwort
+            repeat_password:
+                placeholder: Passwort wiederholen
+        action:
+            email_sent:
+                title: Email gesendet
+                description: "Bitte schau nach deinen Emails und folge den Anweisungen um dein Passwort wiederherzustellen."
+
+    login:
+        title: Login erforderlich
+        field:
+            email:
+                placeholder: Gebe deine Email ein
+            password:
+                placeholder: Gebe dein Passwort ein
+        action:
+            login: Login
+            logout: Logout
+            remember: Hast du dein Passwort vergessen?
+
+    user:
+        field:
+            email:
+                title: Email
+                placeholder: z.B. john.doe@mail.com
+            firstname:
+                title: Vorname
+                placeholder: z.B. Werner
+            lastname:
+                title: Nachname
+                placeholder: z.B. Heisenberg
+            fullname:
+                title: Vollständiger Name
+            username:
+                title: Benutzername
+            birthday:
+                title: Geburtstag
+            gender:
+                title: Geschlecht
+                options:
+                    male: Männlich
+                    female: Weiblich
+            password:
+                title: Passwort
+            enabled:
+                title: Status
+                options:
+                    active:   Aktiv
+                    inactive: Inaktiv
+
+    admin_user:
+        single: Administrator
+        plural: Administratoren
+        list:   Administratoren Liste
+        edit:   "%name% bearbeiten"
+        new:    Erstelle einen neuen Admin-Benutzer
+        saved:  Änderungen gespeichert
+        error:
+            cant_disable_yourself: Du kannst deinen eigenen Account nicht deaktivieren
+            cant_remove_yourself: Du kannst deinen eigenen Account nicht löschen
+        section:
+            login:
+                title: Anmeldedetails
+                description: Jeder Benutzer sollte eine eindeutige Email haben.
+            contact:
+                title: Kontaktdetails
+                description: Die Kontaktinformationen für diesen Admin.
+            status:
+                title: Benutzerstatus
+                description: Du kannst Administratoren aktiv oder inaktiv setzen.
+
+    customer:
+        single: Kunde
+        plural: Kunden
+        list:   Kundenliste
+        edit:   "%name% bearbeiten"
+        new:    Neuen Kunden erstellen
+        saved:  Änderungen gespeichert
+        info:
+            password_changed: Passwort erfolgreich geändert
+        error:
+            password_change: Fehler beim ändern des Passworts
+        field:
+            username:
+                title: Benutzername
+                placeholder: z.B. w.heisenberg
+            identity_document:
+                title: Identität
+                placeholder: z.B. 12345678A
+            phone:
+                title: Telefonnummer
+                placeholder: z.B. 0351 5103508063
+            language:
+                title: Bevorzugte Sprache
+            guest:
+                title: Gast
+            newsletter:
+                title: Newsletter
+            order_count:
+                title: '# Bestellungen'
+        section:
+            login:
+                title: Anmeldedetails
+                description: Jeder Nutzer sollte eine eindeutige Email und einen eindeutigen Bnutzernamen haben.
+            contact:
+                title: Kontaktdetails
+                description: Die Kontaktinformationen für diesen Nutzer.
+            status:
+                title: 'Status & Einstellungen'
+                description: Setze die Einstellungen des Benutzers.
+
+    attribute:
+        single: Attribut
+        plural: Attribute
+        edit:   "%name% bearbeiten"
+        new:    Neues Attribut
+        saved:  Attribut gespeichert
+        list:   Attributliste
+        field:
+            name:
+                placeholder: z.B. Farbe
+                title:       Name
+                values:      Werte
+            enabled:
+                title:       Status
+        section:
+            basic:
+                title:       Basisinformationen
+                description: Definiere den Namen und die Werte (durch Komma getrennt) des Attributs.
+            visibility:
+                title:       Sichtbarkeit
+                description: Setze das Attribut auf sichtbar oder versteckt.
+
+    blog:
+        single: Blog
+        plural: Blogs
+
+    blog_post:
+        single: Blogeintrag
+        plural: Blogeinträge
+        edit:   "%name% bearbeiten"
+        new:    Erstelle einen Blogeintrag
+        list:   Blogeintragsliste
+        saved:  Eintrag gespeichert
+        in_store: Im Store zeigen
+        show_metrics: Metriken zeigen
+        field:
+            title:
+                title: Titel
+                placeholder: z.B. Mein toller Blogeintrag
+            path:
+                title: Pfad
+                placeholder: z.B. mein/toller/blog-eintrag
+                customize: Personalisiere den Pfad (Slug)
+            link:
+                title: Verknüpfung
+            enabled:
+                title: Aktiv
+            content:
+                title: Inhalt
+                placeholder: z.B. Dieser Blogeintrag ist genau das wonach Sie suchen.
+            publication_date:
+                title: Veröffentlichungsdatum
+            metatitle:
+                placeholder: z.B. Mein toller Blogeintrag
+            metadescription:
+                placeholder: z.B. Dieser Blogeintrag ist genau das wonach Sie suchen.
+            metakeywords:
+                placeholder: 'z.B. blog,eintrag,toll'
+        section:
+            basic:
+                title: Basisinformationen
+                description: Gib einen sehr genauen Titel für deinen Blogeintrag an, welcher deinen Eintrag besser verkauft und beschreibt und alle Erklärungen für deine Kunden bereithält.
+            visibility:
+                title: Sichtbarkeit
+                description: Setze diesen Eintrag auf sichtbar oder versteckt.
+
+    mailing:
+        single: Email
+        plural: Emails
+        edit:   "%title% bearbeiten"
+        new:    Erstelle eine neue Email
+        saved:  Email erstellt
+        list:   Emailliste
+        field:
+            title:
+                title: Titel
+                placeholder: z.B. Meine tolle Email
+            content:
+                title: Inhalt
+                placeholder: z.B. Diese Email ist genau das wonach Sie suchen
+        section:
+            basic:
+                title: Basisinformationen
+                description: Gib einen bezeichnenden Titel für die Email und ihren Inhalt an.
+
+    carrier:
+        single: Lieferweg
+        plural: Lieferwege
+        saved:  Änderungen gespeichert
+        edit:   "%name% bearbeiten"
+        new:    Neuen Lieferweg erstellen
+        list:   Lieferwegliste
+        error:
+            no_active_carrier: Achtung! Es existiert kein aktiver Lieferweg.
+        field:
+            name:
+                title: Name
+                placeholder: z.B. Paketdienst
+            description:
+                title: Beschreibung
+                placeholder: z.B. Beste Option für lokale Lieferungen
+            taxes:
+                title:  Gebühren
+                format: "%value%% Gebühr"
+            status:
+                title: Aktiviert
+        info:
+            shipping_rates_before_saving: Versandkosten können nach dem Speichern hinzugefügt werden
+        action:
+            add_shipping_range: Umfang hinzufügen
+        section:
+            basic:
+                title: Basisinformationen
+                description: Gib den Namen und eine interne Beschriebung (optional) des Lieferwegs an.
+            taxes:
+                title: Lieferweg Gebühren
+                description: Die Gebühren die auf diesen Lieferweg angewandt werden.
+            shipping_rates:
+                title: Versandkosten
+                description: Füge Versandkosten hinzu.
+            visibility:
+                title: Sichtbarkeit
+                description: Setze den Lieferweg auf aktiviert oder deaktiviert.
+    catalog:
+        single: Katalog
+        plural: Kataloge
+    categorization:
+        single: Kategorisierung
+        plural: Kategorisierungen
+    communication:
+        single: Kommunikation
+        plural: Kommunikationen
+    shipping_payment:
+        single: Bezahlung & Versand
+        plural: Bezahlungen & Versendungen
+    coupon:
+        single: Gutschein
+        plural: Gutscheine
+        edit:   "%code% bearbeiten"
+        new:    Neuer Gutschein
+        saved:  Gutschein gespeichert
+        list:   Gutscheinliste
+        field:
+            code:
+                placeholder: z.B. MEINGUTSCHEIN
+                title: Code
+            count:
+                title: Benutzungslimit
+            datetime:
+                title: 'Datum & Zeit'
+            description:
+                placeholder: z.B 10% Rabatt auf Tiernahrung
+                title:       Beschreibung
+            discount:
+                title: "% Höhe"
+            enabled:
+                title: Status
+            enforcement:
+                title: Modus
+                options:
+                    manual: Manuelle anwendung
+                    automatic: Automatische anwendung
+            minimum_purchase:
+                title: Mindestmenge
+            price:
+                title: Höhe
+            priority:
+                title: Priorität
+            rule:
+                title:       Regel
+                placeholder: Keine Regel
+            status:
+                title: Status
+            type:
+                title: Typ
+                options:
+                    fixed:  Festbetrag
+                    percent: Prozentwert
+            used:
+                title: Benutzt
+            valid_from:
+                title: Von
+            valid_to:
+                title: Bis
+        section:
+            basic:
+                title: Basisinformationen
+                description:
+                    - 'Lege den Gutscheincode fest (Der Code wird im Warenkorb eingegeben um den Gutschein zu benutzen)'
+                    - 'Setze auch eine Beschreibung ein um den Gutschein zu identifizieren, ebenso den Typ und den Modus.'
+            fixed_amount:
+                title:       Festbetrag
+                description: Setze einen Festbetrag fest welcher direkt im Warenkorb rabattiert.
+            percent_amount:
+                title:       Prozentbetrag
+                description: Setze einen Prozentbetrag fest welcher direkt im Warenkorb rabattiert.
+            rules:
+                title:       Regeln
+                description: Wähle Regeln aus welche der Gutschein beachtet, sowie eine optionale Mindestbestellmenge.
+            validity:
+                title:       Gültigkeit
+                description: Lege die Gültigkeitsdauer und den Status fest.
+
+    currency:
+        single: Währung
+        plural: Währungen
+        list:   Währungsliste
+        field:
+            symbol: Symbol
+            iso: ISO
+            name: Name
+            status: Aktiviert
+
+    image:
+        single: Bild
+        plural: Bilder
+        info:
+            principal: Das erste Bild wird das Hauptbild sein.
+            reorder: "Du kannst die Bilder per Drag & Drop neu anordnen."
+            upload: Bilder hochladen
+            deleted: Bild gelöscht
+            format: Format JPG, PNG oder GIF. Max 20mb.
+
+    language:
+        single: Sprache
+        plural: Sprachen
+        list:   Sprachliste
+        field:
+            iso: ISO
+            master: Hauptsprache
+            status: Aktiviert
+
+    media:
+        single: Medium
+        plural: Medien
+        list:   Medienliste
+
+    metrics:
+        single: Metrik
+        plural: Metriken
+        info:
+            visitors: Besucher
+            no_data: Keine Daten
+        action:
+            show: Metriken zeigen
+        type:
+            line:
+                unique: Eindeutig
+                total: Gesamt
+
+    order:
+        single:    Bestellung
+        plural:    Bestellungen
+        edit:      '#%id% bearbeiten'
+        new:       Neue Bestellung
+        all:       Alle Bestellungen
+        list:      Bestellungsliste
+        from_user: Bestellungen von %name%
+        to_user:   Gehe zu Kunde
+        field:
+            id:               'Bestellung #%id%'
+            date:             Datum
+            carrier:          Lieferweg
+            customer:         Kunde
+            status:           Status
+            delivery_address: Lieferadresse
+            billing_address:  Rechnungsadresse
+            both_addresses:   'Liefer- & Rechnungsadresse'
+            total:            Summe
+        details:
+            title:    Details
+            item:     Position
+            units:    Einheiten
+            price:    Preis
+            subtotal: Zwischensumme
+            discount: Gutschein-Rabatt
+            shipping: Versand
+        states:
+            title:       Verlauf
+            initial:     Neue Bestellung
+            unpaid:      Unbezahlt
+            refunded:    Zurückerstattet
+            shipped:     Versendet
+            not shipped: Nicht versendet
+            paid:        Bezahlt
+        transition:
+            refund: Rückerstattung
+            ship:   Versenden
+
+    page:
+        single:   Seite
+        plural:   Seiten
+        edit:     "%name% bearbeiten"
+        new:      Neue Seite
+        list:     Seitenliste
+        saved:    Änderungen gespeichert
+        in_store: Im Store ansehen
+        field:
+            title:
+                title: Titel
+                placeholder: z.B. Meine tolle Seite
+            path:
+                title: Pfad
+                placeholder: z.B. meine/tolle/seite
+                customize: Pfad anpassen
+            link:
+                title: Verknüpfung
+            enabled:
+                title: Aktiviert
+            content:
+                title: Inhalt
+                placeholder: z.B. Diese Seite ist genau das wonach du suchst.
+            metatitle:
+                placeholder: z.B. Meine tolle Seite
+            metadescription:
+                placeholder: z.B. Diese Seite ist genau das wonach du suchst.
+            metakeywords:
+                placeholder: 'z.B. meine,tolle,seite'
+        section:
+            basic:
+                title: Basisinformationen
+                description: Gib einen sehr genauen Titel für deine Seite an, welcher deine Seite besser verkauft und beschreibt und alle Erklärungen für deine Kunden bereithält.
+            visibility:
+                title: Sichtbarkeit
+                description: Setze diese Seite auf sichtbar oder unsichtbar und füge sie der Startseite hinzu.
+        error:
+            cant_modify_permanent: Diese Seite wurde als Permanent gekennzeichnet und kann nicht verändert werden
+
+    profile:
+        single: Profil
+        plural: Profile
+
+    product:
+        single:   Produkt
+        plural:   Produkte
+        edit:     "%name% bearbeiten"
+        new:      Neues Produkt
+        list:     Produktliste
+        saved:    Produkt gespeichert
+        in_store:     Im Store zeigen
+        show_metrics: Metriken anzeigen
+        field:
+            name:
+                title: Titel
+                placeholder: z.B. mein tolles Produkt
+            slug:
+                title: Slug
+                placeholder: z.B. mein/tolles/produkt
+                customize: Slug anpassen
+            description:
+                title: Beschreibung
+                placeholder: z.B. Dieses Produkt ist genau das wonach du suchst.
+            main_category:
+                title: Kategorie
+                placeholder: 'z.B. Computer, Handtaschen, ...'
+            manufacturer:
+                title: Hersteller
+                placeholder: 'z.B. Apple, Disney...'
+            price:
+                title: Preis
+            stock:
+                title: auf Lager
+            reduced_price:
+                title: Reduziert
+            weight:
+                title: Gewicht (in g)
+            height:
+                title: Höhe (in cm)
+            width:
+                title: Breite (in cm)
+            depth:
+                title: Tiefe (in cm)
+            in_home:
+                title: Auf der Startseite zeigen
+            image:
+                title: Bild
+            name_details:
+                title: "Name & Details"
+            enabled:
+                title: Sichtbarkeit
+                options:
+                    active: Aktiv
+                    inactive: Inaktiv
+            metatitle:
+                placeholder: z.B. mein tolles Produkt
+            metadescription:
+                placeholder: z.B. Dieses Produkt ist genau das wonach du suchst.
+            metakeywords:
+                placeholder: 'z.B. produkt,toll'
+        info:
+            variants_before_saving: Varianten können nach dem Speichern hinzugefügt werden
+        error:
+            no_category: Achtung! Dieses Produkt ist keiner Kategorie zugeordnet
+            no_manufacturer: Achtung! Dieses Produkt ist keinem Hersteller zugeordnet
+            price_negative: Achtung! Der Preis darf nicht negativ sein
+        tag:
+            in_home: Startseite
+            has_variants: Hat Varianten
+            no_category: Keine Kategorie
+            no_manufacturer: Kein Hersteller
+        section:
+            basic:
+                title: Basisinformationen
+                description: Gib einen sehr genauen Titel für dein Produkt an, welcher dein Produkt besser verkauft und beschreibt und alle Erklärungen für deine Kunden bereithält.
+            categorization:
+                title: Kategorisierung
+                description: Das Produkt muss unter einer Kategorie und einem Hersteller eingeordnet werden. Diese werden im Store sichtbar sein und deinen Kunden helfen sich zurecht tu finden.
+            pricing:
+                title: Preisbildung
+                description: "Gib den Preis für dein Produkt ohne Steurn, Gebühren und Versandkosten an. Es kann auch ein Angebotspreis eingesetzt werden."
+            dimensions:
+                title: Abmessungen
+                description: "Gib die Abmessungen und das Gewicht deines Produkts an. Diese Informationen kann bei der Berechnung der Versandkosten hilfreich sein."
+            variants:
+                title: Varianten
+                description: 'Varianten sind verschiedene Ausführungen eines Produkts, z.B. Farbe und Größe. Varianten können andere Preise oder andere Attribute haben.'
+            visibility:
+                title: Sichtbarkeit
+                description: "Setze das Produkt auf sichtbar oder unsichtbar und mache es auf der Startseite verfügbar."
+            stock:
+                title: Vorrat
+                description: "Konfiguriere den Lagervorrat deines Produkts. Jede Bestellung wird diese Zahl reduzieren."
+
+    variant:
+        single: Variante
+        plural: Varianten
+        edit:   Variante "%name%" bearbeiten
+        new:    Neue Variante
+        list:   Variantenliste
+        saved:  Variante gespeichert
+        field:
+            name:
+                title: Variantenname
+            price:
+                title: Preis
+            stock:
+                title: Vorrat
+            reduced_price:
+                title: Reduzierter Preis
+            enabled:
+                title: Status
+                options:
+                    active: Aktiv
+                    inactive: Inaktiv
+            options:
+                title: "Wähle ein oder mehrere Attribute aus:"
+        section:
+            attributes:
+                title: Attribute
+                description: "Lege die Hauptattribute dieser Variante fest."
+            pricing:
+                title: Preisbildung
+                description: "Gib den Preis für dein Produkt ohne Steurn, Gebühren und Versandkosten an. Es kann auch ein Angebotspreis eingesetzt werden."
+            visibility:
+                title: Sichtbarkeit
+                description: "Setze diese Variante auf sichtbar oder unsichtbar."
+
+    manufacturer:
+        single:   Hersteller
+        plural:   Hersteller
+        edit:     "%name% bearbeiten"
+        new:      Neuen Hersteller
+        saved:    Hersteller gespeichert
+        list:     Herstellerliste
+        field:
+            name:
+                title: Herstellername
+                placeholder: z.B. Mein toller Hersteller
+            slug:
+                title: Slug
+                customize: Slug anpassen
+                placeholder: z.B. mein/toller/hersteller
+            description:
+                title: Beschreibung
+                placeholder: z.B. Dieser Hersteller ist genau das wonach Sie suchen!
+            enabled:
+                title: Aktiviert
+                options:
+                    active: Aktiv
+                    inactive: Inaktiv
+            image:
+                title: Bild
+            name_slug:
+                title: "Name & Slug"
+            product_count:
+                title: Produkte
+            metatitle:
+                placeholder: z.B. Mein toller Hersteller
+            metadescription:
+                placeholder: z.B. Dieser Hersteller ist genau das wonach Sie suchen!
+            metakeywords:
+                placeholder: 'z.B. hersteller,toll'
+        section:
+            basic:
+                title: Basisinformationen
+                description: Gib einen spezifischen und so kurz wie möglichen Namen an welcher deinen Kunden hilft mehr Produkte dieses Herstellers zu finden.
+            visibility:
+                title: Sichtbarkeit
+                description: Setze diesen Hersteller auf sichtbar oder unsichtbar.
+
+    category:
+        single:   Kategorie
+        plural:   Kategorien
+        edit:     "%name% bearbeiten"
+        new:      Neue Kategorie
+        saved:    Kategorie gespeichert
+        list:     Kategorienliste
+        in_store: Im Store anzeigen
+        field:
+            name:
+                title: Kategorie Name
+                placeholder: z.B. Meine tolle Kategorie
+            slug:
+                title: Slug
+                placeholder: z.B. meine/tolle/kategorie
+                customize: Slug anpassen
+            root:
+                title: Stammkategorie
+            enabled:
+                title: Aktiviert
+                options:
+                    active: Aktiv
+                    inactive: Inaktiv
+            parent:
+                title: Vorgänger
+            contains:
+                title: "%count% Produkte enthalten"
+            metatitle:
+                placeholder: z.B. Meine tolle Kategorie
+            metadescription:
+                placeholder: z.B. Diese Kategorie ist genau das wonach Sie suchen
+            metakeywords:
+                placeholder: 'z.B. kategorie,toll'
+        section:
+            basic:
+                title: Basisinformationen
+                description: Gib einen spezifischen und so kurz wirmöglichen Namen an, welcher deinen Kunden hilft Produkte dieser Kategorie zu finden.
+            categorization:
+                title: Kategorisierung
+                description: Mache deine Kategorie zur Stammkategorie falls sie keine Vorgänger hat.
+            visibility:
+                title: Sichtbarkeit
+                description: Setze diese Kategorie auf sichtbar oder unsichtbar.
+            edit:
+                title: "Sortieren & Bearbeiten"
+                description:
+                    - "Verschiebe oder verschachtle Kategorien per Drag & Drop. (2 Level max)."
+                    - "Klicke auf eine Kategorie um sie zu bearbeiten."
+                    - "Klicke auf den Papierkorb um eine Kategorie zu löschen."
+
+    metadata:
+        customize: Metadaten anpassen
+        disclaimer:
+            - Dieser Bereich ist für fortgeschrittende Benutzer gedacht.
+            - Lasse diese Felder leer um automatisch Daten generieren zu lassen.
+        section:
+            metadata:
+                title: Metadaten
+                description: Die Beschreibung und Schlüsselworte in Metatags werden dafür genutzt den Webseiteninhalt zu beschreiben. Die meisten Suchmaschinen nutzen diese Daten wenn sie Webseiten indexieren.
+        field:
+            metatitle:
+                title: MetaTitel
+            metadescription:
+                title: MetaBeschreibung
+            metakeywords:
+                title: MetaSchlüsselworte
+
+    shipping_range:
+        single: Lieferzeitraum
+        plural: Lieferzeiträume
+        edit:   Zeitraum "%name%" bearbeiten
+        new:    Neuen Lieferzeitraum erstellen
+        list:   Lieferzeitraumliste
+        saved:  Änderungen gespeichert
+        field:
+            name:
+                title: Lieferzeitraum Name
+                placeholder: z.B. Lieferung in 3-5 Tagen
+            to_zone:
+                title: In Zone
+            price:
+                title: Preis
+            type:
+                title: Preise werden kalkuliert...
+                options:
+                    price: Basiert auf Bestell-Preis
+                    weight: Basiert auf Bestell-Gewicht
+            fromPrice:
+                title: Von Preis
+            toPrice:
+                title: Zu Preis
+            fromWeight:
+                title: Von Gewicht
+            toWeight:
+                title: To Gewicht
+            value:
+                title: Wert
+                price_format: Von %from% bis %to%
+                weight_format: Von %from% g bis %to% g
+        section:
+            basic:
+                title: Basisinformationen
+                description: Gib einen Lieferzeitraum an und in welchen Zonen er verfügbar sein wird.
+            pricing:
+                title: Pricing
+                description: Setze den Preis für diesen Lieferzeitraum und definiere ob er sich auf das Gewicht oder den Preis der Bestellung bezieht.
+            visibility:
+                title: Sichtbarkeit
+                description: Setze diesen Lieferzeitraum auf sichtbar oder unsichtbar.
+
+    plugin:
+        single: App
+        plural: Apps
+        saved:  Plugin Status gespeichert
+        field:
+            visibility: "Aktiviere:"
+        section:
+            settings: Einstellungen
+
+    settings:
+        single: Einstellung
+        plural: Einstellungen
+        saved: Einstellungen gespeichert
+        section:
+            store:
+                title: Store Setup
+                description: Lege die Storedaten fest.
+            products:
+                title: Produkte Setup
+                description: Lege die Produktdaten fest.
+            payment:
+                title: Zahlungsmethoden
+        field:
+            store_enabled: Store aktiviert
+            store_under_construction: Store im Aufbau
+            store_name: Store Name
+            store_leitmotiv: Store Leitmotiv
+            store_phone: Store Telefonnummer
+            store_email: Store e-mail
+            currency: Währungseinstellung
+            product_stock:
+                title: Vorrat
+                description: Aktiviere diese Option um die Bestandskontrole zu aktivieren
+
+    template:
+        single: Theme
+        plural: Themes
+        label:
+            status: "Aktivieren:"
+        action:
+            preview: Vorschau
+
+plugin:
+    paypal:
+        title: Paypal Account Einrichtung
+        register:
+            title: Hast du noch keinen PayPal account?
+            call_to_action: Einen PayPal Account anlegen
+        settings:
+            recipient_email: PayPal Zahlungsempfänger Email
+    paymill:
+        title: Paymill Account Einrichtung
+        register:
+            title: Hast du noch keinen Paymill account?
+            call_to_action: Einen Paymill Account anlegen
+        settings:
+            private_key: Paymill Zahlung privater Schlüssel
+            public_key: Paymill Zahlung öffentlicher Schlüssel
+
+ui:
+    address:
+        full_name: Voller Name
+        phone:     Telefonnummer
+        address:   Adresse
+        city:      Stadt
+        zipcode:   Postleitzahl
+        comment:   Kommentar
+    date:
+        today_at: Heute um %time%
+        yesterday_at: Gestern um %time%
+    list:
+        no_items:     Es gibt keine %items%.
+        create_first: "%item% erstellen."
+    label:
+        enabled:  Aktiviert
+        disabled: Deaktiviert
+    paginator:
+        elements: Zeige %first% bis %last% von insgesamt %total% Einträgen.
+    forms:
+        cancel: Abbrechen
+        save:   Speichern
+        delete: Löschen
+    confirm:
+        delete: Bist du sicher dass du es löschen möchtest?
+    tags:
+        placeholder:
+            comma_separated: Füge Tags durch ein Komma getrennt hinzu.
+    language:
+        master_language: Hauptsprache (erforderlich)
+    delete:
+        success: Vollständig gelöscht
+    editor:
+        help: Wähle Text aus um Formatoptionen zu erhalten

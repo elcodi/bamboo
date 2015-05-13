@@ -1,0 +1,106 @@
+store:
+    error:
+        store_unavailable_title:     Store nicht verfügbar
+        store_is_disabled:           Dieser Store ist zur Zeit deaktiviert
+        store_is_under_construction: Dieser Store befindet sich im Aufbau
+        page_not_found_title:        Seite nicht gefunden
+        page_not_found:              OK, du hast also unsere geheimen Weltherrschaftspläne entdeckt.
+
+    address:
+        save:
+            response_ok: Adresse gespeichert
+        delete:
+            response_ok: Adresse gelöscht
+        select_address_type: Wähle eine %1-Adresse aus
+        billing: Rechnungslegung
+        delivery: Lieferung
+        form:
+            fields:
+                city:
+                    label: Stadt
+                name:
+                    label: Adress Name
+                recipientName:
+                    label: Empfänger Nachname
+                recipientSurname:
+                    label: Empfänger Vorname
+                address:
+                    label: Adresse
+                addressMore:
+                    label: Address Zusatz (optional)
+                postalcode:
+                    label: Postleitzahl
+                phone:
+                    label: Telefonnummer
+                mobile:
+                    label: Mobilnummer
+                comments:
+                    label: Kommentare
+                send:
+                    label: Adresse speichern
+                country:
+                    label: Land
+                state:
+                    label: Bundesland
+                province:
+                    label: Region
+    login:
+        wrong_combination: Falsche Email-Passwort kombination.
+        form:
+            fields:
+                email:
+                    label: Email
+                password:
+                    label: Passwort
+                send:
+                    label: Senden
+    recovery:
+        form:
+            fields:
+                password:
+                    label: Passwort
+                repeat_password:
+                    label: Passwort wiederholen
+                email:
+                    label: Email
+                send:
+                    label: Senden
+                remember:
+                    label: Erinnern
+
+    user:
+        profile:
+            save:
+                message_ok: Profil gespeichert
+        form:
+            fields:
+                firstname:
+                    label: Vorname
+                lastname:
+                    label: Nachname
+                email:
+                    label: Email
+                password:
+                    label: Passwort
+                repeat_password:
+                    label: Passwort wiederholen
+                send:
+                    label: Speichern
+
+    coupon:
+        form:
+            fields:
+                code:
+                    label: Gutscheincode
+                apply:
+                    label: Gutschein einlösen
+        applied:
+            message_ok: Gutschein erfolgreich eingelöst
+            message_ko: Gutschein konnte nicht eingelöst werden
+
+    pagination:
+        first: Erste
+        previous: Vorher
+        current: Aktuell
+        next: Nächste
+        last: Letzte
