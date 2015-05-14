@@ -22,7 +22,6 @@ services:
             - [setPlugin, [@=elcodi_plugin("Elcodi\\Plugin\\FacebookBundle")]]
         tags:
             - { name: kernel.event_listener, event: store.product_pin_top, method: renderShareProduct }
-            - { name: kernel.event_listener, event: admin.product_top, method: renderShareProduct }
             - { name: kernel.event_listener, event: store.order_thanks, method: renderShareOrder }
 
     elcodi_plugin.facebook.follow_renderer:
