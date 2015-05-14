@@ -6,6 +6,47 @@
 } %}
 
 
+{% import _self as macro %}
+
+
+{% macro config_input(name, label) %}
+
+    <label for="{{ name }}">{{ label|trans }}</label>
+    <i class="icon-pencil"></i>
+    <input id="{{ name }}" type="text" name="{{ name }}" value="{{ elcodi_config(name) }}"/>
+    <input id="url-{{ name }}" type="hidden" value="{{ url('admin_configuration_update', { name: name }) }}">
+
+{% endmacro %}
+
+
+{% macro config_switch(name, label) %}
+
+    <input id="url-{{ name }}" type="hidden" value="{{ url('admin_configuration_update', { name: name }) }}">
+    <div class="switch">
+        <input id="{{ name }}" name="{{ name }}" type="checkbox" {%- if elcodi_config(name) %} checked="checked" {% endif -%}/>
+        <label for="{{ name }}"></label>
+    </div>
+    {{ label|trans }}
+
+{% endmacro %}
+
+
+{% macro config_select(name, label, options, value_field, label_field ) %}
+
+    <label for="{{ name }}">{{ label|trans }}</label>
+    <i class="icon-pencil"></i>
+    {% set default = elcodi_config(name) %}
+    <select id="{{ name }}" name="{{ name }}">
+        {% for option in options %}
+            {% set value = attribute(option, value_field) %}
+            <option value="{{ value }}"{% if value == default %} selected="selected"{% endif %}>{{ attribute(option, label_field) }}</option>
+        {% endfor %}
+    </select>
+    <input id="url-{{ name }}" type="hidden" value="{{ url('admin_configuration_update', { name: name }) }}">
+
+{% endmacro %}
+
+
 {% block breadcrumb %}
 
     {% include '@AdminCore/Common/breadcrumb.html.twig' with {
@@ -30,55 +71,63 @@
                 <div class="box">
                     <ol>
                         <li>
-                            <input id="url-store.enabled" type="hidden" value="{{ url('admin_configuration_update', { name: 'store.enabled' }) }}">
-                            <div class="switch">
-                                <input id="store.enabled" name="store.enabled" type="checkbox"{% if elcodi_config('store.enabled') %} checked="checked"{% endif %} />
-                                <label for="store.enabled"></label>
-                            </div>
-                            {{ 'admin.settings.field.store_enabled'|trans }}
+                            {{
+                                macro.config_switch(
+                                    'store.enabled',
+                                    'admin.settings.field.store_enabled'
+                                )
+                            }}
                         </li>
                         <li>
-                            <input id="url-store.under_construction" type="hidden" value="{{ url('admin_configuration_update', { name: 'store.under_construction' }) }}">
-                            <div class="switch">
-                                <input id="store.under_construction" name="store.under_construction" type="checkbox"{% if elcodi_config('store.under_construction') %} checked="checked"{% endif %} />
-                                <label for="store.under_construction"></label>
-                            </div>
-                            {{ 'admin.settings.field.store_under_construction'|trans }}
+                            {{
+                                macro.config_switch(
+                                    'store.under_construction',
+                                    'admin.settings.field.store_under_construction'
+                                )
+                            }}
                         </li>
                         <li>
-                            <label for="store.name">{{ 'admin.settings.field.store_name'|trans }}</label>
-                            <i class="icon-pencil"></i>
-                            <input id="store.name" type="text" name="store.name" value="{{ elcodi_config('store.name') }}"/>
-                            <input id="url-store.name" type="hidden" value="{{ url('admin_configuration_update', { name: 'store.name' }) }}">
+                            {{
+                                macro.config_input(
+                                    'store.name',
+                                    'admin.settings.field.store_name'
+                                )
+                            }}
                         </li>
                         <li>
-                            <label for="store.leitmotiv">{{ 'admin.settings.field.store_leitmotiv'|trans }}</label>
-                            <i class="icon-pencil"></i>
-                            <input id="store.leitmotiv" type="text" name="store.leitmotiv" value="{{ elcodi_config('store.leitmotiv') }}"/>
-                            <input id="url-store.leitmotiv" type="hidden" value="{{ url('admin_configuration_update', { name: 'store.leitmotiv' }) }}">
+                            {{
+                                macro.config_input(
+                                    'store.leitmotiv',
+                                    'admin.settings.field.store_leitmotiv'
+                                )
+                            }}
                         </li>
                         <li>
-                            <label for="store.phone">{{ 'admin.settings.field.store_phone'|trans }}</label>
-                            <i class="icon-pencil"></i>
-                            <input id="store.phone" type="text" name="store.phone" value="{{ elcodi_config('store.phone') }}"/>
-                            <input id="url-store.phone" type="hidden" value="{{ url('admin_configuration_update', { name: 'store.phone' }) }}">
+                            {{
+                                macro.config_input(
+                                    'store.phone',
+                                    'admin.settings.field.store_phone'
+                                )
+                            }}
                         </li>
                         <li>
-                            <label for="store.email">{{ 'admin.settings.field.store_email'|trans }}</label>
-                            <i class="icon-pencil"></i>
-                            <input id="store.email" type="text" name="store.email" value="{{ elcodi_config('store.email') }}"/>
-                            <input id="url-store.email" type="hidden" value="{{ url('admin_configuration_update', { name: 'store.email' }) }}">
+                            {{
+                                macro.config_input(
+                                    'store.email',
+                                    'admin.settings.field.store_email'
+                                )
+                            }}
                         </li>
                         <li>
-                            <label for="currency.default_currency">{{ 'admin.settings.field.currency'|trans }}</label>
-                            <i class="icon-pencil"></i>
-                            {% set defaultCurrency = elcodi_config('currency.default_currency') %}
-                            <select id="currency.default_currency" name="currency.default_currency">
-                                {% for currency in currencies %}
-                                    <option value="{{ currency.iso }}"{% if currency.iso == defaultCurrency %} selected="selected"{% endif %}>{{ currency.name }}</option>
-                                {% endfor %}
-                            </select>
-                            <input id="url-currency.default_currency" type="hidden" value="{{ url('admin_configuration_update', { name: 'currency.default_currency' }) }}">
+                            {{
+                                macro.config_select(
+                                    'currency.default_currency',
+                                    'admin.settings.field.currency',
+                                    currencies,
+                                    'iso',
+                                    'name'
+                                )
+                            }}
                         </li>
                     </ol>
                 </div>
@@ -93,12 +142,12 @@
                 <div class="box">
                     <ol>
                         <li>
-                            <input id="url-product.use_stock" type="hidden" value="{{ url('admin_configuration_update', { name: 'product.use_stock' }) }}">
-                            <div class="switch">
-                                <input id="product.use_stock" name="product.use_stock" type="checkbox"{% if elcodi_config('product.use_stock') %} checked="checked"{% endif %} />
-                                <label for="product.use_stock"></label>
-                            </div>
-                            {{ 'admin.settings.field.product_stock.title'|trans }}
+                            {{
+                                macro.config_switch(
+                                    'product.use_stock',
+                                    'admin.settings.field.product_stock.description'
+                                )
+                            }}
                             <em class="fz-s">({{ 'admin.settings.field.product_stock.description'|trans }})</em>
                         </li>
                     </ol>
