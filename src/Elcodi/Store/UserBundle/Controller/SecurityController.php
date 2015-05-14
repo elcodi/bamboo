@@ -133,13 +133,9 @@ class SecurityController extends Controller
             $customerManager->persist($customer);
             $customerManager->flush($customer);
 
-            $providerKey = $this
-                ->get('service_container')
-                ->getParameter('bamboo_store_firewall');
-
             $this
                 ->get('elcodi.manager.customer')
-                ->register($customer, $providerKey);
+                ->register($customer);
 
             return $this->redirectToRoute('store_homepage');
         }
