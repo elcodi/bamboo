@@ -100,6 +100,6 @@ class AddressType extends AbstractType
      */
     public function getName()
     {
-        return 'admin_geo_form_type_address';
+        return 'elcodi_admin_form_type_address';
     }
 }

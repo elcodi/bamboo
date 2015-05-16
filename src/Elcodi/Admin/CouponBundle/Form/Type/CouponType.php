@@ -147,6 +147,6 @@ class CouponType extends AbstractType
      */
     public function getName()
     {
-        return 'elcodi_admin_coupon_form_type_coupon';
+        return 'elcodi_admin_form_type_coupon';
     }
 }

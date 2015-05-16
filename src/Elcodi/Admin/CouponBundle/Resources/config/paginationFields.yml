@@ -3,7 +3,7 @@ parameters:
     #
     # Pagination fields
     #
-    elcodi.admin.coupon.pagination.coupon.fields:
+    elcodi.admin.pagination.coupon.fields:
         - id
         - code
         - name

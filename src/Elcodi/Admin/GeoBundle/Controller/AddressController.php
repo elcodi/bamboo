@@ -63,7 +63,7 @@ class AddressController extends AbstractAdminController
         }
 
         $form = $this->createForm(
-            'admin_geo_form_type_address',
+            'elcodi_admin_form_type_address',
             $address
         );
 
@@ -117,7 +117,7 @@ class AddressController extends AbstractAdminController
      *      persist = false
      * )
      * @FormAnnotation(
-     *      class         = "admin_geo_form_type_address",
+     *      class         = "elcodi_admin_form_type_address",
      *      name          = "form",
      *      entity        = "address",
      *      handleRequest = true,

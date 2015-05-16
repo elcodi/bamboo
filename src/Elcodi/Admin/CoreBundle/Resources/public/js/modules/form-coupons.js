@@ -3,13 +3,13 @@ FrontendCore.define('form-coupons', [], function () {
 		onStart: function () {
 
 			var self = this,
-				sTypeValue = document.getElementById('elcodi_admin_coupon_form_type_coupon_type').value;
+				sTypeValue = document.getElementById('elcodi_admin_form_type_coupon_type').value;
 
 			FrontendTools.trackEvent('JS_Libraries', 'call', 'form-coupons');
 
 			self.TypeVisibility(sTypeValue);
 
-			$('#elcodi_admin_coupon_form_type_coupon_type').change( function(){
+			$('#elcodi_admin_form_type_coupon_type').change( function(){
 				self.TypeVisibility( this.value );
 			});
 
