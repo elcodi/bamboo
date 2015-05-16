@@ -136,7 +136,7 @@ class AttributeController extends AbstractAdminController
      *      persist = true
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_attribute_form_type_attribute",
+     *      class = "elcodi_admin_form_type_attribute",
      *      name  = "form",
      *      entity = "attribute",
      *      handleRequest = true,

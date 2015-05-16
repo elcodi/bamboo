@@ -3,9 +3,9 @@ services:
     #
     # Form Types
     #
-    elcodi.admin.attribute.form_type.attribute:
+    elcodi.admin.form_type.attribute:
         class: Elcodi\Admin\AttributeBundle\Form\Type\AttributeType
         calls:
             - [setFactory, [@elcodi.factory.attribute]]
         tags:
-            - { name: form.type, alias: elcodi_admin_attribute_form_type_attribute }
+            - { name: form.type, alias: elcodi_admin_form_type_attribute }
