@@ -273,7 +273,7 @@ class BannerController extends AbstractAdminController
      *      }
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_banner_form_type_banner",
+     *      class = "elcodi_admin_form_type_banner",
      *      name  = "formView",
      *      entity = "entity"
      * )
@@ -309,7 +309,7 @@ class BannerController extends AbstractAdminController
      *      persist = true
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_banner_form_type_banner",
+     *      class = "elcodi_admin_form_type_banner",
      *      name  = "form",
      *      entity = "entity",
      *      handleRequest = true,
@@ -381,7 +381,7 @@ class BannerController extends AbstractAdminController
      *      }
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_banner_form_type_banner",
+     *      class = "elcodi_admin_form_type_banner",
      *      name  = "formView",
      *      entity = "entity"
      * )
@@ -420,7 +420,7 @@ class BannerController extends AbstractAdminController
      *      }
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_banner_form_type_banner",
+     *      class = "elcodi_admin_form_type_banner",
      *      name  = "form",
      *      entity = "entity",
      *      handleRequest = true,

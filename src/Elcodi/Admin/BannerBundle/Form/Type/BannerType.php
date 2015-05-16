@@ -133,6 +133,6 @@ class BannerType extends AbstractType
      */
     public function getName()
     {
-        return 'elcodi_admin_banner_form_type_banner';
+        return 'elcodi_admin_form_type_banner';
     }
 }

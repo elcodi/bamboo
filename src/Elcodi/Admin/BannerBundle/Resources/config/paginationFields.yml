@@ -3,14 +3,14 @@ parameters:
     #
     # Pagination fields
     #
-    elcodi.admin.banner.pagination.banner.fields:
+    elcodi.admin.pagination.banner.fields:
         - id
         - name
         - description
         - url
         - position
         - enabled
-    elcodi.admin.banner.pagination.banner_zone.fields:
+    elcodi.admin.pagination.banner_zone.fields:
         - id
         - name
         - code
