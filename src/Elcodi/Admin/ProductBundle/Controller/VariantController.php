@@ -109,7 +109,7 @@ class VariantController extends AbstractAdminController
      *      persist = true
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_product_form_type_product_variant",
+     *      class = "elcodi_admin_form_type_product_variant",
      *      name  = "form",
      *      entity = "variant",
      *      handleRequest = true,

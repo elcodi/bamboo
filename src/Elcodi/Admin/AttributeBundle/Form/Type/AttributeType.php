@@ -75,6 +75,6 @@ class AttributeType extends AbstractType
      */
     public function getName()
     {
-        return 'elcodi_admin_attribute_form_type_attribute';
+        return 'elcodi_admin_form_type_attribute';
     }
 }

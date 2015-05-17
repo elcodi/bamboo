@@ -97,7 +97,7 @@ class CategoryComponentController extends AbstractAdminController
      *      persist = true
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_product_form_type_category",
+     *      class = "elcodi_admin_form_type_category",
      *      name  = "formView",
      *      entity = "category",
      *      handleRequest = true,
@@ -134,7 +134,7 @@ class CategoryComponentController extends AbstractAdminController
         $categoriesOrder = json_decode($request->get('data'), true);
 
         if (!is_null($categoriesOrder)) {
-            $orderResult = $this->get('elcodi.admin.product.services.category_sorter')
+            $orderResult = $this->get('elcodi.admin.services.category_sorter')
                 ->sort($categoriesOrder);
 
             if ($orderResult) {

@@ -135,7 +135,7 @@ class CouponComponentController extends AbstractAdminController
      *      mappingFallback = true,
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_coupon_form_type_coupon",
+     *      class = "elcodi_admin_form_type_coupon",
      *      name  = "formView",
      *      entity = "coupon"
      * )

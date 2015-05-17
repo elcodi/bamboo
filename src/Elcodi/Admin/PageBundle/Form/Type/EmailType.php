@@ -85,6 +85,6 @@ class EmailType extends AbstractType
      */
     public function getName()
     {
-        return 'elcodi_admin_page_form_type_email';
+        return 'elcodi_admin_form_type_email';
     }
 }

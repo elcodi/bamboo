@@ -111,6 +111,6 @@ class BlogPostType extends AbstractType
      */
     public function getName()
     {
-        return 'elcodi_admin_page_form_type_blog_post';
+        return 'elcodi_admin_form_type_blog_post';
     }
 }

@@ -3,9 +3,9 @@ services:
     #
     # Form Types
     #
-    admin.geo.form_type.address:
+    elcodi.admin.form_type.address:
         class: Elcodi\Admin\GeoBundle\Form\Type\AddressType
         calls:
             - [setFactory, [@elcodi.factory.address]]
         tags:
-            - { name: form.type, alias: admin_geo_form_type_address }
+            - { name: form.type, alias: elcodi_admin_form_type_address }

@@ -104,6 +104,6 @@ class CarrierType extends AbstractType
      */
     public function getName()
     {
-        return 'elcodi_admin_shipping_form_type_carrier';
+        return 'elcodi_admin_form_type_carrier';
     }
 }

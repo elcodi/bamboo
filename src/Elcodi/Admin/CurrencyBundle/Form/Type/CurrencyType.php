@@ -93,6 +93,6 @@ class CurrencyType extends AbstractType
      */
     public function getName()
     {
-        return 'elcodi_admin_currency_form_type_currency';
+        return 'elcodi_admin_form_type_currency';
     }
 }

@@ -3,7 +3,7 @@ parameters:
     #
     # Pagination fields
     #
-    elcodi.admin.newsletter.pagination.newsletter_subscription.fields:
+    elcodi.admin.pagination.newsletter_subscription.fields:
         - id
         - email
         - hash

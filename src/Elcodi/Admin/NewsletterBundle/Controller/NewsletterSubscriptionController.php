@@ -155,7 +155,7 @@ class NewsletterSubscriptionController extends AbstractAdminController
      *      persist = true
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_newsletter_form_type_newsletter_subscription",
+     *      class = "elcodi_admin_form_type_newsletter_subscription",
      *      name  = "form",
      *      entity = "entity",
      *      handleRequest = true,
@@ -226,7 +226,7 @@ class NewsletterSubscriptionController extends AbstractAdminController
      *      }
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_newsletter_form_type_newsletter_subscription",
+     *      class = "elcodi_admin_form_type_newsletter_subscription",
      *      name  = "form",
      *      entity = "entity",
      *      handleRequest = true,

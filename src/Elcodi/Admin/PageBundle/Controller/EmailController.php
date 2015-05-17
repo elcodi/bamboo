@@ -96,7 +96,7 @@ class EmailController extends AbstractAdminController
      *      persist = true
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_page_form_type_email",
+     *      class = "elcodi_admin_form_type_email",
      *      name  = "form",
      *      entity = "email",
      *      handleRequest = true,

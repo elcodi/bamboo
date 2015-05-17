@@ -97,7 +97,7 @@ class ShippingRangeController extends AbstractAdminController
      *      persist = true
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_shipping_form_type_shipping_range",
+     *      class = "elcodi_admin_form_type_shipping_range",
      *      name  = "form",
      *      entity = "shippingRange",
      *      handleRequest = true,

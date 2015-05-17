@@ -132,7 +132,7 @@ class AttributeComponentController extends AbstractAdminController
      *      mappingFallback = true,
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_attribute_form_type_attribute",
+     *      class = "elcodi_admin_form_type_attribute",
      *      name  = "formView",
      *      entity = "attribute",
      *      handleRequest = true,

@@ -151,6 +151,6 @@ class CategoryType extends AbstractType
      */
     public function getName()
     {
-        return 'elcodi_admin_product_form_type_category';
+        return 'elcodi_admin_form_type_category';
     }
 }

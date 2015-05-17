@@ -134,7 +134,7 @@ class PageController extends AbstractAdminController
      *      persist = true
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_page_form_type_page",
+     *      class = "elcodi_admin_form_type_page",
      *      name  = "form",
      *      entity = "page",
      *      handleRequest = true,

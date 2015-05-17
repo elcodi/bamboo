@@ -157,7 +157,7 @@ class NewsletterSubscriptionComponentController
      *      }
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_newsletter_form_type_newsletter_subscription",
+     *      class = "elcodi_admin_form_type_newsletter_subscription",
      *      name  = "formView",
      *      entity = "entity"
      * )
@@ -194,7 +194,7 @@ class NewsletterSubscriptionComponentController
      *      }
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_newsletter_form_type_newsletter_subscription",
+     *      class = "elcodi_admin_form_type_newsletter_subscription",
      *      name  = "formView",
      *      entity = "entity"
      * )

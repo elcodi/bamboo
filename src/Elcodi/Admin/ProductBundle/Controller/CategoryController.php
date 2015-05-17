@@ -111,7 +111,7 @@ class CategoryController extends AbstractAdminController
      *      persist = true
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_product_form_type_category",
+     *      class = "elcodi_admin_form_type_category",
      *      name  = "form",
      *      entity = "category",
      *      handleRequest = true,

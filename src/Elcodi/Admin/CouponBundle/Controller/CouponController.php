@@ -132,7 +132,7 @@ class CouponController extends AbstractAdminController
      *      persist = true
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_coupon_form_type_coupon",
+     *      class = "elcodi_admin_form_type_coupon",
      *      name  = "form",
      *      entity = "coupon",
      *      handleRequest = true,
