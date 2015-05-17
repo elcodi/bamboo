@@ -141,7 +141,7 @@ class BlogPostComponentController extends AbstractAdminController
      *      mappingFallback = true,
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_page_form_type_blog_post",
+     *      class = "elcodi_admin_form_type_blog_post",
      *      name  = "formView",
      *      entity = "blogPost",
      *      handleRequest = true,

@@ -272,7 +272,7 @@ class RuleController extends AbstractAdminController
      *      }
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_rule_form_type_rule",
+     *      class = "elcodi_admin_form_type_rule",
      *      name  = "formView",
      *      entity = "entity"
      * )
@@ -308,7 +308,7 @@ class RuleController extends AbstractAdminController
      *      persist = true
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_rule_form_type_rule",
+     *      class = "elcodi_admin_form_type_rule",
      *      name  = "form",
      *      entity = "entity",
      *      handleRequest = true,
@@ -380,7 +380,7 @@ class RuleController extends AbstractAdminController
      *      }
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_rule_form_type_rule",
+     *      class = "elcodi_admin_form_type_rule",
      *      name  = "formView",
      *      entity = "entity"
      * )
@@ -419,7 +419,7 @@ class RuleController extends AbstractAdminController
      *      }
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_rule_form_type_rule",
+     *      class = "elcodi_admin_form_type_rule",
      *      name  = "form",
      *      entity = "entity",
      *      handleRequest = true,

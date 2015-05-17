@@ -138,7 +138,7 @@ class ProductComponentController extends AbstractAdminController
      *      mappingFallback = true,
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_product_form_type_product",
+     *      class = "elcodi_admin_form_type_product",
      *      name  = "formView",
      *      entity = "product",
      *      handleRequest = true,

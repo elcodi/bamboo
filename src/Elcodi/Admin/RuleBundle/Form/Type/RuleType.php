@@ -77,6 +77,6 @@ class RuleType extends AbstractType
      */
     public function getName()
     {
-        return 'elcodi_admin_rule_form_type_rule';
+        return 'elcodi_admin_form_type_rule';
     }
 }

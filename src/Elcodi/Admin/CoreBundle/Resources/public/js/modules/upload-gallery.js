@@ -82,8 +82,8 @@ FrontendCore.define('upload-gallery', [ oGlobalSettings.sPathJs + '../components
 			$('img' , oThumbs).each( function() {
 				nId = parseInt(this.id.replace('image-',''), 10);
 
-				$('input[id=elcodi_admin_product_form_type_product_images_'+ nId +']', oContainer).click();
-				$('input[id=elcodi_admin_product_form_type_product_variant_images_'+ nId +']', oContainer).click();
+				$('input[id=elcodi_admin_form_type_product_images_'+ nId +']', oContainer).click();
+				$('input[id=elcodi_admin_form_type_product_variant_images_'+ nId +']', oContainer).click();
 
 			});
 
@@ -100,20 +100,20 @@ FrontendCore.define('upload-gallery', [ oGlobalSettings.sPathJs + '../components
 				oActions = '<ul class="thumbnail-actions"><li><a href="' + sUrlDelete + '" class="icon-trash-o" data-fc-modules="ajax-link" data-fc-delete="'+ nId +'"></a></li></ul>';
 
 
-				if ($('#elcodi_admin_product_form_type_product_images_' + nId , oContainer).length === 0) {
+				if ($('#elcodi_admin_form_type_product_images_' + nId , oContainer).length === 0) {
 					oOption = document.createElement('input');
 					oOption.type = 'checkbox';
-					oOption.name = 'elcodi_admin_product_form_type_product[images][]';
-					oOption.id = 'elcodi_admin_product_form_type_product_images_' + nId;
+					oOption.name = 'elcodi_admin_form_type_product[images][]';
+					oOption.id = 'elcodi_admin_form_type_product_images_' + nId;
 					oOption.value = nId;
 					$(oContainer).append(oOption);
 				}
 
-				if ($('#elcodi_admin_product_form_type_product_variant_images_' + nId , oContainer).length === 0) {
+				if ($('#elcodi_admin_form_type_product_variant_images_' + nId , oContainer).length === 0) {
 					oOption = document.createElement('input');
 					oOption.type = 'checkbox';
-					oOption.name = 'elcodi_admin_product_form_type_product_variant[images][]';
-					oOption.id = 'elcodi_admin_product_form_type_product_variant_images_' + nId;
+					oOption.name = 'elcodi_admin_form_type_product_variant[images][]';
+					oOption.id = 'elcodi_admin_form_type_product_variant_images_' + nId;
 					oOption.value = nId;
 					$(oContainer).append(oOption);
 				}

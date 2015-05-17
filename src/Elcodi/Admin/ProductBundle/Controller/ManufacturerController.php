@@ -138,7 +138,7 @@ class ManufacturerController extends AbstractAdminController
      *      persist = true
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_product_form_type_manufacturer",
+     *      class = "elcodi_admin_form_type_manufacturer",
      *      name  = "form",
      *      entity = "manufacturer",
      *      handleRequest = true,

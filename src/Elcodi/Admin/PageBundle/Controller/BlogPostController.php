@@ -132,7 +132,7 @@ class BlogPostController extends AbstractAdminController
      *      persist = true
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_page_form_type_blog_post",
+     *      class = "elcodi_admin_form_type_blog_post",
      *      name  = "form",
      *      entity = "blogPost",
      *      handleRequest = true,

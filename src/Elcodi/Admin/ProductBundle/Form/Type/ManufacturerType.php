@@ -141,6 +141,6 @@ class ManufacturerType extends AbstractType
      */
     public function getName()
     {
-        return 'elcodi_admin_product_form_type_manufacturer';
+        return 'elcodi_admin_form_type_manufacturer';
     }
 }

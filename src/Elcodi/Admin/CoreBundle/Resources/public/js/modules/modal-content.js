@@ -32,12 +32,12 @@ FrontendCore.define('modal-content', ['devicePackage','modal' ], function () {
 		},
 		updateCategory: function( oResponse ) {
 
-			this.updateSelect( 'elcodi_admin_product_form_type_product_principalCategory', oResponse.data.id, oResponse.data.name );
+			this.updateSelect( 'elcodi_admin_form_type_product_principalCategory', oResponse.data.id, oResponse.data.name );
 
 		},
 		updateManufacturer: function( oResponse ) {
 
-			this.updateSelect( 'elcodi_admin_product_form_type_product_manufacturer', oResponse.data.id, oResponse.data.name );
+			this.updateSelect( 'elcodi_admin_form_type_product_manufacturer', oResponse.data.id, oResponse.data.name );
 
 		},
 		autobind: function( oTarget ){

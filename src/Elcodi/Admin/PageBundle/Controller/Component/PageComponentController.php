@@ -141,7 +141,7 @@ class PageComponentController extends AbstractAdminController
      *      mappingFallback = true,
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_page_form_type_page",
+     *      class = "elcodi_admin_form_type_page",
      *      name  = "formView",
      *      entity = "page",
      *      handleRequest = true,

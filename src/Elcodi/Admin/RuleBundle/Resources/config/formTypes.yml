@@ -3,11 +3,11 @@ services:
     #
     # Form Types
     #
-    elcodi.admin.rule.form_type.rule:
+    elcodi.admin.form_type.rule:
         class: Elcodi\Admin\RuleBundle\Form\Type\RuleType
         arguments:
             entity: %elcodi.entity.rule.class%
         calls:
             - [setFactory, [@elcodi.factory.rule]]
         tags:
-            - { name: form.type, alias: elcodi_admin_rule_form_type_rule }
+            - { name: form.type, alias: elcodi_admin_form_type_rule }

@@ -143,7 +143,7 @@ class ProductController extends AbstractAdminController
      *      persist = true
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_product_form_type_product",
+     *      class = "elcodi_admin_form_type_product",
      *      name  = "form",
      *      entity = "product",
      *      handleRequest = true,
