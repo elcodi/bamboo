@@ -3,13 +3,13 @@ FrontendCore.define('form-shipping-rates', [], function () {
 		onStart: function () {
 
 			var self = this,
-				sTypeValue = document.getElementById('elcodi_admin_shipping_form_type_shipping_range_type').value;
+				sTypeValue = document.getElementById('elcodi_admin_form_type_shipping_range_type').value;
 
 			FrontendTools.trackEvent('JS_Libraries', 'call', 'shipping-rates');
 
 			self.TypeVisibility(sTypeValue);
 
-			$('#elcodi_admin_shipping_form_type_shipping_range_type').change( function(){
+			$('#elcodi_admin_form_type_shipping_range_type').change( function(){
 				self.TypeVisibility( this.value );
 			});
 

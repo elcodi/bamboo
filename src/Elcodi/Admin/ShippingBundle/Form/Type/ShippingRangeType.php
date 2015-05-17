@@ -118,6 +118,6 @@ class ShippingRangeType extends AbstractType
      */
     public function getName()
     {
-        return 'elcodi_admin_shipping_form_type_shipping_range';
+        return 'elcodi_admin_form_type_shipping_range';
     }
 }

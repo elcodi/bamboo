@@ -117,7 +117,7 @@ class CarrierController extends AbstractAdminController
      *      persist = true
      * )
      * @FormAnnotation(
-     *      class = "elcodi_admin_shipping_form_type_carrier",
+     *      class = "elcodi_admin_form_type_carrier",
      *      name  = "form",
      *      entity = "carrier",
      *      handleRequest = true,
