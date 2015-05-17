@@ -69,7 +69,7 @@ class FirewallListener implements ListenerInterface
          * check in type
          */
         if (!is_callable([$this->eventDispatcher, 'addListenerService'])) {
-            return;
+            return null;
         }
 
         foreach ($this->listenerIds as $listener) {

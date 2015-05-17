@@ -32,6 +32,6 @@ class StoreLanguageBundle extends Bundle
      */
     public function getContainerExtension()
     {
-        return;
+        return null;
     }
 }

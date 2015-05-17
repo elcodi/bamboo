@@ -60,7 +60,7 @@ class StoreUnavailableEventListener implements ListenerInterface
     public function handle(GetResponseEvent $event)
     {
         if ($this->isAvailable) {
-            return;
+            return null;
         }
 
         throw new ServiceUnavailableHttpException(null, $this->message);

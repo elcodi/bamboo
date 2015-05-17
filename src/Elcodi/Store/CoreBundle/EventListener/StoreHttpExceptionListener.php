@@ -101,7 +101,7 @@ class StoreHttpExceptionListener
     public function onKernelException(GetResponseForExceptionEvent $event)
     {
         if (!$this->supports($event)) {
-            return;
+            return null;
         }
 
         $this->isHandlingException = true;

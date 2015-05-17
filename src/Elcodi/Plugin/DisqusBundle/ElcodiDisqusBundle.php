@@ -48,6 +48,6 @@ class ElcodiDisqusBundle extends Bundle implements PluginInterface
      */
     public function registerCommands(Application $application)
     {
-        return;
+        return null;
     }
 }

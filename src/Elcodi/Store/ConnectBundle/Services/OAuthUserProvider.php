@@ -241,7 +241,7 @@ class OAuthUserProvider implements OAuthAwareUserProviderInterface
                 ->userProvider
                 ->loadUserByUsername($username);
         } catch (UsernameNotFoundException $e) {
-            return;
+            return null;
         }
     }
 

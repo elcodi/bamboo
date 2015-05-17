@@ -37,7 +37,7 @@ class MinimumMoneyValidator extends ConstraintValidator
     public function validate($value, Constraint $constraint)
     {
         if (null === $value) {
-            return;
+            return null;
         }
 
         if (!($value instanceof Money)) {
