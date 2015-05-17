@@ -58,7 +58,6 @@ class AdminCouponExtension extends AbstractExtension
     {
         return [
             'formTypes',
-            'paginationFields',
         ];
     }
 

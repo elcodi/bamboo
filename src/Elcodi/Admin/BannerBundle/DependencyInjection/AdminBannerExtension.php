@@ -58,7 +58,6 @@ class AdminBannerExtension extends AbstractExtension
     {
         return [
             'formTypes',
-            'paginationFields',
         ];
     }
 
