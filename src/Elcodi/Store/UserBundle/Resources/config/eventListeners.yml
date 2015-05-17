@@ -28,3 +28,13 @@ services:
         parent: store.abstract_email_sender_event_listener
         tags:
             - { name: kernel.event_listener, event: password.recover, method: sendPasswordRecoverEmail }
+
+    store.event_listener.autologin_on_register:
+        class: Elcodi\Component\User\EventListener\AutologinOnRegisterEventListener
+        arguments:
+            - @request_stack
+            - @security.token_storage
+            - @event_dispatcher
+            - %bamboo_store_firewall%
+        tags:
+            - { name: firewall_listener, firewall: %bamboo_store_firewall%, event: user.register, method: onUserRegister }
