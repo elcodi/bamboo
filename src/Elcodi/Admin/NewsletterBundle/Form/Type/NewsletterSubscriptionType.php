@@ -103,6 +103,6 @@ class NewsletterSubscriptionType extends AbstractType
      */
     public function getName()
     {
-        return 'elcodi_admin_newsletter_form_type_newsletter_subscription';
+        return 'elcodi_admin_form_type_newsletter_subscription';
     }
 }

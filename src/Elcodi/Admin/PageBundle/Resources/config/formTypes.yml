@@ -6,7 +6,7 @@ services:
     elcodi.admin.page.form_type.page:
         class: Elcodi\Admin\PageBundle\Form\Type\PageType
         arguments:
-            - @elcodi.admin.page.form_event_listener.permanent_page
+            - @elcodi.admin.event_listener.permanent_page
         calls:
             - [setFactory, [@elcodi.factory.page]]
             - [setEntityTranslatorFormEventListener, [@elcodi.entity_translator_form_event_listener]]
