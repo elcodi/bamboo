@@ -267,7 +267,7 @@ CONTENT;
                 'content' => $contentEs,
             ],
             'en' => [
-                'title'   => 'Confirmación de registro',
+                'title'   => 'Order confirmation',
                 'content' => $contentEn,
             ],
         ]);
