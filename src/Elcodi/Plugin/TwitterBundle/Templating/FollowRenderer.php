@@ -56,18 +56,14 @@ class FollowRenderer
      */
     public function renderFollowButton(EventInterface $event)
     {
-        $pluginConfiguration = $this
+        if ($this
             ->plugin
-            ->getConfiguration();
-
-        if (
-            $this->plugin->isEnabled() &&
-            !empty($pluginConfiguration['twitter_account'])
+            ->isUsable(['twitter_account'])
         ) {
             $this->appendTemplate(
                 '@ElcodiTwitter/Follow/follow.html.twig',
                 $event,
-                ['twitter_account' => $pluginConfiguration['twitter_account']]
+                $this->plugin
             );
         }
     }

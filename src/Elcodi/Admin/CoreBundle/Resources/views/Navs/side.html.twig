@@ -37,7 +37,7 @@
 </div>
 <nav id="menu" class="navigation navigation-vertical desktop">
     <ul>
-        {% for menu_item in menu_items %}
+        {% for menu_item in menu.subnodes %}
         {% if menu_item.code != 'separator' %}
             <li class="{% if menu_item.active %}active{% endif %}{% if menu_item.subnodes|length %}parent{% endif %}" data-test="{{ menu_item.name }}">
                 {% if generate_url(menu_item.url) != '' %}
@@ -79,7 +79,7 @@
 <div class="d-n">
     <nav id="menu-mobile" class="navigation navigation-vertical">
         <ul>
-            {% for menu_item in menu_items %}
+            {% for menu_item in menu.subnodes %}
                 {% if menu_item.code != 'separator' %}
                     <li class="{% if menu_item.active %}active{% endif %}{% if menu_item.subnodes|length %}parent{% endif %}" data-test="{{ menu_item.name }}">
                         {% if generate_url(menu_item.url) != '' %}

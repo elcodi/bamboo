@@ -1,11 +1,8 @@
-pinterest_plugin:
-    title: Pinterest
-    field:
-        asynchronous_javascript: Javascript asíncron
-    action:
-        visit_pinterest: Anar a Pinterest
-    section:
-        settings:
-            title: Configuració de Pinterest
-    error:
-        is_disabled: El plugin està deshabilitat
+elcodi_plugin:
+    pinterest:
+        name: Pinterest
+        description: Integració de Pinterest per a la teva botiga
+
+        field:
+            asynchronous:
+                label: Usa Pinterest de forma asíncrona

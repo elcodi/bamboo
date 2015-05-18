@@ -56,11 +56,17 @@ class TwigRenderer
      */
     public function renderJavascript(EventInterface $event)
     {
-        if ($this->pluginCanBeUsed($this->plugin, [
-            'asynchronous',
-        ])
+        if ($this
+            ->plugin
+            ->isUsable([
+                'asynchronous',
+            ])
         ) {
-            $this->appendTemplate('@ElcodiPinterest/javascript.html.twig', $event);
+            $this->appendTemplate(
+                '@ElcodiPinterest/javascript.html.twig',
+                $event,
+                $this->plugin
+            );
         }
     }
 
@@ -71,11 +77,17 @@ class TwigRenderer
      */
     public function renderAsynchronousJavascript(EventInterface $event)
     {
-        if ($this->pluginCanBeUsed($this->plugin, [
-            'asynchronous',
-        ])
+        if ($this
+            ->plugin
+            ->isUsable([
+                'asynchronous',
+            ])
         ) {
-            $this->appendTemplate('@ElcodiPinterest/javascript_asynchronous.html.twig', $event);
+            $this->appendTemplate(
+                '@ElcodiPinterest/javascript_asynchronous.html.twig',
+                $event,
+                $this->plugin
+            );
         }
     }
 
@@ -86,9 +98,15 @@ class TwigRenderer
      */
     public function renderPin(EventInterface $event)
     {
-        if ($this->pluginCanBeUsed($this->plugin)
+        if ($this
+            ->plugin
+            ->isUsable()
         ) {
-            $this->appendTemplate('@ElcodiPinterest/product_pin.html.twig', $event);
+            $this->appendTemplate(
+                '@ElcodiPinterest/product_pin.html.twig',
+                $event,
+                $this->plugin
+            );
         }
     }
 }

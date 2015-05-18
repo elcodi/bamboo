@@ -19,21 +19,29 @@
 
 {% block content %}
 
-    <form class="form-grid form-save-on-edit" data-fc-modules="form-save-on-edit">
+    <form class="form-grid form-grid-has-settings form-save-on-edit" data-fc-modules="form-save-on-edit">
         {% for plugin in plugins %}
+            {% set pluginName = plugin.getConfigurationValue('name')|trans %}
+            {% set pluginDescription = plugin.getConfigurationValue('description')|trans %}
+            {% set iconPath = "/bundles" ~ asset(plugin.getBundleName()|replace({'Bundle': ''})|lower ~ "/images/icon.png") %}
             <article class="box-background">
-                <h4 class="fw-n">{{ plugin.name }}{{ plugin.version }}</h4>
-                <p>{{ plugin.author }}</p>
-
-                <input type="hidden" id="url-{{ plugin.name }}" value="{{ url('admin_plugin_enable', { plugin: plugin.namespace }) }}" />
-
-                <a href="{{ url( plugin.configurationRoute ) }}" class="button icon-cogs"> {{ 'admin.plugin.section.settings'|trans }}</a>
-
-                <div class="fl-r pt-s">
-                    {{ 'admin.plugin.field.visibility'|trans }}
-                    <div class="switch">
-                        <input type="checkbox" id="{{ plugin.name }}"{% if plugin.enabled %} checked="checked"{% endif %} />
-                        <label for="{{ plugin.name }}" class="mr-n"></label>
+                <img src="{{ iconPath }}" class="form-grid-background" />
+                <div class="box-none pa-n mb-n">
+                    <img src="{{ iconPath }}" width="50" class="form-grid-icon" />
+                    <h4 class="fw-n">{{ pluginName }}</h4>
+                    <p data-fc-modules="truncate" data-fc-max="100" data-fc-more="+" data-fc-less="-">{{ pluginDescription }}</p>
+                    <input type="hidden" id="url-enable-plugin-{{ plugin.hash }}" value="{{ url('admin_plugin_enable', {pluginHash: plugin.hash}) }}" />
+                </div>
+                <div class="form-grid-settings">
+                    {% if plugin.hasFields() %}
+                        <a href="{{ url('admin_plugin_configure', {pluginHash: plugin.hash}) }}" class="button icon-cogs"> {{ 'admin.plugin.section.settings'|trans }}</a>
+                    {% endif %}
+                    <div class="fl-r pt-s">
+                        {{ 'admin.plugin.field.visibility'|trans }}
+                        <div class="switch">
+                            <input type="checkbox" id="enable-plugin-{{ plugin.hash }}"{% if plugin.enabled %} checked="checked"{% endif %} />
+                            <label for="enable-plugin-{{ plugin.hash }}" class="mr-n"></label>
+                        </div>
                     </div>
                 </div>
             </article>

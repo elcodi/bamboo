@@ -57,7 +57,7 @@ class AdminPluginExtension extends AbstractExtension
     public function getConfigFiles(array $config)
     {
         return [
-            'eventListeners',
+            'menu',
         ];
     }
 

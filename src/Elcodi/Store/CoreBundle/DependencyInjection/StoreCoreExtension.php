@@ -106,7 +106,7 @@ class StoreCoreExtension extends AbstractExtension
     {
         $serviceId = 'store.core.event_listener.exception';
         if (!$container->hasDefinition($serviceId)) {
-            return;
+            return null;
         }
 
         $container

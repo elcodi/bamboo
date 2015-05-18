@@ -88,7 +88,10 @@ class SharePostRenderer
      */
     public function renderShareProduct(EventInterface $event)
     {
-        if ($this->plugin->isEnabled()) {
+        if ($this
+            ->plugin
+            ->isUsable()
+        ) {
             /**
              * @var Product $product
              */
@@ -108,6 +111,7 @@ class SharePostRenderer
             $this->appendTemplate(
                 '@ElcodiFacebook/Post/share.html.twig',
                 $event,
+                $this->plugin,
                 [
                     'url' => $shareUrl,
                 ]
@@ -122,7 +126,10 @@ class SharePostRenderer
      */
     public function renderShareOrder(EventInterface $event)
     {
-        if ($this->plugin->isEnabled()) {
+        if ($this
+            ->plugin
+            ->isUsable()
+        ) {
             $shareUrl = $this
                 ->urlGenerator
                 ->generate(
@@ -134,6 +141,7 @@ class SharePostRenderer
             $this->appendTemplate(
                 '@ElcodiFacebook/Post/share.html.twig',
                 $event,
+                $this->plugin,
                 [
                     'url' => $shareUrl,
                 ]

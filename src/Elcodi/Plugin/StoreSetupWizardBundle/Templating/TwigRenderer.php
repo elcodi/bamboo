@@ -93,8 +93,8 @@ class TwigRenderer
         WizardRoutes $wizardRoutes,
         CarrierRepository $carrierRepository
     ) {
-        $this->wizardStatus         = $wizardStatus;
-        $this->requestStack         = $requestStack;
+        $this->wizardStatus = $wizardStatus;
+        $this->requestStack = $requestStack;
         $this->configurationManager = $configurationManager;
         $this->wizardRoutes = $wizardRoutes;
         $this->carrierRepository = $carrierRepository;
@@ -148,6 +148,7 @@ class TwigRenderer
             $this->appendTemplate(
                 '@ElcodiStoreSetupWizard/Wizard/wizard.html.twig',
                 $event,
+                $this->plugin,
                 [
                     'stepsFinished' => $stepsFinished,
                     'activeStep'    => $activeStep,
@@ -165,7 +166,10 @@ class TwigRenderer
      */
     public function renderEnableStoreMessage(EventInterface $event)
     {
-        if ($this->plugin->isEnabled()) {
+        if ($this
+            ->plugin
+            ->isUsable()
+        ) {
             $storeUnderConstruction =
                 'on' == $this
                     ->configurationManager
@@ -186,7 +190,8 @@ class TwigRenderer
             ) {
                 $this->appendTemplate(
                     '@ElcodiStoreSetupWizard/Wizard/enable-store.html.twig',
-                    $event
+                    $event,
+                    $this->plugin
                 );
             }
         }
@@ -199,11 +204,14 @@ class TwigRenderer
      */
     public function renderGoNextStepMessage(EventInterface $event)
     {
-        if ($this->plugin->isEnabled()) {
+        if ($this
+            ->plugin
+            ->isUsable()
+        ) {
             $masterRequest = $this
                 ->requestStack
                 ->getMasterRequest();
-            $currentRoute  = $masterRequest
+            $currentRoute = $masterRequest
                 ->attributes
                 ->get('_route');
 
@@ -253,6 +261,7 @@ class TwigRenderer
                     $this->appendTemplate(
                         '@ElcodiStoreSetupWizard/Wizard/wizard.html.twig',
                         $event,
+                        $this->plugin,
                         [
                             'stepsFinished' => $stepsFinished,
                             'activeStep'    => $activeStep,
@@ -272,11 +281,14 @@ class TwigRenderer
      */
     public function renderDisableUnderConstructionMode(EventInterface $event)
     {
-        if ($this->plugin->isEnabled()) {
+        if ($this
+            ->plugin
+            ->isUsable()
+        ) {
             $masterRequest = $this
                 ->requestStack
                 ->getMasterRequest();
-            $currentRoute  = $masterRequest
+            $currentRoute = $masterRequest
                 ->attributes
                 ->get('_route');
 
@@ -290,7 +302,8 @@ class TwigRenderer
             ) {
                 $this->appendTemplate(
                     '@ElcodiStoreSetupWizard/Wizard/disable-under-construction.html.twig',
-                    $event
+                    $event,
+                    $this->plugin
                 );
             }
         }
@@ -307,7 +320,10 @@ class TwigRenderer
             ->requestStack
             ->getMasterRequest();
 
-        if ($masterRequest->query->get('modal', false)) {
+        if ($masterRequest
+            ->query
+            ->get('modal', false)
+        ) {
             return false;
         }
 
@@ -315,6 +331,8 @@ class TwigRenderer
             ->attributes
             ->get('_route');
 
-        return !$this->wizardRoutes->isWizardHidden($route);
+        return !$this
+            ->wizardRoutes
+            ->isWizardHidden($route);
     }
 }

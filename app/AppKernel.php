@@ -95,7 +95,6 @@ class AppKernel extends Kernel
             new Elcodi\Bundle\PageBundle\ElcodiPageBundle(),
             new Elcodi\Bundle\MetricBundle\ElcodiMetricBundle(),
             new Elcodi\Bundle\PluginBundle\ElcodiPluginBundle(),
-            new Elcodi\Bundle\TemplateBundle\ElcodiTemplateBundle(),
             new Elcodi\Bundle\CommentBundle\ElcodiCommentBundle(),
             new Elcodi\Bundle\ZoneBundle\ElcodiZoneBundle(),
             new Elcodi\Bundle\ShippingBundle\ElcodiShippingBundle(),
@@ -149,11 +148,6 @@ class AppKernel extends Kernel
             new Elcodi\Common\PaymentBridgeBundle\PaymentBridgeBundle(),
 
             /**
-             * Elcodi Templates
-             */
-            new Elcodi\Template\StoreTemplateBundle\StoreTemplateBundle(),
-
-            /**
              * Elcodi Plugins
              */
             new Elcodi\Plugin\GoogleAnalyticsBundle\ElcodiGoogleAnalyticsBundle(),
@@ -163,6 +157,7 @@ class AppKernel extends Kernel
             new Elcodi\Plugin\DisqusBundle\ElcodiDisqusBundle(),
             new Elcodi\Plugin\TwitterBundle\ElcodiTwitterBundle(),
             new Elcodi\Plugin\FacebookBundle\ElcodiFacebookBundle(),
+            new Elcodi\Plugin\StoreTemplateBundle\StoreTemplateBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

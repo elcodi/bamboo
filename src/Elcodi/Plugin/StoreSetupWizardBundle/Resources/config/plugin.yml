@@ -1,0 +1,9 @@
+services:
+
+    #
+    # Plugin
+    #
+    elcodi_plugin.store_setup_wizard:
+        parent: elcodi.abstract_plugin
+        arguments:
+            - "Elcodi\\Plugin\\StoreSetupWizardBundle\\ElcodiStoreSetupWizardBundle"

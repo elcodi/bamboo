@@ -51,7 +51,10 @@ class ElcodiTwitterExtension extends AbstractExtension
     public function getConfigFiles(array $config)
     {
         return [
+            'plugin',
             'templating',
+            'eventListeners',
+            'services',
         ];
     }
 

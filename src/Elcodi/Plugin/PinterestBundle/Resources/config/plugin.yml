@@ -1,0 +1,9 @@
+services:
+
+    #
+    # Plugin
+    #
+    elcodi_plugin.pinterest:
+        parent: elcodi.abstract_plugin
+        arguments:
+            - "Elcodi\\Plugin\\PinterestBundle\\ElcodiPinterestBundle"

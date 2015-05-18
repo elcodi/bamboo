@@ -1,0 +1,38 @@
+{% extends 'AdminCoreBundle::layout.html.twig' %}
+
+
+{% set elcodi_context = {
+    entity_type: 'plugin',
+} %}
+
+
+{% form_theme form 'AdminCoreBundle::Forms/fields-plugins.html.twig' %}
+
+
+{% block breadcrumb %}
+
+    {% include '@AdminCore/Common/breadcrumb.html.twig' with {
+        breadcrumb: [
+            { name: 'admin.plugin.plural'|trans, url:url('admin_plugin_list')  },
+            { name: plugin.getConfigurationValue("name")|trans , active: true },
+        ]
+    } %}
+
+{% endblock breadcrumb %}
+
+
+{% block content %}
+    <div class="grid pb-xl">
+        <div class="col-1-3">
+            <img src="/bundles{{ asset(plugin.getBundleName()|replace({'Bundle': ''})|lower ~ "/images/icon.png") }}" width="150"/>
+            <h2>{{ plugin.getConfigurationValue("name")|trans }}</h2>
+            <p>{{ plugin.getConfigurationValue("description")|trans }}</p>
+
+        </div>
+        <div class="col-2-3">
+            <div class="box">
+                {{ form(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock content %}

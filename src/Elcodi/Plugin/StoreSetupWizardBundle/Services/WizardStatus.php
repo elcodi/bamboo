@@ -105,7 +105,7 @@ class WizardStatus
             }
         }
 
-        return;
+        return null;
     }
 
     /**

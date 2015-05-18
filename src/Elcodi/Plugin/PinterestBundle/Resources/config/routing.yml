@@ -1,4 +1,0 @@
-admin_pinterest_configuration:
-    path: /configuration
-    defaults: { _controller: ElcodiPinterestBundle:Admin:configuration }
-    methods: ['GET', 'POST']

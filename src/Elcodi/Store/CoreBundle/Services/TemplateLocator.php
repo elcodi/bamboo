@@ -68,8 +68,9 @@ class TemplateLocator
 
         if (!$template) {
             throw new RuntimeException(sprintf(
-                'Template "%s" not found',
-                $templatePath
+                'Template "%s" not found in these Bundles: {%s}',
+                $templatePath,
+                implode(', ', $this->bundles)
             ));
         }
 

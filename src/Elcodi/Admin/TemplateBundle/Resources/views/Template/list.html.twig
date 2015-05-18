@@ -16,8 +16,9 @@
 
     <form class="form-grid form-save-on-edit" data-fc-modules="form-save-on-edit">
         {% for template in templates %}
-            {% set templateBundle = template.bundle %}
-            {% set assetPath = "bundles/#{template.assetPath}" %}
+            {% set templateBundle = template.getBundleName %}
+            {% set templateAssetPath = assetPaths[template.hash] %}
+            {% set assetPath = "bundles/#{templateAssetPath}" %}
             <article class="box-background">
                 <h4 class="fw-n">{{ templateBundle }}</h4>
                 {% set imageUrl = asset("#{assetPath}/preview.jpg") %}

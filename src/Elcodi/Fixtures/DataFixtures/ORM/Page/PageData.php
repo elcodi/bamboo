@@ -248,7 +248,6 @@ We hope you like our products and the buying process be flawless.<br/><br/>
 Sincerely,
 CONTENT;
 
-
         $customerRegistrationEmail = $pageDirector
             ->create()
             ->setTitle('Confirmación de registro')

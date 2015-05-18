@@ -56,7 +56,7 @@ class FirewallCompilerPass implements CompilerPassInterface
     public function process(ContainerBuilder $container)
     {
         if (!$container->has('security.firewall.context')) {
-            return;
+            return null;
         }
 
         $listenersByContext = $this->collectListenersByProviderKey($container);

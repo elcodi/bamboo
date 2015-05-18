@@ -58,22 +58,6 @@ elcodi_configuration:
             can_be_empty: false
             empty_message: Template not enabled.
 
-        store_templates:
-            key: templates
-            name: Store templates
-            namespace: store
-            type: array
-            can_be_empty: false
-            empty_message: Templates not loaded. Please, run "php app/console elcodi:templates:load"
-
-        store_plugins:
-            key: plugins
-            name: Store plugins
-            namespace: store
-            type: array
-            can_be_empty: true
-            default_value: []
-
         store_enabled:
             key: enabled
             name: Store is enabled

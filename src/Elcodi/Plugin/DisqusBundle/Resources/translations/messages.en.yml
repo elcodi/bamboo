@@ -1,20 +1,15 @@
-disqus_plugin:
-    title: Disqus
-    section:
-        settings:
-            title: Disqus Settings
-        visibility:
-            title: Visibility
-            description: Enable Disqus based on section.
-    field:
-        tracking_id:
-            title: Tracking ID
-            placeholder: e.g. 2583573
-        enable:
-            on_product: on product page
-            on_blogpost: on blog post
-    action:
-        visit_disqus: Go to Disqus
-    error:
-        is_disabled: The plugin is disabled
-        need_id: In order to enable Disqus you need to set your tracking ID.
+elcodi_plugin:
+    disqus:
+        name: Disqus
+        description: Disqus integration for your shop
+
+        field:
+            disqus_identifier:
+                label: Identifier
+                placeholder: e.g. 123456789
+
+            disqus_enabled_product:
+                label: Enable disqus on product pages
+
+            disqus_enabled_blog_post:
+                label: Enable disqus on blog posts

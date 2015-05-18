@@ -18,11 +18,15 @@
 namespace Elcodi\Admin\PluginBundle\Controller;
 
 use Mmoreram\ControllerExtraBundle\Annotation\JsonResponse;
+use RuntimeException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
+use Elcodi\Component\Plugin\Entity\Plugin;
+use Elcodi\Component\Plugin\Form\Type\PluginType;
+use Elcodi\Component\Plugin\PluginTypes;
 
 /**
  * Class Controller for Plugins
@@ -48,8 +52,10 @@ class PluginController extends AbstractAdminController
     public function listAction()
     {
         $plugins = $this
-            ->get('elcodi.manager.plugin')
-            ->getVisiblePlugins();
+            ->get('elcodi.repository.plugin')
+            ->findBy([
+                'type' => PluginTypes::TYPE_PLUGIN,
+            ]);
 
         return [
             'plugins' => $plugins,
@@ -57,36 +63,130 @@ class PluginController extends AbstractAdminController
     }
 
     /**
+     * Configure plugin
+     *
+     * @param Request $request    Request
+     * @param string  $pluginHash Plugin hash
+     *
+     * @return array Result
+     *
+     * @throws RuntimeException Plugin not available for configuration
+     *
+     * @Route(
+     *      path = "/{pluginHash}",
+     *      name = "admin_plugin_configure",
+     *      methods = {"GET", "POST"}
+     * )
+     * @Template
+     */
+    public function configureAction(
+        Request $request,
+        $pluginHash
+    ) {
+        /**
+         * @var Plugin $plugin
+         */
+        $plugin = $this
+            ->get('elcodi.repository.plugin')
+            ->findOneBy([
+                'hash' => $pluginHash,
+            ]);
+
+        $form = $this
+            ->createForm(
+                new PluginType($plugin),
+                $plugin->getFieldValues()
+            );
+
+        if ($request->isMethod(Request::METHOD_POST)) {
+            $form->handleRequest($request);
+
+            $pluginValues = $form->getData();
+            $plugin->setFieldValues($pluginValues);
+            $this
+                ->get('elcodi.object_manager.plugin')
+                ->flush($plugin);
+
+            $this->addFlash(
+                'success',
+                $this
+                    ->get('translator')
+                    ->trans('admin.plugin.saved')
+            );
+
+            return $this
+                ->redirectToRoute('admin_plugin_configure', [
+                    'pluginHash' => $plugin->getHash(),
+                ]);
+        }
+
+        return [
+            'form' => $form->createView(),
+            'plugin' => $plugin,
+        ];
+    }
+
+    /**
      * Enable/Disable plugin
      *
-     * @param Request $request Request
-     * @param string  $plugin  Plugin name
+     * @param Request $request    Request
+     * @param string  $pluginHash Plugin hash
      *
      * @return array Result
      *
      * @Route(
-     *      path = "/{plugin}/enable",
+     *      path = "/{pluginHash}/enable",
      *      name = "admin_plugin_enable",
      *      methods = {"POST"}
      * )
-     *
      * @JsonResponse()
      */
-    public function enablePluginAction(Request $request, $plugin)
-    {
+    public function enablePluginAction(
+        Request $request,
+        $pluginHash
+    ) {
+        /**
+         * @var Plugin $plugin
+         */
+        $plugin = $this
+            ->get('elcodi.repository.plugin')
+            ->findOneBy([
+                'hash' => $pluginHash,
+            ]);
+
         $enabled = (boolean) $request
             ->request
             ->get('value');
 
+        $plugin->setEnabled($enabled);
+
         $this
-            ->get('elcodi.manager.plugin')
-            ->updatePlugin($plugin, $enabled);
+            ->get('elcodi.object_manager.plugin')
+            ->flush($plugin);
+
+        $this
+            ->get('elcodi.manager.menu')
+            ->removeFromCache('admin');
 
         return [
-            'status' => 200,
+            'status'   => 200,
             'response' => [
-                $this->get('translator')->trans('admin.plugin.saved'),
+                $this
+                    ->get('translator')
+                    ->trans('admin.plugin.saved'),
             ],
         ];
+    }
+
+    /**
+     * Check if, given a plugin hash, a configuration page is available
+     *
+     * @param Plugin $plugin Plugin
+     *
+     * @return boolean Is available
+     */
+    protected function isPluginConfigurable(Plugin $plugin = null)
+    {
+        return ($plugin instanceof Plugin) && $plugin->hasFields();
     }
 }

@@ -81,7 +81,7 @@ class ShippingApplianceEventListener
         $shippingRange = $cart->getShippingRange();
 
         if (!($shippingRange instanceof ShippingRangeInterface)) {
-            return;
+            return null;
         }
 
         $shippingRangeId = $shippingRange->getId();
@@ -98,7 +98,7 @@ class ShippingApplianceEventListener
             $event->stopPropagation();
         }
 
-        return;
+        return null;
     }
 
     /**
@@ -118,14 +118,14 @@ class ShippingApplianceEventListener
          * already defined
          */
         if ($shippingRange instanceof ShippingRangeInterface) {
-            return;
+            return null;
         }
 
         /**
          * If the cart is not associated to any customer, just skip it
          */
         if (!($cart->getCustomer() instanceof CustomerInterface)) {
-            return;
+            return null;
         }
 
         $address = ($cart->getDeliveryAddress() instanceof AddressInterface)
@@ -140,7 +140,7 @@ class ShippingApplianceEventListener
          * anything
          */
         if (!($address instanceof AddressInterface)) {
-            return;
+            return null;
         }
 
         $cart->setDeliveryAddress($address);
@@ -155,6 +155,6 @@ class ShippingApplianceEventListener
 
         $cart->setCheapestShippingRange($cheapestCarrierRange);
 
-        return;
+        return null;
     }
 }

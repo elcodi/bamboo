@@ -1,14 +1,6 @@
 #
 # Plugins routes
 #
-elcodi_plugin_pinterest:
-    resource: "@ElcodiPinterestBundle/Resources/config/routing.yml"
-    prefix: /plugin/pinterest
-
-elcodi_plugin_google_analytics:
-    resource: "@ElcodiGoogleAnalyticsBundle/Resources/config/routing.yml"
-    prefix: /plugin/google-analytics
-
 elcodi_plugin_product_csv:
     resource: "@ElcodiProductCsvBundle/Resources/config/routing.yml"
     prefix: /plugin/product-csv
@@ -16,15 +8,3 @@ elcodi_plugin_product_csv:
 elcodi_store_setup_wizard:
     resource: "@ElcodiStoreSetupWizardBundle/Resources/config/routing.yml"
     prefix: /plugin/setup-wizard
-
-elcodi_plugin_disqus:
-    resource: "@ElcodiDisqusBundle/Resources/config/routing.yml"
-    prefix: /plugin/disqus
-
-elcodi_plugin_twitter:
-    resource: "@ElcodiTwitterBundle/Resources/config/routing.yml"
-    prefix: /plugin/twitter
-
-elcodi_plugin_facebook:
-    resource: "@ElcodiFacebookBundle/Resources/config/routing.yml"
-    prefix: /plugin/facebook

@@ -1,15 +1,9 @@
-facebook_plugin:
-    title: facebook
-    field:
-        facebook_account:
-            title: Compta de facebook
-    action:
-        visit_google: Anar a facebook
-        result_ok: Configuració de facebook guardada
-    section:
-        settings:
-            title: Configuració de facebook
-    tweet:
-        take_look: Fes una ullada a
-    error:
-        is_disabled: El plugin està desactivat
+elcodi_plugin:
+    facebook:
+        name: Facebook
+        description: Integració de Facebook per a la teva botiga
+
+        field:
+            facebook_account:
+                label: Compte de Facebook
+                placeholder: joanpetit

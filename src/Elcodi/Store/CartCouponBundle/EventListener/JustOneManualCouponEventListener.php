@@ -58,7 +58,7 @@ class JustOneManualCouponEventListener
     public function assertJustOneManualCoupon(CartCouponOnApplyEvent $event)
     {
         if (!$this->isManual($event->getCoupon())) {
-            return;
+            return null;
         }
 
         /**

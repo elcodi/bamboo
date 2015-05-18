@@ -1,13 +1,4 @@
-product_csv_plugin:
-    title: CSV de productes
-    section:
-        export:
-            title: Configurar exportació
-    field:
-        export_filename:
-            title: Nom per defecte al exportar
-            placeholder: Introdueix el nom de fitxer
-    error:
-        is_disabled: El plugin està deshabilitat
-    button:
-        export: Exportar
+elcodi_plugin:
+    product_csv:
+        name: Exportació de productes
+        description: Exporta els teus productes en format CSV

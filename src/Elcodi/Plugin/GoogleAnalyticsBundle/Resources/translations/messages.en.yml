@@ -1,11 +1,9 @@
-google_analytics_plugin:
-    title: Google Analytics
-    field:
-        tracking_id: Tracking ID
-    action:
-        visit_google: Go to Google Analytics
-    section:
-        settings:
-            title: Google Analytics Settings
-    error:
-        is_disabled: The plugin is disabled
+elcodi_plugin:
+    google_analytics:
+        name: Google Analytics
+        description: Google analytics integration for your shop
+
+        field:
+            analytics_tracker_id:
+                label: Analytics tracker ID
+                placeholder: e.g. 123456789

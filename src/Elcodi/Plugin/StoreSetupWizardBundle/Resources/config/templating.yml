@@ -7,12 +7,12 @@ services:
         class: Elcodi\Plugin\StoreSetupWizardBundle\Templating\TwigRenderer
         calls:
             - [setTemplating, [@twig]]
-            - [setPlugin, [@=elcodi_plugin("Elcodi\\Plugin\\StoreSetupWizardBundle")]]
+            - [setPlugin, [@elcodi_plugin.store_setup_wizard]]
         arguments:
-            - @elcodi_templates.wizard_status.service
+            - @elcodi_plugin.store_setup_wizard.wizard_status
             - @request_stack
             - @elcodi.manager.configuration
-            - @elcodi_templates.wizard_routes.service
+            - @elcodi_plugin.store_setup_wizard.wizard_routes
             - @elcodi.repository.carrier
         tags:
             - { name: kernel.event_listener, event: admin.body_top, method: renderMiniWizard }

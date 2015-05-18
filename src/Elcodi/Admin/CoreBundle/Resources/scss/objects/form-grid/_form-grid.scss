@@ -6,7 +6,46 @@
 			@include border-radius;
 			vertical-align: top;
 			min-height: 200px;
+			position: relative;
+			@include box-shadow(1px 1px 5px rgba($color-foreground, .5));
 		}
+	}
+	.box-none {
+		position: relative;
+		z-index: 5;
+	}
+}
+
+.form-grid-background {
+	position: absolute;
+	top: -50px;
+	left: -50px;
+	@include opacity(.15);
+	@include filter-blur(10px);
+	@include transform(rotate(15deg));
+	min-width: 130%;
+	z-index: 4;
+}
+
+.form-grid-icon {
+	float: left;
+	margin: 0 $spacing/2 $spacing/2 0;
+}
+
+.form-grid-settings {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background: rgba($color-foreground, .2);
+	z-index: 4;
+	width: 101%;
+	padding: $spacing/4 $spacing/2;
+	@include box-sizing(border-box);
+}
+
+.form-grid-has-settings {
+	article {
+		padding-bottom: 55px;
 	}
 }
 

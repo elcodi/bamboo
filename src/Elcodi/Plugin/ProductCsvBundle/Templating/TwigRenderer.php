@@ -61,12 +61,18 @@ class TwigRenderer
     public function renderButtons(EventInterface $event)
     {
         if ($event->get('entity_type') !== 'product') {
-            return;
+            return null;
         }
 
-        if ($this->pluginCanBeUsed($this->plugin)
+        if ($this
+            ->plugin
+            ->isUsable()
         ) {
-            $this->appendTemplate('ElcodiProductCsvBundle::buttons.html.twig', $event);
+            $this->appendTemplate(
+                'ElcodiProductCsvBundle::buttons.html.twig',
+                $event,
+                $this->plugin
+            );
         }
     }
 }

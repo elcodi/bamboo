@@ -1,0 +1,9 @@
+services:
+
+    #
+    # Plugin
+    #
+    elcodi_plugin.twitter:
+        parent: elcodi.abstract_plugin
+        arguments:
+            - "Elcodi\\Plugin\\TwitterBundle\\ElcodiTwitterBundle"

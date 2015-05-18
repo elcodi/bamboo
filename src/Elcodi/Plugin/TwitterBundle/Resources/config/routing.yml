@@ -1,4 +1,0 @@
-admin_twitter_configuration:
-    path: /configuration
-    defaults: { _controller: ElcodiTwitterBundle:Admin:configuration }
-    methods: ['GET', 'POST']

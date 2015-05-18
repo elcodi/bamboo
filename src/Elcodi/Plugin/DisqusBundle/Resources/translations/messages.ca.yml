@@ -1,20 +1,15 @@
-disqus_plugin:
-    title: Disqus
-    section:
-        settings:
-            title: Configuració Disqus
-        visibility:
-            title: Visibilitat
-            description: Activar Disqus per seccions.
-    field:
-        tracking_id:
-            title: ID de Tracking
-            placeholder: p.e. 2583573
-        enable:
-            on_product: a la pàgina de producte
-            on_blogpost: als posts del blog
-    action:
-        visit_disqus: Anar a Disqus
-    error:
-        is_disabled: El plugin està desactivat
-        need_id: Per a activar Disqus necesites configurar el teu ID de tracking.
+elcodi_plugin:
+    disqus:
+        name: Disqus
+        description: Integració de Disqus per a la teva botiga
+
+        field:
+            disqus_identifier:
+                label: Identificador
+                placeholder: 123456789
+
+            disqus_enabled_product:
+                label: Activar Disqus a la pàgina de producte
+
+            disqus_enabled_blog_post:
+                label: Activar Disqus a les entrades del blog

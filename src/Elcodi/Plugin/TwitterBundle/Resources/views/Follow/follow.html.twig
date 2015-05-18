@@ -1,8 +1,8 @@
 <li>
     <a
-        href="https://twitter.com/{{ twitter_account }}"
+        href="https://twitter.com/{{ plugin.getFieldValue('twitter_account') }}"
         class="twitter-follow-button"
         data-show-count="false">
-        Follow @{{ twitter_account }}
+        Follow @{{ plugin.getFieldValue('twitter_account') }}
     </a>
 </li>

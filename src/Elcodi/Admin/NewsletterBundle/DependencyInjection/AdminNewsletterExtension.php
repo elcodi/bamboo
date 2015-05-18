@@ -58,7 +58,6 @@ class AdminNewsletterExtension extends AbstractExtension
     {
         return [
             'formTypes',
-            'paginationFields',
         ];
     }
 
