@@ -87,7 +87,7 @@ class SessionCurrencyController extends Controller
 
         if ($currency instanceof CurrencyInterface) {
             $this
-                ->get('elcodi.session_manager.currency')
+                ->get('elcodi.manager.currency_session')
                 ->set($currency);
         }
 

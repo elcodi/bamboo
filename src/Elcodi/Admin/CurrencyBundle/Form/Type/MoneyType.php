@@ -22,8 +22,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
+use Elcodi\Component\Core\Wrapper\Interfaces\WrapperInterface;
 use Elcodi\Component\Currency\Entity\Money;
-use Elcodi\Component\Currency\Wrapper\CurrencyWrapper;
 
 /**
  * Class MoneyType
@@ -31,31 +31,31 @@ use Elcodi\Component\Currency\Wrapper\CurrencyWrapper;
 class MoneyType extends AbstractType
 {
     /**
-     * @var CurrencyWrapper
+     * @var WrapperInterface
      *
      * Currency Wrapper
      */
-    protected $currencyManager;
+    protected $defaultCurrencyWrapper;
 
     /**
      * @var string
      *
-     * Default currency
+     * Default currency iso
      */
-    protected $defaultCurrency;
+    protected $defaultCurrencyIso;
 
     /**
      * Construct method
      *
-     * @param CurrencyWrapper $currencyWrapper Currency Wrapper
-     * @param string          $defaultCurrency Default Currency
+     * @param WrapperInterface $defaultCurrencyWrapper Default Currency Wrapper
+     * @param string           $defaultCurrencyIso     Default Currency iso
      */
     public function __construct(
-        CurrencyWrapper $currencyWrapper,
-        $defaultCurrency
+        WrapperInterface $defaultCurrencyWrapper,
+        $defaultCurrencyIso
     ) {
-        $this->currencyWrapper = $currencyWrapper;
-        $this->defaultCurrency = $defaultCurrency;
+        $this->defaultCurrencyWrapper = $defaultCurrencyWrapper;
+        $this->defaultCurrencyIso = $defaultCurrencyIso;
     }
 
     /**
@@ -65,7 +65,7 @@ class MoneyType extends AbstractType
     {
         $builder
             ->add('amount', 'money', [
-                'divisor' => 100,
+                'divisor'  => 100,
                 'currency' => false,
             ])
             ->add('currency', 'entity', [
@@ -79,7 +79,7 @@ class MoneyType extends AbstractType
                 'required'      => true,
                 'multiple'      => false,
                 'property'      => 'symbol',
-                'data'          => $this->defaultCurrency,
+                'data'          => $this->defaultCurrencyIso,
             ]);
     }
 
@@ -93,7 +93,9 @@ class MoneyType extends AbstractType
          */
         $money = Money::create(
             0,
-            $this->currencyWrapper->getDefaultCurrency()
+            $this
+                ->defaultCurrencyWrapper
+                ->get()
         );
 
         $resolver->setDefaults([
