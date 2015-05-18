@@ -1,0 +1,15 @@
+twitter_plugin:
+    title: Twitter
+    field:
+        twitter_account:
+            title: Compte de twitter
+    action:
+        visit_google: Anar a Twitter
+        result_ok: Configuració de twitter guardada
+    section:
+        settings:
+            title: Configuració de Twitter
+    tweet:
+        take_look: Fes una ullada a
+    error:
+        is_disabled: El plugin està desactivat

@@ -1,0 +1,29 @@
+wizard:
+    first_finish_wizard: Finalitza tots els passos abans de desactivar la "tenda en construcció"
+    welcome_title: Ja tens la teva tenda online!
+    go_general_settings: Anar a la configuració de la tenda
+    ready_launch: Tot llest!
+    done: Fet!
+    go_enable_store: Ves a la configuració i desactiva la "tenda en construcció".
+    go_next_step: Ves al següent pas
+    step_finished: <strong>Visca!</strong> Un pas menys per a finalitzar!
+    time_to_sell: Estàs a <strong>%1 passos</strong> de començar a vendre
+    disable_under_construction: Desactiva el mode <strong>Tienda en construcció</strong> per a començar a vendre
+    estimated_time: Temps estimat %1 min
+    step1:
+        title: Afegeix un producte
+        description: El més important de la teva tenda... a part dels clients, clar.
+        action: Afegir un producte
+    step2:
+        title: Afegeix les teves dades
+        description: Introduceix la direcció de la teva tenda (o la teva direcció si no tens tenda física) per a poder vendre.
+        action: Afegir dades
+    step3:
+        title: Configura els pagaments
+        description: Per a que els usuaris puguin pagar a la teva tenda has de configurar els métodes de pagament.
+        action: Configurar els pagaments
+    step4:
+        title: Configura les entregues
+        description: Afegeix les dades d'enciament (Encara que siguin gratis).
+        action_range: Afegir el rang d'enviament
+        action_carrier: Afegir el transportista
