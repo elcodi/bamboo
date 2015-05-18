@@ -1,0 +1,24 @@
+#!/bin/bash
+
+redis-cli flushall
+rm -Rf app/cache/*
+rm -Rf app/logs/*
+
+rm -Rf /tmp/*
+rm -Rf /tmp/Elcodi/*
+rm -Rf /tmp/Bamboo/*
+
+
+php app/console doctrine:database:create --connection=default
+php app/console doctrine:schema:update --force --em=default
+php app/console doctrine:fixtures:load --fixtures="src/Elcodi/Fixtures" --no-interaction
+mysql -uroot -proot bamboo < ~/location.sql
+
+php app/console elcodi:plugins:load
+php app/console elcodi:configuration:set store.template "\"StoreTemplateBundle\""
+php app/console elcodi:configuration:set store.under_construction false
+php app/console elcodi:configuration:set store.name "\"Engonga store\""
+php app/console elcodi:configuration:set store.enabled true
+
+php app/console ass:install
+php app/console ass:dump
