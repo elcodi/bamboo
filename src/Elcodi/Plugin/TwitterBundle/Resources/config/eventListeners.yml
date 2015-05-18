@@ -1,0 +1,11 @@
+services:
+
+    #
+    # Event Listeners
+    #
+    elcodi_plugin.event_listener.twitter_username:
+        class: Elcodi\Plugin\TwitterBundle\EventListener\TwitterUsernameEventListener
+        arguments:
+            twitter_username_cleaner: @elcodi_plugin.service.twitter_username_cleaner
+        tags:
+            - { name: doctrine.event_listener, event: preUpdate, method: preUpdate }

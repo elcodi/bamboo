@@ -53,6 +53,8 @@ class ElcodiTwitterExtension extends AbstractExtension
         return [
             'plugin',
             'templating',
+            'eventListeners',
+            'services',
         ];
     }
 

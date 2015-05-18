@@ -53,6 +53,8 @@ class ElcodiFacebookExtension extends AbstractExtension
         return [
             'plugin',
             'templating',
+            'eventListeners',
+            'services',
         ];
     }
 

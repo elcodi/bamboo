@@ -1,0 +1,7 @@
+services:
+
+    #
+    # Services
+    #
+    elcodi_plugin.service.facebook_username_cleaner:
+        class: Elcodi\Plugin\FacebookBundle\Services\FacebookUsernameCleaner
