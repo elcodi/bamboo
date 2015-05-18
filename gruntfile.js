@@ -61,7 +61,7 @@ module.exports = function (grunt) {
 				tasks: ['javascript']
 			},
 			scss: {
-				files: ['src/Elcodi/Admin/CoreBundle/Resources/public/css/**/*.scss'],
+				files: ['src/Elcodi/Admin/CoreBundle/Resources/scss/**/*.scss'],
 				tasks: ['scss']
 			}
 		}
