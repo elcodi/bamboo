@@ -20,6 +20,7 @@ services:
             - @elcodi_plugin.store_setup_wizard.wizard_status
             - @elcodi.manager.plugin
             - @elcodi.manager.configuration
+            - @elcodi.object_manager.plugin
         calls:
             - [setPlugin, [@elcodi_plugin.store_setup_wizard]]
         tags:

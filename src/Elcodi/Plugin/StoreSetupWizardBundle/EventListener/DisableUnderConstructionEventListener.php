@@ -89,10 +89,11 @@ class DisableUnderConstructionEventListener
         UrlGeneratorInterface $urlGenerator,
         WizardStatus $wizardStatus,
         ConfigurationManager $configurationManager
-    ) {
-        $this->translator           = $translator;
-        $this->urlGenerator         = $urlGenerator;
-        $this->wizardStatus         = $wizardStatus;
+    )
+    {
+        $this->translator = $translator;
+        $this->urlGenerator = $urlGenerator;
+        $this->wizardStatus = $wizardStatus;
         $this->configurationManager = $configurationManager;
     }
 
@@ -122,13 +123,13 @@ class DisableUnderConstructionEventListener
             $this->plugin->isEnabled() &&
             !$this->wizardStatus->isWizardFinished()
         ) {
-            $request      = $event->getRequest();
+            $request = $event->getRequest();
             $currentRoute = $this->getCurrentRequestRoute($request);
 
             if (
                 'admin_configuration_update' == $currentRoute &&
                 self::STORE_UNDER_CONSTRUCTION_CONFIG_KEY
-                    == $request->get('name')
+                == $request->get('name')
 
             ) {
                 $this->configurationManager->set(

@@ -70,7 +70,8 @@ class DashboardRedirectionEventListener
         UrlGeneratorInterface $urlGenerator,
         WizardStatus $wizardStatus,
         WizardRoutes $wizardRoutes
-    ) {
+    )
+    {
         $this->urlGenerator = $urlGenerator;
         $this->wizardStatus = $wizardStatus;
         $this->wizardRoutes = $wizardRoutes;
@@ -102,7 +103,7 @@ class DashboardRedirectionEventListener
             $this->plugin->isEnabled() &&
             !$this->wizardStatus->isWizardFinished()
         ) {
-            $request      = $event->getRequest();
+            $request = $event->getRequest();
             $currentRoute = $this->getCurrentRequestRoute($request);
 
             if ('admin_homepage' == $currentRoute) {

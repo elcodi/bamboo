@@ -17,6 +17,7 @@
 
 namespace Elcodi\Plugin\StoreSetupWizardBundle\EventListener;
 
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 
 use Elcodi\Component\Configuration\Services\ConfigurationManager;
@@ -58,20 +59,31 @@ class DisableWizardEventListener
     protected $configurationManager;
 
     /**
+     * @var ObjectManager
+     *
+     * Plugin object manager
+     */
+    protected $pluginObjectManager;
+
+    /**
      * Builds a new class
      *
      * @param WizardStatus         $wizardStatus         A wizard status service
      * @param PluginManager        $pluginManager        A plugin manager
      * @param ConfigurationManager $configurationManager A configuration manager
+     * @param ObjectManager        $pluginObjectManager  Plugin object manager
      */
     public function __construct(
         WizardStatus $wizardStatus,
         PluginManager $pluginManager,
-        ConfigurationManager $configurationManager
-    ) {
-        $this->wizardStatus         = $wizardStatus;
-        $this->pluginManager        = $pluginManager;
+        ConfigurationManager $configurationManager,
+        ObjectManager $pluginObjectManager
+    )
+    {
+        $this->wizardStatus = $wizardStatus;
+        $this->pluginManager = $pluginManager;
         $this->configurationManager = $configurationManager;
+        $this->pluginObjectManager = $pluginObjectManager;
     }
 
     /**
@@ -106,11 +118,12 @@ class DisableWizardEventListener
             !$storeUnderConstruction
         ) {
             $this
-                ->pluginManager
-                ->updatePlugin(
-                    'Elcodi\Plugin\StoreSetupWizardBundle',
-                    false
-                );
+                ->plugin
+                ->setEnabled(false);
+
+            $this
+                ->pluginObjectManager
+                ->flush($this->plugin);
         }
     }
 }
