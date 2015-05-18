@@ -24,13 +24,12 @@
             {% set pluginName = plugin.getConfigurationValue('name') %}
             <article class="box-background">
                 <h4 class="fw-n">{{ pluginName }}</h4>
-
+                <p data-fc-modules="truncate" data-fc-max="100" data-fc-more="+" data-fc-less="-">{{ plugin.getConfigurationValue('description') }}</p>
                 <input type="hidden" id="url-enable-plugin-{{ plugin.hash }}" value="{{ url('admin_plugin_enable', {pluginHash: plugin.hash}) }}" />
 
                 {% if plugin.hasFields() %}
                     <a href="{{ url('admin_plugin_configure', {pluginHash: plugin.hash}) }}" class="button icon-cogs"> {{ 'admin.plugin.section.settings'|trans }}</a>
                 {% endif %}
-
                 <div class="fl-r pt-s">
                     {{ 'admin.plugin.field.visibility'|trans }}
                     <div class="switch">

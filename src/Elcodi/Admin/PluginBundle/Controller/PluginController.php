@@ -122,6 +122,7 @@ class PluginController extends AbstractAdminController
 
         return [
             'form' => $form->createView(),
+            'plugin' => $plugin,
         ];
     }
 
