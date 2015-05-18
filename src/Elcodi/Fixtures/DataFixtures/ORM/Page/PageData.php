@@ -84,7 +84,7 @@ OEF;
             ->create()
             ->setTitle('Sobre nosotros')
             ->setPath('sobre-nosotros')
-            ->setContent('<li>Sobre nosotros</li>')
+            ->setContent('Sobre nosotros')
             ->setMetaTitle('Sobre nosotros')
             ->setMetaDescription('Sobre nosotros')
             ->setMetaKeywords('sobre,nosotros')
@@ -99,7 +99,7 @@ OEF;
             'en' => [
                 'path' => 'about-us',
                 'title' => 'About us',
-                'content' => '<li>About us</li>',
+                'content' => 'About us',
                 'metaTitle' => 'About us',
                 'metaDescription' => 'About us',
                 'metaKeywords' => 'about,us',
@@ -107,7 +107,7 @@ OEF;
             'es' => [
                 'path' => 'sobre-nosotros',
                 'title' => 'Sobre nosotros',
-                'content' => '<li>Sobre nosotros</li>',
+                'content' => 'Sobre nosotros',
                 'metaTitle' => 'Sobre nosotros',
                 'metaDescription' => 'Sobre nosotros',
                 'metaKeywords' => 'sobre,nosotros',
@@ -115,7 +115,7 @@ OEF;
             'fr' => [
                 'path' => 'a-propos',
                 'title' => 'A propos',
-                'content' => '<li>A propos</li>',
+                'content' => 'A propos',
                 'metaTitle' => 'A propos',
                 'metaDescription' => 'A propos',
                 'metaKeywords' => 'propos',
@@ -123,7 +123,7 @@ OEF;
             'ca' => [
                 'path' => 'sobre-nosaltres',
                 'title' => 'Sobre nosaltres',
-                'content' => '<li>Sobre nosaltres</li>',
+                'content' => 'Sobre nosaltres',
                 'metaTitle' => 'Sobre nosaltres',
                 'metaDescription' => 'Sobre nosaltres',
                 'metaKeywords' => 'sobre,nosaltres',
@@ -137,7 +137,7 @@ OEF;
             ->create()
             ->setTitle('Términos y condiciones')
             ->setPath('terminos-y-condiciones')
-            ->setContent('<li>Términos y condiciones</li>')
+            ->setContent('Términos y condiciones')
             ->setMetaTitle('Términos y condiciones')
             ->setMetaDescription('Términos y condiciones')
             ->setMetaKeywords('términos,condiciones')
@@ -152,7 +152,7 @@ OEF;
             'en' => [
                 'path' => 'terms-and-conditions',
                 'title' => 'Terms and conditions',
-                'content' => '<li>Terms and conditions</li>',
+                'content' => 'Terms and conditions',
                 'metaTitle' => 'Terms and conditions',
                 'metaDescription' => 'Terms and conditions',
                 'metaKeywords' => 'terms,conditions',
@@ -160,7 +160,7 @@ OEF;
             'es' => [
                 'path' => 'terminos-y-condiciones',
                 'title' => 'Términos y condiciones',
-                'content' => '<li>Términos y condiciones</li>',
+                'content' => 'Términos y condiciones',
                 'metaTitle' => 'Términos y condiciones',
                 'metaDescription' => 'Términos y condiciones',
                 'metaKeywords' => 'términos,condiciones',
@@ -168,7 +168,7 @@ OEF;
             'fr' => [
                 'path' => 'mentions-legales',
                 'title' => 'Mentions legales',
-                'content' => '<li>Mentions legales</li>',
+                'content' => 'Mentions legales',
                 'metaTitle' => 'Mentions legales',
                 'metaDescription' => 'Mentions legales',
                 'metaKeywords' => 'mentions,legales',
@@ -176,7 +176,7 @@ OEF;
             'ca' => [
                 'path' => 'termes-legals',
                 'title' => 'Termes legals',
-                'content' => '<li>Termes legals</li>',
+                'content' => 'Termes legals',
                 'metaTitle' => 'Termes legals',
                 'metaDescription' => 'Termes legals',
                 'metaKeywords' => 'termes,legals',
