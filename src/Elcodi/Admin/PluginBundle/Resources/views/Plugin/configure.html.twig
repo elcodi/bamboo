@@ -24,7 +24,7 @@
 {% block content %}
     <div class="grid pb-xl">
         <div class="col-1-3">
-            <img src="http://tonipinel.elcodi.dev/bundles/admincore/images/av.jpg" width="150"/>
+            <img src="/bundles{{ asset(plugin.getBundleName()|replace({'Bundle': ''})|lower ~ "/images/icon.png") }}" width="150"/>
             <h2>{{ plugin.getConfigurationValue("name") }}</h2>
             <p>{{ plugin.getConfigurationValue("description") }}</p>
 

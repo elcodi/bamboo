@@ -6,4 +6,4 @@ services:
     elcodi_plugin.facebook:
         parent: elcodi.abstract_plugin
         arguments:
-            - "Elcodi\\Plugin\\FacebookBundle"
+            - "Elcodi\\Plugin\\FacebookBundle\\ElcodiFacebookBundle"

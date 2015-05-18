@@ -6,4 +6,4 @@ services:
     elcodi_plugin.pinterest:
         parent: elcodi.abstract_plugin
         arguments:
-            - "Elcodi\\Plugin\\PinterestBundle"
+            - "Elcodi\\Plugin\\PinterestBundle\\ElcodiPinterestBundle"

@@ -6,4 +6,4 @@ services:
     elcodi_plugin.plugin.google_analytics:
         parent: elcodi.abstract_plugin
         arguments:
-            - "Elcodi\\Plugin\\GoogleAnalyticsBundle"
+            - "Elcodi\\Plugin\\GoogleAnalyticsBundle\\ElcodiGoogleAnalyticsBundle"

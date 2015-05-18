@@ -6,4 +6,4 @@ services:
     elcodi_plugin.disqus:
         parent: elcodi.abstract_plugin
         arguments:
-            - "Elcodi\\Plugin\\DisqusBundle"
+            - "Elcodi\\Plugin\\DisqusBundle\\ElcodiDiscusBundle"
