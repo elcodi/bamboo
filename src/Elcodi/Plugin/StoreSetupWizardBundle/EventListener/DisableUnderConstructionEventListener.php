@@ -89,8 +89,7 @@ class DisableUnderConstructionEventListener
         UrlGeneratorInterface $urlGenerator,
         WizardStatus $wizardStatus,
         ConfigurationManager $configurationManager
-    )
-    {
+    ) {
         $this->translator = $translator;
         $this->urlGenerator = $urlGenerator;
         $this->wizardStatus = $wizardStatus;

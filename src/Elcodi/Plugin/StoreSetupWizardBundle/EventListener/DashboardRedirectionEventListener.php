@@ -70,8 +70,7 @@ class DashboardRedirectionEventListener
         UrlGeneratorInterface $urlGenerator,
         WizardStatus $wizardStatus,
         WizardRoutes $wizardRoutes
-    )
-    {
+    ) {
         $this->urlGenerator = $urlGenerator;
         $this->wizardStatus = $wizardStatus;
         $this->wizardRoutes = $wizardRoutes;

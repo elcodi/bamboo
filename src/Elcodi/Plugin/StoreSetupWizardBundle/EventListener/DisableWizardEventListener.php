@@ -78,8 +78,7 @@ class DisableWizardEventListener
         PluginManager $pluginManager,
         ConfigurationManager $configurationManager,
         ObjectManager $pluginObjectManager
-    )
-    {
+    ) {
         $this->wizardStatus = $wizardStatus;
         $this->pluginManager = $pluginManager;
         $this->configurationManager = $configurationManager;
