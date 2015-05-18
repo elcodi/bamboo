@@ -207,6 +207,7 @@ admin:
         plural: Atributs
         edit:   Editar "%name%"
         new:    Nou atribut
+        saved:  Atribut guardat
         list:   Llista d'atributs
         field:
             name:
@@ -272,6 +273,7 @@ admin:
         plural: Correus
         edit:   Editar "%title%"
         new:    Crear un nou correu
+        saved:  Correu guardat
         list:   Llista de correus
         field:
             title:
@@ -341,6 +343,7 @@ admin:
         plural: Cupons
         edit:   Editar "%code%"
         new:    Nou cupó
+        saved:  Cupó guardat
         list:   Llista de cupons
         field:
             code:
@@ -427,6 +430,10 @@ admin:
         single: Idioma
         plural: Idiomes
         list:   Llista d'idiomes
+        field:
+            iso: ISO
+            master: Idioma principal
+            status: Actiu
 
     media:
         single: Imatge
@@ -451,6 +458,7 @@ admin:
         plural:    Comandes
         edit:      'Editar #%id%'
         new:       Nova comanda
+        notes:     Notes
         all:       Totes les comandes
         list:      Llista de comandes
         from_user: Comandes de %name%
@@ -523,6 +531,7 @@ admin:
                 description: Configura la pàgina com a visible o oculta, també pots fer-la visible a la teva pàgina principal.
         error:
             cant_modify_permanent: Aquest pàgina es permanent i no es pot modificar.
+
     profile:
         single: Perfil
         plural: Perfils
@@ -532,6 +541,7 @@ admin:
         plural:   Productes
         edit:     Editar "%name%"
         new:      Nou producte
+        note:     Notes
         list:     Llista de productes
         saved:    Producte guardat
         in_store:     Veure a la tenda
@@ -585,17 +595,16 @@ admin:
                 placeholder: p.e. Aquest producte es exactament el que esperaves trobar.
             metakeywords:
                 placeholder: 'p.e. producte,genial'
-        tag:
-            in_home: Portada
-            has_variants: Té variants
-            no_category: Sense categoria
-            no_manufacturer: Sense fabricant
         info:
             variants_before_saving: Podràs afegir variants un cop hagis guardat el producte
         error:
             no_category: ¡Atenció! Aquest producte no està associat a cap categoria
             no_manufacturer: ¡Atenció! Aquest producte no està associat a cap fabricant
-
+        tag:
+            in_home: Portada
+            has_variants: Té variants
+            no_category: Sense categoria
+            no_manufacturer: Sense fabricant
         section:
             basic:
                 title: Detalls bàsics
@@ -625,9 +634,6 @@ admin:
         edit:   Editar variant "%name%"
         new:    Nova variant
         saved:  Canvis guardats
-        single: Variant
-        plural: Variants
-        edit:   Editar variant "%name%"
         list:   Llista de variants
         field:
             name:
@@ -661,6 +667,7 @@ admin:
         plural:   Fabricants
         edit:     Editar "%name%"
         new:      Nou fabricant
+        saved:    Fabricant guardat
         list:     Llista de fabricants
         field:
             name:
@@ -703,6 +710,7 @@ admin:
         plural:   Categories
         edit:     Editar "%name%"
         new:      Nova categoría
+        saved:    Categoría guardada
         list:     Llista de categories
         in_store: Veure a la tenda
         field:
@@ -746,10 +754,6 @@ admin:
                     - "Arrossega i deixa anar les categories per ordenar-les o aniuar-les."
                     - "Fes click a una categoria per a editarla."
                     - "Fes click a la paperera per a borrar la categoria."
-
-    profile:
-        single: Perfil
-        plural: Perfils
 
     metadata:
         customize: Personalitzar metadades

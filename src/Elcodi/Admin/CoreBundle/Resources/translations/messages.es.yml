@@ -635,7 +635,6 @@ admin:
         new: Nueva variante
         saved: Variante guardada
         list:   Listado de variantes
-        saved: Cambios guardados
         field:
             name:
                 title: Nombre de la variante
