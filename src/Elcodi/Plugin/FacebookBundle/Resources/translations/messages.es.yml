@@ -1,15 +1,9 @@
-facebook_plugin:
-    title: facebook
-    field:
-        facebook_account:
-            title: Cuenta de facebook
-    action:
-        visit_google: Ir a facebook
-        result_ok: Configuración de facebook guardada
-    section:
-        settings:
-            title: Configuración de facebook
-    tweet:
-        take_look: Echa un vistazo a
-    error:
-        is_disabled: El plugin está desactivado
+elcodi_plugin:
+    facebook:
+        name: Facebook
+        description: Integración de Facebook pera tu tienda
+
+        field:
+            facebook_account:
+                label: Cuenta de Facebook
+                placeholder: maríadelao

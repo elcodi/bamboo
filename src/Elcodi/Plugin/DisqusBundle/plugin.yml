@@ -1,16 +1,17 @@
 plugin:
     type: plugin
-    name: Discuss
-    description: |
-        Disqus integration for your shop
+    name: elcodi_plugin.disqus.name
+    description: elcodi_plugin.disqus.description
     fa_icon: comment-o
     fields:
         disqus_identifier:
             type: text
-            label: elcodi_plugin.disqus.disqus_identifier
+            label: elcodi_plugin.disqus.field.disqus_identifier.label
+            attr:
+                placeholder: elcodi_plugin.disqus.field.disqus_identifier.placeholder
         disqus_enabled_product:
             type: checkbox
-            label: elcodi_plugin.disqus.disqus_enabled_product
+            label: elcodi_plugin.disqus.field.disqus_enabled_product.label
         disqus_enabled_blog_post:
             type: checkbox
-            label: elcodi_plugin.disqus.disqus_enabled_blog_post
+            label: elcodi_plugin.disqus.field.disqus_enabled_blog_post.label

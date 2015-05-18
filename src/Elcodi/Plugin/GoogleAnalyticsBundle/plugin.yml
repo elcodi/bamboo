@@ -1,11 +1,12 @@
 plugin:
     type: plugin
-    name: Google Analytics
-    description: |
-        Google analytics integration for your shop
+    name: elcodi_plugin.google_analytics.name
+    description: elcodi_plugin.google_analytics.description
     fa_icon: google
     fields:
         analytics_tracker_id:
             type: text
+            label: elcodi_plugin.google_analytics.field.analytics_tracker_id.label
             required: true
-            label: elcodi_plugin.google_analytics.analytics_tracker_id
+            attr:
+                placeholder: elcodi_plugin.google_analytics.field.analytics_tracker_id.placeholder

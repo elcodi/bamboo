@@ -1,6 +1,4 @@
 plugin:
     type: plugin
-    name: Product CSV Exporter
-    description: |
-        Pinterest integration for your shop
-    fa_icon: pinterest
+    name: elcodi_plugin.product_csv.name
+    description: elcodi_plugin.product_csv.description

@@ -1,10 +1,11 @@
 plugin:
     type: plugin
-    name: Twitter
-    description: |
-        Twitter social plugin.
+    name: elcodi_plugin.twitter.name
+    description: elcodi_plugin.twitter.description
     fa_icon: twitter
     fields:
         twitter_account:
             type: text
-            label: elcodi_plugin.twitter.facebook_account
+            label: elcodi_plugin.twitter.field.twitter_account.label
+            attr:
+                placeholder: elcodi_plugin.twitter.field.twitter_account.placeholder

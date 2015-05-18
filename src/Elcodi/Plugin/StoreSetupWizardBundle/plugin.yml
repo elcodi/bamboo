@@ -8,3 +8,10 @@ plugin:
         and at the end asks the store administrator for the carrier and payment data
     fa_icon: magic
     visible: false
+
+plugin:
+    type: plugin
+    name: elcodi_plugin.setup_wizard.name
+    description: elcodi_plugin.setup_wizard.description
+    fa_icon: magic
+    visible: false
