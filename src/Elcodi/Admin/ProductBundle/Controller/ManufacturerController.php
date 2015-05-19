@@ -277,7 +277,7 @@ class ManufacturerController extends AbstractAdminController
         return parent::deleteAction(
             $request,
             $entity,
-            'admin_manufacturer_list'
+            $this->generateUrl('admin_manufacturer_list')
         );
     }
 }

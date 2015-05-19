@@ -344,7 +344,7 @@ class NewsletterSubscriptionController extends AbstractAdminController
         return parent::deleteAction(
             $request,
             $entity,
-            'admin_newsletter_subscription_list'
+            $this->generateUrl('admin_newsletter_subscription_list')
         );
     }
 }

@@ -276,7 +276,7 @@ class ProductController extends AbstractAdminController
         return parent::deleteAction(
             $request,
             $entity,
-            'admin_product_list'
+            $this->generateUrl('admin_product_list')
         );
     }
 }

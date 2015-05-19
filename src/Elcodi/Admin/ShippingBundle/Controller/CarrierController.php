@@ -180,7 +180,7 @@ class CarrierController extends AbstractAdminController
         return parent::deleteAction(
             $request,
             $entity,
-            'admin_carrier_list'
+            $this->generateUrl('admin_carrier_list')
         );
     }
 }

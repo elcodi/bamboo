@@ -535,7 +535,7 @@ class BannerController extends AbstractAdminController
         return parent::deleteAction(
             $request,
             $entity,
-            'admin_banner_list'
+            $this->generateUrl('admin_banner_list')
         );
     }
 }

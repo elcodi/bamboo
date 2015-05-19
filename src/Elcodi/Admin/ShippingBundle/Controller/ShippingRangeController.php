@@ -177,12 +177,9 @@ class ShippingRangeController extends AbstractAdminController
         parent::deleteAction(
             $request,
             $entity,
-            null
-        );
-
-        return $this
-            ->redirectToRoute('admin_carrier_edit', [
+            $this->generateUrl('admin_carrier_edit', [
                 'id' => $carrierId,
-            ]);
+            ])
+        );
     }
 }

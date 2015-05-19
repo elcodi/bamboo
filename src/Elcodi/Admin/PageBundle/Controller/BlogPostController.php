@@ -195,7 +195,7 @@ class BlogPostController extends AbstractAdminController
         return parent::deleteAction(
             $request,
             $entity,
-            'admin_blog_post_list'
+            $this->generateUrl('admin_blog_post_list')
         );
     }
 }

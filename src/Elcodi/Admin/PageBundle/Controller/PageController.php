@@ -279,7 +279,7 @@ class PageController extends AbstractAdminController
         return parent::deleteAction(
             $request,
             $entity,
-            'admin_page_list'
+            $this->generateUrl('admin_page_list')
         );
     }
 

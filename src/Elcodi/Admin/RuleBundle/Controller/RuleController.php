@@ -534,7 +534,7 @@ class RuleController extends AbstractAdminController
         return parent::deleteAction(
             $request,
             $entity,
-            'admin_rule_list'
+            $this->generateUrl('admin_rule_list')
         );
     }
 }

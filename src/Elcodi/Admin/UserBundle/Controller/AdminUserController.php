@@ -271,7 +271,7 @@ class AdminUserController extends AbstractAdminController
         return parent::deleteAction(
             $request,
             $entity,
-            'admin_admin_user_list'
+            $this->generateUrl('admin_admin_user_list')
         );
     }
 
