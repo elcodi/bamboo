@@ -110,7 +110,7 @@ class OrderController extends Controller
     {
         $orders = $this
             ->get('elcodi.wrapper.customer')
-            ->loadCustomer()
+            ->get()
             ->getOrders();
 
         return $this->renderTemplate(

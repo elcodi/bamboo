@@ -98,7 +98,7 @@ class CouponController extends Controller
          */
         $cart = $this
             ->get('elcodi.wrapper.cart')
-            ->loadCart();
+            ->get();
 
         try {
             $this
@@ -135,7 +135,7 @@ class CouponController extends Controller
          */
         $cart = $this
             ->get('elcodi.wrapper.cart')
-            ->loadCart();
+            ->get();
 
         $this
             ->get('elcodi.manager.cart_coupon')

@@ -65,7 +65,7 @@ class CartPaidEventListener
     {
         $cart = $this
             ->cartWrapper
-            ->loadCart();
+            ->get();
 
         $order = $this
             ->cartOrderTransformer

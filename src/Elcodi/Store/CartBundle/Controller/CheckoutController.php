@@ -92,7 +92,7 @@ class CheckoutController extends Controller
 
             $this
                 ->get('elcodi.wrapper.customer')
-                ->loadCustomer()
+                ->get()
                 ->addAddress($address);
 
             $this->get('elcodi.object_manager.customer')
@@ -113,11 +113,11 @@ class CheckoutController extends Controller
 
         $cart = $this
             ->get('elcodi.wrapper.cart')
-            ->loadCart();
+            ->get();
 
         $addresses = $this
             ->get('elcodi.wrapper.customer')
-            ->loadCustomer()
+            ->get()
             ->getAddresses();
 
         $addressesFormatted = [];
@@ -178,7 +178,7 @@ class CheckoutController extends Controller
                 if ($customerAddresses->contains($address)) {
                     $cart = $this
                         ->get('elcodi.wrapper.cart')
-                        ->loadCart();
+                        ->get();
 
                     $cart->$setMethodName($address);
 
@@ -236,7 +236,7 @@ class CheckoutController extends Controller
      * @EntityAnnotation(
      *      class = {
      *          "factory" = "elcodi.wrapper.cart",
-     *          "method" = "loadCart",
+     *          "method" = "get",
      *          "static" = false
      *      },
      *      name = "cart"
@@ -321,7 +321,7 @@ class CheckoutController extends Controller
      * @EntityAnnotation(
      *      class = {
      *          "factory" = "elcodi.wrapper.cart",
-     *          "method" = "loadCart",
+     *          "method" = "get",
      *          "static" = false
      *      },
      *      name = "cart"
@@ -367,7 +367,7 @@ class CheckoutController extends Controller
      * @EntityAnnotation(
      *      class = {
      *          "factory" = "elcodi.wrapper.customer",
-     *          "method" = "loadCustomer",
+     *          "method" = "get",
      *          "static" = false
      *      },
      *      name = "customer",

@@ -67,7 +67,7 @@ class AddressController extends Controller
 
         $addresses = $this
             ->get('elcodi.wrapper.customer')
-            ->loadCustomer()
+            ->get()
             ->getAddresses();
 
         $addressesFormatted = [];
@@ -218,7 +218,7 @@ class AddressController extends Controller
 
             $this
                 ->get('elcodi.wrapper.customer')
-                ->loadCustomer()
+                ->get()
                 ->addAddress($address);
 
             $this

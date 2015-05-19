@@ -62,7 +62,7 @@ class CartController extends Controller
      * @AnnotationEntity(
      *      class = {
      *          "factory" = "elcodi.wrapper.cart",
-     *          "method" = "loadCart",
+     *          "method" = "get",
      *          "static" = false,
      *      },
      *      name = "cart"
@@ -134,7 +134,7 @@ class CartController extends Controller
      * @AnnotationEntity(
      *      class = {
      *          "factory" = "elcodi.wrapper.cart",
-     *          "method" = "loadCart",
+     *          "method" = "get",
      *          "static" = false,
      *      },
      *      name = "cart"
@@ -193,7 +193,7 @@ class CartController extends Controller
      * @AnnotationEntity(
      *      class = {
      *          "factory" = "elcodi.wrapper.cart",
-     *          "method" = "loadCart",
+     *          "method" = "get",
      *          "static" = false,
      *      },
      *      name = "cart"
@@ -237,7 +237,7 @@ class CartController extends Controller
      * @AnnotationEntity(
      *      class = {
      *          "factory" = "elcodi.wrapper.cart",
-     *          "method" = "loadCart",
+     *          "method" = "get",
      *          "static" = false,
      *      },
      *      name = "cart"
@@ -272,7 +272,7 @@ class CartController extends Controller
      * @AnnotationEntity(
      *      class = {
      *          "factory" = "elcodi.wrapper.cart",
-     *          "method" = "loadCart",
+     *          "method" = "get",
      *          "static" = false,
      *      },
      *      name = "cart"
@@ -317,7 +317,7 @@ class CartController extends Controller
      * @AnnotationEntity(
      *      class = {
      *          "factory" = "elcodi.wrapper.cart",
-     *          "method" = "loadCart",
+     *          "method" = "get",
      *          "static" = false,
      *      },
      *      name = "cart"
@@ -362,7 +362,7 @@ class CartController extends Controller
      * @AnnotationEntity(
      *      class = {
      *          "factory" = "elcodi.wrapper.cart",
-     *          "method" = "loadCart",
+     *          "method" = "get",
      *          "static" = false,
      *      },
      *      name = "cart"

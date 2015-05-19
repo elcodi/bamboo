@@ -137,7 +137,7 @@ class PaymentBridge implements PaymentBridgeInterface
         if (!$this->order instanceof OrderInterface) {
             return $this
                 ->cartWrapper
-                ->loadCart()
+                ->get()
                 ->getAmount()
                 ->getCurrency()
                 ->getIso();
@@ -181,7 +181,7 @@ class PaymentBridge implements PaymentBridgeInterface
         if (!$this->order instanceof OrderInterface) {
             return $this
                 ->cartWrapper
-                ->loadCart()
+                ->get()
                 ->getAmount()
                 ->getAmount();
         }

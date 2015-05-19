@@ -50,7 +50,7 @@ class UserController extends Controller
     {
         $customer = $this
             ->get('elcodi.wrapper.customer')
-            ->loadCustomer();
+            ->get();
 
         return $this->renderTemplate(
             'Subpages:user-nav.html.twig',
@@ -96,7 +96,7 @@ class UserController extends Controller
      * @EntityAnnotation(
      *      class = {
      *          "factory" = "elcodi.wrapper.customer",
-     *          "method" = "loadCustomer",
+     *          "method" = "get",
      *          "static" = false
      *      },
      *      name = "customer",

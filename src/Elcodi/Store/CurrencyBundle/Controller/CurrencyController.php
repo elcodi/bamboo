@@ -67,7 +67,7 @@ class CurrencyController extends Controller
 
         $activeCurrency = $this
             ->get('elcodi.wrapper.currency')
-            ->loadCurrency();
+            ->get();
 
         return $this->renderTemplate(
             'Subpages:currency-nav.html.twig',
