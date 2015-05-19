@@ -8,6 +8,24 @@ https://github.com/elcodi/bamboo/commit/XXX where XXX is the change hash To
 get the diff between two versions, go to
 https://github.com/elcodi/bamboo/compare/v0.5.2...v0.5.3
 
+### v0.5.18 (19-05-2015)
+
+* [`511456e`](https://github.com/elcodi/bamboo/commit/511456ec74015ca1a77574c0cdae9d8583048837) fix redirection after delete (Berny Cantos)
+* [`a3e5cca`](https://github.com/elcodi/bamboo/commit/a3e5ccac64da875748252660c6b39b32154dacd5) Updated all code for new Wrapper definition (mmoreram)
+* [`86fefa2`](https://github.com/elcodi/bamboo/commit/86fefa28031b314fed7c11da34c4f515b1ccc1a9) Fixed wizard twig typo (mmoreram)
+* [`fe2892a`](https://github.com/elcodi/bamboo/commit/fe2892aa091e9ab12ee5f1bcda4850296b8c1b06) Added translations to plugins (mmoreram)
+* [`da4f597`](https://github.com/elcodi/bamboo/commit/da4f5977863ab10a9286a9c541e5237d882b4b11) Facebook & Twitter usernames cleaning when saved (Roger Gros)
+* [`80fd542`](https://github.com/elcodi/bamboo/commit/80fd5420e755374445dd3c46024b2d1d99a08564) Fixed some code (mmoreram)
+* [`88100b1`](https://github.com/elcodi/bamboo/commit/88100b1b69e9a8152b03ef67ee995ea32f138403) Fixed Wizart self-disabling (mmoreram)
+* [`d841da1`](https://github.com/elcodi/bamboo/commit/d841da1488ab13b22bdbf26e830284e61a400cf0) Fixed typo (mmoreram)
+* [`bd2c99c`](https://github.com/elcodi/bamboo/commit/bd2c99c655c14da8004a663a657bf2bc4699d6ac) Updated plugin images engine (mmoreram)
+* [`3aafef3`](https://github.com/elcodi/bamboo/commit/3aafef3d093f486f380c30990420c0f21341fbe6) Markup & Design for plugins page (Toni Pinel)
+* [`6a64ed0`](https://github.com/elcodi/bamboo/commit/6a64ed0def147d9e3c349d6f638ad568f6ede766) Added new fields for plugins and markup for edit plugins (Toni Pinel)
+* [`56424b5`](https://github.com/elcodi/bamboo/commit/56424b5a74ceb7b99d4af468a1ea7bcf0f2035e3) Added reload file (mmoreram)
+* [`dee3a3c`](https://github.com/elcodi/bamboo/commit/dee3a3cdf10439e7dcfbc24854dad1fe60bcae43) Added all "return null" instad of "return" (mmoreram)
+* [`8fad6b1`](https://github.com/elcodi/bamboo/commit/8fad6b19bb0585a10837c2c8dd303595c2f35d05) Removed unused paginationFields (mmoreram)
+* [`a34958b`](https://github.com/elcodi/bamboo/commit/a34958b1fe6a4912f4e8c06800d79491bf99c0d5) Refactored Plugin and Menu (mmoreram)
+
 ### v0.5.17 (18-05-2015)
 
 * [`e8f25f4`](https://github.com/elcodi/bamboo/commit/e8f25f42db51d34513412779c7e2a6eb20753c48) Removed li's from fixtures (Roger Gros)
