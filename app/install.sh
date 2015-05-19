@@ -29,28 +29,18 @@ esac
 /usr/bin/env php app/console --no-interaction doc:dat:cre
 /usr/bin/env php app/console --no-interaction doc:sch:cre
 
-# Allowed fixtures go here
-FIXTURES="AdminUser Category Country Currency Manufacturer Page Rates Attribute \
-          Configuration Coupon Customer Language Menu Product Tax Zone"
-
-for FIXTURE in ${FIXTURES}; do
-     FIXTURES_OPTION="${FIXTURES_OPTION} --fixtures=src/Elcodi/Fixtures/DataFixtures/ORM/${FIXTURE}"
-done
-/usr/bin/env php app/console --no-interaction doctrine:fixtures:load ${FIXTURES_OPTION}
+/usr/bin/env php app/console --no-interaction doctrine:fixtures:load --fixtures="src/Elcodi/Fixtures"
 
 # Add geographic information by ISO code. Adding "Spain" as a reference
 /usr/bin/env php app/console elcodi:locations:populate ES
 
-# Load and enable templates. See Elcodi\Component\Template\Services\TemplateManager
-/usr/bin/env php app/console elcodi:templates:load
-/usr/bin/env php app/console elcodi:templates:enable StoreTemplateBundle
-
 # Loads elcodi plugins. See Elcodi\Component\Plugin\Services\PluginManager
 /usr/bin/env php app/console elcodi:plugins:load
 
-# Enables the store and makes it visible
+# Enables the store and makes it visible. Also enables the default template
 /usr/bin/env php app/console elcodi:configuration:set store.enabled 1
 /usr/bin/env php app/console elcodi:configuration:set store.under_construction 0
+/usr/bin/env php app/console elcodi:configuration:set store.template "\"StoreTemplateBundle\""
 
 # Assets & Assetic
 /usr/bin/env php app/console --no-interaction assets:install web --symlink
