@@ -246,7 +246,7 @@ class CategoryController extends AbstractAdminController
         return parent::deleteAction(
             $request,
             $entity,
-            'admin_category_list'
+            $this->generateUrl('admin_category_list')
         );
     }
 }

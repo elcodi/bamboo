@@ -336,8 +336,7 @@ class VariantController extends AbstractAdminController
 
         return parent::deleteAction(
             $request,
-            $variant,
-            null
+            $variant
         );
     }
 

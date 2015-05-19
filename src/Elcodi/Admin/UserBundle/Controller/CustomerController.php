@@ -266,7 +266,7 @@ class CustomerController extends AbstractAdminController
         return parent::deleteAction(
             $request,
             $entity,
-            'admin_customer_list'
+            $this->generateUrl('admin_customer_list')
         );
     }
 }

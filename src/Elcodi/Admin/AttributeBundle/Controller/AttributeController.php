@@ -263,7 +263,7 @@ class AttributeController extends AbstractAdminController
         return parent::deleteAction(
             $request,
             $entity,
-            'admin_attribute_list'
+            $this->generateUrl('admin_attribute_list')
         );
     }
 

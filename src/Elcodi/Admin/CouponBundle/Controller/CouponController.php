@@ -252,7 +252,7 @@ class CouponController extends AbstractAdminController
         return parent::deleteAction(
             $request,
             $entity,
-            'admin_coupon_list'
+            $this->generateUrl('admin_coupon_list')
         );
     }
 }
