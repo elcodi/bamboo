@@ -364,6 +364,7 @@ admin:
                 options:
                     manual: Manuelle anwendung
                     automatic: Automatische anwendung
+            stackable: Dieser Gutschein kann auch in Verbindung mit anderen Gutscheinen eingelöst werden
             minimum_purchase:
                 title: Mindestmenge
             price:
