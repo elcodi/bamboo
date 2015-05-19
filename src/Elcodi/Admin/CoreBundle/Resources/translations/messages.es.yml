@@ -365,6 +365,8 @@ admin:
                 options:
                     manual: Aplicación manual
                     automatic: Aplicación automática
+            stackable:
+                title: Este cupon se puede utilizar con otros cupones
             minimum_purchase:
                 title: Compra mínima
             price:
