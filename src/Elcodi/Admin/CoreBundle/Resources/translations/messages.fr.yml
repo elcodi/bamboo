@@ -350,6 +350,8 @@ admin:
                 options:
                     manual: Application manuelle
                     automatic: Application automatique
+            stackable:
+                title: Ce coupon peut être appliqué quand d'autres coupons sont présents
             minimum_purchase:
                 title: Minimum d'achat
             price:
