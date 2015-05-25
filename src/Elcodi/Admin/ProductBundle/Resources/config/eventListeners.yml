@@ -7,3 +7,9 @@ services:
         class: Elcodi\Admin\ProductBundle\EventListener\NewCategoryPositionEventListener
         tags:
             - { name: doctrine.event_listener, event: preFlush, method: preFlush }
+
+    elcodi.product.category.event_listener.product_has_only_one_category:
+        class: Elcodi\Admin\ProductBundle\EventListener\ProductHasOnlyOneCategoryEventListener
+        tags:
+            - { name: doctrine.event_listener, event: preFlush, method: preFlush, priority: -10 }
+            - { name: doctrine.event_listener, event: preUpdate, method: preUpdate , priority: -10 }
