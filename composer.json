@@ -115,7 +115,7 @@
         "elcodi/elcodi": "0.5.18",
         "elcodi/test-common-bundle": "0.5.18",
 
-        "doctrine/data-fixtures": "~1.0",
+        "doctrine/data-fixtures": "^1.1",
         "behat/behat": "~3.0",
         "behat/symfony2-extension": "~2.0",
         "behat/mink-extension": "~2.0, >=2.0.1",
