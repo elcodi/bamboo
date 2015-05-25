@@ -117,7 +117,7 @@ class CouponType extends AbstractType
                 'required' => false,
             ])
             ->add('stackable', 'checkbox', [
-                'required' => false
+                'required' => false,
             ])
             ->add('rule', 'entity', [
                 'class'       => $this->ruleNamespace,
