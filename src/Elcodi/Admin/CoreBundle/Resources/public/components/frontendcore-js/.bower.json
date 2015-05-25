@@ -1,6 +1,6 @@
 {
   "name": "frontendcore-js",
-  "version": "1.6.8",
+  "version": "1.6.9",
   "authors": [
     "Toni Pinel <tonipinel@gmail.com>"
   ],
@@ -15,11 +15,11 @@
     "bower_components",
     "tests"
   ],
-  "_release": "1.6.8",
+  "_release": "1.6.9",
   "_resolution": {
     "type": "version",
-    "tag": "1.6.8",
-    "commit": "2f538ffe425acb719c7bc33f8e23f38d1a82f846"
+    "tag": "1.6.9",
+    "commit": "77c72977c75d65a35aa4d3412242eafd9651affd"
   },
   "_source": "https://github.com/Frontendcore/js.git",
   "_target": "*",

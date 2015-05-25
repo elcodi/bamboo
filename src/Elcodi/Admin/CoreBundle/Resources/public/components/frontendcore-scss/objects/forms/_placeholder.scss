@@ -17,6 +17,10 @@
 	&:focus {
 		@extend %focus;
 	}
+	&.error {
+		background: rgba($color-ko, .1);
+		border: 1px solid $color-ko;
+	}
 }
 
 %field-error {

@@ -16,7 +16,7 @@ FrontendCore.define('on-off-table', ['devicePackage' ], function () {
                         url: sUrl,
                         type:  'post'
                     }).fail( function( response ) {
-                        var sMessage = response.responseJSON.message != undefined ? response.responseJSON.message : 'Sorry, something was wrong.';
+                        var sMessage = response.responseJSON.message !== undefined ? response.responseJSON.message : 'Sorry, something was wrong.';
                         FrontendMediator.publish( 'notification', { type : 'ko', message: sMessage } );
                         $(oTarget).click();
                     });
