@@ -9,6 +9,7 @@ rm -Rf /tmp/Elcodi/*
 rm -Rf /tmp/Bamboo/*
 
 
+php app/console doctrine:database:drop --connection=default --force
 php app/console doctrine:database:create --connection=default
 php app/console doctrine:schema:update --force --em=default
 php app/console doctrine:fixtures:load --fixtures="src/Elcodi/Fixtures" --no-interaction
