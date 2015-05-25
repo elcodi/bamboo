@@ -1,16 +1,32 @@
 @if $ui-side-panel == true and $ui == true {
 
-	.black-panel {
+	.side-black-panel {
 		background: rgba(#000, .7);
 		position: fixed;
 		height: 100%;
 		width: 100%;
 		z-index: 100;
 		top: 0;
+		@include transition(opacity 1s linear);
 	}
 
-	.header, .grid {
-		transition: left 300ms ease-in-out, right 300ms ease-in-out;
+	.side-panel-default {
+		& {
+			position: fixed;
+			z-index: 1000;
+			overflow-y: auto;
+			top: 0;
+			height: 100%;
+			width: 300px;
+		}
+		&.side-panel-left {
+			left: 0;
+			@include box-shadow(inset -7px 0 9px -7px rgba($color-foreground ,.4));
+		}
+		&.side-panel-right {
+			right: 0;
+			@include box-shadow(inset 7px 0 9px -7px rgba($color-foreground ,.4));
+		}
 	}
 
 	.side-panel-tab {
@@ -27,37 +43,4 @@
 		right: 0;
 	}
 
-	.side-panel-default {
-		& {
-			position: relative;
-			z-index: 1000;
-			overflow-y: auto;
-		}
-
-
-		a[data-fc-modules='side-panel'] {
-			& {
-				display: block;
-				position: absolute;
-				top: 50%;
-				padding: $spacing/2;
-				@include border-radius($default-border-radius $default-border-radius 0 0);
-				background: $color-primary;
-				color: contrast-color($color-primary);
-				box-sizing: border-box;
-				text-align: center;
-
-			}
-			&:hover {
-				text-decoration: none;
-				@include opacity(.9);
-			}
-		}
-		&.side-panel-left {
-			@include box-shadow(inset -7px 0 9px -7px rgba($color-foreground ,.4));
-		}
-		&.side-panel-right {
-			@include box-shadow(inset 7px 0 9px -7px rgba($color-foreground ,.4));
-		}
-	}
 }

@@ -1,0 +1,3 @@
+$object-tables-vars-custom: () !global !default;
+
+$object-tables-vars: map-merge($object-tables-vars-default, $object-tables-vars-custom) !global;

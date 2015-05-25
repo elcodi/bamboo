@@ -1,8 +1,9 @@
 @if $object-footer != false and $ui != true {
 
 	.footer {
-		@extend %header-footer;
-		margin: $spacing*4 0 0;
+		@extend  %header-footer;
+		margin: $spacing*4 -2px 0;
+		width: 102%;
 	}
 
 }

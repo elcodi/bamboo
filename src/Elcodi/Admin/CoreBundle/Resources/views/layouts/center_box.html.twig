@@ -1,16 +1,14 @@
 {% extends 'AdminCoreBundle::layout.html.twig' %}
 
-{% block body_class 'animated fade-in' %}
-
 {% block body %}
-        <div class="col-6-12 animated bounce-in-down" data-fc-modules="center-box">
-            <div class="box-lighten">
-                {% block container %}
-                    <div class="box-primary">
-                        <h2 class="mb-n c-background">{% block title_container %}<i class="icon-lock"></i> Bamboo Admin {% endblock title_container %}</h2>
-                    </div>
-                    {% block content '' %}
-                {% endblock container %}
-            </div>
+    <div class="loading">
+        <div class="box-lighten" data-fc-modules="center-box" data-fc-width="{% block center_width %}500{% endblock %}" data-fc-height="{% block center_height %}400{% endblock %}">
+            {% block container %}
+                <div class="box-primary">
+                    <h2 class="mb-n c-background">{% block title_container %}<i class="icon-lock"></i> Bamboo Admin {% endblock title_container %}</h2>
+                </div>
+                {% block content '' %}
+            {% endblock container %}
         </div>
+    </div>
 {% endblock body %}

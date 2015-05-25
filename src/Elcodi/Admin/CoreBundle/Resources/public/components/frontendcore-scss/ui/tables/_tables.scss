@@ -7,6 +7,7 @@
 			margin: $spacing/4 $spacing/2;
 			min-width: 40%;
 			text-align: right;
+			z-index: 50;
 		}
 		&:after {
 			font-family: 'FontAwesome';
@@ -30,6 +31,7 @@
 		padding: $spacing/2;
 		display: block;
 		position: absolute;
+		z-index: 50;
 	}
 
 	.dynatable-record-count {
@@ -62,6 +64,7 @@
 	.table-dynamic {
 		& {
 			outline: 1px solid $color-box;
+			display: table;
 
 		}
 		thead {
