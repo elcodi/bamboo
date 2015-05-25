@@ -82,7 +82,7 @@ class CouponType extends AbstractType
                 'required' => true,
             ])
             ->add('name', 'text', [
-                'required' => false,
+                'required' => true,
             ])
             ->add('type', 'choice', [
                 'required' => true,
