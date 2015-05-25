@@ -11,10 +11,6 @@ imports:
     - { resource: common/metrics.yml }
     - { resource: common/sitemap.yml }
 
-    # Payment-specific bundle and elcodi configuration
-    - { resource: @PaymentBridgeBundle/Resources/config/configuration.yml }
-    - { resource: @PaymentBridgeBundle/Resources/config/payment.yml }
-
     # Specific service overrides
     - { resource: common/services.yml }
 
@@ -22,7 +18,7 @@ imports:
     - { resource: config_local.yml }
 
 framework:
-    secret:          "%secret%"
+    secret: "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing/routing.yml"
         strict_requirements: ~
@@ -44,7 +40,7 @@ framework:
 
 # Twig Configuration
 twig:
-    debug:            "%kernel.debug%"
+    debug: "%kernel.debug%"
     strict_variables: false
 
     globals:

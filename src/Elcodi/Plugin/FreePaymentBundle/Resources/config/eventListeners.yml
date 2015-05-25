@@ -1,0 +1,12 @@
+services:
+
+    #
+    # Twig renderer
+    #
+    elcodi_plugin.free_payment.event_listener.payment_collect:
+        class: Elcodi\Plugin\FreePaymentBundle\EventListener\PaymentCollectEventListener
+        arguments:
+            - @router
+            - @elcodi_plugin.free_payment
+        tags:
+            - { name: kernel.event_listener, event: payment.collect, method: addFreePaymentPaymentMethod }

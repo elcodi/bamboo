@@ -67,7 +67,7 @@
             </h5>
                 <p>{{ 'elcodi_plugin.store_wizard.step3.description'|trans }}</p>
             {% endif %}
-            <p class="mb-n"><a href="{{ url('admin_payment_configuration_list') }}" class="button button-primary">{{ 'elcodi_plugin.store_wizard.step3.action'|trans }}</a></p>
+            <p class="mb-n"><a href="{{ url('admin_payment_list') }}" class="button button-primary">{{ 'elcodi_plugin.store_wizard.step3.action'|trans }}</a></p>
             {% if not isMiniWizard %}
             <p class="fz-s">{% trans with {'%1': minutesStepThree } %}elcodi_plugin.store_wizard.estimated_time{% endtrans %}</p>
             {% endif %}

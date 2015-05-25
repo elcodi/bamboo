@@ -1,9 +1,0 @@
-services:
-
-    #
-    # Form Types
-    #
-    elcodi.admin.configuration.form_type.configuration:
-        class: Elcodi\Admin\ConfigurationBundle\Form\Type\ConfigurationType
-        tags:
-            - { name: form.type, alias: elcodi_admin_configuration_form_type_configuration }

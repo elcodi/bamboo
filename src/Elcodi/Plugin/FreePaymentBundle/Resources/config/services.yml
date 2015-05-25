@@ -1,0 +1,9 @@
+services:
+
+    #
+    # Plugin
+    #
+    elcodi_plugin.free_payment:
+        parent: elcodi.abstract_plugin
+        arguments:
+            - "Elcodi\\Plugin\\FreePaymentBundle\\ElcodiFreePaymentBundle"

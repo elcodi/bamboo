@@ -18,6 +18,7 @@
 namespace Elcodi\Plugin\StoreSetupWizardBundle\Services;
 
 use Elcodi\Component\Configuration\Services\ConfigurationManager;
+use Elcodi\Component\Plugin\Entity\Plugin;
 use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
 use Elcodi\Component\Product\Repository\ProductRepository;
 use Elcodi\Component\Shipping\Entity\Interfaces\ShippingPriceRangeInterface;
@@ -50,34 +51,30 @@ class WizardStatus
     protected $shippingRangeRepository;
 
     /**
-     * @var array
+     * @var Plugin[]
      *
-     * The payment enabled methods
+     * The payment enabled Plugins
      */
-    private $paymentEnabledMethods;
+    private $enabledPaymentPlugins;
 
     /**
      * Builds a new WizardStepChecker
      *
-     * @param ConfigurationManager    $configurationManager    Configuration
-     *                                                         manager
-     * @param ProductRepository       $productRepository       Product
-     *                                                         repository
-     * @param ShippingRangeRepository $shippingRangeRepository A shipping range
-     *                                                         repository
-     * @param array                   $paymentEnabledMethods   The enabled
-     *                                                         payment methods
+     * @param ConfigurationManager    $configurationManager    Configuration manager
+     * @param ProductRepository       $productRepository       Product repository
+     * @param ShippingRangeRepository $shippingRangeRepository A shipping range repository
+     * @param array                   $enabledPaymentPlugins   The enabled payment methods
      */
     public function __construct(
         ConfigurationManager $configurationManager,
         ProductRepository $productRepository,
         ShippingRangeRepository $shippingRangeRepository,
-        array $paymentEnabledMethods
+        array $enabledPaymentPlugins
     ) {
-        $this->configurationManager    = $configurationManager;
-        $this->productRepository       = $productRepository;
+        $this->configurationManager = $configurationManager;
+        $this->productRepository = $productRepository;
         $this->shippingRangeRepository = $shippingRangeRepository;
-        $this->paymentEnabledMethods   = $paymentEnabledMethods;
+        $this->enabledPaymentPlugins = $enabledPaymentPlugins;
     }
 
     /**
@@ -183,34 +180,14 @@ class WizardStatus
      */
     protected function isPaymentFulfilled()
     {
-        $paymillPrivateKey = $this
-            ->configurationManager
-            ->get('store.paymill_private_key');
-        $paymillPublicKey  = $this
-            ->configurationManager
-            ->get('store.paymill_public_key');
-        if (
-            isset($this->paymentEnabledMethods['paymill'])
-            && true == $this->paymentEnabledMethods['paymill']
-            && (
-                '' == $paymillPrivateKey ||
-                '' == $paymillPublicKey
-            )
-        ) {
-            return false;
-        }
-        $paypalCheckoutRecipient = $this
-            ->configurationManager
-            ->get('store.paypal_web_checkout_recipient');
-        if (
-            isset($this->paymentEnabledMethods['paypal'])
-            && true == $this->paymentEnabledMethods['paypal']
-            && '' == $paypalCheckoutRecipient
-        ) {
-            return false;
-        }
+        return array_reduce(
+            $this->enabledPaymentPlugins,
+            function ($value, Plugin $plugin) {
 
-        return true;
+                return $value || $plugin->guessIsUsable();
+            },
+            false
+        );
     }
 
     /**

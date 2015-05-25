@@ -18,12 +18,16 @@
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\HttpKernel\Bundle\BundleInterface;
+use Elcodi\Bundle\TestCommonBundle\Functional\Abstracts\AbstractElcodiKernel;
+use Elcodi\Bundle\CoreBundle\Traits\BundleDependenciesResolver;
 
 /**
  * Class AppKernel
  */
-class AppKernel extends Kernel
+class AppKernel extends AbstractElcodiKernel
 {
+    use BundleDependenciesResolver;
+
     /**
      * Returns an array of bundles to register.
      *
@@ -63,14 +67,6 @@ class AppKernel extends Kernel
             new Mmoreram\CacheFlushBundle\CacheFlushBundle(),
 
             /**
-             * Payment suite
-             */
-            new PaymentSuite\PaymentCoreBundle\PaymentCoreBundle(),
-            new PaymentSuite\FreePaymentBundle\FreePaymentBundle(),
-            new PaymentSuite\PaypalWebCheckoutBundle\PaypalWebCheckoutBundle(),
-            new PaymentSuite\PaymillBundle\PaymillBundle(),
-
-            /**
              * Elcodi core bundles
              */
             new Elcodi\Bundle\CoreBundle\ElcodiCoreBundle(),
@@ -94,11 +90,12 @@ class AppKernel extends Kernel
             new Elcodi\Bundle\ConfigurationBundle\ElcodiConfigurationBundle(),
             new Elcodi\Bundle\PageBundle\ElcodiPageBundle(),
             new Elcodi\Bundle\MetricBundle\ElcodiMetricBundle(),
-            new Elcodi\Bundle\PluginBundle\ElcodiPluginBundle(),
+            new Elcodi\Bundle\PluginBundle\ElcodiPluginBundle($this),
             new Elcodi\Bundle\CommentBundle\ElcodiCommentBundle(),
             new Elcodi\Bundle\ZoneBundle\ElcodiZoneBundle(),
             new Elcodi\Bundle\ShippingBundle\ElcodiShippingBundle(),
             new Elcodi\Bundle\SitemapBundle\ElcodiSitemapBundle(),
+            new Elcodi\Bundle\PaymentBundle\ElcodiPaymentBundle(),
 
             /**
              * Elcodi store bundle
@@ -131,13 +128,14 @@ class AppKernel extends Kernel
             new Elcodi\Admin\MediaBundle\AdminMediaBundle(),
             new Elcodi\Admin\NewsletterBundle\AdminNewsletterBundle(),
             new Elcodi\Admin\ProductBundle\AdminProductBundle(),
-            new Elcodi\Admin\ConfigurationBundle\AdminConfigurationBundle(),
             new Elcodi\Admin\PageBundle\AdminPageBundle(),
             new Elcodi\Admin\TemplateBundle\AdminTemplateBundle(),
             new Elcodi\Admin\MetricBundle\AdminMetricBundle(),
             new Elcodi\Admin\PluginBundle\AdminPluginBundle(),
             new Elcodi\Admin\ShippingBundle\AdminShippingBundle(),
             new Elcodi\Admin\GeoBundle\AdminGeoBundle(),
+            new Elcodi\Admin\ConfigurationBundle\AdminConfigurationBundle(),
+            new Elcodi\Admin\PaymentBundle\AdminPaymentBundle(),
 
             /**
              * Elcodi common bundle
@@ -145,7 +143,6 @@ class AppKernel extends Kernel
             new Elcodi\Common\FirewallBundle\ElcodiFirewallBundle(),
             new Elcodi\Common\BambooBundle\ElcodiBambooBundle(),
             new Elcodi\Common\ConfigurationBundle\ConfigurationAnnotationBundle(),
-            new Elcodi\Common\PaymentBridgeBundle\PaymentBridgeBundle(),
 
             /**
              * Elcodi Plugins
@@ -158,6 +155,8 @@ class AppKernel extends Kernel
             new Elcodi\Plugin\TwitterBundle\ElcodiTwitterBundle(),
             new Elcodi\Plugin\FacebookBundle\ElcodiFacebookBundle(),
             new Elcodi\Plugin\StoreTemplateBundle\StoreTemplateBundle(),
+            new Elcodi\Plugin\PaypalWebCheckoutBundle\ElcodiPaypalWebCheckoutBundle(),
+            new Elcodi\Plugin\FreePaymentBundle\ElcodiFreePaymentBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
@@ -168,10 +167,10 @@ class AppKernel extends Kernel
 
         if (class_exists('Visithor\Bundle\VisithorBundle')) {
             $bundles[] = new Visithor\Bundle\VisithorBundle();
-            $bundles[] = new Elcodi\Common\VisithorBridgeBundle\VisithorBridgeBundle();
+            $bundles[] = new Elcodi\Bridge\VisithorBridgeBundle\ElcodiVisithorBridgeBundle();
         }
 
-        return $bundles;
+        return $this->getBundleInstances($bundles);
     }
 
     /**

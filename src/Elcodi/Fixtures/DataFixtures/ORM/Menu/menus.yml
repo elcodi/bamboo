@@ -155,9 +155,9 @@ admin:
             children:
                   payment:
                       name: admin.settings.section.payment.title
-                      url: admin_payment_configuration_list
+                      url: admin_payment_list
                       active_urls:
-                          - admin_payment_configuration_list
+                          - admin_payment_list
                   carriers:
                       name: admin.carrier.plural
                       code: truck

@@ -1,0 +1,10 @@
+elcodi_plugin:
+    paypal_web_checkout:
+        name: Paypal Web Checkout
+        description: Integració de Paypal Web Checkout per a la teva botiga
+
+        field:
+            private_key:
+                label: Clau privada
+            public_key:
+                label: Clau pública

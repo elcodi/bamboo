@@ -9,7 +9,7 @@ services:
             - @elcodi.manager.configuration
             - @elcodi.repository.product
             - @elcodi.repository.shipping_range
-            - %store.payment_bridge.enabled_methods%
+            - @elcodi.enabled_payment_plugins
 
     elcodi_plugin.store_setup_wizard.wizard_routes:
         class: Elcodi\Plugin\StoreSetupWizardBundle\Services\WizardRoutes

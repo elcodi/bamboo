@@ -9,6 +9,7 @@
     <a class="button desktop" href="{{ url('store_checkout_address') }}"> <i class="fa fa-arrow-left"></i> {{ 'template.store_template_bundle.checkout.back'|trans }}</a>
     {% include "@StoreTemplate/Modules/_checkout-progress.html.twig" with {"step": "3"} %}
 </p>
+
 <form id="form-payment-execute" action="" method="post">
     {% if shippingRanges|length > 0 %}
     <div class="form form-checkout">
@@ -30,98 +31,26 @@
     </div>
     {% endif %}
     <div class="form form-checkout">
-        <ol class="grid grid-pad">
-            <h2>{{ 'template.store_template_bundle.checkout.payment.payment_method'|trans }}</h2>
-            {% if enabledPaymentMethods['paymill'] %}
-                <li class="col-1-3">
-                    <label>
-                        <input data-url="" type="radio" id="field-paymill" name="field-method"{% if defaultPaymentMethod == 'paymill' %} checked="checked"{% endif %} />
-                        {{ 'template.store_template_bundle.checkout.payment.credit_debit_card'|trans }}
-                    </label>
-                </li>
-            {% endif %}
-            {% if enabledPaymentMethods['paypal'] %}
-                <li class="col-1-3">
-                    <label>
-                        <input data-url="{{ url('paypal_web_checkout_execute') }}" type="radio" id="field-paypal" name="field-method"{% if defaultPaymentMethod == 'paypal' %} checked="checked"{% endif %} />
-                        {{ 'template.store_template_bundle.checkout.payment.paypal'|trans }}
-                    </label>
-                </li>
-            {% endif %}
-            {% if enabledPaymentMethods['bankwire'] %}
-                <li class="col-1-3">
-                    <label>
-                        <input data-url="{{ url('freepayment_execute') }}" type="radio" id="field-card" name="field-method"{% if defaultPaymentMethod == 'bankwire' %} checked="checked"{% endif %} />
-                        {{ 'template.store_template_bundle.checkout.payment.bankwire'|trans }}
-                    </label>
-                </li>
-            {% endif %}
-        </ol>
+            {% for paymentMethod in elcodi_payment_methods() %}
+
+                {% set paymentMethodName = paymentMethod.name %}
+                {% if paymentMethod.url %}
+                    <a href="{{ paymentMethod.url }}">{{ paymentMethodName|trans }}</a>
+                {% else %}
+                    <details>
+                        <summary>{{ paymentMethodName|trans }}</summary>
+                        <div class="payment-wrapper">
+                            {{ paymentMethod.script }}
+                        </div>
+                    </details>
+                {% endif %}
+
+            {% endfor %}
     </div>
 </form>
-{% if enabledPaymentMethods['paymill'] %}
-    <div id="paymill_form_div" {% if defaultPaymentMethod != 'paymill' %} class="hidden"{% endif %}>
-        {{ paymill_render(
-        "@StoreTemplate/Modules/_payment-paymill.html.twig"
-        ) }}
-    </div>
-{% endif %}
+
 <p class="checkout-actions checkout-actions-bottom">
     <a class="button" href="{{ url('store_checkout_address') }}"> <i class="fa fa-arrow-left"></i> {{ 'template.store_template_bundle.checkout.back'|trans }}</a>
     <button class="button button-secondary js-continue" type="submit">{{ 'template.store_template_bundle.checkout.payment.continue'|trans }}  <i class="fa fa-arrow-right"></i></button>
 </p>
 {% endblock content_checkout %}
-
-
-{% block foot_script %}
-
-    {{ parent() }}
-
-    {% if enabledPaymentMethods['paymill'] %}
-        {{ paymill_scripts() }}
-    {% endif %}
-
-    <script type="application/javascript">
-
-        $(function() {
-
-            /* Setting payment execute URL to first selected
-            *  payment method from the radio-button choices */
-            var formPaymentExecute = $("#form-payment-execute"),
-                paymentRadioInput = $("input[name=field-method]"),
-                selectedRadioInput = $("input[name=field-method]:checked"),
-                selectedPaymentExecuteUrl = selectedRadioInput.data("url"),
-                paymmillForm = $('#paymill_form'),
-                activeForm = paymmillForm;
-
-            formPaymentExecute.attr("action", selectedPaymentExecuteUrl);
-
-            paymentRadioInput.change(function() {
-                /* We are storing the execute action url
-                 * into a data attribute which will be copied
-                 * to the form "action" when changing payment
-                 * method */
-                var executeUrl = $(this).data("url");
-
-                if (executeUrl) {
-                    /* When no data-url is present in the radios,
-                     * it means we selected the "paymill" method */
-                    $(".js-continue").removeClass("hidden");
-                    $("#paymill_form_div").addClass("hidden");
-                    activeForm = formPaymentExecute;
-
-                    formPaymentExecute.attr("action", executeUrl);
-                } else {
-                    $(".js-continue").addClass("hidden");
-                    $("#paymill_form_div").removeClass("hidden");
-                    activeForm = paymmillForm;
-                }
-            });
-
-            $(".js-continue").on('click', function(){
-                activeForm.submit();
-            })
-        });
-
-    </script>
-{% endblock %}

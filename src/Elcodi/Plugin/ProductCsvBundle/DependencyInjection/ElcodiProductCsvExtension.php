@@ -72,7 +72,6 @@ class ElcodiProductCsvExtension extends AbstractExtension
     protected function getConfigFiles(array $config)
     {
         return [
-            'plugin',
             'services',
             'twig',
         ];
