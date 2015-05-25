@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <div class="col-2-3">
-                    <div {% if elcodi_languages|length > 1 %}data-fc-modules="tabs" class="tabs-box" {% endif %}>
+                    <div {% if elcodi_languages|length > 1 %}data-fc-modules="tabs" class="tabs-box loading" {% endif %}>
                         {% for language in elcodi_languages %}
                         <section id="tab-{{ language }}" data-fc-name="{% if loop.first %}{{ '<i class="icon-star"></i>'|e }} {% endif %}{{ language|capitalize }}">
                             <div class="box">
@@ -165,7 +165,7 @@
                                     })
                                     }}
                                     <p class="pt-s fz-default mb-n ta-r">
-                                        <a href="{{ url('admin_category_new') }}" data-fc-modules="modal-content">
+                                        <a href="{{ url('admin_category_new') }}" data-fc-modules="window-content">
                                             <i class="icon-plus"></i>
                                             {{ 'admin.category.new'|trans }}
                                         </a>
@@ -180,7 +180,7 @@
                                 })
                                 }}
                                 <p class="pt-s fz-default mb-n ta-r">
-                                    <a href="{{ url('admin_manufacturer_new') }}" data-fc-modules="modal-content">
+                                    <a href="{{ url('admin_manufacturer_new') }}" data-fc-modules="window-content">
                                         <i class="icon-plus"></i>
                                         {{ 'admin.manufacturer.new'|trans }}
                                     </a>
@@ -200,11 +200,11 @@
                             <h3 class="fw-n">{{ 'admin.product.section.variants.title'|trans }}</h3>
                             <p>{{ 'admin.product.section.variants.description'|trans }}</p>
                             {% if product.id %}
-                                <a href="{{ url('admin_product_variant_new', { productId: product.id }) }}" data-fc-modules="modal-content" class="button">
+                                <a href="{{ url('admin_product_variant_new', { productId: product.id }) }}" data-fc-modules="window-content" class="button">
                                     {{ 'admin.variant.new'|trans }}
                                 </a>
                                 <p>
-                                    <a href="{{ url('admin_attribute_new') }}" id="modal-attribute" class="button" data-fc-modules="modal-content">
+                                    <a href="{{ url('admin_attribute_new') }}" id="modal-attribute" class="button" data-fc-modules="window-content">
                                         {{ 'admin.attribute.new'|trans }}
                                     </a>
                                 </p>
