@@ -14,8 +14,7 @@
 
 
 {% block content %}
-    <p id="table-loading" class="ta-c fz-xxl animated bounce-in"><i class="icon-circle-o-notch icon-spin" data-fc-modules="on-off-table"></i></p>
-    <div id="current-table" style="display: none">
+    <div class="loading">
         {{ render(url('admin_language_list_component')) }}
     </div>
 {% endblock content %}
