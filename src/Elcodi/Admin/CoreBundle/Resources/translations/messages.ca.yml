@@ -436,6 +436,13 @@ admin:
             iso: ISO
             master: Idioma principal
             status: Actiu
+        saved:
+            enabled: "S'ha habilitat l'idioma"
+            disabled: "S'ha deshabilitat l'idioma"
+            master: "S'ha guardat l'idioma principal"
+        error:
+            setting_disabled_master_language: No es pot guardar un idioma desactivat
+            disable_master_language: "No pots desactivar l'idioma principal"
 
     media:
         single: Imatge

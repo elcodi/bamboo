@@ -435,6 +435,13 @@ admin:
             iso: ISO
             master: Master language
             status: Enabled
+        saved:
+            enabled: This language has been enabled
+            disabled: This language has been disabled
+            master: Main language saved
+        error:
+            setting_disabled_master_language: "You can't set a disabled language as master"
+            disable_master_language: You cannot disable your master language
 
     media:
         single: Media

@@ -2,31 +2,26 @@ FrontendCore.define('on-off-table', ['devicePackage' ], function () {
     return {
         onStart: function () {
 
-            setTimeout( function() {
+            FrontendCore.requireAndStart('notification');
 
-                $('.switch input').change( function() {
+            $('.switch input').each( function(){
+
+                var oTarget = this;
+
+                $(oTarget).change( function() {
 
                     var sUrl = this.checked === true ? document.getElementById('enable-' + this.id).value : document.getElementById('disable-' + this.id).value ;
 
                     $.ajax({
                         url: sUrl,
                         type:  'post'
-                    }).done( function( response ) {
-	                    FrontendCore.requireAndStart('notification');
-
-	                    setTimeout( function(){
-		                    FrontendMediator.publish( 'notification', { type : 'ok', message: response.message } );
-	                    }, 500);
                     }).fail( function( response ) {
-	                    FrontendCore.requireAndStart('notification');
-
-	                    setTimeout( function(){
-		                    FrontendMediator.publish( 'notification', { type : 'ko', message: response.message } );
-	                    }, 500);
+                        var sMessage = response.responseJSON.message != undefined ? response.responseJSON.message : 'Sorry, something was wrong.';
+                        FrontendMediator.publish( 'notification', { type : 'ko', message: sMessage } );
+                        $(oTarget).click();
                     });
                 });
-
-            } , 1500);
+            });
 
         }
     };
