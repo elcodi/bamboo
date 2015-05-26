@@ -10,15 +10,24 @@ FrontendCore.define('on-off-table', ['devicePackage' ], function () {
 
                 $(oTarget).change( function() {
 
-                    var sUrl = this.checked === true ? document.getElementById('enable-' + this.id).value : document.getElementById('disable-' + this.id).value ;
+                    var oInput = this,
+	                    sValue = oInput.checked,
+	                    sUrl = this.checked === true ? document.getElementById('enable-' + this.id).value : document.getElementById('disable-' + this.id).value;
 
                     $.ajax({
                         url: sUrl,
                         type:  'post'
                     }).fail( function( response ) {
+
+	                    if ( sValue === true ) {
+		                    oInput.checked = false;
+	                    } else {
+		                    oInput.checked = true;
+	                    }
+
                         var sMessage = response.responseJSON.message !== undefined ? response.responseJSON.message : 'Sorry, something was wrong.';
                         FrontendMediator.publish( 'notification', { type : 'ko', message: sMessage } );
-                        $(oTarget).click();
+
                     });
                 });
             });
