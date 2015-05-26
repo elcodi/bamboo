@@ -51,7 +51,13 @@ class LanguageComponentController extends AbstractAdminController
     {
         $languages = $this
             ->get('elcodi.repository.language')
-            ->findAll();
+            ->findBy(
+                [],
+                [
+                    'enabled' => 'DESC',
+                    'iso' => 'ASC',
+                ]
+            );
 
         return [
             'paginator' => $languages,

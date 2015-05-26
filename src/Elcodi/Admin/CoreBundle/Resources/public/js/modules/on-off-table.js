@@ -1,9 +1,13 @@
 FrontendCore.define('on-off-table', ['devicePackage' ], function () {
     return {
 	    oMasterLanguage : '',
+	    oMasterCurrency : '',
 	    setMasterLanguage: function() {
 		    this.oMasterLanguage = $('[name=language-master]:checked')[0];
 	    },
+        setMasterCurrency: function() {
+            this.oMasterCurrency = $('[name=currency-master]:checked')[0];
+        },
         onStart: function () {
 
             FrontendCore.requireAndStart('notification');
@@ -11,6 +15,7 @@ FrontendCore.define('on-off-table', ['devicePackage' ], function () {
 	        var self = this;
 
 	        self.setMasterLanguage();
+	        self.setMasterCurrency();
 
             $('.switch input').each( function(){
 
@@ -27,6 +32,7 @@ FrontendCore.define('on-off-table', ['devicePackage' ], function () {
 	                    type: 'post'
                     }).done( function() {
 	                    self.setMasterLanguage();
+                        self.setMasterCurrency();
                     }).fail( function( response ) {
 
 	                    if ( sValue === true ) {
@@ -38,6 +44,10 @@ FrontendCore.define('on-off-table', ['devicePackage' ], function () {
 	                    if ( oInput.name === 'language-master' ) {
 		                    self.oMasterLanguage.checked = true;
 	                    }
+
+                        if ( oInput.name === 'currency-master' ) {
+                            self.oMasterCurrency.checked = true;
+                        }
 
                         var sMessage = response.responseJSON.message !== undefined ? response.responseJSON.message : 'Sorry, something was wrong.';
                         FrontendMediator.publish( 'notification', { type : 'ko', message: sMessage } );
