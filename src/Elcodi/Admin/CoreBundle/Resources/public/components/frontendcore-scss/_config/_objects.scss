@@ -210,3 +210,12 @@ $object-animations: map-get($objects, animations) !global;
  * @group objects
  */
 $object-balloons: map-get($objects, balloons) !global;
+
+/**
+ * Includes the classes at main css for tables
+ * Posible values: default, false
+ * @type string
+ * @link http://www.frontendcore.com/tables/static-table.html
+ * @group objects
+ */
+$object-tables: map-get($objects, tables) !global;

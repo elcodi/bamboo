@@ -1,0 +1,71 @@
+@if $ui-image-zoom == true and $ui == true {
+
+	.magnifier-thumb-wrapper {
+		position: relative;
+		display: inline-block;
+		top: 0;
+		left: 0
+	}
+
+	.magnifier-lens {
+		position: absolute;
+		border: solid 1px $color-box;
+		z-index: 1000;
+		top: 0;
+		left: 0;
+		overflow: hidden;
+	}
+
+	.magnifier-loader {
+		position: absolute;
+		top: 0;
+		left: 0;
+		border: solid 1px $color-box;
+		color: #fff;
+		text-align: center;
+		background: transparent;
+		background: rgba(50, 50, 50, 0.5);
+		z-index: 1000;
+		-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F323232,endColorstr=#7F323232)";
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F323232, endColorstr=#7F323232)
+	}
+
+	.magnifier-loader-text {
+		font: 13px Arial;
+		margin-top: 10px
+	}
+
+	.magnifier-large {
+		position: absolute;
+		z-index: 100
+	}
+
+	.magnifier-preview {
+		padding: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		overflow: hidden;
+		box-shadow: 1px 1px 10px rgba($color-foreground, .5);
+
+	}
+
+	.magnifier-preview img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		max-width: inherit;
+		height: inherit;
+
+	}
+
+	.opaque {
+		opacity: .5;
+		filter: alpha(opacity=50);
+		-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50)
+	}
+
+	.hidden {
+		display: none
+	}
+}

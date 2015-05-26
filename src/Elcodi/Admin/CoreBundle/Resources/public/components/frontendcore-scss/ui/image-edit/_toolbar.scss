@@ -1,0 +1,81 @@
+@if $ui-image-edit == true and $ui == true {
+	.darkroom-toolbar {
+		position: absolute;
+		top: -45px;
+		left: 0;
+		background: $color-foreground;
+		height: 40px;
+		display: block;
+		z-index: 99;
+		border-radius: 2px;
+		white-space: nowrap;
+	}
+	.darkroom-toolbar:before {
+		content: "";
+		position: absolute;
+		bottom: -7px;
+		left: 20px;
+		width: 0;
+		height: 0;
+		border-left: 7px solid transparent;
+		border-right: 7px solid transparent;
+		border-top: 7px solid $color-foreground;
+	}
+
+	ul.darkroom-toolbar-actions {
+		list-style: none;
+		padding: 0 5px;
+		margin: 0;
+	}
+	.darkroom-toolbar-actions li {
+		display: inline-block;
+		padding: 0;
+		margin: 0;
+	}
+
+	ul.darkroom-toolbar-actions li.darkroom-button-group {
+		border-right: 1px solid rgba($color-background, .3);
+	}
+	ul.darkroom-toolbar-actions li.darkroom-button-group:last-child {
+		border-right: none;
+	}
+
+	[class^='darkroom-icon'] {
+		& {
+			font-style: normal;
+		}
+		&:before {
+			font-family: "fontawesome";
+
+		}
+	}
+
+	.darkroom-icon-back:before {
+		content: $fa-var-arrow-left;
+	}
+
+	.darkroom-icon-forward:before {
+		content: $fa-var-arrow-right;
+	}
+
+	.darkroom-icon-rotate-left:before {
+		content: $fa-var-undo;
+	}
+
+	.darkroom-icon-rotate-right:before {
+		content: $fa-var-repeat;
+	}
+	.darkroom-icon-crop:before {
+		content: $fa-var-crop;
+	}
+	.darkroom-icon-accept:before {
+		content: $fa-var-check;
+	}
+	.darkroom-icon-cancel:before {
+		content: $fa-var-times;
+
+	}
+	.darkroom-icon-save:before {
+		content: $fa-var-floppy-o;
+	}
+}

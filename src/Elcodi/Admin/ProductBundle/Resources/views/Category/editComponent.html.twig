@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="col-2-3">
-                <div {% if elcodi_languages|length > 1 %}data-fc-modules="tabs" class="tabs-box" {% endif %}>
+                <div {% if elcodi_languages|length > 1 %}data-fc-modules="tabs" class="tabs-box loading" {% endif %}>
                     {% for language in elcodi_languages %}
                         <section id="tab-{{ language }}" data-fc-name="{% if loop.first %}{{ '<i class="icon-star"></i>'|e }} {% endif %}{{ language|capitalize }}">
                             <div class="box">
@@ -119,7 +119,7 @@
                     </div>
                 </div>
                 <div class="col-2-3">
-                    <div {% if elcodi_languages|length > 1 %}data-fc-modules="tabs" class="tabs-box"{% endif %}>
+                    <div {% if elcodi_languages|length > 1 %}data-fc-modules="tabs" class="tabs-box loading"{% endif %}>
                         {% for language in elcodi_languages %}
                             <section id="metadata-{{ language }}" data-fc-name="{% if loop.first %}{{ '<i class="icon-star"></i>'|e }} {% endif %}{{ language|capitalize }}">
                                 <div class="box">

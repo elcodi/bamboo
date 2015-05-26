@@ -49,10 +49,20 @@ class AbstractAdminController extends Controller
             /**
              * @var EnabledInterface $entity
              */
-            $entity->setEnabled(true);
-            $entityManager = $this->getManagerForClass($entity);
-            $entityManager->flush($entity);
+            $$this->enableEntity($entity);
         });
+    }
+
+    /**
+     * Enables the given entity
+     *
+     * @param EnabledInterface $entity The entity to disable
+     */
+    protected function enableEntity(EnabledInterface $entity)
+    {
+        $entity->setEnabled(true);
+        $entityManager = $this->getManagerForClass($entity);
+        $entityManager->flush($entity);
     }
 
     /**
@@ -69,13 +79,20 @@ class AbstractAdminController extends Controller
     ) {
         return $this->getResponse($request, function () use ($entity) {
 
-            /**
-             * @var EnabledInterface $entity
-             */
-            $entity->setEnabled(false);
-            $entityManager = $this->getManagerForClass($entity);
-            $entityManager->flush($entity);
+           $this->disableEntity($entity);
         });
+    }
+
+    /**
+     * Disables the given entity
+     *
+     * @param EnabledInterface $entity The entity to disable
+     */
+    protected function disableEntity(EnabledInterface $entity)
+    {
+        $entity->setEnabled(false);
+        $entityManager = $this->getManagerForClass($entity);
+        $entityManager->flush($entity);
     }
 
     /**

@@ -1,0 +1,23 @@
+@if $ui-tables == true and $ui == true {
+
+	.table-mobile {
+		width: 100%;
+	}
+
+
+	.st-head-row {
+		padding: $spacing/4;
+		background: darken(map-get($object-tables-vars, tr-odd-background), 10%);
+		color: map-get($object-tables-vars, tbody-cell-color);
+		font-weight:  map-get($object-tables-vars, thead-cell-font-weight);
+		font-family:  map-get($object-tables-vars, thead-cell-font-family);
+		font-size:  map-get($object-tables-vars, thead-cell-font-size);
+		border-top: 2px solid map-get($object-tables-vars, tbody-cell-color);
+	}
+	.st-head-row.st-head-row-main {
+		display: none;
+	}
+	.st-key { width: 49%; text-align: right !important; padding-right: 1%; }
+	.st-val { width: 49%; padding-left: 1%; }
+
+}

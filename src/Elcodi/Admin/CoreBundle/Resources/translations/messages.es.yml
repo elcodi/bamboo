@@ -417,6 +417,13 @@ admin:
             iso: ISO
             name: Nombre
             status: Activo
+        saved:
+            enabled: La divisa ha sido habilitada
+            disabled: La divisa ha sido deshabilitada
+            master: Se ha guardado la divisa principal
+        error:
+            setting_disabled_master_currency: No se puede guardar como principal una divisa desactivada
+            disable_master_currency: No puedes desactivar tu divisa principal
 
     image:
         single: Imagen
@@ -436,6 +443,13 @@ admin:
             iso: ISO
             master: Idioma principal
             status: Activo
+        saved:
+            enabled: El idioma ha sido habilitado
+            disabled: El idioma ha sido deshabilitado
+            master: Se ha guardado el idioma principal
+        error:
+            setting_disabled_master_language: No se puede guardar como principal un idioma desactivado
+            disable_master_language: No puedes desactivar tu idioma principal
 
     media:
         single: Imagen

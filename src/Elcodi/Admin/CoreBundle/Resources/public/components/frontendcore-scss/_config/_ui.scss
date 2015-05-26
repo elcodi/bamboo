@@ -101,3 +101,19 @@ $ui-sortable: map-get($user-interface, sortable) !global;
  * @group User Interface
  */
 $ui-cart: map-get($user-interface, cart) !global;
+
+/**
+ * Includes the classes at main css for Image-zoom UI
+ * @type boolean
+ * @link http://www.frontendcore.com/media/image-zoom.html
+ * @group User Interface
+ */
+$ui-image-zoom: map-get($user-interface, image-zoom) !global;
+
+/**
+ * Includes the classes at main css for Image-edit UI
+ * @type boolean
+ * @link http://www.frontendcore.com/media/image-edit.html
+ * @group User Interface
+ */
+$ui-image-edit: map-get($user-interface, image-edit) !global;

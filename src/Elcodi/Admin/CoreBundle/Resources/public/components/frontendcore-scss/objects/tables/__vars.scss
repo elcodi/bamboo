@@ -1,0 +1,47 @@
+$object-tables-vars-default: (
+
+	/* TABLE */
+		table-border-width: 0,
+		table-border-color: transparent,
+		table-border-style: none,
+
+	/* THEAD TD & THEAD TH */
+		thead-cell-padding: $spacing/4 $spacing/2,
+		thead-cell-border-width: 0 0 1px 0,
+		thead-cell-border-color: $color-box,
+		thead-cell-border-style: solid,
+		thead-cell-font-size: $font-size-default,
+		thead-cell-font-family: $font-face-default,
+		thead-cell-font-weight: normal,
+		thead-cell-background: transparent,
+		thead-cell-align: left,
+		thead-cell-vertical-align: middle,
+		thead-cell-color: $color-foreground,
+	
+	/* TBODY */
+		tbody-ouline: 2px solid $color-background,
+		tbody-border-width: 1px,
+		tbody-border-color: $color-box-light,
+		tbody-border-style: solid,
+		tbody-color: $color-foreground,
+		tbody-background: $color-background,
+
+	/* TBODY TR */
+		tr-odd-background: rgba($color-box, .5),
+		tr-hover-background: rgba($color-primary, .1),
+
+	/* TBODY TD */
+		tbody-cell-padding: $spacing/2 $spacing/2,
+		tbody-cell-border-width: 0 1px 1px 0,
+		tbody-cell-border-color: $color-box,
+		tbody-cell-border-style: solid,
+		tbody-cell-font-size: $font-size-default,
+		tbody-cell-font-family: $font-face-default,
+		tbody-cell-font-weight: normal,
+		tbody-cell-background: transparent,
+		tbody-cell-align: left,
+		tbody-cell-vertical-align: middle,
+		tbody-cell-color: $color-foreground,
+
+) !global !default;
+

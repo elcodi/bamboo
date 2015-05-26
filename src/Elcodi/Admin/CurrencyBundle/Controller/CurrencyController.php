@@ -18,13 +18,14 @@
 namespace Elcodi\Admin\CurrencyBundle\Controller;
 
 use Mmoreram\ControllerExtraBundle\Annotation\Entity as EntityAnnotation;
+use Mmoreram\ControllerExtraBundle\Annotation\JsonResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
-use Elcodi\Component\Core\Entity\Interfaces\EnabledInterface;
+use Elcodi\Component\Currency\Entity\Interfaces\CurrencyInterface;
 
 /**
  * Class Controller for Currency
@@ -71,8 +72,7 @@ class CurrencyController extends AbstractAdminController
     /**
      * Enable entity
      *
-     * @param Request          $request Request
-     * @param EnabledInterface $entity  Entity to enable
+     * @param CurrencyInterface $currency The currency to enable
      *
      * @return array Result
      *
@@ -80,30 +80,32 @@ class CurrencyController extends AbstractAdminController
      *      path = "/currency/{iso}/enable",
      *      name = "admin_currency_enable"
      * )
-     * @Method({"GET", "POST"})
+     * @Method({"POST"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.entity.currency.class",
+     *      name = "currency",
      *      mapping = {
      *          "iso" = "~iso~"
      *      }
      * )
+     *
+     * @JsonResponse()
      */
-    public function enableAction(
-        Request $request,
-        EnabledInterface $entity
+    public function enableCurrencyAction(
+        CurrencyInterface $currency
     ) {
-        return parent::enableAction(
-            $request,
-            $entity
-        );
+        $translator = $this->get('translator');
+
+        $this->enableEntity($currency);
+
+        return ['message' => $translator->trans('admin.currency.saved.enabled')];
     }
 
     /**
      * Disable entity
      *
-     * @param Request          $request Request
-     * @param EnabledInterface $entity  Entity to disable
+     * @param CurrencyInterface $currency The currency to disable
      *
      * @return array Result
      *
@@ -111,22 +113,79 @@ class CurrencyController extends AbstractAdminController
      *      path = "/currency/{iso}/disable",
      *      name = "admin_currency_disable"
      * )
-     * @Method({"GET", "POST"})
+     * @Method({"POST"})
      *
      * @EntityAnnotation(
      *      class = "elcodi.entity.currency.class",
+     *      name = "currency",
      *      mapping = {
      *          "iso" = "~iso~"
      *      }
      * )
+     *
+     * @JsonResponse()
      */
-    public function disableAction(
-        Request $request,
-        EnabledInterface $entity
+    public function disableCurrencyAction(
+        CurrencyInterface $currency
     ) {
-        return parent::disableAction(
-            $request,
-            $entity
-        );
+        $translator = $this->get('translator');
+
+        /**
+         * We cannot disable the default currency
+         */
+        $masterCurrency = $configManager = $this
+            ->get('elcodi.manager.configuration')
+            ->get('currency.default_currency');
+
+        if ($currency->getIso() == $masterCurrency) {
+            throw new HttpException(
+                '403',
+                $translator->trans('admin.currency.error.disable_master_currency')
+            );
+        }
+
+        $this->disableEntity($currency);
+
+        return ['message' => $translator->trans('admin.currency.saved.disabled')];
+    }
+
+    /**
+     * Set the master currency.
+     *
+     * @param CurrencyInterface $currency
+     *
+     * @return array
+     *
+     * @Route(
+     *      path = "/{iso}/master",
+     *      name = "admin_currency_master"
+     * )
+     * @Method({"POST"})
+     *
+     * @EntityAnnotation(
+     *      class = "elcodi.entity.currency.class",
+     *      name = "currency",
+     *      mapping = {
+     *          "iso" = "~iso~"
+     *      }
+     * )
+     *
+     * @JsonResponse()
+     */
+    public function masterCurrencyAction(
+        CurrencyInterface $currency
+    ) {
+        $translator = $this->get('translator');
+        if (!$currency->isEnabled()) {
+            throw new HttpException(
+                '403',
+                $translator->trans('admin.currency.error.setting_disabled_master_currency')
+            );
+        }
+
+        $configManager = $this->get('elcodi.manager.configuration');
+        $configManager->set('currency.default_currency', $currency->getIso());
+
+        return ['message' => $translator->trans('admin.currency.saved.master')];
     }
 }

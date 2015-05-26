@@ -5,6 +5,7 @@
     {% set attr = attr|merge({ class: 'form' }) %}
     <form role="form"
         name="{{ form.vars.name }}"
+        data-fc-modules="form-validation"
         method="{{ form_method|lower }}"
         action="{{ action }}"
         {% for attrname, attrvalue in attr %}

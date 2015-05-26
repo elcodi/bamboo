@@ -46,7 +46,13 @@ class CurrencyComponentController extends AbstractAdminController
     {
         $currencies = $this
             ->get('elcodi.repository.currency')
-            ->findAll();
+            ->findBy(
+                [],
+                [
+                    'enabled' => 'DESC',
+                    'iso' => 'ASC',
+                ]
+            );
 
         return [
             'paginator' => $currencies,

@@ -1,0 +1,22 @@
+.loading {
+	&:before {
+		content: $fa-var-circle-o-notch  !important;
+		font-family: fontawesome  !important;
+		width: 100% !important;
+		font-size: 3em  !important;
+		display: block  !important;
+		overflow: hidden  !important;
+		text-align: center  !important;
+		background: transparent !important;
+		color: rgba($color-foreground, .5) !important;
+		padding: $spacing !important;
+		-webkit-animation: spin 2s infinite linear;
+		-moz-animation: spin 2s infinite linear;
+		-o-animation: spin 2s infinite linear;
+		animation: spin 2s infinite linear;
+		@include box-sizing(border-box);
+	}
+	*  {
+		display: none !important;
+	}
+}

@@ -414,8 +414,16 @@ admin:
         field:
             symbol: Symbol
             iso: ISO
+            master: Master currency
             name: Name
             status: Enabled
+        saved:
+            enabled: This currency has been enabled
+            disabled: This currancy has been disabled
+            master: Main currency saved
+        error:
+            setting_disabled_master_currency: "You can't set a disabled currency as master"
+            disable_master_currency: You can not disable your master currency
 
     image:
         single: Image
@@ -435,6 +443,13 @@ admin:
             iso: ISO
             master: Master language
             status: Enabled
+        saved:
+            enabled: This language has been enabled
+            disabled: This language has been disabled
+            master: Main language saved
+        error:
+            setting_disabled_master_language: "You can't set a disabled language as master"
+            disable_master_language: You can not disable your master language
 
     media:
         single: Media
@@ -601,7 +616,7 @@ admin:
         error:
             no_category: Warning! This product has no associated category
             no_manufacturer: Warning! This product has no associated manufacturer
-            price_negative: Warning! The price cannot be negative
+            price_negative: Warning! The price can not be negative
         tag:
             in_home: Home
             has_variants: Has variants

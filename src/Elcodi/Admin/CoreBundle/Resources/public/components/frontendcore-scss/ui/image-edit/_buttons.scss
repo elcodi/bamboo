@@ -1,0 +1,49 @@
+@if $ui-image-edit == true and $ui == true {
+
+	.darkroom-button {
+		display: inline-block;
+		background: transparent;
+		color: $color-background;
+		font-weight: 300;
+		border: none;
+		font-size: 20px;
+		outline: none;
+		padding: 0;
+		height: 40px;
+		width: 40px;
+		box-sizing: border-box;
+	}
+	.darkroom-button.darkroom-button-active {
+		color: #33b5e5;
+	}
+	.darkroom-button.darkroom-button-hidden {
+		display: none;
+	}
+	.darkroom-button:disabled {
+		color: rgba($color-background, .1);
+	}
+	.darkroom-button:disabled:hover {
+		cursor: default;
+		/*cursor: not-allowed;*/
+		background: transparent;
+	}
+
+	.darkroom-button.darkroom-button-success {
+		color: $color-ok;
+	}
+	.darkroom-button.darkroom-button-warning {
+		color: $color-warning;
+	}
+	.darkroom-button.darkroom-button-danger {
+		color: $color-ko;
+	}
+
+	.darkroom-button:hover {
+		cursor: pointer;
+		background: rgba($color-foreground, .2);
+	}
+	.darkroom-button:active {
+		cursor: pointer;
+		background: #333;
+	}
+}

@@ -1,0 +1,90 @@
+@if $object-tables != false and $ui != true {
+
+	.table-mobile {
+		display: none;
+	}
+
+	.table {
+		& {
+			max-width: 100%;
+			min-width: 100%;
+			@include box-sizing(border-box);
+			border-width: map-get($object-tables-vars, table-border-width);
+			border-color: map-get($object-tables-vars, table-border-color);
+			border-style: map-get($object-tables-vars, table-border-style);
+		}
+		caption {
+			margin: 0 0 $spacing/4;
+			padding: 0;
+			text-transform: uppercase;
+		}
+		thead th, thead td {
+			padding: map-get($object-tables-vars, thead-cell-padding);
+			border-width: map-get($object-tables-vars, thead-cell-border-width);
+			border-color: map-get($object-tables-vars, thead-cell-border-color);
+			border-style: map-get($object-tables-vars, thead-cell-border-style);
+			font-weight:  map-get($object-tables-vars, thead-cell-font-weight);
+			font-family:  map-get($object-tables-vars, thead-cell-font-family);
+			font-size:  map-get($object-tables-vars, thead-cell-font-size);
+			background: map-get($object-tables-vars, thead-cell-background);
+			text-align: map-get($object-tables-vars, thead-cell-align);
+			color: map-get($object-tables-vars, thead-cell-color);
+			vertical-align: map-get($object-tables-vars, thead-cell-vertical-align);
+		}
+		tbody {
+			outline: map-get($object-tables-vars, tbody-outline);
+			border-width: map-get($object-tables-vars, tbody-border-width);
+			border-color: map-get($object-tables-vars, tbody-border-color);
+			border-style: map-get($object-tables-vars, tbody-border-style);
+			color: map-get($object-tables-vars, tbody-color);
+			background: map-get($object-tables-vars, tbody-background);
+		}
+		tbody tr:nth-child(odd) td {
+			background-color: map-get($object-tables-vars, tr-odd-background);
+		}
+
+		tbody tr:hover td {
+			background-color: map-get($object-tables-vars, tr-hover-background);
+		}
+		tbody tr > td {
+			padding: map-get($object-tables-vars, tbody-cell-padding);
+			border-width: map-get($object-tables-vars, tbody-cell-border-width);
+			border-color: map-get($object-tables-vars, tbody-cell-border-color);
+			border-style: map-get($object-tables-vars, tbody-cell-border-style);
+			font-weight:  map-get($object-tables-vars, tbody-cell-font-weight);
+			font-family:  map-get($object-tables-vars, tbody-cell-font-family);
+			font-size:  map-get($object-tables-vars, tbody-cell-font-size);
+			background: map-get($object-tables-vars, tbody-cell-background);
+			text-align: map-get($object-tables-vars, tbody-cell-align);
+			color: map-get($object-tables-vars, tbody-cell-color);
+			vertical-align: map-get($object-tables-vars, tbody-cell-vertical-align);
+		}
+		tbody tr > td:last-child {
+			border-right: none;
+		}
+	}
+
+}
+
+@mixin mobile-tables() {
+	.table-mobile {
+		display: table !important;
+	}
+	.table {
+		& {
+			display: block;
+			overflow-x: auto;
+			width: 100%;
+			position: relative;
+		}
+		&[data-fc-modules="table"] {
+			display: table !important;
+		}
+		&[data-fc-modules="table-responsive"] {
+			display: none;
+		}
+		td, th {
+			white-space: nowrap;
+		}
+	}
+}

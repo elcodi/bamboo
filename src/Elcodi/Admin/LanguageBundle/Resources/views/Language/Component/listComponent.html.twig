@@ -5,7 +5,7 @@
     {{ 'Language list'|trans }}
 {% endblock title %}
 
-{% block table_attributes 'data-fc-modules="table"' %}
+{% block table_attributes 'data-fc-modules="table,on-off-table"' %}
 
 {% block table_head %}
 
@@ -33,9 +33,8 @@
     </td>
     <td>
         <div class="switch">
-            <input id="enable-{{ entity.iso }}-master" type="hidden" value="{{ url('admin_language_enable', { iso: entity.iso }) }}" />
-            <input id="disable-{{ entity.iso }}-master" type="hidden" value="{{ url('admin_language_disable', { iso: entity.iso }) }}" />
-            <input id="{{ entity.iso }}-master" name="language-master" type="radio" {% if entity.enabled %}checked="checked"{% endif %} />
+            <input id="enable-{{ entity.iso }}-master" type="hidden" value="{{ url('admin_language_master', { iso: entity.iso }) }}" />
+            <input id="{{ entity.iso }}-master" name="language-master" type="radio" {% if entity.iso ==  elcodi_config('store.default_language') %}checked="checked"{% endif %} />
             <label for="{{ entity.iso }}-master"></label>
         </div>
     </td>
