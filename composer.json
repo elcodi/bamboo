@@ -35,12 +35,12 @@
         "ext-redis": "*",
 
         "symfony/symfony": "~2.6",
-        "symfony/framework-bundle": "~2.6, >=2.6.5",
+        "symfony/framework-bundle": "^2.6.5",
         "symfony/assetic-bundle": "~2.5",
         "symfony/swiftmailer-bundle": "~2.3",
         "symfony/monolog-bundle": "~2.6",
-        "symfony/proxy-manager-bridge": "~2.6, >=2.6.3",
-        "symfony/dependency-injection": "~2.6, >=2.6.3",
+        "symfony/proxy-manager-bridge": "^2.6.3",
+        "symfony/dependency-injection": "^2.6.3",
 
         "ocramius/proxy-manager": "~1.0",
         "doctrine/orm": "~2.5",
@@ -64,12 +64,12 @@
         "paymentsuite/paypal-web-checkout-bundle": "~1.5.0",
         "incenteev/composer-parameter-handler": "~2.0",
         "hwi/oauth-bundle": "0.4.*@dev",
-        "snc/redis-bundle": "~1.1, >=1.1.8",
+        "snc/redis-bundle": "^1.1.8",
         "predis/predis": "0.8.7",
         "jms/i18n-routing-bundle": "1.1.1",
 
-        "mmoreram/controller-extra-bundle": "~1.0, >=1.1.11",
-        "mmoreram/extractor": "~1.0, >=1.1.1",
+        "mmoreram/controller-extra-bundle": "^1.1.11",
+        "mmoreram/extractor": "^1.1.1",
         "mmoreram/cache-flush-bundle": "0.1.1",
 
         "elcodi/attribute-bundle": "0.5.18",
@@ -118,7 +118,7 @@
         "doctrine/data-fixtures": "^1.1",
         "behat/behat": "~3.0",
         "behat/symfony2-extension": "~2.0",
-        "behat/mink-extension": "~2.0, >=2.0.1",
+        "behat/mink-extension": "^2.0.1",
         "behat/mink-browserkit-driver": "~1.2",
         "behat/mink-selenium2-driver": "~1.2",
         "behat/mink": "~1.6",
@@ -126,7 +126,7 @@
 
         "mmoreram/php-formatter": "1.0.4",
         "fabpot/php-cs-fixer": "1.4.2",
-        "visithor/visithor-bundle": "~0.1, >=0.1.7"
+        "visithor/visithor-bundle": "^0.1.8"
     },
     "scripts": {
         "post-install-cmd": [

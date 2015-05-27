@@ -68,22 +68,16 @@ class EnvironmentBuilder extends SymfonyEnvironmentBuilder
         parent::setUp($kernel);
 
         $this
-            ->executeCommand('doctrine:database:drop', [
-                '--force' => true,
-            ])
-            ->executeCommand('doctrine:database:create')
-            ->executeCommand('doctrine:schema:create')
             ->executeCommand('doctrine:fixtures:load', [
-                '--fixtures' => $kernel
+                '--no-booster' => true,
+                '--fixtures'   => $kernel
                         ->getRootDir() . '/../src/Elcodi/Fixtures',
             ])
             ->executeCommand('elcodi:plugins:load')
             ->executeCommand('elcodi:configuration:set', [
                 'identifier' => 'store.template',
-                'value' => '"StoreTemplateBundle"',
-            ])
-            ->executeCommand('assets:install')
-            ->executeCommand('assetic:dump');
+                'value'      => '"StoreTemplateBundle"',
+            ]);
     }
 
     /**
