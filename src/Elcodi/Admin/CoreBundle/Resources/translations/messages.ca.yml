@@ -432,6 +432,7 @@ admin:
             principal: La primera imatge serà la imatge principal.
             reorder: "Pots arrosegar les imatges per a ordenar-les."
             upload: Pujar imatges
+            upload_logo: Pujar Logotip
             deleted: Imatge esborrada
             format: Format JPG, PNG o GIF d'un maxim de 20 MB
 
@@ -720,6 +721,9 @@ admin:
             visibility:
                 title: Visibilitat
                 description: Configura el fabricant com a visible i actiu.
+            logo:
+                title: Logotip del fabricant
+                description: Puja una imatge del logo del fabricant/marca del producte. Es Recomana Que el logo no contingui cap texte adicional, només la marca, i que sigui a la major resolució possible.
 
     category:
         single:   Categoria

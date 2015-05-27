@@ -10,6 +10,37 @@ FrontendCore.define('upload-single', [ oGlobalSettings.sPathJs + '../components/
 			});
 
 		},
+		updateSelect : function( nId ) {
+
+			var oContainer = document.getElementById('thumb-gallery-select');
+
+			$('input', oContainer).each( function() {
+				$(this).removeAttr('checked');
+			});
+
+			if (nId !== undefined ) {
+				$('input[id=elcodi_admin_product_form_type_manufacturer_'+ nId +']', oContainer).click();
+
+			}
+		},
+		addImageToGallery : function( nId) {
+
+			var self = this,
+				oContainer = $('.js-images-select')[0],
+				oOption;
+
+
+			if ($('#elcodi_admin_product_form_type_manufacturer_images_' + nId , oContainer).length === 0) {
+				oOption = document.createElement('input');
+				oOption.type = 'checkbox';
+				oOption.name = 'elcodi_admin_product_form_type_manufacturer[images][]';
+				oOption.id = 'elcodi_admin_product_form_type_manufacturer_' + nId;
+				oOption.value = nId;
+				$(oContainer).append(oOption);
+			}
+
+			self.updateSelect( nId );
+		},
 		autoBind: function( oTarget ) {
 
 			var self = this,
@@ -24,7 +55,7 @@ FrontendCore.define('upload-single', [ oGlobalSettings.sPathJs + '../components/
 					filters : {
 						max_file_size : '20mb',
 						mime_types: [
-							{title : "Image files", extensions : "jpg,png"}
+							{title : "Image files", extensions : "jpg,png,gif,jpeg"}
 						]
 					},
 
@@ -46,27 +77,41 @@ FrontendCore.define('upload-single', [ oGlobalSettings.sPathJs + '../components/
 							var oResponse = $.parseJSON(response.response),
 								nId, sFormat, sUrlView, sUrlDelete, sUrlSave, nWidth, nHeight, nType;
 
-							if (sName.indexOf('header') !== -1 ) {
+							if ( sName.indexOf('header') !== -1 ) {
 								nHeight = 150;
 								nWidth = 600;
 								nType = 5;
+							} else if ( sName.indexOf('background') !== -1 ) {
+								nHeight = 400;
+								nWidth = 600;
+								nType = 4;
 							} else {
 								nHeight = 100;
 								nWidth = 300;
 								nType = 4;
 							}
-
 							if (oResponse.status === 'ok') {
 								nId = oResponse.response.id;
 								sFormat = oResponse.response.extension;
 								sUrlSave = oTarget.getAttribute('data-url');
-								sUrlView = oResponse.response.routes.resize.replace('{height}', nHeight ).replace('{width}',nWidth).replace('{type}', nType ).replace('{id}', nId).replace('{_format}', sFormat);
+								sUrlView = oResponse.response.routes.resize.replace('{height}', nHeight).replace('{width}', nWidth).replace('{type}', nType).replace('{id}', nId).replace('{_format}', sFormat);
 								sUrlDelete = oResponse.response.routes['delete'].replace('{id}', nId);
-								self.saveImage(sName, nId, sUrlSave, sUrlView, sUrlDelete);
-
-							} else {
-								alert('Ops! Looks like something is wrong. Sorry, try again later or contact your administrator to inform about the error.');
 							}
+
+							if (oTarget.getAttribute('data-url') !== null ) {
+								if (oResponse.status === 'ok') {
+									self.saveImage(sName, nId, sUrlSave, sUrlView, sUrlDelete);
+								} else {
+									alert('Ops! Looks like something is wrong. Sorry, try again later or contact your administrator to inform about the error.');
+								}
+							} else {
+								if (oResponse.status === 'ok') {
+									self.addImageToGallery( oResponse.response.id  );
+									self.updateImage(sName, sUrlView, sUrlDelete);
+								}
+							}
+
+
 
 						},
 
@@ -87,6 +132,8 @@ FrontendCore.define('upload-single', [ oGlobalSettings.sPathJs + '../components/
 		},
 		bindDelete : function( sName ) {
 
+			var self = this;
+
 			$('#' + sName + '-delete').click( function( e ){
 
 				e.preventDefault();
@@ -102,11 +149,20 @@ FrontendCore.define('upload-single', [ oGlobalSettings.sPathJs + '../components/
 					success: function() {
 						oTarget.style.display = 'none';
 						document.getElementById(sName + '-image').style.display = 'none';
+						self.updateSelect();
 					}
 				});
 			});
 		},
+		updateImage : function( sName, sUrlView, sUrlDelete ) {
+			$('img', '#' + sName + '-image').attr('src', sUrlView);
+			document.getElementById(sName + '-image').style.display = 'block';
+			document.getElementById(sName + '-delete').style.display = 'inline-block';
+			document.getElementById(sName + '-delete').href = sUrlDelete;
+		},
 		saveImage : function( sName, nId, sUrlSave, sUrlView, sUrlDelete) {
+
+			var self = this;
 
 			$.ajax({
 				url: sUrlSave,
@@ -115,12 +171,9 @@ FrontendCore.define('upload-single', [ oGlobalSettings.sPathJs + '../components/
 					value: nId
 				},
 				success: function() {
-					$('img', '#' + sName + '-image').attr('src', sUrlView);
-					document.getElementById(sName + '-image').style.display = 'block';
-					document.getElementById(sName + '-delete').style.display = 'inline-block';
+					self.updateImage(sName, sUrlView, sUrlDelete);
 				}
 			});
-
 		}
 	};
 });
