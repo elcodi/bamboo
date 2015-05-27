@@ -110,6 +110,7 @@ class ManufacturerType extends AbstractType
                 'required' => false,
                 'property' => 'id',
                 'multiple' => true,
+                'expanded' => true,
             ])
             ->add('metaTitle', 'text', [
                 'required' => false,

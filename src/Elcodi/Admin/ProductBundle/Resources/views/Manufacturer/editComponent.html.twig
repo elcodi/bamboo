@@ -92,11 +92,43 @@
                     </div>
                 </div>
             </div>
+            <div class="grid">
+                <div class="col-1-3">
+                    <h2 class="fw-n">{{ 'admin.manufacturer.section.logo.title'|trans }}</h2>
+                    <p class="mr-l" data-fc-modules="truncate" data-fc-max="90">{{ 'admin.manufacturer.section.logo.description'|trans }}</p>
+                </div>
+                <div class="col-2-3">
+                    <div id="thumb-gallery-select" class="d-n">
+                        {{ form_row(form.images, { attr: { class: 'js-images-select' } }) }}
+                    </div>
+                    <div class="box">
+                        {% if manufacturer.images|length >= 1 %}
+                            {% set image =  manufacturer.images.0 %}
+                            {% set logo = image|resize({ height: 100, width: 300, type: 2 })  %}
+                            {% set display = 'block' %}
+                        {% else %}
+                            {% set logo = asset('bundles/admincore/images/grey.png') %}
+                            {% set display = 'none' %}
+                        {% endif %}
+                        <ul id="upload-logo-image" class="thumbnail-group thumbnail-group-extended mb-m" style="display: {{ display }};">
+                            <li style="min-width: 0; min-height: 0;">
+                                <img  src="{{ logo }}" class="group-images thumbnail" />
+                                <ul class="thumbnail-actions">
+                                    <li>
+                                        <a href="{% if image.id  %}{{ url('admin_image_delete', { id: image.id }) }}{% if redirect_path is defined %}{{ '?redirect-path=' ~ redirect_path }}{% endif %}{% endif %}" id="upload-logo-delete" {% if not image.id %}style="display: none"{% endif %}> <i class="icon-trash-o"></i> </a>
+                                    </li>
+                                </ul>
 
-            {% include '@AdminMedia/Module/_images-form-field.html.twig' with {
-                images: manufacturer.images,
-            } %}
-
+                            </li>
+                        </ul>
+                        <progress id="upload-logo-progress" value="0" max="100" style="display: none"></progress>
+                        <p class="mb-n">
+                            <a href="{{ url('admin_image_upload') }}" id="upload-logo"  data-fc-modules="upload-single" class="button mb-m">{{ 'admin.image.info.upload_logo'|trans }}</a>
+                        </p>
+                        <p class="fz-s mb-n">{{ 'admin.image.info.format'|trans }}</p>
+                    </div>
+                </div>
+            </div>
             <div class="ph-n">
                 <div class="box-background pv-s mb-l">
                     <a data-fc-modules="toggle" href="#metadata-edit"><i class="icon-plus-circle"></i> {{ 'admin.metadata.customize'|trans }}</a>

@@ -432,6 +432,7 @@ admin:
             principal: La primera imagen será la imagen principal.
             reorder: "Puedes arrastrar las imágenes para reordenarlas."
             upload: Subir imágenes
+            upload_logo: Subir Logotipo
             deleted: Imagen Borrada
             format: Formato JPG, PNG o GIF de un máximo 20 MB
 
@@ -720,6 +721,9 @@ admin:
             visibility:
                 title: Visibilidad
                 description: Configura el fabricante como visible y activo.
+            logo:
+                title: Logotipo del fabricante
+                description: Sube una imagen del logo del fabricante/marca del producto. Se recomienda que el logo no contenga textos adicionales, sólo la marca, y que sea de la mayor resolución posible.
 
     category:
         single:   Categoría
