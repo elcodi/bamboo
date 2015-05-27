@@ -2,3 +2,4 @@ elcodi_plugin:
     product_csv:
         name: Exportació de productes
         description: Exporta els teus productes en format CSV
+        action: Exportar
