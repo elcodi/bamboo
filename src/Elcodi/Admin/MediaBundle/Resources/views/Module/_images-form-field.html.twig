@@ -3,8 +3,8 @@
         <div id="upload-container" class="box-none">
             <h3 class="fw-n">{{ 'admin.image.plural'|trans }}</h3>
             <p>{{ 'admin.image.info.principal'|trans }}{{ 'admin.image.info.reorder'|trans }}</p>
-            <div class="d-n">
-                {{ form_row(form.imagesSort) }}
+            <div class="d-n js-images-form-field">
+                {{ form_row(form.imagesSort, { 'attr': {'class':'js-image-order'}}) }}
             </div>
 
         </div>

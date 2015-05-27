@@ -10,7 +10,6 @@ services:
             - [setPlugin, [@elcodi_plugin.facebook]]
         tags:
             - { name: kernel.event_listener, event: store.body_bottom, method: renderJavascript }
-            - { name: kernel.event_listener, event: admin.footer_script, method: renderJavascript }
 
     elcodi_plugin.facebook.share_post_renderer:
         class: Elcodi\Plugin\FacebookBundle\Templating\SharePostRenderer
