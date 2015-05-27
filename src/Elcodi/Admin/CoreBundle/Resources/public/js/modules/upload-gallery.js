@@ -145,7 +145,8 @@ FrontendCore.define('upload-gallery', [ oGlobalSettings.sPathJs + '../components
 				if ( $('.js-image-order').val() === '') {
 					$('.js-image-order').val( $('input:checked', '#thumb-gallery-select').val() + ',' +  nId + ',' );
 				} else {
-					$('.js-image-order').val( $('.js-image-order').val() + '' +  nId + ',' );
+
+					$('.js-image-order').val( $('.js-image-order').val().replace('undefined,','') + nId + ',' );
 				}
 			
 				self.updateSelect();
