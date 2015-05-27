@@ -351,7 +351,7 @@ admin:
                     manual: Application manuelle
                     automatic: Application automatique
             stackable:
-                title: Ce coupon peut être appliqué quand d'autres coupons sont présents
+                title: Ce coupon peut être appliqué même si d'autres coupons sont présents
             minimum_purchase:
                 title: Minimum d'achat
             price:
