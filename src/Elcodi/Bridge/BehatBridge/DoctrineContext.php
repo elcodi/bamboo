@@ -15,7 +15,7 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-namespace Elcodi\Common\BambooBundle\Behat;
+namespace Elcodi\Bridge\BehatBridge;
 
 use Behat\Behat\Hook\Scope\AfterScenarioScope;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
@@ -23,7 +23,7 @@ use Behat\Testwork\Hook\Scope\BeforeSuiteScope;
 use Doctrine\DBAL\Connection;
 use Symfony\Component\Console\Input\ArrayInput;
 
-use Elcodi\Common\BambooBundle\Behat\abstracts\AbstractElcodiContext;
+use Elcodi\Bridge\BehatBridge\abstracts\AbstractElcodiContext;
 
 /**
  * Class DoctrineContext

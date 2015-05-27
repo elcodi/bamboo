@@ -18,13 +18,12 @@
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\HttpKernel\Bundle\BundleInterface;
-use Elcodi\Bundle\TestCommonBundle\Functional\Abstracts\AbstractElcodiKernel;
 use Elcodi\Bundle\CoreBundle\Traits\BundleDependenciesResolver;
 
 /**
  * Class AppKernel
  */
-class AppKernel extends AbstractElcodiKernel
+class AppKernel extends Kernel
 {
     use BundleDependenciesResolver;
 

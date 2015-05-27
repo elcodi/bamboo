@@ -15,12 +15,12 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-namespace Elcodi\Common\BambooBundle\Behat;
+namespace Elcodi\Bridge\BehatBridge;
 
 use Behat\Mink\Exception\ElementHtmlException;
 use Behat\Mink\Exception\ElementNotFoundException;
 
-use Elcodi\Common\BambooBundle\Behat\abstracts\AbstractElcodiContext;
+use Elcodi\Bridge\BehatBridge\abstracts\AbstractElcodiContext;
 
 /**
  * Class Context

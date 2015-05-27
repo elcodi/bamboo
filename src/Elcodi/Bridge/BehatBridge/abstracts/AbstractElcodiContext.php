@@ -15,7 +15,7 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-namespace Elcodi\Common\BambooBundle\Behat\abstracts;
+namespace Elcodi\Bridge\BehatBridge\abstracts;
 
 use Behat\Behat\Context\Context;
 use Behat\MinkExtension\Context\RawMinkContext;

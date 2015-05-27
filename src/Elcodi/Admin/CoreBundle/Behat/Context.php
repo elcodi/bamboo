@@ -17,7 +17,7 @@
 
 namespace Elcodi\Admin\CoreBundle\Behat;
 
-use Elcodi\Common\BambooBundle\Behat\abstracts\AbstractElcodiContext;
+use Elcodi\Bridge\BehatBridge\abstracts\AbstractElcodiContext;
 
 /**
  * Class Context
