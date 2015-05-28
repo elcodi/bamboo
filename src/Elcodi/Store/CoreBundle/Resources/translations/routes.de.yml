@@ -56,7 +56,7 @@ store_cart_nav: /warenkorb/nav
 store_checkout_address: /warenkorb/adresse
 store_checkout_address_save: /warenkorb/adresse/save
 store_checkout_payment: /warenkorb/bezahlung
-store_checkout_payment_fail: /warenkorb/bezahlung/fehler
+store_checkout_payment_fail: /warenkorb/bezahlung/fehler/{id}
 store_checkout_shipping_range_apply: /warenkorb/versand/zeitraum/aendern/{rangeId}
 
 #

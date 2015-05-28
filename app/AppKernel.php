@@ -156,6 +156,7 @@ class AppKernel extends Kernel
             new Elcodi\Plugin\StoreTemplateBundle\StoreTemplateBundle(),
             new Elcodi\Plugin\PaypalWebCheckoutBundle\ElcodiPaypalWebCheckoutBundle(),
             new Elcodi\Plugin\FreePaymentBundle\ElcodiFreePaymentBundle(),
+            new Elcodi\Plugin\StripeBundle\ElcodiStripeBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

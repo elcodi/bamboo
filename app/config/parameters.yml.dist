@@ -32,9 +32,6 @@ parameters:
 
     paypal_web_checkout_recipient: payment-test-facilitator@elcodi.com
 
-    paymill_public_key: 2476404399006243aa65bb1ccd6c43f4
-    paymill_private_key: 56ebd85ae7479627a4f05efa445365d3
-
     bamboo_admin_prefix: admin
     bamboo_api_prefix: api
     bamboo_store_firewall: store_area

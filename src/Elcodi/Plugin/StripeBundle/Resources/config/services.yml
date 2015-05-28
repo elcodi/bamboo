@@ -1,0 +1,45 @@
+services:
+
+    #
+    # Plugin
+    #
+    elcodi_plugin.stripe:
+        parent: elcodi.abstract_plugin
+        arguments:
+            - "Elcodi\\Plugin\\StripeBundle\\ElcodiStripeBundle"
+
+    stripe.transaction.wrapper:
+        class: %stripe.transaction.wrapper.class%
+        arguments:
+            stripe.private.key: @elcodi_plugin.stripe.private_key
+
+    #
+    # Plugin fields
+    #
+    elcodi_plugin.stripe.public_key:
+        class: StdClass
+        factory:
+            - @elcodi_plugin.stripe
+            - getFieldValue
+        arguments:
+            - public_key
+
+    elcodi_plugin.stripe.private_key:
+        class: StdClass
+        factory:
+            - @elcodi_plugin.stripe
+            - getFieldValue
+        arguments:
+            - private_key
+
+    #
+    # Services
+    #
+    stripe.twig.extension:
+        class: %stripe.twig.extension.class%
+        arguments:
+            stripe.public.key: @elcodi_plugin.stripe.public_key
+            form.factory: @form.factory
+            payment.bridge: @payment.bridge
+        tags:
+            - { name: twig.extension }

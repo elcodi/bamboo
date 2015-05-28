@@ -10,44 +10,42 @@
     {% include "@StoreTemplate/Modules/_checkout-progress.html.twig" with {"step": "3"} %}
 </p>
 
-<form id="form-payment-execute" action="" method="post">
-    {% if shippingRanges|length > 0 %}
-    <div class="form form-checkout">
-            {% set actualShippingRange = cart.shippingRange.id %}
-            <div class="grid grid-pad">
-                <h2>{{ 'template.store_template_bundle.checkout.payment.shipping_carrier_method'|trans }}</h2>
-                {% for shippingRange in shippingRanges %}
-                    {% if shippingRange.id == actualShippingRange %}
-                        <div class="col-1-3"><i class="fa fa-caret-right"></i> <strong>{{ shippingRange.carrier.name }} - {{ shippingRange.price|print_convert_money }}</strong></div>
-                    {% else %}
-                        <div class="col-1-3"><a href="{{ url("store_checkout_shipping_range_apply", {
-                                'rangeId': shippingRange.id
-                            }) }}">
-                                {{ shippingRange.carrier.name }} - {{ shippingRange.price|print_convert_money }}
-                            </a></div>
-                    {% endif %}
-                {% endfor %}
-            </div>
-    </div>
-    {% endif %}
-    <div class="form form-checkout">
-            {% for paymentMethod in elcodi_payment_methods() %}
-
-                {% set paymentMethodName = paymentMethod.name %}
-                {% if paymentMethod.url %}
-                    <a href="{{ paymentMethod.url }}">{{ paymentMethodName|trans }}</a>
+{% if shippingRanges|length > 0 %}
+<div class="form form-checkout">
+        {% set actualShippingRange = cart.shippingRange.id %}
+        <div class="grid grid-pad">
+            <h2>{{ 'template.store_template_bundle.checkout.payment.shipping_carrier_method'|trans }}</h2>
+            {% for shippingRange in shippingRanges %}
+                {% if shippingRange.id == actualShippingRange %}
+                    <div class="col-1-3"><i class="fa fa-caret-right"></i> <strong>{{ shippingRange.carrier.name }} - {{ shippingRange.price|print_convert_money }}</strong></div>
                 {% else %}
-                    <details>
-                        <summary>{{ paymentMethodName|trans }}</summary>
-                        <div class="payment-wrapper">
-                            {{ paymentMethod.script }}
-                        </div>
-                    </details>
+                    <div class="col-1-3"><a href="{{ url("store_checkout_shipping_range_apply", {
+                            'rangeId': shippingRange.id
+                        }) }}">
+                            {{ shippingRange.carrier.name }} - {{ shippingRange.price|print_convert_money }}
+                        </a></div>
                 {% endif %}
-
             {% endfor %}
-    </div>
-</form>
+        </div>
+</div>
+{% endif %}
+<div class="form form-checkout">
+        {% for paymentMethod in elcodi_payment_methods() %}
+
+            {% set paymentMethodName = paymentMethod.name %}
+            {% if paymentMethod.url %}
+                <a href="{{ paymentMethod.url }}">{{ paymentMethodName|trans }}</a>
+            {% else %}
+                <details>
+                    <summary>{{ paymentMethodName|trans }}</summary>
+                    <div class="payment-wrapper">
+                        {{ paymentMethod.script|raw }}
+                    </div>
+                </details>
+            {% endif %}
+
+        {% endfor %}
+</div>
 
 <p class="checkout-actions checkout-actions-bottom">
     <a class="button" href="{{ url('store_checkout_address') }}"> <i class="fa fa-arrow-left"></i> {{ 'template.store_template_bundle.checkout.back'|trans }}</a>

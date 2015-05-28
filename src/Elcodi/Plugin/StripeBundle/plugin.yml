@@ -1,0 +1,15 @@
+plugin:
+    type: plugin
+    category: payment
+    name: elcodi_plugin.stripe.name
+    description: elcodi_plugin.stripe.description
+    fa_icon: cc-stripe
+    fields:
+        private_key:
+            type: text
+            required: true
+            label: elcodi_plugin.stripe.field.private_key.label
+        public_key:
+            type: text
+            required: true
+            label: elcodi_plugin.stripe.field.public_key.label
