@@ -1,0 +1,10 @@
+common:
+    order:
+        states:
+            title:       Verlauf
+            initial:     Neue Bestellung
+            unpaid:      Unbezahlt
+            refunded:    Zurückerstattet
+            shipped:     Versendet
+            not shipped: Nicht versendet
+            paid:        Bezahlt

@@ -1,0 +1,10 @@
+common:
+    order:
+        states:
+            title:       History
+            initial:     New order
+            unpaid:      Unpaid
+            refunded:    Refunded
+            shipped:     Shipped
+            not shipped: Not shipped
+            paid:        Paid

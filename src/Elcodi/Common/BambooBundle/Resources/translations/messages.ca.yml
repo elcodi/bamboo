@@ -1,0 +1,10 @@
+common:
+    order:
+        states:
+            title:       Historial
+            initial:     Comanda nova
+            unpaid:      Sense pagar
+            refunded:    Reemborsat
+            shipped:     Enviat
+            not shipped: Sense enviar
+            paid:        Pagat

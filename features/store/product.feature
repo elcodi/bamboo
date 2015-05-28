@@ -9,7 +9,6 @@ Feature: Store product
     Then I should see product 1 name
     And the response should contain a "add-product-2-to-cart" test attribute
 
-  @now
   Scenario: Product redirection
     Given I am on "product/ibiza-lips-en-false/1"
     Then I should be on "product/ibiza-lips-en/1"

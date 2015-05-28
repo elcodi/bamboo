@@ -72,7 +72,7 @@
                             <td class="w-70">
                                 <i class="icon-shopping-cart bg-ok mr-s"></i>
                                 <em></em>
-                                {{ 'admin.order.states.initial'|trans }}
+                                {{ 'common.order.states.initial'|trans }}
                             </td>
                             <td class="ta-r">
                                 {% include 'AdminCartBundle:Order:date.html.twig' with {
@@ -96,7 +96,7 @@
                                 <td>
                                     <i class="{{ iconClass }} {{ colorClass }} mr-s"></i>
                                     <em></em>
-                                    {{ "admin.order.states.#{stateLine.name}"|trans }}
+                                    {{ "common.order.states.#{stateLine.name}"|trans }}
                                 </td>
                                 <td class="ta-r">
                                     {% include 'AdminCartBundle:Order:date.html.twig' with {

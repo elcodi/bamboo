@@ -498,14 +498,6 @@ admin:
             subtotal: Subtotal
             discount: Cupón de descuento
             shipping: Entrega
-        states:
-            title:       Historial
-            initial:     Nuevo pedido
-            unpaid:      Sin pagar
-            refunded:    Reembolsado
-            shipped:     Enviado
-            not shipped: Sin enviar
-            paid:        Pagado
         transition:
             refund: Reembolsar
             ship:   Enviar

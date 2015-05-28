@@ -498,14 +498,6 @@ admin:
             subtotal: Subtotal
             discount: Coupon Discount
             shipping: Shipping
-        states:
-            title:       History
-            initial:     New order
-            unpaid:      Unpaid
-            refunded:    Refunded
-            shipped:     Shipped
-            not shipped: Not shipped
-            paid:        Paid
         transition:
             refund: Refund
             ship:   Ship

@@ -134,7 +134,8 @@ template:
                 image: Image
                 number_of_order: Numéro de commande
                 order_number: "Commande #"
-                state: Etat
+                payment_state: Statut de payement
+                shipping_state: Statut de livraison
                 date: Date
                 total: Total
                 no_orders: Il n'y a aucune commande

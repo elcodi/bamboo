@@ -23,8 +23,10 @@
             <dd class="order-item-id">
                 <a href="{{ url('store_order_view', { id: order.id }) }}" class="order-title">{{ 'template.store_template_bundle.order.list.order_number'|trans }}{{ order.id }}</a>
             </dd>
-            <dt class="order-item-state">{{ 'template.store_template_bundle.order.list.state'|trans }}</dt>
-            <dd class="order-item-state">{{ order.paymentLastStateLine.name }}</dd>
+            <dt class="order-item-payment-status">{{ 'template.store_template_bundle.order.list.payment_state'|trans }}</dt>
+            <dd class="order-item-payment-status">{{ "common.order.states.#{order.paymentStateLineStack.lastStateLine.name}"|trans }}</dd>
+            <dt class="order-item-shipping-status">{{ 'template.store_template_bundle.order.list.shipping_state'|trans }}</dt>
+            <dd class="order-item-shipping-status">{{ "common.order.states.#{order.shippingStateLineStack.lastStateLine.name}"|trans }}</dd>
             <dt class="order-item-date">{{ 'template.store_template_bundle.order.list.date'|trans }}</dt>
             <dd class="order-item-date">{{ order.createdAt|date('d.m.Y') }}</dd>
             <dt class="order-item-total">{{ 'template.store_template_bundle.order.list.total'|trans }}</dt>
