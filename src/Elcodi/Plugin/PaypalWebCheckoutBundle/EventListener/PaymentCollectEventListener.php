@@ -71,6 +71,9 @@ class PaymentCollectEventListener
             ])
         ) {
             $paypal = new PaymentMethod(
+                $this
+                    ->plugin
+                    ->getHash(),
                 'elcodi_plugin.paypal_web_checkout.name',
                 'elcodi_plugin.paypal_web_checkout.description',
                 $this

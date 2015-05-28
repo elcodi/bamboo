@@ -68,6 +68,9 @@ class PaymentCollectEventListener
             ->isUsable()
         ) {
             $freePayment = new PaymentMethod(
+                $this
+                    ->plugin
+                    ->getHash(),
                 'elcodi_plugin.free_payment.name',
                 'elcodi_plugin.free_payment.description',
                 $this

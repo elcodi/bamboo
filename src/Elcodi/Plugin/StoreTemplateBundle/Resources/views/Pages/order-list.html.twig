@@ -24,7 +24,7 @@
                 <a href="{{ url('store_order_view', { id: order.id }) }}" class="order-title">{{ 'template.store_template_bundle.order.list.order_number'|trans }}{{ order.id }}</a>
             </dd>
             <dt class="order-item-state">{{ 'template.store_template_bundle.order.list.state'|trans }}</dt>
-            <dd class="order-item-state">{{ order.lastOrderHistory.state }}</dd>
+            <dd class="order-item-state">{{ order.paymentLastStateLine.name }}</dd>
             <dt class="order-item-date">{{ 'template.store_template_bundle.order.list.date'|trans }}</dt>
             <dd class="order-item-date">{{ order.createdAt|date('d.m.Y') }}</dd>
             <dt class="order-item-total">{{ 'template.store_template_bundle.order.list.total'|trans }}</dt>

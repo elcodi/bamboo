@@ -122,6 +122,9 @@ class PaymentCollectEventListener
             $stripeForm = $this->getStripeForm() . $this->getStripeScript();
 
             $stripe = new PaymentMethod(
+                $this
+                    ->plugin
+                    ->getHash(),
                 'elcodi_plugin.stripe.name',
                 'elcodi_plugin.stripe.description',
                 '',
