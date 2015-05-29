@@ -1,10 +1,10 @@
 FrontendCore.define('on-off-table', ['devicePackage' ], function () {
     return {
-	    oMasterLanguage : '',
-	    oMasterCurrency : '',
-	    setMasterLanguage: function() {
-		    this.oMasterLanguage = $('[name=language-master]:checked')[0];
-	    },
+        oMasterLanguage : '',
+        oMasterCurrency : '',
+        setMasterLanguage: function() {
+            this.oMasterLanguage = $('[name=language-master]:checked')[0];
+        },
         setMasterCurrency: function() {
             this.oMasterCurrency = $('[name=currency-master]:checked')[0];
         },
@@ -12,10 +12,10 @@ FrontendCore.define('on-off-table', ['devicePackage' ], function () {
 
             FrontendCore.requireAndStart('notification');
 
-	        var self = this;
+            var self = this;
 
-	        self.setMasterLanguage();
-	        self.setMasterCurrency();
+            self.setMasterLanguage();
+            self.setMasterCurrency();
 
             $('.switch input').each( function(){
 
@@ -24,26 +24,26 @@ FrontendCore.define('on-off-table', ['devicePackage' ], function () {
                 $(oTarget).change( function() {
 
                     var oInput = this,
-	                    sValue = oInput.checked,
-	                    sUrl = this.checked === true ? document.getElementById('enable-' + this.id).value : document.getElementById('disable-' + this.id).value;
+                        sValue = oInput.checked,
+                        sUrl = this.checked === true ? document.getElementById('enable-' + this.id).value : document.getElementById('disable-' + this.id).value;
 
                     $.ajax({
-	                    url: sUrl,
-	                    type: 'post'
+                        url: sUrl,
+                        type: 'post'
                     }).done( function() {
-	                    self.setMasterLanguage();
+                        self.setMasterLanguage();
                         self.setMasterCurrency();
                     }).fail( function( response ) {
 
-	                    if ( sValue === true ) {
-		                    oInput.checked = false;
-	                    } else {
-		                    oInput.checked = true;
-	                    }
+                        if ( sValue === true ) {
+                            oInput.checked = false;
+                        } else {
+                            oInput.checked = true;
+                        }
 
-	                    if ( oInput.name === 'language-master' ) {
-		                    self.oMasterLanguage.checked = true;
-	                    }
+                        if ( oInput.name === 'language-master' ) {
+                            self.oMasterLanguage.checked = true;
+                        }
 
                         if ( oInput.name === 'currency-master' ) {
                             self.oMasterCurrency.checked = true;
