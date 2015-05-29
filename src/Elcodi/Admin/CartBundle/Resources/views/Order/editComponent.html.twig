@@ -28,7 +28,13 @@
                     <p class="fz-s">ID: {{ line.product.id }}</p>
                 </td>
                 <td class="ta-r">{{ line.quantity }}</td>
-                <td class="ta-r">{{ line.product.price|print_money }}</td>
+                <td class="ta-r">
+                {% if line.product.reducedPrice.amount > 0 %}
+                    {{ line.product.reducedPrice|print_money }}
+                {% else %}
+                    {{ line.product.price|print_money }}
+                {% endif %}
+                </td>
                 <td class="ta-r">{{ line.amount|print_money }}</td>
             </tr>
             {% endfor %}
