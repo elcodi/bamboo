@@ -21,8 +21,8 @@ use Elcodi\Component\Configuration\Services\ConfigurationManager;
 use Elcodi\Component\Geo\Entity\Interfaces\AddressInterface;
 use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
 use Elcodi\Component\Product\Repository\ProductRepository;
-use Elcodi\Component\Shipping\Entity\Interfaces\ShippingPriceRangeInterface;
-use Elcodi\Component\Shipping\Repository\ShippingRangeRepository;
+use Elcodi\Component\Shipping\Entity\Interfaces\CarrierInterface;
+use Elcodi\Component\Shipping\Repository\CarrierRepository;
 use Elcodi\Component\Store\Entity\Interfaces\StoreInterface;
 
 /**
@@ -45,11 +45,11 @@ class WizardStatus
     protected $productRepository;
 
     /**
-     * @var ShippingRangeRepository
+     * @var CarrierRepository
      *
      * Shipping range repository
      */
-    protected $shippingRangeRepository;
+    protected $CarrierRepository;
 
     /**
      * @var array
@@ -63,21 +63,21 @@ class WizardStatus
      *
      * @param ConfigurationManager    $configurationManager    Configuration manager
      * @param ProductRepository       $productRepository       Product repository
-     * @param ShippingRangeRepository $shippingRangeRepository A shipping range repository
+     * @param CarrierRepository       $carrierRepository       A carrier repository
      * @param StoreInterface          $store                   Store
      * @param array                   $paymentEnabledMethods   The enabled payment methods
      */
     public function __construct(
         ConfigurationManager $configurationManager,
         ProductRepository $productRepository,
-        ShippingRangeRepository $shippingRangeRepository,
+        CarrierRepository $carrierRepository,
         StoreInterface $store,
         array $paymentEnabledMethods
     )
     {
         $this->configurationManager = $configurationManager;
         $this->productRepository = $productRepository;
-        $this->shippingRangeRepository = $shippingRangeRepository;
+        $this->CarrierRepository = $carrierRepository;
         $this->store = $store;
         $this->paymentEnabledMethods = $paymentEnabledMethods;
     }
@@ -222,10 +222,18 @@ class WizardStatus
      */
     protected function isThereAnyShippingRange()
     {
-        $shippingRange = $this
-            ->shippingRangeRepository
-            ->findOneBy([]);
+        $carriers = $this
+            ->CarrierRepository
+            ->findBy(['enabled' => true]);
 
-        return ($shippingRange instanceof ShippingPriceRangeInterface);
+        foreach ($carriers as $carrier) {
+            /** @var $carrier CarrierInterface */
+            $shippingRanges = $carrier->getRanges();
+            if (!empty($shippingRanges)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
