@@ -1,0 +1,15 @@
+services:
+
+    #
+    # Twig extensions
+    #
+    # Overrides elcodi.twig_extension.language
+    #
+    elcodi.admin.twig_extension.language:
+        class: Elcodi\Admin\LanguageBundle\Twig\LanguageExtension
+        decorates: elcodi.twig_extension.language
+        arguments:
+            - @elcodi.manager.language
+            - @=elcodi_config('store.default_language')
+        tags:
+            - { name: twig.extension }
