@@ -106,7 +106,11 @@
         "elcodi-plugin/store-setup-wizard": "self.version",
         "elcodi-plugin/disqus": "self.version",
         "elcodi-plugin/twitter": "self.version",
-        "elcodi-plugin/facebook": "self.version"
+        "elcodi-plugin/facebook": "self.version",
+        "elcodi-plugin/paypal-web-checkout": "self.version",
+        "elcodi-plugin/stripe": "self.version",
+        "elcodi-plugin/free-payment": "self.version",
+        "elcodi-plugin/custom-shipping": "self.version"
     },
     "require-dev": {
         "elcodi/elcodi": "0.5.18",
