@@ -58,6 +58,7 @@ class AdminLanguageExtension extends AbstractExtension
     {
         return [
             'twig',
+            'menu',
         ];
     }
 

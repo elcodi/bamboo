@@ -269,6 +269,20 @@ class AbstractAdminController extends Controller
     }
 
     /**
+     * Translate
+     *
+     * @param string $string String to be translated
+     *
+     * @return string String translated
+     */
+    protected function translate($string)
+    {
+        return $this
+            ->get('translator')
+            ->trans($string);
+    }
+
+    /**
      * Private controller helpers
      *
      * These helpers MUST be private. Should not expose this magic to the whole

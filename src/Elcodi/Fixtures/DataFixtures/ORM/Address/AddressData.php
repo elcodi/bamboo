@@ -53,7 +53,7 @@ class AddressData extends AbstractFixture
             ->setEnabled(true);
 
         $manager->persist($homeAddress);
-        $this->addReference('home_address', $homeAddress);
+        $this->addReference('address-home', $homeAddress);
 
         /**
          * @var AddressInterface $workAddress
@@ -74,7 +74,7 @@ class AddressData extends AbstractFixture
             ->setEnabled(true);
 
         $manager->persist($workAddress);
-        $this->addReference('work_address', $workAddress);
+        $this->addReference('address-work', $workAddress);
 
         $manager->flush();
     }

@@ -25,9 +25,6 @@ admin_attribute:
 admin_product:
     resource: "@AdminProductBundle/Resources/config/routing.yml"
 
-admin_shipping:
-    resource: "@AdminShippingBundle/Resources/config/routing.yml"
-
 admin_media:
     resource: "@AdminMediaBundle/Resources/config/routing.yml"
 
@@ -36,9 +33,6 @@ admin_newsletter:
 
 admin_page:
     resource: "@AdminPageBundle/Resources/config/routing.yml"
-
-admin_configuration:
-    resource: "@AdminConfigurationBundle/Resources/config/routing.yml"
 
 admin_templates:
     resource: "@AdminTemplateBundle/Resources/config/routing.yml"
@@ -54,6 +48,9 @@ admin_geo:
 
 admin_languages:
     resource: "@AdminLanguageBundle/Resources/config/routing.yml"
+
+admin_store:
+    resource: "@AdminStoreBundle/Resources/config/routing.yml"
 
 admin_login_check:
     path:  /login_check

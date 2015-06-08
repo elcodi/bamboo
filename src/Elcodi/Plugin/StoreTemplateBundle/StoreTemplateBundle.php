@@ -28,11 +28,23 @@ use Elcodi\Component\Plugin\Interfaces\PluginInterface;
 class StoreTemplateBundle extends Bundle implements PluginInterface
 {
     /**
+     * Returns the bundle's container extension.
+     *
+     * @return null
+     */
+    public function getContainerExtension()
+    {
+        return null;
+    }
+
+    /**
      * Register Commands.
      *
      * Disabled as commands are registered as services.
      *
      * @param Application $application An Application instance
+     *
+     * @return null
      */
     public function registerCommands(Application $application)
     {

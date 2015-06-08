@@ -17,7 +17,6 @@
 
 namespace Elcodi\Admin\UserBundle\Controller;
 
-use JMS\SecurityExtraBundle\Annotation\Secure;
 use Mmoreram\ControllerExtraBundle\Annotation\Form as AnnotationForm;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -36,7 +35,6 @@ class SecurityController extends Controller
      *
      * @return array
      *
-     * @Secure(roles="IS_AUTHENTICATED_ANONYMOUSLY")
      * @Route(
      *      path = "/login",
      *      name = "admin_login",

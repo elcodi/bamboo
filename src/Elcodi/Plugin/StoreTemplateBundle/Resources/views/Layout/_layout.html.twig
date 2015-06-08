@@ -3,20 +3,30 @@
 {% block head_style %}
     <link rel="stylesheet" type="text/css" media="all" href="{{ asset('bundles/storetemplate/css/main.css') }}" />
 
-
     <!-- External Font assets -->
     <link href="//fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet" type="text/css" />
 {% endblock head_style %}
 
 {% block body %}
+    {% if store.backgroundImage %}
+    <style>
+       html {
+           background-image:url('{{ store.backgroundImage|resize({ height: 1200, width: 1200, type: 2 })  }}');
+       }
+        .grid-pad {
+            background-color: rgba(0,0,0,.1);
+            color: #FFF;
+        }
+        .breadcrumb a {
+            color: #FFF;
+        }
+    </style>
+    {% endif %}
     {% block header %}
-
         {% include '@StoreTemplate/Modules/_header.html.twig' %}
-
     {% endblock header %}
 
     {% block container %}
-
 
         {% block messages %}
             {% include "@StoreTemplate/Modules/_message-list.html.twig" %}
@@ -29,7 +39,7 @@
                         <ul>
                             <li>
                                 <a href="{{ url('store_homepage') }}" class="logo">
-                                    <i class="fa fa-home"></i> {{ elcodi_config('store.name') }}
+                                    <i class="fa fa-home"></i> {{ store.name }}
                                 </a>
                                 <i class="fa fa-angle-right"></i>
                             </li>

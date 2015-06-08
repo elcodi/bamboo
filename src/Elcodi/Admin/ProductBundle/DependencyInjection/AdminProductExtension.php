@@ -61,6 +61,7 @@ class AdminProductExtension extends AbstractExtension
             'eventListeners',
             'services',
             'validator',
+            'menu',
         ];
     }
 

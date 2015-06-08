@@ -54,10 +54,9 @@
 <!--[if lt IE 8]>
     <!-- should warn for outdated browser -->
 <![endif]-->
-    
         
-
-<header class="header">
+        
+<header class="header" >
         <nav class="currency-nav">
         <div class="grid">
             <ul>
@@ -87,8 +86,8 @@
         <div class="grid">
         <div class="col-1-2">
             <a href="#" class="logo">
-                store name
-            </a>
+                                    My Awesome Store
+                            </a>
         </div>
         <div class="col-1-2">
             <ul class="user-nav">
@@ -162,7 +161,7 @@
             <h1 class="checkout-title">Select delivery and billing address</h1>
         <form method="post" action="#" class="address-list" >
             <p class="checkout-actions checkout-actions-top">
-                <button type="submit" name="payment" class="button button-secondary desktop">
+                <button type="submit" name="payment" class="button button-secondary desktop" data-test="payment-button">
                     Payment
                     <i class="fa fa-arrow-right"></i>
                 </button>
@@ -176,7 +175,7 @@
     </span>
 </span>
             </p>
-                            <dl class="address-item">
+                            <dl class="address-item" data-test="address-1">
     <dt class="address-item-selection"></dt>
     <dd class="address-item-selection">
         <div class="address-item-selection-item">
@@ -218,13 +217,15 @@
     <dd>It's a house</dd>
     <dt class="address-item-actions">Actions</dt>
     <dd class="address-item-actions">
-        <a href="#" class="button button-primary"><i
-                    class="fa fa-pencil"></i> Edit</a>
-        <a href="#" class="button button-ko"><i
-                    class="fa fa-trash-o"></i> Remove</a>
+        <a href="#" class="button button-primary" data-test="address-1-edit"><i
+                    class="fa fa-pencil"></i> Edit
+        </a>
+        <a href="#" class="button button-ko" data-test="address-1-remove"><i
+                    class="fa fa-trash-o"></i> Remove
+        </a>
     </dd>
 </dl>
-                            <dl class="address-item">
+                            <dl class="address-item" data-test="address-2">
     <dt class="address-item-selection"></dt>
     <dd class="address-item-selection">
         <div class="address-item-selection-item">
@@ -266,14 +267,16 @@
     <dd>It's a house</dd>
     <dt class="address-item-actions">Actions</dt>
     <dd class="address-item-actions">
-        <a href="#" class="button button-primary"><i
-                    class="fa fa-pencil"></i> Edit</a>
-        <a href="#" class="button button-ko"><i
-                    class="fa fa-trash-o"></i> Remove</a>
+        <a href="#" class="button button-primary" data-test="address-2-edit"><i
+                    class="fa fa-pencil"></i> Edit
+        </a>
+        <a href="#" class="button button-ko" data-test="address-2-remove"><i
+                    class="fa fa-trash-o"></i> Remove
+        </a>
     </dd>
 </dl>
                         <p class="checkout-actions checkout-actions-bottom">
-                <button type="submit" name="payment" class="button button-secondary">
+                <button type="submit" name="payment" class="button button-secondary" data-test="payment-button">
                     Payment
                     <i class="fa fa-arrow-right"></i>
                 </button>
@@ -386,7 +389,10 @@
 <footer class="footer">
     <div class="grid">
         <div class="col-1-1">
-            <p><strong>store leitmotiv</strong></p>
+            <a href="#" class="logo">
+                                    My Awesome Store
+                            </a>
+            <p class="leitmotiv"><strong></strong></p>
         </div>
     </div>
     <div class="grid">

@@ -47,6 +47,8 @@ class ElcodiProductCsvBundle extends Bundle implements PluginInterface
      * Disabled as commands are registered as services.
      *
      * @param Application $application An Application instance
+     *
+     * @return null
      */
     public function registerCommands(Application $application)
     {

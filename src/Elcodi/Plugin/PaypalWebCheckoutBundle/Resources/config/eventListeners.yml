@@ -1,0 +1,12 @@
+services:
+
+    #
+    # Event Listeners
+    #
+    elcodi_plugin.paypal.event_listener.payment_collect:
+        class: Elcodi\Plugin\PaypalWebCheckoutBundle\EventListener\PaymentCollectEventListener
+        arguments:
+            - @router
+            - @elcodi_plugin.paypal_web_checkout
+        tags:
+            - { name: kernel.event_listener, event: payment.collect, method: addPaypalPaymentMethod }

@@ -4,12 +4,11 @@
 
 {% block content %}
 
+	{% include '@StoreTemplate/Modules/_product-list.html.twig' with { products: products } %}
+
     {% block pagination %}
         {% include '@StoreTemplate/Modules/_paginator.html.twig' with { route: 'store_homepage', currentPage: currentPage, totalPages: totalPages, limitPerPage: limitPerPage, contextPages: 1, separator: true } %}
     {% endblock pagination %}
 
-	{% include '@StoreTemplate/Modules/_product-list.html.twig' with { products: products } %}
-
-    {{ block('pagination') }}
 
 {% endblock content %}

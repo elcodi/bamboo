@@ -89,7 +89,7 @@
             <div id="metrics-panel" class="box-background">
                 <h2>{{ 'admin.metrics.info.visitors'|trans }}</h2>
                 {% include 'AdminMetricBundle:Metric:metricLine.html.twig' with {
-                    tracker: store_tracker,
+                    tracker: store.tracker,
                     event: "pv_store_product_view_#{product.id}",
                     intervalContainer: metric_create_interval_container(3),
                 } %}

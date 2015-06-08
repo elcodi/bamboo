@@ -20,9 +20,9 @@ namespace Elcodi\Plugin\StoreSetupWizardBundle\EventListener;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 
-use Elcodi\Component\Configuration\Services\ConfigurationManager;
 use Elcodi\Component\Plugin\Entity\Plugin;
 use Elcodi\Component\Plugin\Services\PluginManager;
+use Elcodi\Component\Store\Entity\Interfaces\StoreInterface;
 use Elcodi\Plugin\StoreSetupWizardBundle\Services\WizardStatus;
 
 /**
@@ -52,11 +52,11 @@ class DisableWizardEventListener
     protected $pluginManager;
 
     /**
-     * @var ConfigurationManager
+     * @var StoreInterface
      *
-     * A configuration manager.
+     * Store
      */
-    protected $configurationManager;
+    protected $store;
 
     /**
      * @var ObjectManager
@@ -68,21 +68,21 @@ class DisableWizardEventListener
     /**
      * Builds a new class
      *
-     * @param WizardStatus         $wizardStatus         A wizard status service
-     * @param PluginManager        $pluginManager        A plugin manager
-     * @param ConfigurationManager $configurationManager A configuration manager
-     * @param ObjectManager        $pluginObjectManager  Plugin object manager
+     * @param WizardStatus   $wizardStatus        A wizard status service
+     * @param PluginManager  $pluginManager       A plugin manager
+     * @param ObjectManager  $pluginObjectManager Plugin object manager
+     * @param StoreInterface $store               Store
      */
     public function __construct(
         WizardStatus $wizardStatus,
         PluginManager $pluginManager,
-        ConfigurationManager $configurationManager,
-        ObjectManager $pluginObjectManager
+        ObjectManager $pluginObjectManager,
+        StoreInterface $store
     ) {
         $this->wizardStatus = $wizardStatus;
         $this->pluginManager = $pluginManager;
-        $this->configurationManager = $configurationManager;
         $this->pluginObjectManager = $pluginObjectManager;
+        $this->store = $store;
     }
 
     /**
@@ -106,15 +106,9 @@ class DisableWizardEventListener
      */
     public function handle(GetResponseEvent $event)
     {
-        $storeUnderConstruction =
-            'on' == $this
-                ->configurationManager
-                ->get('store.under_construction');
-
         if (
             $this->plugin->isEnabled() &&
-            $this->wizardStatus->isWizardFinished() &&
-            !$storeUnderConstruction
+            $this->wizardStatus->isWizardFinished()
         ) {
             $this
                 ->plugin

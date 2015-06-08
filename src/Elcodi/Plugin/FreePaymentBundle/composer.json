@@ -1,0 +1,51 @@
+{
+    "name": "elcodi-plugin/free-payment",
+    "description": "Elcodi Free Payment plugin",
+    "keywords": [
+        "elcodi",
+        "plugin",
+        "paypal",
+        "payment",
+        "ecommerce"
+    ],
+    "homepage": "https://github.com/elcodi-plugins/FreePaymentBundle",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "support": {
+        "email": "devs@elcodi.com",
+        "forum": "https://gitter.im/elcodi/elcodi",
+        "source": "https://github.com/elcodi/elcodi",
+        "issues": "https://github.com/elcodi/elcodi/issues"
+    },
+    "authors": [
+        {
+            "name": "Marc Morera",
+            "email": "yuhu@mmoreram.com"
+        },
+        {
+            "name": "Aldo Chiecchia",
+            "email": "zimage@tiscali.it"
+        },
+        {
+            "name": "The Awesome Elcodi Community",
+            "homepage": "https://github.com/elcodi-plugins/FreePaymentBundle/contributors"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+
+        "paymentsuite/free-payment-bundle": "~0.5.0",
+        "elcodi/core-bundle": "~0.5.0",
+        "elcodi/plugin-bundle": "~0.5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Elcodi\\Plugin\\FreePaymentBundle\\": ""
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.5-dev"
+        }
+    }
+}

@@ -22,6 +22,7 @@ use Twig_Environment;
 
 use Elcodi\Component\Page\Entity\Interfaces\PageInterface;
 use Elcodi\Component\Page\Repository\PageRepository;
+use Elcodi\Component\Store\Entity\Interfaces\StoreInterface;
 use Elcodi\Store\CoreBundle\Services\TemplateLocator;
 
 /**
@@ -51,18 +52,11 @@ abstract class AbstractEmailSenderEventListener
     protected $pageRepository;
 
     /**
-     * @var TemplateLocator
+     * @var StoreInterface
      *
-     * Template locator
+     * Store
      */
-    protected $templateLocator;
-
-    /**
-     * @var string
-     *
-     * Store email
-     */
-    protected $storeEmail;
+    protected $store;
 
     /**
      * Construct
@@ -71,20 +65,20 @@ abstract class AbstractEmailSenderEventListener
      * @param Twig_Environment $twig            Twig
      * @param PageRepository   $pageRepository  Page repository
      * @param TemplateLocator  $templateLocator A template locator
-     * @param string           $storeEmail      Store email
+     * @param StoreInterface   $store           Store
      */
     public function __construct(
         Swift_Mailer $mailer,
         Twig_Environment $twig,
         PageRepository $pageRepository,
-        TemplateLocator $templateLocator,
-        $storeEmail
+        StoreInterface $store,
+        TemplateLocator $templateLocator
     ) {
         $this->mailer = $mailer;
         $this->twig = $twig;
         $this->pageRepository = $pageRepository;
+        $this->store = $store;
         $this->templateLocator = $templateLocator;
-        $this->storeEmail = $storeEmail;
     }
 
     /**
@@ -118,7 +112,7 @@ abstract class AbstractEmailSenderEventListener
                 ->mailer
                 ->createMessage()
                 ->setSubject($page->getTitle())
-                ->setFrom($this->storeEmail)
+                ->setFrom($this->store->getEmail())
                 ->setTo($receiverEmail)
                 ->setBody($resolvedPage, 'text/html');
 

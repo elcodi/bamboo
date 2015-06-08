@@ -25,19 +25,11 @@ admin_routes:
         i18n: false
 
 #
-# Plugin routes
-#
-plugin_routes:
-    resource: "routing_plugin.yml"
-    prefix: /%bamboo_admin_prefix%
-    options:
-        i18n: false
-
-#
 # API routes
 #
 api_routes:
     resource: "routing_api.yml"
+    prefix: /%bamboo_api_prefix%
     options:
         i18n: false
 
@@ -48,6 +40,13 @@ media_routes:
     resource: "@ElcodiMediaBundle/Resources/config/routing.yml"
     options:
         i18n: false
+
+#
+# Plugin routes
+#
+plugin_routes:
+    resource: .
+    type: elcodi.routes.plugins
 
 #
 # Per project routes

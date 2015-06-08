@@ -15,14 +15,6 @@ security:
             roles: ROLE_ADMIN
 
         # store
-        login_area:
-            path: ^/login.*
-            roles: IS_AUTHENTICATED_ANONYMOUSLY
-
-        password_area:
-            path: ^/password.*
-            roles: IS_AUTHENTICATED_ANONYMOUSLY
-
         public_area:
             path: ^/.*
             roles: IS_AUTHENTICATED_ANONYMOUSLY

@@ -1,0 +1,5 @@
+plugin:
+    type: plugin
+    category: payment
+    name: elcodi_plugin.free_payment.name
+    description: elcodi_plugin.free_payment.description

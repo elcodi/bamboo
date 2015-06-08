@@ -1,5 +1,52 @@
 admin:
     name: Administració
+    menu:
+        design: Disseny
+    store:
+        saved: Configuració guardada.
+        settings: Configuracions
+        section:
+            stock:
+                title: Stock
+                description: "Activa aquesta opció per gestionar l'stock dels teus productes."
+            status:
+                title: Estat de la botiga
+                description: "Controla si la botiga esta oberta o tancada al públic."
+        field:
+            enabled:
+                title: Activar botiga
+            useStock:
+                title: Fer servir control de stock
+    identity:
+        singular: Imatge corporativa
+        more: Més
+        less: Menys
+        field:
+            name:
+                title: Nom de la botiga
+                placeholder: e.g: La meva botiga
+            leitmotiv:
+                title: Eslogan
+                placeholder: e.g: Productes per la gent
+        section:
+            info:
+                title: Informació básica
+                description: "Introdueix el nom de la botiga i l'eslogan (opcional)."
+            logo:
+                title: Logotip de la teva botiga
+                description: Si tens un logotip de la teva botiga afegeix-lo i es mostrarà a varies parts de la tenda. Es recomanable que sigui amb bona qualitat.
+            mobileLogo:
+                title: Logotip versió mòbil
+                description: Aquesta imatge es mostrarà als clients que accedeixin a la teva tenda online des d'un mòbil. És opcional, però et servirà si vols personalitzar l'experiencia mòbil.
+            secondaryLogo:
+                title: Logotip a peu de pàgina
+                description: Si vols personalitzar el logotip a peu de pàgina, afegeix-lo. És opcional.
+            headerImage:
+                title: Imatge de capçalera
+                description: Aquesta imatge es mostrarà com a capçalera de la teva tenda. Depenent del diseny que seleccionis varia lleugerament com es mostra, ja sigui com a fons o de forma més prominent. Tot i que és opcional, recomanem afegir-la. Li donarà molta personalitat a la teva tenda. Consell: procura que la imatge tingui el màxim de definició possible i que sigui horitzontal i rectangular.
+            backgroundImage:
+                title: Imatge de fons
+                description: Puja aquí una imatge el més gran possible (quadrada o vertical) i es convertirà en l'espectacular fons de la teva botiga en línia. Si afegeixes la imatge de fons és recomanable no utilitzar cap imatge de capçalera.
     dashboard:
         single: Tauler de contol
         plural: Taulers de control
@@ -35,8 +82,8 @@ admin:
             last30days: Ultims 30 dies
             last90days: Ultims 90 dies
     UI:
-      show_code: Mostrar codi font
-      show_visual: Ocultar codi font
+        show_code: Mostrar codi font
+        show_visual: Ocultar codi font
     address:
         single: Adreça fiscal
         plural: Adreçes fiscals
@@ -48,11 +95,14 @@ admin:
             placeholder: Sel·lecciona una
         field:
             recipient_name:
-                title:       Nom del destinatari
+                title:       Nom / Empresa
                 placeholder: p.e. Joan
             recipient_surname:
-                title:       Cognóm del destinatari
+                title:       Cognóms (Opcional si es empresa)
                 placeholder: p.e. Capdevila
+            email:
+                title: Adreça electrònica
+                placeholder: p.e. joan.capdevila@mail.com
             address:
                 title:       Adreça
                 placeholder: "Plaça de a vil·la, 42"
@@ -79,6 +129,13 @@ admin:
                 title: Província
             city:
                 title: Ciutat
+            isCompany:
+                title: Es una empresa?
+                value:
+                    individual: Persona física
+                    company:    Empresa
+            cif:
+                title: CIF / NIF
             save: Guardar adreça
 
     remember_user:
@@ -432,6 +489,7 @@ admin:
             principal: La primera imatge serà la imatge principal.
             reorder: "Pots arrosegar les imatges per a ordenar-les."
             upload: Pujar imatges
+            upload_single: Pujar imatge
             upload_logo: Pujar Logotip
             deleted: Imatge esborrada
             format: Format JPG, PNG o GIF d'un maxim de 20 MB
@@ -498,14 +556,6 @@ admin:
             subtotal: Subtotal
             discount: Cupó de descompte
             shipping: Entrega
-        states:
-            title:       Historial
-            initial:     Comanda nova
-            unpaid:      Sense pagar
-            refunded:    Reemborsat
-            shipped:     Enviat
-            not shipped: Sense enviar
-            paid:        Pagat
         transition:
             refund: Reemborsar
             ship:   Enviar
@@ -838,36 +888,40 @@ admin:
     plugin:
         single: Complement
         plural: Complements
-        saved:  Configuració guardada
+        app_store: Llistat de complements
+        saved: Configuració guardada
         field:
             visibility: Actiu:
         section:
             settings: Configuració
 
     settings:
-        single: Configuració
-        plural: Configuracions
-        saved: Configuració guardada
-        section:
-            store:
-                title: Configuració de la tenda
-                description: Configura les dades de la tenda.
-            products:
-                title: Configuració del producte
-                description: Configura les dades del producte.
-            payment:
-                title: Métodes de pagament
-        field:
-            store_enabled: Tenda activa
-            store_under_construction: Tenda en construcció
-            store_name: Nom de la tenda
-            store_leitmotiv: Leitmotiv de la tenda
-            store_phone: Telèfon de la tenda
-            store_email: Correo electrónic de la tenda
-            currency: Configuració de moneda
-            product_stock:
-                title: Stock
-                description: Activa aquesta opció per a habilitar el control d'existencies
+      single: Configuració
+      plural: Configuracions
+      saved: Configuració guardada
+      section:
+          products:
+              title: Configuració del producte
+              description: Configura les dades del producte.
+          payment:
+              title: Métodes de pagament
+          store:
+            title: General
+          address:
+            title: Direcció fiscal
+          profile:
+            title: Imatge corporativa
+      field:
+          store_enabled: Tenda activa
+          store_under_construction: Tenda en construcció
+          store_name: Nom de la tenda
+          store_leitmotiv: Leitmotiv de la tenda
+          store_phone: Telèfon de la tenda
+          store_email: Correo electrónic de la tenda
+          currency: Configuració de moneda
+          product_stock:
+              title: Stock
+              description: Activa aquesta opció per a habilitar el control d'existencies
 
     template:
         single: Tema

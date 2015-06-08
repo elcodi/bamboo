@@ -25,8 +25,8 @@ use Elcodi\Component\Core\Services\ObjectDirector;
 use Elcodi\Component\Currency\Entity\Interfaces\CurrencyInterface;
 use Elcodi\Component\Currency\Entity\Money;
 use Elcodi\Component\EntityTranslator\Services\Interfaces\EntityTranslatorInterface;
-use Elcodi\Component\Shipping\ElcodiShippingRangeTypes;
 use Elcodi\Component\Zone\Entity\Interfaces\ZoneInterface;
+use Elcodi\Plugin\CustomShippingBundle\ElcodiShippingRangeTypes;
 
 /**
  * Class Carriers

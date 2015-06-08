@@ -22,9 +22,6 @@ store_currency:
 store_page:
     resource: "@StorePageBundle/Resources/config/routing.yml"
 
-store_payment:
-    resource: "@PaymentBridgeBundle/Resources/config/routing.yml"
-
 store_login_check:
     path:  /login_check
 
@@ -46,7 +43,7 @@ store_hwi_oauth_login:
     prefix:   /login
 
 store_github_login:
-    pattern: /login/check-github
+    path: /login/check-github
 
 store_paypal_login:
-    pattern: /login/check-paypal
+    path: /login/check-paypal

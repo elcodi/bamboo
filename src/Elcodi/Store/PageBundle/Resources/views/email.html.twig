@@ -1,4 +1,4 @@
-{% extends elcodi_config('store.template') ~ ':Layout:_email.html.twig' %}
+{% extends store.template ~ ':Layout:_email.html.twig' %}
 
 {% block body %}
     {% include template_from_string(content) %}

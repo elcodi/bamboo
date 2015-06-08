@@ -56,7 +56,7 @@ store_cart_nav: /cart/nav
 store_checkout_address: /cart/address
 store_checkout_address_save: /cart/address/save
 store_checkout_payment: /cart/payment
-store_checkout_payment_fail: /cart/payment/error
+store_checkout_payment_fail: /cart/payment/error/{id}
 store_checkout_shipping_range_apply: /cart/shipping/range/change/{rangeId}
 
 #

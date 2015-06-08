@@ -1,0 +1,4 @@
+freepayment_payment_routes:
+    path: /payment/free/execute
+    defaults:
+        _controller: FreePaymentBundle:FreePayment:execute

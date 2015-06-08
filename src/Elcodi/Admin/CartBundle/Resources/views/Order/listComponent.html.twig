@@ -36,7 +36,7 @@
 {% block table_body_row %}
 
     <td>
-        <a href="{{ url('admin_order_edit', { id: entity.id }) }}">
+        <a href="{{ url('admin_order_edit', { id: entity.id }) }}" data-test="order-{{ entity.id }}">
             {{ 'admin.order.field.id'|trans({ '%id%': entity.id }) }}
         </a>
     </td>
@@ -50,10 +50,10 @@
     </td>
     <td>
         <span class="label label-warning">
-            {{ "admin.order.states.#{entity.paymentStateLineStack.lastStateLine.name}"|trans }}
+            {{ "common.order.states.#{entity.paymentStateLineStack.lastStateLine.name}"|trans }}
         </span>
         <span class="label label-info">
-            {{ "admin.order.states.#{entity.shippingStateLineStack.lastStateLine.name}"|trans }}
+            {{ "common.order.states.#{entity.shippingStateLineStack.lastStateLine.name}"|trans }}
         </span>
     </td>
     <td>

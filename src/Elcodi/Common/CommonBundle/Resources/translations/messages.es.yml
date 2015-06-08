@@ -1,0 +1,10 @@
+common:
+    order:
+        states:
+            title:       Historial
+            initial:     Nuevo pedido
+            unpaid:      Sin pagar
+            refunded:    Reembolsado
+            shipped:     Enviado
+            not shipped: Sin enviar
+            paid:        Pagado

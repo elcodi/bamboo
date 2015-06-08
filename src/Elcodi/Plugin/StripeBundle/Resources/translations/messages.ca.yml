@@ -1,0 +1,9 @@
+elcodi_plugin:
+    stripe:
+        name: Stripe
+        description: Integració d'Stripe per a la teva botiga
+        field:
+            private_key:
+                label: Clau privada
+            public_key:
+                label: Clau pública

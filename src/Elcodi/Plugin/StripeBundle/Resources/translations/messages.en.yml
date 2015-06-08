@@ -1,0 +1,9 @@
+elcodi_plugin:
+    stripe:
+        name: Stripe
+        description: Stripe integration for your shop
+        field:
+            private_key:
+                label: Private key
+            public_key:
+                label: Public key

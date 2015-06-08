@@ -1,3 +1,0 @@
-AdminShippingBundle:
-    resource: "@AdminShippingBundle/Controller/"
-    type:     annotation

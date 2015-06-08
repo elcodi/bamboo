@@ -25,14 +25,14 @@
                 <a href="{{ imageUrl }}" data-fc-modules="modal" class="thumbnail mt-s mb-l">
                     <img width="100%" src="{{ imageUrl }}" />
                 </a>
-                <input type="hidden" id="url-{{ templateBundle }}-store.template" value="{{ url('admin_configuration_update', { name: 'store.template'}) }}" />
+                <input type="hidden" id="url-{{ templateBundle }}-store.template" value="{{ url('admin_template_assign', { hash: template.hash}) }}" />
                 <a href="{{ asset("#{assetPath}/preview/index.html") }}" data-fc-modules="modal" data-fc-width="95%" data-fc-height="95%" class="button">
                     {{ 'admin.template.action.preview'|trans }}
                 </a>
                 <div class="fl-r pt-s">
                     {{ 'admin.template.label.status'|trans }}
                     <div class="switch">
-                        <input type="radio" name="store.template" id="{{ templateBundle }}-store.template" value="{{ templateBundle }}"{% if elcodi_config('store.template') == templateBundle %} checked="checked"{% endif %} />
+                        <input type="radio" name="store.template" id="{{ templateBundle }}-store.template" value="{{ templateBundle }}"{% if template.hash == store.template %} checked="checked"{% endif %} />
                         <label for="{{ templateBundle }}-store.template" class="mr-n"></label>
                     </div>
                 </div>

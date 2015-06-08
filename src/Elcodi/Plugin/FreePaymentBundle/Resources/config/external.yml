@@ -1,0 +1,5 @@
+free_payment:
+    payment_success:
+        route: store_order_thanks
+        order_append: true
+        order_append_field: id

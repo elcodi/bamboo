@@ -1,0 +1,6 @@
+plugin:
+    type: plugin
+    category: shipping
+    name: elcodi_plugin.custom_shipping.name
+    description: elcodi_plugin.custom_shipping.description
+    fa_icon: truck

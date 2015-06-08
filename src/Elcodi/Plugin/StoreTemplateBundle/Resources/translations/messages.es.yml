@@ -134,7 +134,8 @@ template:
                 image: Imagen
                 number_of_order: Nº de Pedido
                 order_number: "Pedido #"
-                state: Comunidad autónoma
+                payment_state: Estado de pago
+                shipping_state: Estado de envío
                 date: Fecha
                 total: Total
                 no_orders: Aún no tienes ningún pedido

@@ -145,8 +145,8 @@ class VariantComponentController extends AbstractAdminController
         VariantInterface $variant
     ) {
         $useStock = $this
-            ->get('elcodi.manager.configuration')
-            ->get('product.use_stock');
+            ->get('elcodi.store')
+            ->getUseStock();
 
         return [
             'variant'  => $variant,

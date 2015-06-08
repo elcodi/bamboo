@@ -19,20 +19,8 @@ services:
         arguments:
             - @elcodi_plugin.store_setup_wizard.wizard_status
             - @elcodi.manager.plugin
-            - @elcodi.manager.configuration
             - @elcodi.object_manager.plugin
-        calls:
-            - [setPlugin, [@elcodi_plugin.store_setup_wizard]]
-        tags:
-            - { name: firewall_listener, firewall: admin_area }
-
-    elcodi_plugin.store_setup_wizard.event_listener.disable_under_construction:
-        class: Elcodi\Plugin\StoreSetupWizardBundle\EventListener\DisableUnderConstructionEventListener
-        arguments:
-            - @translator
-            - @router
-            - @elcodi_plugin.store_setup_wizard.wizard_status
-            - @elcodi.manager.configuration
+            - @elcodi.store
         calls:
             - [setPlugin, [@elcodi_plugin.store_setup_wizard]]
         tags:

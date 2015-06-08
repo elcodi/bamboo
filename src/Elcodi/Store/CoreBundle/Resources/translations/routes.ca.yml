@@ -56,7 +56,7 @@ store_cart_nav: /cistella/nav
 store_checkout_address: /cistella/adreça
 store_checkout_address_save: /cistella/adreça/guardar
 store_checkout_payment: /cistella/pagament
-store_checkout_payment_fail: /cistella/pagament/error
+store_checkout_payment_fail: /cistella/pagament/error/{id}
 store_checkout_shipping_range_apply: /cistella/enviament/rang/canviar/{rangeId}
 
 #

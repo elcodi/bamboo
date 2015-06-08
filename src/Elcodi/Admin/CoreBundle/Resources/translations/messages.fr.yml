@@ -461,14 +461,6 @@ admin:
             subtotal: Sous-total
             discount: Réduction (coupon)
             shipping: Livraison
-        states:
-            title:       Historique
-            initial:     Nouvelle commande
-            unpaid:      Non payée
-            refunded:    Remboursée
-            shipped:     Livrée
-            not shipped: Non livrée
-            paid:        Payée
         transition:
             refund: Remboursement
             ship:   Livraison

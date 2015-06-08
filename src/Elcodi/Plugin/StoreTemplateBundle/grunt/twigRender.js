@@ -244,15 +244,6 @@ module.exports = function(grunt, fixtures) {
 						return '</form>';
 					});
 
-					Twig.exports.extendFunction("elcodi_config", function ( sVar ) {
-
-						if (sVar !== undefined) {
-							var sValue = sVar.replace('.', ' ');
-						}
-
-						return sValue;
-					});
-
 					Twig.exports.extendFunction("elcodi_blog_pages", function ( sVar ) {
 
 						return sVar;

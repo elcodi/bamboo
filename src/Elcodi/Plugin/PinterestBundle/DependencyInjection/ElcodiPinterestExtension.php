@@ -51,7 +51,7 @@ class ElcodiPinterestExtension extends AbstractExtension
     public function getConfigFiles(array $config)
     {
         return [
-            'plugin',
+            'services',
             'templating',
         ];
     }

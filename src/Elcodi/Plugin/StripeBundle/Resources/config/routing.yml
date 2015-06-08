@@ -1,0 +1,4 @@
+stripe_execute:
+    path: /payment/stripe/execute
+    defaults:
+        _controller: StripeBundle:Stripe:execute

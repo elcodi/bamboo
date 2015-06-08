@@ -1,0 +1,4 @@
+elcodi_plugin:
+    paypal_web_checkout:
+        name: Paypal
+        description: Integració de Paypal per a la teva botiga

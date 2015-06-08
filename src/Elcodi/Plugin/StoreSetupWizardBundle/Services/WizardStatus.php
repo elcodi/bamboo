@@ -17,24 +17,16 @@
 
 namespace Elcodi\Plugin\StoreSetupWizardBundle\Services;
 
-use Elcodi\Component\Configuration\Services\ConfigurationManager;
+use Elcodi\Component\Plugin\Entity\Plugin;
 use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
 use Elcodi\Component\Product\Repository\ProductRepository;
-use Elcodi\Component\Shipping\Entity\Interfaces\ShippingPriceRangeInterface;
-use Elcodi\Component\Shipping\Repository\ShippingRangeRepository;
+use Elcodi\Component\Store\Entity\Interfaces\StoreInterface;
 
 /**
  * Class WizardStatus
  */
 class WizardStatus
 {
-    /**
-     * @var ConfigurationManager
-     *
-     * Configuration manager
-     */
-    protected $configurationManager;
-
     /**
      * @var ProductRepository
      *
@@ -43,41 +35,44 @@ class WizardStatus
     protected $productRepository;
 
     /**
-     * @var ShippingRangeRepository
+     * @var StoreInterface
      *
-     * Shipping range repository
+     * Store
      */
-    protected $shippingRangeRepository;
+    protected $store;
 
     /**
-     * @var array
+     * @var Plugin[]
      *
-     * The payment enabled methods
+     * The payment enabled Plugins
      */
-    private $paymentEnabledMethods;
+    private $enabledPaymentPlugins;
+
+    /**
+     * @var Plugin[]
+     *
+     * The shipping enabled Plugins
+     */
+    private $enabledShippingPlugins;
 
     /**
      * Builds a new WizardStepChecker
      *
-     * @param ConfigurationManager    $configurationManager    Configuration
-     *                                                         manager
-     * @param ProductRepository       $productRepository       Product
-     *                                                         repository
-     * @param ShippingRangeRepository $shippingRangeRepository A shipping range
-     *                                                         repository
-     * @param array                   $paymentEnabledMethods   The enabled
-     *                                                         payment methods
+     * @param ProductRepository $productRepository      Product repository
+     * @param StoreInterface    $store                  Store
+     * @param array             $enabledPaymentPlugins  The enabled payment methods
+     * @param array             $enabledShippingPlugins The enabled shipping methods
      */
     public function __construct(
-        ConfigurationManager $configurationManager,
         ProductRepository $productRepository,
-        ShippingRangeRepository $shippingRangeRepository,
-        array $paymentEnabledMethods
+        StoreInterface $store,
+        array $enabledPaymentPlugins,
+        array $enabledShippingPlugins
     ) {
-        $this->configurationManager    = $configurationManager;
-        $this->productRepository       = $productRepository;
-        $this->shippingRangeRepository = $shippingRangeRepository;
-        $this->paymentEnabledMethods   = $paymentEnabledMethods;
+        $this->productRepository = $productRepository;
+        $this->store = $store;
+        $this->enabledPaymentPlugins = $enabledPaymentPlugins;
+        $this->enabledShippingPlugins = $enabledShippingPlugins;
     }
 
     /**
@@ -125,7 +120,7 @@ class WizardStatus
             case 3:
                 return $this->isPaymentFulfilled();
             case 4:
-                return $this->isThereAnyShippingRange();
+                return $this->isShippingFulfilled();
             default:
                 return true;
         }
@@ -154,10 +149,14 @@ class WizardStatus
     protected function isAddressFulfilled()
     {
         $storeAddress = $this
-            ->configurationManager
-            ->get('store.address');
+            ->store
+            ->getAddress();
 
-        return !empty($storeAddress);
+        return
+            $storeAddress->getCity() != '' &&
+            $storeAddress->getCity() != null &&
+            $storeAddress->getAddress() != '' &&
+            $storeAddress->getPostalcode() != '';
     }
 
     /**
@@ -183,34 +182,14 @@ class WizardStatus
      */
     protected function isPaymentFulfilled()
     {
-        $paymillPrivateKey = $this
-            ->configurationManager
-            ->get('store.paymill_private_key');
-        $paymillPublicKey  = $this
-            ->configurationManager
-            ->get('store.paymill_public_key');
-        if (
-            isset($this->paymentEnabledMethods['paymill'])
-            && true == $this->paymentEnabledMethods['paymill']
-            && (
-                '' == $paymillPrivateKey ||
-                '' == $paymillPublicKey
-            )
-        ) {
-            return false;
-        }
-        $paypalCheckoutRecipient = $this
-            ->configurationManager
-            ->get('store.paypal_web_checkout_recipient');
-        if (
-            isset($this->paymentEnabledMethods['paypal'])
-            && true == $this->paymentEnabledMethods['paypal']
-            && '' == $paypalCheckoutRecipient
-        ) {
-            return false;
-        }
+        return array_reduce(
+            $this->enabledPaymentPlugins,
+            function ($value, Plugin $plugin) {
 
-        return true;
+                return $value || $plugin->guessIsUsable();
+            },
+            false
+        );
     }
 
     /**
@@ -218,12 +197,15 @@ class WizardStatus
      *
      * @return boolean
      */
-    protected function isThereAnyShippingRange()
+    protected function isShippingFulfilled()
     {
-        $shippingRange = $this
-            ->shippingRangeRepository
-            ->findOneBy([]);
+        return array_reduce(
+            $this->enabledShippingPlugins,
+            function ($value, Plugin $plugin) {
 
-        return ($shippingRange instanceof ShippingPriceRangeInterface);
+                return $value || $plugin->guessIsUsable();
+            },
+            false
+        );
     }
 }

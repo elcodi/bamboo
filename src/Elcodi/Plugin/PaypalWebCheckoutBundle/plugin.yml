@@ -1,0 +1,15 @@
+plugin:
+    type: plugin
+    category: payment
+    name: elcodi_plugin.paypal_web_checkout.name
+    description: elcodi_plugin.paypal_web_checkout.description
+    fa_icon: paypal
+    fields:
+        private_key:
+            type: text
+            required: true
+            label: elcodi_plugin.paypal_web_checkout.field.private_key.label
+        public_key:
+            type: text
+            required: true
+            label: elcodi_plugin.paypal_web_checkout.field.public_key.label

@@ -10,5 +10,5 @@ services:
             - @mailer
             - @twig
             - @elcodi.repository.page
+            - @elcodi.store
             - @store.page.services.template_locator
-            - @=elcodi_config("store.email")

@@ -1,0 +1,23 @@
+services:
+
+    #
+    # Form Types
+    #
+    elcodi.admin.shipping.form_type.shipping_range:
+        class: Elcodi\Plugin\CustomShippingBundle\Form\Type\ShippingRangeType
+        arguments:
+            - %elcodi.entity.zone.class%
+        calls:
+            - [setFactory, [@elcodi.factory.shipping_range]]
+        tags:
+            - { name: form.type, alias: elcodi_plugin_custom_shipping_form_type_shipping_range }
+
+    elcodi.admin.shipping.form_type.carrier:
+        class: Elcodi\Plugin\CustomShippingBundle\Form\Type\CarrierType
+        arguments:
+            - %elcodi.entity.tax.class%
+        calls:
+            - [setFactory, [@elcodi.factory.carrier]]
+            - [setEntityTranslatorFormEventListener, [@elcodi.entity_translator_form_event_listener]]
+        tags:
+            - { name: form.type, alias: elcodi_plugin_custom_shipping_form_type_carrier }

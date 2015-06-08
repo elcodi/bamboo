@@ -26,6 +26,7 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 
 use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\Component\Currency\Entity\Interfaces\CurrencyInterface;
+use Elcodi\Component\Store\Entity\Interfaces\StoreInterface;
 
 /**
  * Class Controller for Currency
@@ -134,8 +135,8 @@ class CurrencyController extends AbstractAdminController
          * We cannot disable the default currency
          */
         $masterCurrency = $configManager = $this
-            ->get('elcodi.manager.configuration')
-            ->get('currency.default_currency');
+            ->get('elcodi.store')
+            ->getDefaultCurrency();
 
         if ($currency->getIso() == $masterCurrency) {
             throw new HttpException(
@@ -163,6 +164,15 @@ class CurrencyController extends AbstractAdminController
      * @Method({"POST"})
      *
      * @EntityAnnotation(
+     *      class = {
+     *          "factory" = "elcodi.wrapper.store",
+     *          "method" = "get",
+     *          "static" = false
+     *      },
+     *      name = "store",
+     *      persist = false
+     * )
+     * @EntityAnnotation(
      *      class = "elcodi.entity.currency.class",
      *      name = "currency",
      *      mapping = {
@@ -173,6 +183,7 @@ class CurrencyController extends AbstractAdminController
      * @JsonResponse()
      */
     public function masterCurrencyAction(
+        StoreInterface $store,
         CurrencyInterface $currency
     ) {
         $translator = $this->get('translator');
@@ -183,9 +194,13 @@ class CurrencyController extends AbstractAdminController
             );
         }
 
-        $configManager = $this->get('elcodi.manager.configuration');
-        $configManager->set('currency.default_currency', $currency->getIso());
+        $store->setDefaultCurrency($currency);
+        $this
+            ->get('elcodi.object_manager.store')
+            ->flush($store);
 
-        return ['message' => $translator->trans('admin.currency.saved.master')];
+        return [
+            'message' => $translator->trans('admin.currency.saved.master'),
+        ];
     }
 }

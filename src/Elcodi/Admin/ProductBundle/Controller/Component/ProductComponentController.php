@@ -149,8 +149,9 @@ class ProductComponentController extends AbstractAdminController
         FormView $formView,
         ProductInterface $product
     ) {
-        $useStock = $this->get('elcodi.manager.configuration')
-            ->get('product.use_stock');
+        $useStock = $this
+            ->get('elcodi.store')
+            ->getUseStock();
 
         return [
             'product'  => $product,

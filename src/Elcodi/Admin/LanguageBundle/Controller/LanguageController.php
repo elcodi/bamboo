@@ -26,6 +26,7 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 
 use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\Component\Language\Entity\Interfaces\LanguageInterface;
+use Elcodi\Component\Store\Entity\Interfaces\StoreInterface;
 
 /**
  * Class Controller for Language
@@ -123,8 +124,8 @@ class LanguageController extends AbstractAdminController
          * We cannot disable the default locale
          */
         $masterLanguage = $configManager = $this
-            ->get('elcodi.manager.configuration')
-            ->get('store.default_language');
+            ->get('elcodi.store')
+            ->getDefaultLanguage();
 
         if ($language->getIso() == $masterLanguage) {
             throw new HttpException(
@@ -153,6 +154,15 @@ class LanguageController extends AbstractAdminController
      * @Method({"POST"})
      *
      * @EntityAnnotation(
+     *      class = {
+     *          "factory" = "elcodi.wrapper.store",
+     *          "method" = "get",
+     *          "static" = false
+     *      },
+     *      name = "store",
+     *      persist = false
+     * )
+     * @EntityAnnotation(
      *      class = "elcodi.entity.language.class",
      *      name = "language",
      *      mapping = {
@@ -163,6 +173,7 @@ class LanguageController extends AbstractAdminController
      * @JsonResponse()
      */
     public function masterLanguageAction(
+        StoreInterface $store,
         LanguageInterface $language
     ) {
         $translator = $this->get('translator');
@@ -173,10 +184,14 @@ class LanguageController extends AbstractAdminController
             );
         }
 
-        $configManager = $this->get('elcodi.manager.configuration');
-        $configManager->set('store.default_language', $language->getIso());
+        $store->setDefaultLanguage($language);
+        $this
+            ->get('elcodi.object_manager.store')
+            ->flush($store);
         $this->flushCache();
 
-        return ['message' => $translator->trans('admin.language.saved.master')];
+        return [
+            'message' => $translator->trans('admin.language.saved.master'),
+        ];
     }
 }

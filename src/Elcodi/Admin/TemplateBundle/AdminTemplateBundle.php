@@ -19,6 +19,8 @@ namespace Elcodi\Admin\TemplateBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
+use Elcodi\Admin\TemplateBundle\DependencyInjection\AdminTemplateExtension;
+
 /**
  * Class AdminTemplateBundle
  */
@@ -31,6 +33,6 @@ class AdminTemplateBundle extends Bundle
      */
     public function getContainerExtension()
     {
-        return null;
+        return new AdminTemplateExtension();
     }
 }

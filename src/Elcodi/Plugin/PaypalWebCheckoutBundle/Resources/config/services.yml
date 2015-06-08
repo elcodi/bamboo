@@ -1,0 +1,9 @@
+services:
+
+    #
+    # Plugin
+    #
+    elcodi_plugin.paypal_web_checkout:
+        parent: elcodi.abstract_plugin
+        arguments:
+            - "Elcodi\\Plugin\\PaypalWebCheckoutBundle\\ElcodiPaypalWebCheckoutBundle"

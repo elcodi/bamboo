@@ -22,6 +22,7 @@ use DateTime;
 use Elcodi\Component\Cart\Event\OrderOnCreatedEvent;
 use Elcodi\Component\Metric\Core\Services\MetricManager;
 use Elcodi\Component\Metric\ElcodiMetricTypes;
+use Elcodi\Component\Store\Entity\Interfaces\StoreInterface;
 
 /**
  * Class AddOrderCompletedMetricEventListener
@@ -36,22 +37,24 @@ class AddOrderCompletedMetricEventListener
     protected $metricManager;
 
     /**
-     * @var string
+     * @var StoreInterface
      *
-     * Token
+     * Store
      */
-    protected $token;
+    protected $store;
 
     /**
      * Construct
      *
-     * @param MetricManager $metricManager Metric manager
-     * @param string        $token         Token
+     * @param MetricManager  $metricManager Metric manager
+     * @param StoreInterface $store         Store
      */
-    public function __construct(MetricManager $metricManager, $token)
-    {
+    public function __construct(
+        MetricManager $metricManager,
+        StoreInterface $store
+    ) {
         $this->metricManager = $metricManager;
-        $this->token = $token;
+        $this->store = $store;
     }
 
     /**
@@ -61,10 +64,14 @@ class AddOrderCompletedMetricEventListener
      */
     public function addMetric(OrderOnCreatedEvent $event)
     {
+        $storeTracker = $this
+            ->store
+            ->getTracker();
+
         $this
             ->metricManager
             ->addEntry(
-                $this->token,
+                $storeTracker,
                 'order_nb',
                 '0',
                 ElcodiMetricTypes::TYPE_BEACON_ALL,
@@ -79,7 +86,7 @@ class AddOrderCompletedMetricEventListener
         $this
             ->metricManager
             ->addEntry(
-                $this->token,
+                $storeTracker,
                 'order_total',
                 $orderAmount,
                 ElcodiMetricTypes::TYPE_ACCUMULATED,

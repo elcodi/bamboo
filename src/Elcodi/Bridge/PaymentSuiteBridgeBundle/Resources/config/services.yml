@@ -1,0 +1,11 @@
+services:
+
+    #
+    # Services
+    #
+    payment.bridge:
+        class: Elcodi\Bridge\PaymentSuiteBridgeBundle\Services\PaymentBridge
+        arguments:
+            order_repository: @elcodi.repository.order
+            cart_wrapper: @elcodi.wrapper.cart
+            currency_converter: @elcodi.converter.currency

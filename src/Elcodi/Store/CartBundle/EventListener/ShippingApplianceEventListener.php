@@ -20,9 +20,8 @@ namespace Elcodi\Store\CartBundle\EventListener;
 use Elcodi\Component\Cart\Event\CartOnLoadEvent;
 use Elcodi\Component\Cart\EventDispatcher\CartEventDispatcher;
 use Elcodi\Component\Geo\Entity\Interfaces\AddressInterface;
-use Elcodi\Component\Shipping\Entity\Interfaces\ShippingRangeInterface;
-use Elcodi\Component\Shipping\Provider\ShippingRangeProvider;
-use Elcodi\Component\Shipping\Resolver\ShippingRangeResolver;
+use Elcodi\Component\Shipping\Resolver\ShippingResolver;
+use Elcodi\Component\Shipping\Wrapper\ShippingWrapper;
 use Elcodi\Component\User\Entity\Interfaces\CustomerInterface;
 
 /**
@@ -35,37 +34,37 @@ class ShippingApplianceEventListener
      *
      * Cart Event Dispatcher
      */
-    protected $cartEventDispatcher;
+    private $cartEventDispatcher;
 
     /**
-     * @var ShippingRangeProvider
+     * @var ShippingWrapper
      *
-     * Carrier provider
+     * Shipping Wrapper
      */
-    protected $shippingRangeProvider;
+    private $shippingWrapper;
 
     /**
-     * @var ShippingRangeResolver
+     * @var ShippingResolver
      *
-     * Shipping Range Resolver
+     * Shipping method resolver
      */
-    protected $shippingRangeResolver;
+    private $shippingResolver;
 
     /**
      * Construct
      *
-     * @param CartEventDispatcher   $cartEventDispatcher   Cart Event Dispatcher
-     * @param ShippingRangeProvider $shippingRangeProvider Carrier provider
-     * @param ShippingRangeResolver $shippingRangeResolver Shipping range resolver
+     * @param CartEventDispatcher $cartEventDispatcher Cart Event Dispatcher
+     * @param ShippingWrapper     $shippingWrapper     Shipping wrapper
+     * @param ShippingResolver    $shippingResolver    Shipping Method Resolver
      */
     public function __construct(
         CartEventDispatcher $cartEventDispatcher,
-        ShippingRangeProvider $shippingRangeProvider,
-        ShippingRangeResolver $shippingRangeResolver
+        ShippingWrapper $shippingWrapper,
+        ShippingResolver $shippingResolver
     ) {
         $this->cartEventDispatcher = $cartEventDispatcher;
-        $this->shippingRangeProvider = $shippingRangeProvider;
-        $this->shippingRangeResolver = $shippingRangeResolver;
+        $this->shippingWrapper = $shippingWrapper;
+        $this->shippingResolver = $shippingResolver;
     }
 
     /**
@@ -73,24 +72,23 @@ class ShippingApplianceEventListener
      *
      * @param CartOnLoadEvent $event Event
      *
-     * @return void
+     * @return $this Self object
      */
     public function removeInvalidShippingRange(CartOnLoadEvent $event)
     {
         $cart = $event->getCart();
-        $shippingRange = $cart->getShippingRange();
+        $cartShippingMethodId = $cart->getShippingMethod();
 
-        if (!($shippingRange instanceof ShippingRangeInterface)) {
-            return null;
+        if (null === $cartShippingMethodId) {
+            return $this;
         }
 
-        $shippingRangeId = $shippingRange->getId();
-        $validCarrierRanges = $this
-            ->shippingRangeProvider
-            ->getValidShippingRangesSatisfiedWithCart($cart);
+        $shippingMethod = $this
+            ->shippingWrapper
+            ->getOneById($cart, $cartShippingMethodId);
 
-        if (!isset($validCarrierRanges[$shippingRangeId])) {
-            $cart->setShippingRange(null);
+        if (null === $shippingMethod) {
+            $cart->setShippingMethod(null);
             $this
                 ->cartEventDispatcher
                 ->dispatchCartLoadEvents($cart);
@@ -98,7 +96,7 @@ class ShippingApplianceEventListener
             $event->stopPropagation();
         }
 
-        return null;
+        return $this;
     }
 
     /**
@@ -106,26 +104,26 @@ class ShippingApplianceEventListener
      *
      * @param CartOnLoadEvent $event Event
      *
-     * @return void
+     * @return $this Self object
      */
     public function loadCheapestShippingRange(CartOnLoadEvent $event)
     {
         $cart = $event->getCart();
-        $shippingRange = $cart->getShippingRange();
+        $cartShippingMethodId = $cart->getShippingMethod();
 
         /**
          * We don't have the need to find the cheapest one if the real one is
          * already defined
          */
-        if ($shippingRange instanceof ShippingRangeInterface) {
-            return null;
+        if (null !== $cartShippingMethodId) {
+            return $this;
         }
 
         /**
          * If the cart is not associated to any customer, just skip it
          */
         if (!($cart->getCustomer() instanceof CustomerInterface)) {
-            return null;
+            return $this;
         }
 
         $address = ($cart->getDeliveryAddress() instanceof AddressInterface)
@@ -140,21 +138,21 @@ class ShippingApplianceEventListener
          * anything
          */
         if (!($address instanceof AddressInterface)) {
-            return null;
+            return $this;
         }
 
         $cart->setDeliveryAddress($address);
 
         $validCarrierRanges = $this
-            ->shippingRangeProvider
-            ->getValidShippingRangesSatisfiedWithCart($cart);
+            ->shippingWrapper
+            ->get($cart);
 
-        $cheapestCarrierRange = $this
-            ->shippingRangeResolver
-            ->getShippingRangeWithLowestPrice($validCarrierRanges);
+        $cheapestShippingRange = $this
+            ->shippingResolver
+            ->getCheapestShippingMethod($validCarrierRanges);
 
-        $cart->setCheapestShippingRange($cheapestCarrierRange);
+        $cart->setCheapestShippingMethod($cheapestShippingRange->getId());
 
-        return null;
+        return $this;
     }
 }
