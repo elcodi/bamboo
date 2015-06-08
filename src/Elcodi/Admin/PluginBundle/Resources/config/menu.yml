@@ -3,14 +3,14 @@ services:
     #
     # Menu builders
     #
-    elcodi.admin.menu_builder.plugin_list:
+    elcodi_admin.menu_builder.plugin_list:
         class: Elcodi\Admin\PluginBundle\Builder\MenuBuilder
         arguments:
             - @elcodi.factory.menu_node
         tags:
             - { name: menu.builder }
 
-    elcodi.admin.menu_builder.plugins:
+    elcodi_admin.menu_builder.plugins:
         class: Elcodi\Admin\PluginBundle\Builder\PluginMenuBuilder
         arguments:
             - @elcodi.factory.menu_node

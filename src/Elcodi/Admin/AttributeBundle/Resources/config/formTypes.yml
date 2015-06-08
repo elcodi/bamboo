@@ -3,7 +3,7 @@ services:
     #
     # Form Types
     #
-    elcodi.admin.attribute.form_type.attribute:
+    elcodi_admin.form_type.attribute:
         class: Elcodi\Admin\AttributeBundle\Form\Type\AttributeType
         calls:
             - [setFactory, [@elcodi.factory.attribute]]

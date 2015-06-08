@@ -3,7 +3,7 @@ services:
     #
     # Form Types
     #
-    elcodi.admin.product.form_type.coupon:
+    elcodi_admin.form_type.coupon:
         class: Elcodi\Admin\CouponBundle\Form\Type\CouponType
         arguments:
             - %elcodi.entity.rule.class%

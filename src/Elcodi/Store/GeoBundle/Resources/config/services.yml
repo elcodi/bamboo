@@ -3,7 +3,7 @@ services:
     #
     # Services
     #
-    elcodi.store.geo.form.location_selector_builder:
+    elcodi_store.form.location_selector_builder:
         class: Elcodi\Store\GeoBundle\Form\LocationSelectorBuilder
         arguments:
             location_provider: @elcodi.location_provider

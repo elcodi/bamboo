@@ -3,7 +3,7 @@ services:
     #
     # Form Types
     #
-    store.cart_coupon.form_type.coupon_apply:
+    elcodi_store.form_type.coupon_apply:
         class: Elcodi\Store\CartCouponBundle\Form\Type\CouponApplyType
         arguments:
             router: @router

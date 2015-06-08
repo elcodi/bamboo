@@ -3,7 +3,7 @@ services:
     #
     # Menu builders
     #
-    elcodi.admin.menu_builder.shipping:
+    elcodi_admin.menu_builder.shipping:
         class: Elcodi\Admin\ShippingBundle\Builder\MenuBuilder
         arguments:
             - @elcodi.factory.menu_node

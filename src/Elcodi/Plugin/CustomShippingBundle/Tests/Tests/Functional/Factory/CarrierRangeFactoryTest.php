@@ -41,6 +41,6 @@ class CarrierRangeFactoryTest extends WebTestCase
      */
     public function getServiceCallableName()
     {
-        return ['elcodi.factory.shipping_range'];
+        return ['elcodi_plugin.custom_shipping.factory.shipping_range'];
     }
 }

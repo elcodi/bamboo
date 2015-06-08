@@ -3,13 +3,13 @@ services:
     #
     # Transformers for sitemap
     #
-    elcodi.sitemap_transformer.product:
+    elcodi_store.sitemap_transformer.product:
         class: Elcodi\Store\ProductBundle\Transformer\ProductTransformer
         arguments:
             - @elcodi.entity_translator
             - @router
 
-    elcodi.sitemap_transformer.category:
+    elcodi_store.sitemap_transformer.category:
         class: Elcodi\Store\ProductBundle\Transformer\CategoryTransformer
         arguments:
             - @elcodi.entity_translator

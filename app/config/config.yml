@@ -151,7 +151,7 @@ elcodi_media:
 
 elcodi_page:
     renderers:
-        - bamboo.page.renderer.template_renderer
+        - elcodi_common.renderer.template_renderer
 
 #
 # Overwrite your Error templates

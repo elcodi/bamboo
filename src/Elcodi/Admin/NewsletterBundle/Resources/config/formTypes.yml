@@ -3,7 +3,7 @@ services:
     #
     # Form Types
     #
-    elcodi.admin.newsletter.form_type.newsletter_subscription:
+    elcodi_admin.form_type.newsletter_subscription:
         class: Elcodi\Admin\NewsletterBundle\Form\Type\NewsletterSubscriptionType
         calls:
             - [setFactory, [@elcodi.factory.newsletter_subscription]]

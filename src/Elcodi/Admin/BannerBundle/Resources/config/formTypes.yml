@@ -3,7 +3,7 @@ services:
     #
     # Form Types
     #
-    elcodi.admin.banner.form_type.banner:
+    elcodi_admin.form_type.banner:
         class: Elcodi\Admin\BannerBundle\Form\Type\BannerType
         arguments:
             - %elcodi.entity.image.class%
@@ -13,7 +13,7 @@ services:
         tags:
             - { name: form.type, alias: elcodi_admin_banner_form_type_banner }
 
-    elcodi.admin.banner.form_type.banner_zone:
+    elcodi_admin.form_type.banner_zone:
         class: Elcodi\Admin\BannerBundle\Form\Type\BannerZoneType
         arguments:
             - %elcodi.entity.language.class%

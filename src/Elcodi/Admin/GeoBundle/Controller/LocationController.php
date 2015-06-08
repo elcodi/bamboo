@@ -60,7 +60,7 @@ class LocationController extends Controller
         $locationId
     ) {
         $citySelectorBuilder = $this->get(
-            'elcodi.admin.geo.form.location_selector_builder'
+            'elcodi_admin.form.location_selector_builder'
         );
 
         $selects = $citySelectorBuilder->getSelects(

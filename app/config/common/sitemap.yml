@@ -1,7 +1,7 @@
 elcodi_sitemap:
     blocks:
         enabled_products:
-            transformer: elcodi.sitemap_transformer.product
+            transformer: elcodi_store.sitemap_transformer.product
             repository_service: elcodi.repository.product
             method: findBy
             arguments:
@@ -9,7 +9,7 @@ elcodi_sitemap:
             changeFrequency: daily
             priority: "0,5"
         enabled_categories:
-            transformer: elcodi.sitemap_transformer.category
+            transformer: elcodi_store.sitemap_transformer.category
             repository_service: elcodi.repository.category
             method: findBy
             arguments:

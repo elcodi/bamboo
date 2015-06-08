@@ -3,12 +3,12 @@ services:
     #
     # Twig extensions
     #
-    elcodi.twig_extension.encrypt:
+    elcodi_store.twig_extension.encrypt:
         class: Elcodi\Store\CoreBundle\Twig\EncryptExtension
         tags:
             - { name: twig.extension }
 
-    elcodi.twig_extension.referrer:
+    elcodi_store.twig_extension.referrer:
         class: Elcodi\Store\CoreBundle\Twig\ReferrerExtension
         arguments:
             - @elcodi.referrer_provider

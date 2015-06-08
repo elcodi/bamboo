@@ -3,7 +3,7 @@ services:
     #
     # Event Listeners
     #
-    store.event_listener.password_remember_credentials:
+    elcodi_elcodi_store.event_listener.password_remember_credentials:
         class: Elcodi\Store\UserBundle\EventListener\RememberPasswordCredentialsEventListener
         arguments:
             - @security.token_storage
@@ -11,25 +11,25 @@ services:
         tags:
             - { name: kernel.event_listener, event: password.recover, method: giveCredentialsWithNewPassword }
 
-    store.event_listener.send_customer_registration_email:
+    elcodi_elcodi_store.event_listener.send_customer_registration_email:
         class: Elcodi\Store\UserBundle\EventListener\SendRegistrationEmailEventListener
         parent: store.abstract_email_sender_event_listener
         tags:
             - { name: kernel.event_listener, event: customer.register, method: sendCustomerRegistrationEmail }
 
-    store.event_listener.send_password_remember_email:
+    elcodi_elcodi_store.event_listener.send_password_remember_email:
         class: Elcodi\Store\UserBundle\EventListener\SendPasswordRememberEmailEventListener
         parent: store.abstract_email_sender_event_listener
         tags:
             - { name: kernel.event_listener, event: password.remember, method: sendPasswordRememberEmail }
 
-    store.event_listener.send_password_recover_email:
+    elcodi_elcodi_store.event_listener.send_password_recover_email:
         class: Elcodi\Store\UserBundle\EventListener\SendPasswordRecoverEmailEventListener
         parent: store.abstract_email_sender_event_listener
         tags:
             - { name: kernel.event_listener, event: password.recover, method: sendPasswordRecoverEmail }
 
-    store.event_listener.autologin_on_register:
+    elcodi_elcodi_store.event_listener.autologin_on_register:
         class: Elcodi\Component\User\EventListener\AutologinOnRegisterEventListener
         arguments:
             - @request_stack

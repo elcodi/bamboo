@@ -105,7 +105,7 @@ class CarrierController extends AbstractAdminController
      *
      * @EntityAnnotation(
      *      class = {
-     *          "factory" = "elcodi.factory.carrier",
+     *          "factory" = "elcodi_plugin.custom_shipping.factory.carrier",
      *          "method" = "create",
      *          "static" = false
      *      },

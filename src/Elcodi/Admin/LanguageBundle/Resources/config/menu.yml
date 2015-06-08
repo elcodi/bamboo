@@ -3,7 +3,7 @@ services:
     #
     # Menu builders
     #
-    elcodi.admin.menu_builder.language:
+    elcodi_admin.menu_builder.language:
         class: Elcodi\Admin\LanguageBundle\Builder\MenuBuilder
         arguments:
             - @elcodi.factory.menu_node

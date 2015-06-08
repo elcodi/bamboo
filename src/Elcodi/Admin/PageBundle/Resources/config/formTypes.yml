@@ -3,17 +3,17 @@ services:
     #
     # Form Types
     #
-    elcodi.admin.page.form_type.page:
+    elcodi_admin.form_type.page:
         class: Elcodi\Admin\PageBundle\Form\Type\PageType
         arguments:
-            - @elcodi.admin.page.form_event_listener.permanent_page
+            - @elcodi_admin.form_event_listener.permanent_page
         calls:
             - [setFactory, [@elcodi.factory.page]]
             - [setEntityTranslatorFormEventListener, [@elcodi.entity_translator_form_event_listener]]
         tags:
             - { name: form.type, alias: elcodi_admin_page_form_type_page }
 
-    elcodi.admin.page.form_type.blog_post:
+    elcodi_admin.form_type.blog_post:
         class: Elcodi\Admin\PageBundle\Form\Type\BlogPostType
         calls:
             - [setFactory, [@elcodi.factory.page]]
@@ -21,7 +21,7 @@ services:
         tags:
             - { name: form.type, alias: elcodi_admin_page_form_type_blog_post }
 
-    elcodi.admin.page.form_type.email:
+    elcodi_admin.form_type.email:
         class: Elcodi\Admin\PageBundle\Form\Type\EmailType
         calls:
             - [setFactory, [@elcodi.factory.page]]

@@ -7,7 +7,7 @@ services:
     #
     # Factory for Authorization entities
     #
-    store.connect.factory.authorization:
+    elcodi_store.factory.authorization:
         class: Elcodi\Store\ConnectBundle\Factory\AuthorizationFactory
         calls:
             - [setEntityNamespace, ["%store.connect.entity.authorization.class%"]]

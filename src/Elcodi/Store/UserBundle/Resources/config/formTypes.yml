@@ -3,33 +3,33 @@ services:
     #
     # Form Types
     #
-    store.form_type.login:
+    elcodi_elcodi_store.form_type.login:
         class: Elcodi\Store\UserBundle\Form\Type\LoginType
         arguments:
             router: @router
         tags:
             - { name: form.type, alias: store_user_form_type_login }
 
-    store.form_type.register:
+    elcodi_elcodi_store.form_type.register:
         class: Elcodi\Store\UserBundle\Form\Type\RegisterType
         calls:
             - [setFactory, [@elcodi.factory.customer]]
         tags:
             - { name: form.type, alias: store_user_form_type_register }
 
-    store.form_type.profile:
+    elcodi_elcodi_store.form_type.profile:
         class: Elcodi\Store\UserBundle\Form\Type\ProfileType
         calls:
             - [setFactory, [@elcodi.factory.customer]]
         tags:
             - { name: form.type, alias: store_user_form_type_profile }
 
-    store.form_type.password_remember:
+    elcodi_elcodi_store.form_type.password_remember:
         class: Elcodi\Store\UserBundle\Form\Type\PasswordRememberType
         tags:
             - { name: form.type, alias: store_user_form_type_password_remember }
 
-    store.form_type.password_recover:
+    elcodi_elcodi_store.form_type.password_recover:
         class: Elcodi\Store\UserBundle\Form\Type\PasswordRecoverType
         tags:
             - { name: form.type, alias: store_user_form_type_password_recover }

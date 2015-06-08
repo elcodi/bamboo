@@ -3,11 +3,11 @@ services:
     #
     # Services
     #
-    store.connect.service.oauth_provider:
+    elcodi_store.provider.oauth:
         class: Elcodi\Store\ConnectBundle\Services\OAuthUserProvider
         arguments:
             - @security.user.provider.concrete.customer
-            - @store.connect.director.authorization
+            - @elcodi_store.director.authorization
             - @elcodi.director.customer
             - @elcodi.object_manager.customer
             - @elcodi.event_dispatcher.user

@@ -111,9 +111,9 @@ class FirewallCompilerPass implements CompilerPassInterface
         $provider_key,
         array $events
     ) {
-        $listenerId = 'elcodi.firewall.listener.' . $provider_key;
+        $listenerId = 'elcodi_common.event_listener.firewall_' . $provider_key;
 
-        $definition = new Definition('Elcodi\Common\FirewallBundle\EventListener\FirewallListener');
+        $definition = new Definition('Elcodi\Common\FirewallBundle\EventListener\FirewallEventListener');
         $definition->setArguments([new Reference('event_dispatcher'), $events]);
         $container->setDefinition($listenerId, $definition);
 

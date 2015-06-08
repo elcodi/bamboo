@@ -3,7 +3,7 @@ services:
     #
     # Form Types
     #
-    admin.geo.form_type.address:
+    elcodi_admin.form_type.address:
         class: Elcodi\Admin\GeoBundle\Form\Type\AddressType
         calls:
             - [setFactory, [@elcodi.factory.address]]

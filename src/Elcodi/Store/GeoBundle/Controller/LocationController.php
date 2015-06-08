@@ -60,7 +60,7 @@ class LocationController extends Controller
     public function showCitySelectorAction($locationId)
     {
         $selects = $this
-            ->get('elcodi.store.geo.form.location_selector_builder')
+            ->get('elcodi_store.form.location_selector_builder')
             ->getSelects(
                 $locationId,
                 $this->maxLocationType
