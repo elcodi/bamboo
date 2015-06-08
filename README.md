@@ -4,9 +4,9 @@ Bamboo e-commerce
 [![Build Status](https://travis-ci.org/elcodi/bamboo.svg?branch=master)](https://travis-ci.org/elcodi/bamboo)
 
 > Warning. This project is not tagged as stable yet. It means that we don't
-> promise BC between minor versions or patch versions. As soon as possible, we
-> will release our first Release Candidate, and the first Stable Version will
-> be release on June 1st. Stay Tuned and enjoy Elcodi.
+> promise BC between minor versions or patch versions. During the first quart of
+> June we will release our first Beta version for developers. Stay Tuned and 
+> enjoy Elcodi.
 
 Welcome to Bamboo e-commerce - a fully-functional e-commerce application built
 using [Elcodi] components on top of the
