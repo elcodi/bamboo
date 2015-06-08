@@ -3,7 +3,7 @@ services:
     #
     # Services
     #
-    elcodi.admin.product.services.category_sorter:
+    elcodi_admin.category_sorter:
         class: Elcodi\Admin\ProductBundle\Services\CategorySorter
         arguments:
             category_repository: @elcodi.repository.category

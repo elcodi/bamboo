@@ -11,4 +11,4 @@ services:
             - @twig
             - @elcodi.repository.page
             - @elcodi.store
-            - @store.page.services.template_locator
+            - @elcodi_store.template_locator.page

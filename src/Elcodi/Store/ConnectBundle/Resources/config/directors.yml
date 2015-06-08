@@ -3,10 +3,10 @@ services:
     #
     # Directors
     #
-    store.connect.director.authorization:
+    elcodi_store.director.authorization:
         class: Elcodi\Component\Core\Services\ObjectDirector
         lazy: true
         arguments:
             - @store.connect.object_manager.authorization
             - @store.connect.repository.authorization
-            - @store.connect.factory.authorization
+            - @elcodi_store.factory.authorization

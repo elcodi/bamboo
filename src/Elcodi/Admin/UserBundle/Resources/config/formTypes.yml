@@ -3,38 +3,38 @@ services:
     #
     # Form Types
     #
-    admin.user.form_type.login:
+    elcodi_admin.form_type.login:
         class: Elcodi\Admin\UserBundle\Form\Type\LoginType
         arguments:
             router: @router
         tags:
             - { name: form.type, alias: elcodi_admin_user_form_type_login }
 
-    admin.user.form_type.register:
+    elcodi_admin.form_type.register:
         class: Elcodi\Admin\UserBundle\Form\Type\RegisterType
         arguments:
             customer_namespace: %elcodi.entity.customer.class%
         tags:
             - { name: form.type, alias: elcodi_admin_user_form_type_register }
 
-    admin.user.form_type.profile:
+    elcodi_admin.form_type.profile:
         class: Elcodi\Admin\UserBundle\Form\Type\ProfileType
         calls:
             - [setFactory, [@elcodi.factory.customer]]
         tags:
             - { name: form.type, alias: elcodi_admin_user_form_type_profile }
 
-    admin.user.form_type.password_remember:
+    elcodi_admin.form_type.password_remember:
         class: Elcodi\Admin\UserBundle\Form\Type\PasswordRememberType
         tags:
             - { name: form.type, alias: elcodi_admin_user_form_type_password_remember }
 
-    admin.user.form_type.password_recover:
+    elcodi_admin.form_type.password_recover:
         class: Elcodi\Admin\UserBundle\Form\Type\PasswordRecoverType
         tags:
             - { name: form.type, alias: elcodi_admin_user_form_type_password_recover }
 
-    admin.user.form_type.customer:
+    elcodi_admin.form_type.customer:
         class: Elcodi\Admin\UserBundle\Form\Type\CustomerType
         arguments:
             - %elcodi.entity.language.class%
@@ -43,7 +43,7 @@ services:
         tags:
             - { name: form.type, alias: elcodi_admin_user_form_type_customer }
 
-    admin.user.form_type.admin_user:
+    elcodi_admin.form_type.admin_user:
         class: Elcodi\Admin\UserBundle\Form\Type\AdminUserType
         calls:
             - [setFactory, [@elcodi.factory.admin_user]]

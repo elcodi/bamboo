@@ -60,7 +60,7 @@ class CategoryController extends Controller
         $currentCategory = $this->getCurrentCategoryGivenRequest($masterRequest);
 
         $categoryTree = $this
-            ->get('store.product.service.store_category_tree')
+            ->get('elcodi_store.store_category_tree')
             ->load();
 
         return $this->renderTemplate(

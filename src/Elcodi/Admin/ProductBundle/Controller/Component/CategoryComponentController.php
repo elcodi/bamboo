@@ -134,7 +134,7 @@ class CategoryComponentController extends AbstractAdminController
         $categoriesOrder = json_decode($request->get('data'), true);
 
         if (!is_null($categoriesOrder)) {
-            $orderResult = $this->get('elcodi.admin.product.services.category_sorter')
+            $orderResult = $this->get('elcodi_admin.category_sorter')
                 ->sort($categoriesOrder);
 
             if ($orderResult) {

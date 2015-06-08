@@ -5,7 +5,7 @@ services:
     #
     # Overrides elcodi.twig_extension.language
     #
-    elcodi.admin.twig_extension.language:
+    elcodi_admin.twig_extension.store_settings:
         class: Elcodi\Admin\LanguageBundle\Twig\LanguageExtension
         decorates: elcodi.twig_extension.language
         arguments:

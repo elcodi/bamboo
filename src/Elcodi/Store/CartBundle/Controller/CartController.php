@@ -81,7 +81,7 @@ class CartController extends Controller
 
         if ($cart->getCartLines()->count()) {
             $relatedProducts = $this
-                ->get('store.product.service.product_collection_provider')
+                ->get('elcodi_store.provider.product_collection')
                 ->getRelatedProducts($cart
                     ->getCartLines()
                     ->first()

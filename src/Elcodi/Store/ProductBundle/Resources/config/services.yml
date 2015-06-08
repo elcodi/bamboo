@@ -1,10 +1,10 @@
 services:
 
-    store.product.service.product_collection_provider:
+    elcodi_store.provider.product_collection:
         class: Elcodi\Store\ProductBundle\Services\ProductCollectionProvider
         parent: elcodi.provider.product_collection
 
-    store.product.service.store_category_tree:
+    elcodi_store.store_category_tree:
         class: Elcodi\Store\ProductBundle\Services\StoreCategoryTree
         arguments:
             category_tree_service: @elcodi.provider.category_tree

@@ -80,7 +80,7 @@ class ProductController extends Controller
             ->getUseStock();
 
         $relatedProducts = $this
-            ->get('store.product.service.product_collection_provider')
+            ->get('elcodi_store.provider.product_collection')
             ->getRelatedProducts($product, 3);
 
         $template = $product->hasVariants()

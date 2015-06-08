@@ -3,7 +3,7 @@ services:
     #
     # Services
     #
-    store.page.services.template_locator:
+    elcodi_store.template_locator.page:
         class: Elcodi\Store\CoreBundle\Services\TemplateLocator
         arguments:
             engine: @templating.engine.twig

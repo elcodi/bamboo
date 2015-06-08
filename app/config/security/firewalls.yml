@@ -17,7 +17,7 @@ security:
             pattern: ^/%bamboo_admin_prefix%(?:$|/)
             anonymous: true
             simple-preauth:
-                authenticator: admin.user.security.one_time_login_authenticator
+                authenticator: elcodi_admin.security.one_time_login_authenticator
             form_login:
                 login_path: admin_login
                 check_path: admin_login_check
@@ -47,7 +47,7 @@ security:
                 use_forward: false
                 failure_path: store_login
                 oauth_user_provider:
-                    service: store.connect.service.oauth_provider
+                    service: elcodi_store.provider.oauth
                 resource_owners:
                     github: /login/check-github
                     paypal: /login/check-paypal

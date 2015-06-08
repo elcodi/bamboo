@@ -21,7 +21,7 @@ services:
     #
     # Page renderer
     #
-    bamboo.page.renderer.template_renderer:
+    elcodi_common.renderer.template_renderer:
         class: Elcodi\Component\Page\Renderer\TemplatedPageRenderer
         arguments:
             - @templating.engine.twig

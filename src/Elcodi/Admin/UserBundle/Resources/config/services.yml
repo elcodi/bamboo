@@ -3,7 +3,7 @@ services:
     #
     # Authenticator
     #
-    admin.user.security.one_time_login_authenticator:
+    elcodi_admin.security.one_time_login_authenticator:
         class: Elcodi\Admin\UserBundle\Security\OneTimeLoginAuthenticator
         arguments:
             - @elcodi.object_manager.admin_user

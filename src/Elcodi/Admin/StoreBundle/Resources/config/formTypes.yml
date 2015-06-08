@@ -3,7 +3,7 @@ services:
     #
     # Form Types
     #
-    elcodi.admin.store.form_type.store_settings:
+    elcodi_admin.form_type.language:
         class: Elcodi\Admin\StoreBundle\Form\Type\StoreSettingsType
         arguments:
             - %elcodi.entity.currency.class%
@@ -13,14 +13,14 @@ services:
         tags:
             - { name: form.type, alias: elcodi_admin_store_form_type_store_settings }
 
-    elcodi.admin.store.form_type.store_address:
+    elcodi_admin.form_type.store_address:
         class: Elcodi\Admin\StoreBundle\Form\Type\StoreAddressType
         calls:
             - [setFactory, [@elcodi.factory.store]]
         tags:
             - { name: form.type, alias: elcodi_admin_store_form_type_store_address }
 
-    elcodi.admin.store.form_type.store_corporate:
+    elcodi_admin.form_type.store_corporate:
         class: Elcodi\Admin\StoreBundle\Form\Type\StoreCorporateType
         arguments:
             - %elcodi.entity.image.class%

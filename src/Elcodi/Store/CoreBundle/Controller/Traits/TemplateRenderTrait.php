@@ -33,7 +33,7 @@ trait TemplateRenderTrait
     protected function renderTemplate($path, $param = [])
     {
         $template = $this
-            ->get('store.core.services.template_locator')
+            ->get('elcodi_store.template_locator.core')
             ->locate($path);
 
         return $this

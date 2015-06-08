@@ -53,9 +53,8 @@ class LocationSelectorBuilder
      *
      * @param LocationProviderInterface $locationProvider
      */
-    public function __construct(
-        LocationProviderInterface $locationProvider
-    ) {
+    public function __construct(LocationProviderInterface $locationProvider)
+    {
         $this->locationProvider = $locationProvider;
     }
 
@@ -69,11 +68,11 @@ class LocationSelectorBuilder
      */
     public function getSelects($locationId, $maxLocationType)
     {
-        $this->selects         = [];
+        $this->selects = [];
         $this->maxLocationType = $maxLocationType;
 
         if ($locationId) {
-            $hierarchy    = $this
+            $hierarchy = $this
                 ->getHierarchy($locationId);
 
             $rootLocation = !empty($hierarchy)
@@ -103,7 +102,7 @@ class LocationSelectorBuilder
             ? $selectedLocation->getId()
             : null;
 
-        $rootLocations   = $this
+        $rootLocations = $this
             ->locationProvider
             ->getRootLocations();
 
@@ -132,7 +131,8 @@ class LocationSelectorBuilder
     protected function buildChildrenSelects(
         LocationData $selectedRootLocation,
         array $hierarchy
-    ) {
+    )
+    {
         $childrenLocations = $this
             ->locationProvider
             ->getChildren($selectedRootLocation->getId());
@@ -141,10 +141,10 @@ class LocationSelectorBuilder
             $selectedRootLocation = array_shift($hierarchy);
 
             $locationExample = reset($childrenLocations);
-            $options         = $this->generateOptions($childrenLocations);
+            $options = $this->generateOptions($childrenLocations);
 
             if ($selectedRootLocation) {
-                $selected          = $selectedRootLocation->getId();
+                $selected = $selectedRootLocation->getId();
                 $childrenLocations =
                     $this->maxLocationType !== $locationExample->getType()
                         ? $childrenLocations = $this
@@ -152,7 +152,7 @@ class LocationSelectorBuilder
                         ->getChildren($selectedRootLocation->getId())
                         : null;
             } else {
-                $selected          = null;
+                $selected = null;
                 $childrenLocations = null;
             }
 
@@ -215,7 +215,8 @@ class LocationSelectorBuilder
         $type,
         array $options,
         $selected = null
-    ) {
+    )
+    {
         return [
             'type'     => $type,
             'options'  => $options,

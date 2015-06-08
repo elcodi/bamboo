@@ -17,20 +17,19 @@
 
 namespace Elcodi\Common\FirewallBundle\EventListener;
 
-use Symfony\Component\EventDispatcher\ContainerAwareEventDispatcher;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\Security\Http\Firewall\ListenerInterface;
 
 /**
- * Class FirewallListener
+ * Class FirewallEventListener
  *
  * @author Berny Cantos <be@rny.cc>
  */
-class FirewallListener implements ListenerInterface
+class FirewallEventListener implements ListenerInterface
 {
     /**
-     * @var ContainerAwareEventDispatcher
+     * @var EventDispatcherInterface
      *
      * Event dispatcher
      */
@@ -46,13 +45,14 @@ class FirewallListener implements ListenerInterface
     /**
      * Construct
      *
-     * @param EventDispatcherInterface $eventDispatcher Dispatcher
+     * @param EventDispatcherInterface $eventDispatcher Event Dispatcher
      * @param array                    $listenerIds     Listener ids
      */
     public function __construct(
         EventDispatcherInterface $eventDispatcher,
         $listenerIds = []
-    ) {
+    )
+    {
         $this->eventDispatcher = $eventDispatcher;
         $this->listenerIds = $listenerIds;
     }
@@ -61,6 +61,8 @@ class FirewallListener implements ListenerInterface
      * This interface must be implemented by firewall listeners.
      *
      * @param GetResponseEvent $event Event
+     *
+     * @return null
      */
     public function handle(GetResponseEvent $event)
     {

@@ -3,7 +3,7 @@ services:
     #
     # Event Listeners
     #
-    store.core.event_listener.store_disabled:
+    elcodi_store.event_listener.store_disabled:
         class: Elcodi\Store\CoreBundle\EventListener\StoreUnavailableEventListener
         arguments:
             - @elcodi.store

@@ -85,7 +85,7 @@ class ShippingRangeController extends AbstractAdminController
      * )
      * @EntityAnnotation(
      *      class = {
-     *          "factory" = "elcodi.factory.shipping_range",
+     *          "factory" = "elcodi_plugin.custom_shipping.factory.shipping_range",
      *          "method" = "create",
      *          "static" = false
      *      },

@@ -3,7 +3,7 @@ services:
     #
     # Menu builders
     #
-    elcodi.admin.menu_builder.currency:
+    elcodi_admin.menu_builder.currency:
         class: Elcodi\Admin\CurrencyBundle\Builder\MenuBuilder
         arguments:
             - @elcodi.factory.menu_node

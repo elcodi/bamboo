@@ -3,9 +3,9 @@ services:
     #
     # Event listeners
     #
-    store.product.event_listener.categories_order_change:
+    elcodi_store.event_listener.categories_order_change:
         class: Elcodi\Store\ProductBundle\EventListener\CategoriesOrderChangeEventListener
         arguments:
-            store_category_tree: @store.product.service.store_category_tree
+            store_category_tree: @elcodi_store.store_category_tree
         tags:
             - { name: kernel.event_listener, event: categories.onchange, method: onChange }
