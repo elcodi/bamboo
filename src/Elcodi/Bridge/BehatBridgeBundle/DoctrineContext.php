@@ -15,15 +15,16 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-namespace Elcodi\Bridge\BehatBridge;
+namespace Elcodi\Bridge\BehatBridgeBundle;
 
 use Behat\Behat\Hook\Scope\AfterScenarioScope;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Behat\Testwork\Hook\Scope\BeforeSuiteScope;
 use Doctrine\DBAL\Connection;
+use Elcodi\Component\Geo\Entity\Interfaces\LocationInterface;
 use Symfony\Component\Console\Input\ArrayInput;
 
-use Elcodi\Bridge\BehatBridge\abstracts\AbstractElcodiContext;
+use Elcodi\Bridge\BehatBridgeBundle\Abstracts\AbstractElcodiContext;
 
 /**
  * Class DoctrineContext
@@ -57,6 +58,7 @@ class DoctrineContext extends AbstractElcodiContext
                         ->kernel
                         ->getRootDir() . '/../src/Elcodi/Fixtures',
             ])
+            ->laodLocationFixtures()
             ->executeCommand('elcodi:plugins:load')
             ->executeCommand('assets:install')
             ->executeCommand('assetic:dump');
@@ -83,6 +85,7 @@ class DoctrineContext extends AbstractElcodiContext
     }
 
     /**
+     * Prepare suite
      */
     public function prepareSuite(BeforeSuiteScope $scope)
     {
@@ -99,10 +102,11 @@ class DoctrineContext extends AbstractElcodiContext
      *
      * @return $this Self object
      */
-    protected function executeCommand(
+    private function executeCommand(
         $command,
         array $parameters = []
-    ) {
+    )
+    {
         $definition = array_merge(
             [
                 'command'          => $command,
@@ -126,7 +130,7 @@ class DoctrineContext extends AbstractElcodiContext
      *
      * @return $this Self object
      */
-    protected function checkDoctrineConnection()
+    private function checkDoctrineConnection()
     {
         /**
          * @var Connection $doctrineConnection
@@ -139,6 +143,66 @@ class DoctrineContext extends AbstractElcodiContext
         if ($doctrineConnection->isConnected()) {
             $doctrineConnection->close();
         }
+
+        return $this;
+    }
+
+    /**
+     * Load location fixtures
+     *
+     * @return $this Self object
+     */
+    private function laodLocationFixtures()
+    {
+        $locationDirector = $this
+            ->getContainer()
+            ->get('elcodi.director.location');
+        /**
+         * @var LocationInterface $locationSpain
+         */
+        $locationSpain = $locationDirector
+            ->create()
+            ->setId('ES')
+            ->setName('Spain')
+            ->setCode('ES')
+            ->setType('country');
+        $locationDirector->save($locationSpain);
+
+        /**
+         * @var LocationInterface $locationCatalunya
+         */
+        $locationCatalunya = $locationDirector
+            ->create()
+            ->setId('ES_CT')
+            ->setName('Catalunya')
+            ->setCode('CT')
+            ->setType('state')
+            ->addParent($locationSpain);
+        $locationDirector->save($locationCatalunya);
+
+        /**
+         * @var LocationInterface $locationBarcelonaProvince
+         */
+        $locationBarcelonaProvince = $locationDirector
+            ->create()
+            ->setId('ES_CT_B')
+            ->setName('Barcelona')
+            ->setCode('B')
+            ->setType('province')
+            ->addParent($locationCatalunya);
+        $locationDirector->save($locationBarcelonaProvince);
+
+        /**
+         * @var LocationInterface $locationBarcelonaCity
+         */
+        $locationBarcelonaCity = $locationDirector
+            ->create()
+            ->setId('ES_CT_B_Barcelona')
+            ->setName('Barcelona')
+            ->setCode('Barcelona')
+            ->setType('city')
+            ->addParent($locationBarcelonaProvince);
+        $locationDirector->save($locationBarcelonaCity);
 
         return $this;
     }

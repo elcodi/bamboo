@@ -20,7 +20,7 @@ namespace Elcodi\Store\CartBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\DataTransformer\IntegerToLocalizedStringTransformer;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 use Elcodi\Component\Core\Factory\Traits\FactoryTrait;
 
@@ -32,13 +32,11 @@ class CartLineType extends AbstractType
     use FactoryTrait;
 
     /**
-     * Default form options
+     * Configures the options for this type.
      *
-     * @param OptionsResolverInterface $resolver
-     *
-     * @return array With the options
+     * @param OptionsResolver $resolver The resolver for the options.
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
             'empty_data' => function () {
@@ -62,7 +60,7 @@ class CartLineType extends AbstractType
     {
         $builder
             ->add('quantity', 'integer', [
-                'precision'     => 0,
+                'scale'         => 0,
                 'rounding_mode' => IntegerToLocalizedStringTransformer::ROUND_FLOOR,
                 'required'      => true,
                 'label'         => false,

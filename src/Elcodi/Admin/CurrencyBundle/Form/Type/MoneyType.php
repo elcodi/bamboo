@@ -20,7 +20,7 @@ namespace Elcodi\Admin\CurrencyBundle\Form\Type;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 use Elcodi\Component\Core\Wrapper\Interfaces\WrapperInterface;
 use Elcodi\Component\Currency\Entity\Money;
@@ -84,9 +84,11 @@ class MoneyType extends AbstractType
     }
 
     /**
-     * {@inheritdoc}
+     * Configures the options for this type.
+     *
+     * @param OptionsResolver $resolver The resolver for the options.
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         /**
          * We set given Currency as default object to work with

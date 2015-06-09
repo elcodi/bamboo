@@ -20,7 +20,7 @@ namespace Elcodi\Admin\PageBundle\Form\Type;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 use Elcodi\Component\Core\Factory\Traits\FactoryTrait;
 use Elcodi\Component\EntityTranslator\EventListener\Traits\EntityTranslatableFormTrait;
@@ -51,13 +51,11 @@ class PageType extends AbstractType
     }
 
     /**
-     * Default form options
+     * Configures the options for this type.
      *
-     * @param OptionsResolverInterface $resolver
-     *
-     * @return array With the options
+     * @param OptionsResolver $resolver The resolver for the options.
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
             'empty_data' => function () {
