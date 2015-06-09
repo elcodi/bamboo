@@ -15,14 +15,14 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-namespace Elcodi\Bundle\ShippingBundle\Tests\Functional\Repository;
+namespace Elcodi\Plugin\CustomShippingBundle\Tests\Functional\Repository;
 
 use Elcodi\Bundle\TestCommonBundle\Functional\WebTestCase;
 
 /**
- * Class ShippingRangeRepositoryTest
+ * Class CarrierRepositoryTest
  */
-class ShippingRangeRepositoryTest extends WebTestCase
+class CarrierRepositoryTest extends WebTestCase
 {
     /**
      * Returns the callable name of the service
@@ -32,18 +32,18 @@ class ShippingRangeRepositoryTest extends WebTestCase
     public function getServiceCallableName()
     {
         return [
-            'elcodi.repository.shipping_range',
+            'elcodi.repository.carrier',
         ];
     }
 
     /**
-     * Test shipping_base_range repository provider
+     * Test carrier repository provider
      */
     public function testRepositoryProvider()
     {
         $this->assertInstanceOf(
             'Doctrine\Common\Persistence\ObjectRepository',
-            $this->get('elcodi.repository.shipping_range')
+            $this->get('elcodi.repository.carrier')
         );
     }
 }

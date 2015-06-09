@@ -1,4 +1,6 @@
 default:
+    calls:
+        error_reporting: 14335 # E_ALL & ~E_USER_DEPRECATED
     extensions:
         Behat\Symfony2Extension:
             kernel:

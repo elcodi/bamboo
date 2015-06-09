@@ -131,8 +131,7 @@ class LocationSelectorBuilder
     protected function buildChildrenSelects(
         LocationData $selectedRootLocation,
         array $hierarchy
-    )
-    {
+    ) {
         $childrenLocations = $this
             ->locationProvider
             ->getChildren($selectedRootLocation->getId());
@@ -215,8 +214,7 @@ class LocationSelectorBuilder
         $type,
         array $options,
         $selected = null
-    )
-    {
+    ) {
         return [
             'type'     => $type,
             'options'  => $options,

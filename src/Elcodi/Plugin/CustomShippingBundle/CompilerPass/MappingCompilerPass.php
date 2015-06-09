@@ -17,8 +17,9 @@
 
 namespace Elcodi\Plugin\CustomShippingBundle\CompilerPass;
 
-use Elcodi\Bundle\CoreBundle\CompilerPass\Abstracts\AbstractElcodiMappingCompilerPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+
+use Elcodi\Bundle\CoreBundle\CompilerPass\Abstracts\AbstractElcodiMappingCompilerPass;
 
 /**
  * Class MappingCompilerPass

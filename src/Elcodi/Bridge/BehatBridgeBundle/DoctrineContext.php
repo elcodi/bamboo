@@ -21,10 +21,10 @@ use Behat\Behat\Hook\Scope\AfterScenarioScope;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Behat\Testwork\Hook\Scope\BeforeSuiteScope;
 use Doctrine\DBAL\Connection;
-use Elcodi\Component\Geo\Entity\Interfaces\LocationInterface;
 use Symfony\Component\Console\Input\ArrayInput;
 
 use Elcodi\Bridge\BehatBridgeBundle\Abstracts\AbstractElcodiContext;
+use Elcodi\Component\Geo\Entity\Interfaces\LocationInterface;
 
 /**
  * Class DoctrineContext
@@ -36,7 +36,7 @@ class DoctrineContext extends AbstractElcodiContext
      *
      * Debug mode
      */
-    protected $debug = true;
+    protected $debug = false;
 
     /**
      * @BeforeScenario
@@ -105,8 +105,7 @@ class DoctrineContext extends AbstractElcodiContext
     private function executeCommand(
         $command,
         array $parameters = []
-    )
-    {
+    ) {
         $definition = array_merge(
             [
                 'command'          => $command,

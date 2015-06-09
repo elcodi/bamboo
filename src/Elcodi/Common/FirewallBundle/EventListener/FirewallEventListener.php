@@ -51,8 +51,7 @@ class FirewallEventListener implements ListenerInterface
     public function __construct(
         EventDispatcherInterface $eventDispatcher,
         $listenerIds = []
-    )
-    {
+    ) {
         $this->eventDispatcher = $eventDispatcher;
         $this->listenerIds = $listenerIds;
     }

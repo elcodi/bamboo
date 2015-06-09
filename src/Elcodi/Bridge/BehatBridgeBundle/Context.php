@@ -22,7 +22,7 @@ use Behat\Mink\Exception\ElementNotFoundException;
 
 use Elcodi\Bridge\BehatBridgeBundle\Abstracts\AbstractElcodiContext;
 
-error_reporting(0);
+error_reporting(E_ALL & ~E_USER_DEPRECATED);
 
 /**
  * Class Context

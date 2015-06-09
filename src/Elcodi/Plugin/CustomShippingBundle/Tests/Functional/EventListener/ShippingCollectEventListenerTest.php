@@ -15,14 +15,14 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-namespace Elcodi\Bundle\ShippingBundle\Tests\Functional\Factory;
+namespace Elcodi\Plugin\CustomShippingBundle\Tests\Functional\Provider;
 
 use Elcodi\Bundle\TestCommonBundle\Functional\WebTestCase;
 
 /**
- * Class ShippingRangeFactoryTest
+ * Class ShippingCollectEventListenerTest
  */
-class CarrierRangeFactoryTest extends WebTestCase
+class ShippingCollectEventListenerTest extends WebTestCase
 {
     /**
      * Schema must be loaded in all test cases
@@ -41,6 +41,6 @@ class CarrierRangeFactoryTest extends WebTestCase
      */
     public function getServiceCallableName()
     {
-        return ['elcodi_plugin.custom_shipping.factory.shipping_range'];
+        return ['elcodi_plugin.custom_shipping.event_listener.shipping_collect'];
     }
 }

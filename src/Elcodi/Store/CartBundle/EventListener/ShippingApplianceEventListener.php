@@ -143,15 +143,17 @@ class ShippingApplianceEventListener
 
         $cart->setDeliveryAddress($address);
 
-        $validCarrierRanges = $this
+        $validShippingMethods = $this
             ->shippingWrapper
             ->get($cart);
 
-        $cheapestShippingRange = $this
-            ->shippingResolver
-            ->getCheapestShippingMethod($validCarrierRanges);
+        if (!empty($validShippingMethods)) {
+            $cheapestShippingMethod = $this
+                ->shippingResolver
+                ->getCheapestShippingMethod($validShippingMethods);
 
-        $cart->setCheapestShippingMethod($cheapestShippingRange->getId());
+            $cart->setCheapestShippingMethod($cheapestShippingMethod->getId());
+        }
 
         return $this;
     }

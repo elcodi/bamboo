@@ -59,14 +59,21 @@ class ElcodiCustomShippingBundle extends Bundle implements PluginInterface, Depe
     }
 
     /**
-     * Create instance of current bundle, and return dependent bundle namespaces
+     * Return all bundle dependencies.
+     *
+     * Values can be a simple bundle namespace or its instance
      *
      * @return array Bundle instances
      */
     public static function getBundleDependencies()
     {
         return [
-            'Elcodi\Admin\ShippingBundle\AdminShippingBundle',
+            'Elcodi\Bundle\CoreBundle\ElcodiCoreBundle',
+            'Elcodi\Bundle\ZoneBundle\ElcodiZoneBundle',
+            'Elcodi\Bundle\TaxBundle\ElcodiTaxBundle',
+            'Elcodi\Bundle\CurrencyBundle\ElcodiCurrencyBundle',
+            'Elcodi\Bundle\EntityTranslatorBundle\ElcodiEntityTranslatorBundle',
+            'Elcodi\Bundle\MenuBundle\ElcodiMenuBundle',
         ];
     }
 }
