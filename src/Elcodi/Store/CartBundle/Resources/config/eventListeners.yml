@@ -7,7 +7,7 @@ services:
         class: Elcodi\Store\CartBundle\EventListener\ShippingApplianceEventListener
         arguments:
             - @elcodi.event_dispatcher.cart
-            - @elcodi.wrapper.shipping
+            - @elcodi.wrapper.shipping_methods
             - @elcodi.resolver.shipping
         tags:
             - { name: kernel.event_listener, event: cart.onload, method: removeInvalidShippingRange, priority: 8 }
