@@ -525,6 +525,9 @@ admin:
                 title: Slug
                 placeholder: e.g. mon/super/produit
                 customize: Customiser slug
+            sku:
+                title: Numéro de référence
+                placeholder: ej. SAU102
             description:
                 title: Description
                 placeholder: e.g. Ce super produit est exactement ce que vous recherchez.
@@ -589,6 +592,9 @@ admin:
             dimensions:
                 title: Dimensions
                 description: "Mettez les dimensions et le poids de votre produit. Cette information sera utile pour calculer les coûts de livraison."
+            sku:
+                title: Numéro de référence
+                description: "Le numéro de référence (SKU) est un identifiant unique associé à un produit. Chaque produit a donc un SKU qui lui est propre."
             variants:
                 title: Déclinaisons
                 description: 'Les déclinaisons sont différentes versions d''un produit (couleur, taille ...). Les déclinaisons peuvent avoir un prix ou des attributs différents.'
