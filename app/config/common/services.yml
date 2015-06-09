@@ -26,4 +26,4 @@ services:
         arguments:
             - @templating.engine.twig
             - "Layout:_static.html.twig"
-            - [@elcodi.store_template]
+            - [@elcodi.store_template_bundle]

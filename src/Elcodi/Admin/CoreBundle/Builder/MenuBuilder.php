@@ -65,7 +65,6 @@ class MenuBuilder extends AbstractMenuBuilder implements MenuBuilderInterface
                     ->setName('admin.menu.design')
                     ->setCode('adjust')
                     ->setTag('design')
-                    ->setPriority(1)
             )
             ->addSubnode(
                 $this
@@ -74,7 +73,7 @@ class MenuBuilder extends AbstractMenuBuilder implements MenuBuilderInterface
                     ->setName('admin.settings.plural')
                     ->setCode('gear')
                     ->setTag('settings')
-                    ->setPriority(2)
+                    ->setPriority(-32)
             );
     }
 }

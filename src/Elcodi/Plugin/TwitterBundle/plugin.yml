@@ -1,5 +1,6 @@
 plugin:
     type: plugin
+    category: social
     name: elcodi_plugin.twitter.name
     description: elcodi_plugin.twitter.description
     fa_icon: twitter

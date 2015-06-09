@@ -41,7 +41,7 @@ class MenuBuilder extends AbstractMenuBuilder implements MenuBuilderInterface
                     ->setName('admin.plugin.plural')
                     ->setCode('puzzle-piece')
                     ->setUrl('admin_plugin_list')
-                    ->setPriority(1)
+                    ->setPriority(-30)
                     ->setTag('settings')
                     ->setActiveUrls([
                         'admin_plugin_configure',
@@ -51,11 +51,18 @@ class MenuBuilder extends AbstractMenuBuilder implements MenuBuilderInterface
                             ->menuNodeFactory
                             ->create()
                             ->setName('admin.plugin.app_store')
-                            ->setCode('puzzle-piece')
                             ->setUrl('admin_plugin_list')
-                            ->setPriority(-9999)
-                            ->setTag('settings')
+                            ->setPriority(9999)
                     )
+            )
+            ->addSubnode(
+                $this
+                    ->menuNodeFactory
+                    ->create()
+                    ->setName('admin.social.single')
+                    ->setCode('share-alt')
+                    ->setTag('settings')
+                    ->setPriority(32)
             );
     }
 }

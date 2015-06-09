@@ -8,4 +8,4 @@ services:
         arguments:
             - @elcodi.factory.menu_node
         tags:
-            - { name: menu.builder }
+            - { name: menu.builder, menu: admin, priority: 16 }

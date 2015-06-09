@@ -3,8 +3,8 @@ services:
     #
     # Menu builders
     #
-    elcodi_admin.menu_builder.shipping:
-        class: Elcodi\Admin\ShippingBundle\Builder\MenuBuilder
+    elcodi_admin.menu_builder.coupon:
+        class: Elcodi\Admin\CouponBundle\Builder\MenuBuilder
         arguments:
             - @elcodi.factory.menu_node
         tags:

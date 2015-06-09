@@ -38,34 +38,23 @@ class MenuBuilder extends AbstractMenuBuilder implements MenuBuilderInterface
                 $this
                     ->menuNodeFactory
                     ->create()
-                    ->setName('admin.product.plural')
-                    ->setCode('gift')
-                    ->setUrl('admin_product_list')
-                    ->setTag('catalog')
-                    ->setActiveUrls([
-                        'admin_product_edit',
-                        'admin_product_new',
-                    ])
-            )
-            ->addSubnode(
-                $this
-                    ->menuNodeFactory
-                    ->create()
-                    ->setName('admin.coupon.plural')
-                    ->setCode('ticket')
-                    ->setUrl('admin_coupon_list')
-                    ->setTag('catalog')
-                    ->setActiveUrls([
-                        'admin_coupon_edit',
-                        'admin_coupon_new',
-                    ])
-            )
-            ->addSubnode(
-                $this
-                    ->menuNodeFactory
-                    ->create()
                     ->setName('admin.categorization.single')
                     ->setCode('folder-open')
+                    ->setTag('catalog')
+                    ->setPriority(32)
+                    ->addSubnode(
+                        $this
+                            ->menuNodeFactory
+                            ->create()
+                            ->setName('admin.product.plural')
+                            ->setCode('gift')
+                            ->setUrl('admin_product_list')
+                            ->setTag('catalog')
+                            ->setActiveUrls([
+                                'admin_product_edit',
+                                'admin_product_new',
+                            ])
+                    )
                     ->addSubnode(
                         $this
                             ->menuNodeFactory

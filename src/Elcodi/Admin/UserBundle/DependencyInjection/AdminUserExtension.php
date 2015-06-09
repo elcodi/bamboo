@@ -59,6 +59,7 @@ class AdminUserExtension extends AbstractExtension
         return [
             'formTypes',
             'services',
+            'menu',
         ];
     }
 

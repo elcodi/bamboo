@@ -76,26 +76,68 @@ class PluginMenuBuilder implements MenuBuilderInterface
     {
         $visiblePlugins = $this->filterVisiblePlugins();
 
-        foreach ($visiblePlugins as $visiblePlugin) {
+        $this
+            ->buildByPluginCategory(
+                $menu,
+                $visiblePlugins,
+                'payment',
+                'admin.settings.section.payment.title'
+            )
+            ->buildByPluginCategory(
+                $menu,
+                $visiblePlugins,
+                'shipping',
+                'admin.carrier.plural'
+            )
+            ->buildByPluginCategory(
+                $menu,
+                $visiblePlugins,
+                'social',
+                'admin.social.single'
+            );
+    }
+
+    /**
+     * Build by category and place all menu entries inside a family
+     *
+     * @param MenuInterface $menu           Menu
+     * @param Plugin[]      $plugins        Plugins
+     * @param string        $pluginCategory Plugin category
+     * @param string        $parentName     Parent name
+     *
+     * @return $this Self object
+     */
+    private function buildByPluginCategory(
+        MenuInterface $menu,
+        array $plugins,
+        $pluginCategory,
+        $parentName
+    ) {
+        foreach ($plugins as $plugin) {
+            if ($plugin->getCategory() !== $pluginCategory) {
+                continue;
+            }
+
             $pluginConfigurationRoute = $this
                 ->urlGenerator
                 ->generate('admin_plugin_configure', [
-                    'pluginHash' => $visiblePlugin->getHash(),
+                    'pluginHash' => $plugin->getHash(),
                 ]);
 
             $menuNode = $this
                 ->menuNodeFactory
                 ->create()
-                ->setName($visiblePlugin->getConfigurationValue('name'))
-                ->setCode($visiblePlugin->getConfigurationValue('fa_icon'))
+                ->setName($plugin->getConfigurationValue('name'))
+                ->setCode($plugin->getConfigurationValue('fa_icon'))
                 ->setUrl($pluginConfigurationRoute)
-                ->setTag('extra')
                 ->setEnabled(true);
 
             $menu
-                ->findSubnodeByName('admin.plugin.plural')
+                ->findSubnodeByName($parentName)
                 ->addSubnode($menuNode);
         }
+
+        return $this;
     }
 
     /**

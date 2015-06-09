@@ -14,3 +14,10 @@ services:
             - @elcodi.referrer_provider
         tags:
             - { name: twig.extension }
+
+    elcodi_store.twig_extension.template_locator:
+        class: Elcodi\Store\CoreBundle\Twig\TemplateLocatorExtension
+        arguments:
+            - @service_container
+        tags:
+            - { name: twig.extension }

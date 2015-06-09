@@ -41,7 +41,7 @@ class Context extends AbstractElcodiContext
             ->getContainer()
             ->get('elcodi.store');
 
-        $store->setIsDisabled($enabled);
+        $store->setEnabled($enabled);
 
         $this
             ->getContainer()
