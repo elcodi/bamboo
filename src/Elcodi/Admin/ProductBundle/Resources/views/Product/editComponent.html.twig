@@ -228,47 +228,74 @@
             </div>
             <div class="ph-n pt-m mb-n">
                 <div class="box-background pv-s mb-n">
-                    <a data-fc-modules="toggle" href="#dimensions-edit"><i class="icon-plus-circle"></i> {{ 'admin.product.section.dimensions.title'|trans }}</a>
+                    <a data-fc-modules="toggle" href="#dimensions-edit"><i class="icon-plus-circle"></i> {{ 'admin.product.section.dimensions.title'|trans }}  {% if not product.hasVariants() %}/ {{ 'admin.product.section.sku.title'|trans }}{% endif %}</a>
                 </div>
-                <div id="dimensions-edit" class="grid hidden pt-s">
-                    <div class="col-1-3">
-                        <div class="box-none">
-                            <h3 class="fw-n">{{ 'admin.product.section.dimensions.title'|trans }}</h3>
-                            <p>{{ 'admin.product.section.dimensions.description'|trans }}</p>
+                <div id="dimensions-edit" class="hidden">
+                    <div class="grid pt-s">
+                        <div class="col-1-3">
+                            <div class="box-none">
+                                <h3 class="fw-n">{{ 'admin.product.section.dimensions.title'|trans }}</h3>
+                                <p>{{ 'admin.product.section.dimensions.description'|trans }}</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-2-3">
-                        <div class="box pb-n">
-                            <ol class="grid">
-                                <li class="col-1-4 pr-l">
-                                    {{
+                        <div class="col-2-3">
+                            <div class="box pb-n">
+                                <ol class="grid">
+                                    <li class="col-1-3">
+                                        <div class="pr-l">
+                                            {{
+                                            form_row(form.width, {
+                                                label: 'admin.product.field.width.title',
+                                            })
+                                        }}
+                                        </div>
+                                    </li>
+                                    <li class="col-1-3">
+                                        <div class="pr-l">
+                                        {{
+                                            form_row(form.height, {
+                                                label: 'admin.product.field.height.title',
+                                            })
+                                        }}
+                                        </div>
+                                    </li>
+                                    <li class="col-1-3">
+                                        <div class="pr-l">
+                                        {{
+                                            form_row(form.depth, {
+                                                label: 'admin.product.field.depth.title',
+                                            })
+                                        }}
+                                        </div>
+                                    </li>
+                                </ol>
+                                <ol>
+                                    <li class="col-1-3">
+                                        {{
                                         form_row(form.weight, {
                                             label: 'admin.product.field.weight.title',
                                         })
-                                    }}
-                                </li>
-                                <li class="col-1-4 pr-l">
-                                    {{
-                                        form_row(form.width, {
-                                            label: 'admin.product.field.width.title',
-                                        })
-                                    }}
-                                </li>
-                                <li class="col-1-4 pr-l">
-                                    {{
-                                        form_row(form.height, {
-                                            label: 'admin.product.field.height.title',
-                                        })
-                                    }}
-                                </li>
-                                <li class="col-1-4 pr-l">
-                                    {{
-                                        form_row(form.depth, {
-                                            label: 'admin.product.field.depth.title',
-                                        })
-                                    }}
-                                </li>
-                            </ol>
+                                        }}
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid {% if product.hasVariants() %}hidden{% endif %}">
+                        <div class="col-1-3">
+                            <div class="box-none">
+                                <h3 class="fw-n">{{ 'admin.product.section.sku.title'|trans }}</h3>
+                                <p>{{ 'admin.product.section.sku.description'|trans }}</p>
+                            </div>
+                        </div>
+                        <div class="col-2-3">
+                            <div class="box">
+                                {{
+                                form_row(form.sku, {
+                                    label: 'admin.product.field.sku.title',
+                                })
+                                }}
+                            </div>
                         </div>
                     </div>
                 </div>

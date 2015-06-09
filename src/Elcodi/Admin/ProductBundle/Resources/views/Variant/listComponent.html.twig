@@ -44,9 +44,15 @@
                     id: entity.id,
                 })
            }}">
+            {% set optionName = '' %}
             {% for option in entity.options %}
-                {{ option.value }}
+                {% set optionName = optionName + option.value + ' ' %}
             {% endfor %}
+            {%  if optionName|replace(' ','') == '' %}
+                {{ 'admin.variant.single'|trans }}
+            {% else %}
+                {{ optionName }}
+            {% endif %}
         </a>
     </td>
     <td>

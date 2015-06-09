@@ -130,6 +130,9 @@ class ProductType extends AbstractType
             ->add('stock', 'hidden', [
                 'required' => true,
             ])
+            ->add('sku', 'text', [
+                'required' => false,
+            ])
             ->add('price', 'money_object', [
                 'required' => true,
                 'constraints' => [

@@ -617,6 +617,9 @@ admin:
             name:
                 title: Título
                 placeholder: ej. Mi genial producto
+            sku:
+                title: Número de referencia
+                placeholder: ej. SAU102
             slug:
                 title: Slug
                 placeholder: ej. my/genial/producto
@@ -685,6 +688,9 @@ admin:
             dimensions:
                 title: Dimensiones
                 description: "Configura las dimensiones y peso de tu producto. Esta información será realmente útil para calcular los costes de envio."
+            sku:
+                title: Número de referencia
+                description: "El Número de referencia (SKU) es un identificador único que permite identificar los productos. Cada SKU se asocia con un sólo producto."
             variants:
                 title: Variantes
                 description: 'Las variantes son versiones diferentes del mismo producto (Color, talla...). Las variantes pueden tener diferente precio o atributos.'

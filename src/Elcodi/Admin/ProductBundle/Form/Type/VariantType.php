@@ -113,6 +113,9 @@ class VariantType extends AbstractType
             ->add('stock', 'number', [
                 'required' => false,
             ])
+            ->add('sku', 'text', [
+                'required' => false,
+            ])
             ->add('price', 'money_object', [
                 'required' => false,
                 'constraints' => [
