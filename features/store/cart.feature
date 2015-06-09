@@ -13,11 +13,13 @@ Feature: Store cart
     Then I should be on "/cart"
     And the response should not contain a "empty-cart" test attribute
 
+  @now
   Scenario: See the cart checkout without being logged in
     Given I am on "/cart/product/10/add"
     When I go to "/cart/address"
     And I should be on "/login"
 
+  @now
   Scenario: See the cart checkout being logged in
     Given I am logged as "customer@customer.com" - "1234"
     When I go to "/cart/product/10/add"

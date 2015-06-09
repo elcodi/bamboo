@@ -51,7 +51,9 @@ class FirewallCompilerPass implements CompilerPassInterface
     /**
      * Attach event listeners and firewall listeners to firewalls
      *
-     * @param ContainerBuilder $container
+     * @param ContainerBuilder $container Container
+     *
+     * @return null
      */
     public function process(ContainerBuilder $container)
     {

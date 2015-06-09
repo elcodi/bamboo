@@ -21,6 +21,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 use Elcodi\Component\Product\Entity\Interfaces\CategoryInterface;
 use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
+use Elcodi\Component\Product\Repository\ProductRepository;
 use Elcodi\Component\Product\Services\ProductCollectionProvider as BaseProductCollectionProvider;
 
 /**
@@ -30,6 +31,23 @@ use Elcodi\Component\Product\Services\ProductCollectionProvider as BaseProductCo
  */
 class ProductCollectionProvider extends BaseProductCollectionProvider
 {
+    /**
+     * @var ProductRepository
+     *
+     * Product Repository
+     */
+    private $productRepository;
+
+    /**
+     * Construct method
+     *
+     * @param ProductRepository $productRepository Product Repository
+     */
+    public function __construct(ProductRepository $productRepository)
+    {
+        $this->productRepository = $productRepository;
+    }
+
     /**
      * Given a specific Product, return a simple collection of related products
      *
@@ -54,7 +72,7 @@ class ProductCollectionProvider extends BaseProductCollectionProvider
                 ->andWhere('p.enabled = :enabled')
                 ->setParameters([
                     'principalCategory' => $principalCategory,
-                    'enabled' => true,
+                    'enabled'           => true,
                 ])
                 ->getQuery()
                 ->getResult();

@@ -26,8 +26,8 @@ default:
                 - %paths.base%/features/store
             contexts:
                 - Behat\MinkExtension\Context\MinkContext
-                - Elcodi\Bridge\BehatBridge\DoctrineContext
-                - Elcodi\Bridge\BehatBridge\Context
+                - Elcodi\Bridge\BehatBridgeBundle\DoctrineContext
+                - Elcodi\Bridge\BehatBridgeBundle\Context
                 - Elcodi\Store\CoreBundle\Behat\Context
                 - Elcodi\Store\ProductBundle\Behat\Context
                 - Elcodi\Store\CartBundle\Behat\Context
@@ -38,8 +38,8 @@ default:
                 - %paths.base%/features/admin
             contexts:
                 - Behat\MinkExtension\Context\MinkContext
-                - Elcodi\Bridge\BehatBridge\DoctrineContext
-                - Elcodi\Bridge\BehatBridge\Context
+                - Elcodi\Bridge\BehatBridgeBundle\DoctrineContext
+                - Elcodi\Bridge\BehatBridgeBundle\Context
                 - Elcodi\Admin\CoreBundle\Behat\Context
 
         workflow:
@@ -47,8 +47,8 @@ default:
                 - %paths.base%/features/workflow
             contexts:
                 - Behat\MinkExtension\Context\MinkContext
-                - Elcodi\Bridge\BehatBridge\DoctrineContext
-                - Elcodi\Bridge\BehatBridge\Context
+                - Elcodi\Bridge\BehatBridgeBundle\DoctrineContext
+                - Elcodi\Bridge\BehatBridgeBundle\Context
                 - Elcodi\Store\CoreBundle\Behat\Context
                 - Elcodi\Store\ProductBundle\Behat\Context
                 - Elcodi\Store\CartBundle\Behat\Context

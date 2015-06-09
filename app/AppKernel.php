@@ -160,7 +160,9 @@ class AppKernel extends Kernel
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
+
             $bundles[] = new Elcodi\Bundle\FixturesBoosterBundle\ElcodiFixturesBoosterBundle();
+            $bundles[] = new Elcodi\Bridge\BehatBridgeBundle\BehatBridgeBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
         }

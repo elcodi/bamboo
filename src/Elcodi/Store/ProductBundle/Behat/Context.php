@@ -21,7 +21,7 @@ use Behat\Gherkin\Node\TableNode;
 use Doctrine\ORM\EntityNotFoundException;
 use Exception;
 
-use Elcodi\Bridge\BehatBridge\abstracts\AbstractElcodiContext;
+use Elcodi\Bridge\BehatBridgeBundle\Abstracts\AbstractElcodiContext;
 use Elcodi\Component\Product\Entity\Interfaces\CategoryInterface;
 use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
 

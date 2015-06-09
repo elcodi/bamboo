@@ -17,7 +17,7 @@
 
 namespace Elcodi\Store\CoreBundle\Behat;
 
-use Elcodi\Bridge\BehatBridge\abstracts\AbstractElcodiContext;
+use Elcodi\Bridge\BehatBridgeBundle\Abstracts\AbstractElcodiContext;
 
 /**
  * Class Context
@@ -29,15 +29,24 @@ class Context extends AbstractElcodiContext
      */
     public function theStoreIsDisabled()
     {
-        $this->setConfiguration('store.enabled', false);
+        $this->theStoreIsEnabled(false);
     }
 
     /**
-     * @Given /^the store is under construction$/
+     * @Given /^the store is enabled$/
      */
-    public function theStoreIsUnderConstruction()
+    public function theStoreIsEnabled($enabled = true)
     {
-        $this->setConfiguration('store.under_construction', true);
+        $store = $this
+            ->getContainer()
+            ->get('elcodi.store');
+
+        $store->setIsDisabled($enabled);
+
+        $this
+            ->getContainer()
+            ->get('elcodi.object_manager.store')
+            ->flush($store);
     }
 
     /**
