@@ -685,6 +685,9 @@ admin:
             dimensions:
                 title: Dimensions
                 description: "Configura les dimensions i el pes del teu producte. Aquesta informació serà molt útil per a calcular les despeses d'enviament."
+            sku:
+                title: Número de referencia
+                description: "El Número de referencia (SKU) es un identificador unic que permeteix identificar els productes. Cada SKU va relacionat a un producte."
             variants:
                 title: Variants
                 description: 'Les variants son diferents versions del mateix producte (Color, talla...) que poden tenir un preu o atributs diferents.'

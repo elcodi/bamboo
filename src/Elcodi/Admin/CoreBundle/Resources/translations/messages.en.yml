@@ -617,6 +617,9 @@ admin:
             name:
                 title: Title
                 placeholder: e.g. My Awesome Product
+            sku:
+                title: SKU
+                placeholder: ej. SAU102
             slug:
                 title: Slug
                 placeholder: e.g. my/awesome/product
@@ -686,6 +689,9 @@ admin:
             dimensions:
                 title: Dimensions
                 description: "Set the dimensions and weight for your product. This information will be useful to calculate shipping costs."
+            sku:
+                title: SKU
+                description: "SKU is an identifier that allows to identify the products. Each SKU it's related to just one product."
             variants:
                 title: Variants
                 description: 'Variants are diferent versions of this product (color, size... ). Variants can have different prices or other attributes.'
