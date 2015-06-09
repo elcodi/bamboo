@@ -109,20 +109,19 @@ class ShippingCollectEventListener
                 'enabled' => true,
             ]);
 
-        $satisfiedCarriers = [];
+        $satisfiedShippingRanges = [];
 
         foreach ($availableCarriers as $carrier) {
-            $shippingRange = $this->getShippingRangeSatisfiedByCart(
-                $cart,
-                $carrier
+            $satisfiedShippingRanges = array_merge(
+                $satisfiedShippingRanges,
+                $this->getShippingRangesSatisfiedByCart(
+                    $cart,
+                    $carrier
+                )
             );
-
-            if ($shippingRange instanceof ShippingRangeInterface) {
-                $satisfiedCarriers[$shippingRange->getId()] = $shippingRange;
-            }
         }
 
-        return $satisfiedCarriers;
+        return $satisfiedShippingRanges;
     }
 
     /**
@@ -133,13 +132,14 @@ class ShippingCollectEventListener
      * @param CartInterface    $cart
      * @param CarrierInterface $carrier
      *
-     * @return ShippingRangeInterface|false ShippingRange satisfied by Cart
+     * @return ShippingRangeInterface[] ShippingRanges satisfied by Cart
      */
-    private function getShippingRangeSatisfiedByCart(
+    private function getShippingRangesSatisfiedByCart(
         CartInterface $cart,
         CarrierInterface $carrier
     ) {
         $shippingRanges = $carrier->getRanges();
+        $validShippingRanges = [];
 
         foreach ($shippingRanges as $shippingRange) {
             $shippingRangeSatisfied = $this->isShippingRangeSatisfiedByCart(
@@ -148,11 +148,11 @@ class ShippingCollectEventListener
             );
 
             if ($shippingRangeSatisfied) {
-                return $shippingRange;
+                $validShippingRanges[] = $shippingRange;
             }
         }
 
-        return false;
+        return $validShippingRanges;
     }
 
     /**

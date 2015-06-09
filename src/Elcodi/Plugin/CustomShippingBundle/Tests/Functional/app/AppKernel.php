@@ -15,7 +15,7 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-namespace Elcodi\Bundle\ShippingBundle\Tests\Functional\app;
+namespace Elcodi\Plugin\CustomShippingBundle\Tests\Functional\app;
 
 use Elcodi\Bundle\CoreBundle\Traits\BundleDependenciesResolver;
 use Elcodi\Bundle\TestCommonBundle\Functional\Abstracts\AbstractElcodiKernel;
@@ -37,9 +37,7 @@ class AppKernel extends AbstractElcodiKernel
         return $this->getBundleInstances([
             'Symfony\Bundle\FrameworkBundle\FrameworkBundle',
             'Doctrine\Bundle\DoctrineBundle\DoctrineBundle',
-            'Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle',
-            'Elcodi\Bundle\FixturesBoosterBundle\ElcodiFixturesBoosterBundle',
-            'Elcodi\Bundle\ShippingBundle\ElcodiShippingBundle',
+            'Elcodi\Plugin\CustomShippingBundle\ElcodiCustomShippingBundle',
         ]);
     }
 
@@ -52,6 +50,6 @@ class AppKernel extends AbstractElcodiKernel
     {
         return  $this->name .
                 ucfirst($this->environment) .
-                'DebugProjectContainerShipping';
+                'DebugProjectContainerPluginCustomShipping';
     }
 }

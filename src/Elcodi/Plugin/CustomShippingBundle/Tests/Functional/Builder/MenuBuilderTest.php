@@ -15,14 +15,14 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-namespace Elcodi\Bundle\ShippingBundle\Tests\Functional\Factory;
+namespace Elcodi\Plugin\CustomShippingBundle\Tests\Functional\Provider;
 
 use Elcodi\Bundle\TestCommonBundle\Functional\WebTestCase;
 
 /**
- * Class CarrierFactoryTest
+ * Class MenuBuilderTest
  */
-class CarrierFactoryTest extends WebTestCase
+class MenuBuilderTest extends WebTestCase
 {
     /**
      * Schema must be loaded in all test cases
@@ -41,6 +41,6 @@ class CarrierFactoryTest extends WebTestCase
      */
     public function getServiceCallableName()
     {
-        return ['elcodi_plugin.custom_shipping.factory.carrier'];
+        return ['elcodi_plugin.custom_shipping.menu_builder'];
     }
 }
