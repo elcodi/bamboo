@@ -61,8 +61,6 @@ doctrine:
                 charset:  UTF8
 
     orm:
-        resolve_target_entities:
-            Elcodi\Component\Cart\Entity\Interfaces\CartInterface2: Elcodi\Component\Cart\Entity\Cart2
         auto_generate_proxy_classes: "%kernel.debug%"
         entity_managers:
             default:
