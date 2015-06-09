@@ -58,6 +58,7 @@ class AdminCouponExtension extends AbstractExtension
     {
         return [
             'formTypes',
+            'menu',
         ];
     }
 

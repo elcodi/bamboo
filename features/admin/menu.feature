@@ -16,7 +16,6 @@ Feature: Admin menus
     And the page contains a "admin.manufacturer.plural" test attribute
     And the page contains a "admin.category.plural" test attribute
     And the page contains a "admin.communication.single" test attribute
-    And the page contains a "admin.shipping_payment.plural" test attribute
     And the page contains a "admin.coupon.plural" test attribute
     And the page contains a "admin.page.plural" test attribute
     And the page contains a "admin.mailing.plural" test attribute

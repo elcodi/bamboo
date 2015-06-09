@@ -41,7 +41,7 @@ class MenuBuilder extends AbstractMenuBuilder implements MenuBuilderInterface
                     ->setName('admin.settings.section.payment.title')
                     ->setTag('settings')
                     ->setCode('credit-card')
-                    ->setPriority(-8)
+                    ->setPriority(31)
             );
     }
 }

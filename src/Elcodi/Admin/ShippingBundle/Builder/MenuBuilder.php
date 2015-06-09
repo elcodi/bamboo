@@ -41,7 +41,7 @@ class MenuBuilder extends AbstractMenuBuilder implements MenuBuilderInterface
                     ->setName('admin.carrier.plural')
                     ->setTag('settings')
                     ->setCode('truck')
-                    ->setPriority(-4)
+                    ->setPriority(30)
             );
     }
 }

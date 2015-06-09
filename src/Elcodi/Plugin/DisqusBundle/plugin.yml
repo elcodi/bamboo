@@ -1,5 +1,6 @@
 plugin:
     type: plugin
+    category: app
     name: elcodi_plugin.disqus.name
     description: elcodi_plugin.disqus.description
     fa_icon: comment-o

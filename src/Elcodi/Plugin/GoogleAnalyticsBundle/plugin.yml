@@ -1,5 +1,6 @@
 plugin:
     type: plugin
+    category: app
     name: elcodi_plugin.google_analytics.name
     description: elcodi_plugin.google_analytics.description
     fa_icon: google

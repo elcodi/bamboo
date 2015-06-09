@@ -15,7 +15,7 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-namespace Elcodi\Admin\CartBundle\Builder;
+namespace Elcodi\Admin\UserBundle\Builder;
 
 use Elcodi\Component\Menu\Builder\Abstracts\AbstractMenuBuilder;
 use Elcodi\Component\Menu\Builder\Interfaces\MenuBuilderInterface;
@@ -38,15 +38,13 @@ class MenuBuilder extends AbstractMenuBuilder implements MenuBuilderInterface
                 $this
                     ->menuNodeFactory
                     ->create()
-                    ->setName('admin.order.plural')
-                    ->setCode('shopping-cart')
-                    ->setUrl('admin_order_list')
+                    ->setName('admin.customer.plural')
+                    ->setCode('users')
+                    ->setUrl('admin_customer_list')
                     ->setTag('order')
-                    ->setPriority(16)
+                    ->setPriority(32)
                     ->setActiveUrls([
-                        'admin_order_edit',
-                        'admin_customer_order_list',
-                        'admin_customer_order_list',
+                        'admin_customer_edit',
                     ])
             );
     }

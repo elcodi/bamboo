@@ -1,5 +1,6 @@
 plugin:
     type: plugin
+    category: social
     name: elcodi_plugin.facebook.name
     description: elcodi_plugin.facebook.description
     fa_icon: facebook

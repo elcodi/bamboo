@@ -1,5 +1,6 @@
 plugin:
     type: plugin
+    category: app
     name: Setup Wizard
     description: |
         A wizard to setup the store for the first time.

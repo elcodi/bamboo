@@ -1,4 +1,4 @@
-{% extends store.template ~ ':Layout:_email.html.twig' %}
+{% extends locate_template('Layout:_email.html.twig') %}
 
 {% block body %}
     {% include template_from_string(content) %}
