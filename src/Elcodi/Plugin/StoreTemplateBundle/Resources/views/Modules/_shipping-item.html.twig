@@ -1,10 +1,11 @@
-{% if shippingRange is null %}
+{% set shippingMethod = elcodi_shipping_method(cart, cart.shippingMethod) %}
+{% if shippingMethod is null %}
     {% if app.user is null %}
         <p class="message message-info">{{ "template.store_template_bundle.shipping.costs_will_be_calculated_after_login"|trans }}</p>
     {% else %}
-        {% if cart.cheapestShippingRange is not null %}
-            {% set shippingRange = cart.cheapestShippingRange %}
-            <p class="cart-shipping"><span>{{ 'template.store_template_bundle.shipping.carrier'|trans }} ({{ shippingRange.carrier.name }}) {{ "template.store_template_bundle.shipping.from"|trans }} </span> {{ shippingRange.price|print_convert_money() }}</p>
+        {% set shippingMethod = elcodi_shipping_method(cart, cart.cheapestShippingRange) %}
+        {% if shippingMethod is not null %}
+            <p class="cart-shipping"><span>{{ 'template.store_template_bundle.shipping.carrier'|trans }} ({{ shippingMethod.carrierName }}) {{ "template.store_template_bundle.shipping.from"|trans }} </span> {{ shippingMethod.price|print_convert_money() }}</p>
         {% elseif cart.deliveryAddress is null  %}
             <p class="message message-info">{{ "template.store_template_bundle.shipping.costs_will_be_calculated_after_address"|trans }}</p>
         {% else %}
@@ -12,5 +13,5 @@
         {% endif %}
     {% endif %}
 {% else %}
-    <p class="cart-shipping"><span>{{ 'template.store_template_bundle.shipping.carrier'|trans }} ({{ shippingRange.carrier.name }})</span> {{ shippingAmount|print_convert_money() }}</p>
+    <p class="cart-shipping"><span>{{ 'template.store_template_bundle.shipping.carrier'|trans }} ({{ shippingMethod.carrierName }})</span> {{ shippingMethod.price|print_convert_money() }}</p>
 {% endif %}

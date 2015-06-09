@@ -5,11 +5,7 @@ plugin:
     description: elcodi_plugin.paypal_web_checkout.description
     fa_icon: paypal
     fields:
-        private_key:
+        business:
             type: text
             required: true
-            label: elcodi_plugin.paypal_web_checkout.field.private_key.label
-        public_key:
-            type: text
-            required: true
-            label: elcodi_plugin.paypal_web_checkout.field.public_key.label
+            label: elcodi_plugin.paypal_web_checkout.field.business.label

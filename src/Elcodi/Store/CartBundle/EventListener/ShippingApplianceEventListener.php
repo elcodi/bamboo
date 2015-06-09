@@ -20,6 +20,7 @@ namespace Elcodi\Store\CartBundle\EventListener;
 use Elcodi\Component\Cart\Event\CartOnLoadEvent;
 use Elcodi\Component\Cart\EventDispatcher\CartEventDispatcher;
 use Elcodi\Component\Geo\Entity\Interfaces\AddressInterface;
+use Elcodi\Component\Shipping\Entity\ShippingMethod;
 use Elcodi\Component\Shipping\Resolver\ShippingResolver;
 use Elcodi\Component\Shipping\Wrapper\ShippingWrapper;
 use Elcodi\Component\User\Entity\Interfaces\CustomerInterface;
@@ -87,7 +88,7 @@ class ShippingApplianceEventListener
             ->shippingWrapper
             ->getOneById($cart, $cartShippingMethodId);
 
-        if (null === $shippingMethod) {
+        if (!($shippingMethod instanceof ShippingMethod)) {
             $cart->setShippingMethod(null);
             $this
                 ->cartEventDispatcher

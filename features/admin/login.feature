@@ -26,4 +26,4 @@ Feature: Admin login
   Scenario: Logged user is redirected to home when goes to login page
     Given In admin, I am logged as "admin@admin.com" - "1234"
     When I go to "/admin/login"
-    Then I should be on "/admin"
+    Then I should be on "/admin/"

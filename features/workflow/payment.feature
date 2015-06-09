@@ -7,14 +7,14 @@ Feature: Test payment
   @javascript @stripe
   Scenario: Payment workflow with stripe
     Given In admin, I am logged as "admin@admin.com" - "1234"
-    When I go to "/admin/payment"
+    When I go to "/admin/plugins"
     And I uncheck "enable-plugin-887ee51dc5572759c418db09b66988664f0ecbc1"
     And I am logged as "customer@customer.com" - "1234"
     And I go to "/cart/product/2/add"
     And I follow "Checkout"
     And I press "Payment"
     And I should not see "Card number"
-    And I go to "/admin/payment"
+    And I go to "/admin/plugins"
     And I check "enable-plugin-887ee51dc5572759c418db09b66988664f0ecbc1"
     And I go to "/admin/plugin/887ee51dc5572759c418db09b66988664f0ecbc1"
     And I fill in the following:
@@ -22,7 +22,7 @@ Feature: Test payment
     And I press "elcodi_form_type_plugin_save"
     And I go to "/cart/payment"
     And I should not see "Card number"
-    And I go to "/admin/payment"
+    And I go to "/admin/plugins"
     And I check "enable-plugin-887ee51dc5572759c418db09b66988664f0ecbc1"
     And I go to "/admin/plugin/887ee51dc5572759c418db09b66988664f0ecbc1"
     And I fill in the following:

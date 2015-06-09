@@ -279,7 +279,7 @@ class CheckoutController extends Controller
             !empty($shippingMethods)
         ) {
             $shippingMethodApplied = reset($shippingMethods);
-            $cart->setShippingAmount($shippingMethodApplied->getId());
+            $cart->setShippingMethod($shippingMethodApplied->getId());
             $this
                 ->get('elcodi.object_manager.cart')
                 ->flush($cart);

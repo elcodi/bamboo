@@ -22,7 +22,7 @@
 
 
     {% set stockClass = 'ta-r' %}
-    {% if not elcodi_config('product.use_stock') %}
+    {% if not store.useStock %}
         {% set stockClass = 'd-n ta-r' %}
     {% endif %}
 
@@ -101,7 +101,7 @@
     <td class="ta-r">
         {{ entity.price|print_money }}
     </td>
-    <td class="ta-r {% if not elcodi_config('product.use_stock') %}d-n{% endif %}">
+    <td class="ta-r {% if not store.useStock %}d-n{% endif %}">
         {% if entity.stock >= 5 %}
             {% set stockColor = 'c-ok' %}
         {% elseif entity.stock > 0 and entity.stock < 10 %}
