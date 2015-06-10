@@ -1,17 +1,5 @@
 plugin:
     type: plugin
-    category: app
-    name: Setup Wizard
-    description: |
-        A wizard to setup the store for the first time.
-        On the first step it configures the physical address and the store owner
-        data. After all it aims to add the first category, product and manufacturer
-        and at the end asks the store administrator for the carrier and payment data
-    fa_icon: magic
-    visible: false
-
-plugin:
-    type: plugin
     name: elcodi_plugin.setup_wizard.name
     description: elcodi_plugin.setup_wizard.description
     fa_icon: magic
