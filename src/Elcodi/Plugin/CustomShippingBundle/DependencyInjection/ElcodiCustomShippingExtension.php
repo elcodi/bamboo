@@ -112,6 +112,7 @@ class ElcodiCustomShippingExtension extends AbstractExtension implements Entitie
             'directors',
             'formTypes',
             'menu',
+            'services',
         ];
     }
 

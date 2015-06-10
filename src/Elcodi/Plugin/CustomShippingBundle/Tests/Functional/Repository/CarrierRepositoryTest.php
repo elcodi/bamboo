@@ -25,18 +25,6 @@ use Elcodi\Bundle\TestCommonBundle\Functional\WebTestCase;
 class CarrierRepositoryTest extends WebTestCase
 {
     /**
-     * Returns the callable name of the service
-     *
-     * @return string[] service name
-     */
-    public function getServiceCallableName()
-    {
-        return [
-            'elcodi.repository.carrier',
-        ];
-    }
-
-    /**
      * Test carrier repository provider
      */
     public function testRepositoryProvider()

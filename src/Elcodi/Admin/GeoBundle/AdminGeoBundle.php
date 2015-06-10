@@ -17,6 +17,7 @@
 
 namespace Elcodi\Admin\GeoBundle;
 
+use Symfony\Component\Console\Application;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
@@ -35,5 +36,19 @@ class AdminGeoBundle extends Bundle
     public function getContainerExtension()
     {
         return new AdminGeoExtension();
+    }
+
+    /**
+     * Register Commands.
+     *
+     * Disabled as commands are registered as services.
+     *
+     * @param Application $application An Application instance
+     *
+     * @return null
+     */
+    public function registerCommands(Application $application)
+    {
+        return null;
     }
 }

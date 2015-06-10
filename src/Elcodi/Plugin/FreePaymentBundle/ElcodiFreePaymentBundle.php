@@ -24,6 +24,7 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Elcodi\Bundle\CoreBundle\Interfaces\DependentBundleInterface;
 use Elcodi\Component\Plugin\Interfaces\PluginInterface;
 use Elcodi\Plugin\FreePaymentBundle\DependencyInjection\ElcodiFreePaymentExtension;
+use Symfony\Component\HttpKernel\KernelInterface;
 
 /**
  * Class ElcodiFreePaymentBundle
@@ -59,7 +60,7 @@ class ElcodiFreePaymentBundle extends Bundle implements PluginInterface, Depende
      *
      * @return array Bundle instances
      */
-    public static function getBundleDependencies()
+    public static function getBundleDependencies(KernelInterface $kernel)
     {
         return [
             'Elcodi\Bridge\PaymentSuiteBridgeBundle\ElcodiPaymentSuiteBridgeBundle',

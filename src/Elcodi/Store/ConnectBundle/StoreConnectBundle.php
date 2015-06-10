@@ -17,6 +17,7 @@
 
 namespace Elcodi\Store\ConnectBundle;
 
+use Symfony\Component\Console\Application;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
@@ -32,16 +33,6 @@ use Elcodi\Store\ConnectBundle\DependencyInjection\StoreConnectExtension;
 class StoreConnectBundle extends Bundle
 {
     /**
-     * Returns the bundle's container extension.
-     *
-     * @return ExtensionInterface The container extension
-     */
-    public function getContainerExtension()
-    {
-        return new StoreConnectExtension();
-    }
-
-    /**
      * Builds the bundle.
      *
      * It is only ever called once when the cache is empty.
@@ -56,5 +47,29 @@ class StoreConnectBundle extends Bundle
         parent::build($container);
 
         $container->addCompilerPass(new MappingCompilerPass());
+    }
+
+    /**
+     * Returns the bundle's container extension.
+     *
+     * @return ExtensionInterface The container extension
+     */
+    public function getContainerExtension()
+    {
+        return new StoreConnectExtension();
+    }
+
+    /**
+     * Register Commands.
+     *
+     * Disabled as commands are registered as services.
+     *
+     * @param Application $application An Application instance
+     *
+     * @return null
+     */
+    public function registerCommands(Application $application)
+    {
+        return null;
     }
 }

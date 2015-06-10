@@ -172,7 +172,11 @@ class AppKernel extends Kernel
             $bundles[] = new Elcodi\Bridge\VisithorBridgeBundle\ElcodiVisithorBridgeBundle();
         }
 
-        return $this->getBundleInstances($bundles);
+        return $this
+            ->getBundleInstances(
+                $this,
+                $bundles
+            );
     }
 
     /**

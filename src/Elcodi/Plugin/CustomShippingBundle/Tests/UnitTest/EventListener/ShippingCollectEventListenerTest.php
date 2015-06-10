@@ -18,6 +18,7 @@
 namespace Elcodi\Plugin\CustomShippingBundle\Tests\UnitTest\EventListener;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Elcodi\Component\Plugin\Entity\Plugin;
 use PHPUnit_Framework_TestCase;
 use Prophecy\Argument;
 
@@ -37,6 +38,7 @@ use Elcodi\Plugin\CustomShippingBundle\Repository\CarrierRepository;
 /**
  * Class ShippingCollectEventListenerTest
  *
+ * * Test with disabled plugin
  * * Test with no carriers
  * * Test with carrier without ranges
  * * Test with matching price
@@ -49,6 +51,51 @@ use Elcodi\Plugin\CustomShippingBundle\Repository\CarrierRepository;
  */
 class ShippingCollectEventListenerTest extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Test with matching price
+     */
+    public function testWithDisabledPlugin()
+    {
+        $carrierRepository = $this->getBuiltCarrierRepository(
+            true,
+            500,
+            1200,
+            700
+        );
+
+        $event = $this->getEvent();
+        $event
+            ->addShippingMethod(\Prophecy\Argument::exact(
+                new ShippingMethod(
+                    'custom-shipping-method-price-shipping-range-id',
+                    'test-carrier',
+                    'price-shipping-range-name',
+                    '',
+                    Money::create(
+                        700,
+                        $this->getCurrency()
+                    )
+                )
+            ))
+            ->shouldBeCalledTimes(0);
+
+        $event
+            ->getCart()
+            ->willReturn(
+                $this
+                    ->getCart()
+                    ->reveal()
+            );
+
+        $shippingCollectEventListener = new ShippingCollectEventListener(
+            $this->getDisabledPlugin()->reveal(),
+            $carrierRepository->reveal(),
+            $this->getCurrencyConverter(1)->reveal(),
+            $this->getZoneMatcher()->reveal()
+        );
+        $shippingCollectEventListener->addCustomShippingMethods($event->reveal());
+    }
+
     /**
      * Test with no carriers
      */
@@ -65,6 +112,7 @@ class ShippingCollectEventListenerTest extends PHPUnit_Framework_TestCase
             ->willReturn($this->getCart()->reveal());
 
         $shippingCollectEventListener = new ShippingCollectEventListener(
+            $this->getEnabledPlugin()->reveal(),
             $carrierRepository->reveal(),
             $this->getCurrencyConverter(0)->reveal(),
             $this->getZoneMatcher()->reveal()
@@ -88,6 +136,7 @@ class ShippingCollectEventListenerTest extends PHPUnit_Framework_TestCase
             ->willReturn($this->getCart()->reveal());
 
         $shippingCollectEventListener = new ShippingCollectEventListener(
+            $this->getEnabledPlugin()->reveal(),
             $carrierRepository->reveal(),
             $this->getCurrencyConverter(0)->reveal(),
             $this->getZoneMatcher()->reveal()
@@ -132,6 +181,7 @@ class ShippingCollectEventListenerTest extends PHPUnit_Framework_TestCase
             );
 
         $shippingCollectEventListener = new ShippingCollectEventListener(
+            $this->getEnabledPlugin()->reveal(),
             $carrierRepository->reveal(),
             $this->getCurrencyConverter(1)->reveal(),
             $this->getZoneMatcher()->reveal()
@@ -165,6 +215,7 @@ class ShippingCollectEventListenerTest extends PHPUnit_Framework_TestCase
             );
 
         $shippingCollectEventListener = new ShippingCollectEventListener(
+            $this->getEnabledPlugin()->reveal(),
             $carrierRepository->reveal(),
             $this->getCurrencyConverter(1)->reveal(),
             $this->getZoneMatcher()->reveal()
@@ -212,6 +263,7 @@ class ShippingCollectEventListenerTest extends PHPUnit_Framework_TestCase
             );
 
         $shippingCollectEventListener = new ShippingCollectEventListener(
+            $this->getEnabledPlugin()->reveal(),
             $carrierRepository->reveal(),
             $this->getCurrencyConverter(1)->reveal(),
             $this->getZoneMatcher()->reveal()
@@ -248,6 +300,7 @@ class ShippingCollectEventListenerTest extends PHPUnit_Framework_TestCase
             );
 
         $shippingCollectEventListener = new ShippingCollectEventListener(
+            $this->getEnabledPlugin()->reveal(),
             $carrierRepository->reveal(),
             $this->getCurrencyConverter(1)->reveal(),
             $this->getZoneMatcher()->reveal()
@@ -292,6 +345,7 @@ class ShippingCollectEventListenerTest extends PHPUnit_Framework_TestCase
             );
 
         $shippingCollectEventListener = new ShippingCollectEventListener(
+            $this->getEnabledPlugin()->reveal(),
             $carrierRepository->reveal(),
             $this->getCurrencyConverter(2)->reveal(),
             $this->getZoneMatcher()->reveal()
@@ -325,6 +379,7 @@ class ShippingCollectEventListenerTest extends PHPUnit_Framework_TestCase
             );
 
         $shippingCollectEventListener = new ShippingCollectEventListener(
+            $this->getEnabledPlugin()->reveal(),
             $carrierRepository->reveal(),
             $this->getCurrencyConverter(2)->reveal(),
             $this->getZoneMatcher()->reveal()
@@ -361,6 +416,7 @@ class ShippingCollectEventListenerTest extends PHPUnit_Framework_TestCase
             );
 
         $shippingCollectEventListener = new ShippingCollectEventListener(
+            $this->getEnabledPlugin()->reveal(),
             $carrierRepository->reveal(),
             $this->getCurrencyConverter(1)->reveal(),
             $this->getZoneMatcher()->reveal()
@@ -617,5 +673,37 @@ class ShippingCollectEventListenerTest extends PHPUnit_Framework_TestCase
             ->getName("Euro");
 
         return $currency;
+    }
+
+    /**
+     * Get disabled plugin
+     *
+     * @return Plugin $plugin
+     */
+    private function getDisabledPlugin()
+    {
+        $plugin = $this->prophesize('Elcodi\Component\Plugin\Entity\Plugin');
+
+        $plugin
+            ->isEnabled()
+            ->willReturn(false);
+
+        return $plugin;
+    }
+
+    /**
+     * Get enabled plugin
+     *
+     * @return Plugin $plugin
+     */
+    private function getEnabledPlugin()
+    {
+        $plugin = $this->prophesize('Elcodi\Component\Plugin\Entity\Plugin');
+
+        $plugin
+            ->isEnabled()
+            ->willReturn(true);
+
+        return $plugin;
     }
 }

@@ -25,6 +25,7 @@ use Elcodi\Bundle\CoreBundle\Interfaces\DependentBundleInterface;
 use Elcodi\Component\Plugin\Interfaces\PluginInterface;
 use Elcodi\Plugin\CustomShippingBundle\CompilerPass\MappingCompilerPass;
 use Elcodi\Plugin\CustomShippingBundle\DependencyInjection\ElcodiCustomShippingExtension;
+use Symfony\Component\HttpKernel\KernelInterface;
 
 /**
  * Class ElcodiCustomShippingBundle
@@ -65,7 +66,7 @@ class ElcodiCustomShippingBundle extends Bundle implements PluginInterface, Depe
      *
      * @return array Bundle instances
      */
-    public static function getBundleDependencies()
+    public static function getBundleDependencies(KernelInterface $kernel)
     {
         return [
             'Elcodi\Bundle\CoreBundle\ElcodiCoreBundle',
@@ -74,6 +75,7 @@ class ElcodiCustomShippingBundle extends Bundle implements PluginInterface, Depe
             'Elcodi\Bundle\CurrencyBundle\ElcodiCurrencyBundle',
             'Elcodi\Bundle\EntityTranslatorBundle\ElcodiEntityTranslatorBundle',
             'Elcodi\Bundle\MenuBundle\ElcodiMenuBundle',
+             new \Elcodi\Bundle\PluginBundle\ElcodiPluginBundle($kernel),
         ];
     }
 }

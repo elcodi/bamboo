@@ -3,7 +3,7 @@
 /*
  * This file is part of the Elcodi package.
  *
- * Copyright (c) 2014-2015 Elcodi.com
+ * Copyright (c) 2014 Elcodi.com
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -15,25 +15,15 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-namespace Elcodi\Plugin\CustomShippingBundle\Tests\Functional\Factory;
+namespace Elcodi\Plugin\CustomShippingBundle\Tests\Functional\Form\Type;
 
 use Elcodi\Bundle\TestCommonBundle\Functional\WebTestCase;
 
 /**
- * Class ShippingRangeFactoryTest
+ * Class CarrierTypeTest
  */
-class CarrierRangeFactoryTest extends WebTestCase
+class CarrierTypeTest extends WebTestCase
 {
-    /**
-     * Schema must be loaded in all test cases
-     *
-     * @return boolean Load schema
-     */
-    protected function loadSchema()
-    {
-        return false;
-    }
-
     /**
      * Returns the callable name of the service
      *
@@ -41,6 +31,6 @@ class CarrierRangeFactoryTest extends WebTestCase
      */
     public function getServiceCallableName()
     {
-        return ['elcodi_plugin.custom_shipping.factory.shipping_range'];
+        return ['elcodi_plugin.custom_shipping.form_type.carrier'];
     }
 }
