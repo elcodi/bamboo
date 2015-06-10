@@ -17,6 +17,7 @@
 
 namespace Elcodi\Store\CoreBundle;
 
+use Symfony\Component\Console\Application;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
@@ -35,5 +36,19 @@ class StoreCoreBundle extends Bundle
     public function getContainerExtension()
     {
         return new StoreCoreExtension();
+    }
+
+    /**
+     * Register Commands.
+     *
+     * Disabled as commands are registered as services.
+     *
+     * @param Application $application An Application instance
+     *
+     * @return null
+     */
+    public function registerCommands(Application $application)
+    {
+        return null;
     }
 }

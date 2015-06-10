@@ -17,7 +17,9 @@
 
 namespace Elcodi\Common\FirewallBundle;
 
+use Symfony\Component\Console\Application;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 use Elcodi\Common\FirewallBundle\CompilerPass\FirewallCompilerPass;
@@ -44,5 +46,29 @@ class ElcodiFirewallBundle extends Bundle
         parent::build($container);
 
         $container->addCompilerPass(new FirewallCompilerPass());
+    }
+
+    /**
+     * Returns the bundle's container extension.
+     *
+     * @return ExtensionInterface The container extension
+     */
+    public function getContainerExtension()
+    {
+        return null;
+    }
+
+    /**
+     * Register Commands.
+     *
+     * Disabled as commands are registered as services.
+     *
+     * @param Application $application An Application instance
+     *
+     * @return null
+     */
+    public function registerCommands(Application $application)
+    {
+        return null;
     }
 }

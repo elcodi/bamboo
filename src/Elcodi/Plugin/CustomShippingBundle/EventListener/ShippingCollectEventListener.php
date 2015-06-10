@@ -19,6 +19,7 @@ namespace Elcodi\Plugin\CustomShippingBundle\EventListener;
 
 use Elcodi\Component\Cart\Entity\Interfaces\CartInterface;
 use Elcodi\Component\Currency\Services\CurrencyConverter;
+use Elcodi\Component\Plugin\Entity\Plugin;
 use Elcodi\Component\Shipping\Entity\ShippingMethod;
 use Elcodi\Component\Shipping\Event\ShippingCollectionEvent;
 use Elcodi\Component\Zone\Services\ZoneMatcher;
@@ -32,6 +33,13 @@ use Elcodi\Plugin\CustomShippingBundle\Repository\CarrierRepository;
  */
 class ShippingCollectEventListener
 {
+    /**
+     * @var Plugin
+     *
+     * Plugin
+     */
+    protected $plugin;
+
     /**
      * @var CarrierRepository
      *
@@ -56,15 +64,19 @@ class ShippingCollectEventListener
     /**
      * Construct method
      *
+     * @param Plugin            $plugin            Plugin
      * @param CarrierRepository $carrierRepository Carrier Repository
      * @param CurrencyConverter $currencyConverter Currency Converter
      * @param ZoneMatcher       $zoneMatcher       Zone matcher
      */
     public function __construct(
+        Plugin $plugin,
         CarrierRepository $carrierRepository,
         CurrencyConverter $currencyConverter,
         ZoneMatcher $zoneMatcher
-    ) {
+    )
+    {
+        $this->plugin = $plugin;
         $this->carrierRepository = $carrierRepository;
         $this->currencyConverter = $currencyConverter;
         $this->zoneMatcher = $zoneMatcher;
@@ -79,6 +91,14 @@ class ShippingCollectEventListener
      */
     public function addCustomShippingMethods(ShippingCollectionEvent $event)
     {
+        if (!$this
+            ->plugin
+            ->isEnabled()
+        ) {
+
+            return $this;
+        }
+
         $cart = $event->getCart();
         $carrierRanges = $this->getAllShippingRangesSatisfiedWithCart($cart);
 
@@ -137,7 +157,8 @@ class ShippingCollectEventListener
     private function getShippingRangesSatisfiedByCart(
         CartInterface $cart,
         CarrierInterface $carrier
-    ) {
+    )
+    {
         $shippingRanges = $carrier->getRanges();
         $validShippingRanges = [];
 
@@ -166,7 +187,8 @@ class ShippingCollectEventListener
     private function isShippingRangeSatisfiedByCart(
         CartInterface $cart,
         ShippingRangeInterface $shippingRange
-    ) {
+    )
+    {
         if ($shippingRange->getType() === ElcodiShippingRangeTypes::TYPE_PRICE) {
             return $this->isShippingPriceRangeSatisfiedByCart($cart, $shippingRange);
         } elseif ($shippingRange->getType() === ElcodiShippingRangeTypes::TYPE_WEIGHT) {
@@ -187,7 +209,8 @@ class ShippingCollectEventListener
     private function isShippingPriceRangeSatisfiedByCart(
         CartInterface $cart,
         ShippingRangeInterface $shippingRange
-    ) {
+    )
+    {
         $cartPrice = $cart->getProductAmount();
         $cartPriceCurrency = $cartPrice->getCurrency();
         $shippingRangeFromPrice = $shippingRange->getFromPrice();
@@ -220,7 +243,8 @@ class ShippingCollectEventListener
     private function isShippingWeightRangeSatisfiedByCart(
         CartInterface $cart,
         ShippingRangeInterface $shippingRange
-    ) {
+    )
+    {
         $cartWeight = $cart->getWeight();
         $cartRangeFromWeight = $shippingRange->getFromWeight();
         $cartRangeToWeight = $shippingRange->getToWeight();
@@ -246,7 +270,8 @@ class ShippingCollectEventListener
     private function isShippingRangeZonesSatisfiedByCart(
         CartInterface $cart,
         ShippingRangeInterface $shippingRange
-    ) {
+    )
+    {
         $deliveryAddress = $cart->getDeliveryAddress();
 
         return

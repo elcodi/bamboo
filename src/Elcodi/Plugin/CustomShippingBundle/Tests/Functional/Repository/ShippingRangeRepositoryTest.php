@@ -25,18 +25,6 @@ use Elcodi\Bundle\TestCommonBundle\Functional\WebTestCase;
 class ShippingRangeRepositoryTest extends WebTestCase
 {
     /**
-     * Returns the callable name of the service
-     *
-     * @return string[] service name
-     */
-    public function getServiceCallableName()
-    {
-        return [
-            'elcodi.repository.shipping_range',
-        ];
-    }
-
-    /**
      * Test shipping_base_range repository provider
      */
     public function testRepositoryProvider()

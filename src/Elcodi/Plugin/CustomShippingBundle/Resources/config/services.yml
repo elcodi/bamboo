@@ -1,0 +1,9 @@
+services:
+
+    #
+    # Plugin
+    #
+    elcodi_plugin.custom_shipping:
+        parent: elcodi.abstract_plugin
+        arguments:
+            - "Elcodi\\Plugin\\CustomShippingBundle\\ElcodiCustomShippingBundle"

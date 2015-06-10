@@ -23,6 +23,7 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 use Elcodi\Bridge\PaymentSuiteBridgeBundle\DependencyInjection\ElcodiPaymentSuiteBridgeExtension;
 use Elcodi\Bundle\CoreBundle\Interfaces\DependentBundleInterface;
+use Symfony\Component\HttpKernel\KernelInterface;
 
 /**
  * Class ElcodiPaymentSuiteBridgeBundle
@@ -58,7 +59,7 @@ class ElcodiPaymentSuiteBridgeBundle extends Bundle implements DependentBundleIn
      *
      * @return array Bundle instances
      */
-    public static function getBundleDependencies()
+    public static function getBundleDependencies(KernelInterface $kernel)
     {
         return [
             'PaymentSuite\PaymentCoreBundle\PaymentCoreBundle',

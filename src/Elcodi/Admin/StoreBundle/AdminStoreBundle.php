@@ -17,11 +17,13 @@
 
 namespace Elcodi\Admin\StoreBundle;
 
+use Symfony\Component\Console\Application;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 use Elcodi\Admin\StoreBundle\DependencyInjection\AdminStoreExtension;
 use Elcodi\Bundle\CoreBundle\Interfaces\DependentBundleInterface;
+use Symfony\Component\HttpKernel\KernelInterface;
 
 /**
  * Class AdminStoreBundle
@@ -39,13 +41,27 @@ class AdminStoreBundle extends Bundle implements DependentBundleInterface
     }
 
     /**
+     * Register Commands.
+     *
+     * Disabled as commands are registered as services.
+     *
+     * @param Application $application An Application instance
+     *
+     * @return null
+     */
+    public function registerCommands(Application $application)
+    {
+        return null;
+    }
+
+    /**
      * Return all bundle dependencies.
      *
      * Values can be a simple bundle namespace or its instance
      *
      * @return array Bundle instances
      */
-    public static function getBundleDependencies()
+    public static function getBundleDependencies(KernelInterface $kernel)
     {
         return [
             'Elcodi\Admin\CoreBundle\AdminCoreBundle',

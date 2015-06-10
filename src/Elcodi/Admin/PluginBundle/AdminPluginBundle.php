@@ -17,6 +17,7 @@
 
 namespace Elcodi\Admin\PluginBundle;
 
+use Symfony\Component\Console\Application;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 use Elcodi\Admin\PluginBundle\DependencyInjection\AdminPluginExtension;
@@ -34,5 +35,19 @@ class AdminPluginBundle extends Bundle
     public function getContainerExtension()
     {
         return new AdminPluginExtension();
+    }
+
+    /**
+     * Register Commands.
+     *
+     * Disabled as commands are registered as services.
+     *
+     * @param Application $application An Application instance
+     *
+     * @return null
+     */
+    public function registerCommands(Application $application)
+    {
+        return null;
     }
 }
