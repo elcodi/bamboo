@@ -161,7 +161,7 @@
                     <h3 class="fw-n">{{ 'admin.order.field.carrier'|trans }}</h3>
                     <i class="icon-truck"></i>
                     {# TODO: Extract carrier_name from the shown order #}
-                    {{ carrier_name|default('Default') }} ( {{ order.shippingAmount|print_money }} )
+                    {{ order.shippingMethod.carrierName }} ( {{ order.shippingAmount|print_money }} )
                 </div>
             </div>
         </div>

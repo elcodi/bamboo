@@ -18,7 +18,6 @@
 namespace Elcodi\Plugin\CustomShippingBundle\Tests\UnitTest\EventListener;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Elcodi\Component\Plugin\Entity\Plugin;
 use PHPUnit_Framework_TestCase;
 use Prophecy\Argument;
 
@@ -26,6 +25,7 @@ use Elcodi\Component\Cart\Entity\Interfaces\CartInterface;
 use Elcodi\Component\Currency\Entity\Currency;
 use Elcodi\Component\Currency\Entity\Money;
 use Elcodi\Component\Currency\Services\CurrencyConverter;
+use Elcodi\Component\Plugin\Entity\Plugin;
 use Elcodi\Component\Shipping\Entity\ShippingMethod;
 use Elcodi\Component\Shipping\Event\ShippingCollectionEvent;
 use Elcodi\Component\Zone\Services\ZoneMatcher;

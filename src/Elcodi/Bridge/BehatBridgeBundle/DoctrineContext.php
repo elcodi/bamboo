@@ -56,7 +56,7 @@ class DoctrineContext extends AbstractElcodiContext
             ->executeCommand('doctrine:fixtures:load', [
                 '--fixtures' => $this
                         ->kernel
-                        ->getRootDir() . '/../src/Elcodi/Fixtures',
+                        ->getRootDir() . '/../src/Elcodi',
             ])
             ->laodLocationFixtures()
             ->executeCommand('elcodi:plugins:load')
