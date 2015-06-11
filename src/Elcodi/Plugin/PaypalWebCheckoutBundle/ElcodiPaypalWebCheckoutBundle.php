@@ -20,11 +20,11 @@ namespace Elcodi\Plugin\PaypalWebCheckoutBundle;
 use Symfony\Component\Console\Application;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Symfony\Component\HttpKernel\KernelInterface;
 
 use Elcodi\Bundle\CoreBundle\Interfaces\DependentBundleInterface;
 use Elcodi\Component\Plugin\Interfaces\PluginInterface;
 use Elcodi\Plugin\PaypalWebCheckoutBundle\DependencyInjection\ElcodiPaypalWebCheckoutExtension;
-use Symfony\Component\HttpKernel\KernelInterface;
 
 /**
  * Class ElcodiPaypalWebCheckoutBundle

@@ -74,8 +74,7 @@ class ShippingCollectEventListener
         CarrierRepository $carrierRepository,
         CurrencyConverter $currencyConverter,
         ZoneMatcher $zoneMatcher
-    )
-    {
+    ) {
         $this->plugin = $plugin;
         $this->carrierRepository = $carrierRepository;
         $this->currencyConverter = $currencyConverter;
@@ -95,7 +94,6 @@ class ShippingCollectEventListener
             ->plugin
             ->isEnabled()
         ) {
-
             return $this;
         }
 
@@ -157,8 +155,7 @@ class ShippingCollectEventListener
     private function getShippingRangesSatisfiedByCart(
         CartInterface $cart,
         CarrierInterface $carrier
-    )
-    {
+    ) {
         $shippingRanges = $carrier->getRanges();
         $validShippingRanges = [];
 
@@ -187,8 +184,7 @@ class ShippingCollectEventListener
     private function isShippingRangeSatisfiedByCart(
         CartInterface $cart,
         ShippingRangeInterface $shippingRange
-    )
-    {
+    ) {
         if ($shippingRange->getType() === ElcodiShippingRangeTypes::TYPE_PRICE) {
             return $this->isShippingPriceRangeSatisfiedByCart($cart, $shippingRange);
         } elseif ($shippingRange->getType() === ElcodiShippingRangeTypes::TYPE_WEIGHT) {
@@ -209,8 +205,7 @@ class ShippingCollectEventListener
     private function isShippingPriceRangeSatisfiedByCart(
         CartInterface $cart,
         ShippingRangeInterface $shippingRange
-    )
-    {
+    ) {
         $cartPrice = $cart->getProductAmount();
         $cartPriceCurrency = $cartPrice->getCurrency();
         $shippingRangeFromPrice = $shippingRange->getFromPrice();
@@ -243,8 +238,7 @@ class ShippingCollectEventListener
     private function isShippingWeightRangeSatisfiedByCart(
         CartInterface $cart,
         ShippingRangeInterface $shippingRange
-    )
-    {
+    ) {
         $cartWeight = $cart->getWeight();
         $cartRangeFromWeight = $shippingRange->getFromWeight();
         $cartRangeToWeight = $shippingRange->getToWeight();
@@ -270,8 +264,7 @@ class ShippingCollectEventListener
     private function isShippingRangeZonesSatisfiedByCart(
         CartInterface $cart,
         ShippingRangeInterface $shippingRange
-    )
-    {
+    ) {
         $deliveryAddress = $cart->getDeliveryAddress();
 
         return

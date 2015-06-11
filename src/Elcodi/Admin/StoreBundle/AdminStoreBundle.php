@@ -20,10 +20,10 @@ namespace Elcodi\Admin\StoreBundle;
 use Symfony\Component\Console\Application;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Symfony\Component\HttpKernel\KernelInterface;
 
 use Elcodi\Admin\StoreBundle\DependencyInjection\AdminStoreExtension;
 use Elcodi\Bundle\CoreBundle\Interfaces\DependentBundleInterface;
-use Symfony\Component\HttpKernel\KernelInterface;
 
 /**
  * Class AdminStoreBundle

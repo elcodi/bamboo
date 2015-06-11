@@ -44,7 +44,7 @@ class StoreData extends AbstractFixture implements DependentFixtureInterface
          */
         $storeDirector = $this->getDirector('store');
         $address = $this->getReference('address-home');
-        $language = $this->getReference('language-es');
+        $language = $this->getReference('language-en');
         $currency = $this->getReference('currency-EUR');
 
         $imagePath = realpath(dirname(__FILE__) . '/images/wallpaper.jpg');
