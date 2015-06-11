@@ -9,3 +9,11 @@ services:
             - @elcodi.factory.menu_node
         tags:
             - { name: menu.builder, menu: admin, priority: 32 }
+
+    elcodi_admin.menu_builder.orders_not_shipped:
+        class: Elcodi\Admin\CartBundle\Builder\OrdersNotShippedBuilder
+        arguments:
+            - @elcodi.factory.menu_node
+            - @elcodi.repository.order
+        tags:
+            - { name: menu.builder, menu: admin, stage: after_cache }

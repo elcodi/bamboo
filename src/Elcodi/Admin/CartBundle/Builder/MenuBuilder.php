@@ -26,6 +26,7 @@ use Elcodi\Component\Menu\Entity\Menu\Interfaces\MenuInterface;
  */
 class MenuBuilder extends AbstractMenuBuilder implements MenuBuilderInterface
 {
+
     /**
      * Build the menu
      *
