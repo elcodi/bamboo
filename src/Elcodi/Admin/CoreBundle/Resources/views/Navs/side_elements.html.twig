@@ -9,33 +9,33 @@
 
 {% macro showNode(node, route) %}
     <li class="{% if node.isActive(route) %}active{% endif %}{% if node.subnodes|length %}parent{% endif %}" data-test="{{ node.name }}">
-        {% if node.subnodes|length == 0 %}
-            <a href="{{ generate_url(node.url) }}">
-        {% else %}
-            <a href="#{{ node.name|md5 }}" data-fc-modules="toggle">
-                <i class="icon-caret-down fl-r"></i>
-        {% endif %}
-        {% if node.badge is defined %}<span class="badge {% if node.badge > 0 %}badge-alert{% endif %}">{{ node.badge }}</span>{% endif %}
-                <span class="mobile tablet">
-                    <i class="icon-{{ node.code|default("folder") }} fz-xl va-m mr-s"></i>
-                        <span class="c-foreground-light">{{ node.name|trans }}</span>
-                    </span>
-                    <span class="desktop">
-                        <i class="icon-{{ node.code|default("folder") }} mr-m"></i>
-                        {{ node.name|trans }}
-                    </span>
-                </a>
-            {% for subnode in node.subnodes %}
-                {% if loop.first %}
-                    <ul id="{{ node.name|md5 }}" {% if not node.isExpanded(route) %}class="hidden"{% endif %}>
-                {% endif %}
-                <li {% if subnode.isActive(route) %}class="active"{% endif %} data-test="{{ subnode.name }}">
-                    <a href="{{ generate_url(subnode.url) }}" class="pl-l"><i class="icon-angle-right"></i> {{ subnode.name|trans }}</a>
-                </li>
-                {% if loop.last %}
-                    </ul>
-                {% endif %}
-            {% endfor %}
+    {% if node.subnodes|length == 0 %}
+        <a href="{{ generate_url(node.url) }}">
+    {% else %}
+        <a href="#{{ node.name|md5 }}" data-fc-modules="toggle">
+            <i class="icon-caret-down fl-r"></i>
+    {% endif %}
+    {% if node.warnings > 0 %}<span class="badge badge-alert">{{ node.warnings }}</span>{% endif %}
+            <span class="mobile tablet">
+                <i class="icon-{{ node.code|default("folder") }} fz-xl va-m mr-s"></i>
+                <span class="c-foreground-light">{{ node.name|trans }}</span>
+            </span>
+            <span class="desktop">
+                <i class="icon-{{ node.code|default("folder") }} mr-m"></i>
+                {{ node.name|trans }}
+            </span>
+        </a>
+        {% for subnode in node.subnodes %}
+            {% if loop.first %}
+                <ul id="{{ node.name|md5 }}" {% if not node.isExpanded(route) %}class="hidden"{% endif %}>
+            {% endif %}
+            <li {% if subnode.isActive(route) %}class="active"{% endif %} data-test="{{ subnode.name }}">
+                <a href="{{ generate_url(subnode.url) }}" class="pl-l"><i class="icon-angle-right"></i> {{ subnode.name|trans }}</a>
+            </li>
+            {% if loop.last %}
+                </ul>
+            {% endif %}
+        {% endfor %}
     </li>
 {% endmacro %}
 
