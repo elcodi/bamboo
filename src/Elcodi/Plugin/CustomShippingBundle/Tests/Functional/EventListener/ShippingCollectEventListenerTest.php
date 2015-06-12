@@ -17,6 +17,8 @@
 
 namespace Elcodi\Plugin\CustomShippingBundle\Tests\Functional\Provider;
 
+use Symfony\Component\Console\Input\ArrayInput;
+
 use Elcodi\Bundle\TestCommonBundle\Functional\WebTestCase;
 
 /**
@@ -32,6 +34,29 @@ class ShippingCollectEventListenerTest extends WebTestCase
     protected function loadSchema()
     {
         return true;
+    }
+
+    /**
+     * load fixtures method
+     *
+     * This method is only called if create Schema is set to true
+     *
+     * Only load fixtures if loadFixtures() is set to true.
+     * All other methods will be loaded if this one is loaded.
+     *
+     * Otherwise, will return.
+     *
+     * @return $this Self object
+     */
+    protected function loadFixtures()
+    {
+        parent::loadFixtures();
+
+        self::$application->run(new ArrayInput([
+            'command'          => 'elcodi:plugins:load',
+            '--no-interaction' => true,
+            '--quiet'          => true,
+        ]));
     }
 
     /**
