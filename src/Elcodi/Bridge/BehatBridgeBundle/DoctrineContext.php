@@ -22,6 +22,7 @@ use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Behat\Testwork\Hook\Scope\BeforeSuiteScope;
 use Doctrine\DBAL\Connection;
 use Symfony\Component\Console\Input\ArrayInput;
+use Symfony\Component\Console\Input\StringInput;
 
 use Elcodi\Bridge\BehatBridgeBundle\Abstracts\AbstractElcodiContext;
 use Elcodi\Component\Geo\Entity\Interfaces\LocationInterface;
@@ -53,12 +54,8 @@ class DoctrineContext extends AbstractElcodiContext
             ->checkDoctrineConnection()
             ->executeCommand('doctrine:database:create')
             ->executeCommand('doctrine:schema:create')
-            ->executeCommand('doctrine:fixtures:load', [
-                '--fixtures' => $this
-                        ->kernel
-                        ->getRootDir() . '/../src/Elcodi',
-            ])
-            ->laodLocationFixtures()
+            ->loadCommonFixtures()
+            ->loadLocationFixtures()
             ->executeCommand('elcodi:plugins:load')
             ->executeCommand('assets:install')
             ->executeCommand('assetic:dump');
@@ -75,13 +72,15 @@ class DoctrineContext extends AbstractElcodiContext
             ->getConnection()
             ->close();
 
-        $this->application->run(new ArrayInput([
-            'command'          => 'doctrine:database:drop',
-            '--env'            => 'test',
-            '--no-interaction' => true,
-            '--force'          => true,
-            '--quiet'          => true,
-        ]));
+        $this
+            ->application
+            ->run(new ArrayInput([
+                'command'          => 'doctrine:database:drop',
+                '--env'            => 'test',
+                '--no-interaction' => true,
+                '--force'          => true,
+                '--quiet'          => true,
+            ]));
     }
 
     /**
@@ -147,37 +146,56 @@ class DoctrineContext extends AbstractElcodiContext
     }
 
     /**
+     * Load common fixtures
+     *
+     * @return $this Self object
+     */
+    private function loadCommonFixtures()
+    {
+        $rootDir = $this
+            ->kernel
+            ->getRootDir();
+
+        $command =
+            'doc:fix:load ' .
+            '--fixtures=' . $rootDir . '/../src/Elcodi/Plugin/ ' .
+            '--fixtures=' . $rootDir . '/../src/Elcodi/Fixtures ' .
+            '--env=test ' .
+            '--no-interaction ';
+
+        if (!$this->debug) {
+            $command .= '--quiet ';
+        }
+
+        $input = new StringInput($command);
+        $this
+            ->application
+            ->run($input);
+
+        return $this;
+    }
+
+    /**
      * Load location fixtures
      *
      * @return $this Self object
      */
-    private function laodLocationFixtures()
+    private function loadLocationFixtures()
     {
         $locationDirector = $this
             ->getContainer()
             ->get('elcodi.director.location');
-        /**
-         * @var LocationInterface $locationSpain
-         */
-        $locationSpain = $locationDirector
-            ->create()
-            ->setId('ES')
-            ->setName('Spain')
-            ->setCode('ES')
-            ->setType('country');
-        $locationDirector->save($locationSpain);
 
         /**
-         * @var LocationInterface $locationCatalunya
+         * @var LocationInterface $locationBarcelonaCity
          */
-        $locationCatalunya = $locationDirector
+        $locationBarcelonaCity = $locationDirector
             ->create()
-            ->setId('ES_CT')
-            ->setName('Catalunya')
-            ->setCode('CT')
-            ->setType('state')
-            ->addParent($locationSpain);
-        $locationDirector->save($locationCatalunya);
+            ->setId('ES_CT_B_Barcelona')
+            ->setName('Barcelona')
+            ->setCode('Barcelona')
+            ->setType('city');
+        $locationDirector->save($locationBarcelonaCity);
 
         /**
          * @var LocationInterface $locationBarcelonaProvince
@@ -188,20 +206,32 @@ class DoctrineContext extends AbstractElcodiContext
             ->setName('Barcelona')
             ->setCode('B')
             ->setType('province')
-            ->addParent($locationCatalunya);
+            ->addChildren($locationBarcelonaCity);
         $locationDirector->save($locationBarcelonaProvince);
 
         /**
-         * @var LocationInterface $locationBarcelonaCity
+         * @var LocationInterface $locationCatalunya
          */
-        $locationBarcelonaCity = $locationDirector
+        $locationCatalunya = $locationDirector
             ->create()
-            ->setId('ES_CT_B_Barcelona')
-            ->setName('Barcelona')
-            ->setCode('Barcelona')
-            ->setType('city')
-            ->addParent($locationBarcelonaProvince);
-        $locationDirector->save($locationBarcelonaCity);
+            ->setId('ES_CT')
+            ->setName('Catalunya')
+            ->setCode('CT')
+            ->setType('state')
+            ->addChildren($locationBarcelonaProvince);
+        $locationDirector->save($locationCatalunya);
+
+        /**
+         * @var LocationInterface $locationSpain
+         */
+        $locationSpain = $locationDirector
+            ->create()
+            ->setId('ES')
+            ->setName('Spain')
+            ->setCode('ES')
+            ->setType('country')
+            ->addChildren($locationCatalunya);
+        $locationDirector->save($locationSpain);
 
         return $this;
     }
