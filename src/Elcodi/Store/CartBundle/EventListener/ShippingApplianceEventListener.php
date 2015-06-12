@@ -69,13 +69,13 @@ class ShippingApplianceEventListener
     }
 
     /**
-     * Remove shipping range from cart if this is not valid anymore
+     * Remove shipping method from cart if this is not valid anymore
      *
      * @param CartOnLoadEvent $event Event
      *
      * @return $this Self object
      */
-    public function removeInvalidShippingRange(CartOnLoadEvent $event)
+    public function removeInvalidShippingMethod(CartOnLoadEvent $event)
     {
         $cart = $event->getCart();
         $cartShippingMethodId = $cart->getShippingMethod();
@@ -101,13 +101,13 @@ class ShippingApplianceEventListener
     }
 
     /**
-     * Loads cheapest shipping range if exists
+     * Loads cheapest shipping method if exists
      *
      * @param CartOnLoadEvent $event Event
      *
      * @return $this Self object
      */
-    public function loadCheapestShippingRange(CartOnLoadEvent $event)
+    public function loadCheapestShippingMethod(CartOnLoadEvent $event)
     {
         $cart = $event->getCart();
         $cartShippingMethodId = $cart->getShippingMethod();

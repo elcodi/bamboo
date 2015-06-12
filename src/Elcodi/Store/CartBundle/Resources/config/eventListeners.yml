@@ -10,8 +10,8 @@ services:
             - @elcodi.wrapper.shipping_methods
             - @elcodi.resolver.shipping
         tags:
-            - { name: kernel.event_listener, event: cart.onload, method: removeInvalidShippingRange, priority: 8 }
-            - { name: kernel.event_listener, event: cart.onload, method: loadCheapestShippingRange, priority: 7 }
+            - { name: kernel.event_listener, event: cart.onload, method: removeInvalidShippingMethod, priority: 8 }
+            - { name: kernel.event_listener, event: cart.onload, method: loadCheapestShippingMethod, priority: 7 }
 
     elcodi_elcodi_store.event_listener.send_order_confirmation_email:
         class: Elcodi\Store\CartBundle\EventListener\SendOrderConfirmationEmailEventListener

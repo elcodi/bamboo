@@ -47,9 +47,6 @@ class StoreData extends AbstractFixture implements DependentFixtureInterface
         $language = $this->getReference('language-en');
         $currency = $this->getReference('currency-EUR');
 
-        $imagePath = realpath(dirname(__FILE__) . '/images/wallpaper.jpg');
-        $wallpaper = $this->storeImage($imagePath);
-
         /**
          * @var StoreInterface $store
          */
@@ -65,8 +62,7 @@ class StoreData extends AbstractFixture implements DependentFixtureInterface
             ->setUseStock(true)
             ->setAddress($address)
             ->setDefaultLanguage($language)
-            ->setDefaultCurrency($currency)
-            ->setBackgroundImage($wallpaper);
+            ->setDefaultCurrency($currency);
 
         $storeDirector->save($store);
         $this->setReference('store', $store);

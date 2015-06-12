@@ -24,6 +24,7 @@ use Elcodi\Bundle\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
 use Elcodi\Component\Core\Services\ObjectDirector;
 use Elcodi\Component\Currency\Entity\Interfaces\CurrencyInterface;
 use Elcodi\Component\Currency\Entity\Money;
+use Elcodi\Component\EntityTranslator\Services\Interfaces\EntityTranslatorInterface;
 use Elcodi\Component\Zone\Entity\Interfaces\ZoneInterface;
 use Elcodi\Plugin\CustomShippingBundle\ElcodiShippingRangeTypes;
 
@@ -38,38 +39,56 @@ class CarrierData extends AbstractFixture implements DependentFixtureInterface
     public function load(ObjectManager $manager)
     {
         /**
-         * @var ObjectDirector $carrierDirector
-         * @var ObjectDirector $shippingRangeDirector
+         * @var ObjectDirector            $carrierDirector
+         * @var EntityTranslatorInterface $entityTranslator
          */
         $carrierDirector = $this->getDirector('carrier');
-        $shippingRangeDirector = $this->getDirector('shipping_range');
+        $entityTranslator = $this->get('elcodi.entity_translator');
+
+        $carrier = $carrierDirector
+            ->create()
+            ->setName('default')
+            ->setTax($this->getReference('tax-vat-21'))
+            ->setDescription('Default carrier')
+            ->setEnabled(true);
+
+        $this->setReference('carrier-default', $carrier);
+        $carrierDirector->save($carrier);
+
+        $entityTranslator->save($carrier, [
+            'en' => [
+                'name'        => 'Basic',
+                'description' => 'Our basic delivery system',
+            ],
+            'es' => [
+                'name'        => 'Básico',
+                'description' => 'Nuestro sistema de entrega básico',
+            ],
+            'fr' => [
+                'name'        => 'Minimale',
+                'description' => 'Notre système de livraison basique',
+            ],
+            'ca' => [
+                'name'        => 'Bàsic',
+                'description' => 'El nostre sistema d\'entrega bàsic',
+            ],
+        ]);
 
         /**
          * @var CurrencyInterface $currencyEuro
-         * @var ZoneInterface $zone08021
-         * @var ZoneInterface $zoneSantCelone
+         * @var ZoneInterface     $zoneSpain
          */
-        $currencyEuro = $this->getReference('currency-euro');
-        $zone08021 = $this->getReference('zone-08021');
-        $zoneViladecavalls = $this->getReference('zone-viladecavalls');
-
-        /**
-         * Carrier1 from Viladecavalls to Barcelona
-         */
-        $carrier1 = $carrierDirector
-            ->create()
-            ->setName('carrier-1')
-            ->setDescription('Carrier 1')
-            ->setTax($this->getReference('tax-21'))
-            ->setEnabled(true);
+        $zoneSpain = $this->getReference('zone-spain');
+        $currencyEuro = $this->getReference('currency-EUR');
+        $shippingRangeDirector = $this->getDirector('shipping_range');
 
         $shippingPriceRange1 = $shippingRangeDirector
             ->create()
             ->setType(ElcodiShippingRangeTypes::TYPE_PRICE)
-            ->setCarrier($carrier1)
+            ->setCarrier($carrier)
             ->setName('From 0€ to 10€')
-            ->setFromZone($zoneViladecavalls)
-            ->setToZone($zone08021)
+            ->setFromZone($zoneSpain)
+            ->setToZone($zoneSpain)
             ->setFromPrice(Money::create(0, $currencyEuro))
             ->setToPrice(Money::create(1000, $currencyEuro))
             ->setPrice(Money::create(900, $currencyEuro))
@@ -78,10 +97,10 @@ class CarrierData extends AbstractFixture implements DependentFixtureInterface
         $shippingPriceRange2 = $shippingRangeDirector
             ->create()
             ->setType(ElcodiShippingRangeTypes::TYPE_PRICE)
-            ->setCarrier($carrier1)
+            ->setCarrier($carrier)
             ->setName('From 10€ to 20€')
-            ->setFromZone($zoneViladecavalls)
-            ->setToZone($zone08021)
+            ->setFromZone($zoneSpain)
+            ->setToZone($zoneSpain)
             ->setFromPrice(Money::create(1000, $currencyEuro))
             ->setToPrice(Money::create(2000, $currencyEuro))
             ->setPrice(Money::create(500, $currencyEuro))
@@ -90,176 +109,18 @@ class CarrierData extends AbstractFixture implements DependentFixtureInterface
         $shippingPriceRange3 = $shippingRangeDirector
             ->create()
             ->setType(ElcodiShippingRangeTypes::TYPE_PRICE)
-            ->setCarrier($carrier1)
+            ->setCarrier($carrier)
             ->setName('Free for up to 20€')
-            ->setFromZone($zoneViladecavalls)
-            ->setToZone($zone08021)
+            ->setFromZone($zoneSpain)
+            ->setToZone($zoneSpain)
             ->setFromPrice(Money::create(2000, $currencyEuro))
             ->setToPrice(Money::create(999999999, $currencyEuro))
             ->setPrice(Money::create(115, $currencyEuro))
             ->setEnabled(true);
 
-        $carrierDirector->save($carrier1);
         $shippingRangeDirector->save($shippingPriceRange1);
         $shippingRangeDirector->save($shippingPriceRange2);
         $shippingRangeDirector->save($shippingPriceRange3);
-        $this->addReference('carrier-1', $carrier1);
-
-        /**
-         * Carrier2 from Viladecavalls to Barcelona
-         */
-        $carrier2 = $carrierDirector
-            ->create()
-            ->setName('carrier-2')
-            ->setDescription('Carrier 2')
-            ->setTax($this->getReference('tax-21'))
-            ->setEnabled(true);
-
-        $shippingPriceRangeB1 = $shippingRangeDirector
-            ->create()
-            ->setType(ElcodiShippingRangeTypes::TYPE_PRICE)
-            ->setCarrier($carrier2)
-            ->setName('From 0€ to 15€')
-            ->setFromZone($zoneViladecavalls)
-            ->setToZone($zone08021)
-            ->setFromPrice(Money::create(0, $currencyEuro))
-            ->setToPrice(Money::create(1500, $currencyEuro))
-            ->setPrice(Money::create(700, $currencyEuro))
-            ->setEnabled(true);
-
-        $shippingPriceRangeB2 = $shippingRangeDirector
-            ->create()
-            ->setType(ElcodiShippingRangeTypes::TYPE_PRICE)
-            ->setCarrier($carrier2)
-            ->setName('From 15€ to 30€')
-            ->setFromZone($zoneViladecavalls)
-            ->setToZone($zone08021)
-            ->setFromPrice(Money::create(1500, $currencyEuro))
-            ->setToPrice(Money::create(3000, $currencyEuro))
-            ->setPrice(Money::create(300, $currencyEuro))
-            ->setEnabled(true);
-
-        $shippingPriceRangeB3 = $shippingRangeDirector
-            ->create()
-            ->setType(ElcodiShippingRangeTypes::TYPE_PRICE)
-            ->setCarrier($carrier2)
-            ->setName('Free for up to 30€')
-            ->setFromZone($zoneViladecavalls)
-            ->setToZone($zone08021)
-            ->setFromPrice(Money::create(3000, $currencyEuro))
-            ->setToPrice(Money::create(999999999, $currencyEuro))
-            ->setPrice(Money::create(100, $currencyEuro))
-            ->setEnabled(true);
-
-        $carrierDirector->save($carrier2);
-        $shippingRangeDirector->save($shippingPriceRangeB1);
-        $shippingRangeDirector->save($shippingPriceRangeB2);
-        $shippingRangeDirector->save($shippingPriceRangeB3);
-        $this->addReference('carrier-2', $carrier2);
-
-        /**
-         * Carrier3 from Viladecavalls to Barcelona
-         */
-        $carrier3 = $carrierDirector
-            ->create()
-            ->setName('carrier-3')
-            ->setDescription('Carrier 3')
-            ->setTax($this->getReference('tax-16'))
-            ->setEnabled(true);
-
-        $shippingWeightRange1 = $shippingRangeDirector
-            ->create()
-            ->setType(ElcodiShippingRangeTypes::TYPE_WEIGHT)
-            ->setCarrier($carrier3)
-            ->setName('From 0g to 500g')
-            ->setFromZone($zoneViladecavalls)
-            ->setToZone($zone08021)
-            ->setFromWeight(0)
-            ->setToWeight(500)
-            ->setPrice(Money::create(500, $currencyEuro))
-            ->setEnabled(true);
-
-        $shippingWeightRange2 = $shippingRangeDirector
-            ->create()
-            ->setType(ElcodiShippingRangeTypes::TYPE_WEIGHT)
-            ->setCarrier($carrier3)
-            ->setName('From 500g to 1000g')
-            ->setFromZone($zoneViladecavalls)
-            ->setToZone($zone08021)
-            ->setFromWeight(500)
-            ->setToWeight(1000)
-            ->setPrice(Money::create(700, $currencyEuro))
-            ->setEnabled(true);
-
-        $shippingWeightRange3 = $shippingRangeDirector
-            ->create()
-            ->setType(ElcodiShippingRangeTypes::TYPE_WEIGHT)
-            ->setCarrier($carrier3)
-            ->setName('Up to 1000g')
-            ->setFromZone($zoneViladecavalls)
-            ->setToZone($zone08021)
-            ->setFromWeight(1000)
-            ->setToWeight(9999999999)
-            ->setPrice(Money::create(1000, $currencyEuro))
-            ->setEnabled(true);
-
-        $carrierDirector->save($carrier3);
-        $shippingRangeDirector->save($shippingWeightRange1);
-        $shippingRangeDirector->save($shippingWeightRange2);
-        $shippingRangeDirector->save($shippingWeightRange3);
-        $this->addReference('carrier-3', $carrier3);
-
-        /**
-         * Carrier4 from Barcelona to Viladecavalls
-         */
-        $carrier4 = $carrierDirector
-            ->create()
-            ->setName('carrier-4')
-            ->setDescription('Carrier 4')
-            ->setTax($this->getReference('tax-21'))
-            ->setEnabled(true);
-
-        $shippingWeightRangeB1 = $shippingRangeDirector
-            ->create()
-            ->setType(ElcodiShippingRangeTypes::TYPE_WEIGHT)
-            ->setCarrier($carrier4)
-            ->setName('From 0g to 700g')
-            ->setFromZone($zoneViladecavalls)
-            ->setToZone($zoneViladecavalls)
-            ->setFromWeight(0)
-            ->setToWeight(700)
-            ->setPrice(Money::create(500, $currencyEuro))
-            ->setEnabled(true);
-
-        $shippingWeightRangeB2 = $shippingRangeDirector
-            ->create()
-            ->setType(ElcodiShippingRangeTypes::TYPE_WEIGHT)
-            ->setCarrier($carrier4)
-            ->setName('From 500g to 1000g')
-            ->setFromZone($zoneViladecavalls)
-            ->setToZone($zoneViladecavalls)
-            ->setFromWeight(700)
-            ->setToWeight(1200)
-            ->setPrice(Money::create(1500, $currencyEuro))
-            ->setEnabled(true);
-
-        $shippingWeightRangeB3 = $shippingRangeDirector
-            ->create()
-            ->setType(ElcodiShippingRangeTypes::TYPE_WEIGHT)
-            ->setCarrier($carrier4)
-            ->setName('Up to 1000g')
-            ->setFromZone($zoneViladecavalls)
-            ->setToZone($zoneViladecavalls)
-            ->setFromWeight(1200)
-            ->setToWeight(9999999999)
-            ->setPrice(Money::create(3000, $currencyEuro))
-            ->setEnabled(true);
-
-        $carrierDirector->save($carrier4);
-        $shippingRangeDirector->save($shippingWeightRangeB1);
-        $shippingRangeDirector->save($shippingWeightRangeB2);
-        $shippingRangeDirector->save($shippingWeightRangeB3);
-        $this->addReference('carrier-4', $carrier4);
     }
 
     /**
@@ -271,9 +132,9 @@ class CarrierData extends AbstractFixture implements DependentFixtureInterface
     public function getDependencies()
     {
         return [
-            'Elcodi\Bundle\TaxBundle\DataFixtures\ORM\TaxData',
-            'Elcodi\Bundle\ZoneBundle\DataFixtures\ORM\ZoneData',
-            'Elcodi\Bundle\CurrencyBundle\DataFixtures\ORM\CurrencyData',
+            'Elcodi\Fixtures\DataFixtures\ORM\Tax\TaxData',
+            'Elcodi\Fixtures\DataFixtures\ORM\Zone\ZoneData',
+            'Elcodi\Fixtures\DataFixtures\ORM\Currency\CurrencyData',
         ];
     }
 }

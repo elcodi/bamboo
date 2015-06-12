@@ -15,7 +15,7 @@
         <a href="#{{ node.name|md5 }}" data-fc-modules="toggle">
             <i class="icon-caret-down fl-r"></i>
     {% endif %}
-    {% if node.warnings > 0 %}<span class="badge badge-alert">{{ node.warnings }}</span>{% endif %}
+    {% if node.warnings is not null %}<span class="badge{% if node.warnings > 0 %} badge-alert{% endif %}">{{ node.warnings }}</span>{% endif %}
             <span class="mobile tablet">
                 <i class="icon-{{ node.code|default("folder") }} fz-xl va-m mr-s"></i>
                 <span class="c-foreground-light">{{ node.name|trans }}</span>

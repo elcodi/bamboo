@@ -150,9 +150,8 @@ class CheckoutController extends Controller
      *      methods = {"POST"}
      * )
      */
-    public function saveAddressAction(
-        Request $request
-    ) {
+    public function saveAddressAction(Request $request)
+    {
         $billingAddressId = $request
             ->request
             ->get('billing', false);

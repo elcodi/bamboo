@@ -266,6 +266,7 @@ class ShippingCollectEventListener
         ShippingRangeInterface $shippingRange
     ) {
         $deliveryAddress = $cart->getDeliveryAddress();
+        $shippingRange->getToZone()->getName();
 
         return
             $deliveryAddress === null ||
