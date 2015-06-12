@@ -481,7 +481,6 @@ admin:
             shipping: Versand
         transition:
             refund: Rückerstattung
-            ship:   Versenden
 
     page:
         single:   Seite

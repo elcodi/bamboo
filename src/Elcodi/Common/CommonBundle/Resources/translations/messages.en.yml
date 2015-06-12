@@ -1,10 +1,14 @@
 common:
     order:
         states:
-            title:       History
-            initial:     New order
-            unpaid:      Unpaid
-            refunded:    Refunded
-            shipped:     Shipped
-            not shipped: Not shipped
-            paid:        Paid
+            title:                  History
+            initial:                New order
+            unpaid:                 Unpaid
+            paid:                   Paid
+            refunded:               Refunded
+            preparing:              Preparing
+            processed:              Processed
+            in delivery:            In delivery
+            delivered:              Delivered
+            cancelled:              Cancelled
+            returned:               Returned

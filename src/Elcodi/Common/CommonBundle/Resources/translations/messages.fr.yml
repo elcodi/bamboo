@@ -5,6 +5,4 @@ common:
             initial:     Nouvelle commande
             unpaid:      Non payée
             refunded:    Remboursée
-            shipped:     Livrée
-            not shipped: Non livrée
             paid:        Payée

@@ -463,7 +463,6 @@ admin:
             shipping: Livraison
         transition:
             refund: Remboursement
-            ship:   Livraison
 
     page:
         single:   Page

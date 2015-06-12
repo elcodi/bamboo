@@ -558,7 +558,12 @@ admin:
             shipping: Shipping
         transition:
             refund: Refund
-            ship:   Ship
+            order ready: Order ready
+            picked up on store: Picked on store
+            picked up by carrier: Picked by carrier
+            delivered: Delivered
+            cancel: Cancel
+            return: Return
 
     page:
         single:   Page

@@ -1,10 +1,14 @@
 common:
     order:
         states:
-            title:       Historial
-            initial:     Comanda nova
-            unpaid:      Sense pagar
-            refunded:    Reemborsat
-            shipped:     Enviat
-            not shipped: Sense enviar
-            paid:        Pagat
+            title:                  Historial
+            initial:                Comanda nova
+            unpaid:                 Sense pagar
+            paid:                   Pagat
+            refunded:               Reemborsat
+            preparing:              En preparació
+            processed:              Processat
+            in delivery:            En entrega
+            delivered:              Entregat
+            cancelled:              Cancel·lat
+            returned:               Retornat

@@ -558,7 +558,12 @@ admin:
             shipping: Entrega
         transition:
             refund: Reemborsar
-            ship:   Enviar
+            order ready: Comanda llesta
+            picked up on store: Recollida a la tenda
+            picked up by carrier: Recollida per el transportista
+            delivered: Entregada
+            cancel: Cancel·lar
+            return: Retornar
 
     page:
         single:   Pàgina
