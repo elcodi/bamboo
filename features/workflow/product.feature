@@ -33,5 +33,3 @@ Feature: Product engine
     And I am on "/product/product-x/19#variant-add-to-cart"
     And I should see product 19 name
     And I should see "Description x"
-
-  Scenario: Create a product without variant
