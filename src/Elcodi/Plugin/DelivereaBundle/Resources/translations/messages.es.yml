@@ -1,0 +1,19 @@
+elcodi_plugin:
+    deliverea:
+        name: Deliverea
+        description: Por fin puedes trabajar con múltiples operadores desde una única herramienta. Deliverea ofrece nuevas formas de envío a tus clientes a la vez que reduces tus costes de logística.
+        field:
+            shipping_price:
+                label: Precio de entrega en €
+            free_from:
+                label: Envío gratis a partir de (Opcional)
+            user:
+                label: Nombre de usuario
+                placeholder: usuario54321
+            api_key:
+                label: Clave de API
+                placeholder: clavedeapi
+        admin:
+            order:
+                button:
+                    print: Imprimir etiqueta

@@ -1,0 +1,54 @@
+services:
+    #
+    # Plugin
+    #
+    elcodi_plugin.deliverea_plugin:
+        parent: elcodi.abstract_plugin
+        arguments:
+            - "Elcodi\\Plugin\\DelivereaBundle\\ElcodiDelivereaBundle"
+
+    #
+    # Plugin fields
+    #
+    elcodi_deliverea.config.user:
+        class: StdClass
+        factory:
+            - @elcodi_plugin.deliverea_plugin
+            - getFieldValue
+        arguments:
+            - user
+
+    elcodi_deliverea.config.api_key:
+        class: StdClass
+        factory:
+            - @elcodi_plugin.deliverea_plugin
+            - getFieldValue
+        arguments:
+            - api_key
+
+
+    #
+    # Services
+    #
+    elcodi_deliverea.service.shipping_method_checker:
+        class: Elcodi\Plugin\DelivereaBundle\Services\ShippingMethodChecker
+        arguments:
+            - @elcodi.wrapper.shipping_methods
+            - @elcodi.event_dispatcher.cart
+
+    elcodi_deliverea.service.shipping_state_converter:
+        class: Elcodi\Plugin\DelivereaBundle\Services\ShippingStateConverter
+
+    elcodi_deliverea.service.deliverea_shipping_state_updater:
+        class: Elcodi\Plugin\DelivereaBundle\Services\DelivereaShippingUpdater
+        arguments:
+            - @elcodi_deliverea.manager.tracking
+            - @elcodi.object_manager.deliverea_shipment
+            - @elcodi_deliverea.service.shipping_state_converter
+
+    elcodi_deliverea.service.order_state_updater:
+        class: Elcodi\Plugin\DelivereaBundle\Services\OrderStateUpdater
+        arguments:
+            - @elcodi.order_shipping_states_machine_manager
+            - @elcodi_deliverea.service.shipping_state_converter
+            - @elcodi.object_manager.order

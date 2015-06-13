@@ -1,0 +1,14 @@
+<div class="order-tracking">
+    <p><strong>Current status:</strong> {{ trackingInfo.status }}</p>
+    <p><strong>Carrier:</strong> {{ trackingInfo.carrier }}</p>
+    <p><strong>Carrier ref:</strong> {{ trackingInfo.carrierRef }}</p>
+    {% for history in trackingInfo.history %}
+        <dl class="order-tracking-history">
+            <dt class="cart-item-image"><strong>Status:</strong> {{ history.status }}</dt>
+            <dd class="cart-item-image">
+                <strong>Details:</strong>{{ history.details }}<br/>
+                <strong>Time:</strong>{{ history.time|date('Y-m-d') }}
+            </dd>
+        </dl>
+    {% endfor %}
+</div>

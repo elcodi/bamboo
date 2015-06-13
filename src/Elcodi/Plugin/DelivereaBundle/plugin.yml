@@ -1,0 +1,23 @@
+plugin:
+    type: plugin
+    category: shipping
+    name: elcodi_plugin.deliverea.name
+    description: elcodi_plugin.deliverea.description
+    fa_icon: truck
+    fields:
+        shipping_price:
+            type: integer
+            label: elcodi_plugin.deliverea.field.shipping_price.label
+        free_from:
+            type: integer
+            label: elcodi_plugin.deliverea.field.free_from.label
+        user:
+            type: text
+            label: elcodi_plugin.deliverea.field.user.label
+            attr:
+                placeholder: elcodi_plugin.deliverea.field.user.placeholder
+        api_key:
+            type: text
+            label: elcodi_plugin.deliverea.field.api_key.label
+            attr:
+                placeholder: elcodi_plugin.deliverea.field.api_key.placeholder

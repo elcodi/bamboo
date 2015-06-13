@@ -1,0 +1,19 @@
+elcodi_plugin:
+    deliverea:
+        name: Deliverea
+        description: Per fi pots treballar amv múltiples operadors des d'una única eina. Deliverea ofereix noves formes d'enviament als teus clients alhora que redueix els teus costos de logística.
+        field:
+            shipping_price:
+                label: Preu d'entrega en €
+            free_from:
+                label: Enviament gratuït a partide de (Opcional)
+            user:
+                label: Nom d'usuari
+                placeholder: usuari54321
+            api_key:
+                label: Clau d'API
+                placeholder: clauapi
+        admin:
+            order:
+                button:
+                    print: Imprimir etiqueta

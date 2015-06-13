@@ -1,0 +1,9 @@
+parameters:
+    deliverea_urls:
+        new_shipment: https://www.dlvrapi.com/v1/new-shipment
+        get_label: https://www.dlvrapi.com/v1/get-shipment-label
+        get_tracking: https://www.dlvrapi.com/v1/get-shipment-tracking
+    deliverea_from_address_id: auto
+    deliverea_service_type: custom
+    deliverea_carrier_code: asm
+    deliverea_service_code: economy

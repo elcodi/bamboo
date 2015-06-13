@@ -1,0 +1,11 @@
+services:
+
+    #
+    # Repositories
+    #
+    elcodi.repository.deliverea_shipment:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.default_entity_manager
+        factory_method: getRepository
+        arguments:
+            - Elcodi\Plugin\DelivereaBundle\Entity\DelivereaShipment

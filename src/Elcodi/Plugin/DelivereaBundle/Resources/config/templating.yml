@@ -1,0 +1,42 @@
+services:
+
+    #
+    # Twig renderer
+    #
+    elcodi_plugin.deliverea.print_label_button:
+        class: Elcodi\Plugin\DelivereaBundle\Templating\PrintLabelButton
+        arguments:
+            - @elcodi_deliverea.service.shipping_method_checker
+            - @elcodi.repository.deliverea_shipment
+            - @router
+        calls:
+            - [setTemplating, [@twig]]
+            - [setPlugin, [@elcodi_plugin.deliverea_plugin]]
+        tags:
+            - { name: kernel.event_listener, event: admin.order_actions, method: renderLabelButton }
+
+    elcodi_plugin.deliverea.store_order_tracking:
+        class: Elcodi\Plugin\DelivereaBundle\Templating\StoreOrderTracking
+        arguments:
+            - @elcodi_deliverea.service.shipping_method_checker
+            - @elcodi.repository.deliverea_shipment
+            - @router
+            - @elcodi_deliverea.manager.tracking
+        calls:
+            - [setTemplating, [@twig]]
+            - [setPlugin, [@elcodi_plugin.deliverea_plugin]]
+        tags:
+            - { name: kernel.event_listener, event: store.order_tracking, method: renderOrderTracking }
+
+    elcodi_plugin.deliverea.admin_carrier_info:
+        class: Elcodi\Plugin\DelivereaBundle\Templating\AdminOrderCarrierInfo
+        arguments:
+            - @elcodi_deliverea.service.shipping_method_checker
+            - @elcodi.repository.deliverea_shipment
+            - @router
+            - @elcodi_deliverea.manager.tracking
+        calls:
+            - [setTemplating, [@twig]]
+            - [setPlugin, [@elcodi_plugin.deliverea_plugin]]
+        tags:
+            - { name: kernel.event_listener, event: admin.order_carrier, method: renderOrderInfo }

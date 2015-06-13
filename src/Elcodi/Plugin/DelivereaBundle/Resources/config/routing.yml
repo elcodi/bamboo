@@ -1,0 +1,4 @@
+ElcodiDelivereaBundle:
+    resource: "@ElcodiDelivereaBundle/Controller/"
+    type:     annotation
+    prefix: /%bamboo_admin_prefix%/deliverea
