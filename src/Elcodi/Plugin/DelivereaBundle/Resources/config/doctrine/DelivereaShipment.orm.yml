@@ -33,11 +33,6 @@ Elcodi\Plugin\DelivereaBundle\Entity\DelivereaShipment:
             type: string
             length: 64
             nullable: true
-        status:
-            column: status
-            type: string
-            length: 32
-            nullable: true
         createdAt:
             column: created_at
             type: datetime

@@ -209,8 +209,7 @@ class Shipment
                 ->setClientShippingRef($clientShipmentId)
                 ->setCarrierShippingRef($apiResponse['data']['shipping_carrier_ref'])
                 ->setCarrier($carrier)
-                ->setService($apiResponse['data']['service_code'])
-                ->setStatus(DelivereaTrackingCodes::CODE01);
+                ->setService($apiResponse['data']['service_code']);
 
             $this->delivereaShipmentManager->persist($delivereaShipping);
             $this->delivereaShipmentManager->flush($delivereaShipping);

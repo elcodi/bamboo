@@ -21,10 +21,8 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-use Elcodi\Component\Shipping\Entity\ShippingMethod;
 use Elcodi\Plugin\DelivereaBundle\Entity\DelivereaShipment;
 use Elcodi\Plugin\DelivereaBundle\Repository\DelivereaShipmentRepository;
-use Elcodi\Plugin\DelivereaBundle\Services\DelivereaShippingUpdater;
 use Elcodi\Plugin\DelivereaBundle\Services\OrderStateUpdater;
 
 /**
@@ -47,29 +45,19 @@ class UpdateOrdersStatusCommand extends Command
     private $orderStateUpdater;
 
     /**
-     * @var DelivereaShippingUpdater
-     *
-     * The deliverea shipping updater.
-     */
-    private $delivereaShippingUpdater;
-
-    /**
      * Builds a new class.
      *
      * @param DelivereaShipmentRepository $delivereaShipmentRepository The deliverea shipment repository.
      * @param OrderStateUpdater           $orderStateUpdater           The order state updater.
-     * @param DelivereaShippingUpdater    $delivereaShippingUpdater    The deliverea shipment updater.
      */
     public function __construct(
         DelivereaShipmentRepository $delivereaShipmentRepository,
-        OrderStateUpdater $orderStateUpdater,
-        DelivereaShippingUpdater $delivereaShippingUpdater
+        OrderStateUpdater $orderStateUpdater
     ) {
         parent::__construct();
 
         $this->delivereaShipmentRepository = $delivereaShipmentRepository;
         $this->orderStateUpdater = $orderStateUpdater;
-        $this->delivereaShippingUpdater = $delivereaShippingUpdater;
     }
 
     /**
@@ -134,10 +122,7 @@ class UpdateOrdersStatusCommand extends Command
      */
     private function updateShipment(DelivereaShipment $shipment)
     {
-        $isUpdated = $this->delivereaShippingUpdater->updateState($shipment);
-        if ($isUpdated) {
-            $this->orderStateUpdater->updateState($shipment);
-        }
+        $this->orderStateUpdater->updateState($shipment);
     }
 
     /**

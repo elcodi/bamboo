@@ -22,6 +22,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Elcodi\Component\StateTransitionMachine\Exception\StateNotReachableException;
 use Elcodi\Component\StateTransitionMachine\Machine\MachineManager;
 use Elcodi\Plugin\DelivereaBundle\Entity\DelivereaShipment;
+use Elcodi\Plugin\DelivereaBundle\Manager\Tracking as TrackingManager;
 
 /**
  * Class OrderStateUpdater
@@ -48,20 +49,30 @@ class OrderStateUpdater
     private $orderEntityManager;
 
     /**
+     * @var TrackingManager
+     *
+     * The tracking manager to get tracking info.
+     */
+    private $trackingManager;
+
+    /**
      * Builds a new class
      *
      * @param MachineManager         $shippingMachineManager The machine manager service.
      * @param ShippingStateConverter $shippingStateConverter The shipping state converter.
      * @param ObjectManager          $orderEntityManager     The order entity manager.
+     * @param TrackingManager        $trackingManager        The tracking manager service.
      */
     public function __construct(
         MachineManager $shippingMachineManager,
         ShippingStateConverter $shippingStateConverter,
-        ObjectManager $orderEntityManager
+        ObjectManager $orderEntityManager,
+        TrackingManager $trackingManager
     ) {
         $this->shippingMachineManager = $shippingMachineManager;
         $this->shippingStateConverter = $shippingStateConverter;
         $this->orderEntityManager = $orderEntityManager;
+        $this->trackingManager = $trackingManager;
     }
 
     /**
@@ -72,24 +83,40 @@ class OrderStateUpdater
     public function updateState(DelivereaShipment $shipment)
     {
         $order = $shipment->getOrder();
-        $currentStatus = $shipment->getStatus();
+        $trackingInfo = $this
+            ->trackingManager
+            ->getTracking($shipment->getDelivereaShippingRef());
 
-        try {
-            $stateLineStack = $this
-                ->shippingMachineManager
-                ->reachState(
-                    $order,
-                    $order->getShippingStateLineStack(),
-                    $this
-                        ->shippingStateConverter
-                        ->getShippingStateFromDelivereaStatus($currentStatus),
-                    ''
-                );
+        $currentStatus = $this
+            ->shippingStateConverter
+            ->fromDelivereaCodeToShippingStatus($trackingInfo['code']);
 
-            $order->setShippingStateLineStack($stateLineStack);
-            $this->orderEntityManager->flush($order);
-        } catch (StateNotReachableException $e) {
-            trigger_error($e->getMessage());
+        $orderCurrentShipmentStatus = $this
+            ->shippingStateConverter
+            ->getShippingStateFromDelivereaStatus($currentStatus);
+
+        $orderLastShipmentStatus = $order
+            ->getShippingStateLineStack()
+            ->getLastStateLine()
+            ->getName();
+
+        if($orderCurrentShipmentStatus != $orderLastShipmentStatus)
+        {
+            try {
+                $stateLineStack = $this
+                    ->shippingMachineManager
+                    ->reachState(
+                        $order,
+                        $order->getShippingStateLineStack(),
+                        $orderCurrentShipmentStatus,
+                        ''
+                    );
+
+                $order->setShippingStateLineStack($stateLineStack);
+                $this->orderEntityManager->flush($order);
+            } catch (StateNotReachableException $e) {
+                trigger_error($e->getMessage());
+            }
         }
     }
 }

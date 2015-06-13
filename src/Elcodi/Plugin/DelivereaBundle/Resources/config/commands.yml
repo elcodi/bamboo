@@ -3,11 +3,10 @@ services:
     #
     # Commands
     #
-    elcodi.command.plugin_disable:
+    elcodi.command.update_order_status:
         class: Elcodi\Plugin\DelivereaBundle\Command\UpdateOrdersStatusCommand
         arguments:
             - @elcodi.repository.deliverea_shipment
             - @elcodi_deliverea.service.order_state_updater
-            - @elcodi_deliverea.service.deliverea_shipping_state_updater
         tags:
             - { name: console.command }

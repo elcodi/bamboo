@@ -39,16 +39,10 @@ services:
     elcodi_deliverea.service.shipping_state_converter:
         class: Elcodi\Plugin\DelivereaBundle\Services\ShippingStateConverter
 
-    elcodi_deliverea.service.deliverea_shipping_state_updater:
-        class: Elcodi\Plugin\DelivereaBundle\Services\DelivereaShippingUpdater
-        arguments:
-            - @elcodi_deliverea.manager.tracking
-            - @elcodi.object_manager.deliverea_shipment
-            - @elcodi_deliverea.service.shipping_state_converter
-
     elcodi_deliverea.service.order_state_updater:
         class: Elcodi\Plugin\DelivereaBundle\Services\OrderStateUpdater
         arguments:
             - @elcodi.order_shipping_states_machine_manager
             - @elcodi_deliverea.service.shipping_state_converter
             - @elcodi.object_manager.order
+            - @elcodi_deliverea.manager.tracking

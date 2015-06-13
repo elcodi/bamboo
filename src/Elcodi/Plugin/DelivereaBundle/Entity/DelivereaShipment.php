@@ -71,13 +71,6 @@ class DelivereaShipment
     protected $service;
 
     /**
-     * @var string
-     *
-     * The shipment last status.
-     */
-    protected $status;
-
-    /**
      * Returns the order.
      *
      * @return OrderInterface The order for this shipping.
@@ -217,30 +210,6 @@ class DelivereaShipment
     public function setService($service)
     {
         $this->service = $service;
-
-        return $this;
-    }
-
-    /**
-     * Returns the last shipping status.
-     *
-     * @return string The last status.
-     */
-    public function getStatus()
-    {
-        return $this->status;
-    }
-
-    /**
-     * Sets the last shipping status.
-     *
-     * @param string $status The status.
-     *
-     * @return $this Self object.
-     */
-    public function setStatus($status)
-    {
-        $this->status = $status;
 
         return $this;
     }
