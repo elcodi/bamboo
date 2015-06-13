@@ -71,7 +71,7 @@ class OrdersNotShippedBuilder extends AbstractMenuBuilder implements MenuBuilder
     {
         $notShippedOrders = $this
             ->orderRepository
-            ->getNotShippedOrders();
+            ->getOrdersToPrepare();
 
         return count($notShippedOrders);
     }

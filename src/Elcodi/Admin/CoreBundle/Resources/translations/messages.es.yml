@@ -558,7 +558,12 @@ admin:
             shipping: Entrega
         transition:
             refund: Reembolsar
-            ship:   Enviar
+            order ready: Pedido listo
+            picked up on store: Recogido en tienda
+            picked up by carrier: Recogido por el transportista
+            delivered: Entregado
+            cancel: Cancelar
+            return: Devolver
 
     page:
         single:   Página
