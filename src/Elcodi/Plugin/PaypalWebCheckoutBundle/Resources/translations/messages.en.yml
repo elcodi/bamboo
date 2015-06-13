@@ -1,10 +1,8 @@
 elcodi_plugin:
     paypal_web_checkout:
         name: Paypal Web Checkout
-        description: Paypal Web Checkout integration for your shop
-
+        description: "<p>Paypal allows your users to pay using their paypal account. To enable it you need to create a Paypal Account and set it here.</p><p>Don't you have a Paypal account?</p> <a href='https://www.paypal.com/webapps/mpp/merchant' class='button' target='_blank'>Create a new account</a>"
         field:
-            private_key:
-                label: Private key
-            public_key:
-                label: Public key
+            business:
+                label: Paypal account
+                placeholder: john@doo.com

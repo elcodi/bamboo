@@ -39,7 +39,7 @@ class MenuBuilder extends AbstractMenuBuilder implements MenuBuilderInterface
                     ->menuNodeFactory
                     ->create()
                     ->setName('admin.customer.plural')
-                    ->setCode('users')
+                    ->setCode('user')
                     ->setUrl('admin_customer_list')
                     ->setTag('order')
                     ->setPriority(32)

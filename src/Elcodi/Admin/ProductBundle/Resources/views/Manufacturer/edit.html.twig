@@ -17,6 +17,7 @@
 
     {% include '@AdminCore/Common/breadcrumb.html.twig' with {
         breadcrumb: [
+            { name: 'admin.categorization.single'|trans, active: false },
             { name: title, url: url('admin_manufacturer_list'), },
             { name: header, active: true, },
         ]

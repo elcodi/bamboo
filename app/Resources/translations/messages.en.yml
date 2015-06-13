@@ -1,4 +1,0 @@
-elcodi_plugin:
-    paypal_web_checkout:
-        name: Paypal
-        description: Paypal integration for your shop

@@ -26,7 +26,7 @@
         <div class="col-1-3">
             <img src="/bundles{{ asset(plugin.getBundleName()|replace({'Bundle': ''})|lower ~ "/images/icon.png") }}" width="150"/>
             <h2>{{ plugin.getConfigurationValue("name")|trans }}</h2>
-            <p>{{ plugin.getConfigurationValue("description")|trans }}</p>
+            <p>{{ plugin.getConfigurationValue("description")|trans|raw }}</p>
 
         </div>
         <div class="col-2-3">

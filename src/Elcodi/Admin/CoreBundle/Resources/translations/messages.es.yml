@@ -1,11 +1,14 @@
 admin:
     name: Administración
     menu:
-        design: Diseño
+        design: Personalizar tienda
     store:
         saved: Configuración guardada.
         settings: Configuraciones
         section:
+            advanced:
+                title: Opciones Avanzadas
+                description: En esta sección encontrarás opciones avanzadas de configuración.
             stock:
                 title: Stock
                 description: "Activa esta opción para gestionar el stock de tus productos."
@@ -13,6 +16,11 @@ admin:
                 title: Estado de la tienda
                 description: "Controla si la tienda esta abierta o cerrada al público."
         field:
+            routingStrategy:
+                title: Estrategia de URLs para multiples lenguajes
+                prefix_except_default: Todas las urls tienen un prefijo excepto el lenguaje principal
+                prefix: Todas las urls tienen un prefijo
+                custom: Ningun prefijo para las lenguajes, traduciré todas las urls
             enabled:
                 title: Activar tienda
             useStock:

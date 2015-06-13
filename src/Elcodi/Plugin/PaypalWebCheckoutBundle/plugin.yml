@@ -9,3 +9,5 @@ plugin:
             type: text
             required: true
             label: elcodi_plugin.paypal_web_checkout.field.business.label
+            attr:
+                placeholder: elcodi_plugin.paypal_web_checkout.field.business.placeholder

@@ -32,6 +32,7 @@
 
     {% include '@AdminCore/Common/breadcrumb.html.twig' with {
         breadcrumb: [
+            { name: 'admin.communication.single'|trans, active: false },
             { name: title, url: url('admin_page_list'), },
             { name: header, active: true, },
         ]

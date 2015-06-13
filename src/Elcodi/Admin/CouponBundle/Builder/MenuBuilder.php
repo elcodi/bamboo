@@ -39,10 +39,10 @@ class MenuBuilder extends AbstractMenuBuilder implements MenuBuilderInterface
                     ->menuNodeFactory
                     ->create()
                     ->setName('admin.coupon.plural')
-                    ->setCode('ticket')
+                    ->setCode('gift')
                     ->setUrl('admin_coupon_list')
                     ->setTag('catalog')
-                    ->setPriority(16)
+                    ->setPriority(32)
                     ->setActiveUrls([
                         'admin_coupon_edit',
                         'admin_coupon_new',
