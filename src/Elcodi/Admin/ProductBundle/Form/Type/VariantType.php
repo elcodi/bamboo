@@ -90,7 +90,7 @@ class VariantType extends AbstractType
                 'class'         => $this->attributeValueNamespace,
                 'required'      => true,
                 'multiple'      => true,
-                'group_by'      => 'attribute',
+                'group_by'      => 'attribute.name',
                 'query_builder' => function (ValueRepository $valueRepository) {
                     return $valueRepository
                         ->createQueryBuilder('v')

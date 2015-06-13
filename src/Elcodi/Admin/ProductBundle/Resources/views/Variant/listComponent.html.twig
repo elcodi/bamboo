@@ -46,7 +46,7 @@
            }}">
             {% set optionName = '' %}
             {% for option in entity.options %}
-                {% set optionName = optionName + option.value + ' ' %}
+                {% set optionName = optionName ~ option.value ~ ' ' %}
             {% endfor %}
             {%  if optionName|replace(' ','') == '' %}
                 {{ 'admin.variant.single'|trans }}
