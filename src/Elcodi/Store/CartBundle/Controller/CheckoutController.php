@@ -329,12 +329,12 @@ class CheckoutController extends Controller
         /**
          * Desired shipping method
          */
-        $shippingMethods = $this
+        $shippingMethodObject = $this
             ->get('elcodi.wrapper.shipping_methods')
             ->getOneById($cart, $shippingMethod);
 
-        if ($shippingMethods instanceof ShippingMethod) {
-            $cart->setShippingMethod($shippingMethods);
+        if ($shippingMethodObject instanceof ShippingMethod) {
+            $cart->setShippingMethod($shippingMethod);
             $this
                 ->get('elcodi.object_manager.cart')
                 ->flush($cart);
