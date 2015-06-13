@@ -11,6 +11,14 @@ plugin:
         free_from:
             type: integer
             label: elcodi_plugin.deliverea.field.free_from.label
+        carrier:
+            type: choice
+            label: elcodi_plugin.deliverea.field.carrier.label
+            attr:
+                choices:
+                    asm: ASM
+                    tipsa: Tipsa
+                    envialia: Envialia
         user:
             type: text
             label: elcodi_plugin.deliverea.field.user.label
