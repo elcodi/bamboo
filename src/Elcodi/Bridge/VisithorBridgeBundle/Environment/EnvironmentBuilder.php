@@ -73,11 +73,7 @@ class EnvironmentBuilder extends SymfonyEnvironmentBuilder
                 '--fixtures'   => $kernel
                         ->getRootDir() . '/../src/Elcodi/Fixtures',
             ])
-            ->executeCommand('elcodi:plugins:load')
-            ->executeCommand('elcodi:configuration:set', [
-                'identifier' => 'store.template',
-                'value'      => '"StoreTemplateBundle"',
-            ]);
+            ->executeCommand('elcodi:plugins:load');
     }
 
     /**
