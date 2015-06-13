@@ -1,14 +1,14 @@
 common:
     order:
         states:
-            title:                  Historial
-            initial:                Nuevo pedido
-            unpaid:                 Sin pagar
-            paid:                   Pagado
-            refunded:               Reembolsado
-            preparing:              En preparación
-            processed:              Processado
-            in delivery:            En entrega
-            delivered:              Entregado
-            cancelled:              Cancelado
-            returned:               Devuelto
+            title:       Historial
+            initial:     Nuevo pedido
+            unpaid:      Sin pagar
+            paid:        Pagado
+            refunded:    Reembolsado
+            preparing:   En preparación
+            processed:   Processado
+            in delivery: En entrega
+            delivered:   Entregado
+            cancelled:   Cancelado
+            returned:    Devuelto
