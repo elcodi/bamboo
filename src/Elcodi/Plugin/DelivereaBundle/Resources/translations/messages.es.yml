@@ -7,6 +7,8 @@ elcodi_plugin:
                 label: Precio de entrega en €
             free_from:
                 label: Envío gratis a partir de (Opcional)
+            carrier:
+                label: Transportista
             user:
                 label: Nombre de usuario
                 placeholder: usuario54321

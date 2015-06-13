@@ -7,6 +7,7 @@ plugin:
     fields:
         shipping_price:
             type: integer
+            required: true
             label: elcodi_plugin.deliverea.field.shipping_price.label
         free_from:
             type: integer
@@ -14,18 +15,21 @@ plugin:
         carrier:
             type: choice
             label: elcodi_plugin.deliverea.field.carrier.label
-            attr:
+            required: true
+            options:
                 choices:
                     asm: ASM
-                    tipsa: Tipsa
-                    envialia: Envialia
+#                    tipsa: Tipsa
+#                    envialia: Envialia
         user:
             type: text
+            required: true
             label: elcodi_plugin.deliverea.field.user.label
             attr:
                 placeholder: elcodi_plugin.deliverea.field.user.placeholder
         api_key:
             type: text
+            required: true
             label: elcodi_plugin.deliverea.field.api_key.label
             attr:
                 placeholder: elcodi_plugin.deliverea.field.api_key.placeholder

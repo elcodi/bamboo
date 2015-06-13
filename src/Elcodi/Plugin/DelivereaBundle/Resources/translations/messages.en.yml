@@ -7,6 +7,8 @@ elcodi_plugin:
                 label: Shipping price  in €
             free_from:
                 label: Free from (Optional)
+            carrier:
+                label: Carrier
             user:
                 label: Username
                 placeholder: user54321

@@ -21,6 +21,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 
 use Elcodi\Component\Cart\Entity\Interfaces\OrderInterface;
 use Elcodi\Component\Geo\Factory\AddressViewFactory;
+use Elcodi\Component\Plugin\Entity\Plugin;
 use Elcodi\Plugin\DelivereaBundle\ApiConsumer\Shipment as ShipmentApiConsumer;
 use Elcodi\Plugin\DelivereaBundle\DelivereaTrackingCodes;
 use Elcodi\Plugin\DelivereaBundle\Entity\DelivereaShipment;
@@ -90,20 +91,21 @@ class Shipment
     /**
      * @var string
      *
-     * The deliverea carrier code.
-     */
-    protected $delivereaCarrierCode;
-
-    /**
-     * @var string
-     *
      * The deliverea service code.
      */
     protected $delivereaServiceCode;
 
     /**
+     * @var Plugin
+     *
+     * The deliverea plugin.
+     */
+    protected $delivereaPlugin;
+
+    /**
      * Builds a new class.
      *
+     * @param Plugin                   $delivereaPlugin The deliverea plugin
      * @param ShipmentApiConsumer      $shipmentApiConsumer      The shipment api consumer.
      * @param AddressViewFactory       $addressViewFactory       An address view factory.
      * @param DelivereaShippingFactory $delivereaShippingFactory A shipping factory.
@@ -112,10 +114,10 @@ class Shipment
      * @param String                   $apiKey                   The deliverea api key.
      * @param String                   $delivereaFromAddressId   The deliverea from address ID.
      * @param String                   $delivereaServiceType     The deliverea service type.
-     * @param String                   $delivereaCarrierCode     The deliverea carrier code.
      * @param String                   $delivereaServiceCode     The deliverea service code.
      */
     public function __construct(
+        Plugin $delivereaPlugin,
         ShipmentApiConsumer $shipmentApiConsumer,
         AddressViewFactory $addressViewFactory,
         DelivereaShippingFactory $delivereaShippingFactory,
@@ -124,7 +126,6 @@ class Shipment
         $apiKey,
         $delivereaFromAddressId,
         $delivereaServiceType,
-        $delivereaCarrierCode,
         $delivereaServiceCode
     ) {
         $this->shipmentApiConsumer = $shipmentApiConsumer;
@@ -135,8 +136,8 @@ class Shipment
         $this->apiKey = $apiKey;
         $this->delivereaFromAddressId = $delivereaFromAddressId;
         $this->delivereaServiceType = $delivereaServiceType;
-        $this->delivereaCarrierCode = $delivereaCarrierCode;
         $this->delivereaServiceCode = $delivereaServiceCode;
+        $this->delivereaPlugin = $delivereaPlugin;
     }
 
     /**
@@ -188,7 +189,7 @@ class Shipment
                 $countryIso,
                 date('Y-m-d'),
                 $this->delivereaServiceType,
-                $this->delivereaCarrierCode,
+                $this->delivereaPlugin->getFieldValue('carrier'),
                 $this->delivereaServiceCode,
                 $clientShipmentId
             );

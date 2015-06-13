@@ -6,6 +6,7 @@ services:
         class: Elcodi\Plugin\DelivereaBundle\Manager\Shipment
         lazy: true
         arguments:
+            - @elcodi_plugin.deliverea_plugin
             - @elcodi_deliverea.api_consumer.shipment
             - @elcodi.factory.address_view
             - @elcodi_plugin.deliverea.factory.deliverea_shipment
@@ -14,7 +15,6 @@ services:
             - @elcodi_deliverea.config.api_key
             - %deliverea_from_address_id%
             - %deliverea_service_type%
-            - %deliverea_carrier_code%
             - %deliverea_service_code%
 
     elcodi_deliverea.manager.label:

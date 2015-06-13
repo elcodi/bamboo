@@ -87,7 +87,7 @@ class ShippingCollectEventListener
 
             $shipmentMethod = new ShippingMethod(
                 DelivereaShippingMethods::DELIVEREA,
-                'asm',
+                $this->delivereaPlugin->getFieldValue('carrier'),
                 'Home delivery',
                 '',
                 $moneyPrice
