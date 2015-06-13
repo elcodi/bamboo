@@ -45,6 +45,13 @@
 	text-align: center;
 	font-size: $font-size-s;
 }
+
+.active {
+	.badge {
+		margin-right: $spacing;
+	}
+}
+
 .badge-alert {
 	background: rgba($color-ko, .5);
 	text-shadow: 1px 1px 1px $color-foreground;
