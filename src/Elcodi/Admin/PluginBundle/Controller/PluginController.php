@@ -45,7 +45,7 @@ class PluginController extends AbstractAdminController
      * @return array Result
      *
      * @Route(
-     *      path = "s/{category}",
+     *      path = "s",
      *      name = "admin_plugin_list",
      *      methods = {"GET"}
      * )
