@@ -58,6 +58,8 @@ class AdminPluginExtension extends AbstractExtension
     {
         return [
             'menu',
+            [ 'categoriesMenu', $config['menu']['add_categories'] ],
+            [ 'pluginMenu', $config['menu']['add_plugins'] ],
         ];
     }
 
@@ -69,5 +71,15 @@ class AdminPluginExtension extends AbstractExtension
     public function getAlias()
     {
         return self::EXTENSION_NAME;
+    }
+
+    /**
+     * Return the configuration
+     *
+     * @return Configuration
+     */
+    protected function getConfigurationInstance()
+    {
+        return new Configuration(self::EXTENSION_NAME);
     }
 }

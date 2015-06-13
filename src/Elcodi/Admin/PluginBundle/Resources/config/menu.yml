@@ -9,12 +9,3 @@ services:
             - @elcodi.factory.menu_node
         tags:
             - { name: menu.builder, menu: admin, priority: 32 }
-
-    elcodi_admin.menu_builder.plugins:
-        class: Elcodi\Admin\PluginBundle\Builder\PluginMenuBuilder
-        arguments:
-            - @elcodi.factory.menu_node
-            - @router
-            - @elcodi.enabled_plugins
-        tags:
-            - { name: menu.builder, menu: admin, priority: 16 }
