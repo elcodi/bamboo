@@ -40,25 +40,34 @@ class PluginController extends AbstractAdminController
     /**
      * List plugins
      *
+     * @param string $category Optional plugin category
+     *
      * @return array Result
      *
      * @Route(
-     *      path = "s",
+     *      path = "s/{category}",
      *      name = "admin_plugin_list",
      *      methods = {"GET"}
      * )
      * @Template
      */
-    public function listAction()
+    public function listAction($category = null)
     {
+        $criteria = [
+            'type' => PluginTypes::TYPE_PLUGIN,
+        ];
+
+        if ($category !== null) {
+            $criteria['category'] = $category;
+        }
+
         $plugins = $this
             ->get('elcodi.repository.plugin')
-            ->findBy([
-                'type' => PluginTypes::TYPE_PLUGIN,
-            ]);
+            ->findBy($criteria, [ 'category' => 'ASC' ]);
 
         return [
             'plugins' => $plugins,
+            'category' => $category,
         ];
     }
 
