@@ -122,6 +122,18 @@ jms_i18n_routing:
     locales: [en]
 
 #
+# HTTP Headers
+# Fill this data to ensure your ecommerce is unique and belongs to developers
+# Checkout the configuration in https://github.com/mmoreram/HTTPHeadersBundle
+#
+http_headers:
+    response:
+        x_elcodi:
+            name: X-Elcodi
+            values:
+                - This E-commerce is built using Elcodi and Symfony
+
+#
 # Elcodi related configuration
 #
 elcodi_media:

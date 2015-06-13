@@ -70,6 +70,7 @@
         "mmoreram/controller-extra-bundle": "^1.1.11",
         "mmoreram/extractor": "^1.1.1",
         "mmoreram/cache-flush-bundle": "0.1.1",
+        "mmoreram/http-headers-bundle": "1.0.0",
 
         "elcodi/attribute-bundle": "0.5.18",
         "elcodi/banner-bundle": "0.5.18",
