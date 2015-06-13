@@ -1,10 +1,8 @@
 elcodi_plugin:
     paypal_web_checkout:
         name: Paypal Web Checkout
-        description: Integración de Paypal Web Checkout para tu tienda
-
+        description: "<p>Paypal permite a tus usuarios pagar con su cuenta de paypal. Para activarlo necesitas tener una cuenta de Paypal Business y configurarla aquí.</p><p>¿No tienes una cuenta de Paypal?</p>  <a href='https://www.paypal.com/webapps/mpp/merchant' class='button' target='_blank'>Crear nueva cuenta de Paypal</a>"
         field:
-            private_key:
-                label: Clave privada
-            public_key:
-                label: Clave pública
+            business:
+                label: Cuenta de paypal
+                placeholder: juan@nadie.com
