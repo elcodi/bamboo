@@ -17,8 +17,6 @@
 
 namespace Elcodi\Admin\PluginBundle\Builder;
 
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-
 use Elcodi\Component\Menu\Builder\Interfaces\MenuBuilderInterface;
 use Elcodi\Component\Menu\Entity\Menu\Interfaces\MenuInterface;
 use Elcodi\Component\Menu\Entity\Menu\Interfaces\NodeInterface;
@@ -38,13 +36,6 @@ class PluginMenuBuilder implements MenuBuilderInterface
     protected $menuNodeFactory;
 
     /**
-     * @var UrlGeneratorInterface
-     *
-     * Url generator
-     */
-    protected $urlGenerator;
-
-    /**
      * @var Plugin[]
      *
      * Plugins configuration
@@ -54,17 +45,14 @@ class PluginMenuBuilder implements MenuBuilderInterface
     /**
      * Constructor
      *
-     * @param NodeFactory           $menuNodeFactory Menu node factory
-     * @param UrlGeneratorInterface $urlGenerator    Url generator
-     * @param array                 $enabledPlugins  Enabled Plugins
+     * @param NodeFactory $menuNodeFactory Menu node factory
+     * @param array       $enabledPlugins  Enabled Plugins
      */
     public function __construct(
         NodeFactory $menuNodeFactory,
-        UrlGeneratorInterface $urlGenerator,
         array $enabledPlugins
     ) {
         $this->menuNodeFactory = $menuNodeFactory;
-        $this->urlGenerator = $urlGenerator;
         $this->enabledPlugins = $enabledPlugins;
     }
 
@@ -114,18 +102,16 @@ class PluginMenuBuilder implements MenuBuilderInterface
                 continue;
             }
 
-            $pluginConfigurationRoute = $this
-                ->urlGenerator
-                ->generate('admin_plugin_configure', [
-                    'pluginHash' => $plugin->getHash(),
-                ]);
-
             $node = $this
                 ->menuNodeFactory
                 ->create()
                 ->setName($plugin->getConfigurationValue('name'))
                 ->setCode($plugin->getConfigurationValue('fa_icon'))
-                ->setUrl($pluginConfigurationRoute)
+                ->setUrl([
+                    'admin_plugin_configure', [
+                        'pluginHash' => $plugin->getHash(),
+                    ],
+                ])
                 ->setEnabled(true);
 
             $parentNode->addSubnode($node);

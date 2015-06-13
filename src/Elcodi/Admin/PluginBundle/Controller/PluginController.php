@@ -51,23 +51,8 @@ class PluginController extends AbstractAdminController
      * )
      *
      * @Route(
-     *      path = "s/payment",
-     *      name = "admin_plugin_payment_list",
-     *      defaults = { "category": "payment" },
-     *      methods = {"GET"}
-     * )
-     *
-     * @Route(
-     *      path = "s/shipping",
-     *      name = "admin_plugin_shipping_list",
-     *      defaults = { "category": "shipping" },
-     *      methods = {"GET"}
-     * )
-     *
-     * @Route(
-     *      path = "s/social",
-     *      name = "admin_plugin_social_list",
-     *      defaults = { "category": "social" },
+     *      path = "s/{category}",
+     *      name = "admin_plugin_categorized_list",
      *      methods = {"GET"}
      * )
      *
@@ -85,7 +70,10 @@ class PluginController extends AbstractAdminController
 
         $plugins = $this
             ->get('elcodi.repository.plugin')
-            ->findBy($criteria, [ 'category' => 'ASC' ]);
+            ->findBy(
+                $criteria,
+                [ 'category' => 'ASC' ]
+            );
 
         return [
             'plugins' => $plugins,

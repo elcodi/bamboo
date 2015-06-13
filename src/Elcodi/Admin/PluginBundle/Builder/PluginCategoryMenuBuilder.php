@@ -33,43 +33,49 @@ class PluginCategoryMenuBuilder extends AbstractMenuBuilder implements MenuBuild
      */
     public function build(MenuInterface $menu)
     {
-        $plugin = $menu->findSubnodeByName('plugin_type.social');
-        if ($plugin) {
-            $plugin
-                ->addSubnode(
-                    $this
-                        ->menuNodeFactory
-                        ->create()
-                        ->setName('admin.plugin.social_store')
-                        ->setUrl('admin_plugin_social_list')
-                        ->setPriority(9999)
-                );
-        }
+        $menu
+            ->findSubnodeByName('plugin_type.social')
+            ->addSubnode(
+                $this
+                    ->menuNodeFactory
+                    ->create()
+                    ->setName('admin.plugin.social_store')
+                    ->setUrl([
+                        'admin_plugin_categorized_list', [
+                            'category' => 'social',
+                        ],
+                    ])
+                    ->setPriority(9999)
+            );
 
-        $plugin = $menu->findSubnodeByName('plugin_type.payment');
-        if ($plugin) {
-            $plugin
-                ->addSubnode(
-                    $this
-                        ->menuNodeFactory
-                        ->create()
-                        ->setName('admin.plugin.payment_store')
-                        ->setUrl('admin_plugin_payment_list')
-                        ->setPriority(9999)
-                );
-        }
+        $menu
+            ->findSubnodeByName('plugin_type.payment')
+            ->addSubnode(
+                $this
+                    ->menuNodeFactory
+                    ->create()
+                    ->setName('admin.plugin.payment_store')
+                    ->setUrl([
+                        'admin_plugin_categorized_list', [
+                            'category' => 'payment',
+                        ],
+                    ])
+                    ->setPriority(9999)
+            );
 
-        $plugin = $menu->findSubnodeByName('plugin_type.shipping');
-        if ($plugin) {
-            $plugin
-                ->addSubnode(
-                    $this
-                        ->menuNodeFactory
-                        ->create()
-                        ->setName('admin.plugin.shipping_store')
-                        ->setUrl('admin_plugin_shipping_list')
-                        ->setPriority(9999)
-                );
-        }
+        $menu
+            ->findSubnodeByName('plugin_type.shipping')
+            ->addSubnode(
+                $this
+                    ->menuNodeFactory
+                    ->create()
+                    ->setName('admin.plugin.shipping_store')
+                    ->setUrl([
+                        'admin_plugin_categorized_list', [
+                            'category' => 'shipping',
+                        ],
+                    ])
+                    ->setPriority(9999)
+            );
     }
 }
