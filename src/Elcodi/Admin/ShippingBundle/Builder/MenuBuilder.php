@@ -38,7 +38,7 @@ class MenuBuilder extends AbstractMenuBuilder implements MenuBuilderInterface
                 $this
                     ->menuNodeFactory
                     ->create()
-                    ->setName('admin.carrier.plural')
+                    ->setName('plugin_type.shipping')
                     ->setTag('settings')
                     ->setCode('truck')
                     ->setPriority(30)

@@ -34,7 +34,7 @@ class MenuBuilder extends AbstractMenuBuilder implements MenuBuilderInterface
     public function build(MenuInterface $menu)
     {
         $menu
-            ->findSubnodeByName('admin.carrier.plural')
+            ->findSubnodeByName('plugin_type.shipping')
             ->addSubnode(
                 $this
                     ->menuNodeFactory

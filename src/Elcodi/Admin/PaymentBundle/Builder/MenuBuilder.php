@@ -38,7 +38,7 @@ class MenuBuilder extends AbstractMenuBuilder implements MenuBuilderInterface
                 $this
                     ->menuNodeFactory
                     ->create()
-                    ->setName('admin.settings.section.payment.title')
+                    ->setName('plugin_type.payment')
                     ->setTag('settings')
                     ->setCode('credit-card')
                     ->setPriority(31)
