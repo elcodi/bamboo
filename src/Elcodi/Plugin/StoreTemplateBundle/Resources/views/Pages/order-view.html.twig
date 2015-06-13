@@ -3,6 +3,7 @@
 {% block breadcrumb_container %}{% endblock breadcrumb_container %}
 
 {% block content %}
+<div class="white-panel">
     {% if thanks %}
         <div class="message message-ok">
             <p><i class="fa fa-check"></i> <strong>{{ 'template.store_template_bundle.order.view.congratulations'|trans }}</strong></p>
@@ -28,5 +29,5 @@
     <div class="cart-actions">
         <a class="button button-empty cart-actions-continue" href="{{ url('store_homepage') }}"><i class="fa fa-arrow-left"></i> {{ 'template.store_template_bundle.order.view.continue_shopping'|trans }}</a>
     </div>
-
+</div>
 {% endblock %}

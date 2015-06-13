@@ -66,8 +66,7 @@ class PaymentCollectEventListener
         if ($this
             ->plugin
             ->isUsable([
-                'private_key',
-                'public_key',
+                'business',
             ])
         ) {
             $paypal = new PaymentMethod(

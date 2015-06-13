@@ -3,9 +3,9 @@
 {% block breadcrumb_container %}{% endblock breadcrumb_container %}
 
 {% block content_checkout %}
+<div class="checkout">
 <h1 class="checkout-title">{{ 'template.store_template_bundle.checkout.payment.set_shipping_payment'|trans }}</h1>
 <p class="checkout-actions checkout-actions-top">
-    <button class="button button-secondary js-continue desktop" type="submit">{{ 'template.store_template_bundle.checkout.payment.continue'|trans }}  <i class="fa fa-arrow-right"></i></button>
     <a class="button desktop" href="{{ url('store_checkout_address') }}"> <i class="fa fa-arrow-left"></i> {{ 'template.store_template_bundle.checkout.back'|trans }}</a>
     {% include "@StoreTemplate/Modules/_checkout-progress.html.twig" with {"step": "3"} %}
 </p>
@@ -29,15 +29,15 @@
     </div>
 </div>
 {% endif %}
-
-<div class="form form-checkout">
+<div class="form-checkout">
     {% for paymentMethod in paymentMethods %}
-
         {% set paymentMethodName = paymentMethod.name %}
         {% if paymentMethod.url %}
-            <a href="{{ paymentMethod.url }}">{{ paymentMethodName|trans }}</a>
+                <h2>{{ paymentMethodName|trans }}</h2>
+                <p><a href="{{ paymentMethod.url }}" class="button button-secondary">{{ 'template.store_template_bundle.checkout.payment.continue'|trans }}</a></p>
+                <hr />
         {% else %}
-            <details class="test-payment-{{ paymentMethod.id }}">
+            <details class="test-payment-{{ paymentMethod.id }} form form-{{ paymentMethodName|trans|lower }}">
                 <summary>{{ paymentMethodName|trans }}</summary>
                 <div class="payment-wrapper">
                     {{ paymentMethod.script|raw }}
@@ -50,6 +50,6 @@
 
 <p class="checkout-actions checkout-actions-bottom">
     <a class="button" href="{{ url('store_checkout_address') }}"> <i class="fa fa-arrow-left"></i> {{ 'template.store_template_bundle.checkout.back'|trans }}</a>
-    <button class="button button-secondary js-continue" type="submit">{{ 'template.store_template_bundle.checkout.payment.continue'|trans }}  <i class="fa fa-arrow-right"></i></button>
 </p>
+</div>
 {% endblock content_checkout %}

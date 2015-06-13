@@ -3,7 +3,7 @@
 {% block breadcrumb_container %}{% endblock breadcrumb_container %}
 
 {% block content_checkout %}
-
+    <div class="checkout">
     {% if addresses is not empty %}
         <h1 class="checkout-title">{{ 'template.store_template_bundle.checkout.address.select_address'|trans }}</h1>
         <form method="post" action="{{ url('store_checkout_address_save') }}" {% if addresses|length > 1 %}class="address-list" {% endif %}>
@@ -58,5 +58,5 @@
     {% endjavascripts %}
 
     {% include '@StoreTemplate/Modules/_address-new.html.twig' with { form: form } %}
-
+    </div>
 {% endblock content_checkout %}

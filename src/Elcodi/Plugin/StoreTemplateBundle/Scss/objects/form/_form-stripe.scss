@@ -1,0 +1,30 @@
+.form-stripe {
+	summary {
+		font-size: $font-size-xl;
+		font-weight: bold;
+		display: inline-block;
+		cursor: pointer;
+	}
+	span {
+		display: inline-block;
+		padding-bottom: $spacing/2;
+		margin: 0 $spacing/2;
+	}
+	label {
+		display: inline-block;
+	}
+
+	button {
+		@extend .button;
+		@extend .button-secondary;
+	}
+
+}
+
+#stripe_view_credit_cart {
+	max-width: 180px;
+}
+
+#stripe_view_credit_cart_security {
+	max-width: 60px;
+}
