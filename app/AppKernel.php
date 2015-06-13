@@ -64,6 +64,7 @@ class AppKernel extends Kernel
             new JMS\TranslationBundle\JMSTranslationBundle(),
             new Mmoreram\ControllerExtraBundle\ControllerExtraBundle(),
             new Mmoreram\CacheFlushBundle\CacheFlushBundle(),
+            new Mmoreram\HttpHeadersBundle\HttpHeadersBundle(),
 
             /**
              * Elcodi core bundles
