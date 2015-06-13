@@ -3,6 +3,7 @@
 {% block breadcrumb_container %}{% endblock breadcrumb_container %}
 
 {% block content %}
+<div class="white-panel">
     <div class="order-list">
         <h1>{{ 'template.store_template_bundle.order.list.orders'|trans }}</h1>
         {% for order in orders %}
@@ -39,5 +40,5 @@
             </div>
         {% endfor %}
     </div>
-
+</div>
 {% endblock %}

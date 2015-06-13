@@ -3,7 +3,7 @@
 {% block breadcrumb_container %}{% endblock breadcrumb_container %}
 
 {% block content %}
-
+    <div class="checkout">
     {% if cart.totalItemNumber > 0 %}
             <h1 class="checkout-title">{{ 'template.store_template_bundle.cart.view.title'|trans }}</h1>
             <p class="checkout-actions checkout-actions-top">
@@ -52,7 +52,7 @@
             <a class="button button-secondary" href="{{ url('store_homepage') }}">{{ 'template.store_template_bundle.cart.view.continue_shopping'|trans }} <i class="fa fa-arrow-right"></i></a>
         </div>
     {% endif %}
-
+    </div>
 {% endblock %}
 
 {% block prefooter %}

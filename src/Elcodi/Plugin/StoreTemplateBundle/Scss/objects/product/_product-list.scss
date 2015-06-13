@@ -1,7 +1,11 @@
 .product-list {
 	.product-item {
 		min-height: 300px;
+		background: rgba(255,255,255,.9);
+		margin-bottom: $spacing/2;
+		box-shadow : 1px 1px 1px rgba(0,0,0,.2);
 	}
+
 }
 
 @mixin product-list-desktop {
@@ -11,7 +15,8 @@
 		}
 		.product-item {
 			float: left;
-			width: 33%;
+			width: 31%;
+			margin: 0 1% 2%;
 			box-sizing: border-box;
 		}
 		.product-thumbnail {

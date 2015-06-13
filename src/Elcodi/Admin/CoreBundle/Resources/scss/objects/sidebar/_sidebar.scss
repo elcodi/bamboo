@@ -1,9 +1,32 @@
 .sidebar {
-	&{
+	& {
 		background: map-get($object-navigation-vars, background-color);
 		overflow: hidden;
+		z-index: 150;
+	}
+	.active {
+		& > a {
+			& {
+				overflow: hidden;
+			}
+			&:after {
+				content: "";
+				background: $color-body;
+				height: $spacing*2;
+				width: $spacing*1.3;
+				right: -$spacing;
+				top: 0;
+				position: absolute;
+				@include transform(rotate(-45deg));
+			}
+		}
+	}
+}
+
+.navigation-vertical {
+	& {
 		@include text-shadow(1px 1px 0 rgba($color-foreground,.2));
-		z-index: 100;
+		background: map-get($object-navigation-vars, background-color);
 	}
 	hr {
 		border-width: 1px 0 0 0;
@@ -22,6 +45,13 @@
 	text-align: center;
 	font-size: $font-size-s;
 }
+
+.active {
+	.badge {
+		margin-right: $spacing;
+	}
+}
+
 .badge-alert {
 	background: rgba($color-ko, .5);
 	text-shadow: 1px 1px 1px $color-foreground;
