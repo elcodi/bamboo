@@ -85,14 +85,16 @@ class ShippingCollectEventListener
         ) {
             $moneyPrice = $this->getShippingPrice($event->getCart());
 
+            $shipmentMethod = new ShippingMethod(
+                DelivereaShippingMethods::DELIVEREA,
+                'asm',
+                'Home delivery',
+                '',
+                $moneyPrice
+            );
+
             $event
-                ->addShippingMethod(new ShippingMethod(
-                    DelivereaShippingMethods::DELIVEREA,
-                    'asm',
-                    'Home delivery',
-                    '',
-                    $moneyPrice
-                ));
+                ->addShippingMethod($shipmentMethod);
         }
     }
 

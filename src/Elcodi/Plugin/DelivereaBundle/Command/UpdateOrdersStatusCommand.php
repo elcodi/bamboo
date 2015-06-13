@@ -66,7 +66,7 @@ class UpdateOrdersStatusCommand extends Command
     protected function configure()
     {
         $this
-            ->setName('elcodi:deliverea:orders:update')
+            ->setName('deliverea:orders:update')
             ->setDescription('Updates the status for all the orders');
     }
 
@@ -135,7 +135,7 @@ class UpdateOrdersStatusCommand extends Command
     {
         $formatter = $this->getHelper('formatter');
         $formattedLine = $formatter->formatSection(
-            'ORDER UPDATER',
+            'Deliverea',
             $message
         );
         $output->writeln($formattedLine);

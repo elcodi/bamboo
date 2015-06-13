@@ -57,7 +57,7 @@ class ShippingStateConverter
         $status = 'preparing';
         switch ($delivereaStatus) {
             case DelivereaTrackingCodes::CODE01:
-                $status = 'picked up by carrier';
+                $status = 'processed';
                 break;
             case DelivereaTrackingCodes::CODE02:
             case DelivereaTrackingCodes::CODE03:

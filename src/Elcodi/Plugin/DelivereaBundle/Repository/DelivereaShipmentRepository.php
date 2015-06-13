@@ -58,15 +58,17 @@ class DelivereaShipmentRepository extends EntityRepository
         $queryBuilder = $this->createQueryBuilder('d');
         $query = $queryBuilder
             ->select('d')
+            ->join('d.order', 'o')
+            ->join('o.shippingLastStateLine', 's')
             ->where(
                 $queryBuilder
                     ->expr()
                     ->notIn(
-                        'd.status',
+                        's.name',
                         [
-                            DelivereaTrackingCodes::CODE05,
-                            DelivereaTrackingCodes::CODE06,
-                            DelivereaTrackingCodes::CODE07,
+                            'delivered',
+                            'cancelled',
+                            'returned',
                         ]
                     )
             )

@@ -4,6 +4,7 @@ services:
     #
     elcodi_plugin.deliverea_plugin:
         parent: elcodi.abstract_plugin
+        lazy: true
         arguments:
             - "Elcodi\\Plugin\\DelivereaBundle\\ElcodiDelivereaBundle"
 
