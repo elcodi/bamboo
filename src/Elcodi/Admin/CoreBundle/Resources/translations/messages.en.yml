@@ -1,11 +1,14 @@
 admin:
     name: Admin
     menu:
-        design: Design
+        design: Customize Store
     store:
         saved: Settings saved.
         settings: Settings
         section:
+            advanced:
+                title: Advanced
+                description: Advanced settings for your store.
             stock:
                 title: Stock
                 description: "If you activate this option you will be able to setup the stock in your products."
@@ -13,6 +16,11 @@ admin:
                 title: Status
                 description: "Controls if the store is opened or closed."
         field:
+            routingStrategy:
+                title: "Multilanguage urls format"
+                prefix_except_default: All urls have a language prefix except the default language
+                prefix: All urls have a language prefix
+                custom: No prefix for languages, only translated urls
             enabled:
                 title: Store Enabled
             useStock:
@@ -914,6 +922,8 @@ admin:
         section:
             store:
                 title: General
+            profile:
+                title: Corporate Image
             address:
                 title: Address & Contact
             corporate:

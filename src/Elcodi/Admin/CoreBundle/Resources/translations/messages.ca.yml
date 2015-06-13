@@ -1,11 +1,14 @@
 admin:
     name: Administració
     menu:
-        design: Disseny
+        design: Personalitzar Botiga
     store:
         saved: Configuració guardada.
         settings: Configuracions
         section:
+            advanced:
+                title: Opciones avançades
+                description: A Aquesta secció trobarás opcions avançades de configuració.
             stock:
                 title: Stock
                 description: "Activa aquesta opció per gestionar l'stock dels teus productes."
@@ -13,6 +16,11 @@ admin:
                 title: Estat de la botiga
                 description: "Controla si la botiga esta oberta o tancada al públic."
         field:
+            routingStrategy:
+                title: Estrategia de URLs per multiples llenguatges
+                prefix_except_default: Totes les URLs tenen un prefixe excepte l'idioma principal
+                prefix: Totes les URLs tenen un prefixe
+                custom: No fer servir prefixes, traduire totes les urls
             enabled:
                 title: Activar botiga
             useStock:

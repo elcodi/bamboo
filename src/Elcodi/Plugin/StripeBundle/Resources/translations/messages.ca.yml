@@ -1,7 +1,7 @@
 elcodi_plugin:
     stripe:
         name: Stripe
-        description: Integració d'Stripe per a la teva botiga
+        description: "<p>Stripe permeteix pagar als teus usuaris fent servir tarja de credit. Per activar-ho necesites tenir un compte d'Stripe i enganxar aqui les teves claus públiques i privades.</p><p>No tenes un compte d'Stripe?</p> <a href='https://dashboard.stripe.com/register' class='button' target='_blank'>Crear un compte d'Stripe</a>"
         field:
             private_key:
                 label: Clau privada
