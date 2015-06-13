@@ -12,10 +12,10 @@
 			&:after {
 				content: "";
 				background: $color-body;
-				height: $spacing*2;
-				width: $spacing*1.3;
+				height: $spacing*1.5;
+				width: $spacing;
 				right: -$spacing;
-				top: 0;
+				top: $spacing/8;
 				position: absolute;
 				@include transform(rotate(-45deg));
 			}

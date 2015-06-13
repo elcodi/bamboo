@@ -4,6 +4,11 @@
 		width: 100%;
 	}
 
+	.table-mobile {
+		p {
+			white-space: normal !important;
+		}
+	}
 
 	.st-head-row {
 		padding: $spacing/4;
