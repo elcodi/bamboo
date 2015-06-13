@@ -1,45 +1,11 @@
 {% import "AdminCoreBundle::Navs/side_elements.html.twig" as side_elements %}
 {% import "AdminCoreBundle::Navs/side_elements_mobile.html.twig" as side_elements_mobile %}
-
-<div class="sidebar-user desktop">
-    <div class="ta-c">
-        <a href="#sidebar-user-dropdown" data-fc-modules="toggle" class="c-foreground-light">
-             <span class=" tablet va-m">
-                <img src="{{ gravatar(app.user.email, 40) }}" alt="Avatar" class="image-circle">
-            </span>
-            <span class="sidebar-user-info desktop">
-                <img src="{{ gravatar(app.user.email, 20) }}" alt="Avatar" class="image-circle va-m">
-                {{ app.user.username }} <i class="icon-caret-down"></i>
-            </span>
-        </a>
-    </div>
-    <nav id="sidebar-user-dropdown" class="navigation navigation-vertical sidebar-user-dropdown hidden">
-        <ul>
-            <li data-test="menu-profile">
-                <a href="{{ url('admin_admin_user_edit', {id: app.user.id }) }}">
-                    <span class="mobile tablet">
-                        <i class="icon-user fz-xl"></i> {{ 'admin.profile.single'|trans }}
-                    </span>
-                    <span class="desktop">
-                        <i class="icon-user"></i> {{ 'admin.profile.single'|trans }}
-                    </span>
-                </a>
-            </li>
-            <li data-test="menu-logout">
-                <a href="{{ url('admin_logout') }}">
-                    <span class="mobile tablet">
-                        <i class="icon-sign-out fz-xl"></i> {{ 'admin.login.action.logout'|trans }}
-                    </span>
-                    <span class="desktop">
-                        <i class="icon-sign-out"></i> {{ 'admin.login.action.logout'|trans }}
-                    </span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</div>
+<p class="pa-m mb-n">
+    <img src="{{ asset('bundles/admincore/images/logo.png') }}" width="130" />
+</p>
 <nav id="menu" class="navigation navigation-vertical desktop">
     <ul>
+        <hr class="mb-n" />
         {{ side_elements.showNodes(menu, 'dashboard', route) }}
         {{ side_elements.separator() }}
         {{ side_elements.showNodes(menu, 'order', route) }}
@@ -53,6 +19,40 @@
         {{ side_elements.showNodes(menu, 'settings', route) }}
         {{ side_elements.separator() }}
         {{ side_elements.showNodes(menu, 'extra', route) }}
+        <li>
+            <a href="#sidebar-user-dropdown" data-fc-modules="toggle" class="c-background">
+                 <span class=" tablet va-m">
+                    <img src="{{ gravatar(app.user.email, 40) }}" alt="Avatar" class="image-circle">
+                </span>
+                <span class="sidebar-user-info desktop">
+                    <i class="icon-caret-down fl-r"></i>
+                    <img src="{{ gravatar(app.user.email, 15) }}" alt="Avatar" class="image-circle va-m">
+                    {{ app.user.username }}
+                </span>
+            </a>
+            <ul id="sidebar-user-dropdown" class="sidebar-user-dropdown hidden">
+                <li data-test="menu-profile">
+                    <a href="{{ url('admin_admin_user_edit', {id: app.user.id }) }}">
+                    <span class="mobile tablet">
+                        <i class="icon-user fz-xl"></i> {{ 'admin.profile.single'|trans }}
+                    </span>
+                    <span class="desktop">
+                        <i class="icon-angle-right"></i> {{ 'admin.profile.single'|trans }}
+                    </span>
+                    </a>
+                </li>
+                <li data-test="menu-logout">
+                    <a href="{{ url('admin_logout') }}">
+                    <span class="mobile tablet">
+                        <i class="icon-sign-out fz-xl"></i> {{ 'admin.login.action.logout'|trans }}
+                    </span>
+                    <span class="desktop">
+                        <i class="icon-angle-right"></i> {{ 'admin.login.action.logout'|trans }}
+                    </span>
+                    </a>
+                </li>
+            </ul>
+        </li>
     </ul>
 </nav>
 <div class="d-n">
