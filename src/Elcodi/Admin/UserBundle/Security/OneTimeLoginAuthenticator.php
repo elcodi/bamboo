@@ -18,7 +18,6 @@
 namespace Elcodi\Admin\UserBundle\Security;
 
 use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\Common\Persistence\ObjectRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\SimplePreAuthenticatorInterface;
 use Symfony\Component\Security\Core\Authentication\Token\PreAuthenticatedToken;
@@ -27,37 +26,40 @@ use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\Exception\BadCredentialsException;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 
+use Elcodi\Component\User\Repository\AdminUserRepository;
+
 /**
- * Class OneTimeLoginAuthenticator responsible of checking the request for a login hash and login the user in this case.
- *
- * @package Elcodi\Admin\UserBundle\Security
+ * Class OneTimeLoginAuthenticator responsible of checking the request for a
+ * login hash and login the user in this case.
  */
 class OneTimeLoginAuthenticator implements SimplePreAuthenticatorInterface
 {
-    /**
-     * The Admin user repository object.
-     *
-     * @var ObjectRepository
-     */
-    protected $adminUserObjectRepository;
-
     /**
      * The admin user manager object.
      *
      * @var ObjectManager
      */
-    private $adminUserManager;
+    private $adminUserObjectManager;
+
+    /**
+     * The Admin user repository object.
+     *
+     * @var AdminUserRepository
+     */
+    private $adminUserRepository;
 
     /**
      * Generates a new OneTimeLoginAuthenticator injecting it's dependencies.
      *
-     * @param ObjectManager    $adminUserManager          The admin user manager object.
-     * @param ObjectRepository $adminUserObjectRepository The Admin user repository object.
+     * @param ObjectManager       $adminUserObjectManager The admin user manager object.
+     * @param AdminUserRepository $adminUserRepository    The Admin user repository object.
      */
-    public function __construct(ObjectManager $adminUserManager, ObjectRepository $adminUserObjectRepository)
-    {
-        $this->adminUserObjectRepository = $adminUserObjectRepository;
-        $this->adminUserManager = $adminUserManager;
+    public function __construct(
+        ObjectManager $adminUserObjectManager,
+        AdminUserRepository $adminUserRepository
+    ) {
+        $this->adminUserObjectManager = $adminUserObjectManager;
+        $this->adminUserRepository = $adminUserRepository;
     }
 
     /**
@@ -70,7 +72,9 @@ class OneTimeLoginAuthenticator implements SimplePreAuthenticatorInterface
      */
     public function createToken(Request $request, $providerKey)
     {
-        $loginKey = $request->query->get('login-key');
+        $loginKey = $request
+            ->query
+            ->get('login-key');
 
         if (!$loginKey) {
             throw new BadCredentialsException('No login key found');
@@ -92,13 +96,18 @@ class OneTimeLoginAuthenticator implements SimplePreAuthenticatorInterface
      *
      * @return PreAuthenticatedToken A pre-authenticated token generated using the user admin entity.
      */
-    public function authenticateToken(TokenInterface $token, UserProviderInterface $userProvider, $providerKey)
-    {
+    public function authenticateToken(
+        TokenInterface $token,
+        UserProviderInterface $userProvider,
+        $providerKey
+    ) {
         $loginKey = $token->getCredentials();
 
-        $user = $this->adminUserObjectRepository->findOneBy([
-            'oneTimeLoginHash' => $loginKey,
-        ]);
+        $user = $this
+            ->adminUserRepository
+            ->findOneBy([
+                'oneTimeLoginHash' => $loginKey,
+            ]);
 
         if (!$user) {
             throw new AuthenticationException(
@@ -107,7 +116,9 @@ class OneTimeLoginAuthenticator implements SimplePreAuthenticatorInterface
         }
 
         $user->setOneTimeLoginHash(null);
-        $this->adminUserManager->flush();
+        $this
+            ->adminUserObjectManager
+            ->flush();
 
         return new PreAuthenticatedToken(
             $user,
@@ -127,6 +138,8 @@ class OneTimeLoginAuthenticator implements SimplePreAuthenticatorInterface
      */
     public function supportsToken(TokenInterface $token, $providerKey)
     {
-        return $token instanceof PreAuthenticatedToken && $token->getProviderKey() === $providerKey;
+        return
+            ($token instanceof PreAuthenticatedToken) &&
+            ($token->getProviderKey() === $providerKey);
     }
 }
