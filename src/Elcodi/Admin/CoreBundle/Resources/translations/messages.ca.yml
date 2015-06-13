@@ -998,3 +998,9 @@ ui:
         success: Borrat correctament
     editor:
         help: Selecciona el text per a veure les opcions de format
+
+plugin_type:
+    app: Aplicacions
+    payment: Mètodes de pagament
+    shipping: Transportistes
+    social: Social

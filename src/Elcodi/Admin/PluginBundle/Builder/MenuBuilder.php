@@ -59,7 +59,7 @@ class MenuBuilder extends AbstractMenuBuilder implements MenuBuilderInterface
                 $this
                     ->menuNodeFactory
                     ->create()
-                    ->setName('admin.social.single')
+                    ->setName('plugin_type.social')
                     ->setCode('share-alt')
                     ->setTag('settings')
                     ->setPriority(32)

@@ -25,10 +25,10 @@ Feature: Admin menus
     And the page contains a "admin.settings.section.store.title" test attribute
     And the page contains a "admin.settings.section.address.title" test attribute
     And the page contains a "admin.settings.section.corporate.title" test attribute
-    And the page contains a "admin.carrier.plural" test attribute
     And the page contains a "admin.currency.plural" test attribute
     And the page contains a "admin.language.plural" test attribute
-    And the page contains a "admin.settings.section.payment.title" test attribute
-    And the page contains a "admin.social.single" test attribute
+    And the page contains a "plugin_type.payment" test attribute
+    And the page contains a "plugin_type.shipping" test attribute
+    And the page contains a "plugin_type.social" test attribute
     And the page contains a "menu-profile" test attribute
     And the page contains a "menu-logout" test attribute

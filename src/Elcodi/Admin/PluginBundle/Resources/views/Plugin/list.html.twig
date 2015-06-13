@@ -8,11 +8,24 @@
 
 {% block breadcrumb %}
 
-    {% include '@AdminCore/Common/breadcrumb.html.twig' with {
-        breadcrumb: [
-            { name: 'admin.plugin.plural'|trans, active: true },
-        ]
-    } %}
+    {% if category %}
+
+        {% include '@AdminCore/Common/breadcrumb.html.twig' with {
+            breadcrumb: [
+                { name: 'admin.plugin.plural'|trans, active: false },
+                { name: "plugin_type.#{category}"|trans, active: true },
+            ]
+        } %}
+
+    {% else %}
+
+        {% include '@AdminCore/Common/breadcrumb.html.twig' with {
+            breadcrumb: [
+                { name: 'admin.plugin.plural'|trans, active: true },
+            ]
+        } %}
+
+    {% endif %}
 
 {% endblock breadcrumb %}
 
@@ -21,20 +34,27 @@
 
     <form class="form-grid form-grid-has-settings form-save-on-edit" data-fc-modules="form-save-on-edit">
         {% for plugin in plugins if plugin.getConfigurationValue('visible') %}
+
             {% set pluginName = plugin.getConfigurationValue('name')|trans %}
             {% set pluginDescription = plugin.getConfigurationValue('description')|trans|striptags %}
-            {% set iconPath = "/bundles" ~ asset(plugin.getBundleName()|replace({'Bundle': ''})|lower ~ "/images/icon.png") %}
+            {% set assetPath = 'bundles/' ~ plugin.bundleName|replace({'Bundle': ''})|lower %}
+            {% set iconPath = asset(assetPath ~ '/images/icon.png') %}
+
             <article class="box-background">
                 <img src="{{ iconPath }}" class="form-grid-background" />
                 <div class="box-none pa-n mb-n">
                     <img src="{{ iconPath }}" width="50" class="form-grid-icon" />
-                    <h4 class="fw-n">{{ pluginName }}</h4>
-                    <p data-fc-modules="truncate" data-fc-max="100" data-fc-more="+" data-fc-less="-">{{ pluginDescription }}</p>
-                    <input type="hidden" id="url-enable-plugin-{{ plugin.hash }}" value="{{ url('admin_plugin_enable', {pluginHash: plugin.hash}) }}" />
+                    <h4 class="fw-n">{{ pluginName|trans }}</h4>
+                    <p data-fc-modules="truncate" data-fc-max="100" data-fc-more="+" data-fc-less="-">
+                        {{ pluginDescription|trans }}
+                    </p>
+                    <input type="hidden" id="url-enable-plugin-{{ plugin.hash }}" value="{{ url('admin_plugin_enable', { pluginHash: plugin.hash }) }}" />
                 </div>
                 <div class="form-grid-settings">
                     {% if plugin.hasFields() %}
-                        <a href="{{ url('admin_plugin_configure', {pluginHash: plugin.hash}) }}" class="button icon-cogs"> {{ 'admin.plugin.section.settings'|trans }}</a>
+                        <a href="{{ url('admin_plugin_configure', { pluginHash: plugin.hash }) }}" class="button icon-cogs">
+                            {{ 'admin.plugin.section.settings'|trans }}
+                        </a>
                     {% endif %}
                     <div class="fl-r pt-s">
                         {{ 'admin.plugin.field.visibility'|trans }}

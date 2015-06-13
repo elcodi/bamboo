@@ -1,0 +1,11 @@
+services:
+
+    #
+    # Add menu entries into each plugin category
+    #
+    elcodi_admin.menu_builder.plugin_categories:
+        class: Elcodi\Admin\PluginBundle\Builder\PluginCategoryMenuBuilder
+        arguments:
+            - @elcodi.factory.menu_node
+        tags:
+            - { name: menu.builder, menu: admin, priority: 8 }

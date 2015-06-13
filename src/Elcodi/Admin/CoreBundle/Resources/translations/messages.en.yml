@@ -1004,3 +1004,9 @@ ui:
         success: Correctly deleted
     editor:
         help: Select some text to get some format options
+
+plugin_type:
+    app: Apps
+    payment: Payment methods
+    shipping: Shipping methods
+    social: Social

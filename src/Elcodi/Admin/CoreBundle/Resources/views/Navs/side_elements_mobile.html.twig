@@ -9,8 +9,12 @@
 
 {% macro showNode(node, route) %}
     <li class="{% if node.isActive(route) %}active{% endif %}{% if node.subnodes|length %}parent{% endif %}" data-test="{{ node.name }}">
-    {% if generate_url(node.url) != '' %}
-        <a href="{{ generate_url(node.url) }}">
+    {% if node.subnodes|length == 0 %}
+        {% set node_url = node.url is iterable
+            ? url(node.url[0], node.url[1])
+            : url(node.url)
+        %}
+        <a href="{{ node_url }}">
     {% else %}
         <a href="#{{ node.name|md5 }}" data-fc-modules="toggle">
             <i class="icon-caret-down fl-r"></i>
@@ -30,7 +34,11 @@
                 <ul id="{{ node.name|md5 }}" {% if not node.isExpanded(route) %}class="hidden"{% endif %}>
             {% endif %}
             <li {% if subnode.isActive(route) %}class="active"{% endif %} data-test="{{ subnode.name }}">
-                <a href="{{ generate_url(subnode.url) }}" class="pl-l"><i class="icon-angle-right"></i> {{ subnode.name|trans }}</a>
+                {% set subnode_url = subnode.url is iterable
+                    ? url(subnode.url[0], subnode.url[1])
+                    : url(subnode.url)
+                %}
+                <a href="{{ subnode_url }}" class="pl-l"><i class="icon-angle-right"></i> {{ subnode.name|trans }}</a>
             </li>
             {% if loop.last %}
                 </ul>

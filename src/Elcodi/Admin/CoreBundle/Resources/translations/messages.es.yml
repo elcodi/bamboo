@@ -1001,3 +1001,9 @@ ui:
         success: Borrado correctamente
     editor:
         help: Selecciona el texto para ver las opciones de formato
+
+plugin_type:
+    app: Aplicaciones
+    payment: Métodos de pago
+    shipping: Transportistas
+    social: Social
