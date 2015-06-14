@@ -28,28 +28,28 @@ class StoreCategoryTree extends AbstractCacheWrapper
      *
      * The store category tree.
      */
-    protected $storeCategoryTree;
+    private $storeCategoryTree;
 
     /**
      * @var boolean
      *
      * Load only categories with products
      */
-    protected $loadOnlyCategoriesWithProducts;
+    private $loadOnlyCategoriesWithProducts;
 
     /**
      * @var string
      *
      * Cache key
      */
-    protected $key;
+    private $key;
 
     /**
      * @var CategoryTree
      *
      * The category tree service to generate the full category tree
      */
-    protected $categoryTreeService;
+    private $categoryTreeService;
 
     /**
      * Construct method

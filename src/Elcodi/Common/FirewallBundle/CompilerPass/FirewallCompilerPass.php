@@ -36,7 +36,7 @@ class FirewallCompilerPass implements CompilerPassInterface
      *
      * Name of the tag to collect
      */
-    protected $tagName;
+    private $tagName;
 
     /**
      * Constructor
@@ -83,7 +83,7 @@ class FirewallCompilerPass implements CompilerPassInterface
      *
      * @param array $listeners
      */
-    protected function attachListeners(
+    private function attachListeners(
         ContainerBuilder $container,
         $providerKey,
         array $listeners
@@ -108,7 +108,7 @@ class FirewallCompilerPass implements CompilerPassInterface
      *
      * @return string
      */
-    protected function attachEvents(
+    private function attachEvents(
         ContainerBuilder $container,
         $provider_key,
         array $events
@@ -129,7 +129,7 @@ class FirewallCompilerPass implements CompilerPassInterface
      *
      * @return array
      */
-    protected function collectListenersByProviderKey(ContainerBuilder $container)
+    private function collectListenersByProviderKey(ContainerBuilder $container)
     {
         $providerKeys = [];
 
@@ -166,7 +166,7 @@ class FirewallCompilerPass implements CompilerPassInterface
      *
      * @return string The firewall provider key
      */
-    protected function getProviderKey(ContainerBuilder $container, array $tag, $listenerId)
+    private function getProviderKey(ContainerBuilder $container, array $tag, $listenerId)
     {
         if (!isset($tag['firewall'])) {
             throw new \RuntimeException(sprintf(

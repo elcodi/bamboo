@@ -35,42 +35,42 @@ class StoreHttpExceptionListener
      *
      * Helps avoiding endless loops when the rendering throws
      */
-    protected $isHandlingException = false;
+    private $isHandlingException = false;
 
     /**
      * @var EngineInterface
      *
      * Template engine
      */
-    protected $templating;
+    private $templating;
 
     /**
      * @var TemplateLocator
      *
      * Template locator
      */
-    protected $templateLocator;
+    private $templateLocator;
 
     /**
      * @var string
      *
      * Template by default
      */
-    protected $defaultTemplate;
+    private $defaultTemplate;
 
     /**
      * @var string[]
      *
      * Template path by status code for rendering
      */
-    protected $templateByCode;
+    private $templateByCode;
 
     /**
      * @var integer|null
      *
      * Status code for non http-exceptions, or null for no fallback
      */
-    protected $fallbackCode;
+    private $fallbackCode;
 
     /**
      * Constructor

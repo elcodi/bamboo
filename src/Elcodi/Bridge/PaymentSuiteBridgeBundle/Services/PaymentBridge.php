@@ -37,28 +37,28 @@ class PaymentBridge implements PaymentBridgeInterface
      *
      * Order object
      */
-    protected $order;
+    private $order;
 
     /**
      * @var OrderRepository
      *
      * Order repository
      */
-    protected $orderRepository;
+    private $orderRepository;
 
     /**
      * @var CartWrapper
      *
      * Cart wrapper
      */
-    protected $cartWrapper;
+    private $cartWrapper;
 
     /**
      * @var CurrencyConverter
      *
      * Currency converter
      */
-    protected $currencyConverter;
+    private $currencyConverter;
 
     /**
      * @param OrderRepository   $orderRepository   Order repository

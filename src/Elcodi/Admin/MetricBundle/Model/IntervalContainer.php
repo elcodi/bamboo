@@ -29,63 +29,63 @@ class IntervalContainer
      *
      * startDay
      */
-    protected $startDay;
+    private $startDay;
 
     /**
      * @var int
      *
      * iterations
      */
-    protected $iterations;
+    private $iterations;
 
     /**
      * @var array
      *
      * elementsIntervalFormat
      */
-    protected $elementsIntervalFormat;
+    private $elementsIntervalFormat;
 
     /**
      * @var int
      *
      * elementsGrouping
      */
-    protected $elementsGrouping;
+    private $elementsGrouping;
 
     /**
      * @var string
      *
      * elementsFormat
      */
-    protected $elementsFormat;
+    private $elementsFormat;
 
     /**
      * @var int
      *
      * chartElementsSeparation
      */
-    protected $chartElementsSeparation;
+    private $chartElementsSeparation;
 
     /**
      * @var string
      *
      * chartLegendFormat
      */
-    protected $chartLegendFormat;
+    private $chartLegendFormat;
 
     /**
      * @var PartialInterval[]
      *
      * partial Intervals
      */
-    protected $partialIntervals;
+    private $partialIntervals;
 
     /**
      * @var string[]
      *
      * elements
      */
-    protected $elements;
+    private $elements;
 
     /**
      * Construct

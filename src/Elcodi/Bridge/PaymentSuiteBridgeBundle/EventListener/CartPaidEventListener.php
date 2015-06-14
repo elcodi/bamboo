@@ -32,14 +32,14 @@ class CartPaidEventListener
      *
      * Cart Wrapper
      */
-    protected $cartWrapper;
+    private $cartWrapper;
 
     /**
      * @var CartOrderTransformer
      *
      * Cart to Order transformer
      */
-    protected $cartOrderTransformer;
+    private $cartOrderTransformer;
 
     /**
      * Construct method

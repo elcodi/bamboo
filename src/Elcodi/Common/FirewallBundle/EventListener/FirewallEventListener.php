@@ -33,14 +33,14 @@ class FirewallEventListener implements ListenerInterface
      *
      * Event dispatcher
      */
-    protected $eventDispatcher;
+    private $eventDispatcher;
 
     /**
      * @var array
      *
      * Listeners to attach on firewall activation
      */
-    protected $listenerIds = [];
+    private $listenerIds = [];
 
     /**
      * Construct

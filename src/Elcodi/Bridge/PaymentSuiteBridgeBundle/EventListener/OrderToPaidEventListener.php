@@ -33,21 +33,21 @@ class OrderToPaidEventListener
      *
      * MachineManager for payment
      */
-    protected $paymentMachineManager;
+    private $paymentMachineManager;
 
     /**
      * @var ObjectManager
      *
      * Order object manager
      */
-    protected $orderObjectManager;
+    private $orderObjectManager;
 
     /**
      * @var ObjectManager
      *
      * StateLine object manager
      */
-    protected $stateLineObjectManager;
+    private $stateLineObjectManager;
 
     /**
      * Construct method

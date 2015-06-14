@@ -33,7 +33,7 @@ class PageExtension extends Twig_Extension
      *
      * Page Repository
      */
-    protected $pageRepository;
+    private $pageRepository;
 
     /**
      * Construct

@@ -33,14 +33,14 @@ class StoreUnavailableEventListener implements ListenerInterface
      *
      * Store
      */
-    protected $store;
+    private $store;
 
     /**
      * @var string
      *
      * Message string when not available
      */
-    protected $message;
+    private $message;
 
     /**
      * Constructor

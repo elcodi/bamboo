@@ -32,14 +32,14 @@ class RememberPasswordCredentialsEventListener
      *
      * Token storage
      */
-    protected $tokenStorage;
+    private $tokenStorage;
 
     /**
      * @var string
      *
      * Provider key
      */
-    protected $providerKey;
+    private $providerKey;
 
     /**
      * Build method
