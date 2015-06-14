@@ -17,9 +17,11 @@
 
 namespace Elcodi\Bridge\VisithorBridgeBundle\Environment;
 
+use Symfony\Component\Console\Input\StringInput;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Visithor\Bundle\Environment\SymfonyEnvironmentBuilder;
 
+use Elcodi\Component\Geo\Entity\Interfaces\LocationInterface;
 use Elcodi\Component\User\Repository\AdminUserRepository;
 use Elcodi\Component\User\Repository\CustomerRepository;
 
@@ -68,11 +70,8 @@ class EnvironmentBuilder extends SymfonyEnvironmentBuilder
         parent::setUp($kernel);
 
         $this
-            ->executeCommand('doctrine:fixtures:load', [
-                '--no-booster' => true,
-                '--fixtures'   => $kernel
-                        ->getRootDir() . '/../src/Elcodi/Fixtures',
-            ])
+            ->loadCommonFixtures($kernel)
+            ->loadLocationFixtures($kernel)
             ->executeCommand('elcodi:plugins:load');
     }
 
@@ -96,5 +95,93 @@ class EnvironmentBuilder extends SymfonyEnvironmentBuilder
                 ->find([
                     'email' => 'customer@customer.com',
                 ]);
+    }
+
+    /**
+     * Load common fixtures
+     *
+     * @param KernelInterface $kernel Kernel
+     *
+     * @return $this Self object
+     */
+    private function loadCommonFixtures(KernelInterface $kernel)
+    {
+        $rootDir = $kernel->getRootDir();
+
+        $command =
+            'doctrine:fixtures:load ' .
+            '--fixtures=' . $rootDir . '/../src/Elcodi/Plugin/ ' .
+            '--fixtures=' . $rootDir . '/../src/Elcodi/Fixtures ' .
+            '--env=test ' .
+            '--no-interaction ' .
+            '--quiet ';
+
+        $input = new StringInput($command);
+        $this
+            ->application
+            ->run($input);
+
+        return $this;
+    }
+
+    /**
+     * Load location fixtures
+     *
+     * @return $this Self object
+     */
+    private function loadLocationFixtures(KernelInterface $kernel)
+    {
+        $locationDirector = $kernel
+            ->getContainer()
+            ->get('elcodi.director.location');
+
+        /**
+         * @var LocationInterface $locationBarcelonaCity
+         */
+        $locationBarcelonaCity = $locationDirector
+            ->create()
+            ->setId('ES_CT_B_Barcelona')
+            ->setName('Barcelona')
+            ->setCode('Barcelona')
+            ->setType('city');
+        $locationDirector->save($locationBarcelonaCity);
+
+        /**
+         * @var LocationInterface $locationBarcelonaProvince
+         */
+        $locationBarcelonaProvince = $locationDirector
+            ->create()
+            ->setId('ES_CT_B')
+            ->setName('Barcelona')
+            ->setCode('B')
+            ->setType('province')
+            ->addChildren($locationBarcelonaCity);
+        $locationDirector->save($locationBarcelonaProvince);
+
+        /**
+         * @var LocationInterface $locationCatalunya
+         */
+        $locationCatalunya = $locationDirector
+            ->create()
+            ->setId('ES_CT')
+            ->setName('Catalunya')
+            ->setCode('CT')
+            ->setType('state')
+            ->addChildren($locationBarcelonaProvince);
+        $locationDirector->save($locationCatalunya);
+
+        /**
+         * @var LocationInterface $locationSpain
+         */
+        $locationSpain = $locationDirector
+            ->create()
+            ->setId('ES')
+            ->setName('Spain')
+            ->setCode('ES')
+            ->setType('country')
+            ->addChildren($locationCatalunya);
+        $locationDirector->save($locationSpain);
+
+        return $this;
     }
 }

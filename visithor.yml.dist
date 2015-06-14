@@ -188,10 +188,7 @@ urls:
     #
     # Miscelania
     #
-    - [admin_configuration_list, 200, {profile: admin}]
-    - [admin_homepage, 302, {profile: admin}]
-    - [admin_payment_configuration_list, 200, {profile: admin}]
+    - [admin_homepage, 200, {profile: admin}]
     - [admin_template_list, 200, {profile: admin}]
     - [admin_plugin_list, 200, {profile: admin}]
-    - [admin_store_setup_wizard, 200, {profile: admin}]
 

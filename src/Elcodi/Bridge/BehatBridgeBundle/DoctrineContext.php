@@ -157,7 +157,7 @@ class DoctrineContext extends AbstractElcodiContext
             ->getRootDir();
 
         $command =
-            'doc:fix:load ' .
+            'doctrine:fixtures:load ' .
             '--fixtures=' . $rootDir . '/../src/Elcodi/Plugin/ ' .
             '--fixtures=' . $rootDir . '/../src/Elcodi/Fixtures ' .
             '--env=test ' .
