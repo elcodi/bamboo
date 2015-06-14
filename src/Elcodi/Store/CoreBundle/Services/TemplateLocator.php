@@ -30,14 +30,14 @@ class TemplateLocator
      *
      * Render engine
      */
-    protected $engine;
+    private $engine;
 
     /**
      * @var array
      *
      * Bundles to search
      */
-    protected $bundles;
+    private $bundles;
 
     /**
      * Constructs the template locator

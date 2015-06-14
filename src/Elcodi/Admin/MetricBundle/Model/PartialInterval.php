@@ -27,14 +27,14 @@ class PartialInterval
      *
      * Elements
      */
-    protected $elements;
+    private $elements;
 
     /**
      * @var string
      *
      * First
      */
-    protected $first;
+    private $first;
 
     /**
      * Construct

@@ -31,8 +31,10 @@ class MinimumMoneyValidator extends ConstraintValidator
     /**
      * Validates the value to be greater or equal than the constraint value.
      *
-     * @param Money      $value
-     * @param Constraint $constraint
+     * @param Money      $value      Value
+     * @param Constraint $constraint Constraint
+     *
+     * @return null
      */
     public function validate($value, Constraint $constraint)
     {
@@ -47,7 +49,8 @@ class MinimumMoneyValidator extends ConstraintValidator
         $minimumMoney = Money::create($constraint->value, $value->getCurrency());
 
         if ($value->isLessThan($minimumMoney)) {
-            $this->context
+            $this
+                ->context
                 ->buildViolation($constraint->message)
                 ->setParameter('{{ value }}', $this->formatValue($value, self::OBJECT_TO_STRING))
                 ->setParameter('{{ compared_value }}', $this->formatValue($minimumMoney, self::OBJECT_TO_STRING))

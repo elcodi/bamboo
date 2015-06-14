@@ -34,14 +34,14 @@ class AddOrderCompletedMetricEventListener
      *
      * Metric manager
      */
-    protected $metricManager;
+    private $metricManager;
 
     /**
      * @var StoreInterface
      *
      * Store
      */
-    protected $store;
+    private $store;
 
     /**
      * Construct

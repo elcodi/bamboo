@@ -42,35 +42,35 @@ class OAuthUserProvider implements OAuthAwareUserProviderInterface
      *
      * Where to search for valid users
      */
-    protected $userProvider;
+    private $userProvider;
 
     /**
      * @var ObjectDirector
      *
      * Authorization Director
      */
-    protected $authorizationDirector;
+    private $authorizationDirector;
 
     /**
      * @var ObjectDirector
      *
      * Customer Director
      */
-    protected $customerDirector;
+    private $customerDirector;
 
     /**
      * @var ObjectManager
      *
      * Customer ObjectManager
      */
-    protected $authorizationObjectManager;
+    private $authorizationObjectManager;
 
     /**
      * @var UserEventDispatcherInterface
      *
      * User event dispatcher
      */
-    protected $userEventDispatcher;
+    private $userEventDispatcher;
 
     /**
      * Constructor
