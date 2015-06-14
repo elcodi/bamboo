@@ -23,7 +23,6 @@ use Elcodi\Component\Cart\Entity\Interfaces\OrderInterface;
 use Elcodi\Component\Geo\Factory\AddressViewFactory;
 use Elcodi\Component\Plugin\Entity\Plugin;
 use Elcodi\Plugin\DelivereaBundle\ApiConsumer\Shipment as ShipmentApiConsumer;
-use Elcodi\Plugin\DelivereaBundle\DelivereaTrackingCodes;
 use Elcodi\Plugin\DelivereaBundle\Entity\DelivereaShipment;
 use Elcodi\Plugin\DelivereaBundle\Factory\DelivereaShippingFactory;
 
@@ -105,7 +104,7 @@ class Shipment
     /**
      * Builds a new class.
      *
-     * @param Plugin                   $delivereaPlugin The deliverea plugin
+     * @param Plugin                   $delivereaPlugin          The deliverea plugin
      * @param ShipmentApiConsumer      $shipmentApiConsumer      The shipment api consumer.
      * @param AddressViewFactory       $addressViewFactory       An address view factory.
      * @param DelivereaShippingFactory $delivereaShippingFactory A shipping factory.

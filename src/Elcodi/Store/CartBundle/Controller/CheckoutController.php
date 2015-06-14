@@ -83,8 +83,7 @@ class CheckoutController extends Controller
         AddressInterface $address,
         FormView $formView,
         $isValid
-    )
-    {
+    ) {
         if ($isValid) {
 
             // User is adding a new address
@@ -330,8 +329,7 @@ class CheckoutController extends Controller
     public function applyShippingMethodAction(
         CartInterface $cart,
         $shippingMethod
-    )
-    {
+    ) {
         /**
          * Desired shipping method
          */
@@ -386,8 +384,7 @@ class CheckoutController extends Controller
     public function paymentFailAction(
         CustomerInterface $customer,
         OrderInterface $order
-    )
-    {
+    ) {
         /**
          * Checking if logged user has permission to see
          * this page

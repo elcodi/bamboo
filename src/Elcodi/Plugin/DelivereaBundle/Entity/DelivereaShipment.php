@@ -20,11 +20,12 @@ namespace Elcodi\Plugin\DelivereaBundle\Entity;
 use Elcodi\Component\Cart\Entity\Interfaces\OrderInterface;
 use Elcodi\Component\Core\Entity\Traits\DateTimeTrait;
 use Elcodi\Component\Core\Entity\Traits\IdentifiableTrait;
+use Elcodi\Plugin\DelivereaBundle\Entity\Interfaces\DelivereaShipmentInterface;
 
 /**
  * Class DelivereaShipment
  */
-class DelivereaShipment
+class DelivereaShipment implements DelivereaShipmentInterface
 {
     use IdentifiableTrait, DateTimeTrait;
 
@@ -40,21 +41,21 @@ class DelivereaShipment
      *
      * The client shipping reference (Generated on shipment creation).
      */
-    protected $client_shipping_ref;
+    protected $clientShippingRef;
 
     /**
      * @var string
      *
      * The deliverea shipping reference (Deliverea identifier).
      */
-    protected $deliverea_shipping_ref;
+    protected $delivereaShippingRef;
 
     /**
      * @var string
      *
      * The carrier shipping reference (Carrier identifier).
      */
-    protected $carrier_shipping_ref;
+    protected $carrierShippingRef;
 
     /**
      * @var string
@@ -101,19 +102,19 @@ class DelivereaShipment
      */
     public function getDelivereaShippingRef()
     {
-        return $this->deliverea_shipping_ref;
+        return $this->delivereaShippingRef;
     }
 
     /**
      * Sets the deliverea shipping ref.
      *
-     * @param string $deliverea_shipping_ref The deliverea shipping ref.
+     * @param string $delivereaShippingRef The deliverea shipping ref.
      *
      * @return $this Self object.
      */
-    public function setDelivereaShippingRef($deliverea_shipping_ref)
+    public function setDelivereaShippingRef($delivereaShippingRef)
     {
-        $this->deliverea_shipping_ref = $deliverea_shipping_ref;
+        $this->delivereaShippingRef = $delivereaShippingRef;
 
         return $this;
     }
@@ -125,19 +126,19 @@ class DelivereaShipment
      */
     public function getClientShippingRef()
     {
-        return $this->client_shipping_ref;
+        return $this->clientShippingRef;
     }
 
     /**
      * Sets the deliverea shipping ref.
      *
-     * @param string $client_shipping_ref The client shipping ref.
+     * @param string $clientShippingRef The client shipping ref.
      *
      * @return $this Self object.
      */
-    public function setClientShippingRef($client_shipping_ref)
+    public function setClientShippingRef($clientShippingRef)
     {
-        $this->client_shipping_ref = $client_shipping_ref;
+        $this->clientShippingRef = $clientShippingRef;
 
         return $this;
     }
@@ -149,19 +150,19 @@ class DelivereaShipment
      */
     public function getCarrierShippingRef()
     {
-        return $this->carrier_shipping_ref;
+        return $this->carrierShippingRef;
     }
 
     /**
      * Sets the carrier shipping ref.
      *
-     * @param string $carrier_shipping_ref The carrier shipping ref.
+     * @param string $carrierShippingRef The carrier shipping ref.
      *
      * @return $this Self object.
      */
-    public function setCarrierShippingRef($carrier_shipping_ref)
+    public function setCarrierShippingRef($carrierShippingRef)
     {
-        $this->carrier_shipping_ref = $carrier_shipping_ref;
+        $this->carrierShippingRef = $carrierShippingRef;
 
         return $this;
     }

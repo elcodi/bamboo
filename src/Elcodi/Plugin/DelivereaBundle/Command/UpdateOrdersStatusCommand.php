@@ -80,24 +80,21 @@ class UpdateOrdersStatusCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $this->writeMessage('Started updating orders', $output);
+        $this
+            ->writeMessage('Started updating orders', $output)
+            ->writeMessage('Getting shipments to check for update', $output);
 
-        $this->writeMessage('Getting shipments to check for update', $output);
         $shipmentsPending = $this->getShipmentsWithActionsPending();
-
         foreach ($shipmentsPending as $shipment) {
-            /**
-             * @var DelivereaShipment $shipment
-             */
             $message = sprintf(
                 'Updating Deliverea shipment: %s',
                 $shipment->getDelivereaShippingRef()
             );
-            $this->writeMessage($message, $output);
 
-            $this->updateShipment($shipment);
-
-            $this->writeMessage('Shipment updated', $output);
+            $this
+                ->writeMessage($message, $output)
+                ->updateShipment($shipment)
+                ->writeMessage('Shipment updated', $output);
         }
 
         $this->writeMessage('Update process finished', $output);
@@ -106,7 +103,7 @@ class UpdateOrdersStatusCommand extends Command
     /**
      * Gets the shipments with pending actions.
      *
-     * @return array(ShippingMethod)
+     * @return DelivereaShipment[] Array of shipments
      */
     private function getShipmentsWithActionsPending()
     {
@@ -119,10 +116,16 @@ class UpdateOrdersStatusCommand extends Command
      * Updates the shipment and the order if the shipment has changed.
      *
      * @param DelivereaShipment $shipment The shipment to update
+     *
+     * @return $this Self object
      */
     private function updateShipment(DelivereaShipment $shipment)
     {
-        $this->orderStateUpdater->updateState($shipment);
+        $this
+            ->orderStateUpdater
+            ->updateState($shipment);
+
+        return $this;
     }
 
     /**
@@ -130,14 +133,19 @@ class UpdateOrdersStatusCommand extends Command
      *
      * @param string          $message The message to print.
      * @param OutputInterface $output  The output.
+     *
+     * @return $this Self object
      */
     private function writeMessage($message, OutputInterface $output)
     {
         $formatter = $this->getHelper('formatter');
-        $formattedLine = $formatter->formatSection(
-            'Deliverea',
-            $message
-        );
+        $formattedLine = $formatter
+            ->formatSection(
+                'Deliverea',
+                $message
+            );
         $output->writeln($formattedLine);
+
+        return $this;
     }
 }

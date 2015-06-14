@@ -18,7 +18,7 @@
 namespace Elcodi\Plugin\DelivereaBundle\Factory;
 
 use Elcodi\Component\Core\Factory\Abstracts\AbstractFactory;
-use Elcodi\Plugin\DelivereaBundle\Entity\DelivereaShipment;
+use Elcodi\Plugin\DelivereaBundle\Entity\Interfaces\DelivereaShipmentInterface;
 
 /**
  * Class DelivereaShippingFactory
@@ -30,17 +30,18 @@ class DelivereaShippingFactory extends AbstractFactory
      *
      * This method must return always an empty instance
      *
-     * @return DelivereaShipment Empty entity
+     * @return DelivereaShipmentInterface Empty entity
      */
     public function create()
     {
         /**
-         * @var DelivereaShipment $delivereaShipment
+         * @var DelivereaShipmentInterface $delivereaShipment
          */
         $classNamespace = $this->getEntityNamespace();
         $delivereaShipment = new $classNamespace();
-        $delivereaShipment->setCreatedAt(new \DateTime());
-        $delivereaShipment->setUpdatedAt(new \DateTime());
+        $delivereaShipment
+            ->setCreatedAt($this->now())
+            ->setUpdatedAt($this->now());
 
         return $delivereaShipment;
     }

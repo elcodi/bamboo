@@ -39,9 +39,8 @@ class LabelController extends Controller
      *      methods = {"GET"}
      * )
      */
-    public function viewAction(
-        $delivereaRef
-    ) {
+    public function viewAction($delivereaRef)
+    {
         $label = $this
             ->get('elcodi_deliverea.manager.label')
             ->getLabel($delivereaRef);

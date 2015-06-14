@@ -35,12 +35,14 @@ class OrderStateUpdater
      * The machine manager service
      */
     private $shippingMachineManager;
+
     /**
      * @var ShippingStateConverter
      *
      * The shipping state converter.
      */
     private $shippingStateConverter;
+
     /**
      * @var ObjectManager
      *
@@ -100,8 +102,7 @@ class OrderStateUpdater
             ->getLastStateLine()
             ->getName();
 
-        if($orderCurrentShipmentStatus != $orderLastShipmentStatus)
-        {
+        if ($orderCurrentShipmentStatus != $orderLastShipmentStatus) {
             try {
                 $stateLineStack = $this
                     ->shippingMachineManager

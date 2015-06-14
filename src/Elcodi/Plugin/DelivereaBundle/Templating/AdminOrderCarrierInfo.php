@@ -24,6 +24,7 @@ use Elcodi\Component\Plugin\Entity\Plugin;
 use Elcodi\Component\Plugin\EventDispatcher\Interfaces\EventInterface;
 use Elcodi\Component\Plugin\Templating\Traits\TemplatingTrait;
 use Elcodi\Plugin\DelivereaBundle\Entity\DelivereaShipment;
+use Elcodi\Plugin\DelivereaBundle\Entity\Interfaces\DelivereaShipmentInterface;
 use Elcodi\Plugin\DelivereaBundle\Manager\Tracking as TrackingManager;
 use Elcodi\Plugin\DelivereaBundle\Repository\DelivereaShipmentRepository;
 use Elcodi\Plugin\DelivereaBundle\Services\ShippingMethodChecker;
@@ -122,15 +123,12 @@ class AdminOrderCarrierInfo
                 $order instanceof OrderInterface &&
                 $this->shippingMethodChecker->orderHasDelivereaShipping($order)
             ) {
-
-                /** @var DelivereaShipment $delivereaShipment */
                 $delivereaShipment = $this
                     ->delivereaShipmentRepository
                     ->getDelivereaShipment($order);
 
-                if (!is_null($delivereaShipment)) {
-                    $delivereaShippingRef =
-                        $delivereaShipment->getDelivereaShippingRef();
+                if ($delivereaShipment instanceof DelivereaShipmentInterface) {
+                    $delivereaShippingRef = $delivereaShipment->getDelivereaShippingRef();
 
                     $trackingInfo = $this
                         ->tracking

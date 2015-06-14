@@ -77,10 +77,10 @@ class ElcodiDelivereaExtension extends AbstractExtension implements EntitiesOver
     protected function getParametrizationValues(array $config)
     {
         return [
-            "elcodi.entity.deliverea_shipment.class" => $config['mapping']['deliverea_shipment']['class'],
+            "elcodi.entity.deliverea_shipment.class"        => $config['mapping']['deliverea_shipment']['class'],
             "elcodi.entity.deliverea_shipment.mapping_file" => $config['mapping']['deliverea_shipment']['mapping_file'],
-            "elcodi.entity.deliverea_shipment.manager" => $config['mapping']['deliverea_shipment']['manager'],
-            "elcodi.entity.deliverea_shipment.enabled" => $config['mapping']['deliverea_shipment']['enabled'],
+            "elcodi.entity.deliverea_shipment.manager"      => $config['mapping']['deliverea_shipment']['manager'],
+            "elcodi.entity.deliverea_shipment.enabled"      => $config['mapping']['deliverea_shipment']['enabled'],
         ];
     }
 
@@ -125,7 +125,7 @@ class ElcodiDelivereaExtension extends AbstractExtension implements EntitiesOver
     public function getEntitiesOverrides()
     {
         return [
-            'Elcodi\Plugin\DelivereaBundle\Entity\DelivereaShipment' => 'elcodi.entity.deliverea_shipment.class',
+            'Elcodi\Plugin\DelivereaBundle\Entity\Interfaces\DelivereaShipmentInterface' => 'elcodi.entity.deliverea_shipment.class',
         ];
     }
 

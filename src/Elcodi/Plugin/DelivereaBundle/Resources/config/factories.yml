@@ -11,3 +11,4 @@ services:
         class: Elcodi\Plugin\DelivereaBundle\Factory\DelivereaShippingFactory
         calls:
             - [setEntityNamespace, ["%elcodi.entity.deliverea_shipment.class%"]]
+            - [setDateTimeFactory, ["@elcodi.factory.datetime"]]

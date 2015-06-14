@@ -8,17 +8,17 @@ Elcodi\Plugin\DelivereaBundle\Entity\DelivereaShipment:
             generator:
                 strategy: AUTO
     fields:
-        deliverea_shipping_ref:
+        delivereaShippingRef:
             column: deliverea_shipping_ref
             type: string
             length: 32
             nullable: false
-        client_shipping_ref:
+        clientShippingRef:
             column: client_shipping_ref
             type: string
             length: 32
             nullable: false
-        carrier_shipping_ref:
+        carrierShippingRef:
             column: carrier_shipping_ref
             type: string
             length: 32

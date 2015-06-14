@@ -20,8 +20,7 @@ namespace Elcodi\Plugin\DelivereaBundle\Repository;
 use Doctrine\ORM\EntityRepository;
 
 use Elcodi\Component\Cart\Entity\Interfaces\OrderInterface;
-use Elcodi\Plugin\DelivereaBundle\DelivereaTrackingCodes;
-use Elcodi\Plugin\DelivereaBundle\Entity\DelivereaShipment;
+use Elcodi\Plugin\DelivereaBundle\Entity\Interfaces\DelivereaShipmentInterface;
 
 /**
  * Class DelivereaShipmentRepository
@@ -33,7 +32,7 @@ class DelivereaShipmentRepository extends EntityRepository
      *
      * @param OrderInterface $order The order received.
      *
-     * @return null|DelivereaShipment
+     * @return null|DelivereaShipmentInterface
      */
     public function getDelivereaShipment(OrderInterface $order)
     {
@@ -51,7 +50,7 @@ class DelivereaShipmentRepository extends EntityRepository
     /**
      * Gets the shipments that still have actions pending
      *
-     * @return array
+     * @return DelivereaShipmentInterface[] Array of deliverea shipments
      */
     public function getShipmentsWithActionsPending()
     {
