@@ -5,3 +5,4 @@ plugin:
     description: elcodi_plugin.custom_shipping.description
     fa_icon: truck
     visible: false
+    enabled_by_default: true

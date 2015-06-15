@@ -4,3 +4,4 @@ plugin:
     description: elcodi_plugin.setup_wizard.description
     fa_icon: magic
     visible: false
+    enabled_by_default: true
