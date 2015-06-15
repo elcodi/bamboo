@@ -17,6 +17,7 @@
 
 namespace Elcodi\Plugin\StoreSetupWizardBundle\Services;
 
+use Elcodi\Component\Geo\Entity\Interfaces\AddressInterface;
 use Elcodi\Component\Plugin\Entity\Plugin;
 use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
 use Elcodi\Component\Product\Repository\ProductRepository;
@@ -153,6 +154,7 @@ class WizardStatus
             ->getAddress();
 
         return
+            $storeAddress instanceof AddressInterface &&
             $storeAddress->getCity() != '' &&
             $storeAddress->getCity() != null &&
             $storeAddress->getAddress() != '' &&
