@@ -67,7 +67,7 @@
             </h5>
                 <p>{{ 'elcodi_plugin.store_wizard.step3.description'|trans }}</p>
             {% endif %}
-            <p class="mb-n"><a href="{{ url('admin_payment_list') }}" class="button button-primary">{{ 'elcodi_plugin.store_wizard.step3.action'|trans }}</a></p>
+            <p class="mb-n"><a href="{{ url('admin_plugin_categorized_list', { 'category': 'payment'}) }}" class="button button-primary">{{ 'elcodi_plugin.store_wizard.step3.action'|trans }}</a></p>
             {% if not isMiniWizard %}
             <p class="fz-s">{% trans with {'%1': minutesStepThree } %}elcodi_plugin.store_wizard.estimated_time{% endtrans %}</p>
             {% endif %}
@@ -90,9 +90,9 @@
             {% endif %}
             <p class="mb-n">
                 {% if carrier %}
-                <a href="{{ url('admin_shipping_range_new', {carrierId: carrier.id}) }}" class="button button-primary">{{ 'elcodi_plugin.store_wizard.step4.action_range'|trans }}</a>
+                <a href="{{ url('admin_plugin_categorized_list', { 'category': 'shipping'}) }}" class="button button-primary">{{ 'elcodi_plugin.store_wizard.step4.action_range'|trans }}</a>
                 {% else %}
-                <a href="{{ url('admin_carrier_new') }}" class="button button-primary">{{ 'elcodi_plugin.store_wizard.step4.action_carrier'|trans }}</a>
+                <a href="{{ url('admin_plugin_categorized_list', { 'category': 'shipping'}) }}" class="button button-primary">{{ 'elcodi_plugin.store_wizard.step4.action_carrier'|trans }}</a>
                 {% endif %}
             </p>
             {% if not isMiniWizard %}
