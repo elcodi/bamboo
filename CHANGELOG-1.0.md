@@ -10,6 +10,8 @@ https://github.com/elcodi/bamboo/compare/v1.0.0...v1.0.1
 
 ### v1.0.0-beta1 (14-06-2015)
 
+* [`a299aee`](https://github.com/elcodi/bamboo/commit/a299aeebea3930b3887123b67f51ec47dbee95f3) Changed deps with Elcodi and added changelog (mmoreram)
+* [`5bf24a2`](https://github.com/elcodi/bamboo/commit/5bf24a2a9fb44cb176786f8f06251601ba6e0ed9) Reduced exposition of service layer (mmoreram)
 * [`58fad92`](https://github.com/elcodi/bamboo/commit/58fad92e1501d9fc733537d8e257c6d71e3d4e41) Fixed tests that were failing (mmoreram)
 * [`d36c011`](https://github.com/elcodi/bamboo/commit/d36c0119f6c7bcfba72cb763625b5a4e60076a58) Removed table responsive because makes currencies and languages not work (Toni Pinel)
 * [`f8bbbd9`](https://github.com/elcodi/bamboo/commit/f8bbbd9ae46d642d114c0e85a37ff32313837894) Added Elcodi HttpHeader to Bamboo (mmoreram)
