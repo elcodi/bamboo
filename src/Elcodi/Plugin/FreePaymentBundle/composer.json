@@ -34,10 +34,12 @@
     "require": {
         "php": ">=5.4",
 
-        "paymentsuite/free-payment-bundle": "~0.5.0",
-        "elcodi/core-bundle": "~0.5.0",
-        "elcodi/plugin-bundle": "~0.5.0"
+        "paymentsuite/free-payment-bundle": "^1.0",
+        "elcodi/core-bundle": "^1.0",
+        "elcodi/plugin-bundle": "^1.0"
     },
+    "minimum-stability": "beta",
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "Elcodi\\Plugin\\FreePaymentBundle\\": ""

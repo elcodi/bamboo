@@ -61,6 +61,7 @@
         "knplabs/knp-gaufrette-bundle": "^0.1.0",
         "paymentsuite/paypal-web-checkout-bundle": "^1.5.2",
         "paymentsuite/stripe-bundle": "^1.5.2",
+        "paymentsuite/free-payment-bundle": "^1.5.2",
         "incenteev/composer-parameter-handler": "^2.0",
         "hwi/oauth-bundle": "0.4.*@dev",
         "snc/redis-bundle": "^1.1.8",

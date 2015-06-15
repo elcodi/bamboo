@@ -33,25 +33,27 @@
     "require": {
         "php": ">=5.4",
 
-        "symfony/config": "~2.6",
-        "symfony/console": "~2.6",
-        "symfony/dependency-injection": "~2.6",
-        "symfony/expression-language": "~2.6",
-        "symfony/framework-bundle": "~2.6",
-        "symfony/http-foundation": "~2.6",
-        "symfony/http-kernel": "~2.6",
-        "symfony/yaml": "~2.6",
-        "sensio/framework-extra-bundle": "~3.0",
-        "twig/twig": "~1.16",
+        "symfony/config": "^2.7",
+        "symfony/console": "^2.7",
+        "symfony/dependency-injection": "^2.7",
+        "symfony/expression-language": "^2.7",
+        "symfony/framework-bundle": "^2.7",
+        "symfony/http-foundation": "^2.7",
+        "symfony/http-kernel": "^2.7",
+        "symfony/yaml": "^2.7",
+        "sensio/framework-extra-bundle": "^3.0",
+        "twig/twig": "^1.18",
 
-        "elcodi/core-bundle": "~0.5.0",
-        "elcodi/zone-bundle": "~0.5.0",
-        "elcodi/tax-bundle": "~0.5.0",
-        "elcodi/currency-bundle": "~0.5.0",
-        "elcodi/entity-translator-bundle": "~0.5.0",
-        "elcodi/menu-bundle": "~0.5.0",
-        "elcodi/plugin-bundle": "~0.5.0"
+        "elcodi/core-bundle": "^1.0",
+        "elcodi/zone-bundle": "^1.0",
+        "elcodi/tax-bundle": "^1.0",
+        "elcodi/currency-bundle": "^1.0",
+        "elcodi/entity-translator-bundle": "^1.0",
+        "elcodi/menu-bundle": "^1.0",
+        "elcodi/plugin-bundle": "^1.0"
     },
+    "minimum-stability": "beta",
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "Elcodi\\Plugin\\CustomShippingBundle\\": ""
