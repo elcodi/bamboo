@@ -34,19 +34,21 @@
     "require": {
         "php": ">=5.4",
 
-        "symfony/framework-bundle": "~2.6",
-        "symfony/http-foundation": "~2.6",
-        "symfony/http-kernel": "~2.6",
-        "symfony/console": "~2.6",
-        "symfony/twig-bridge": "~2.6",
-        "twig/twig": "~1.16",
-        "sensio/framework-extra-bundle": "~3.0",
-        "goodby/csv": "~1.0",
+        "symfony/framework-bundle": "^2.7",
+        "symfony/http-foundation": "^2.7",
+        "symfony/http-kernel": "^2.7",
+        "symfony/console": "^2.7",
+        "symfony/twig-bridge": "^2.7",
+        "twig/twig": "^1.18",
+        "sensio/framework-extra-bundle": "^3.0",
+        "goodby/csv": "^1.0",
 
-        "elcodi/core-bundle": "~0.5.0",
-        "elcodi/plugin-bundle": "~0.5.0",
-        "elcodi/product-bundle": "~0.5.0"
+        "elcodi/core-bundle": "^1.0",
+        "elcodi/plugin-bundle": "^1.0",
+        "elcodi/product-bundle": "^1.0"
     },
+    "minimum-stability": "beta",
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "Elcodi\\Plugin\\ProductCsvBundle\\": ""

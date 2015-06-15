@@ -33,8 +33,10 @@
     "require": {
         "php": ">=5.4",
 
-        "symfony/http-kernel": "~2.6"
+        "symfony/http-kernel": "^2.7"
     },
+    "minimum-stability": "beta",
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "Elcodi\\Plugin\\StoreTemplateBundle\\": ""
