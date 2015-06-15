@@ -37,7 +37,7 @@
         "symfony/symfony": "^2.7",
         "symfony/framework-bundle": "^2.7",
         "symfony/assetic-bundle": "^2.5",
-        "symfony/swiftmailer-bundle": "^2.3",
+        "symfony/swiftmailer-bundle": "^2.3.8",
         "symfony/monolog-bundle": "^2.7",
         "symfony/proxy-manager-bridge": "^2.7",
 
@@ -45,7 +45,7 @@
         "doctrine/orm": "^2.5",
         "doctrine/dbal": "^2.5",
         "doctrine/common": "^2.5",
-        "doctrine/doctrine-bundle": "^1.2",
+        "doctrine/doctrine-bundle": "^1.5.0",
         "doctrine/annotations": "^1.2",
         "doctrine/doctrine-fixtures-bundle": "^2.2",
 
@@ -58,7 +58,7 @@
 
         "guzzlehttp/guzzle": "^5.2",
         "ornicar/gravatar-bundle" : "1.1.2",
-        "knplabs/knp-gaufrette-bundle": "^0.1.0",
+        "knplabs/knp-gaufrette-bundle": "^0.1.7",
         "paymentsuite/paypal-web-checkout-bundle": "^1.5.2",
         "paymentsuite/stripe-bundle": "^1.5.2",
         "paymentsuite/free-payment-bundle": "^1.5.2",
