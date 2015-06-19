@@ -7,7 +7,6 @@ profiles:
         role: ROLE_ADMIN
 
 urls:
-    - [[admin_shipping_range_edit_component, {carrierId: 1, id: 1}], 200, {profile: admin}]
     #
     # Store
     #
