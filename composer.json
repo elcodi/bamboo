@@ -73,31 +73,7 @@
         "mmoreram/cache-flush-bundle": "0.1.2",
         "mmoreram/http-headers-bundle": "1.0.0",
 
-        "elcodi/attribute-bundle": "^1.0",
-        "elcodi/banner-bundle": "^1.0",
-        "elcodi/cart-bundle": "^1.0",
-        "elcodi/cart-coupon-bundle": "^1.0",
-        "elcodi/core-bundle": "^1.0",
-        "elcodi/coupon-bundle": "^1.0",
-        "elcodi/currency-bundle": "^1.0",
-        "elcodi/geo-bundle": "^1.0",
-        "elcodi/language-bundle": "^1.0",
-        "elcodi/media-bundle": "^1.0",
-        "elcodi/menu-bundle": "^1.0",
-        "elcodi/newsletter-bundle": "^1.0",
-        "elcodi/product-bundle": "^1.0",
-        "elcodi/rule-bundle": "^1.0",
-        "elcodi/user-bundle": "^1.0",
-        "elcodi/tax-bundle": "^1.0",
-        "elcodi/state-transition-machine-bundle": "^1.0",
-        "elcodi/entity-translator-bundle": "^1.0",
-        "elcodi/page-bundle": "^1.0",
-        "elcodi/metric-bundle": "^1.0",
-        "elcodi/sitemap-bundle": "^1.0",
-        "elcodi/shipping-bundle": "^1.0",
-        "elcodi/fixtures-booster-bundle": "^1.0",
-        "elcodi/plugin-bundle": "^1.0",
-        "elcodi/comment-bundle": "^1.0"
+        "elcodi/elcodi": "^1.0@dev"
     },
     "replace": {
         "elcodi-templates/template": "self.version",
@@ -116,9 +92,6 @@
         "elcodi-plugin/custom-shipping": "self.version"
     },
     "require-dev": {
-        "elcodi/elcodi": "^1.0",
-        "elcodi/test-common-bundle": "^1.0",
-
         "doctrine/data-fixtures": "^1.1",
         "behat/behat": "^3.0",
         "behat/symfony2-extension": "^2.0",
@@ -132,8 +105,6 @@
         "fabpot/php-cs-fixer": "1.4.2",
         "visithor/visithor-bundle": "^0.1.8"
     },
-    "minimum-stability": "beta",
-    "prefer-stable": true,
     "scripts": {
         "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
