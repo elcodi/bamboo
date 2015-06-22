@@ -14,6 +14,6 @@ services:
         class: Elcodi\Admin\CurrencyBundle\Form\Type\MoneyType
         arguments:
             - @elcodi.wrapper.default_currency
-            - %elcodi.default_currency%
+            - %elcodi.entity.currency.class%
         tags:
             - { name: form.type, alias: money_object }

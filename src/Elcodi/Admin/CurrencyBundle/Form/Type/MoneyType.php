@@ -22,6 +22,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+use Elcodi\Admin\CurrencyBundle\Form\DataMapper\MoneyDataMapper;
 use Elcodi\Component\Core\Wrapper\Interfaces\WrapperInterface;
 use Elcodi\Component\Currency\Entity\Money;
 
@@ -40,22 +41,23 @@ class MoneyType extends AbstractType
     /**
      * @var string
      *
-     * Default currency iso
+     * currency namespace
      */
-    protected $defaultCurrencyIso;
+    protected $currencyNamespace;
 
     /**
      * Construct method
      *
      * @param WrapperInterface $defaultCurrencyWrapper Default Currency Wrapper
-     * @param string           $defaultCurrencyIso     Default Currency iso
+     * @param string           $currencyNamespace      Currency namespace
      */
     public function __construct(
         WrapperInterface $defaultCurrencyWrapper,
-        $defaultCurrencyIso
-    ) {
+        $currencyNamespace
+    )
+    {
         $this->defaultCurrencyWrapper = $defaultCurrencyWrapper;
-        $this->defaultCurrencyIso = $defaultCurrencyIso;
+        $this->currencyNamespace = $currencyNamespace;
     }
 
     /**
@@ -69,7 +71,7 @@ class MoneyType extends AbstractType
                 'currency' => false,
             ])
             ->add('currency', 'entity', [
-                'class'         => 'Elcodi\Component\Currency\Entity\Currency',
+                'class'         => $this->currencyNamespace,
                 'query_builder' => function (EntityRepository $repository) {
                     return $repository
                         ->createQueryBuilder('c')
@@ -79,8 +81,8 @@ class MoneyType extends AbstractType
                 'required'      => true,
                 'multiple'      => false,
                 'property'      => 'symbol',
-                'data'          => $this->defaultCurrencyIso,
-            ]);
+            ])
+            ->setDataMapper(new MoneyDataMapper());
     }
 
     /**
@@ -90,19 +92,14 @@ class MoneyType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        /**
-         * We set given Currency as default object to work with
-         */
-        $money = Money::create(
-            0,
-            $this
-                ->defaultCurrencyWrapper
-                ->get()
-        );
-
         $resolver->setDefaults([
             'data_class' => 'Elcodi\Component\Currency\Entity\Money',
-            'empty_data' => $money,
+            'empty_data' => Money::create(
+                0,
+                $this
+                    ->defaultCurrencyWrapper
+                    ->get()
+            ),
         ]);
     }
 
