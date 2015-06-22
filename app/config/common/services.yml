@@ -27,3 +27,12 @@ services:
             - @templating.engine.twig
             - "Layout:_static.html.twig"
             - [@elcodi.store_template_bundle]
+
+    #
+    # Default currency
+    #
+    elcodi.wrapper.default_currency:
+        class: Elcodi\Component\Currency\Wrapper\DefaultCurrencyWrapper
+        arguments:
+            - @elcodi.repository.currency
+            - @elcodi.store_default_currency_iso

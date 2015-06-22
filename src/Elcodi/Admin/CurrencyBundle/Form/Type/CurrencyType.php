@@ -66,18 +66,6 @@ class CurrencyType extends AbstractType
                 'required' => false,
                 'label'    => 'symbol',
             ])
-            ->add('createdAt', 'datetime', [
-                'widget'   => 'single_text',
-                'format'   => 'yyyy-MM-dd - HH:mm:ss',
-                'required' => false,
-                'label'    => 'createdAt',
-            ])
-            ->add('updatedAt', 'datetime', [
-                'widget'   => 'single_text',
-                'format'   => 'yyyy-MM-dd - HH:mm:ss',
-                'required' => false,
-                'label'    => 'updatedAt',
-            ])
             ->add('enabled', 'checkbox', [
                 'required' => false,
                 'label'    => 'enabled',
