@@ -135,6 +135,7 @@ class CarrierData extends AbstractFixture implements DependentFixtureInterface
             'Elcodi\Fixtures\DataFixtures\ORM\Tax\TaxData',
             'Elcodi\Fixtures\DataFixtures\ORM\Zone\ZoneData',
             'Elcodi\Fixtures\DataFixtures\ORM\Currency\CurrencyData',
+            'Elcodi\Fixtures\DataFixtures\ORM\Store\StoreData',
         ];
     }
 }
