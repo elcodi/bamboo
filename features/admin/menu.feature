@@ -6,7 +6,7 @@ Feature: Admin menus
 
   Scenario: See all menus in the website
     Given In admin, I am logged as "admin@admin.com" - "1234"
-    And I go to "/admin/categories"
+    And I go to "/admin/"
     Then the page contains a "admin.dashboard.single" test attribute
     And the page contains a "admin.order.plural" test attribute
     And the page contains a "admin.customer.plural" test attribute
@@ -27,8 +27,6 @@ Feature: Admin menus
     And the page contains a "admin.settings.section.corporate.title" test attribute
     And the page contains a "admin.currency.plural" test attribute
     And the page contains a "admin.language.plural" test attribute
-    And the page contains a "plugin_type.payment" test attribute
-    And the page contains a "plugin_type.shipping" test attribute
-    And the page contains a "plugin_type.social" test attribute
+    And the page contains a "admin.menu.custom_shipping" test attribute
     And the page contains a "menu-profile" test attribute
     And the page contains a "menu-logout" test attribute
