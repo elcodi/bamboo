@@ -1,4 +1,4 @@
-@store @cart
+@store @coupon
 Feature: Store coupon
   In order to use my coupons
   As a visitor

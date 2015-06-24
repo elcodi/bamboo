@@ -45,7 +45,7 @@ class StoreData extends AbstractFixture implements DependentFixtureInterface
         $storeDirector = $this->getDirector('store');
         $address = $this->getReference('address-home');
         $language = $this->getReference('language-en');
-        $currency = $this->getReference('currency-EUR');
+        $currency = $this->getReference('currency-USD');
 
         /**
          * @var StoreInterface $store
