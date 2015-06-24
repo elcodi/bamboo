@@ -23,6 +23,8 @@ parameters:
     debug_toolbar: true
     debug_redirects: false
 
+    paypal_web_checkout_recipient: payment-test-facilitator@elcodi.com
+
     bamboo_social_github_client_id: github-client-id
     bamboo_social_github_client_secret: github-client-secret
 
@@ -30,10 +32,6 @@ parameters:
     bamboo_social_paypal_client_secret: paypal-client-secret
     bamboo_social_paypal_client_is_sandbox: true
 
-    paypal_web_checkout_recipient: payment-test-facilitator@elcodi.com
-
     bamboo_admin_prefix: admin
     bamboo_api_prefix: api
     bamboo_store_firewall: store_area
-
-    imagick_convert_bin_path: /usr/bin/convert

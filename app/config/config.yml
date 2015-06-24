@@ -16,6 +16,9 @@ imports:
     # Project-specific configuration
     - { resource: config_local.yml }
 
+#
+# Framework configuration
+#
 framework:
     secret: "%secret%"
     router:
@@ -37,7 +40,9 @@ framework:
     translator:
         fallback: "%locale%"
 
+#
 # Twig Configuration
+#
 twig:
     debug: "%kernel.debug%"
     strict_variables: false
@@ -48,7 +53,9 @@ twig:
         store: @elcodi.store
         store_tracker: @elcodi.store_tracker
 
+#
 # Doctrine Configuration
+#
 doctrine:
     dbal:
         connections:
@@ -68,7 +75,9 @@ doctrine:
                 connection: default
                 auto_mapping: false
 
+#
 # Assetic Configuration
+#
 assetic:
     bundles:
         - AdminCoreBundle
@@ -81,7 +90,9 @@ assetic:
     filters:
         cssrewrite: ~
 
+#
 # Swiftmailer Configuration
+#
 swiftmailer:
     transport: "%mailer_transport%"
     host:      "%mailer_host%"
@@ -89,15 +100,24 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
+#
+# Disabling auto converter for annotations in Sensio Framework Extra Bundle
+#
 sensio_framework_extra:
     request:
         converters: false
 
+#
+# By default, ControllerExtraBundle works with $factory->create()
+#
 controller_extra:
     factory:
         default_method: create
         default_static: false
 
+#
+# Oauth configuration
+#
 hwi_oauth:
     firewall_name: %bamboo_store_firewall%
     resource_owners:
@@ -112,6 +132,9 @@ hwi_oauth:
             options:
                 sandbox: %bamboo_social_paypal_client_is_sandbox%
 
+#
+# Dynamic routing configuration
+#
 jms_i18n_routing:
     strategy: prefix_except_default
     #
@@ -135,12 +158,16 @@ http_headers:
                 - This E-commerce is built using Elcodi and Symfony
 
 #
-# Elcodi related configuration
+# Elcodi media resize adapter. By default, Bamboo uses internal PHP GD adapter,
+# but there are more available adapters. You can configure them by changing here
+# the value
 #
-elcodi_media:
-    images:
-        resize:
-            converter_bin_path: %imagick_convert_bin_path%
+# elcodi_media:
+#     images:
+#         resize:
+#             adapter: elcodi.media_resize.imagemagick
+#             converter_bin_path: /usr/bin/convert
+#
 
 #
 # Location manager. If your location is going to be managed through another
@@ -160,6 +187,9 @@ elcodi_media:
 #     location_api_host: http://my.server:9090
 #
 
+#
+# Defining the template renderers for Elcodi
+#
 elcodi_page:
     renderers:
         - elcodi_common.renderer.template_renderer
@@ -175,6 +205,9 @@ store_core:
             404: Exception:error404.html.twig
             503: Exception:error503.html.twig
 
+#
+# Number of posts for the blog
+#
 store_page:
     blog:
         posts_per_page: 5

@@ -146,6 +146,7 @@ class CouponData extends AbstractFixture implements DependentFixtureInterface
         return [
             'Elcodi\Fixtures\DataFixtures\ORM\Currency\CurrencyData',
             'Elcodi\Fixtures\DataFixtures\ORM\Rule\RuleData',
+            'Elcodi\Fixtures\DataFixtures\ORM\Store\StoreData',
         ];
     }
 }
