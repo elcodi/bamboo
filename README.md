@@ -8,16 +8,15 @@ Bamboo e-commerce
 > better and bigger project documentation.
 
 Welcome to Bamboo e-commerce - a fully-functional e-commerce application built
-using [Elcodi] components on top of the
-[Symfony] framework.
+using [Elcodi] components on top of the [Symfony] framework.
 
 Yes, you got it right! Bamboo uses the Symfony framework but our components are
-framework agnostic, that is, they only depend on the Symfony components as opposed to the whole framework or any of its distributions.
+framework agnostic, that is, they only depend on the Symfony components as 
+opposed to the whole framework or any of its distributions.
 
-Why should I use Bamboo?
-That's simple, to sell your products. We provide you with an interface to sell your products and manage
-your store. You only have to focus on offering a good product, we take care of
-the rest.
+Why should I use Bamboo? That's simple, to sell your products. We provide you 
+with an interface to sell your products and manage your store. You only have to 
+focus on offering a good product, we take care of the rest.
 
 ## Requirements
 
