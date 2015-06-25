@@ -32,7 +32,6 @@
     "require": {
         "php": ">=5.4",
         "ext-openssl": "*",
-        "ext-redis": "*",
 
         "symfony/symfony": "^2.7",
         "symfony/framework-bundle": "^2.7",
@@ -65,7 +64,7 @@
         "incenteev/composer-parameter-handler": "^2.0",
         "hwi/oauth-bundle": "0.4.*@dev",
         "snc/redis-bundle": "^1.1.8",
-        "predis/predis": "0.8.7",
+        "predis/predis": "^0.8.7",
         "jms/i18n-routing-bundle": "1.1.1",
 
         "mmoreram/controller-extra-bundle": "^1.1.11",
