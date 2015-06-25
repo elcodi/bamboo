@@ -73,7 +73,7 @@
         "mmoreram/cache-flush-bundle": "0.1.2",
         "mmoreram/http-headers-bundle": "1.0.0",
 
-        "elcodi/elcodi": "^1.0@dev"
+        "elcodi/elcodi": "1.0.x-dev"
     },
     "replace": {
         "elcodi-templates/template": "self.version",
@@ -135,6 +135,8 @@
             "app/AppCache.php"
         ]
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "config": {
         "bin-dir": "bin"
     },
