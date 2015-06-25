@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "688a4e3378ba94a8859bf51681d4a767",
+    "hash": "bf8893d812d66a0d8cdd8aee3b642c05",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -891,12 +891,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/elcodi/elcodi.git",
-                "reference": "bba7f659972a334af712de0c430f7969b8b0b15e"
+                "reference": "fe2d52398f6f27760959db80f2aa5064a1d24a42"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elcodi/elcodi/zipball/bba7f659972a334af712de0c430f7969b8b0b15e",
-                "reference": "bba7f659972a334af712de0c430f7969b8b0b15e",
+                "url": "https://api.github.com/repos/elcodi/elcodi/zipball/fe2d52398f6f27760959db80f2aa5064a1d24a42",
+                "reference": "fe2d52398f6f27760959db80f2aa5064a1d24a42",
                 "shasum": ""
             },
             "require": {
@@ -1040,7 +1040,7 @@
                 "elcodi",
                 "symfony"
             ],
-            "time": "2015-06-24 19:47:18"
+            "time": "2015-06-25 07:09:07"
         },
         {
             "name": "goodby/csv",
@@ -5789,8 +5789,7 @@
     "prefer-lowest": false,
     "platform": {
         "php": ">=5.4",
-        "ext-openssl": "*",
-        "ext-redis": "*"
+        "ext-openssl": "*"
     },
     "platform-dev": []
 }
