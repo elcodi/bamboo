@@ -73,6 +73,8 @@ For more info just visit their
 In order to use the last Redis features, like the `HyperLogLog` commands, be
 sure your Redis version is at least `v2.8.9`.
 
+> Make sure to have Redis PHP extension installed.
+
 ## Installation
 
 If you're used to working with LAMP environment, then you will have Bamboo 

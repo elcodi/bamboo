@@ -32,6 +32,7 @@
     "require": {
         "php": ">=5.4",
         "ext-openssl": "*",
+        "ext-redis": "*",
 
         "symfony/symfony": "^2.7",
         "symfony/framework-bundle": "^2.7",
