@@ -113,8 +113,10 @@ class PluginController extends AbstractAdminController
 
         $form = $this
             ->createForm(
-                new PluginType($plugin),
-                $plugin->getFieldValues()
+                'elcodi_form_type_plugin',
+                $plugin->getFieldValues(), [
+                    'plugin' => $plugin,
+                ]
             );
 
         if ($request->isMethod(Request::METHOD_POST)) {
