@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bf8893d812d66a0d8cdd8aee3b642c05",
+    "hash": "6017562588d391838e3eb0afe5fe0448",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -891,12 +891,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/elcodi/elcodi.git",
-                "reference": "fe2d52398f6f27760959db80f2aa5064a1d24a42"
+                "reference": "47629d319e11ece9899448c88bd86325ba82f0f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elcodi/elcodi/zipball/fe2d52398f6f27760959db80f2aa5064a1d24a42",
-                "reference": "fe2d52398f6f27760959db80f2aa5064a1d24a42",
+                "url": "https://api.github.com/repos/elcodi/elcodi/zipball/47629d319e11ece9899448c88bd86325ba82f0f9",
+                "reference": "47629d319e11ece9899448c88bd86325ba82f0f9",
                 "shasum": ""
             },
             "require": {
@@ -912,6 +912,7 @@
                 "mmoreram/simple-doctrine-mapping": "^1.0",
                 "ocramius/proxy-manager": "^1.0",
                 "php": ">=5.4",
+                "predis/predis": "^1.0.1",
                 "sebastian/money": "^1.5",
                 "symfony/browser-kit": "^2.7",
                 "symfony/class-loader": "^2.7",
@@ -1040,7 +1041,7 @@
                 "elcodi",
                 "symfony"
             ],
-            "time": "2015-06-25 07:09:07"
+            "time": "2015-06-30 13:47:30"
         },
         {
             "name": "goodby/csv",
@@ -2197,16 +2198,16 @@
         },
         {
             "name": "kriswallsmith/buzz",
-            "version": "v0.14",
+            "version": "v0.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kriswallsmith/Buzz.git",
-                "reference": "f802a9b9d01b53496f50c9c5e09b5c779cbbd300"
+                "reference": "d4041666c3ffb379af02a92dabe81c904b35fab8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kriswallsmith/Buzz/zipball/f802a9b9d01b53496f50c9c5e09b5c779cbbd300",
-                "reference": "f802a9b9d01b53496f50c9c5e09b5c779cbbd300",
+                "url": "https://api.github.com/repos/kriswallsmith/Buzz/zipball/d4041666c3ffb379af02a92dabe81c904b35fab8",
+                "reference": "d4041666c3ffb379af02a92dabe81c904b35fab8",
                 "shasum": ""
             },
             "require": {
@@ -2241,7 +2242,7 @@
                 "curl",
                 "http client"
             ],
-            "time": "2015-06-02 16:48:29"
+            "time": "2015-06-25 17:26:56"
         },
         {
             "name": "mmoreram/cache-flush-bundle",
@@ -3111,16 +3112,16 @@
         },
         {
             "name": "predis/predis",
-            "version": "v0.8.7",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nrk/predis.git",
-                "reference": "4123fcd85d61354c6c9900db76c9597dbd129bf6"
+                "reference": "7a170b3d8123c556597b4fbdb88631f99de180c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nrk/predis/zipball/4123fcd85d61354c6c9900db76c9597dbd129bf6",
-                "reference": "4123fcd85d61354c6c9900db76c9597dbd129bf6",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/7a170b3d8123c556597b4fbdb88631f99de180c2",
+                "reference": "7a170b3d8123c556597b4fbdb88631f99de180c2",
                 "shasum": ""
             },
             "require": {
@@ -3135,8 +3136,8 @@
             },
             "type": "library",
             "autoload": {
-                "psr-0": {
-                    "Predis": "lib/"
+                "psr-4": {
+                    "Predis\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -3157,7 +3158,7 @@
                 "predis",
                 "redis"
             ],
-            "time": "2014-08-01 09:43:10"
+            "time": "2015-01-02 12:51:34"
         },
         {
             "name": "psr/log",
@@ -3449,17 +3450,17 @@
         },
         {
             "name": "snc/redis-bundle",
-            "version": "1.1.8",
+            "version": "1.1.9",
             "target-dir": "Snc/RedisBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/snc/SncRedisBundle.git",
-                "reference": "52549acbfa4dc3f1bd5e23aad3c92de6de4258d1"
+                "reference": "77f65e3d86a5e21b9bf3710d7e021595df2b6417"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/snc/SncRedisBundle/zipball/52549acbfa4dc3f1bd5e23aad3c92de6de4258d1",
-                "reference": "52549acbfa4dc3f1bd5e23aad3c92de6de4258d1",
+                "url": "https://api.github.com/repos/snc/SncRedisBundle/zipball/77f65e3d86a5e21b9bf3710d7e021595df2b6417",
+                "reference": "77f65e3d86a5e21b9bf3710d7e021595df2b6417",
                 "shasum": ""
             },
             "require": {
@@ -3469,20 +3470,16 @@
             },
             "require-dev": {
                 "doctrine/cache": "1.*",
-                "predis/predis": "0.8.*",
+                "phpunit/phpunit": "4.*",
+                "predis/predis": "~1.0",
                 "symfony/console": ">=2.1,<3.0"
             },
             "suggest": {
                 "monolog/monolog": "If you want to use the monolog redis handler.",
-                "predis/predis": "If you want to use predis (currently only v0.8.x is supported).",
+                "predis/predis": "If you want to use predis.",
                 "symfony/console": "If you want to use commands to interact with the redis database"
             },
             "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1.x-dev"
-                }
-            },
             "autoload": {
                 "psr-0": {
                     "Snc\\RedisBundle": ""
@@ -3509,7 +3506,7 @@
                 "redis",
                 "symfony"
             ],
-            "time": "2014-02-01 09:46:23"
+            "time": "2015-06-30 09:08:50"
         },
         {
             "name": "stripe/stripe-php",
@@ -4925,16 +4922,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "2.1.6",
+            "version": "2.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "631e365cf26bb2c078683e8d9bcf8bc631ac4d44"
+                "reference": "07e27765596d72c378a6103e80da5d84e802f1e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/631e365cf26bb2c078683e8d9bcf8bc631ac4d44",
-                "reference": "631e365cf26bb2c078683e8d9bcf8bc631ac4d44",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/07e27765596d72c378a6103e80da5d84e802f1e4",
+                "reference": "07e27765596d72c378a6103e80da5d84e802f1e4",
                 "shasum": ""
             },
             "require": {
@@ -4983,7 +4980,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-06-19 07:11:55"
+            "time": "2015-06-30 06:52:35"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -5780,16 +5777,17 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
         "hwi/oauth-bundle": 20,
         "elcodi/elcodi": 20
     },
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": ">=5.4",
-        "ext-openssl": "*"
+        "ext-openssl": "*",
+        "ext-redis": "*"
     },
     "platform-dev": []
 }
