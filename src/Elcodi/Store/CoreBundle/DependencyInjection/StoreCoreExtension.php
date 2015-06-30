@@ -84,6 +84,24 @@ class StoreCoreExtension extends AbstractExtension
     }
 
     /**
+     * Hook after pre-pending configuration.
+     *
+     * @param array            $config    Configuration
+     * @param ContainerBuilder $container Container
+     */
+    protected function preLoad(array $config, ContainerBuilder $container)
+    {
+        parent::preLoad($config, $container);
+
+        if ($config['error_templates']['enabled']) {
+
+            $container->prependExtensionConfig('twig', [
+                'exception_controller' => 'elcodi_store.exception_controller:showAction',
+            ]);
+        }
+    }
+
+    /**
      * Hook after load the full container
      *
      * @param array            $config    Configuration
@@ -106,7 +124,7 @@ class StoreCoreExtension extends AbstractExtension
      */
     protected function setupExceptions(array $config, ContainerBuilder $container)
     {
-        $serviceId = 'store.core.event_listener.exception';
+        $serviceId = 'elcodi_store.exception_controller';
         if (!$container->hasDefinition($serviceId)) {
             return null;
         }

@@ -3,10 +3,8 @@ services:
     #
     # Event listener for HTTP exceptions
     #
-    store.core.event_listener.exception:
-        class: Elcodi\Store\CoreBundle\EventListener\StoreHttpExceptionListener
+    elcodi_store.exception_controller:
+        class: Elcodi\Store\CoreBundle\Controller\ExceptionController
+        parent: twig.controller.exception
         arguments:
-            - @templating
             - @elcodi_store.template_locator.core
-        tags:
-            - { name: firewall_listener, firewall: %bamboo_store_firewall%, event: kernel.exception, priority: -127 }
