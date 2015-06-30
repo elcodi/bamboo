@@ -1,0 +1,21 @@
+elcodi_plugin:
+    deliverea:
+        name: Deliverea
+        description: Finally you can work with multiple carriers from a single tool. Deliverea offers new ways of shipping to your customers while you reduce your logistics costs.
+        field:
+            shipping_price:
+                label: Shipping price  in €
+            free_from:
+                label: Free from (Optional)
+            carrier:
+                label: Carrier
+            user:
+                label: Username
+                placeholder: user54321
+            api_key:
+                label: API Key
+                placeholder: apikey
+        admin:
+            order:
+                button:
+                    print: Print label

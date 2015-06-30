@@ -1,0 +1,14 @@
+services:
+
+    #
+    # Factories
+    #
+
+    #
+    # Factory for entity deliverea shipment
+    #
+    elcodi_plugin.deliverea.factory.deliverea_shipment:
+        class: Elcodi\Plugin\DelivereaBundle\Factory\DelivereaShippingFactory
+        calls:
+            - [setEntityNamespace, ["%elcodi.entity.deliverea_shipment.class%"]]
+            - [setDateTimeFactory, ["@elcodi.factory.datetime"]]

@@ -23,6 +23,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\FormView;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
@@ -306,9 +307,10 @@ class CheckoutController extends Controller
     /**
      * Checkout shipping range
      *
-     * @param CartInterface $cart Cart
+     * @param CartInterface $cart           Cart
+     * @param string        $shippingMethod Shipping method id
      *
-     * @return Response Response
+     * @return RedirectResponse Response
      *
      * @Route(
      *      path = "/shipping/method/change/{shippingMethod}",
@@ -324,16 +326,18 @@ class CheckoutController extends Controller
      *      name = "cart"
      * )
      */
-    public function applyShippingMethodAction(CartInterface $cart, $shippingMethod)
-    {
+    public function applyShippingMethodAction(
+        CartInterface $cart,
+        $shippingMethod
+    ) {
         /**
          * Desired shipping method
          */
-        $shippingMethodObject = $this
+        $shippingMethodInstance = $this
             ->get('elcodi.wrapper.shipping_methods')
             ->getOneById($cart, $shippingMethod);
 
-        if ($shippingMethodObject instanceof ShippingMethod) {
+        if ($shippingMethodInstance instanceof ShippingMethod) {
             $cart->setShippingMethod($shippingMethod);
             $this
                 ->get('elcodi.object_manager.cart')

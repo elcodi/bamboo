@@ -1,0 +1,21 @@
+services:
+
+    #
+    # Event Listeners
+    #
+    elcodi_plugin.deliverea.event_listener.shipping_collect:
+        class: Elcodi\Plugin\DelivereaBundle\EventListener\ShippingCollectEventListener
+        arguments:
+            - @elcodi_plugin.deliverea_plugin
+            - @elcodi.repository.currency
+            - @elcodi.converter.currency
+        tags:
+            - { name: kernel.event_listener, event: shipping.collect, method: addCustomShippingMethods }
+
+    elcodi_plugin.deliverea.event_listener.new_shipment_event_listener:
+        class: Elcodi\Plugin\DelivereaBundle\EventListener\NewShipmentEventListener
+        arguments:
+            - @elcodi_deliverea.manager.shipment
+            - @elcodi_deliverea.service.shipping_method_checker
+        tags:
+            - { name: kernel.event_listener, event: state_machine.order_shipping_states_machine.transition_to_processed, method: onOrderProcessed }

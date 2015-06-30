@@ -34,6 +34,9 @@
         <i class="icon-pencil"></i>
         <span>{{ 'admin.order.notes'|trans }}</span>
     </a>
+    {{ elcodi_hook("admin.header_actions", {
+        'order': order
+    }) }}
 
 {% endblock header_actions %}
 
@@ -131,10 +134,24 @@
                         {{ "admin.order.transition.#{shippingTransition.name}"|trans }}
                     </a>
                 {% endfor %}
+
+                {{ elcodi_hook("admin.order_actions", {
+                    'order': order
+                }) }}
             </div>
             <div class="box ph-n">
+                <div class="box-none pt-n">
+                    <h3 class="fw-n">{{ 'admin.order.field.carrier'|trans }}</h3>
+                    <i class="icon-truck"></i>
+                    {# TODO: Extract carrier_name from the shown order #}
+                    {{ order.shippingMethod.carrierName }} ( {{ order.shippingAmount|print_money }} )
+                    {{ elcodi_hook("admin.order_carrier", {
+                        'order': order
+                    }) }}
+                </div>
                 <div class="box-none pv-n">
-                    <h3 class="fw-n"><a href="{{ url('admin_customer_edit', { id: order.customer.id }) }}">{{ order.customer.fullName }}</a></h3>
+                    <h3 class="fw-n">Customer</h3>
+                    <h4><a href="{{ url('admin_customer_edit', { id: order.customer.id }) }}">{{ order.customer.fullName }}</a></h4>
                     <a href="mailto:{{ order.customer.email }}" class="c-foreground"><i class="icon-envelope"></i> {{ order.customer.username }}</a>
                 </div>
                 <a href="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=es&amp;q={{ deliveryInfo.fullAddress|url_encode }}" target="_blank">
@@ -156,13 +173,6 @@
                         addressInfo: deliveryInfo,
                     } %}
                 {% endif %}
-                <hr class="mb-n"/>
-                <div class="box-none pb-n">
-                    <h3 class="fw-n">{{ 'admin.order.field.carrier'|trans }}</h3>
-                    <i class="icon-truck"></i>
-                    {# TODO: Extract carrier_name from the shown order #}
-                    {{ order.shippingMethod.carrierName }} ( {{ order.shippingAmount|print_money }} )
-                </div>
             </div>
         </div>
     </div>

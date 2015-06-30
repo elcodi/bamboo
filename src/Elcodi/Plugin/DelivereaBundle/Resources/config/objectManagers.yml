@@ -1,0 +1,9 @@
+services:
+
+    #
+    # Object Managers
+    #
+    elcodi.object_manager.deliverea_shipment:
+        parent: elcodi.abstract_manager
+        arguments:
+            - %elcodi.entity.deliverea_shipment.class%

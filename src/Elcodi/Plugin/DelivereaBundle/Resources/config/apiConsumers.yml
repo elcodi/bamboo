@@ -1,0 +1,24 @@
+services:
+    #
+    # Api consumers
+    #
+    elcodi_deliverea.guzzle_client:
+        class: GuzzleHttp\Client
+
+    elcodi_deliverea.api_consumer.shipment:
+        class: Elcodi\Plugin\DelivereaBundle\ApiConsumer\Shipment
+        arguments:
+            - @elcodi_deliverea.guzzle_client
+            - %deliverea_urls%
+
+    elcodi_deliverea.api_consumer.label:
+        class: Elcodi\Plugin\DelivereaBundle\ApiConsumer\Label
+        arguments:
+            - @elcodi_deliverea.guzzle_client
+            - %deliverea_urls%
+
+    elcodi_deliverea.api_consumer.tracking:
+        class: Elcodi\Plugin\DelivereaBundle\ApiConsumer\Tracking
+        arguments:
+            - @elcodi_deliverea.guzzle_client
+            - %deliverea_urls%

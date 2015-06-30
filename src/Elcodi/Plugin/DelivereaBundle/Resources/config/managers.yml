@@ -1,0 +1,35 @@
+services:
+    #
+    # Services
+    #
+    elcodi_deliverea.manager.shipment:
+        class: Elcodi\Plugin\DelivereaBundle\Manager\Shipment
+        lazy: true
+        arguments:
+            - @elcodi_plugin.deliverea_plugin
+            - @elcodi_deliverea.api_consumer.shipment
+            - @elcodi.factory.address_view
+            - @elcodi_plugin.deliverea.factory.deliverea_shipment
+            - @elcodi.object_manager.deliverea_shipment
+            - @elcodi_deliverea.config.user
+            - @elcodi_deliverea.config.api_key
+            - %deliverea_from_address_id%
+            - %deliverea_service_type%
+            - %deliverea_service_code%
+
+    elcodi_deliverea.manager.label:
+        class: Elcodi\Plugin\DelivereaBundle\Manager\Label
+        lazy: true
+        arguments:
+            - @elcodi_deliverea.api_consumer.label
+            - @elcodi_deliverea.config.user
+            - @elcodi_deliverea.config.api_key
+
+    elcodi_deliverea.manager.tracking:
+        class: Elcodi\Plugin\DelivereaBundle\Manager\Tracking
+        lazy: true
+        arguments:
+            - @elcodi_deliverea.api_consumer.tracking
+            - @elcodi.repository.deliverea_shipment
+            - @elcodi_deliverea.config.user
+            - @elcodi_deliverea.config.api_key

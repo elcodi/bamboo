@@ -14,6 +14,9 @@
     {% else %}
         <h1>{{ 'template.store_template_bundle.order.view.order'|trans }} #{{ order.id }}</h1>
     {% endif %}
+    {{ elcodi_hook("store.order_tracking", {
+        'order': order
+    }) }}
     <div class="cart-list">
         {% for line in order.orderLines %}
             {% include "@StoreTemplate/Modules/_order-item.html.twig" with {"line": line} %}

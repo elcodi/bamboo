@@ -1,0 +1,35 @@
+plugin:
+    type: plugin
+    category: shipping
+    name: elcodi_plugin.deliverea.name
+    description: elcodi_plugin.deliverea.description
+    fa_icon: truck
+    fields:
+        shipping_price:
+            type: integer
+            required: true
+            label: elcodi_plugin.deliverea.field.shipping_price.label
+        free_from:
+            type: integer
+            label: elcodi_plugin.deliverea.field.free_from.label
+        carrier:
+            type: choice
+            label: elcodi_plugin.deliverea.field.carrier.label
+            required: true
+            options:
+                choices:
+                    asm: ASM
+#                    tipsa: Tipsa
+#                    envialia: Envialia
+        user:
+            type: text
+            required: true
+            label: elcodi_plugin.deliverea.field.user.label
+            attr:
+                placeholder: elcodi_plugin.deliverea.field.user.placeholder
+        api_key:
+            type: text
+            required: true
+            label: elcodi_plugin.deliverea.field.api_key.label
+            attr:
+                placeholder: elcodi_plugin.deliverea.field.api_key.placeholder

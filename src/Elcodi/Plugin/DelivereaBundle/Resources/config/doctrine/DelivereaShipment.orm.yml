@@ -1,0 +1,49 @@
+Elcodi\Plugin\DelivereaBundle\Entity\DelivereaShipment:
+    type: entity
+    repositoryClass: Elcodi\Plugin\DelivereaBundle\Repository\DelivereaShipmentRepository
+    table: deliverea_shipment
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        delivereaShippingRef:
+            column: deliverea_shipping_ref
+            type: string
+            length: 32
+            nullable: false
+        clientShippingRef:
+            column: client_shipping_ref
+            type: string
+            length: 32
+            nullable: false
+        carrierShippingRef:
+            column: carrier_shipping_ref
+            type: string
+            length: 32
+            nullable: false
+        carrier:
+            column: carrier
+            type: string
+            length: 128
+            nullable: false
+        service:
+            column: service
+            type: string
+            length: 64
+            nullable: true
+        createdAt:
+            column: created_at
+            type: datetime
+        updatedAt:
+            column: updated_at
+            type: datetime
+
+    manyToOne:
+        order:
+            targetEntity: Elcodi\Component\Cart\Entity\Interfaces\OrderInterface
+            joinColumn:
+                name: order_id
+                referencedColumnName: id
+                nullable: false
