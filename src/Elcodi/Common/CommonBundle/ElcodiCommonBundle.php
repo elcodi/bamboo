@@ -17,16 +17,15 @@
 
 namespace Elcodi\Common\CommonBundle;
 
-use Symfony\Component\Console\Application;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
 
+use Elcodi\Bundle\CoreBundle\Abstracts\AbstractElcodiBundle;
 use Elcodi\Common\CommonBundle\DependencyInjection\ElcodiCommonExtension;
 
 /**
  * ElcodiCommonBundle Bundle
  */
-class ElcodiCommonBundle extends Bundle
+class ElcodiCommonBundle extends AbstractElcodiBundle
 {
     /**
      * Returns the bundle's container extension.
@@ -36,19 +35,5 @@ class ElcodiCommonBundle extends Bundle
     public function getContainerExtension()
     {
         return new ElcodiCommonExtension();
-    }
-
-    /**
-     * Register Commands.
-     *
-     * Disabled as commands are registered as services.
-     *
-     * @param Application $application An Application instance
-     *
-     * @return null
-     */
-    public function registerCommands(Application $application)
-    {
-        return null;
     }
 }

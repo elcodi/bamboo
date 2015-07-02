@@ -1,0 +1,12 @@
+services:
+
+    #
+    # Commands
+    #
+    elcodi.command.elcodi_install:
+        class: Elcodi\Common\CommonBundle\Command\ElcodiInstallCommand
+        arguments:
+            - @kernel
+            - @elcodi.object_manager.location
+        tags:
+            - { name: console.command }
