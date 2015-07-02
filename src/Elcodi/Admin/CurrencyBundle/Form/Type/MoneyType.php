@@ -54,8 +54,7 @@ class MoneyType extends AbstractType
     public function __construct(
         WrapperInterface $defaultCurrencyWrapper,
         $currencyNamespace
-    )
-    {
+    ) {
         $this->defaultCurrencyWrapper = $defaultCurrencyWrapper;
         $this->currencyNamespace = $currencyNamespace;
     }
