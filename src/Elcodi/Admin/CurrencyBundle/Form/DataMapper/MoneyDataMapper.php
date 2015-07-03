@@ -41,7 +41,7 @@ class MoneyDataMapper implements DataMapperInterface
         foreach ($forms as $form) {
             switch ($form->getName()) {
                 case 'amount':
-                    $form->setData($data->getAmount());
+                    $form->setData(bcdiv($data->getAmount(), 100, 2));
                     break;
                 case 'currency':
                     $form->setData($data->getCurrency());
@@ -62,7 +62,7 @@ class MoneyDataMapper implements DataMapperInterface
     {
         $forms = iterator_to_array($forms);
         $data = Money::create(
-            $forms['amount']->getData(),
+            bcmul($forms['amount']->getData(), 100),
             $forms['currency']->getData()
         );
     }
