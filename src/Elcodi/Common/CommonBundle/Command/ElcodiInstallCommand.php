@@ -18,13 +18,13 @@
 namespace Elcodi\Common\CommonBundle\Command;
 
 use Doctrine\Common\Persistence\ObjectManager;
+use RuntimeException;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\StringInput;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Finder\Finder;
 use Symfony\Component\HttpKernel\KernelInterface;
 
 /**
@@ -74,7 +74,10 @@ class ElcodiInstallCommand extends Command
                 'country',
                 'c',
                 InputOption::VALUE_IS_ARRAY | InputOption::VALUE_OPTIONAL,
-                'Countries to be loaded during the installation. By default, Spain will be loaded',
+                sprintf(
+                    'Countries to be loaded during the installation. Available countries: %s',
+                    implode(', ', $this->getInstallableCountries())
+                ),
                 ['spain']
             );
     }
@@ -98,9 +101,27 @@ class ElcodiInstallCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $countries = $input->getOption('country');
+        foreach ($countries as $country) {
+            if (!in_array($country, $this->getInstallableCountries())) {
+                throw new RuntimeException(sprintf(
+                    "Country %s not found. Available countries: %s.",
+                    $country,
+                    implode(', ', $this->getInstallableCountries())
+                ));
+            }
+        }
+
+        $countries = array_unique(
+            array_merge(
+                $countries,
+                ['spain']
+            )
+        );
+
         return $this->installElcodi(
             $output,
-            $input->getOption('country')
+            $countries
         );
     }
 
@@ -203,7 +224,7 @@ class ElcodiInstallCommand extends Command
     }
 
     /**
-     * Load country
+     * Load country from Elcodi files Repository
      *
      * @param OutputInterface $output  Output
      * @param string          $country Country name
@@ -215,18 +236,17 @@ class ElcodiInstallCommand extends Command
         $country
     ) {
         $formatterHelper = $this->getHelper('formatter');
-        $rootDir = $this
-            ->kernel
-            ->getRootDir();
+        if (!in_array($country, $this->getInstallableCountries())) {
+            $output->writeln($formatterHelper->formatSection(
+                'FAIL',
+                'Country ' . $country . ' not found',
+                'error'
+            ));
+        }
 
-        $finder = new Finder();
-        $finder
-            ->in($rootDir . '/../vendor/elcodi/elcodi/src/Elcodi/Bundle/GeoBundle/DataFixtures/ORM/Dumps')
-            ->name($country . '.sql');
-
-        foreach ($finder as $file) {
-            $content = $file->getContents();
-
+        $url = "https://www.dropbox.com/s/vykkgao3xzorwwf/" . $country . ".sql?raw=1";
+        $content = file_get_contents($url);
+        if ($content) {
             $stmt = $this
                 ->locationEntityManager
                 ->getConnection()
@@ -241,5 +261,28 @@ class ElcodiInstallCommand extends Command
         }
 
         return $this;
+    }
+
+    /**
+     * Get available installation countries
+     *
+     * @return array Installable countries
+     */
+    private function getInstallableCountries()
+    {
+        return [
+            'andorra',
+            'austria',
+            'belgium',
+            'denmark',
+            'finland',
+            'france',
+            'germany',
+            'italy',
+            'spain',
+            'switzerland',
+            'united_kingdom',
+            'poland',
+        ];
     }
 }

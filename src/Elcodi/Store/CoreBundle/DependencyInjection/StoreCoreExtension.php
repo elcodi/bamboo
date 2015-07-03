@@ -94,7 +94,6 @@ class StoreCoreExtension extends AbstractExtension
         parent::preLoad($config, $container);
 
         if ($config['error_templates']['enabled']) {
-
             $container->prependExtensionConfig('twig', [
                 'exception_controller' => 'elcodi_store.exception_controller:showAction',
             ]);

@@ -25,7 +25,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 use Elcodi\Admin\CoreBundle\Controller\Abstracts\AbstractAdminController;
 use Elcodi\Component\Plugin\Entity\Plugin;
-use Elcodi\Component\Plugin\Form\Type\PluginType;
 use Elcodi\Component\Plugin\PluginTypes;
 
 /**
