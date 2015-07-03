@@ -65,9 +65,8 @@ class MoneyType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('amount', 'money', [
-                'divisor'  => 100,
-                'currency' => false,
+            ->add('amount', 'number', [
+                'scale'  => 2,
             ])
             ->add('currency', 'entity', [
                 'class'         => $this->currencyNamespace,
