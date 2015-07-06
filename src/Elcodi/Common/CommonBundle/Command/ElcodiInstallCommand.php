@@ -244,7 +244,7 @@ class ElcodiInstallCommand extends Command
             ));
         }
 
-        $url = "https://www.dropbox.com/s/vykkgao3xzorwwf/" . $country . ".sql?raw=1";
+        $url = "https://raw.githubusercontent.com/elcodi/LocationDumps/master/" . $country . ".sql";
         $content = file_get_contents($url);
         if ($content) {
             $stmt = $this
