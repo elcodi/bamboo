@@ -891,12 +891,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/elcodi/elcodi.git",
-                "reference": "47629d319e11ece9899448c88bd86325ba82f0f9"
+                "reference": "d369255f319093d98881ba241c992c43774add94"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elcodi/elcodi/zipball/47629d319e11ece9899448c88bd86325ba82f0f9",
-                "reference": "47629d319e11ece9899448c88bd86325ba82f0f9",
+                "url": "https://api.github.com/repos/elcodi/elcodi/zipball/d369255f319093d98881ba241c992c43774add94",
+                "reference": "d369255f319093d98881ba241c992c43774add94",
                 "shasum": ""
             },
             "require": {
@@ -1041,7 +1041,7 @@
                 "elcodi",
                 "symfony"
             ],
-            "time": "2015-06-30 13:47:30"
+            "time": "2015-07-03 16:03:25"
         },
         {
             "name": "goodby/csv",
@@ -3200,16 +3200,16 @@
         },
         {
             "name": "react/promise",
-            "version": "v2.2.0",
+            "version": "v2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/promise.git",
-                "reference": "365fcee430dfa4ace1fbc75737ca60ceea7eeeef"
+                "reference": "3b6fca09c7d56321057fa8867c8dbe1abf648627"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/promise/zipball/365fcee430dfa4ace1fbc75737ca60ceea7eeeef",
-                "reference": "365fcee430dfa4ace1fbc75737ca60ceea7eeeef",
+                "url": "https://api.github.com/repos/reactphp/promise/zipball/3b6fca09c7d56321057fa8867c8dbe1abf648627",
+                "reference": "3b6fca09c7d56321057fa8867c8dbe1abf648627",
                 "shasum": ""
             },
             "require": {
@@ -3236,11 +3236,11 @@
             "authors": [
                 {
                     "name": "Jan Sorgalla",
-                    "email": "jsorgalla@googlemail.com"
+                    "email": "jsorgalla@gmail.com"
                 }
             ],
             "description": "A lightweight implementation of CommonJS Promises/A for PHP",
-            "time": "2014-12-30 13:32:42"
+            "time": "2015-07-03 13:48:55"
         },
         {
             "name": "sebastian/money",
@@ -4698,16 +4698,16 @@
         },
         {
             "name": "instaclick/php-webdriver",
-            "version": "1.4.2",
+            "version": "1.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/instaclick/php-webdriver.git",
-                "reference": "6aa16bbc02a5897200ab70316e0d2a01664afc51"
+                "reference": "0c20707dcf30a32728fd6bdeeab996c887fdb2fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/instaclick/php-webdriver/zipball/6aa16bbc02a5897200ab70316e0d2a01664afc51",
-                "reference": "6aa16bbc02a5897200ab70316e0d2a01664afc51",
+                "url": "https://api.github.com/repos/instaclick/php-webdriver/zipball/0c20707dcf30a32728fd6bdeeab996c887fdb2fb",
+                "reference": "0c20707dcf30a32728fd6bdeeab996c887fdb2fb",
                 "shasum": ""
             },
             "require": {
@@ -4752,7 +4752,7 @@
                 "webdriver",
                 "webtest"
             ],
-            "time": "2015-04-05 19:52:55"
+            "time": "2015-06-15 20:19:33"
         },
         {
             "name": "mmoreram/php-formatter",
@@ -5232,16 +5232,16 @@
         },
         {
             "name": "phpunit/phpunit-mock-objects",
-            "version": "2.3.4",
+            "version": "2.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
-                "reference": "92408bb1968a81b3217a6fdf6c1a198da83caa35"
+                "reference": "1c330b1b6e1ea8fd15f2fbea46770576e366855c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/92408bb1968a81b3217a6fdf6c1a198da83caa35",
-                "reference": "92408bb1968a81b3217a6fdf6c1a198da83caa35",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/1c330b1b6e1ea8fd15f2fbea46770576e366855c",
+                "reference": "1c330b1b6e1ea8fd15f2fbea46770576e366855c",
                 "shasum": ""
             },
             "require": {
@@ -5283,7 +5283,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2015-06-11 15:55:48"
+            "time": "2015-07-04 05:41:32"
         },
         {
             "name": "sebastian/comparator",
