@@ -82,9 +82,7 @@ running in your computer in less than 5 minutes.
 
 ### 1. Install the project
 
-After installing composer you can create your new bamboo project. Feel free to
-use any version, but we're still creating new features, fixing some issues and
-errors, and building our first release, so feel free to use them
+After installing composer you can create your new Bamboo project.
 
 ``` bash
 $ php composer.phar create-project elcodi/bamboo bamboo -sdev
@@ -93,116 +91,54 @@ $ php composer.phar create-project elcodi/bamboo bamboo -sdev
 > The installation process will ask you for some parameters like the database
 > driver, username, password, database name, etc
 
-Enter your directory to start the configuration step
+Enter your directory to start the configuration step and use our magic command
+to create a complete development environment. Just one single line to rule them
+all
 
 ``` bash
 $ cd bamboo/
+$ php app/console elcodi:install
 ```
 
-### 2. Init your database
-
-Now we should create the database and all the application schema. Symfony
-provides you an easy way for doing that.
+By default only Spain will be installed. We have focused this step to run as 
+fast as possible, so then, you'll be able to install more countries. You can add
+some countries in addition by using the `--country` command option.
 
 ``` bash
-$ php app/console doctrine:database:create
-$ php app/console doctrine:schema:create
+$ php app/console elcodi:install --country=france --country=italy
 ```
 
-We also load some fixtures to show on our store. This fixtures will set your
-store in a testing mode, with some categories, some manufacturers and a bunch of
-t-shirts. Only for testing purposes :)
+### 2. Run the server
 
-``` bash
-$ php app/console doctrine:fixtures:load \
-      --fixtures="src/Elcodi/Fixtures" \
-      --fixtures="src/Elcodi/Plugin" \
-      --no-interaction
-```
-
-These fixtures will not install you any location data, but don't worry, we 
-provide you several ways for your location population.
-
-We provide you some files with some countries dumped. You will find these files
-inside `elcodi/geo-bundle` package, inside the `DataFixtures/ORM/Dumps` folder.
-Because location tables are not using foreign keys, you can play with them as
-much as you need.
-
-``` bash
-$ mysql -uroot -proot bamboo < vendor/elcodi/elcodi/src/Elcodi/Bundle/GeoBundle/DataFixtures/ORM/Dumps/spain.sql
-```
-
-You can also add the geo information for any country. Just find the two letters
-[ISO code](http://en.wikipedia.org/wiki/ISO_3166-1#Current_codes) for the
-country you want to load and launch the following command changing ES with your
-code.
-
-``` bash
-$ php app/console elcodi:locations:populate ES
-```
-
-This could take several minutes per country, be patient and provide PHP as much
-memory as possible.
-
-### 3. Load the plugins
-
-Bamboo offers a bunch of plugins to customize your store. In the ecosystem of
-Bamboo, a Plugin is just a Bundle, so first of all, check that all the plugins
-you want to use are actually instantiated in you `AppKernel` class, under `app/`
-folder.
-
-To install load these plugins, use this command
-
-``` bash
-$ php app/console elcodi:plugins:load
-```
-
-The default template is a plugin as well, so you will install it as well with
-this command.
-
-### 4. Run the server
-
-Finally our store is ready to run :)
+Our store is ready to run. Use the built-in server to take a look at the 
+project.
 
 ``` bash
 $ php app/console server:run
 ```
 
-You can also [configure a Web server] like Apache or Nginx to run the app like
-all the Symfony apps.
+### 3. Visit your store
 
-### 5. Visit your store
-
-Yehaaa! You're done! You're about to see what Elcodi can do for you. A complete
-store interface for your customers and some nice features for administrating it.
-
-You can start using these credentials we've already created for you. For the
-admin panel use. Remember to remove them properly when your store is on 
-production.
-
-``` text
-Admin username: admin@admin.com
-Admin password: 1234
-```
-
-And for the store, use this Customer credentials.
+You're done! Visit `http://localhost:8000` in your browser and take a look at
+what we have for you :) Use these Customer credentials in the store
 
 ``` text
 Customer username: customer@customer.com
 Customer password: 1234
 ```
 
-### 6. Play!
+And for the admin panel, use this Admin credentials.
 
-You can now play with the bamboo :)
-Don't forget to **create an issue** on
-[Bamboo](https://github.com/elcodi/bamboo/issues) or
-[Elcodi](https://github.com/elcodi/elcodi/issues) if you found any bug.
-Any collaboration is welcome! We look forward to hearing from you!
+``` text
+Admin username: admin@admin.com
+Admin password: 1234
+```
+
+Remember to remove these users properly as soon as you're in production.
 
 ## Tests
 
-Yes, we are doing some tests, and this will be **in cresciendo**. You can ensure
+We are doing some tests, and this will be **in cresciendo**. You can ensure
 yourself that all the cases we've been working on are actually green. We are
 using Behat and PHPUnit, so you only need to execute all suites by using this
 piece of code.
