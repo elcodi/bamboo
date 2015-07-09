@@ -73,7 +73,7 @@
         "mmoreram/cache-flush-bundle": "0.1.2",
         "mmoreram/http-headers-bundle": "1.0.0",
 
-        "elcodi/elcodi": "1.0.x-dev"
+        "elcodi/elcodi": "self.version"
     },
     "replace": {
         "elcodi-templates/template": "self.version",
