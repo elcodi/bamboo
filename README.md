@@ -105,7 +105,7 @@ fast as possible, so then, you'll be able to install more countries. You can add
 some countries in addition by using the `--country` command option.
 
 ``` bash
-$ php app/console elcodi:install --country=france --country=italy
+$ php app/console elcodi:install --country=FR --country=IT
 ```
 
 ### 2. Run the server
