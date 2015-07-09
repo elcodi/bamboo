@@ -891,12 +891,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/elcodi/elcodi.git",
-                "reference": "d369255f319093d98881ba241c992c43774add94"
+                "reference": "8e007c008433bcf0a32f1810d1499f5e9b50664c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elcodi/elcodi/zipball/d369255f319093d98881ba241c992c43774add94",
-                "reference": "d369255f319093d98881ba241c992c43774add94",
+                "url": "https://api.github.com/repos/elcodi/elcodi/zipball/8e007c008433bcf0a32f1810d1499f5e9b50664c",
+                "reference": "8e007c008433bcf0a32f1810d1499f5e9b50664c",
                 "shasum": ""
             },
             "require": {
@@ -1041,7 +1041,7 @@
                 "elcodi",
                 "symfony"
             ],
-            "time": "2015-07-03 16:03:25"
+            "time": "2015-07-09 11:46:39"
         },
         {
             "name": "goodby/csv",
