@@ -18,8 +18,7 @@
 namespace Elcodi\Common\CommonBundle\Command;
 
 use Doctrine\Common\Persistence\ObjectManager;
-use RuntimeException;
-use Symfony\Component\Console\Command\Command;
+use Exception;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -27,10 +26,12 @@ use Symfony\Component\Console\Input\StringInput;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 
+use Elcodi\Component\Core\Command\Abstracts\AbstractElcodiCommand;
+
 /**
  * Class ElcodiInstallCommand
  */
-class ElcodiInstallCommand extends Command
+class ElcodiInstallCommand extends AbstractElcodiCommand
 {
     /**
      * @var KernelInterface
@@ -74,11 +75,8 @@ class ElcodiInstallCommand extends Command
                 'country',
                 'c',
                 InputOption::VALUE_IS_ARRAY | InputOption::VALUE_OPTIONAL,
-                sprintf(
-                    'Countries to be loaded during the installation. Available countries: %s',
-                    implode(', ', $this->getInstallableCountries())
-                ),
-                ['spain']
+                'Countries to be loaded during the installation',
+                ['ES']
             );
     }
 
@@ -101,28 +99,13 @@ class ElcodiInstallCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $countries = $input->getOption('country');
-        foreach ($countries as $country) {
-            if (!in_array($country, $this->getInstallableCountries())) {
-                throw new RuntimeException(sprintf(
-                    "Country %s not found. Available countries: %s.",
-                    $country,
-                    implode(', ', $this->getInstallableCountries())
-                ));
-            }
-        }
-
-        $countries = array_unique(
-            array_merge(
-                $countries,
-                ['spain']
+        $this
+            ->startCommand($output)
+            ->installElcodi(
+                $output,
+                $input->getOption('country')
             )
-        );
-
-        return $this->installElcodi(
-            $output,
-            $countries
-        );
+            ->finishCommand($output);
     }
 
     /**
@@ -235,54 +218,31 @@ class ElcodiInstallCommand extends Command
         OutputInterface $output,
         $country
     ) {
-        $formatterHelper = $this->getHelper('formatter');
-        if (!in_array($country, $this->getInstallableCountries())) {
-            $output->writeln($formatterHelper->formatSection(
-                'FAIL',
-                'Country ' . $country . ' not found',
-                'error'
-            ));
-        }
+        try {
+            $url = "https://raw.githubusercontent.com/elcodi/LocationDumps/master/" . $country . ".sql";
+            $content = file_get_contents($url);
+            if ($content) {
+                $stmt = $this
+                    ->locationEntityManager
+                    ->getConnection()
+                    ->prepare($content);
 
-        $url = "https://raw.githubusercontent.com/elcodi/LocationDumps/master/" . $country . ".sql";
-        $content = file_get_contents($url);
-        if ($content) {
-            $stmt = $this
-                ->locationEntityManager
-                ->getConnection()
-                ->prepare($content);
+                $stmt->execute();
 
-            $stmt->execute();
-
-            $output->writeln($formatterHelper->formatSection(
-                'OK',
-                'Country ' . $country . ' installed'
-            ));
+                $this->printMessage(
+                    $output,
+                    'Elcodi',
+                    'Country ' . $country . ' installed'
+                );
+            }
+        } catch (Exception $e) {
+            $this->printMessageFail(
+                    $output,
+                    'Elcodi',
+                    'Country ' . $country . ' not installed'
+                );
         }
 
         return $this;
-    }
-
-    /**
-     * Get available installation countries
-     *
-     * @return array Installable countries
-     */
-    private function getInstallableCountries()
-    {
-        return [
-            'andorra',
-            'austria',
-            'belgium',
-            'denmark',
-            'finland',
-            'france',
-            'germany',
-            'italy',
-            'spain',
-            'switzerland',
-            'united_kingdom',
-            'poland',
-        ];
     }
 }
