@@ -1,5 +1,5 @@
-CHANGELOG for 1.0.0
-===================
+CHANGELOG for 1.0
+=================
 
 This changelog references the relevant changes done in 1.x.x versions
 
@@ -7,6 +7,64 @@ To get the diff for a specific change, go to
 https://github.com/elcodi/bamboo/commit/XXX where XXX is the change hash To
 get the diff between two versions, go to
 https://github.com/elcodi/bamboo/compare/v1.0.0...v1.0.1
+
+### v1.0.0-beta3 (10-07-2015)
+
+Release focused on fixes, standardization and simplification.
+
+#### TL;DR
+
+* Improved and minimized the installation process
+* Using GD by default for images resizing
+* Fixed dependencies between packages during the Beta and RC stage
+* Updated [Predis](https://github.com/nrk/predis/releases/tag/v1.0.1) dependency 
+  to stable
+* Fixed money FormType in order to avoid float precision issue
+
+#### Release Log
+
+* [`914e714`](https://github.com/elcodi/bamboo/commit/914e7147ce5cefdb379bbb347e62b04f40a999af) Following same philosophy than Elcodi (mmoreram)
+* [`b9e4be9`](https://github.com/elcodi/bamboo/commit/b9e4be9ecc492ce54acf647948be82bdf936adeb) Updated composer.json file (mmoreram)
+* [`66d408e`](https://github.com/elcodi/bamboo/commit/66d408e2893c5415e3f51534c028ac05a7ac1976) Updated code for new Elcodi version (mmoreram)
+* [`7d775ba`](https://github.com/elcodi/bamboo/commit/7d775ba30865afaaf74a913ada1e55f6c091ba59) Updated composer lock file (mmoreram)
+* [`a9a9ec6`](https://github.com/elcodi/bamboo/commit/a9a9ec6a80a5a278049872c300eb43275e8a6ffc) Improved installation guide (mmoreram)
+* [`c8383ae`](https://github.com/elcodi/bamboo/commit/c8383aecc5c1a37d9cefcb5afd220c3a87da2046) Updated install command to work with Github repo (mmoreram)
+* [`cac9159`](https://github.com/elcodi/bamboo/commit/cac9159a4af8a9336ca7f2e8f6a45632f9f904e6) Fixed money precision in some cases (mmoreram)
+* [`70e1f29`](https://github.com/elcodi/bamboo/commit/70e1f296f06fb45c8c8c7b01a910022b2e70d5e9) Improved install command (mmoreram)
+* [`4946632`](https://github.com/elcodi/bamboo/commit/49466329e2aed4b71e324c3dabb797db8ddb26a7) Added elcodi:install command (mmoreram)
+* [`4562c07`](https://github.com/elcodi/bamboo/commit/4562c073c7faa3b8edb31d712f2e991d0204ffb1) Updated to stable predis version (mmoreram)
+* [`3e7a90d`](https://github.com/elcodi/bamboo/commit/3e7a90dfb0450045b80adca12ecaad2591b541ae) updated deps with Elcodi@dev (mmoreram)
+* [`10fb12f`](https://github.com/elcodi/bamboo/commit/10fb12f687fe38f9563ac037c2a3897326da39af) PHP Redis dependency readded (mmoreram)
+* [`d855fc4`](https://github.com/elcodi/bamboo/commit/d855fc4f566b5f50e04b1fee5f9db043a827b0ee) Updated redis docs. remove extension block (mmoreram)
+* [`835cd24`](https://github.com/elcodi/bamboo/commit/835cd2438b59b7b70be98cbb373bf700d6a6b61f) Removed redis-ext from requirements (mmoreram)
+* [`8594c9a`](https://github.com/elcodi/bamboo/commit/8594c9adf22149eb008d5e85960ea91a88ada349) Updated composer json file (mmoreram)
+* [`c2ae067`](https://github.com/elcodi/bamboo/commit/c2ae067d298be1f02dec0d264eec7ae47eb7573d) Removed prefer-lowest (mmoreram)
+* [`885b719`](https://github.com/elcodi/bamboo/commit/885b7191f3f3b3cf56644aee99c2094f1bdf4101) Fixed store default currency to USD (mmoreram)
+* [`5651d75`](https://github.com/elcodi/bamboo/commit/5651d754c7fa3e015d6f8b08d0d963654d3b1879) Improved documentation (mmoreram)
+* [`44a7661`](https://github.com/elcodi/bamboo/commit/44a766197b496af9c4e81a05e17370f3a1e655b4) Using default image resize engine (GD) (mmoreram)
+* [`10d12c3`](https://github.com/elcodi/bamboo/commit/10d12c322dc9e95667f765329d5f0c8efd639686) Fixed fixture dependency (mmoreram)
+* [`515a551`](https://github.com/elcodi/bamboo/commit/515a5518fa265a5cabb7a964e720ed2c0305970c) Fixed tests (mmoreram)
+* [`797a163`](https://github.com/elcodi/bamboo/commit/797a1636f1738c486a5d80761adc16c5b23f880d) Fixed MoneyType to work without setters (mmoreram)
+* [`4952da8`](https://github.com/elcodi/bamboo/commit/4952da8e8260d465cb82ee13fc99363cb24c85cb) Fixed default currency assignment (mmoreram)
+* [`b0a717a`](https://github.com/elcodi/bamboo/commit/b0a717add93e35d721ec84b2a2284ffae686e9aa) use stateless PluginType (Berny Cantos)
+* [`6e037d9`](https://github.com/elcodi/bamboo/commit/6e037d9e4bbd20808ba4767eaabb2321a6f469ee) Fixed visithor definition (mmoreram)
+* [`d99250d`](https://github.com/elcodi/bamboo/commit/d99250d79d4e3e5824f3cd962ebf5ada38dbd6b9) Updated Elcodi dependency to get always HEAD (mmoreram)
+* [`4df619b`](https://github.com/elcodi/bamboo/commit/4df619bb333006c64edc1590d6ce94679fa29a20) Fixed tracking generation with tracker (mmoreram)
+* [`5a3dd9c`](https://github.com/elcodi/bamboo/commit/5a3dd9ca1926ae9c55045df9542d465979d11033) Updated plugins that should be enabled by default (Roger Gros)
+* [`4f7198c`](https://github.com/elcodi/bamboo/commit/4f7198cb2704086fde84e033dd1055859074912c) convert exception listener into controller (Berny Cantos)
+* [`97a1a8c`](https://github.com/elcodi/bamboo/commit/97a1a8c6aadc855bb15b5ead0cf9d8513776e274) Fixed dependencies to make it compatible w. Elcodi (mmoreram)
+* [`7a8bc3d`](https://github.com/elcodi/bamboo/commit/7a8bc3dd5b910d4e0b5a30da35b5eab6958ab3af) Fixed the wizard to work with plugins (Roger Gros)
+
+
+### v1.0.0-beta2 (15-06-2015)
+
+Early release to fix some errors in dependencies between packages
+
+* [`86c17db`](https://github.com/elcodi/bamboo/commit/86c17db5303a9c3776d1ef04f6339f20ae589ef5) Updated all plugin dev-master alias (mmoreram)
+* [`c576288`](https://github.com/elcodi/bamboo/commit/c57628865a6bb1abb6508038055e65192babc2fe) Updated plugin dependencies (mmoreram)
+* [`4729d3c`](https://github.com/elcodi/bamboo/commit/4729d3ca0b1c98e451a981c48f0599123ee66b64) Changed readme text to beta stage (mmoreram)
+* [`3b274e3`](https://github.com/elcodi/bamboo/commit/3b274e32b772824fc886b338b0e6c4ea62a46b89) Fixed dependency definition (mmoreram)
+* [`aedc7c1`](https://github.com/elcodi/bamboo/commit/aedc7c16854b39fc992ec2a08c16a17c6deb3ea0) Fixed readme (Marc Morera)
 
 ### v1.0.0-beta1 (14-06-2015)
 
