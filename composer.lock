@@ -891,12 +891,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/elcodi/elcodi.git",
-                "reference": "8e007c008433bcf0a32f1810d1499f5e9b50664c"
+                "reference": "f0a2b1242968077045f08808d26d2030519798cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elcodi/elcodi/zipball/8e007c008433bcf0a32f1810d1499f5e9b50664c",
-                "reference": "8e007c008433bcf0a32f1810d1499f5e9b50664c",
+                "url": "https://api.github.com/repos/elcodi/elcodi/zipball/f0a2b1242968077045f08808d26d2030519798cf",
+                "reference": "f0a2b1242968077045f08808d26d2030519798cf",
                 "shasum": ""
             },
             "require": {
@@ -1001,9 +1001,6 @@
                 "mmoreram/php-formatter": "1.0.4",
                 "phpunit/phpunit": "4.5.0"
             },
-            "suggest": {
-                "guzzle/http": "Required for OpenExchangeRates adapter"
-            },
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1041,7 +1038,7 @@
                 "elcodi",
                 "symfony"
             ],
-            "time": "2015-07-09 11:46:39"
+            "time": "2015-07-10 12:13:52"
         },
         {
             "name": "goodby/csv",
