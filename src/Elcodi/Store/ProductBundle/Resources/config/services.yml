@@ -11,6 +11,7 @@ services:
             category_tree_service: @elcodi.provider.category_tree
             load_only_categories_with_products: %elcodi.core.product.load_only_categories_with_products%
             key: %elcodi.core.product.cache_key%
+            locale: @elcodi.locale
         calls:
             - [setCache, [@doctrine_cache.providers.elcodi_categories]]
             - [setEncoder, [@elcodi.json_encoder]]

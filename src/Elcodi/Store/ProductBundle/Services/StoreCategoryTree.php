@@ -18,6 +18,7 @@
 namespace Elcodi\Store\ProductBundle\Services;
 
 use Elcodi\Component\Core\Wrapper\Abstracts\AbstractCacheWrapper;
+use Elcodi\Component\Language\Entity\Interfaces\LocaleInterface;
 use Elcodi\Component\Product\Entity\Category;
 use Elcodi\Component\Product\Services\CategoryTree;
 
@@ -52,20 +53,30 @@ class StoreCategoryTree extends AbstractCacheWrapper
     private $categoryTreeService;
 
     /**
+     * @var LocaleInterface
+     *
+     * Locale in which the categories are stored
+     */
+    protected $locale;
+
+    /**
      * Construct method
      *
-     * @param CategoryTree $categoryTreeService            The category tree service
-     * @param boolean      $loadOnlyCategoriesWithProducts Load only categories with products
-     * @param string       $key                            Key where to store info
+     * @param CategoryTree    $categoryTreeService            The category tree service
+     * @param boolean         $loadOnlyCategoriesWithProducts Load only categories with products
+     * @param string          $key                            Key where to store info
+     * @param LocaleInterface $locale                         Locale of the categories
      */
     public function __construct(
         CategoryTree $categoryTreeService,
         $loadOnlyCategoriesWithProducts,
-        $key
+        $key,
+        LocaleInterface $locale
     ) {
         $this->categoryTreeService            = $categoryTreeService;
         $this->loadOnlyCategoriesWithProducts = $loadOnlyCategoriesWithProducts;
         $this->key                            = $key;
+        $this->locale                         = $locale;
     }
 
     /**
@@ -120,7 +131,7 @@ class StoreCategoryTree extends AbstractCacheWrapper
     {
         $this
             ->cache
-            ->delete($this->key);
+            ->delete($this->getKey());
 
         $this->storeCategoryTree = null;
 
@@ -139,7 +150,7 @@ class StoreCategoryTree extends AbstractCacheWrapper
             ->decode(
                 $this
                     ->cache
-                    ->fetch($this->key)
+                    ->fetch($this->getKey())
             );
     }
 
@@ -168,7 +179,7 @@ class StoreCategoryTree extends AbstractCacheWrapper
         $this
             ->cache
             ->save(
-                $this->key,
+                $this->getKey(),
                 $this->encoder->encode($categoryTree)
             );
 
@@ -247,5 +258,13 @@ class StoreCategoryTree extends AbstractCacheWrapper
                 !$this->loadOnlyCategoriesWithProducts ||
                 0 > ($category->getProducts())
             );
+    }
+
+    /**
+     * Get current key
+     */
+    protected function getKey()
+    {
+        return "{$this->key}_{$this->locale->getIso()}";
     }
 }
