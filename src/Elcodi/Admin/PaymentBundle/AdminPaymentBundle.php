@@ -17,18 +17,17 @@
 
 namespace Elcodi\Admin\PaymentBundle;
 
-use Symfony\Component\Console\Application;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\HttpKernel\KernelInterface;
 
 use Elcodi\Admin\PaymentBundle\DependencyInjection\AdminPaymentExtension;
+use Elcodi\Bundle\CoreBundle\Abstracts\AbstractElcodiBundle;
 use Elcodi\Bundle\CoreBundle\Interfaces\DependentBundleInterface;
 
 /**
  * Class AdminPaymentBundle
  */
-class AdminPaymentBundle extends Bundle implements DependentBundleInterface
+class AdminPaymentBundle extends AbstractElcodiBundle implements DependentBundleInterface
 {
     /**
      * Returns the bundle's container extension.
@@ -38,20 +37,6 @@ class AdminPaymentBundle extends Bundle implements DependentBundleInterface
     public function getContainerExtension()
     {
         return new AdminPaymentExtension();
-    }
-
-    /**
-     * Register Commands.
-     *
-     * Disabled as commands are registered as services.
-     *
-     * @param Application $application An Application instance
-     *
-     * @return null
-     */
-    public function registerCommands(Application $application)
-    {
-        return null;
     }
 
     /**

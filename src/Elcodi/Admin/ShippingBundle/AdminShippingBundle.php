@@ -17,16 +17,15 @@
 
 namespace Elcodi\Admin\ShippingBundle;
 
-use Symfony\Component\Console\Application;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 use Elcodi\Admin\ShippingBundle\DependencyInjection\AdminShippingExtension;
+use Elcodi\Bundle\CoreBundle\Abstracts\AbstractElcodiBundle;
 
 /**
  * Class AdminShippingBundle
  */
-class AdminShippingBundle extends Bundle
+class AdminShippingBundle extends AbstractElcodiBundle
 {
     /**
      * Returns the bundle's container extension.
@@ -36,19 +35,5 @@ class AdminShippingBundle extends Bundle
     public function getContainerExtension()
     {
         return new AdminShippingExtension();
-    }
-
-    /**
-     * Register Commands.
-     *
-     * Disabled as commands are registered as services.
-     *
-     * @param Application $application An Application instance
-     *
-     * @return null
-     */
-    public function registerCommands(Application $application)
-    {
-        return null;
     }
 }

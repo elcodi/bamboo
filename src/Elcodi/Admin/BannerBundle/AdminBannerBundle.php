@@ -17,16 +17,15 @@
 
 namespace Elcodi\Admin\BannerBundle;
 
-use Symfony\Component\Console\Application;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 use Elcodi\Admin\BannerBundle\DependencyInjection\AdminBannerExtension;
+use Elcodi\Bundle\CoreBundle\Abstracts\AbstractElcodiBundle;
 
 /**
  * Class AdminBannerBundle
  */
-class AdminBannerBundle extends Bundle
+class AdminBannerBundle extends AbstractElcodiBundle
 {
     /**
      * Returns the bundle's container extension.
@@ -36,19 +35,5 @@ class AdminBannerBundle extends Bundle
     public function getContainerExtension()
     {
         return new AdminBannerExtension();
-    }
-
-    /**
-     * Register Commands.
-     *
-     * Disabled as commands are registered as services.
-     *
-     * @param Application $application An Application instance
-     *
-     * @return null
-     */
-    public function registerCommands(Application $application)
-    {
-        return null;
     }
 }
