@@ -63,9 +63,6 @@ class AdminStoreBundle extends Bundle implements DependentBundleInterface
      */
     public static function getBundleDependencies(KernelInterface $kernel)
     {
-        return [
-            'Elcodi\Admin\CoreBundle\AdminCoreBundle',
-            'Elcodi\Admin\CoreBundle\AdminCoreBundle',
-        ];
+        return ['Elcodi\Admin\CoreBundle\AdminCoreBundle'];
     }
 }
