@@ -17,16 +17,15 @@
 
 namespace Elcodi\Admin\NewsletterBundle;
 
-use Symfony\Component\Console\Application;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 use Elcodi\Admin\NewsletterBundle\DependencyInjection\AdminNewsletterExtension;
+use Elcodi\Bundle\CoreBundle\Abstracts\AbstractElcodiBundle;
 
 /**
  * Class AdminNewsletterBundle
  */
-class AdminNewsletterBundle extends Bundle
+class AdminNewsletterBundle extends AbstractElcodiBundle
 {
     /**
      * Returns the bundle's container extension.
@@ -36,19 +35,5 @@ class AdminNewsletterBundle extends Bundle
     public function getContainerExtension()
     {
         return new AdminNewsletterExtension();
-    }
-
-    /**
-     * Register Commands.
-     *
-     * Disabled as commands are registered as services.
-     *
-     * @param Application $application An Application instance
-     *
-     * @return null
-     */
-    public function registerCommands(Application $application)
-    {
-        return null;
     }
 }

@@ -18,14 +18,14 @@
 namespace Elcodi\Admin\CoreBundle;
 
 use Symfony\Component\Console\Application;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 use Elcodi\Admin\CoreBundle\DependencyInjection\AdminCoreExtension;
+use Elcodi\Bundle\CoreBundle\Abstracts\AbstractElcodiBundle;
 
 /**
  * Class AdminCoreBundle
  */
-class AdminCoreBundle extends Bundle
+class AdminCoreBundle extends AbstractElcodiBundle
 {
     /**
      * Returns the bundle's container extension.

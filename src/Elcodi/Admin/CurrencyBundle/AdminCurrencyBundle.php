@@ -17,16 +17,15 @@
 
 namespace Elcodi\Admin\CurrencyBundle;
 
-use Symfony\Component\Console\Application;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 use Elcodi\Admin\CurrencyBundle\DependencyInjection\AdminCurrencyExtension;
+use Elcodi\Bundle\CoreBundle\Abstracts\AbstractElcodiBundle;
 
 /**
  * Class AdminCurrencyBundle
  */
-class AdminCurrencyBundle extends Bundle
+class AdminCurrencyBundle extends AbstractElcodiBundle
 {
     /**
      * Returns the bundle's container extension.
@@ -36,19 +35,5 @@ class AdminCurrencyBundle extends Bundle
     public function getContainerExtension()
     {
         return new AdminCurrencyExtension();
-    }
-
-    /**
-     * Register Commands.
-     *
-     * Disabled as commands are registered as services.
-     *
-     * @param Application $application An Application instance
-     *
-     * @return null
-     */
-    public function registerCommands(Application $application)
-    {
-        return null;
     }
 }

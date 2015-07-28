@@ -17,16 +17,15 @@
 
 namespace Elcodi\Admin\CartBundle;
 
-use Symfony\Component\Console\Application;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 use Elcodi\Admin\CartBundle\DependencyInjection\AdminCartExtension;
+use Elcodi\Bundle\CoreBundle\Abstracts\AbstractElcodiBundle;
 
 /**
  * Class AdminCartBundle
  */
-class AdminCartBundle extends Bundle
+class AdminCartBundle extends AbstractElcodiBundle
 {
     /**
      * Returns the bundle's container extension.
@@ -36,19 +35,5 @@ class AdminCartBundle extends Bundle
     public function getContainerExtension()
     {
         return new AdminCartExtension();
-    }
-
-    /**
-     * Register Commands.
-     *
-     * Disabled as commands are registered as services.
-     *
-     * @param Application $application An Application instance
-     *
-     * @return null
-     */
-    public function registerCommands(Application $application)
-    {
-        return null;
     }
 }

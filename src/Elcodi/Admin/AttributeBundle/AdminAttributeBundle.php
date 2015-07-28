@@ -17,16 +17,15 @@
 
 namespace Elcodi\Admin\AttributeBundle;
 
-use Symfony\Component\Console\Application;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
 
+use Elcodi\Bundle\CoreBundle\Abstracts\AbstractElcodiBundle;
 use Elcodi\Admin\AttributeBundle\DependencyInjection\AdminAttributeExtension;
 
 /**
  * Class AdminAttributeBundle
  */
-class AdminAttributeBundle extends Bundle
+class AdminAttributeBundle extends AbstractElcodiBundle
 {
     /**
      * Returns the bundle's container extension.
@@ -36,19 +35,5 @@ class AdminAttributeBundle extends Bundle
     public function getContainerExtension()
     {
         return new AdminAttributeExtension();
-    }
-
-    /**
-     * Register Commands.
-     *
-     * Disabled as commands are registered as services.
-     *
-     * @param Application $application An Application instance
-     *
-     * @return null
-     */
-    public function registerCommands(Application $application)
-    {
-        return null;
     }
 }

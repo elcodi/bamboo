@@ -17,16 +17,15 @@
 
 namespace Elcodi\Admin\MetricBundle;
 
-use Symfony\Component\Console\Application;
-use Symfony\Component\CssSelector\XPath\Extension\ExtensionInterface;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 
 use Elcodi\Admin\MetricBundle\DependencyInjection\AdminMetricExtension;
+use Elcodi\Bundle\CoreBundle\Abstracts\AbstractElcodiBundle;
 
 /**
  * Class AdminMetricBundle
  */
-class AdminMetricBundle extends Bundle
+class AdminMetricBundle extends AbstractElcodiBundle
 {
     /**
      * Returns the bundle's container extension.
@@ -36,19 +35,5 @@ class AdminMetricBundle extends Bundle
     public function getContainerExtension()
     {
         return new AdminMetricExtension();
-    }
-
-    /**
-     * Register Commands.
-     *
-     * Disabled as commands are registered as services.
-     *
-     * @param Application $application An Application instance
-     *
-     * @return null
-     */
-    public function registerCommands(Application $application)
-    {
-        return null;
     }
 }
