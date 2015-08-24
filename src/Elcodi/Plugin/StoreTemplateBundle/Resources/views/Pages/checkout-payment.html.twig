@@ -19,8 +19,8 @@
             {% if shippingMethod.id == actualShippingMethod %}
                 <div class="col-1-3"><i class="fa fa-caret-right"></i> <strong>{{ shippingMethod.carrierName }} - {{ shippingMethod.price|print_convert_money }}</strong></div>
             {% else %}
-                <div class="col-1-3"><a href="{{ url("store_checkout_shipping_range_apply", {
-                        'rangeId': shippingMethod.id
+                <div class="col-1-3"><a href="{{ url("store_checkout_shipping_method_apply", {
+                        'shippingMethod': shippingMethod.id
                     }) }}">
                         {{ shippingMethod.carrierName }} - {{ shippingMethod.price|print_convert_money }}
                     </a></div>
