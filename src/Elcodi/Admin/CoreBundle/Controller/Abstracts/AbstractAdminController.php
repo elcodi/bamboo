@@ -49,7 +49,7 @@ class AbstractAdminController extends Controller
             /**
              * @var EnabledInterface $entity
              */
-            $$this->enableEntity($entity);
+            $this->enableEntity($entity);
         });
     }
 
