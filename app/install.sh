@@ -27,6 +27,7 @@ esac
 
 # Creating database schema and tables
 /usr/bin/env php app/console --no-interaction doc:dat:cre --if-not-exists
+/usr/bin/env php app/console --no-interaction doc:sch:dro --force
 /usr/bin/env php app/console --no-interaction doc:sch:cre
 
 /usr/bin/env php app/console --no-interaction doctrine:fixtures:load --fixtures="src/Elcodi/Fixtures"
