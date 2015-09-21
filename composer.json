@@ -32,7 +32,6 @@
     "require": {
         "php": ">=5.4",
         "ext-openssl": "*",
-        "ext-redis": "*",
 
         "symfony/symfony": "^2.7",
         "symfony/framework-bundle": "^2.7",
@@ -104,6 +103,9 @@
         "mmoreram/php-formatter": "1.0.4",
         "fabpot/php-cs-fixer": "1.4.2",
         "visithor/visithor-bundle": "^0.1.8"
+    },
+    "suggest": {
+        "ext-redis": "If doctrine cache works on top of redis"
     },
     "scripts": {
         "post-install-cmd": [
