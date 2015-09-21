@@ -20,7 +20,6 @@ namespace Elcodi\Admin\ProductBundle\Services;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
-use Elcodi\Admin\ProductBundle\ProductEvents;
 use Elcodi\Component\Product\Entity\Category;
 use Elcodi\Component\Product\Repository\CategoryRepository;
 
@@ -30,7 +29,7 @@ use Elcodi\Component\Product\Repository\CategoryRepository;
 class CategorySorter
 {
     /**
-     * @var ObjectRepository
+     * @var CategoryRepository
      *
      * Category entity repository.
      */
@@ -100,9 +99,9 @@ class CategorySorter
     public function sort(array $categoriesOrder)
     {
         if ($this->sortCategoriesTree($categoriesOrder)) {
-            $this->categoryObjectManager->flush();
-
-            $this->eventDispatcher->dispatch(ProductEvents::CATEGORIES_ONCHANGE);
+            $this
+                ->categoryObjectManager
+                ->flush();
 
             return true;
         }

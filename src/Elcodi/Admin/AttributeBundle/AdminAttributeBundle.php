@@ -19,8 +19,8 @@ namespace Elcodi\Admin\AttributeBundle;
 
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 
-use Elcodi\Bundle\CoreBundle\Abstracts\AbstractElcodiBundle;
 use Elcodi\Admin\AttributeBundle\DependencyInjection\AdminAttributeExtension;
+use Elcodi\Bundle\CoreBundle\Abstracts\AbstractElcodiBundle;
 
 /**
  * Class AdminAttributeBundle
