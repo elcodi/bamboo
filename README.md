@@ -3,10 +3,6 @@ Bamboo e-commerce
 
 [![Build Status](https://travis-ci.org/elcodi/bamboo.svg?branch=master)](https://travis-ci.org/elcodi/bamboo)
 
-> Warning. This project is not tagged as stable yet. During this Beta stage, we
-> aim to find and resolve all bugs, empower testing layer and build even a 
-> better and bigger project documentation.
-
 Welcome to Bamboo e-commerce - a fully-functional e-commerce application built
 using [Elcodi] components on top of the [Symfony] framework.
 
