@@ -1,0 +1,11 @@
+services:
+
+    #
+    # Controllers
+    #
+    api_rest.controller:
+        class: ApiRest\Api\Controller\ApiRestController
+        arguments:
+            - "@request_stack"
+            - "@api_rest.event_dispatcher"
+            - "@api_rest.configuration"

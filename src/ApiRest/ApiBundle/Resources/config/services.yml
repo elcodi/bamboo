@@ -1,0 +1,29 @@
+services:
+
+    #
+    # Route Loader
+    #
+    api_rest.routes_builder:
+        class: ApiRest\Api\Router\RoutesBuilder
+        arguments:
+            - "@router"
+            - "@api_rest.configuration"
+            - %api_rest.route_format%
+
+    api_rest.routes_loader:
+        class: ApiRest\Api\Router\RoutesLoader
+        arguments:
+            - "@api_rest.configuration"
+            - "@api_rest.routes_builder"
+        tags:
+            - { name: routing.loader }
+
+
+    #
+    # Mapping providers
+    #
+    api_rest.mapping_info_provider:
+        class: ApiRest\Api\Mapping\MappingInfoProvider
+        arguments:
+            - "@elcodi.provider.manager"
+            - "@api_rest.configuration"

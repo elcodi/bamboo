@@ -1,0 +1,9 @@
+services:
+
+    #
+    # Query Builder Modifiers
+    #
+    api_rest.query_builder_modifier.sort:
+        class: ApiRest\Api\QueryBuilder\SortQueryBuilderModifier
+        tags:
+            - { name: kernel.event_listener, event: api_rest.query_builder, method: modify }

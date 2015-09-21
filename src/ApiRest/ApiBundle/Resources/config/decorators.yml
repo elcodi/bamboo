@@ -1,0 +1,56 @@
+services:
+
+    #
+    # Decorators
+    #
+    api_rest.decorator.meta:
+        class: ApiRest\Api\Decorator\MetaDecorator
+        arguments:
+            - %api_rest.meta%
+        tags:
+            - { name: kernel.event_listener, event: api_rest.all, method: decorate, priority: -96 }
+            - { name: kernel.event_listener, event: api_rest.get_bulk, method: decorate, priority: -96 }
+            - { name: kernel.event_listener, event: api_rest.get_relationship, method: decorate, priority: -96 }
+
+
+    api_rest.decorator.entity_relationships_links:
+        class: ApiRest\Api\Decorator\EntityRelationshipsLinksDecorator
+        arguments:
+            - "@api_rest.routes_builder"
+            - "@api_rest.configuration"
+            - "@api_rest.mapping_info_provider"
+        tags:
+            - { name: kernel.event_listener, event: api_rest.get, method: decorate, priority: -96 }
+            - { name: kernel.event_listener, event: api_rest.get_bulk, method: decorate, priority: -96 }
+            - { name: kernel.event_listener, event: api_rest.get_relationship, method: decorate, priority: -96 }
+
+    #
+    # Root links
+    #
+    api_rest.decorator.entity_root_links:
+        class: ApiRest\Api\Decorator\EntityRootLinksDecorator
+        arguments:
+            - "@api_rest.routes_builder"
+        tags:
+            - { name: kernel.event_listener, event: api_rest.get, method: decorate, priority: -96 }
+            - { name: kernel.event_listener, event: api_rest.get_bulk, method: decorate, priority: -96 }
+            - { name: kernel.event_listener, event: api_rest.get_relationship, method: decorate, priority: -96 }
+
+    api_rest.decorator.entity_relationship_root_links:
+        class: ApiRest\Api\Decorator\EntityRelationshipRootLinksDecorator
+        arguments:
+            - "@api_rest.routes_builder"
+        tags:
+            - { name: kernel.event_listener, event: api_rest.get_relationship, method: decorate, priority: -96 }
+
+    #
+    # Entity links
+    #
+    api_rest.decorator.entity_links:
+        class: ApiRest\Api\Decorator\EntityLinksDecorator
+        arguments:
+            - "@api_rest.routes_builder"
+        tags:
+            - { name: kernel.event_listener, event: api_rest.get, method: decorate, priority: -96 }
+            - { name: kernel.event_listener, event: api_rest.get_bulk, method: decorate, priority: -96 }
+            - { name: kernel.event_listener, event: api_rest.get_relationship, method: decorate, priority: -96 }

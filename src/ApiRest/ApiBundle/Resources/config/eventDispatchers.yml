@@ -1,0 +1,8 @@
+services:
+
+    #
+    # Event Dispatchers
+    #
+    api_rest.event_dispatcher:
+        class: ApiRest\Api\EventDispatcher\ApiRestEventDispatcher
+        parent: elcodi.event_dispatcher.abstract

@@ -1,0 +1,19 @@
+services:
+
+    #
+    # Firewalls
+    #
+    api_rest.firewall.format:
+        class: ApiRest\Api\Firewall\FormatFirewall
+        tags:
+            #- { name: kernel.event_listener, event: api_rest.get, method: filter, priority: 96 }
+
+
+    api_rest.firewall.resource:
+        class: ApiRest\Api\Firewall\ResourceFirewall
+        arguments:
+            - "@elcodi.provider.repository"
+        tags:
+            - { name: kernel.event_listener, event: api_rest.get, method: filter, priority: 96 }
+            - { name: kernel.event_listener, event: api_rest.put, method: filter, priority: 96 }
+            - { name: kernel.event_listener, event: api_rest.delete, method: filter, priority: 96 }

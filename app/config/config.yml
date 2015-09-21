@@ -10,6 +10,7 @@ imports:
     - { resource: common/twig.yml }
     - { resource: common/metrics.yml }
     - { resource: common/sitemap.yml }
+    - { resource: common/api.yml }
 
     # Specific service overrides
     - { resource: common/services.yml }

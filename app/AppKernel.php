@@ -143,6 +143,7 @@ class AppKernel extends Kernel
              */
             'Elcodi\Common\FirewallBundle\ElcodiFirewallBundle',
             'Elcodi\Common\CommonBundle\ElcodiCommonBundle',
+            'ApiRest\ApiBundle\ApiBundle',
 
             /**
              * Elcodi Plugins

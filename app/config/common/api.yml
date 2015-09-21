@@ -1,0 +1,42 @@
+api:
+    route_format: elcodi.route.api_rest_{entity}
+    entities:
+
+        #
+        # Attribute API
+        #
+        attributes: Elcodi\Component\Attribute\Entity\Attribute
+        attribute_values: Elcodi\Component\Attribute\Entity\Value
+
+        #
+        # Product API
+        #
+        products: Elcodi\Component\Product\Entity\Product
+        variants: Elcodi\Component\Product\Entity\Variant
+        packs: Elcodi\Component\Product\Entity\Pack
+        categories: Elcodi\Component\Product\Entity\Category
+        manufacturers: Elcodi\Component\Product\Entity\Manufacturer
+
+        #
+        # User API
+        #
+        customers: Elcodi\Component\User\Entity\Customer
+        admin_users: Elcodi\Component\User\Entity\AdminUser
+
+        #
+        # Media API
+        #
+        images: Elcodi\Component\Media\Entity\Image
+
+        #
+        # Cart API
+        #
+        carts: Elcodi\Component\Cart\Entity\Cart
+        cart_lines: Elcodi\Component\Cart\Entity\CartLine
+        orders: Elcodi\Component\Cart\Entity\Order
+        order_lines: Elcodi\Component\Cart\Entity\OrderLine
+
+        #
+        # Geo API
+        #
+        addresses: Elcodi\Component\Geo\Entity\Address

@@ -1,0 +1,31 @@
+services:
+
+    #
+    # Loaders
+    #
+    api_rest.loader.abstract_entity:
+        class: ApiRest\Api\Loader\Abstracts\AbstractEntityLoader
+        abstract: true
+        arguments:
+            - "@elcodi.provider.repository"
+            - "@api_rest.mapping_info_provider"
+            - "@api_rest.configuration"
+            - "@api_rest.event_dispatcher"
+
+    api_rest.loader.entity:
+        class: ApiRest\Api\Loader\EntityLoader
+        parent: api_rest.loader.abstract_entity
+        tags:
+            - { name: kernel.event_listener, event: api_rest.get, method: load, priority: 32 }
+
+    api_rest.loader.entity_relationship:
+        class: ApiRest\Api\Loader\EntityRelationshipLoader
+        parent: api_rest.loader.abstract_entity
+        tags:
+            - { name: kernel.event_listener, event: api_rest.get_relationship, method: load, priority: 32 }
+
+    api_rest.loader.entity_bulk:
+        class: ApiRest\Api\Loader\EntityBulkLoader
+        parent: api_rest.loader.abstract_entity
+        tags:
+            - { name: kernel.event_listener, event: api_rest.get_bulk, method: load, priority: 32 }

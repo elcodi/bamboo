@@ -1,6 +1,9 @@
 #
 # API routes
 #
+apirest_api:
+    resource: "@ApiBundle/Resources/config/routing.yml"
+
 elcodi_metric:
     resource: "@ElcodiMetricBundle/Resources/config/routing.yml"
 

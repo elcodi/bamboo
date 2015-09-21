@@ -1,0 +1,11 @@
+services:
+
+    #
+    # Cleaners
+    #
+    api_rest.cleaner.empty_elements:
+        class: ApiRest\Api\Cleaner\EmptyElementsCleaner
+        tags:
+            - { name: kernel.event_listener, event: api_rest.get, method: clean, priority: -110 }
+            - { name: kernel.event_listener, event: api_rest.get_bulk, method: clean, priority: -110 }
+            - { name: kernel.event_listener, event: api_rest.get_relationship, method: clean, priority: -110 }
