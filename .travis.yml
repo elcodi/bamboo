@@ -33,9 +33,6 @@ before_script:
     - sh -c "sudo mkdir /tmp/Bamboo"
     - sh -c "sudo mount -t tmpfs -o size=512M tmpfs /tmp/Bamboo/"
 
-services:
-    - redis-server
-
 script:
     - bin/behat -fprogress --tags="~javascript"
     - bin/phpunit
