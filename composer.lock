@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "445bc9031f7aac98f6a457ed18a1f440",
-    "content-hash": "ef12a15b25d1713cf6b80474e884204a",
+    "hash": "cbf1e5a26924b7c46b722b11d333eb6a",
+    "content-hash": "2a4f75f5093dd63e0667212737d299ac",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -885,16 +885,16 @@
         },
         {
             "name": "elcodi/elcodi",
-            "version": "dev-master",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/elcodi/elcodi.git",
-                "reference": "25242de1914f00e6a6370f6c5fc2e7bb73ed36f3"
+                "reference": "ccc6de5ec0f74203b5872e4bc58b9db2b113ed07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elcodi/elcodi/zipball/25242de1914f00e6a6370f6c5fc2e7bb73ed36f3",
-                "reference": "25242de1914f00e6a6370f6c5fc2e7bb73ed36f3",
+                "url": "https://api.github.com/repos/elcodi/elcodi/zipball/ccc6de5ec0f74203b5872e4bc58b9db2b113ed07",
+                "reference": "ccc6de5ec0f74203b5872e4bc58b9db2b113ed07",
                 "shasum": ""
             },
             "require": {
@@ -1036,7 +1036,7 @@
                 "elcodi",
                 "symfony"
             ],
-            "time": "2015-09-21 16:47:12"
+            "time": "2015-09-21 19:20:02"
         },
         {
             "name": "goodby/csv",
@@ -5798,10 +5798,9 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "stability-flags": {
-        "hwi/oauth-bundle": 20,
-        "elcodi/elcodi": 20
+        "hwi/oauth-bundle": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
