@@ -11,11 +11,11 @@ case $FLAG in
        # ParameterHandler, which will interactively ask you for
        # the parameters to be copied.
        if [ ! -e app/config/parameters.yml ]; then
-           cp app/config/parameters.dist.yml app/config/parameters.yml
+           cp app/config/parameters.yml.dist app/config/parameters.yml
        fi
 
        # Firing up composer. Better to invoke the INSTALL than an UPDATE
-       sh -c 'composer install --no-interaction --prefer-source'
+       sh -c 'composer install --no-interaction --prefer-dist'
 
        ;;
     h) # help
@@ -26,7 +26,7 @@ case $FLAG in
 esac
 
 # Creating database schema and tables
-/usr/bin/env php app/console --no-interaction doc:dat:cre
+/usr/bin/env php app/console --no-interaction doc:dat:cre --if-not-exists
 /usr/bin/env php app/console --no-interaction doc:sch:cre
 
 /usr/bin/env php app/console --no-interaction doctrine:fixtures:load --fixtures="src/Elcodi/Fixtures"

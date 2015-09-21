@@ -1,0 +1,32 @@
+---
+server:
+    install: '1'
+    packages: [vim, git, imagemagick]
+    timezone: UTC
+    locale: en_US.UTF-8
+vagrant_local:
+    install: '1'
+    vm: { base_box: trusty64, hostname: bamboo.local, ip: 10.10.10.10, memory: '2048', sharedfolder: ../, useVagrantCloud: '1', syncType: nfs }
+apache:
+    install: '1'
+    docroot: /var/www/web
+    servername: bamboo.local
+mysql:
+    install: '1'
+    root_password: root
+    database: bamboo
+    user: user
+    password: password
+    dump: ''
+redis:
+    install: '1'
+    port: '6379'
+php:
+    install: '1'
+    ppa: php5-oldstable
+    packages: [php5-cli, php5-curl, php5-intl, php5-mcrypt, php5-gd, php5-mysql, php5-redis]
+xdebug:
+    install: '1'
+composer:
+    install: '1'
+

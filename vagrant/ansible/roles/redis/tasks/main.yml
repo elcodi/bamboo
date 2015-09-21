@@ -1,0 +1,84 @@
+---
+- name: checking redis installation
+  shell: 'test -f {{ redis_path }}/bin/redis-cli && echo "yes" || echo "no"'
+  changed_when: False
+  register: installed_status
+
+- name: get redis installed version
+  shell: "{{ redis_path }}/bin/redis-cli -v | awk {'print $2'}"
+  when: installed_status.stdout == "yes"
+  register: installed_version
+
+- name: set installed variable
+  set_fact: is_installed='{{ installed_status.stdout == "yes" and installed_version.stdout == redis_version }}'
+
+- name: install dependencies
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - make
+
+- name: download
+  get_url: >
+    url=http://download.redis.io/releases/redis-{{ redis_version }}.tar.gz
+    dest=/tmp/redis-{{ redis_version }}.tar.gz
+  when: not is_installed
+
+- name: extract
+  unarchive: >
+    src=/tmp/redis-{{ redis_version }}.tar.gz
+    dest=/tmp
+    copy=no
+  when: not is_installed
+
+- name: compile
+  command: make -j5
+           chdir=/tmp/redis-{{ redis_version }}
+           creates=/tmp/redis-{{ redis_version }}/src/redis-server
+  when: not is_installed
+
+- name: create directory
+  file: path={{ item }} state=directory
+  with_items:
+    - "{{ redis_path }}-{{ redis_version }}"
+    - "{{ redis_conf_path }}"
+    - "{{ redis_pid_path }}"
+    - "{{ redis_db_path }}/{{ redis.port }}"
+
+- name: install
+  command: make PREFIX={{ redis_path }}-{{ redis_version }} install
+           chdir=/tmp/redis-{{ redis_version }}
+           creates={{ redis_path }}-{{ redis_version }}/bin/redis-server
+  when: not is_installed
+
+- name: link redis folder
+  file: src={{ redis_path }}-{{ redis_version }} dest={{ redis_path }} state=link
+
+- name: create init script
+  template: src=init.tpl dest=/etc/init.d/redis mode=0755
+
+- name: set to start boot
+  service: name=redis enabled=yes
+
+- name: create config file
+  template: src=conf.tpl dest={{ redis_conf_path }}/{{ redis.port }}.conf
+  notify: restart redis
+
+- name: set bin folder into environment file
+  lineinfile: >
+    dest=/etc/environment
+    state=present
+    backrefs=yes
+    regexp='PATH=(["]*)((?!.*?{{ redis_path }}/bin).*?)(["]*)$'
+    line="PATH=\1\2:{{ redis_path }}/bin\3"
+
+- name: flush handlers to apply config changes
+  meta: flush_handlers
+
+- name: ensure redis is started
+  service: name=redis state=started
+
+- name: remove tmp files
+  file: path=/tmp/{{ item }} state=absent
+  with_items:
+    - "redis-{{ redis_version }}"
+    - "redis-{{ redis_version }}.tar.gz"
