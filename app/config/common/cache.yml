@@ -5,26 +5,26 @@ doctrine_cache:
         # Categories cache
         #
         elcodi_categories:
-            type: redis
+            type: array
             namespace: %elcodi.core.bamboo.cache_prefix%categories
 
         #
         # Menus cache
         #
         elcodi_menus:
-            type: redis
+            type: array
             namespace: %elcodi.core.bamboo.cache_prefix%menus
 
         #
         # Entity translations cache
         #
         elcodi_translations:
-            type: redis
+            type: array
             namespace: %elcodi.core.bamboo.cache_prefix%translations
 
         #
         # Comments cache
         #
         elcodi_comments:
-            type: redis
+            type: array
             namespace: %elcodi.core.bamboo.cache_prefix%comments

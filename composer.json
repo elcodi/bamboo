@@ -32,7 +32,6 @@
     "require": {
         "php": ">=5.4",
         "ext-openssl": "*",
-        "ext-redis": "*",
 
         "symfony/symfony": "^2.7",
         "symfony/framework-bundle": "^2.7",
@@ -73,7 +72,7 @@
         "mmoreram/cache-flush-bundle": "0.1.2",
         "mmoreram/http-headers-bundle": "1.0.0",
 
-        "elcodi/elcodi": "self.version"
+        "elcodi/elcodi": "^1.0"
     },
     "replace": {
         "elcodi-templates/template": "self.version",
@@ -105,6 +104,9 @@
         "fabpot/php-cs-fixer": "1.4.2",
         "visithor/visithor-bundle": "^0.1.8"
     },
+    "suggest": {
+        "ext-redis": "If doctrine cache works on top of redis"
+    },
     "scripts": {
         "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
@@ -135,7 +137,6 @@
             "app/AppCache.php"
         ]
     },
-    "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
         "bin-dir": "bin"

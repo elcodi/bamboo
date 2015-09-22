@@ -3,10 +3,6 @@ Bamboo e-commerce
 
 [![Build Status](https://travis-ci.org/elcodi/bamboo.svg?branch=master)](https://travis-ci.org/elcodi/bamboo)
 
-> Warning. This project is not tagged as stable yet. During this Beta stage, we
-> aim to find and resolve all bugs, empower testing layer and build even a 
-> better and bigger project documentation.
-
 Welcome to Bamboo e-commerce - a fully-functional e-commerce application built
 using [Elcodi] components on top of the [Symfony] framework.
 
@@ -20,25 +16,22 @@ focus on offering a good product, we take care of the rest.
 
 ## Requirements
 
-We're trying to build this project with a light default dependencies.
+We're trying to build this project with a light default dependencies. These are
+ours.
 
 ### PHP
 
-To use Bamboo and Elcodi you need a PHP version not less than **5.4**
-
-For more info just visit their
-[installation page](http://php.net/manual/en/install.php)
+To use Bamboo and Elcodi you need a PHP version not lower than **5.4**. For more 
+info just visit their [installation page](http://php.net/manual/en/install.php)
 
 ### PHP GD
 
-Images are a really important part of an store. Bamboo uses PHP GD to
-resize and optimize all product images
-
-For more info just visit their
-[installation page](http://php.net/manual/en/image.installation.php)
-
 > This PHP extension is used to being already installed when you add PHP in your
 > distribution
+
+Images are a really important part of an store. Bamboo uses PHP GD to
+resize and optimize all product images. For more info just visit their
+[installation page](http://php.net/manual/en/image.installation.php)
 
 After that, you will be able to change the adapter and use other 
 implementations.
@@ -46,9 +39,7 @@ implementations.
 ### MySQL
 
 And, where do you save your data? By default we use MySQL, remember to install
-it as well as its extension for PHP
-
-For more info just visit their
+it as well as its extension for PHP. For more info just visit their
 [installation page](http://dev.mysql.com/doc/refman/5.1/en/installing.html)
 
 ### Composer
@@ -62,18 +53,6 @@ command:
 ``` bash
 $ curl -s http://getcomposer.org/installer | php
 ```
-
-### Redis
-
-Bamboo uses redis to make the app lighter and to minimize the response time.
-
-For more info just visit their
-[installation page](http://redis.io/topics/quickstart)
-
-In order to use the last Redis features, like the `HyperLogLog` commands, be
-sure your Redis version is at least `v2.8.9`.
-
-> Make sure to have Redis PHP extension installed.
 
 ## Installation
 
@@ -135,6 +114,29 @@ Admin password: 1234
 ```
 
 Remember to remove these users properly as soon as you're in production.
+
+
+## Metrics
+
+Metrics are not enabled by default. If you want to enable them, then you need to
+install Redis. For more info just visit their
+[installation page](http://redis.io/topics/quickstart)
+
+In order to use the last Redis features, like the `HyperLogLog` commands, be
+sure your Redis version is at least `v2.8.9`.
+
+## Cache
+
+By default, Bamboo is installed without any doctrine cache. You can change this
+settings by changing the file `app/cache/config/common/cache.yml` and by
+changing the value `array` for another one.
+
+You can check some documentation about different types of cache in the
+[Doctrine Cache Bundle](https://github.com/doctrine/DoctrineCacheBundle)
+repository page.
+
+The most used cache type in Bamboo is `redis`. Make sure then that you have the
+php redis extension installed properly.
 
 ## Tests
 

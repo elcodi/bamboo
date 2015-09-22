@@ -52,8 +52,6 @@
         "elcodi/menu-bundle": "^1.0",
         "elcodi/plugin-bundle": "^1.0"
     },
-    "minimum-stability": "beta",
-    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "Elcodi\\Plugin\\CustomShippingBundle\\": ""
