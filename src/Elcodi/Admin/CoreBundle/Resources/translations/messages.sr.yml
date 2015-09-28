@@ -906,107 +906,107 @@ admin:
                 description: Set this shipping range as enabled or disabled.
 
     plugin:
-        single: App
-        plural: Apps
-        app_store: App store
-        saved:  Plugin status saved
+        single: Aplikacija
+        plural: Aplikacije
+        app_store: Prodavnica aplikacija
+        saved: Status plugina sačuvan
         field:
-            visibility: Enable:
+            visibility: Uključi:
         section:
-            settings: Settings
+            settings: Podešavanja
 
     settings:
-        single: Setting
-        plural: Settings
-        saved: Settings saved
+        single: Podešavanje
+        plural: Podešavanja
+        saved: Podešavanja sačuvana
         section:
             store:
-                title: General
+                title: Generalno
             profile:
-                title: Corporate Image
+                title: Korporativna slika
             address:
-                title: Address & Contact
+                title: Adresa & Kontakt
             corporate:
-                title: Corporate image
+                title: Korporativna slika
             products:
-                title: Products Setup
-                description: Set the product data.
+                title: Podešavanje Proizvoda
+                description: Ubaci podatke o proizvodu.
             payment:
-                title: Payment methods
+                title: Načini plaćanja
         field:
-            store_enabled: Store enabled
-            store_under_construction: Store under construction
-            store_name: Store Name
-            store_leitmotiv: Store Leitmotiv
-            store_phone: Store Phone
-            store_email: Store e-mail
-            currency: Currency configuration
+            store_enabled: Prodavnica uljučena
+            store_under_construction: Prodavnica u izradi
+            store_name: Ime prodavnice
+            store_leitmotiv: Lajt-motiv prodavnice
+            store_phone: Telefon prodavnice
+            store_email: E-mail prodavnice
+            currency: Konfiguracija valute
             product_stock:
-                title: Stock
-                description: Enable this option to activate stock control
+                title: Lager
+                description: Uključite ovu opciju da bi ste aktivirali kontrolu lagera
 
     template:
-        single: Theme
-        plural: Themes
+        single: Tema
+        plural: Teme
         label:
-            status: Enable:
+            status: Uključi:
         action:
-            preview: Preview
+            preview: Pregled
 
 plugin:
     paypal:
-        title: Paypal Account Setup
+        title: Paypal Podešavanje Naloga
         register:
-            title: Don't you have a PayPal account?
-            call_to_action: Create a PayPal account
+            title: Nemate PayPal nalog?
+            call_to_action: Kreiraj PayPal nalog
         settings:
-            recipient_email: Payment Paypal recipient email
+            recipient_email: Paypal plaćanje mail primaoca
     paymill:
-        title: Paymill Account Setup
+        title: Paymill Podešavanje Naloga
         register:
-            title: Don't you have a Paymill account?
-            call_to_action: Create a Paymill account NOW!
+            title: Nemate Paymill nalog?
+            call_to_action: Kreiraj Paymill nalog ODMAH!
         settings:
-            private_key: Paymill payment private key
-            public_key: Paymill payment public key
+            private_key: Paymill plaćanjet privatni ključ
+            public_key: Paymill plaćanje javni ključ
 
 ui:
     address:
-        full_name: Full name
-        phone:     Phone
-        address:   Address
-        city:      City
-        zipcode:   Zipcode
-        comment:   Comment
+        full_name: Puno ime i prezime
+        phone:     Telefon
+        address:   Adresa
+        city:      Grad
+        zipcode:   Poštanski broj
+        comment:   Komentar
     date:
-        today_at: Today at %time%
-        yesterday_at: Yesterday at %time%
+        today_at: Danas u %time%
+        yesterday_at: Juče u %time%
     list:
-        no_items:     There are no %items%.
-        create_first: Create my first %item%.
+        no_items:     Nema %items%.
+        create_first: Kreiraj moj prvi %item%.
     label:
-        enabled:  Enabled
-        disabled: Disabled
+        enabled:  Uključeno
+        disabled: Isključeno
     paginator:
-        elements: Showing %first% to %last% from %total% entries.
+        elements: Prikazujem %first% do %last% od %total% unosa.
     forms:
-        cancel: Cancel
-        save:   Save
-        delete: Delete
+        cancel: Otkaži
+        save:   Sačuvaj
+        delete: Obriši
     confirm:
-        delete: Are you sure you want to delete it?
+        delete: Da li ste sigurni da želite da ga obrišete?
     tags:
         placeholder:
-            comma_separated: Add tags separated by comma.
+            comma_separated: Dodajte tagove odvojene zarezom.
     language:
-        master_language: Master Language (Mandatory)
+        master_language: Glavni Jezik (Obavezno)
     delete:
-        success: Correctly deleted
+        success: Ispravno obrisano
     editor:
-        help: Select some text to get some format options
+        help: Izaberite neki tekst kako bi Vam se prikazale opcije za formatiranje
 
 plugin_type:
-    app: Apps
-    payment: Payment methods
-    shipping: Shipping methods
+    app: Aplikacije
+    payment: Načini plaćanja
+    shipping: Načini isporuke
     social: Social
