@@ -613,69 +613,69 @@ admin:
             cant_modify_permanent: This page is permanent and can't be modified
 
     profile:
-        single: Profile
-        plural: Profiles
+        single: Profil
+        plural: Profili
 
     product:
-        single:   Product
-        plural:   Products
-        note:     Notes
-        edit:     Edit "%name%"
-        new:      New Product
-        list:     Product list
-        saved:    Product saved
-        in_store:     View
-        show_metrics: Show metrics
+        single:   Artikal
+        plural:   Artikli
+        note:     Zabeleške
+        edit:     Izmeni "%name%"
+        new:      Novi Artikal
+        list:     Lista artikala
+        saved:    Artikal sačuvan
+        in_store: Pogledaj
+        show_metrics: Prikaži metriku
         field:
             name:
-                title: Title
-                placeholder: e.g. My Awesome Product
+                title: Naslov
+                placeholder: n.p. Moj Super Proizvod
             sku:
                 title: SKU
-                placeholder: ej. SAU102
+                placeholder: n.p. SAU102
             slug:
-                title: Slug
-                placeholder: e.g. my/awesome/product
-                customize: Customize slug
+                title: Podložak
+                placeholder: n.p. moj/super/proizvod
+                customize: Podesi podložak
             description:
-                title: Description
-                placeholder: e.g. This awesome product is exactly what you are lookin for.
+                title: Opis
+                placeholder: n.p. Ovaj super artikal je tačno ono što ste tražili.
             main_category:
-                title: Category
-                placeholder: 'e.g. Computers, handbags...'
+                title: Kategorija
+                placeholder: 'n.p. Računari, ručne torbe...'
             manufacturer:
-                title: Manufacturer
-                placeholder: 'e.g. Apple, Disney...'
+                title: Proizvođač
+                placeholder: 'n.p. Apple, Dizni...'
             price:
-                title: Price
+                title: Cena
             stock:
-                title: Stock
+                title: Lager
             reduced_price:
-                title: Reduced price
+                title: Korigovana cena
             weight:
-                title: Weight (in g)
+                title: Težina (u g)
             height:
-                title: Height (in cm)
+                title: Visina (u cm)
             width:
-                title: Width (in cm)
+                title: Širina (u cm)
             depth:
-                title: Depth (in cm)
+                title: Dubina (u cm)
             in_home:
-                title: Show in home
+                title: Pokaži na početnoj strani
             image:
-                title: Image
+                title: Slika
             name_details:
-                title: "Name & Details"
+                title: "Naziv & Detalji"
             enabled:
-                title: Visibility
+                title: Vidljivost
                 options:
-                    active: Active
-                    inactive: Inactive
+                    active: Aktivan
+                    inactive: Neaktivan
 
             metatitle:
-                placeholder: e.g. My Awesome Product
+                placeholder: n.p. Moj Super Proizvod
             metadescription:
-                placeholder: e.g. This awesome product is exactly what you are lookin for.
+                placeholder: n.p. Ovaj super artikal je tačno ono što ste tražili.
             metakeywords:
                 placeholder: 'e.g. product,awesome'
         info:
@@ -716,194 +716,194 @@ admin:
                 description: "Configure the stock for your product. Each order will reduce this number."
 
     variant:
-        single: Variant
-        plural: Variants
-        edit:   Edit variant "%name%"
-        new:    New Variant
-        list:   Variant list
-        saved:  Variant saved
+        single: Varijanta
+        plural: Varijante
+        edit:   Promeni varijantu "%name%"
+        new:    Nova Varijanta
+        list:   Lista varijanti
+        saved:  Varijanta sačuvana
         field:
             name:
-                title: Variant name
+                title: Naziv varijante
             price:
-                title: Price
+                title: Cena
             stock:
-                title: Stock
+                title: Lager
             reduced_price:
-                title: Reduced price
+                title: Korigovana cena
             enabled:
                 title: Status
                 options:
-                    active: Active
-                    inactive: Inactive
+                    active: Aktivna
+                    inactive: Neaktivna
             options:
-                title: "Select one or more attributes:"
+                title: "Izaberite jedan ili više atributa:"
         section:
             attributes:
-                title: Attributes
-                description: "Set the principal attributes of this variant."
+                title: Atributi
+                description: "Podesite glavni atribut ove varijante."
             pricing:
-                title: Pricing
-                description: "Set the price for your variant, without including taxes or shipping. Also you can set an offer price."
+                title: Cena
+                description: "Podesite cenu za ovu varijantu, bez poreza i cene isporuke. Takođe možete postaviti i cenu za ponudu."
             visibility:
-                title: Visibility
-                description: "Set this variant as visible or hidden."
+                title: Vidljivost
+                description: "Podesite ovu varijantu kao vidljivu ili sakrivenu."
 
     manufacturer:
-        single:   Manufacturer
-        plural:   Manufacturers
-        edit:     Edit "%name%"
-        new:      New Manufacturer
-        saved:    Manufacturer saved
-        list:     Manufacturer list
+        single:   Proizvođač
+        plural:   Proizvođači
+        edit:     Izmeni "%name%"
+        new:      Novi Proizvođač
+        saved:    Proizvođač sačuvan
+        list:     Lista proizvođača
         field:
             name:
-                title: Manufacturer name
-                placeholder: e.g. My Awesome Manufacturer
+                title: Naziv proizvođača
+                placeholder: n.p. Moj Super Proizvođač
             slug:
-                title: Slug
-                customize: Customize slug
-                placeholder: e.g. my/awesome/manufacturer
+                title: Podložak
+                customize: Podesi podložak
+                placeholder: n.p. moj/super/proizvođač
             description:
-                title: Description
-                placeholder: e.g. This awesome manufacturer is exactly what you are lookin for.
+                title: Opis
+                placeholder: n.p. Ovaj super proizvođač je tačno ono što ste tražili.
             enabled:
-                title: Enabled
+                title: Uključen
                 options:
-                    active: Active
-                    inactive: Inactive
+                    active: Aktivan
+                    inactive: Neaktivan
             image:
-                title: Image
+                title: Slika
             name_slug:
-                title: "Name & slug"
+                title: "Ime & podložak"
             product_count:
-                title: Products
+                title: Artikli
             metatitle:
-                placeholder: e.g. My Awesome Manufacturer
+                placeholder: n.p. Moj Super proizvođač
             metadescription:
-                placeholder: e.g. This awesome manufacturer is exactly what you are lookin for.
+                placeholder: n.p. Ovaj super proizvođač je tačno ono što ste tražili.
             metakeywords:
-                placeholder: 'e.g. manufacturer,awesome'
+                placeholder: 'n.p. proizvođač,super'
         section:
             basic:
-                title: Basic Details
-                description: Provide a very specific name as short as you can that helps your consumers to find the products of this manufacturer. Also you can add a description that will be shown in the manufacturer page in your store.
+                title: Osnovni Detalji
+                description: Pružite vrlo specifično i kratko ime koje pomaže Vašim kupcima da nađu proizvode ovog proizvođača. Takođe možete da dodate opis koji će biti prikazan na stranici proizvođača u okviru Vaše prodavnice.
             visibility:
-                title: Visibility
-                description: Set this manufacturer as visible or hidden.
+                title: Vidljivost
+                description: Podesite ovog proizvođača kao vidljivog ili sakrivenog.
             logo:
-                title: Manufacturer's Logo
-                description: Upload a logo image of the Manufacturer as bigger as possible. If it doesn't contain additional texts the better.
+                title: Proizvođačev Logo
+                description: Ubacite logo sliku proizvođača što moguće veću. Ako ne sadrži dodatni tekst onda još bolje.
 
     category:
-        single:   Category
-        plural:   Categories
-        edit:     Edit "%name%"
-        new:      New Category
-        saved:    Category saved
-        list:     Category list
-        in_store: View at the store
+        single:   Kategorija
+        plural:   Kategorije
+        edit:     Izmeni "%name%"
+        new:      Nova kategorija
+        saved:    Kategorija sačuvana
+        list:     Lista kategorija
+        in_store: Pogledaj na prodavnici
         field:
             name:
-                title: Category name
-                placeholder: e.g. My Awesome Category
+                title: Naziv kategorije
+                placeholder: n.p. Moja Super Kategorija
             slug:
-                title: Slug
-                placeholder: e.g. my/awesome/category
-                customize: Customize slug
+                title: Podložak
+                placeholder: n.p. moja/super/kategorija
+                customize: Podesi podložak
             root:
-                title: Root Category
+                title: Glavna Kategorija
             enabled:
-                title: Enabled
+                title: Uključena
                 options:
-                    active: Active
-                    inactive: Inactive
+                    active: Aktivna
+                    inactive: Neaktivna
             parent:
-                title: Parent
+                title: Roditelj
             contains:
-                title: %count% products inside
+                title: %count% artikala unutra
             metatitle:
-                placeholder: e.g. My Awesome Category
+                placeholder: n.p. Moja Super Kategorija
             metadescription:
-                placeholder: e.g. This awesome category is exactly what you are lookin for.
+                placeholder: n.p. Ova super kategorija je tačno ono što ste tražili.
             metakeywords:
-                placeholder: 'e.g. category,awesome'
+                placeholder: 'n.p. kategorija,super'
         section:
             basic:
-                title: Basic Details
-                description: Provide a very specific name as short as you can that helps your consumers to find the products of this category.
+                title: Osnovni Detalji
+                description: Pružite vrlo specifično i kratko ime koje pomaže Vašim kupcima da nađu proizvode iz ove kategorije.
             categorization:
-                title: Categorization
-                description: Set your category as root if doesn't have any parent or it's going to be parent of others.
+                title: Kategorizacija
+                description: Podesite Vašu kategoriju kao glavnu ako nema nadređenu kategoriju ili će biti nadređena ostalim kategorijama.
             visibility:
-                title: Visibility
-                description: Set this category as visible or hidden.
+                title: Vidljivost
+                description: Podesite ovu kategoriju kao vidljivu ili sakrivenu.
             edit:
-                title: "Order & Edit"
+                title: "Sortiranje & Izmena"
                 description:
-                    - "Drag & Drop the categories to order or nest one inside others. (2 Level max)."
-                    - "Click a category to edit."
-                    - "Click the trash to delete a category."
+                    - "Prevucite kategorije za sortiranje ili ugnježđenje jedna u drugu. (maksimalno do 2 nivoa)."
+                    - "Kliknite na kategoriju da je izmenite."
+                    - "Klikni na kantu da obrišete kategoriju."
 
     metadata:
-        customize: Customize Metadata
+        customize: Podesi Metapodatke
         disclaimer:
-            - This area for advanced users.
-            - Leave this fields in blank to obtain automatically the metadata of your page.
+            - Ovaj deo je za napredne korisnike.
+            - Ostavite ovo polje prazno da automatski dobijete metapodatke za Vašu stranicu.
         section:
             metadata:
-                title: Metadata
-                description: Description and keywords in meta tags are commonly used to describe the Web page's content. Most search engines use these data when adding pages to their search index.
+                title: Metapodaci
+                description: Opis i ključne reči u meta tagovima se obično koriste da opišu sadržaj stranice. Većina pretraživača koristi ove podatke kada indeksira stranice.
         field:
             metatitle:
-                title: MetaTitle
+                title: MetaNaslov
             metadescription:
-                title: MetaDescription
+                title: MetaOpis
             metakeywords:
-                title: MetaKeywords
+                title: MetaKljučneReči
 
     shipping_range:
-        single: Shipping range
-        plural: Shipping ranges
-        edit:   Edit Range "%name%"
-        new:    Create New Range
-        list:   Shipping Range list
-        saved:  Changes saved
+        single: Način isporuke
+        plural: Načini isporuke
+        edit:   Izmeni način "%name%"
+        new:    Napravite novi način isporuke
+        list:   Lista načina isporuka
+        saved:  Promene sačuvane
         field:
             name:
-                title: Shipping range name
-                placeholder: e.g. Delivery in 3-5 days
+                title: Naziv okvira isporuke
+                placeholder: n.p. Isporuka u okviru 3-5 dana
             to_zone:
-                title: To Zone
+                title: Do zone
             price:
-                title: Price
+                title: Cena
             type:
-                title: Prices will be calculated…
+                title: Cene će biti izračunate…
                 options:
-                    price: Based on order price
-                    weight: Based on order weight
+                    price: Na osnovu iznosa narudžbine
+                    weight: Na osnovu težine naručenih proizvoda
             fromPrice:
-                title: From price
+                title: Do cene
             toPrice:
-                title: To price
+                title: Od cene
             fromWeight:
-                title: From weight
+                title: Od težine
             toWeight:
-                title: To weight
+                title: Do težine
             value:
-                title: Value
-                price_format: From %from% to %to%
-                weight_format: From %from% g to %to% g
+                title: Vrednost
+                price_format: Od %from% do %to%
+                weight_format: Od %from% g do %to% g
         section:
             basic:
-                title: Basic Details
-                description: Provide the name of the shipping range and in what zone it will be available.
+                title: Osnovni Detalji
+                description: Upišite ime Vašeg načina isporuke i u kojoj zoni će biti raspoloživ.
             pricing:
-                title: Pricing
-                description: Set the price for this shipping range and define if it's going to be calculated based on order price or order weight.
+                title: Cena
+                description: Upišite cenu za ovaj način isporuke i definišite da li će biti izračunata na osnovu iznosa narudžbine ili težine naručenih proizvoda.
             visibility:
-                title: Visibility
-                description: Set this shipping range as enabled or disabled.
+                title: Vidljivost
+                description: Podesite ovaj način isporuke kao uključen ili isključen.
 
     plugin:
         single: Aplikacija
