@@ -11,7 +11,7 @@ admin:
                 description: Napredna podešavanja za Vašu prodavnicu.
             stock:
                 title: Lager
-                description: "Ako aktivirate ovu opciju moći ćete da podešavate količine za Vaše proizvode."
+                description: "Ako aktivirate ovu opciju moći ćete da podešavate količine za Vaše artikle."
             status:
                 title: Status
                 description: "Kontroliše da li je prodavnica otvorena ili zatvorena."
@@ -26,7 +26,7 @@ admin:
             useStock:
                 title: Aktiviraj kontrolu lagera
     identity:
-        singular: Korporativna slika
+        singular: Korporativni izgled
         more: Više
         less: Manje
         field:
@@ -54,7 +54,7 @@ admin:
                 description: Dodajte header sliku za pozadinu Vaše prodavnice.
             backgroundImage:
                 title: Pozadinska slika
-                description: Ovde dodajte što veću moguću sliku (okruglog ili vertikalnog formata) i ona će postati fenomenalna pozadinska slika Vaše prodavnice. Ako je ubacite bolje je da ne koristite sliku za header.
+                description: Ovde dodajte što veću moguću sliku (okruglog ili vertikalnog formata) i ona će postati pozadinska slika Vaše prodavnice. Ako je ubacite bolje je da ne koristite sliku za header.
     dashboard:
         single: Kontrolna tabla
         plural: Kontrolne table
@@ -334,283 +334,283 @@ admin:
                 description: Podesite ovaj članak kao vidljiv ili sakriven.
 
     mailing:
-        single: Mailing
-        plural: Mailings
-        edit:   Edit "%title%"
-        new:    Create new mailing
-        saved:  Mailing saved
-        list:   Mailing list
+        single: Mail Podložak
+        plural: Mail podlošci
+        edit:   Izmeni "%title%"
+        new:    Napravi novi podložak
+        saved:  Podložak sačuvana
+        list:   Lista podložaka
         field:
             title:
-                title: Title
-                placeholder: e.g. My Awesome Mailing
+                title: Naslov
+                placeholder: n.p. Moj Super Mail Podložak
             content:
-                title: Content
-                placeholder: e.g. This awesome mailing is exactly what you are lookin for.
+                title: Sadržaj
+                placeholder: n.p. Ovaj mail podložak je upravo ono što ste tražili.
         section:
             basic:
-                title: Basic content
-                description: Provide a descriptive title for your mailing and the content to deliver.
+                title: Osnovni sadržaj
+                description: Unesite opisajni naslov za Vaš mail podložak i sadržaj koji će biti isporučen.
 
     carrier:
-        single: Carrier
-        plural: Carriers
-        saved:  Changes saved
-        edit:   Edit "%name%"
-        new:    New Carrier
-        list:   Carrier list
+        single: Kurir
+        plural: Kuriri
+        saved:  Promene sačuvane
+        edit:   Izmeni "%name%"
+        new:    Novi Kurir
+        list:   Lista kurira
         error:
-            no_active_carrier: Warning! You have no active carrier
+            no_active_carrier: Upozorenje! Nemate aktivnih kurira
         field:
             name:
-                title: Name
-                placeholder: e.g. AwesomeCarrier
+                title: Ime
+                placeholder: n.p. SuperKurir
             description:
-                title: Description
-                placeholder: e.g. Best option for local shipping
+                title: Opis
+                placeholder: n.p. Najbolja opcija za lokalnu isporuku
             taxes:
-                title: Taxes
-                format: %value%% Tax
+                title: Porezi
+                format: %value%% Porez
             status:
-                title: Enabled
+                title: Uključen
         info:
-            shipping_rates_before_saving: You will be able to add shipping rates after save the carrier
+            shipping_rates_before_saving: Možete dodati cene posle ubacivanja kurira
         action:
-            add_shipping_range: Add range
+            add_shipping_range: Dodaj opseg
         section:
             basic:
-                title: Basic Details
-                description: Provide the name of the carrier and an internal description if needed.
+                title: Osnovni detalji
+                description: Unesite ime kurira i opis ako je neophodno.
             taxes:
-                title: Carrier taxes
-                description: The taxes that will be applied for this carrier.
+                title: Porez na isporuku
+                description: Porez će biti primenjen za ovog kurira.
             shipping_rates:
-                title: Shipping Rates
-                description: Add the shipping rates.
+                title: Cena isporuke
+                description: Dodaj cenu isporuke.
             visibility:
-                title: Visibility
-                description: Set this carrier as enabled or disabled.
+                title: Vidljivost
+                description: Podesite ovog kurira kao uključenog ili isključenog.
     catalog:
-        single: Catalog
-        plural: Catalogs
+        single: Katalog
+        plural: Katalozi
     categorization:
-        single: Categorization
-        plural: Categorizations
+        single: Kategorizacija
+        plural: Kategorizacije
     communication:
-        single: Communication
-        plural: Communications
+        single: Komunikacija
+        plural: Komunikacije
     shipping_payment:
-        single: Payment & Shipping
-        plural: Payments & Shipping
+        single: Plaćanje & Isporuka
+        plural: Plaćanja & Isporuke
     coupon:
-        single: Coupon
-        plural: Coupons
-        edit:   Edit "%code%"
-        new:    New coupon
-        saved:  Coupon saved
-        list:   Coupon list
+        single: Kupon
+        plural: Kuponi
+        edit:   Izmeni "%code%"
+        new:    Novi kupon
+        saved:  Kupon sačuvan
+        list:   Lista kupona
         field:
             code:
-                placeholder: e.g. MYCODE
-                title:        Code
+                placeholder: n.p. MOJKOD
+                title:        Kod
             count:
-                title: Usage Limit
+                title: Limit Korišćenja
             datetime:
-                title: 'Date & Time'
+                title: 'Datum & Vreme'
             description:
-                placeholder: e.g. 10% Discount code
-                title:       Description
+                placeholder: n.p. Kupon za popust od 10%
+                title:       Opis
             discount:
-                title: "% Amount"
+                title: "% Iznos"
             enabled:
                 title: Status
             enforcement:
-                title: Mode
+                title: Mod
                 options:
-                    manual: Manual application
-                    automatic: Automatic application
+                    manual: Ručno primeni
+                    automatic: Automatski primeni
             stackable:
-                title: This coupon can be applied when other coupons are present
+                title: Ovaj kupon se može koristiti sa ostalim aktivnim kuponima
             minimum_purchase:
-                title: Minimum purchase
+                title: Minimalni iznos kupovine
             price:
-                title: Amount
+                title: Iznos
             priority:
-                title: Priority
+                title: Prioritet
             rule:
-                title:       Rule
-                placeholder: No rule
+                title:       Pravila
+                placeholder: Bez pravila
             status:
                 title: Status
             type:
-                title: Type
+                title: Tip
                 options:
-                    fixed:  Fixed amount
-                    percent: Percent amount
+                    fixed:  Fiksan iznos
+                    percent: Iznos u procentima
             used:
-                title: Used
+                title: Iskorišćen
             valid_from:
-                title: From
+                title: Od
             valid_to:
-                title: To
+                title: Do
         section:
             basic:
-                title: Basic Data
+                title: Osnovne Informacije
                 description:
-                    - 'Set the code name (what users should type in the cart to activate the coupon)'
-                    - 'Set also the description to identify the coupon, the type and the mode to be applied.'
+                    - 'Podesite naziv koda(šta korisnik kuca u korpi da aktivira kupon)'
+                    - 'Podesite takođe opis za identifikaciju kupona, tip i mod za iskorišćenje.'
             fixed_amount:
-                title:       Fixed amount
-                description: Set the fixed amount to discount directly in the cart.
+                title:       Fiksan iznos
+                description: Podesite fiksan iznos za popust direktno u korpi.
             percent_amount:
-                title:       Percent amount
-                description: Set the percentage amount to discount directly in the cart.
+                title:       Iznos u procentima
+                description: Podesite iznos u procentima za popust direktno u korpi.
             rules:
-                title:       Rules
-                description: Select the rule the coupon will use and a minimum purchase necessary to apply the coupon (optional).
+                title:       Pravila
+                description: Podesite pravila koja će kupon koristiti i minimalni iznos kupovine neophodan za iskorišćenje kupona(opciono).
             validity:
-                title:       Validity
-                description: Set the time validity of the coupon and the status.
+                title:       Vreme isteka
+                description: Podesite vreme isteka kupona i status.
 
     currency:
-        single: Currency
-        plural: Currencies
-        list:   Currency list
+        single: Valuta
+        plural: Valute
+        list:   Lista valuta
         field:
-            symbol: Symbol
+            symbol: Simbol
             iso: ISO
-            master: Master currency
-            name: Name
-            status: Enabled
+            master: Glavna valuta
+            name: Naziv
+            status: Uključena
         saved:
-            enabled: This currency has been enabled
-            disabled: This currancy has been disabled
-            master: Main currency saved
+            enabled: Ova valuta je uključena
+            disabled: Ova valuta je isključena
+            master: Glavna valuta sačuvana
         error:
-            setting_disabled_master_currency: "You can't set a disabled currency as master"
-            disable_master_currency: You can not disable your master currency
+            setting_disabled_master_currency: "Ne možete da podesite valutu koja je isključena za glavnu"
+            disable_master_currency: Ne možete da isključite glavnu valutu
 
     image:
-        single: Image
-        plural: Images
+        single: Slika
+        plural: Slike
         info:
-            principal: First image will be the principal image.
-            reorder: "You can drag & drop the images to reorder."
-            upload: Upload images
-            upload_single: Upload image
-            upload_logo: Upload Logo
-            deleted: Image deleted
-            format: Format JPG, PNG or GIF. Max 20mb.
+            principal: Prva slika će biti glavna slika.
+            reorder: "Možete prevući slike da biste uradili sortiranje."
+            upload: Ubaci slike
+            upload_single: Ubaci sliku
+            upload_logo: Ubaci Logo
+            deleted: Slika obrisana
+            format: Format JPG, PNG or GIF. Maksimalno 20mb.
 
     language:
-        single: Language
-        plural: Languages
-        list:   Language list
+        single: Jezik
+        plural: Jezici
+        list:   Lista jezika
         field:
             iso: ISO
-            master: Master language
-            status: Enabled
+            master: Glavni jezik
+            status: Uključen
         saved:
-            enabled: This language has been enabled
-            disabled: This language has been disabled
-            master: Main language saved
+            enabled: Ovaj jezik je uključen
+            disabled: Ovaj jezik je isključen
+            master: Glavni jezik sačuvan
         error:
-            setting_disabled_master_language: "You can't set a disabled language as master"
-            disable_master_language: You can not disable your master language
+            setting_disabled_master_language: "Ne možete da podesite jezik koji je isključen za glavni"
+            disable_master_language: Ne možete da isključite glavni jezik
 
     media:
-        single: Media
-        plural: Media
-        list:   Media list
+        single: Dodatak
+        plural: Dodaci
+        list:   Lista dodataka
 
     metrics:
-        single: Metric
-        plural: Metrics
+        single: Metrika
+        plural: Metrike
         info:
-            visitors: Visitors
-            no_data: No data
+            visitors: Posetioci
+            no_data: Nema podataka
         action:
-            show: Show Metrics
+            show: Pokaži Metrike
         type:
             line:
-                unique: Unique
-                total: Total
+                unique: Jedinstvena
+                total: Ukupno
 
     order:
-        single:    Order
-        plural:    Orders
-        edit:      'Edit #%id%'
-        new:       New order
-        notes:      Notes
-        all:       All orders
-        list:      Order list
-        from_user: %name%'s orders
-        to_user:   Go to customer
+        single:    Narudžbina
+        plural:    Narudžbine
+        edit:      'Izmeni #%id%'
+        new:       Nova narudžbina
+        notes:     Zabeleške
+        all:       Sve narudžbine
+        list:      Lista narudžbina
+        from_user: %name% narudžbine
+        to_user:   Ide na kupca
         field:
-            id:               'Order #%id%'
-            date:             Date
-            carrier:          Carrier
-            customer:         Customer
+            id:               'Narudžbina #%id%'
+            date:             Datum
+            carrier:          Kurir
+            customer:         Kupac
             status:           Status
-            delivery_address: Delivery address
-            billing_address:  Billing address
-            both_addresses:   'Delivery & Billing address'
-            total:            Total
+            delivery_address: Adresa za isporuku
+            billing_address:  Adresa za naplatu
+            both_addresses:   'Adresa za isporuku i naplatu'
+            total:            Ukupno
         details:
-            title:    Details
+            title:    Detalji
             item:     Item
-            units:    Units
-            price:    Price
-            subtotal: Subtotal
-            discount: Coupon Discount
-            shipping: Shipping
+            units:    Jedinica
+            price:    Cena
+            subtotal: Sve ukupno
+            discount: Kupon Popust
+            shipping: Isporuka
         transition:
-            refund: Refund
-            order ready: Order ready
-            picked up on store: Picked on store
-            picked up by carrier: Picked by carrier
-            delivered: Delivered
-            cancel: Cancel
-            return: Return
+            refund: Povraćaj novca
+            order ready: Narudžbina spremna
+            picked up on store: Pokupljeno u prodavnici
+            picked up by carrier: Pokupljeno kurirom
+            delivered: Isporučeno
+            cancel: Otakazano
+            return: Vraćeno
 
     page:
-        single:   Page
-        plural:   Pages
-        edit:     Edit "%name%"
-        new:      New Page
-        list:     Page list
-        saved:    Changes saved
-        in_store: View at store
+        single:   Stranica
+        plural:   Stranice
+        edit:     Izmeni "%name%"
+        new:      Nova stranica
+        list:     Lista stranica
+        saved:    Stranica sačuvana
+        in_store: Pogledaj
         field:
             title:
-                title: Title
-                placeholder: e.g. My Awesome Page
+                title: Naslov
+                placeholder: n.p. Moja Super Stranica
             path:
-                title: Path
-                placeholder: e.g. my/awesome/page
-                customize: Customize path
+                title: Putanja
+                placeholder: n.p. moja/super/stranica
+                customize: Podesi podložak
             link:
                 title: Link
             enabled:
-                title: Enabled
+                title: Uključena
             content:
-                title: Content
-                placeholder: e.g. This awesome page is exactly what you are lookin for.
+                title: Sadržaj
+                placeholder: n.p. Ova super stranica je upravo ono što ste tražili.
             metatitle:
-                placeholder: e.g. My Awesome Page
+                placeholder: n.p. Moja Super Stranica
             metadescription:
-                placeholder: e.g. This awesome page is exactly what you are lookin for.
+                placeholder: n.p. Ova super stranica je upravo ono što ste tražili.
             metakeywords:
-                placeholder: 'e.g. page,awesome'
+                placeholder: 'n.p. stranica,super'
         section:
             basic:
-                title: Basic Details
-                description: Provide a very specific title for your page that explains and help sell your page and description that provides all the information required for your consumers.
+                title: Osnovni Detalji
+                description: Pružite vrlo specifično ime za Vašu stranicu koje objašnjava i pomaže da je uspešno prodate kao i opis koji će zanimati Vaše kupce.
             visibility:
-                title: Visibility
-                description: Set this page as visible or hidden, and make it visible in your home.
+                title: Vidljivost
+                description: Podesite ovu stranicu kao vidljivu ili sakrivenu, kao i da li će se videti na prvoj stranici.
         error:
-            cant_modify_permanent: This page is permanent and can't be modified
+            cant_modify_permanent: Ova stranica je statična i ne može biti izmenjena
 
     profile:
         single: Profil
@@ -629,13 +629,13 @@ admin:
         field:
             name:
                 title: Naslov
-                placeholder: n.p. Moj Super Proizvod
+                placeholder: n.p. Moj Super Artikal
             sku:
                 title: SKU
                 placeholder: n.p. SAU102
             slug:
                 title: Podložak
-                placeholder: n.p. moj/super/proizvod
+                placeholder: n.p. moj/super/artikal
                 customize: Podesi podložak
             description:
                 title: Opis
@@ -673,47 +673,47 @@ admin:
                     inactive: Neaktivan
 
             metatitle:
-                placeholder: n.p. Moj Super Proizvod
+                placeholder: n.p. Moj Super Artikal
             metadescription:
                 placeholder: n.p. Ovaj super artikal je tačno ono što ste tražili.
             metakeywords:
-                placeholder: 'e.g. product,awesome'
+                placeholder: 'n.p. artikal,super'
         info:
-            variants_before_saving: You will be able to add variants after saving the product
+            variants_before_saving: Možete dodavati varijante posle dodavanja artikla
         error:
-            no_category: Warning! This product has no associated category
-            no_manufacturer: Warning! This product has no associated manufacturer
-            price_negative: Warning! The price can not be negative
+            no_category: Upozorenje! Ovaj artikal nema dodeljenu kategoriju
+            no_manufacturer: Upozorenje! Ovaj artikal nema dodeljenog proizvođača
+            price_negative: Upozorenje! Cena artikla ne sme biti negativna vrednost
         tag:
-            in_home: Home
-            has_variants: Has variants
-            no_category: No category
-            no_manufacturer: No manufacturer
+            in_home: Početna
+            has_variants: Ima varijante
+            no_category: Bez kategorije
+            no_manufacturer: Bez prizvođača
         section:
             basic:
-                title: Basic Details
-                description: Provide a very specific title for your product that explains and help sell your product and description that provides all the information required for your consumers.
+                title: Osnovni Detalji
+                description: Pružite vrlo specifično ime za Vaš artikal koje objašnjava i pomaže da ga uspešno prodate kao i opis koji će zanimati Vaše kupce.
             categorization:
-                title: Categorization
-                description: The product must be clasified under one category and one manufacturer. They will be visible in your store and must help your customers to navigate in your store.
+                title: Kategorizacija
+                description: Artikal mora da bude klasificiran pod jednom kategorijom i proizvođačem. Oni će biti vidljivi na Vašoj prodavnici i pomagati Vašim kupcima u navigaciji kroz Vašu prodavnicu.
             pricing:
-                title: Pricing
-                description: "Set the price for your product, without including taxes nor shipping. Also you can set an offer price."
+                title: Cena
+                description: "Unesite cenu za Vaš artikal, bez poreza i troškova isporuke. Takođe možete uneti i akcijsku cenu."
             dimensions:
-                title: Dimensions
-                description: "Set the dimensions and weight for your product. This information will be useful to calculate shipping costs."
+                title: Dimezije
+                description: "Podesite dimenzije i težinu Vašeg artikla. Ove informacije će biti korisne pri obračunu troškova isporuke."
             sku:
                 title: SKU
-                description: "SKU is an identifier that allows to identify the products. Each SKU it's related to just one product."
+                description: "SKU je identifikator artikla. Svaki SKU je vezan samo za jedan artikal."
             variants:
-                title: Variants
-                description: 'Variants are diferent versions of this product (color, size... ). Variants can have different prices or other attributes.'
+                title: Varijante
+                description: 'Varijante su različite verzije ovog artikla( boja, veličina...). Varijante mogu imati različite cene za svaki atribut.'
             visibility:
-                title: Visibility
-                description: "Set this product as visible or hidden, and make it visible in your home."
+                title: Vidljivost
+                description: "Podesite ovaj artikal na viljiv ili sakriven, kao i da li će se videti na prvoj stranici."
             stock:
-                title: Stock
-                description: "Configure the stock for your product. Each order will reduce this number."
+                title: Lager
+                description: "Podesite lager za Vaš artikal. Svaka narudžbina će smanjiti ovaj broj."
 
     variant:
         single: Varijanta
@@ -787,7 +787,7 @@ admin:
         section:
             basic:
                 title: Osnovni Detalji
-                description: Pružite vrlo specifično i kratko ime koje pomaže Vašim kupcima da nađu proizvode ovog proizvođača. Takođe možete da dodate opis koji će biti prikazan na stranici proizvođača u okviru Vaše prodavnice.
+                description: Pružite vrlo specifično i kratko ime koje pomaže Vašim kupcima da nađu artikle ovog proizvođača. Takođe možete da dodate opis koji će biti prikazan na stranici proizvođača u okviru Vaše prodavnice.
             visibility:
                 title: Vidljivost
                 description: Podesite ovog proizvođača kao vidljivog ili sakrivenog.
@@ -831,7 +831,7 @@ admin:
         section:
             basic:
                 title: Osnovni Detalji
-                description: Pružite vrlo specifično i kratko ime koje pomaže Vašim kupcima da nađu proizvode iz ove kategorije.
+                description: Pružite vrlo specifično i kratko ime koje pomaže Vašim kupcima da nađu artikle iz ove kategorije.
             categorization:
                 title: Kategorizacija
                 description: Podesite Vašu kategoriju kao glavnu ako nema nadređenu kategoriju ili će biti nadređena ostalim kategorijama.
@@ -881,7 +881,7 @@ admin:
                 title: Cene će biti izračunate…
                 options:
                     price: Na osnovu iznosa narudžbine
-                    weight: Na osnovu težine naručenih proizvoda
+                    weight: Na osnovu težine naručenih artikala
             fromPrice:
                 title: Do cene
             toPrice:
@@ -900,7 +900,7 @@ admin:
                 description: Upišite ime Vašeg načina isporuke i u kojoj zoni će biti raspoloživ.
             pricing:
                 title: Cena
-                description: Upišite cenu za ovaj način isporuke i definišite da li će biti izračunata na osnovu iznosa narudžbine ili težine naručenih proizvoda.
+                description: Upišite cenu za ovaj način isporuke i definišite da li će biti izračunata na osnovu iznosa narudžbine ili težine naručenih artikala.
             visibility:
                 title: Vidljivost
                 description: Podesite ovaj način isporuke kao uključen ili isključen.
@@ -929,8 +929,8 @@ admin:
             corporate:
                 title: Korporativna slika
             products:
-                title: Podešavanje Proizvoda
-                description: Ubaci podatke o proizvodu.
+                title: Podešavanje Artikala
+                description: Ubaci podatke o artiklu.
             payment:
                 title: Načini plaćanja
         field:
@@ -983,7 +983,7 @@ ui:
         yesterday_at: Juče u %time%
     list:
         no_items:     Nema %items%.
-        create_first: Kreiraj moj prvi %item%.
+        create_first: Kreiraj moju prvu %item%.
     label:
         enabled:  Uključeno
         disabled: Isključeno
