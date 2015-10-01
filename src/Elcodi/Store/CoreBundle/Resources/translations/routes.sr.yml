@@ -1,0 +1,94 @@
+#
+# Valute
+#
+store_currency_nav: /valute/nav
+
+#
+# Jezici
+#
+store_language_nav: /jezici/nav
+
+#
+# Adrese
+#
+store_address_list: /moja-adresa
+store_address_edit: /moja-adresa/{id}/edit/{source}
+store_address_new: /moja-adresa/nova/{source}
+store_address_delete: /moja-adresa/{id}/obrisi
+
+#
+# Lokacije
+#
+location_selectors: /lokacija/selektor/{locationId}
+
+#
+# Blog
+#
+store_blog_view: /blog/{page}
+store_blog_post_view: /blog/{id}/{slug}
+
+#
+# Kategorija
+#
+store_categories_nav: /kategorije/nav
+store_category_products_list: /kategorija/{slug}/{id}
+
+#
+# Artikal
+#
+store_product_view: /artikal/{slug}/{id}
+
+
+#
+# Korpa
+#
+store_cart_view: /korpa
+store_cart_add_product: /korpa/artikal/{id}/add
+store_cart_add_product_variant: /korpa/artikal/varijacija/{id}/add
+store_cart_empty: /korpa/isprazni
+store_cart_update: /korpa/izmeni
+store_cartline_remove: /korpa/linija/{id}/obrisi
+store_cart_nav: /korpa/nav
+
+#
+# Placanje
+#
+store_checkout_address: /korpa/adresa
+store_checkout_address_save: /korpa/adresa/sacuvaj
+store_checkout_payment: /korpa/placanje
+store_checkout_payment_fail: /korpa/placanje/greska/{id}
+store_checkout_shipping_range_apply: /korpa/isporuka/okvir/promeni/{rangeId}
+
+#
+# Narudzbina
+#
+store_order_view: /narudzbina/{id}
+store_order_view_thanks: /narudzbina/{id}/thanks
+store_order_list: /moje-narudzbine
+
+#
+# Kupon za korpu
+#
+store_cart_coupon_form_type_coupon_apply: /korpa/kuponi
+store_coupon_apply: /korpa/kupon/primeni
+store_coupon_remove: /korpa/kupon/obrisi/{code}
+
+#
+# Lozinka
+#
+store_password_remember: /lozinka/zapamti
+store_password_recover_sent: /lozinka/poslata
+store_password_recover: /lozinka/povrati
+
+#
+# Sigurnost
+#
+store_register: /registracija
+store_login: /ulaz
+
+#
+# Korisnik
+#
+store_user_nav: /korisnik/nav
+store_user: /korisnik
+store_user_edit: /korisnik/izmeni

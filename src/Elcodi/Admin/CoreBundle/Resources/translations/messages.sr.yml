@@ -1,0 +1,1012 @@
+admin:
+    name: Admin
+    menu:
+        design: Podesi Prodavnicu
+    store:
+        saved: Podešavanja sačuvana.
+        settings: Podešavanja
+        section:
+            advanced:
+                title: Napredno
+                description: Napredna podešavanja za Vašu prodavnicu.
+            stock:
+                title: Lager
+                description: "Ako aktivirate ovu opciju moći ćete da podešavate količine za Vaše artikle."
+            status:
+                title: Status
+                description: "Kontroliše da li je prodavnica otvorena ili zatvorena."
+        field:
+            routingStrategy:
+                title: "Multijezičnost linkova"
+                prefix_except_default: Svu linkovi imaju jezični prefiks osim default jezika
+                prefix: Svu linkovi imaju jezični prefiks
+                custom: Bez prefiksa za jezike, samo prevedi linkove
+            enabled:
+                title: Prodavnica Otvorena
+            useStock:
+                title: Aktiviraj kontrolu lagera
+    identity:
+        singular: Korporativni izgled
+        more: Više
+        less: Manje
+        field:
+            name:
+                title: Naziv prodavnice
+                placeholder: n.p: Moja Super Prodavnica
+            leitmotiv:
+                title: Lajt-motiv
+                placeholder: n.p: Super proizovodi za super ljude
+        section:
+            info:
+                title: Osnovne informacije
+                description: Ubacite naziv Vaše prodavnice i lajt-motiv (opciono).
+            logo:
+                title: Logo
+                description: Ovde možete da dodate sliku sa Vašim logo-om.Molimo koristite što bolji kvalitet slike.
+            mobileLogo:
+                title: Logo za mobilnu verziju
+                description: Ovaj logo će biti prikazan klijentima koji koriste mobilni uređaj za pristup Vašoj prodavnici.On je opcionalan, ali ako želite da poboljšate mobilni doživljaj ubacite ga.
+            secondaryLogo:
+                title: Logo za footer
+                description: Ako želite poseban logo za footer (opciono) ubacite ga ovde.
+            headerImage:
+                title: Header slika
+                description: Dodajte header sliku za pozadinu Vaše prodavnice.
+            backgroundImage:
+                title: Pozadinska slika
+                description: Ovde dodajte što veću moguću sliku (okruglog ili vertikalnog formata) i ona će postati pozadinska slika Vaše prodavnice. Ako je ubacite bolje je da ne koristite sliku za header.
+    dashboard:
+        single: Kontrolna tabla
+        plural: Kontrolne table
+        title:  Kontrolna tabla
+        view_store: Pogledaj moju prodavnicu
+        chart:
+            visitors:
+                title: Posetioci
+                unique: Jedinstveni
+                total: Ukupno
+            sales:
+                title: Prodaje
+                sales: Prodaje
+            cart_conversion:
+                title: Konverzije u korpi
+                cart_view: Pregled korpe
+                billing_shipping: Naplata/Isporuka
+                payment: Plaćanje
+                ordered: Naručeno
+            devices:
+                title: Uređaji
+                mobile: Mobilni
+                desktop: Desktop
+            traffic_source:
+                title: Izvor Saobraćaja
+                direct: Direktno
+                referrals: Referentno
+                search_engine: Pretraživači
+        chart_range:
+            today: Danas
+            yesterday: Juče
+            last7days: Poslednjih 7 dana
+            last30days: Poslednjih 30 dana
+            last90days: Poslednjih 90 dana
+    UI:
+        show_code: Prikaži HTML kod
+        show_visual: Sakrij HTML kod
+    address:
+        single: Adresa
+        plural: Adrese
+        saved:  Adresa sačuvana
+        edit:
+            billing_address: Adresa za naplatu Vaše prodavnice
+            description: "Adresa koja će se pojaviti na fakturama Vaše prodavnice. Ako imate firmu to bi trebalo da bude adresa Vaše firme. U drugom slučaju to je Vaša primarna adresa."
+        select:
+            placeholder: Izaberi jednu
+        field:
+            recipient_name:
+                title:       Ime / Naziv firme
+                placeholder: n.p. Đorđe
+            recipient_surname:
+                title:       Prezime (Opciono ako je u pitanju firma)
+                placeholder: n.p. Đorđević
+            email:
+                title: Email
+                placeholder: n.p. đorđe.đorđević@mail.com
+            address:
+                title:       Adresa
+                placeholder: "n.p. Neka ulica, 212"
+            address_more:
+                title:       Dodatna adresa (opciono)
+                placeholder: n.p. Neka adresa dodatna
+            postalcode:
+                title:       Poštanski broj
+                placeholder: n.p. 18000
+            phone:
+                title:       Telefon
+                placeholder: n.p. 935 555 555
+            mobile:
+                title:       Mobilni
+                placeholder: n.p. 555 555 555
+            comments:
+                title:       Komentar
+                placeholder: n.p. Ovo je kuća
+            country:
+                title: Zemlja
+            state:
+                title: Pokrajina
+            province:
+                title: Opština
+            city:
+                title: Grad
+            isCompany:
+                title: Da li posedujete firmu?
+                value:
+                    individual: Fizičko lice
+                    company:    Pravno lice
+            cif:
+                title: CIF / NIF
+            save: Sačuvaj adresu
+
+    remember_user:
+        title: Zaboravili ste Vašu lozinku?
+        description: "Ne brinite, poslaćemo Vam email da možete resetovati Vašu lozinku."
+
+    recover_user:
+        title: Nova lozinka
+        field:
+            email:
+                placeholder: Unesite Vaš email
+            password:
+                placeholder: Nova šifra
+            repeat_password:
+                placeholder: Ponovite šifru
+        action:
+            email_sent:
+                title: Email poslat
+                description: "Molimo Vas proverite Vaš email i pratite uputstva da povratite Vašu lozinku."
+
+    login:
+        title: Potrebna je autentikacija
+        field:
+            email:
+                placeholder: Unesite Vaš email
+            password:
+                placeholder: Unesite šifru
+        action:
+            login: Logovanje
+            logout: Izlogovanje
+            remember: Da li ste zaboravili Vašu lozinku?
+
+    user:
+        field:
+            email:
+                title: Email
+                placeholder: n.p. đorđe.đorđević@mail
+            firstname:
+                title: Ime
+                placeholder: e.g. Đorđe
+            lastname:
+                title: Prezime
+                placeholder: e.g. Đorđević
+            fullname:
+                title: Puno ime i prezime
+            username:
+                title: Korisničko ime
+            birthday:
+                title: Datum rođenja
+            gender:
+                title: Pol
+                options:
+                    male: Muško
+                    female: Žensko
+            password:
+                title: Lozinka
+            enabled:
+                title: Status
+                options:
+                    active:   Aktivan
+                    inactive: Neaktivan
+
+    admin_user:
+        single: Administrator
+        plural: Administratori
+        list:   Lista administratora
+        edit:   Izmeni "%name%"
+        new:    Napravi novog Admin Korisnika
+        saved:  Promene sačuvane
+        error:
+            cant_disable_yourself: Ne možete isključiti Vaš sopstveni nalog
+            cant_remove_yourself: Ne možete obrisati Vaš sopstveni nalog
+        section:
+            login:
+                title: Login detalji
+                description: Svaki korisnik treba da ima jedinstven e-mail.
+            contact:
+                title: Kontakt detalji
+                description: Kontakt informacije za ovog administratora.
+            status:
+                title: Korisnički status
+                description: Možete podesiti administratore kao aktivne ili neaktivne.
+
+    customer:
+        single: Kupac
+        plural: Kupci
+        list:   Lista kupaca
+        edit:   Izmeni "%name%"
+        new:    Dodaj novog kupca
+        saved:  Promene sačuvane
+        info:
+            password_changed: Lozinka uspešno promenjena
+        error:
+            password_change: Greška prilikom promene lozinke
+        field:
+            username:
+                title: Korisničko ime
+                placeholder: n.p. dorđe_đorđević
+            identity_document:
+                title: Identifikator
+                placeholder: n.p. 12345678A
+            phone:
+                title: Telefon
+                placeholder: n.p. 555 55 55 55
+            language:
+                title: Preferirani jezik
+            guest:
+                title: Gost
+            newsletter:
+                title: Newsletter
+            order_count:
+                title: '# Narudžbine'
+        section:
+            login:
+                title: Login detalji
+                description: Svaki korisnik treba da ima jedinstven e-mail i jedinstveno korisničko ime.
+            contact:
+                title: Kontakt detalji
+                description: Kontakt informacije za ovog korisnika.
+            status:
+                title: 'Status & Opcije'
+                description: Podesi korisnikov status i opcije.
+
+    attribute:
+        single: Atribut
+        plural: Atributi
+        edit:   Izmeni "%name%"
+        new:    Novi atribut
+        saved:  Atribut sačuvan
+        list:   Lista atributa
+        field:
+            name:
+                placeholder: n.p. Boja
+                title:       Ime
+                values:      Vrednost
+            enabled:
+                title:       Status
+        section:
+            basic:
+                title:       Osnovni Detalji
+                description: Definišite ime i vrednosti atributa (odvojene zarezom).
+            visibility:
+                title:       Vidljivost
+                description: Podesi ovaj atribut kao vidljiv ili sakriven.
+
+    blog:
+        single: Blog
+        plural: Blogovi
+
+    blog_post:
+        single: Blog članak
+        plural: Blog članci
+        edit:   Izmeni "%name%"
+        new:    Dodaj blog članak
+        list:   Lista blog člankova
+        saved:  Članak sačuvan
+        in_store: Pogledaj na prodavnici
+        show_metrics: Pokaži metriku
+        field:
+            title:
+                title: Naslov
+                placeholder: n.p. Moj Super Blog Članak
+            path:
+                title: Putanja
+                placeholder: n.p. moj/super/blog-članak
+                customize: Podesi podložak
+            link:
+                title: Link
+            enabled:
+                title: Uključeno
+            content:
+                title: Sadržaj
+                placeholder: n.p. Ovaj super blog članak je baš ono što tražite.
+            publication_date:
+                title: Datum Objavljivanja
+            metatitle:
+                placeholder: n.p. Moj Super Blog Članak
+            metadescription:
+                placeholder: n.p. Ovaj super blog članak je baš ono što tražite.
+            metakeywords:
+                placeholder: 'n.p. blog,članak,super'
+        section:
+            basic:
+                title: Osnovni Detalji
+                description: Unesite vrlo specifičan naslov Vašeg članka koji objašnjava i pomaže da prodate Vaš blog članak i opis koji pruža sve informacije za Vaše kupce.
+            visibility:
+                title: Vidljivost
+                description: Podesite ovaj članak kao vidljiv ili sakriven.
+
+    mailing:
+        single: Mail Podložak
+        plural: Mail podlošci
+        edit:   Izmeni "%title%"
+        new:    Napravi novi podložak
+        saved:  Podložak sačuvana
+        list:   Lista podložaka
+        field:
+            title:
+                title: Naslov
+                placeholder: n.p. Moj Super Mail Podložak
+            content:
+                title: Sadržaj
+                placeholder: n.p. Ovaj mail podložak je upravo ono što ste tražili.
+        section:
+            basic:
+                title: Osnovni sadržaj
+                description: Unesite opisajni naslov za Vaš mail podložak i sadržaj koji će biti isporučen.
+
+    carrier:
+        single: Kurir
+        plural: Kuriri
+        saved:  Promene sačuvane
+        edit:   Izmeni "%name%"
+        new:    Novi Kurir
+        list:   Lista kurira
+        error:
+            no_active_carrier: Upozorenje! Nemate aktivnih kurira
+        field:
+            name:
+                title: Ime
+                placeholder: n.p. SuperKurir
+            description:
+                title: Opis
+                placeholder: n.p. Najbolja opcija za lokalnu isporuku
+            taxes:
+                title: Porezi
+                format: %value%% Porez
+            status:
+                title: Uključen
+        info:
+            shipping_rates_before_saving: Možete dodati cene posle ubacivanja kurira
+        action:
+            add_shipping_range: Dodaj opseg
+        section:
+            basic:
+                title: Osnovni detalji
+                description: Unesite ime kurira i opis ako je neophodno.
+            taxes:
+                title: Porez na isporuku
+                description: Porez će biti primenjen za ovog kurira.
+            shipping_rates:
+                title: Cena isporuke
+                description: Dodaj cenu isporuke.
+            visibility:
+                title: Vidljivost
+                description: Podesite ovog kurira kao uključenog ili isključenog.
+    catalog:
+        single: Katalog
+        plural: Katalozi
+    categorization:
+        single: Kategorizacija
+        plural: Kategorizacije
+    communication:
+        single: Komunikacija
+        plural: Komunikacije
+    shipping_payment:
+        single: Plaćanje & Isporuka
+        plural: Plaćanja & Isporuke
+    coupon:
+        single: Kupon
+        plural: Kuponi
+        edit:   Izmeni "%code%"
+        new:    Novi kupon
+        saved:  Kupon sačuvan
+        list:   Lista kupona
+        field:
+            code:
+                placeholder: n.p. MOJKOD
+                title:        Kod
+            count:
+                title: Limit Korišćenja
+            datetime:
+                title: 'Datum & Vreme'
+            description:
+                placeholder: n.p. Kupon za popust od 10%
+                title:       Opis
+            discount:
+                title: "% Iznos"
+            enabled:
+                title: Status
+            enforcement:
+                title: Mod
+                options:
+                    manual: Ručno primeni
+                    automatic: Automatski primeni
+            stackable:
+                title: Ovaj kupon se može koristiti sa ostalim aktivnim kuponima
+            minimum_purchase:
+                title: Minimalni iznos kupovine
+            price:
+                title: Iznos
+            priority:
+                title: Prioritet
+            rule:
+                title:       Pravila
+                placeholder: Bez pravila
+            status:
+                title: Status
+            type:
+                title: Tip
+                options:
+                    fixed:  Fiksan iznos
+                    percent: Iznos u procentima
+            used:
+                title: Iskorišćen
+            valid_from:
+                title: Od
+            valid_to:
+                title: Do
+        section:
+            basic:
+                title: Osnovne Informacije
+                description:
+                    - 'Podesite naziv koda(šta korisnik kuca u korpi da aktivira kupon)'
+                    - 'Podesite takođe opis za identifikaciju kupona, tip i mod za iskorišćenje.'
+            fixed_amount:
+                title:       Fiksan iznos
+                description: Podesite fiksan iznos za popust direktno u korpi.
+            percent_amount:
+                title:       Iznos u procentima
+                description: Podesite iznos u procentima za popust direktno u korpi.
+            rules:
+                title:       Pravila
+                description: Podesite pravila koja će kupon koristiti i minimalni iznos kupovine neophodan za iskorišćenje kupona(opciono).
+            validity:
+                title:       Vreme isteka
+                description: Podesite vreme isteka kupona i status.
+
+    currency:
+        single: Valuta
+        plural: Valute
+        list:   Lista valuta
+        field:
+            symbol: Simbol
+            iso: ISO
+            master: Glavna valuta
+            name: Naziv
+            status: Uključena
+        saved:
+            enabled: Ova valuta je uključena
+            disabled: Ova valuta je isključena
+            master: Glavna valuta sačuvana
+        error:
+            setting_disabled_master_currency: "Ne možete da podesite valutu koja je isključena za glavnu"
+            disable_master_currency: Ne možete da isključite glavnu valutu
+
+    image:
+        single: Slika
+        plural: Slike
+        info:
+            principal: Prva slika će biti glavna slika.
+            reorder: "Možete prevući slike da biste uradili sortiranje."
+            upload: Ubaci slike
+            upload_single: Ubaci sliku
+            upload_logo: Ubaci Logo
+            deleted: Slika obrisana
+            format: Format JPG, PNG or GIF. Maksimalno 20mb.
+
+    language:
+        single: Jezik
+        plural: Jezici
+        list:   Lista jezika
+        field:
+            iso: ISO
+            master: Glavni jezik
+            status: Uključen
+        saved:
+            enabled: Ovaj jezik je uključen
+            disabled: Ovaj jezik je isključen
+            master: Glavni jezik sačuvan
+        error:
+            setting_disabled_master_language: "Ne možete da podesite jezik koji je isključen za glavni"
+            disable_master_language: Ne možete da isključite glavni jezik
+
+    media:
+        single: Dodatak
+        plural: Dodaci
+        list:   Lista dodataka
+
+    metrics:
+        single: Metrika
+        plural: Metrike
+        info:
+            visitors: Posetioci
+            no_data: Nema podataka
+        action:
+            show: Pokaži Metrike
+        type:
+            line:
+                unique: Jedinstvena
+                total: Ukupno
+
+    order:
+        single:    Narudžbina
+        plural:    Narudžbine
+        edit:      'Izmeni #%id%'
+        new:       Nova narudžbina
+        notes:     Zabeleške
+        all:       Sve narudžbine
+        list:      Lista narudžbina
+        from_user: %name% narudžbine
+        to_user:   Ide na kupca
+        field:
+            id:               'Narudžbina #%id%'
+            date:             Datum
+            carrier:          Kurir
+            customer:         Kupac
+            status:           Status
+            delivery_address: Adresa za isporuku
+            billing_address:  Adresa za naplatu
+            both_addresses:   'Adresa za isporuku i naplatu'
+            total:            Ukupno
+        details:
+            title:    Detalji
+            item:     Item
+            units:    Jedinica
+            price:    Cena
+            subtotal: Sve ukupno
+            discount: Kupon Popust
+            shipping: Isporuka
+        transition:
+            refund: Povraćaj novca
+            order ready: Narudžbina spremna
+            picked up on store: Pokupljeno u prodavnici
+            picked up by carrier: Pokupljeno kurirom
+            delivered: Isporučeno
+            cancel: Otakazano
+            return: Vraćeno
+
+    page:
+        single:   Stranica
+        plural:   Stranice
+        edit:     Izmeni "%name%"
+        new:      Nova stranica
+        list:     Lista stranica
+        saved:    Stranica sačuvana
+        in_store: Pogledaj
+        field:
+            title:
+                title: Naslov
+                placeholder: n.p. Moja Super Stranica
+            path:
+                title: Putanja
+                placeholder: n.p. moja/super/stranica
+                customize: Podesi podložak
+            link:
+                title: Link
+            enabled:
+                title: Uključena
+            content:
+                title: Sadržaj
+                placeholder: n.p. Ova super stranica je upravo ono što ste tražili.
+            metatitle:
+                placeholder: n.p. Moja Super Stranica
+            metadescription:
+                placeholder: n.p. Ova super stranica je upravo ono što ste tražili.
+            metakeywords:
+                placeholder: 'n.p. stranica,super'
+        section:
+            basic:
+                title: Osnovni Detalji
+                description: Pružite vrlo specifično ime za Vašu stranicu koje objašnjava i pomaže da je uspešno prodate kao i opis koji će zanimati Vaše kupce.
+            visibility:
+                title: Vidljivost
+                description: Podesite ovu stranicu kao vidljivu ili sakrivenu, kao i da li će se videti na prvoj stranici.
+        error:
+            cant_modify_permanent: Ova stranica je statična i ne može biti izmenjena
+
+    profile:
+        single: Profil
+        plural: Profili
+
+    product:
+        single:   Artikal
+        plural:   Artikli
+        note:     Zabeleške
+        edit:     Izmeni "%name%"
+        new:      Novi Artikal
+        list:     Lista artikala
+        saved:    Artikal sačuvan
+        in_store: Pogledaj
+        show_metrics: Prikaži metriku
+        field:
+            name:
+                title: Naslov
+                placeholder: n.p. Moj Super Artikal
+            sku:
+                title: SKU
+                placeholder: n.p. SAU102
+            slug:
+                title: Podložak
+                placeholder: n.p. moj/super/artikal
+                customize: Podesi podložak
+            description:
+                title: Opis
+                placeholder: n.p. Ovaj super artikal je tačno ono što ste tražili.
+            main_category:
+                title: Kategorija
+                placeholder: 'n.p. Računari, ručne torbe...'
+            manufacturer:
+                title: Proizvođač
+                placeholder: 'n.p. Apple, Dizni...'
+            price:
+                title: Cena
+            stock:
+                title: Lager
+            reduced_price:
+                title: Korigovana cena
+            weight:
+                title: Težina (u g)
+            height:
+                title: Visina (u cm)
+            width:
+                title: Širina (u cm)
+            depth:
+                title: Dubina (u cm)
+            in_home:
+                title: Pokaži na početnoj strani
+            image:
+                title: Slika
+            name_details:
+                title: "Naziv & Detalji"
+            enabled:
+                title: Vidljivost
+                options:
+                    active: Aktivan
+                    inactive: Neaktivan
+
+            metatitle:
+                placeholder: n.p. Moj Super Artikal
+            metadescription:
+                placeholder: n.p. Ovaj super artikal je tačno ono što ste tražili.
+            metakeywords:
+                placeholder: 'n.p. artikal,super'
+        info:
+            variants_before_saving: Možete dodavati varijante posle dodavanja artikla
+        error:
+            no_category: Upozorenje! Ovaj artikal nema dodeljenu kategoriju
+            no_manufacturer: Upozorenje! Ovaj artikal nema dodeljenog proizvođača
+            price_negative: Upozorenje! Cena artikla ne sme biti negativna vrednost
+        tag:
+            in_home: Početna
+            has_variants: Ima varijante
+            no_category: Bez kategorije
+            no_manufacturer: Bez prizvođača
+        section:
+            basic:
+                title: Osnovni Detalji
+                description: Pružite vrlo specifično ime za Vaš artikal koje objašnjava i pomaže da ga uspešno prodate kao i opis koji će zanimati Vaše kupce.
+            categorization:
+                title: Kategorizacija
+                description: Artikal mora da bude klasificiran pod jednom kategorijom i proizvođačem. Oni će biti vidljivi na Vašoj prodavnici i pomagati Vašim kupcima u navigaciji kroz Vašu prodavnicu.
+            pricing:
+                title: Cena
+                description: "Unesite cenu za Vaš artikal, bez poreza i troškova isporuke. Takođe možete uneti i akcijsku cenu."
+            dimensions:
+                title: Dimezije
+                description: "Podesite dimenzije i težinu Vašeg artikla. Ove informacije će biti korisne pri obračunu troškova isporuke."
+            sku:
+                title: SKU
+                description: "SKU je identifikator artikla. Svaki SKU je vezan samo za jedan artikal."
+            variants:
+                title: Varijante
+                description: 'Varijante su različite verzije ovog artikla( boja, veličina...). Varijante mogu imati različite cene za svaki atribut.'
+            visibility:
+                title: Vidljivost
+                description: "Podesite ovaj artikal na viljiv ili sakriven, kao i da li će se videti na prvoj stranici."
+            stock:
+                title: Lager
+                description: "Podesite lager za Vaš artikal. Svaka narudžbina će smanjiti ovaj broj."
+
+    variant:
+        single: Varijanta
+        plural: Varijante
+        edit:   Promeni varijantu "%name%"
+        new:    Nova Varijanta
+        list:   Lista varijanti
+        saved:  Varijanta sačuvana
+        field:
+            name:
+                title: Naziv varijante
+            price:
+                title: Cena
+            stock:
+                title: Lager
+            reduced_price:
+                title: Korigovana cena
+            enabled:
+                title: Status
+                options:
+                    active: Aktivna
+                    inactive: Neaktivna
+            options:
+                title: "Izaberite jedan ili više atributa:"
+        section:
+            attributes:
+                title: Atributi
+                description: "Podesite glavni atribut ove varijante."
+            pricing:
+                title: Cena
+                description: "Podesite cenu za ovu varijantu, bez poreza i cene isporuke. Takođe možete postaviti i cenu za ponudu."
+            visibility:
+                title: Vidljivost
+                description: "Podesite ovu varijantu kao vidljivu ili sakrivenu."
+
+    manufacturer:
+        single:   Proizvođač
+        plural:   Proizvođači
+        edit:     Izmeni "%name%"
+        new:      Novi Proizvođač
+        saved:    Proizvođač sačuvan
+        list:     Lista proizvođača
+        field:
+            name:
+                title: Naziv proizvođača
+                placeholder: n.p. Moj Super Proizvođač
+            slug:
+                title: Podložak
+                customize: Podesi podložak
+                placeholder: n.p. moj/super/proizvođač
+            description:
+                title: Opis
+                placeholder: n.p. Ovaj super proizvođač je tačno ono što ste tražili.
+            enabled:
+                title: Uključen
+                options:
+                    active: Aktivan
+                    inactive: Neaktivan
+            image:
+                title: Slika
+            name_slug:
+                title: "Ime & podložak"
+            product_count:
+                title: Artikli
+            metatitle:
+                placeholder: n.p. Moj Super proizvođač
+            metadescription:
+                placeholder: n.p. Ovaj super proizvođač je tačno ono što ste tražili.
+            metakeywords:
+                placeholder: 'n.p. proizvođač,super'
+        section:
+            basic:
+                title: Osnovni Detalji
+                description: Pružite vrlo specifično i kratko ime koje pomaže Vašim kupcima da nađu artikle ovog proizvođača. Takođe možete da dodate opis koji će biti prikazan na stranici proizvođača u okviru Vaše prodavnice.
+            visibility:
+                title: Vidljivost
+                description: Podesite ovog proizvođača kao vidljivog ili sakrivenog.
+            logo:
+                title: Proizvođačev Logo
+                description: Ubacite logo sliku proizvođača što moguće veću. Ako ne sadrži dodatni tekst onda još bolje.
+
+    category:
+        single:   Kategorija
+        plural:   Kategorije
+        edit:     Izmeni "%name%"
+        new:      Nova kategorija
+        saved:    Kategorija sačuvana
+        list:     Lista kategorija
+        in_store: Pogledaj na prodavnici
+        field:
+            name:
+                title: Naziv kategorije
+                placeholder: n.p. Moja Super Kategorija
+            slug:
+                title: Podložak
+                placeholder: n.p. moja/super/kategorija
+                customize: Podesi podložak
+            root:
+                title: Glavna Kategorija
+            enabled:
+                title: Uključena
+                options:
+                    active: Aktivna
+                    inactive: Neaktivna
+            parent:
+                title: Roditelj
+            contains:
+                title: %count% artikala unutra
+            metatitle:
+                placeholder: n.p. Moja Super Kategorija
+            metadescription:
+                placeholder: n.p. Ova super kategorija je tačno ono što ste tražili.
+            metakeywords:
+                placeholder: 'n.p. kategorija,super'
+        section:
+            basic:
+                title: Osnovni Detalji
+                description: Pružite vrlo specifično i kratko ime koje pomaže Vašim kupcima da nađu artikle iz ove kategorije.
+            categorization:
+                title: Kategorizacija
+                description: Podesite Vašu kategoriju kao glavnu ako nema nadređenu kategoriju ili će biti nadređena ostalim kategorijama.
+            visibility:
+                title: Vidljivost
+                description: Podesite ovu kategoriju kao vidljivu ili sakrivenu.
+            edit:
+                title: "Sortiranje & Izmena"
+                description:
+                    - "Prevucite kategorije za sortiranje ili ugnježđenje jedna u drugu. (maksimalno do 2 nivoa)."
+                    - "Kliknite na kategoriju da je izmenite."
+                    - "Klikni na kantu da obrišete kategoriju."
+
+    metadata:
+        customize: Podesi Metapodatke
+        disclaimer:
+            - Ovaj deo je za napredne korisnike.
+            - Ostavite ovo polje prazno da automatski dobijete metapodatke za Vašu stranicu.
+        section:
+            metadata:
+                title: Metapodaci
+                description: Opis i ključne reči u meta tagovima se obično koriste da opišu sadržaj stranice. Većina pretraživača koristi ove podatke kada indeksira stranice.
+        field:
+            metatitle:
+                title: MetaNaslov
+            metadescription:
+                title: MetaOpis
+            metakeywords:
+                title: MetaKljučneReči
+
+    shipping_range:
+        single: Način isporuke
+        plural: Načini isporuke
+        edit:   Izmeni način "%name%"
+        new:    Napravite novi način isporuke
+        list:   Lista načina isporuka
+        saved:  Promene sačuvane
+        field:
+            name:
+                title: Naziv okvira isporuke
+                placeholder: n.p. Isporuka u okviru 3-5 dana
+            to_zone:
+                title: Do zone
+            price:
+                title: Cena
+            type:
+                title: Cene će biti izračunate…
+                options:
+                    price: Na osnovu iznosa narudžbine
+                    weight: Na osnovu težine naručenih artikala
+            fromPrice:
+                title: Do cene
+            toPrice:
+                title: Od cene
+            fromWeight:
+                title: Od težine
+            toWeight:
+                title: Do težine
+            value:
+                title: Vrednost
+                price_format: Od %from% do %to%
+                weight_format: Od %from% g do %to% g
+        section:
+            basic:
+                title: Osnovni Detalji
+                description: Upišite ime Vašeg načina isporuke i u kojoj zoni će biti raspoloživ.
+            pricing:
+                title: Cena
+                description: Upišite cenu za ovaj način isporuke i definišite da li će biti izračunata na osnovu iznosa narudžbine ili težine naručenih artikala.
+            visibility:
+                title: Vidljivost
+                description: Podesite ovaj način isporuke kao uključen ili isključen.
+
+    plugin:
+        single: Aplikacija
+        plural: Aplikacije
+        app_store: Prodavnica aplikacija
+        saved: Status plugina sačuvan
+        field:
+            visibility: Uključi:
+        section:
+            settings: Podešavanja
+
+    settings:
+        single: Podešavanje
+        plural: Podešavanja
+        saved: Podešavanja sačuvana
+        section:
+            store:
+                title: Generalno
+            profile:
+                title: Korporativna slika
+            address:
+                title: Adresa & Kontakt
+            corporate:
+                title: Korporativna slika
+            products:
+                title: Podešavanje Artikala
+                description: Ubaci podatke o artiklu.
+            payment:
+                title: Načini plaćanja
+        field:
+            store_enabled: Prodavnica uljučena
+            store_under_construction: Prodavnica u izradi
+            store_name: Ime prodavnice
+            store_leitmotiv: Lajt-motiv prodavnice
+            store_phone: Telefon prodavnice
+            store_email: E-mail prodavnice
+            currency: Konfiguracija valute
+            product_stock:
+                title: Lager
+                description: Uključite ovu opciju da bi ste aktivirali kontrolu lagera
+
+    template:
+        single: Tema
+        plural: Teme
+        label:
+            status: Uključi:
+        action:
+            preview: Pregled
+
+plugin:
+    paypal:
+        title: Paypal Podešavanje Naloga
+        register:
+            title: Nemate PayPal nalog?
+            call_to_action: Kreiraj PayPal nalog
+        settings:
+            recipient_email: Paypal plaćanje mail primaoca
+    paymill:
+        title: Paymill Podešavanje Naloga
+        register:
+            title: Nemate Paymill nalog?
+            call_to_action: Kreiraj Paymill nalog ODMAH!
+        settings:
+            private_key: Paymill plaćanjet privatni ključ
+            public_key: Paymill plaćanje javni ključ
+
+ui:
+    address:
+        full_name: Puno ime i prezime
+        phone:     Telefon
+        address:   Adresa
+        city:      Grad
+        zipcode:   Poštanski broj
+        comment:   Komentar
+    date:
+        today_at: Danas u %time%
+        yesterday_at: Juče u %time%
+    list:
+        no_items:     Nema %items%.
+        create_first: Kreiraj moju prvu %item%.
+    label:
+        enabled:  Uključeno
+        disabled: Isključeno
+    paginator:
+        elements: Prikazujem %first% do %last% od %total% unosa.
+    forms:
+        cancel: Otkaži
+        save:   Sačuvaj
+        delete: Obriši
+    confirm:
+        delete: Da li ste sigurni da želite da ga obrišete?
+    tags:
+        placeholder:
+            comma_separated: Dodajte tagove odvojene zarezom.
+    language:
+        master_language: Glavni Jezik (Obavezno)
+    delete:
+        success: Ispravno obrisano
+    editor:
+        help: Izaberite neki tekst kako bi Vam se prikazale opcije za formatiranje
+
+plugin_type:
+    app: Aplikacije
+    payment: Načini plaćanja
+    shipping: Načini isporuke
+    social: Social

@@ -1,0 +1,106 @@
+store:
+    error:
+        store_unavailable_title:     Prodavnica nije trenutno dostupna
+        store_is_disabled:           Ova prodavnica je trenutno isključena
+        store_is_under_construction: Ova prodavnica je trenutno u razvoju
+        page_not_found_title:        Stranica nije pronađena
+        page_not_found:              Otkrio si naš tajni plan da zavladamo svetom
+
+    address:
+        save:
+            response_ok: Adresa sačuvana
+        delete:
+            response_ok: Adresa ispravno obrisana
+        select_address_type: Izaberi %1 adresu
+        billing: naplata
+        delivery: isporuka
+        form:
+            fields:
+                city:
+                    label: Grad
+                name:
+                    label: Adresa
+                recipientName:
+                    label: Ime primaoca
+                recipientSurname:
+                    label: Prezime primaoca
+                address:
+                    label: Adresa
+                addressMore:
+                    label: Dodatna adresa (opciono)
+                postalcode:
+                    label: Poštanski broj
+                phone:
+                    label: Telefon
+                mobile:
+                    label: Mobilni telefon
+                comments:
+                    label: Komentar
+                send:
+                    label: Sačuvaj adresu
+                country:
+                    label: Zemlja
+                state:
+                    label: Pokrajina
+                province:
+                    label: Opština
+    login:
+        wrong_combination: Pogrešna kombinacija mail-a i lozinke
+        form:
+            fields:
+                email:
+                    label: Email
+                password:
+                    label: Lozinka
+                send:
+                    label: Pošalji
+    recovery:
+        form:
+            fields:
+                password:
+                    label: Lozinka
+                repeat_password:
+                    label: Ponovi lozinku
+                email:
+                    label: email
+                send:
+                    label: Pošalji
+                remember:
+                    label: Zapamti
+
+    user:
+        profile:
+            save:
+                message_ok: Profil sačuvan
+        form:
+            fields:
+                firstname:
+                    label: Ime
+                lastname:
+                    label: Prezime
+                email:
+                    label: Email
+                password:
+                    label: Lozinka
+                repeat_password:
+                    label: Ponovi lozinku
+                send:
+                    label: Sačuvaj
+
+    coupon:
+        form:
+            fields:
+                code:
+                    label: Kupon kod
+                apply:
+                    label: Primeni kupon kod
+        applied:
+            message_ok: Kupon uspešno iskorišćen
+            message_ko: Kupon nije iskorišćen
+
+    pagination:
+        first: Prva
+        previous: Prethodna
+        current: Trenutna
+        next: Sledeća
+        last: Poslednja
