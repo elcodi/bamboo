@@ -19,7 +19,7 @@ namespace Elcodi\Admin\GeoBundle\Form;
 
 use Doctrine\ORM\EntityNotFoundException;
 
-use Elcodi\Component\Geo\Services\Interfaces\LocationProviderInterface;
+use Elcodi\Component\Geo\Adapter\LocationProvider\Interfaces\LocationProviderAdapterInterface;
 use Elcodi\Component\Geo\ValueObject\LocationData;
 
 /**
@@ -32,17 +32,17 @@ class LocationSelectorBuilder
      *
      * The max location type that we want to show.
      */
-    protected $maxLocationType;
+    private $maxLocationType;
 
     /**
      * @var array
      *
      * The selects structure
      */
-    protected $selects;
+    private $selects;
 
     /**
-     * @var LocationProviderInterface
+     * @var LocationProviderAdapterInterface
      *
      * A location provider
      */
@@ -51,9 +51,9 @@ class LocationSelectorBuilder
     /**
      * Builds a new class
      *
-     * @param LocationProviderInterface $locationProvider
+     * @param LocationProviderAdapterInterface $locationProvider Location provider adapter
      */
-    public function __construct(LocationProviderInterface $locationProvider)
+    public function __construct(LocationProviderAdapterInterface $locationProvider)
     {
         $this->locationProvider = $locationProvider;
     }
@@ -96,7 +96,7 @@ class LocationSelectorBuilder
      *
      * @param null|LocationData $selectedLocation The selected option
      */
-    protected function buildRootSelector($selectedLocation = null)
+    private function buildRootSelector($selectedLocation = null)
     {
         $selectedOption = !is_null($selectedLocation)
             ? $selectedLocation->getId()
@@ -128,7 +128,7 @@ class LocationSelectorBuilder
      * @param LocationData $selectedRootLocation
      * @param              $hierarchy
      */
-    protected function buildChildrenSelects(
+    private function buildChildrenSelects(
         LocationData $selectedRootLocation,
         array $hierarchy
     ) {
@@ -171,7 +171,7 @@ class LocationSelectorBuilder
      *
      * @return array
      */
-    protected function generateOptions(array $rawOptions)
+    private function generateOptions(array $rawOptions)
     {
         $options = [];
         foreach ($rawOptions as $rawOption) {
@@ -188,7 +188,7 @@ class LocationSelectorBuilder
      *
      * @return \Elcodi\Component\Geo\ValueObject\LocationData[]
      */
-    protected function getHierarchy($locationId)
+    private function getHierarchy($locationId)
     {
         try {
             $hierarchy = $this
@@ -210,7 +210,7 @@ class LocationSelectorBuilder
      *
      * @return array
      */
-    protected function formatSelector(
+    private function formatSelector(
         $type,
         array $options,
         $selected = null
