@@ -8,6 +8,35 @@ https://github.com/elcodi/bamboo/commit/XXX where XXX is the change hash To
 get the diff between two versions, go to
 https://github.com/elcodi/bamboo/compare/v1.0.0...v1.0.1
 
+### v1.0.0 (23-09-2015)
+
+First stable release of Bamboo
+
+#### TL;DR
+
+* Improved Travis environment, removed Redis and removed composer.lock file
+* Multilingual support in category tree
+* Some minor fixes
+* Updated Elcodi dependencies with *semver* strategy
+* Updated LICENSE
+
+#### Release Log
+
+* [`017c168`](https://github.com/elcodi/bamboo/commit/017c16887f4ef4f1941bd2b4f8b29f285e969038) Removed composer.lock file (mmoreram)
+* [`2aa32b5`](https://github.com/elcodi/bamboo/commit/2aa32b5bd2bd456db70af814c5d7d9d371eaecff) Removed lazy services for plugin entities (mmoreram)
+* [`3f01cc6`](https://github.com/elcodi/bamboo/commit/3f01cc6e2a53e858f6e1ab537a4b8edcbd1a335f) Updated all dependencies to work with stable 1.0 (mmoreram)
+* [`8d1eef3`](https://github.com/elcodi/bamboo/commit/8d1eef350b12c6a40dc12fd0135e603a411647f5) Fixed travis installation process (mmoreram)
+* [`dc24db1`](https://github.com/elcodi/bamboo/commit/dc24db1cf706e12fa0ace1a50bd048feda17f36b) Removed redis server from travis file (mmoreram)
+* [`76b1d0e`](https://github.com/elcodi/bamboo/commit/76b1d0ea745eaa4735650ebd47f077d9baf9d96d) Removed redis extension from travis file (mmoreram)
+* [`4ec6b74`](https://github.com/elcodi/bamboo/commit/4ec6b74c7838396b1ee1eadd6fec14c167a2cb9d) Reduced installation dependencies (mmoreram)
+* [`918efe9`](https://github.com/elcodi/bamboo/commit/918efe9282dfdfe6616d6d067bb867c99b00c162) Removed unexistant categories.onchange event (mmoreram)
+* [`39d5ec2`](https://github.com/elcodi/bamboo/commit/39d5ec24509c32f3a88c2906f0329ec9401ef20a) Fix enable product (Berny Cantos)
+* [`863bbaa`](https://github.com/elcodi/bamboo/commit/863bbaafcc3222b7040dfa1975acb7fb5f7b47f7) Update LICENSE (Marc Morera)
+* [`22bb156`](https://github.com/elcodi/bamboo/commit/22bb156582779a598fbc2133bc223e89d4900469) Wrong route name in carriers selector (Francisco Javier)
+* [`508756c`](https://github.com/elcodi/bamboo/commit/508756c707ede65e675d13479fb3cd2b28c48a7d) Use AbstractElcodiBundle class for bamboo Bundles (Mickaël Andrieu)
+* [`bea17ee`](https://github.com/elcodi/bamboo/commit/bea17eec52272623690d973b96b38a4b03fed677) Removed duplicate entry (Mickaël Andrieu)
+* [`98df7d0`](https://github.com/elcodi/bamboo/commit/98df7d006f4a9b8061213da1c5c84ea48faa2ae0) multilanguage support for category tree (Berny Cantos)
+
 ### v1.0.0-beta3 (10-07-2015)
 
 Release focused on fixes, standardization and simplification.
