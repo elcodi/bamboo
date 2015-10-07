@@ -312,6 +312,7 @@ admin:
             name: Nombre
             status: Activo
             symbol: Símbolo
+            master: 'Moneda principal'
         list: 'Listado de divisas'
         plural: Divisas
         saved:
@@ -645,6 +646,7 @@ admin:
         error:
             no_category: '¡Atención! Este producto no está asociado a ninguna categoría'
             no_manufacturer: '¡Atención! Este producto no está asociado a ningún fabricante'
+            price_negative: 'Atención! El precio no puede ser negativo'
         field:
             depth:
                 title: 'Profundidad (en cm)'
@@ -781,6 +783,8 @@ admin:
                 title: 'Configuración del producto'
             store:
                 title: General
+            profile:
+                title: 'Imagen corporativa'
         single: Configuración
     shipping_payment:
         plural: 'Pagos / envíos'
