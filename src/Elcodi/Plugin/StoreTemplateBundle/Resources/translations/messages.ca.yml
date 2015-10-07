@@ -195,3 +195,5 @@ template:
                 email_sent_text: 'Li hem enviat un correu electrònic amb tots les instruccions per a recuperar la teva contrasenya'
                 recover_password: 'Recuperar contrasenya'
                 register: Registrar-se
+                password_sent_text: 'T''hem enviat un email amb tota l''informació per a recuperar la teva contrasenya'
+                password_sent: 'Contrasenya enviada'

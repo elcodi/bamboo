@@ -312,6 +312,7 @@ admin:
             name: Nom
             status: Activa
             symbol: Símbol
+            master: 'Moneda principal'
         list: 'Llista de divises'
         plural: Divises
         saved:
@@ -645,6 +646,7 @@ admin:
         error:
             no_category: '¡Atenció! Aquest producte no està associat a cap categoria'
             no_manufacturer: '¡Atenció! Aquest producte no està associat a cap fabricant'
+            price_negative: 'Atenció! El preu no pot ser negatiu!'
         field:
             depth:
                 title: 'Profunditat (en cm)'
@@ -693,6 +695,9 @@ admin:
                 title: 'Pes (en g)'
             width:
                 title: 'Amplada (en cm)'
+            sku:
+                title: SKU
+                placeholder: 'ex. SAU102'
         in_store: 'Veure a la tenda'
         info:
             variants_before_saving: 'Podràs afegir variants un cop hagis guardat el producte'
@@ -778,6 +783,8 @@ admin:
                 title: 'Imatge corporativa'
             store:
                 title: General
+            corporate:
+                title: 'Imatge corporativa'
         single: Configuració
     shipping_payment:
         plural: 'Pagaments / Enviaments'
