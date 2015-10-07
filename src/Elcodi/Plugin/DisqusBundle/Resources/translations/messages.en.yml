@@ -1,15 +1,12 @@
 elcodi_plugin:
     disqus:
-        name: Disqus
-        description: Disqus integration for your shop
-
+        description: 'Disqus integration for your shop'
         field:
+            disqus_enabled_blog_post:
+                label: 'Enable disqus on blog posts'
+            disqus_enabled_product:
+                label: 'Enable disqus on product pages'
             disqus_identifier:
                 label: Identifier
-                placeholder: e.g. 123456789
-
-            disqus_enabled_product:
-                label: Enable disqus on product pages
-
-            disqus_enabled_blog_post:
-                label: Enable disqus on blog posts
+                placeholder: 'e.g. 123456789'
+        name: Disqus

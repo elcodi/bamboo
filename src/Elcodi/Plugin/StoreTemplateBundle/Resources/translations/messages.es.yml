@@ -1,206 +1,197 @@
 template:
     store_template_bundle:
         address:
-            item:
-                billing: Facturación
-                delivery: Entrega
-                address_name: Nombre
-                fullname: Nombre completo
-                address: Dirección
-                phone_and_mobile: Teléfono / Móbil
-                city: Ciudad
-                state: Estado
-                province: Provincia
-                country: Pais
-                postal_code: Código postal
-                comment: Comentarios
-                actions: Acciones
-                edit: Editar
-                remove: Eliminar
-            new:
-                name:
-                    example: ej. Mi casa
-                recipient:
-                    example_name: ej. Don
-                    example_surname: ej. Nadie
-                address:
-                    example: ej. Dirección tremebunda, 21
-                address_more:
-                    example: ej. Don enterprises
-                postalcode:
-                    example: ej. 08080
-                phone:
-                    example: ej. 123 456 789
-                mobile:
-                    example: ej. 123 456 789
-                comments:
-                    example: ej. Es una casa
-                cancel: Cancelar
             edit:
-                edit_address: Editar dirección
-                add_new_address: Añadir nueva dirección
+                add_new_address: 'Añadir nueva dirección'
+                edit_address: 'Editar dirección'
+            item:
+                actions: Acciones
+                address: Dirección
+                address_name: Nombre
+                billing: Facturación
+                city: Ciudad
+                comment: Comentarios
+                country: Pais
+                delivery: Entrega
+                edit: Editar
+                fullname: 'Nombre completo'
+                phone_and_mobile: 'Teléfono / Móbil'
+                postal_code: 'Código postal'
+                province: Provincia
+                remove: Eliminar
+                state: Estado
             list:
+                add_new_address: 'Añadir nueva dirección'
                 addresses: Direcciones
-                no_addresses: No hay direcciones
-                add_new_address: Añadir nueva dirección
+                no_addresses: 'No hay direcciones'
+            new:
+                address:
+                    example: 'ej. Dirección tremebunda, 21'
+                address_more:
+                    example: 'ej. Don enterprises'
+                cancel: Cancelar
+                comments:
+                    example: 'ej. Es una casa'
+                mobile:
+                    example: 'ej. 123 456 789'
+                name:
+                    example: 'ej. Mi casa'
+                phone:
+                    example: 'ej. 123 456 789'
+                postalcode:
+                    example: 'ej. 08080'
+                recipient:
+                    example_name: 'ej. Don'
+                    example_surname: 'ej. Nadie'
         blog:
             post:
-                view:
-                    last_post: Último post
-                    read_more: Lee más
                 list:
                     blog_posts: Artículos
-                    read_more: Leer más
-                    next_posts: Siguientes artículos
-                    previous_posts: Artículos anteriores
-
+                    next_posts: 'Siguientes artículos'
+                    previous_posts: 'Artículos anteriores'
+                    read_more: 'Leer más'
+                view:
+                    last_post: 'Último post'
+                    read_more: 'Lee más'
         cart:
             item:
                 image: Imagen
                 item: Artículo
-                units: Unidades
                 price: Precio
-                total: Total
                 remove: Eliminar
-            view:
-                title: Tu carrito de la compra
                 total: Total
-                checkout_title: Comprueba tu pedido y/o aplica cupones
-                checkout: Tramitar pedido
-                empty_basket: Vaciar carrito
-                update_basket: Actualizar carrito
-                continue_shopping: Seguir comprando
-                your_cart_is_empty: Tu carrito está vacío
+                units: Unidades
             nav:
                 amount: Total
                 items: Productos
+            view:
+                checkout: 'Tramitar pedido'
+                checkout_title: 'Comprueba tu pedido y/o aplica cupones'
+                continue_shopping: 'Seguir comprando'
+                empty_basket: 'Vaciar carrito'
+                title: 'Tu carrito de la compra'
+                total: Total
+                update_basket: 'Actualizar carrito'
+                your_cart_is_empty: 'Tu carrito está vacío'
+        category:
+            nav:
+                new: Nuevos
+            view:
+                category: Categoría
+        checkout:
+            address:
+                add_new_address: 'Añadir nueva dirección'
+                payment: Pagar
+                select_address: 'Entrega y facturación'
+            back: Atrás
+            layout:
+                total: Total
+                your_cart: 'Tu carrito'
+            payment:
+                back: Regresar
+                bankwire: 'Transferencia bancaria'
+                continue: Continuar
+                credit_debit_card: 'Tarjeta de crédito/débido'
+                payment_method: 'Forma de pago'
+                paypal: Paypal
+                set_shipping_payment: 'Elige pago y forma de envío'
+                shipping_carrier_method: 'Método de envío'
+                try_again: 'Por favor, inténtelo otra vez'
         coupon:
             item:
                 coupon: Cupon
                 description: Descripción
+                remove: Eliminar
+                total: Total
                 units: Unidades
                 value: Valor
-                total: Total
-                remove: Eliminar
-
-        payment:
-            credit_card_owner: Titular de la tarjeta
-            credit_card_numbers: Número de la tarjeta de crédito
-            month: Mes
-            year: Año
-            security_code: Código de seguridad
-
-        category:
-            view:
-                category: Categoría
-            nav:
-                new: Nuevos
-
-        checkout:
-            back: Atrás
-            layout:
-                your_cart: Tu carrito
-                total: Total
-            address:
-                select_address: Entrega y facturación
-                payment: Pagar
-                add_new_address: Añadir nueva dirección
-            payment:
-                set_shipping_payment: Elige pago y forma de envío
-                continue: Continuar
-                back: Regresar
-                shipping_carrier_method: Método de envío
-                payment_method: Forma de pago
-                credit_debit_card: Tarjeta de crédito/débido
-                paypal: Paypal
-                bankwire: Transferencia bancaria
-                try_again: Por favor, inténtelo otra vez
-
+        footer:
+            follow_us: Síguenos
+            latest_news: 'Últimas noticias'
+            more: Más
+            quick_links: Enlaces
+        header:
+            menu: Menu
         order:
             coupon:
                 coupon: Cupón
                 description: Descripción
+                total: Total
                 units: Unidades
                 values: Valores
-                total: Total
             item:
                 image: Imagen
                 item: Elemento
-                units: Unidades
                 price: Precio
                 total: Total
+                units: Unidades
             list:
-                orders: Pedidos
-                image: Imagen
-                number_of_order: Nº de Pedido
-                order_number: "Pedido #"
-                payment_state: Estado de pago
-                shipping_state: Estado de envío
                 date: Fecha
+                image: Imagen
+                no_orders: 'Aún no tienes ningún pedido'
+                number_of_order: 'Nº de Pedido'
+                order_number: 'Pedido #'
+                orders: Pedidos
+                payment_state: 'Estado de pago'
+                shipping_state: 'Estado de envío'
                 total: Total
-                no_orders: Aún no tienes ningún pedido
             view:
-                order: Pedido
                 congratulations: ¡FELICIDADES!
-                thanks: " ¡Gracias por tu pedido! Vamos a proceder con su entrega lo antes posible."
+                continue_shopping: 'Seguir comprando'
+                order: Pedido
+                shipping: 'Envío:'
+                status: 'Estado:'
+                thanks: ' ¡Gracias por tu pedido! Vamos a proceder con su entrega lo antes posible.'
                 total: Total
-                continue_shopping: Seguir comprando
-                status: "Estado:"
-                shipping: "Envío:"
+        payment:
+            credit_card_numbers: 'Número de la tarjeta de crédito'
+            credit_card_owner: 'Titular de la tarjeta'
+            month: Mes
+            security_code: 'Código de seguridad'
+            year: Año
         product:
-            also_like: Tambien te puede interesar...
+            also_like: 'Tambien te puede interesar...'
             item:
                 offer: Oferta
             list:
-                no_products_in_category: Lo sentimos pero no tenemos ningún producto para esta categoría
+                no_products_in_category: 'Lo sentimos pero no tenemos ningún producto para esta categoría'
             view_item:
-                product: Producto
-                offer: Oferta
                 add_to_cart: Añadir
-                no_stock: Sin stock
-                description: Descripción
-                stock: Existencias
-                in_stock: Este producto está en stock, listo para ser enviado.
-                not_available: No hay stock para este producto
                 delivery: Envío
-                usually_dispatched_24_hours: Envío en 24/48 horas
-
+                description: Descripción
+                in_stock: 'Este producto está en stock, listo para ser enviado.'
+                no_stock: 'Sin stock'
+                not_available: 'No hay stock para este producto'
+                offer: Oferta
+                product: Producto
+                stock: Existencias
+                usually_dispatched_24_hours: 'Envío en 24/48 horas'
+        shipping:
+            carrier: Transportista
+            costs_will_be_calculated_after_address: 'Después de seleccionar una dirección, los gastos de envio de calcularán.'
+            costs_will_be_calculated_after_login: 'Después de iniciar sesión, los gastos de envío se calcularán.'
+            from: from
+            no_shipping_matching: 'No se puede enviar en tu zona. Por favor, contacte con la tienda'
         user:
             edit:
                 profile: Perfil
             home:
-                dashboard: Panel de usuario
+                dashboard: 'Panel de usuario'
+                my_addresses: 'Mis direcciones'
+                my_orders: 'Mis pedidos'
                 profile: Perfil
-                my_orders: Mis pedidos
-                my_addresses: Mis direcciones
             login:
-                login_with_account: Entra con tu cuenta
-                create_new_account: Crea una nueva cuenta
-                unregistered: "¿No estás registrado?"
-                login_with_social: Entra con tus cuentas sociales
-                forgot_your_password: ¿Has perdido la contraseña?
-            password:
-                recover_password: Recuperar contraseña
-                email_sent: Correo enviado
-                email_sent_text: Le hemos enviado un correo con todas las instrucciones para recuperar su contraseña
-                register: Registrarse
+                create_new_account: 'Crea una nueva cuenta'
+                forgot_your_password: '¿Has perdido la contraseña?'
+                login_with_account: 'Entra con tu cuenta'
+                login_with_social: 'Entra con tus cuentas sociales'
+                unregistered: '¿No estás registrado?'
             nav:
-                logout: Cerrar sesión
-                login: Iniciar sesión
-                create_new_account: Crea una nueva cuenta
-
-        header:
-            menu: Menu
-
-        footer:
-            latest_news: Últimas noticias
-            more: Más
-            quick_links: Enlaces
-            follow_us: Síguenos
-
-        shipping:
-            costs_will_be_calculated_after_login: Después de iniciar sesión, los gastos de envío se calcularán.
-            carrier: Transportista
-            from: from
-            costs_will_be_calculated_after_address: Después de seleccionar una dirección, los gastos de envio de calcularán.
-            no_shipping_matching: No se puede enviar en tu zona. Por favor, contacte con la tienda
+                create_new_account: 'Crea una nueva cuenta'
+                login: 'Iniciar sesión'
+                logout: 'Cerrar sesión'
+            password:
+                email_sent: 'Correo enviado'
+                email_sent_text: 'Le hemos enviado un correo con todas las instrucciones para recuperar su contraseña'
+                recover_password: 'Recuperar contraseña'
+                register: Registrarse

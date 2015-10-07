@@ -1,206 +1,197 @@
 template:
     store_template_bundle:
         address:
-            item:
-                billing: Facturació
-                delivery: Entrega
-                address_name: Nom
-                fullname: Nom complert
-                address: Adreça
-                phone_and_mobile: Telèfon / Mòvil
-                city: Ciutat
-                state: Estat
-                province: Província
-                country: Pais
-                postal_code: Codi Postal
-                comment: Comentaris
-                actions: Accions
-                edit: Editar
-                remove: Eliminar
-            new:
-                name:
-                    example: ej. Casa meva
-                recipient:
-                    example_name: ej. Joan
-                    example_surname: ej. Petit
-                address:
-                    example: ej. Carrer Inventat, 21
-                address_more:
-                    example: ej. Portal del carrer
-                postalcode:
-                    example: ej. 08080
-                phone:
-                    example: ej. 123 456 789
-                mobile:
-                    example: ej. 123 456 789
-                comments:
-                    example: ej. Es una casa
-                cancel: Cancel·lar
             edit:
-                edit_address: Editar adreça
-                add_new_address: Afegir nova adreça
+                add_new_address: 'Afegir nova adreça'
+                edit_address: 'Editar adreça'
+            item:
+                actions: Accions
+                address: Adreça
+                address_name: Nom
+                billing: Facturació
+                city: Ciutat
+                comment: Comentaris
+                country: Pais
+                delivery: Entrega
+                edit: Editar
+                fullname: 'Nom complert'
+                phone_and_mobile: 'Telèfon / Mòvil'
+                postal_code: 'Codi Postal'
+                province: Província
+                remove: Eliminar
+                state: Estat
             list:
+                add_new_address: 'Afegir nova adreça'
                 addresses: Adreçes
-                no_addresses: No hi ha adreçes
-                add_new_address: Afegir nova adreça
+                no_addresses: 'No hi ha adreçes'
+            new:
+                address:
+                    example: 'ej. Carrer Inventat, 21'
+                address_more:
+                    example: 'ej. Portal del carrer'
+                cancel: Cancel·lar
+                comments:
+                    example: 'ej. Es una casa'
+                mobile:
+                    example: 'ej. 123 456 789'
+                name:
+                    example: 'ej. Casa meva'
+                phone:
+                    example: 'ej. 123 456 789'
+                postalcode:
+                    example: 'ej. 08080'
+                recipient:
+                    example_name: 'ej. Joan'
+                    example_surname: 'ej. Petit'
         blog:
             post:
-                view:
-                    last_post: Últim article
-                    read_more: Segueix llegint
                 list:
                     blog_posts: Articles
-                    read_more: Segueix llegint
-                    next_posts: Següents articles
-                    previous_posts: Articles anteriors
-
+                    next_posts: 'Següents articles'
+                    previous_posts: 'Articles anteriors'
+                    read_more: 'Segueix llegint'
+                view:
+                    last_post: 'Últim article'
+                    read_more: 'Segueix llegint'
         cart:
             item:
                 image: Imatge
                 item: Article
-                units: Unitats
                 price: Preu
-                total: Total
                 remove: Eliminar
-            view:
-                title: La teva cistella de la compra
                 total: Total
-                checkout_title: Comprova la comanda i/o aplica descomptes
-                checkout: Tramitar comanda
-                empty_basket: Buidar cistella
-                update_basket: Actualizar cistella
-                continue_shopping: Seguir comprant
-                your_cart_is_empty: La teva cistella esta buida
+                units: Unitats
             nav:
                 amount: Total
                 items: Productes
+            view:
+                checkout: 'Tramitar comanda'
+                checkout_title: 'Comprova la comanda i/o aplica descomptes'
+                continue_shopping: 'Seguir comprant'
+                empty_basket: 'Buidar cistella'
+                title: 'La teva cistella de la compra'
+                total: Total
+                update_basket: 'Actualizar cistella'
+                your_cart_is_empty: 'La teva cistella esta buida'
+        category:
+            nav:
+                new: Nous
+            view:
+                category: Categoria
+        checkout:
+            address:
+                add_new_address: 'Afegir adreça'
+                payment: Pagar
+                select_address: 'Entrega y facturació'
+            back: 'Tornar enrera'
+            layout:
+                total: Total
+                your_cart: 'La teva cistella'
+            payment:
+                back: 'Tornar enrera'
+                bankwire: 'Transferència bancària'
+                continue: Continuar
+                credit_debit_card: 'Targeta de crèdit/dèbit'
+                payment_method: 'Mètode de pagament'
+                paypal: Paypal
+                set_shipping_payment: 'Escull forma de pagament i enviament'
+                shipping_carrier_method: 'Mètode d''enviament'
+                try_again: 'Si us plau, torna-ho a intentar'
         coupon:
             item:
                 coupon: Descompte
                 description: Descripció
+                remove: Eliminar
+                total: Total
                 units: Unitats
                 value: Valor
-                total: Total
-                remove: Eliminar
-
-        payment:
-            credit_card_owner: Titular de la targeta
-            credit_card_numbers: Número de la targeta de crèdit
-            month: Mes
-            year: Any
-            security_code: Codi de seguritat
-
-        category:
-            view:
-                category: Categoria
-            nav:
-                new: Nous
-
-        checkout:
-            back: Tornar enrera
-            layout:
-                your_cart: La teva cistella
-                total: Total
-            address:
-                select_address: Entrega y facturació
-                payment: Pagar
-                add_new_address: Afegir adreça
-            payment:
-                set_shipping_payment: Escull forma de pagament i enviament
-                continue: Continuar
-                back: Tornar enrera
-                shipping_carrier_method: Mètode d'enviament
-                payment_method: Mètode de pagament
-                credit_debit_card: Targeta de crèdit/dèbit
-                paypal: Paypal
-                bankwire: Transferència bancària
-                try_again: Si us plau, torna-ho a intentar
-
+        footer:
+            follow_us: Segueix-nos
+            latest_news: 'Últimes notícies'
+            more: Més
+            quick_links: Enllaços
+        header:
+            menu: Menú
         order:
             coupon:
                 coupon: Descompte
                 description: Descripció
+                total: Total
                 units: Unitats
                 values: Valors
-                total: Total
             item:
                 image: Imatge
                 item: Element
-                units: Unitats
                 price: Preu
                 total: Total
+                units: Unitats
             list:
-                orders: Comandes
-                image: Imatge
-                number_of_order: Nº de Comanda
-                order_number: "Comanda #"
-                payment_state: Estat de pagament
-                shipping_state: Estat d'enviament
                 date: Data
+                image: Imatge
+                no_orders: 'Encara no tens cap comanda'
+                number_of_order: 'Nº de Comanda'
+                order_number: 'Comanda #'
+                orders: Comandes
+                payment_state: 'Estat de pagament'
+                shipping_state: 'Estat d''enviament'
                 total: Total
-                no_orders: Encara no tens cap comanda
             view:
-                order: Comanda
                 congratulations: ¡FELICITATS!
-                thanks: " ¡Gràcies per la teva comanda! En breu procedirem a l'enviament de la teva comanda."
+                continue_shopping: 'Seguir comprant'
+                order: Comanda
+                shipping: 'Enviament:'
+                status: 'Estat:'
+                thanks: ' ¡Gràcies per la teva comanda! En breu procedirem a l''enviament de la teva comanda.'
                 total: Total
-                continue_shopping: Seguir comprant
-                status: "Estat:"
-                shipping: "Enviament:"
+        payment:
+            credit_card_numbers: 'Número de la targeta de crèdit'
+            credit_card_owner: 'Titular de la targeta'
+            month: Mes
+            security_code: 'Codi de seguritat'
+            year: Any
         product:
-            also_like: També et pot interessar...
+            also_like: 'També et pot interessar...'
             item:
                 offer: Oferta
             list:
-                no_products_in_category: Ho sentim però no tenim cap producte dins aquesta categoria
+                no_products_in_category: 'Ho sentim però no tenim cap producte dins aquesta categoria'
             view_item:
-                product: Producte
-                offer: Oferta
                 add_to_cart: Afegir
-                no_stock: Sense stock
-                description: Descripció
-                stock: Existències
-                in_stock: Aquest producte està en stock, llest per a ser enviat.
-                not_available: No hi ha stock per aquest producte
                 delivery: Enviament
-                usually_dispatched_24_hours: Envía en 24/48 horas
-
+                description: Descripció
+                in_stock: 'Aquest producte està en stock, llest per a ser enviat.'
+                no_stock: 'Sense stock'
+                not_available: 'No hi ha stock per aquest producte'
+                offer: Oferta
+                product: Producte
+                stock: Existències
+                usually_dispatched_24_hours: 'Envía en 24/48 horas'
+        shipping:
+            carrier: Transportista
+            costs_will_be_calculated_after_address: 'Després de sel·leccionar una adreça, els gastos d''enviament es calcularan.'
+            costs_will_be_calculated_after_login: 'Després d''iniciar sessió, els gastos d''enviament es calcularan'
+            from: Desde
+            no_shipping_matching: 'No es pot enviar a la teva zona. Si us plau, contacti amb la botiga'
         user:
             edit:
                 profile: Perfil
             home:
-                dashboard: Panell d'usuari
+                dashboard: 'Panell d''usuari'
+                my_addresses: 'Les meves adreçes'
+                my_orders: 'Les meves comandes'
                 profile: Perfil
-                my_orders: Les meves comandes
-                my_addresses: Les meves adreçes
             login:
-                login_with_account: Entra amb el teu compte
-                create_new_account: Crea un nou compte
-                unregistered: "¿No estàs registrat?"
-                login_with_social: Entra amb els teus comptes socials
-                forgot_your_password: ¿Has perdut la teva contrasenya?
-            password:
-                recover_password: Recuperar contrasenya
-                email_sent: Correu enviat
-                email_sent_text: Li hem enviat un correu electrònic amb tots les instruccions per a recuperar la teva contrasenya
-                register: Registrar-se
+                create_new_account: 'Crea un nou compte'
+                forgot_your_password: '¿Has perdut la teva contrasenya?'
+                login_with_account: 'Entra amb el teu compte'
+                login_with_social: 'Entra amb els teus comptes socials'
+                unregistered: '¿No estàs registrat?'
             nav:
-                logout: Tancar sessió
-                login: Iniciar sessió
-                create_new_account: Crea un nou compte
-
-        header:
-            menu: Menú
-
-        footer:
-            latest_news: Últimes notícies
-            more: Més
-            quick_links: Enllaços
-            follow_us: Segueix-nos
-
-        shipping:
-            costs_will_be_calculated_after_login: Després d'iniciar sessió, els gastos d'enviament es calcularan
-            carrier: Transportista
-            from: Desde
-            costs_will_be_calculated_after_address: Després de sel·leccionar una adreça, els gastos d'enviament es calcularan.
-            no_shipping_matching: No es pot enviar a la teva zona. Si us plau, contacti amb la botiga
+                create_new_account: 'Crea un nou compte'
+                login: 'Iniciar sessió'
+                logout: 'Tancar sessió'
+            password:
+                email_sent: 'Correu enviat'
+                email_sent_text: 'Li hem enviat un correu electrònic amb tots les instruccions per a recuperar la teva contrasenya'
+                recover_password: 'Recuperar contrasenya'
+                register: Registrar-se

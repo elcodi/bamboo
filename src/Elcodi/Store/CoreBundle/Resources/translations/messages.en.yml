@@ -1,51 +1,59 @@
 store:
-    error:
-        store_unavailable_title:     Store not available
-        store_is_disabled:           This store is currently disabled
-        store_is_under_construction: This store is under construction
-        page_not_found_title:        Page not found
-        page_not_found:              So, you've discovered our secret plans to take on the world.
-
     address:
-        save:
-            response_ok: Address saved
-        delete:
-            response_ok: Address correctly removed
-        select_address_type: Select a %1 address
         billing: billing
+        delete:
+            response_ok: 'Address correctly removed'
         delivery: delivery
         form:
             fields:
-                city:
-                    label: City
-                name:
-                    label: Address name
-                recipientName:
-                    label: Recipient name
-                recipientSurname:
-                    label: Recipient surname
                 address:
                     label: Address
                 addressMore:
-                    label: Address more (optional)
-                postalcode:
-                    label: Postalcode
-                phone:
-                    label: Phone
-                mobile:
-                    label: Mobile
+                    label: 'Address more (optional)'
+                city:
+                    label: City
                 comments:
                     label: Comments
-                send:
-                    label: Save address
                 country:
                     label: Country
-                state:
-                    label: State
+                mobile:
+                    label: Mobile
+                name:
+                    label: 'Address name'
+                phone:
+                    label: Phone
+                postalcode:
+                    label: Postalcode
                 province:
                     label: Province
+                recipientName:
+                    label: 'Recipient name'
+                recipientSurname:
+                    label: 'Recipient surname'
+                send:
+                    label: 'Save address'
+                state:
+                    label: State
+        save:
+            response_ok: 'Address saved'
+        select_address_type: 'Select a %1 address'
+    coupon:
+        applied:
+            message_ko: 'Could not apply coupon'
+            message_ok: 'Coupon applied successfully'
+        form:
+            fields:
+                apply:
+                    label: 'Apply coupon'
+                code:
+                    label: 'Coupon Code'
+    error:
+        page_not_found: 'So, you''ve discovered our secret plans to take on the world.'
+        page_not_found_title: 'Page not found'
+        store_is_disabled: 'This store is currently disabled'
+        store_is_under_construction: 'This store is under construction'
+        store_unavailable_title: 'Store not available'
     login:
-        wrong_combination: Wrong Email and password combination.
         form:
             fields:
                 email:
@@ -54,53 +62,41 @@ store:
                     label: Password
                 send:
                     label: Send
+        wrong_combination: 'Wrong Email and password combination.'
+    pagination:
+        current: Current
+        first: First
+        last: Last
+        next: Next
+        previous: Previos
     recovery:
         form:
             fields:
-                password:
-                    label: Password
-                repeat_password:
-                    label: Repeat password
                 email:
                     label: email
-                send:
-                    label: Send
+                password:
+                    label: Password
                 remember:
                     label: Remember
-
+                repeat_password:
+                    label: 'Repeat password'
+                send:
+                    label: Send
     user:
-        profile:
-            save:
-                message_ok: Profile saved
         form:
             fields:
+                email:
+                    label: Email
                 firstname:
                     label: Firstname
                 lastname:
                     label: Lastname
-                email:
-                    label: Email
                 password:
                     label: Password
                 repeat_password:
-                    label: Repeat password
+                    label: 'Repeat password'
                 send:
                     label: Save
-
-    coupon:
-        form:
-            fields:
-                code:
-                    label: Coupon Code
-                apply:
-                    label: Apply coupon
-        applied:
-            message_ok: Coupon applied successfully
-            message_ko: Could not apply coupon
-
-    pagination:
-        first: First
-        previous: Previos
-        current: Current
-        next: Next
-        last: Last
+        profile:
+            save:
+                message_ok: 'Profile saved'

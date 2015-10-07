@@ -1,9 +1,9 @@
 elcodi_plugin:
     stripe:
-        name: Stripe
-        description: "<p>Stripe permite a tus usuarios pagar con tarjeta de crédito. Para activarlo necesitas tener una cuenta de Stripe y pegar aqui tus claves públicas y privadas.</p><p>¿No tienes una cuenta de Stripe?</p>  <a href='https://dashboard.stripe.com/register' class='button' target='_blank'>Crear nueva cuenta de Stripe</a>"
+        description: '<p>Stripe permite a tus usuarios pagar con tarjeta de crédito. Para activarlo necesitas tener una cuenta de Stripe y pegar aqui tus claves públicas y privadas.</p><p>¿No tienes una cuenta de Stripe?</p>  <a href=''https://dashboard.stripe.com/register'' class=''button'' target=''_blank''>Crear nueva cuenta de Stripe</a>'
         field:
             private_key:
-                label: Clave privada
+                label: 'Clave privada'
             public_key:
-                label: Clave pública
+                label: 'Clave pública'
+        name: Stripe

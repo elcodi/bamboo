@@ -1,1009 +1,976 @@
 admin:
-    name: Administración
-    menu:
-        design: Personalizar tienda
-    store:
-        saved: Configuración guardada.
-        settings: Configuraciones
-        section:
-            advanced:
-                title: Opciones Avanzadas
-                description: En esta sección encontrarás opciones avanzadas de configuración.
-            stock:
-                title: Stock
-                description: "Activa esta opción para gestionar el stock de tus productos."
-            status:
-                title: Estado de la tienda
-                description: "Controla si la tienda esta abierta o cerrada al público."
-        field:
-            routingStrategy:
-                title: Estrategia de URLs para multiples lenguajes
-                prefix_except_default: Todas las urls tienen un prefijo excepto el lenguaje principal
-                prefix: Todas las urls tienen un prefijo
-                custom: Ningun prefijo para las lenguajes, traduciré todas las urls
-            enabled:
-                title: Activar tienda
-            useStock:
-                title: Usar Control de stock
-    identity:
-        singular: Imagen corporativa
-        more: Más
-        less: Menos
-        field:
-            name:
-                title: Nombre de tu tienda
-                placeholder: e.g: Mi tienda
-            leitmotiv:
-                title: Eslogan
-                placeholder: e.g: Productos para gente
-        section:
-            info:
-                title: Información básica
-                description: Introduce el nombre de tu tienda y si quieres un eslogan (opcional).
-            logo:
-                title: Logotipo de tu tienda
-                description: Si tienes un logotipo de tu tienda añádelo y se mostrará en varias partes de la tienda. Es recomendable que sea una imagen con buena calidad.
-            mobileLogo:
-                title: Logotipo versión móvil
-                description: Esta imagen se mostrará a aquellos clientes que accedan a tu tienda online desde un móvil. Es opcional, pero si quieres personalizar la experiencia para móvil, puedes.
-            secondaryLogo:
-                title: Logotipo a pie de página
-                description: Si quieres personalizar el logotipo a pie de página, añádelo. Es opcional.
-            headerImage:
-                title: Imagen de cabecera
-                description: Esta imagen se mostrará como cabecera de tu tienda. Dependiendo del diseño que selecciones varia ligeramente cómo se muestra, ya sea de fondo o de forma más prominente. Aunque es opcional recomendamos añadirla. Le dará mucha personalidad a tu tienda. Consejo: procura que la imagen tenga el máximo de definición posible y que sea horizontal y rectangular.
-            backgroundImage:
-                title: Imagen de fondo
-                description: Sube aquí una imagen lo más grande posible (cuadrada o vertical) y se convertirá en el espectacular fondo de tu tienda online. Si añades imagen de fondo es recomendable no utilizar imagen de cabecera.
-    dashboard:
-        single: Panel de control
-        plural: Paneles de control
-        title:  Panel de Control
-        view_store: Ir a mi tienda
-        chart:
-            visitors:
-                title: Visitas
-                unique: Usuarios únicos
-                total: Páginas vistas
-            sales:
-                title: Ventas
-                sales: Ventas
-            cart_conversion:
-                title: Conversión de carrito
-                cart_view: Resumen
-                billing_shipping: Dirección
-                payment: Pago
-                ordered: Finalizado
-            devices:
-                title: Dispositivos
-                mobile: Móviles
-                desktop: Escritorio
-            traffic_source:
-                title: Origen de tráfico
-                direct: Directo
-                referrals: Referidos
-                search_engine: Buscadores
-        chart_range:
-            today: Hoy
-            yesterday: Ayer
-            last7days: Últimos 7 días
-            last30days: Últimos 30 días
-            last90days: Últimos 90 días
     UI:
-        show_code: Ver Código fuente
-        show_visual: Ocultar Código fuente
+        show_code: 'Ver Código fuente'
+        show_visual: 'Ocultar Código fuente'
     address:
-        single: Dirección fiscal
-        plural: Direcciones fiscales
-        saved:  Dirección guardada
         edit:
-            billing_address: Dirección de facturación de tu tienda
-            description: "La dirección que constará en las facturas que emita tu tienda. En el caso de tener una empresa, esta será la dirección fiscal de esta. En caso contrario seguramente será tu dirección física."
-        select:
-            placeholder: Selecciona una
+            billing_address: 'Dirección de facturación de tu tienda'
+            description: 'La dirección que constará en las facturas que emita tu tienda. En el caso de tener una empresa, esta será la dirección fiscal de esta. En caso contrario seguramente será tu dirección física.'
         field:
-            recipient_name:
-                title:       Nombre / Empresa
-                placeholder: ej. John
-            recipient_surname:
-                title:       Apellidos (Opcional si es empresa)
-                placeholder: ej. Doe
-            email:
-                title: Correo electrónico
-                placeholder: ej. john.doe@mail.com
             address:
-                title:       Dirección
-                placeholder: "ej. Calle impresionante, 42"
+                placeholder: 'ej. Calle impresionante, 42'
+                title: Dirección
             address_more:
-                title:       Más dirección (opcional)
-                placeholder: ej. Oficina Doe
-            postalcode:
-                title:       Código postal
-                placeholder: ej. 08080
-            phone:
-                title:       Teléfono
-                placeholder: ej. 935 555 555
-            mobile:
-                title:       Móvil
-                placeholder: ej. 555 555 555
-            comments:
-                title:       Comentarios
-                placeholder: ej. Es una casa
-            country:
-                title: País
-            state:
-                title: Estado
-            province:
-                title: Provincia
+                placeholder: 'ej. Oficina Doe'
+                title: 'Más dirección (opcional)'
+            cif:
+                title: 'CIF / NIF'
             city:
                 title: Ciudad
+            comments:
+                placeholder: 'ej. Es una casa'
+                title: Comentarios
+            country:
+                title: País
+            email:
+                placeholder: 'ej. john.doe@mail.com'
+                title: 'Correo electrónico'
             isCompany:
-                title: Es empresa o persona física?
+                title: 'Es empresa o persona física?'
                 value:
-                    individual: Persona física
-                    company:    Empresa
-            cif:
-                title: CIF / NIF
-            save: Guardar dirección
-
-    remember_user:
-        title: ¿Olvidaste tu contraseña?
-        description: "No te preocupes, te mandamos un email para reiniciar tu contraseña."
-
-    recover_user:
-        title: Nueva contraseña
+                    company: Empresa
+                    individual: 'Persona física'
+            mobile:
+                placeholder: 'ej. 555 555 555'
+                title: Móvil
+            phone:
+                placeholder: 'ej. 935 555 555'
+                title: Teléfono
+            postalcode:
+                placeholder: 'ej. 08080'
+                title: 'Código postal'
+            province:
+                title: Provincia
+            recipient_name:
+                placeholder: 'ej. John'
+                title: 'Nombre / Empresa'
+            recipient_surname:
+                placeholder: 'ej. Doe'
+                title: 'Apellidos (Opcional si es empresa)'
+            save: 'Guardar dirección'
+            state:
+                title: Estado
+        plural: 'Direcciones fiscales'
+        saved: 'Dirección guardada'
+        select:
+            placeholder: 'Selecciona una'
+        single: 'Dirección fiscal'
+    admin_user:
+        edit: 'Editar "%name%"'
+        error:
+            cant_disable_yourself: 'No puedes desactivar tu propia cuenta'
+            cant_remove_yourself: 'No puedes borrar tu propia cuenta'
+        list: 'Listado de administradores'
+        new: 'Crea un nuevo administrador'
+        plural: Administradores
+        saved: 'Cambios guardados'
+        section:
+            contact:
+                description: 'Los detalles de contacto para este administrador.'
+                title: 'Detalles de contacto'
+            login:
+                description: 'Cada usuario debe tener un correo eletrónico único.'
+                title: 'Detalles de sesión'
+            status:
+                description: 'Puedes configurar los administradores como activos o inactivos.'
+                title: 'Estado del usuario'
+        single: Administrador
+    attribute:
+        edit: 'Editar "%name%"'
         field:
-            email:
-                placeholder: Tu correo electrónico
-            password:
-                placeholder: Nueva contraseña
-            repeat_password:
-                placeholder: Repite contraseña
-        action:
-            email_sent:
-                title: Correo electrónico enviado
-                description: "Por favor, comprueba tu correo electrónico y sigue las intrucciones para recuperar tu contraseña."
-
-    login:
-        title: Es necesario iniciar sesión
-        field:
-            email:
-                placeholder: Tu correo electrónico
-            password:
-                placeholder: Tu contraseña
-        action:
-            login: Iniciar sesión
-            logout: Cerrar sesión
-            remember: Olvidaste la contraseña?
-
-    user:
-        field:
-            email:
-                title: Correo electrónico
-                placeholder: ej. john.doe@mail.com
-            firstname:
-                title: Nombre
-                placeholder: ej. John
-            lastname:
-                title: Apellido
-                placeholder: ej. Doe
-            fullname:
-                title: Nombre completo
-            username:
-                title: Nombre de usuario
-            birthday:
-                title: Fecha de nacimiento
-            gender:
-                title: Sexo
-                options:
-                    male: Masculino
-                    female: Femenino
-            password:
-                title: Contraseña
             enabled:
                 title: Estado
-                options:
-                    active:   Activo
-                    inactive: Inactivo
-
-    admin_user:
-        single: Administrador
-        plural: Administradores
-        list:   Listado de administradores
-        edit:   Editar "%name%"
-        new:    Crea un nuevo administrador
-        saved:  Cambios guardados
-        error:
-            cant_disable_yourself: No puedes desactivar tu propia cuenta
-            cant_remove_yourself: No puedes borrar tu propia cuenta
-        section:
-            login:
-                title: Detalles de sesión
-                description: Cada usuario debe tener un correo eletrónico único.
-            contact:
-                title: Detalles de contacto
-                description: Los detalles de contacto para este administrador.
-            status:
-                title: Estado del usuario
-                description: Puedes configurar los administradores como activos o inactivos.
-
-    customer:
-        single: Cliente
-        plural: Clientes
-        list:   Listado de clientes
-        edit:   Editar "%name%"
-        new:    Crear un nuevo cliente
-        saved:  Cambios guardados
-        info:
-            password_changed: Contraseña guardada correctamente
-        error:
-            password_change: Error guardando la contraseña
-        field:
-            username:
-                title: Nombre de usuario
-                placeholder: ej. john_doe
-            identity_document:
-                title: Documento de identidad
-                placeholder: ej. 12345678A
-            phone:
-                title: Teléfono
-                placeholder: ej. 555 55 55 55
-            language:
-                title: Idioma preferido
-            guest:
-                title: Invitado
-            newsletter:
-                title: Boletín de noticias
-            order_count:
-                title: 'Nº Pedido'
-        section:
-            login:
-                title: Detalles de sesión
-                description: Cada usuario debe tener un correo eletrónico único.
-            contact:
-                title: Detalles de contacto
-                description: Los detalles de contacto para este usuario.
-            status:
-                title: 'Estado y configuración'
-                description: Configura el usuario y su estado.
-
-    attribute:
-        single: Atributo
-        plural: Atributos
-        edit:   Editar "%name%"
-        new:    Nuevo atributo
-        saved:  Atributo guardado
-        list:   Listado de atributos
-        field:
             name:
-                placeholder: ej. Color
-                title:       Nombre
-                values:      Valores
-            enabled:
-                title:       Estado
+                placeholder: 'ej. Color'
+                title: Nombre
+                values: Valores
+        list: 'Listado de atributos'
+        new: 'Nuevo atributo'
+        plural: Atributos
+        saved: 'Atributo guardado'
         section:
             basic:
-                title:       Detalles básicos
-                description: Define el nombre del atributo y sus valores (Separados por comas).
+                description: 'Define el nombre del atributo y sus valores (Separados por comas).'
+                title: 'Detalles básicos'
             visibility:
-                title:       Visibilidad
-                description: Configura este atributo como visible u oculto.
-
+                description: 'Configura este atributo como visible u oculto.'
+                title: Visibilidad
+        single: Atributo
     blog:
-        single: Blog
         plural: Blogs
-
-    blog_post:
         single: Blog
-        plural: Blog
-        edit:   Editar "%name%"
-        new:    Crea un nuevo artículo
-        list:   Listado de artículos del blog
-        saved:  Artículo guardado
-        in_store: Ver en la tienda
-        show_metrics: Mostrar métricas
+    blog_post:
+        edit: 'Editar "%name%"'
         field:
-            title:
-                title: Título
-                placeholder: ej. Mi magnífico artículo
-            path:
-                title: Ruta
-                placeholder: ej. mi/magnifico/articulo
-                customize: Personalizar enlace
+            content:
+                placeholder: 'ej. Este magnífico artículo es exactamente lo que buscas.'
+                title: Contenido
+            enabled:
+                title: Estado
             link:
                 title: Enlace
-            enabled:
-                title: Estado
-            content:
-                title: Contenido
-                placeholder: ej. Este magnífico artículo es exactamente lo que buscas.
-            publication_date:
-                title: Fecha de publicación
-            metatitle:
-                placeholder: ej. Mi magnífico articulo
             metadescription:
-                placeholder: ej. Este magnífico artículo es exactamente lo que buscas.
+                placeholder: 'ej. Este magnífico artículo es exactamente lo que buscas.'
             metakeywords:
                 placeholder: 'ej. blog,articulo,magnifico'
-        section:
-            basic:
-                title: Detalles básicos
-                description: Proporciona un título muy específico para tu artículo del blog que explique, ayude a vender y proporcione toda la información necesaria para tus clientes.
-            visibility:
-                title: Visibilidad
-                description: Configura este artículo como visible u oculto.
-
-    mailing:
-        single: Correo
-        plural: Correos
-        edit:   Editar "%title%"
-        new:    Crear nuevo correo
-        saved:  Correo guardado
-        list:   Listado de correo
-        field:
+            metatitle:
+                placeholder: 'ej. Mi magnífico articulo'
+            path:
+                customize: 'Personalizar enlace'
+                placeholder: 'ej. mi/magnifico/articulo'
+                title: Ruta
+            publication_date:
+                title: 'Fecha de publicación'
             title:
+                placeholder: 'ej. Mi magnífico artículo'
                 title: Título
-                placeholder: ej. Mi magnífico correo
-            content:
-                title: Contenido
-                placeholder: ej. Este magnífico correo es exactamente lo que buscabas.
+        in_store: 'Ver en la tienda'
+        list: 'Listado de artículos del blog'
+        new: 'Crea un nuevo artículo'
+        plural: Blog
+        saved: 'Artículo guardado'
         section:
             basic:
-                title: Contenido básico
-                description: Proporciona un título descriptivo para tu correo y el contenido a enviar.
-
+                description: 'Proporciona un título muy específico para tu artículo del blog que explique, ayude a vender y proporcione toda la información necesaria para tus clientes.'
+                title: 'Detalles básicos'
+            visibility:
+                description: 'Configura este artículo como visible u oculto.'
+                title: Visibilidad
+        show_metrics: 'Mostrar métricas'
+        single: Blog
     carrier:
-        single: Transportista
-        plural: Transportistas
-        saved:  Cambios guardados
-        edit:   Editar "%name%"
-        new:    Nuevo transportista
-        list:   Listado de transportistas
+        action:
+            add_shipping_range: 'Añadir rango de envio'
+        edit: 'Editar "%name%"'
         error:
-            no_active_carrier: ¡Atención! No tienes ningún transportista activo
+            no_active_carrier: '¡Atención! No tienes ningún transportista activo'
         field:
-            name:
-                title: Nombre
-                placeholder: ej. SuperTransportista
             description:
+                placeholder: 'ej. La mejor opción para transporte local'
                 title: Descripción
-                placeholder: ej. La mejor opción para transporte local
-            taxes:
-                title: Tasas
-                format: Tasa %value%%
+            name:
+                placeholder: 'ej. SuperTransportista'
+                title: Nombre
             status:
                 title: Activo
+            taxes:
+                format: 'Tasa %value%%'
+                title: Tasas
         info:
-            shipping_rates_before_saving: Podrás añadir costes de envio una vez guardes el transportista
-        action:
-            add_shipping_range: Añadir rango de envio
+            shipping_rates_before_saving: 'Podrás añadir costes de envio una vez guardes el transportista'
+        list: 'Listado de transportistas'
+        new: 'Nuevo transportista'
+        plural: Transportistas
+        saved: 'Cambios guardados'
         section:
             basic:
-                title: Detalles básicos
-                description: Proporciona el nombre del transportista y una descripcion interna si es necesario
-            taxes:
-                title: Tasas del transportista
-                description: Las tasas que serán aplicadas a este transportista.
+                description: 'Proporciona el nombre del transportista y una descripcion interna si es necesario'
+                title: 'Detalles básicos'
             shipping_rates:
-                title: Costes de envio
-                description: Añadir costes de envio.
+                description: 'Añadir costes de envio.'
+                title: 'Costes de envio'
+            taxes:
+                description: 'Las tasas que serán aplicadas a este transportista.'
+                title: 'Tasas del transportista'
             visibility:
+                description: 'Configurar este transportista como activo o inactivo.'
                 title: visibilidad
-                description: Configurar este transportista como activo o inactivo.
-
+        single: Transportista
     catalog:
-        single: Catálogo
         plural: Catálogos
+        single: Catálogo
     categorization:
-        single: Categorización
         plural: Categorizaciones
+        single: Categorización
+    category:
+        edit: 'Editar "%name%"'
+        field:
+            contains:
+                title: 'Contiene %count% productos'
+            enabled:
+                options:
+                    active: Habilitada
+                    inactive: Deshabilitada
+                title: Habilitada
+            metadescription:
+                placeholder: 'ej. Esta genial categoria es exactamente lo que estabas buscando.'
+            metakeywords:
+                placeholder: 'ej. categoria,genial'
+            metatitle:
+                placeholder: 'ej. Mi genial categoria'
+            name:
+                placeholder: 'ej. Mi genial categoria'
+                title: 'Nombre de la categoria'
+            parent:
+                title: 'Categoría Padre'
+            root:
+                title: 'Categoría principal'
+            slug:
+                customize: 'Personalizar enlace'
+                placeholder: 'ej. mi/genial/categoria'
+                title: Ruta
+        in_store: 'Ver en la tienda'
+        list: 'Lista de categoría'
+        new: 'Nueva categoría'
+        plural: Categorías
+        saved: 'Categoría guardada'
+        section:
+            basic:
+                description: 'Proporciona un nombre tan corto como sea posible para ayudar a tus clientes a encontrar el producto de esta categoria.'
+                title: 'Detalles básicos'
+            categorization:
+                description: 'Configura la categoria como principal si no tiene ningún padre o va a ser padre de otras categorías.'
+                title: Categorización
+            edit:
+                description:
+                    - 'Arrastra y suelta las categorías para ordenarlas o anidarlas.'
+                    - 'Haz click en un categoría para editarla.'
+                    - 'Haz click en la papelera para borrar la categoría.'
+                title: 'Edita y ordena'
+            visibility:
+                description: 'Configurar la categoria como visible u oculta.'
+                title: Visibilidad
+        single: Categoría
     communication:
-        single: Comunicación
         plural: Comunicaciones
-    shipping_payment:
-        single: Pago y envío
-        plural: Pagos / envíos
+        single: Comunicación
     coupon:
-        single: Cupón
-        plural: Cupones
-        edit:   Editar "%code%"
-        new:    Nuevo cupón
-        saved:  Cupón guardado
-        list:   Listado de cupones
+        edit: 'Editar "%code%"'
         field:
             code:
-                placeholder: ej. MYCODIGO
-                title:        Código
+                placeholder: 'ej. MYCODIGO'
+                title: Código
             count:
-                title: Límite de usos
+                title: 'Límite de usos'
             datetime:
                 title: 'Fecha y hora'
             description:
-                placeholder: ej. Código de 10% de descuento
-                title:       Descripción
+                placeholder: 'ej. Código de 10% de descuento'
+                title: Descripción
             discount:
-                title: "Porcentaje"
+                title: Porcentaje
             enabled:
                 title: Estado
             enforcement:
-                title: Modo
                 options:
-                    manual: Aplicación manual
-                    automatic: Aplicación automática
-            stackable:
-                title: Este cupon se puede utilizar con otros cupones
+                    automatic: 'Aplicación automática'
+                    manual: 'Aplicación manual'
+                title: Modo
             minimum_purchase:
-                title: Compra mínima
+                title: 'Compra mínima'
             price:
                 title: Cantidad
             priority:
                 title: Prioridad
             rule:
-                title:       Regla
-                placeholder: Sin regla
+                placeholder: 'Sin regla'
+                title: Regla
+            stackable:
+                title: 'Este cupon se puede utilizar con otros cupones'
             status:
                 title: Estado
             type:
-                title: Tipo
                 options:
-                    fixed:  Cantidad fija
+                    fixed: 'Cantidad fija'
                     percent: Porcentaje
+                title: Tipo
             used:
                 title: Usado
             valid_from:
                 title: Desde
             valid_to:
                 title: Hasta
+        list: 'Listado de cupones'
+        new: 'Nuevo cupón'
+        plural: Cupones
+        saved: 'Cupón guardado'
         section:
             basic:
-                title: Información básica
                 description:
                     - 'Configura el nombre del código (El que los usuarios tienen que proporcionar en el carrito para activar el cupón).'
                     - 'Configura también la descripción para identificar el cupón, el tipo y el modo en que será aplicado.'
+                title: 'Información básica'
             fixed_amount:
-                title:       Cantidad fija
-                description: Configura la cantidad fija que se descontará directamente al carrito.
+                description: 'Configura la cantidad fija que se descontará directamente al carrito.'
+                title: 'Cantidad fija'
             percent_amount:
-                title:       Porcentaje
-                description: Configura el porcentaje de descuento directo en el carrito.
+                description: 'Configura el porcentaje de descuento directo en el carrito.'
+                title: Porcentaje
             rules:
-                title:       Normas
-                description: Selecciona la norma que se usará así como la cantidad mínima de compra para activar el cupón (Opcional).
+                description: 'Selecciona la norma que se usará así como la cantidad mínima de compra para activar el cupón (Opcional).'
+                title: Normas
             validity:
-                title:       Validez
-                description: Configura la validez del cupón y su estado.
-
+                description: 'Configura la validez del cupón y su estado.'
+                title: Validez
+        single: Cupón
     currency:
-        single: Divisa
-        plural: Divisas
-        list:   Listado de divisas
+        error:
+            disable_master_currency: 'No puedes desactivar tu divisa principal'
+            setting_disabled_master_currency: 'No se puede guardar como principal una divisa desactivada'
         field:
-            symbol: Símbolo
             iso: ISO
             name: Nombre
             status: Activo
+            symbol: Símbolo
+        list: 'Listado de divisas'
+        plural: Divisas
         saved:
-            enabled: La divisa ha sido habilitada
-            disabled: La divisa ha sido deshabilitada
-            master: Se ha guardado la divisa principal
+            disabled: 'La divisa ha sido deshabilitada'
+            enabled: 'La divisa ha sido habilitada'
+            master: 'Se ha guardado la divisa principal'
+        single: Divisa
+    customer:
+        edit: 'Editar "%name%"'
         error:
-            setting_disabled_master_currency: No se puede guardar como principal una divisa desactivada
-            disable_master_currency: No puedes desactivar tu divisa principal
-
-    image:
-        single: Imagen
-        plural: Imágenes
+            password_change: 'Error guardando la contraseña'
+        field:
+            guest:
+                title: Invitado
+            identity_document:
+                placeholder: 'ej. 12345678A'
+                title: 'Documento de identidad'
+            language:
+                title: 'Idioma preferido'
+            newsletter:
+                title: 'Boletín de noticias'
+            order_count:
+                title: 'Nº Pedido'
+            phone:
+                placeholder: 'ej. 555 55 55 55'
+                title: Teléfono
+            username:
+                placeholder: 'ej. john_doe'
+                title: 'Nombre de usuario'
         info:
-            principal: La primera imagen será la imagen principal.
-            reorder: "Puedes arrastrar las imágenes para reordenarlas."
-            upload: Subir imágenes
-            upload_single: Subir imagen
-            upload_logo: Subir Logotipo
-            deleted: Imagen Borrada
-            format: Formato JPG, PNG o GIF de un máximo 20 MB
-
+            password_changed: 'Contraseña guardada correctamente'
+        list: 'Listado de clientes'
+        new: 'Crear un nuevo cliente'
+        plural: Clientes
+        saved: 'Cambios guardados'
+        section:
+            contact:
+                description: 'Los detalles de contacto para este usuario.'
+                title: 'Detalles de contacto'
+            login:
+                description: 'Cada usuario debe tener un correo eletrónico único.'
+                title: 'Detalles de sesión'
+            status:
+                description: 'Configura el usuario y su estado.'
+                title: 'Estado y configuración'
+        single: Cliente
+    dashboard:
+        chart:
+            cart_conversion:
+                billing_shipping: Dirección
+                cart_view: Resumen
+                ordered: Finalizado
+                payment: Pago
+                title: 'Conversión de carrito'
+            devices:
+                desktop: Escritorio
+                mobile: Móviles
+                title: Dispositivos
+            sales:
+                sales: Ventas
+                title: Ventas
+            traffic_source:
+                direct: Directo
+                referrals: Referidos
+                search_engine: Buscadores
+                title: 'Origen de tráfico'
+            visitors:
+                title: Visitas
+                total: 'Páginas vistas'
+                unique: 'Usuarios únicos'
+        chart_range:
+            last30days: 'Últimos 30 días'
+            last7days: 'Últimos 7 días'
+            last90days: 'Últimos 90 días'
+            today: Hoy
+            yesterday: Ayer
+        plural: 'Paneles de control'
+        single: 'Panel de control'
+        title: 'Panel de Control'
+        view_store: 'Ir a mi tienda'
+    identity:
+        field:
+            leitmotiv:
+                placeholder: 'e.g: Productos para gente'
+                title: Eslogan
+            name:
+                placeholder: 'e.g: Mi tienda'
+                title: 'Nombre de tu tienda'
+        less: Menos
+        more: Más
+        section:
+            backgroundImage:
+                description: 'Sube aquí una imagen lo más grande posible (cuadrada o vertical) y se convertirá en el espectacular fondo de tu tienda online. Si añades imagen de fondo es recomendable no utilizar imagen de cabecera.'
+                title: 'Imagen de fondo'
+            headerImage:
+                description: 'Esta imagen se mostrará como cabecera de tu tienda. Dependiendo del diseño que selecciones varia ligeramente cómo se muestra, ya sea de fondo o de forma más prominente. Aunque es opcional recomendamos añadirla. Le dará mucha personalidad a tu tienda. Consejo: procura que la imagen tenga el máximo de definición posible y que sea horizontal y rectangular.'
+                title: 'Imagen de cabecera'
+            info:
+                description: 'Introduce el nombre de tu tienda y si quieres un eslogan (opcional).'
+                title: 'Información básica'
+            logo:
+                description: 'Si tienes un logotipo de tu tienda añádelo y se mostrará en varias partes de la tienda. Es recomendable que sea una imagen con buena calidad.'
+                title: 'Logotipo de tu tienda'
+            mobileLogo:
+                description: 'Esta imagen se mostrará a aquellos clientes que accedan a tu tienda online desde un móvil. Es opcional, pero si quieres personalizar la experiencia para móvil, puedes.'
+                title: 'Logotipo versión móvil'
+            secondaryLogo:
+                description: 'Si quieres personalizar el logotipo a pie de página, añádelo. Es opcional.'
+                title: 'Logotipo a pie de página'
+        singular: 'Imagen corporativa'
+    image:
+        info:
+            deleted: 'Imagen Borrada'
+            format: 'Formato JPG, PNG o GIF de un máximo 20 MB'
+            principal: 'La primera imagen será la imagen principal.'
+            reorder: 'Puedes arrastrar las imágenes para reordenarlas.'
+            upload: 'Subir imágenes'
+            upload_logo: 'Subir Logotipo'
+            upload_single: 'Subir imagen'
+        plural: Imágenes
+        single: Imagen
     language:
-        single: Idioma
-        plural: Idiomas
-        list:   Listado de idiomas
+        error:
+            disable_master_language: 'No puedes desactivar tu idioma principal'
+            setting_disabled_master_language: 'No se puede guardar como principal un idioma desactivado'
         field:
             iso: ISO
-            master: Idioma principal
+            master: 'Idioma principal'
             status: Activo
+        list: 'Listado de idiomas'
+        plural: Idiomas
         saved:
-            enabled: El idioma ha sido habilitado
-            disabled: El idioma ha sido deshabilitado
-            master: Se ha guardado el idioma principal
-        error:
-            setting_disabled_master_language: No se puede guardar como principal un idioma desactivado
-            disable_master_language: No puedes desactivar tu idioma principal
-
-    media:
-        single: Imagen
-        plural: Imágenes
-        list:   Listado de Imágenes
-
-    metrics:
-        single: Métrica
-        plural: Métricas
-        info:
-            visitors: Visitas
-            no_data: Sin datos
+            disabled: 'El idioma ha sido deshabilitado'
+            enabled: 'El idioma ha sido habilitado'
+            master: 'Se ha guardado el idioma principal'
+        single: Idioma
+    login:
         action:
-            show: Mostrar métricas
-        type:
-            line:
-                unique: Únicos
-                total: Total
-
-    order:
-        single:    Pedido
-        plural:    Pedidos
-        edit:      'Editar #%id%'
-        new:       Nuevo pedido
-        notes:      Notas
-        all:       Todos los pedidos
-        list:      Listado de pedidos
-        from_user: Pedidos de %name%
-        to_user:   Ir al cliente
+            login: 'Iniciar sesión'
+            logout: 'Cerrar sesión'
+            remember: 'Olvidaste la contraseña?'
         field:
-            id:               'Pedido #%id%'
-            date:             Fecha
-            carrier:          Transportista
-            customer:         Cliente
-            status:           Estado
-            delivery_address: Dirección de entrega
-            billing_address:  Dirección de facturación
-            both_addresses:   'Dirección de entrega y facturación'
-            total:            Total
-        details:
-            title:    Detalles
-            item:     Artículo
-            units:    Unidades
-            price:    Precio
-            subtotal: Subtotal
-            discount: Cupón de descuento
-            shipping: Entrega
-        transition:
-            refund: Reembolsar
-            order ready: Pedido listo
-            picked up on store: Recogido en tienda
-            picked up by carrier: Recogido por el transportista
-            delivered: Entregado
-            cancel: Cancelar
-            return: Devolver
-
-    page:
-        single:   Página
-        plural:   Páginas
-        edit:     Editar "%name%"
-        new:      Nueva página
-        list:     Listado de páginas
-        saved:    Cambios guardados
-        in_store: Ver en la tienda
+            email:
+                placeholder: 'Tu correo electrónico'
+            password:
+                placeholder: 'Tu contraseña'
+        title: 'Es necesario iniciar sesión'
+    mailing:
+        edit: 'Editar "%title%"'
         field:
-            title:
-                title: Título
-                placeholder: ej. My genial página
-            path:
-                title: Ruta
-                placeholder: ej. my/genial/pagina
-                customize: Personalizar enlace
-            link:
-                title: Enlace
-            enabled:
-                title: Activa
             content:
+                placeholder: 'ej. Este magnífico correo es exactamente lo que buscabas.'
                 title: Contenido
-                placeholder: ej. Esta genial página es exactamente lo que buscabas.
-            metatitle:
-                placeholder: ej. My genial página
-            metadescription:
-                placeholder: ej. Esta genial página es exactamente lo que buscabas.
-            metakeywords:
-                placeholder: 'ej. pagina,genial'
-        section:
-            basic:
-                title: Detálles básicos
-                description: Proporciona un título muy específico para tu página que proporcione toda la información necesaria para sus consumidores.
-            visibility:
-                title: visibilidad
-                description: Configurar la página como visible u oculta, también puedes hacerla visible en tu página principal.
-        error:
-            cant_modify_permanent: Esta página es permanente y no puede ser modificada
-
-    profile:
-        single: Perfil
-        plural: Perfiles
-
-    product:
-        single:   Producto
-        plural:   Productos
-        edit:     Editar "%name%"
-        new:      Nuevo producto
-        note:     Notas
-        list:     Listado de productos
-        saved:    Producto guardado
-        in_store:     Visualizar
-        show_metrics: Estadísticas
-        field:
-            name:
+            title:
+                placeholder: 'ej. Mi magnífico correo'
                 title: Título
-                placeholder: ej. Mi genial producto
-            sku:
-                title: Número de referencia
-                placeholder: ej. SAU102
-            slug:
-                title: Slug
-                placeholder: ej. my/genial/producto
-                customize: Personalizar enlace
-            description:
-                title: Descripción
-                placeholder: ej. Este genial producto es exactamente lo que buscabas.
-            main_category:
-                title: Categoría
-                placeholder: 'ej. Ordenadores, bolsas de mano...'
-            manufacturer:
-                title: Fabricante
-                placeholder: 'ej. Apple, Disney...'
-            price:
-                title: Precio
-            stock:
-                title: Unidades
-            reduced_price:
-                title: Precio de oferta
-            weight:
-                title: Peso (en g)
-            height:
-                title: Altura (en cm)
-            width:
-                title: Ancho (en cm)
-            depth:
-                title: Profundidad (en cm)
-            in_home:
-                title: Mostrar en la página principal
-            image:
-                title: Image
-            name_details:
-                title: "Detalles del producto"
-            enabled:
-                title: Habilitado
-                options:
-                    active: Habilitado
-                    inactive: Deshabilitado
-
-            metatitle:
-                placeholder: ej. Mi genial producto
-            metadescription:
-                placeholder: ej. Este genial producto es exactamente lo que buscabas.
-            metakeywords:
-                placeholder: 'ej. product,genial'
-        info:
-            variants_before_saving: Podrás añadir variantes una vez hayas guardo el producto
-        error:
-            no_category: ¡Atención! Este producto no está asociado a ninguna categoría
-            no_manufacturer: ¡Atención! Este producto no está asociado a ningún fabricante
-        tag:
-            in_home: Portada
-            has_variants: Tiene variantes
-            no_category: Sin categoría
-            no_manufacturer: Sin fabricante
+        list: 'Listado de correo'
+        new: 'Crear nuevo correo'
+        plural: Correos
+        saved: 'Correo guardado'
         section:
             basic:
-                title: Detalles básicos
-                description: Proporciona un título muy específico que ayude a explicar y vender tu producto y propocione toda la información necesaria para tus clientes.
-            categorization:
-                title: Categorización
-                description: El producto debe ser clasificado en una categoría y un fabricante. Estos serán visibles en la tienda y ayudarán a los clientes a navegar por ella.
-            pricing:
-                title: Precio
-                description: "Configura el precio para tu producto, no incluyas tasas ni costes de envio. También puedes configurar un precio de oferta."
-            dimensions:
-                title: Dimensiones
-                description: "Configura las dimensiones y peso de tu producto. Esta información será realmente útil para calcular los costes de envio."
-            sku:
-                title: Número de referencia
-                description: "El Número de referencia (SKU) es un identificador único que permite identificar los productos. Cada SKU se asocia con un sólo producto."
-            variants:
-                title: Variantes
-                description: 'Las variantes son versiones diferentes del mismo producto (Color, talla...). Las variantes pueden tener diferente precio o atributos.'
-            visibility:
-                title: Visibilidad
-                description: "Configura este producto como visible u oculto, también puedes hacerlo visible en la página principal."
-            stock:
-                title: Stock
-                description: "Configura las existencias de este producto. Cada compra disminuirá tus existencias."
-
-    variant:
-        single: Variante
-        plural: Variantes
-        edit:   Editar variante "%name%"
-        new: Nueva variante
-        saved: Variante guardada
-        list:   Listado de variantes
-        field:
-            name:
-                title: Nombre de la variante
-            price:
-                title: Precio
-            stock:
-                title: Stock
-            reduced_price:
-                title: Precio de oferta
-            enabled:
-                title: Estado
-                options:
-                    active: Habilitado
-                    inactive: Deshabilitado
-            options:
-                title: "Selecciona uno o más atributos:"
-        section:
-            attributes:
-                title: Atributos
-                description: "Selecciona los atributos de esta variante."
-            pricing:
-                title: Precios
-                description: "Configura el precio de esta variante (sin incluir impuestos ni envíos). También puedes poner un precio de oferta (opcional)."
-            visibility:
-                title: Visibilidad
-                description: "Configura esta variante como visible u oculto."
-
+                description: 'Proporciona un título descriptivo para tu correo y el contenido a enviar.'
+                title: 'Contenido básico'
+        single: Correo
     manufacturer:
-        single:   Fabricante
-        plural:   Fabricantes
-        edit:     Editar "%name%"
-        new:      Nuevo fabricante
-        saved:    Fabricante guardado
-        list:     Lista de fabricantes
+        edit: 'Editar "%name%"'
         field:
-            name:
-                title: Nombre del fabricante
-                placeholder: ej. Mi genial fabricante
-            slug:
-                title: Ruta
-                customize: Personalizar enlace
-                placeholder: ej. mi/genial/fabricante
             description:
+                placeholder: 'ej. Este genial fabricante es exactamente lo que estás buscando.'
                 title: Descripción
-                placeholder: ej. Este genial fabricante es exactamente lo que estás buscando.
             enabled:
-                title: Estado
                 options:
                     active: Habilitado
                     inactive: Deshabilitado
+                title: Estado
             image:
                 title: Imagen
-            name_slug:
-                title: "Detalles del fabricante"
-            product_count:
-                title: Productos
-            metatitle:
-                placeholder: ej. Mi genial fabricante
             metadescription:
-                placeholder: ej. Este genial fabricante es exactamente lo que estás buscando.
+                placeholder: 'ej. Este genial fabricante es exactamente lo que estás buscando.'
             metakeywords:
                 placeholder: 'ej. fabricante,genial'
-        section:
-            basic:
-                title: Detalles básicos
-                description: Proporciona un nombre tan corto como sea posible para ayudar a tus clientes a encontrar el producto de este fabricante. También puedes añadir una descripción que se mostrará en la página del Fabricante.
-            visibility:
-                title: Visibilidad
-                description: Configura el fabricante como visible y activo.
-            logo:
-                title: Logotipo del fabricante
-                description: Sube una imagen del logo del fabricante/marca del producto. Se recomienda que el logo no contenga textos adicionales, sólo la marca, y que sea de la mayor resolución posible.
-
-    category:
-        single:   Categoría
-        plural:   Categorías
-        edit:     Editar "%name%"
-        new:      Nueva categoría
-        saved:    Categoría guardada
-        list:     Lista de categoría
-        in_store: Ver en la tienda
-        field:
-            name:
-                title: Nombre de la categoria
-                placeholder: ej. Mi genial categoria
-            slug:
-                title: Ruta
-                placeholder: ej. mi/genial/categoria
-                customize: Personalizar enlace
-            root:
-                title: Categoría principal
-            enabled:
-                title: Habilitada
-                options:
-                    active: Habilitada
-                    inactive: Deshabilitada
-            parent:
-                title: Categoría Padre
-            contains:
-                title: Contiene %count% productos
             metatitle:
-                placeholder: ej. Mi genial categoria
-            metadescription:
-                placeholder: ej. Esta genial categoria es exactamente lo que estabas buscando.
-            metakeywords:
-                placeholder: 'ej. categoria,genial'
+                placeholder: 'ej. Mi genial fabricante'
+            name:
+                placeholder: 'ej. Mi genial fabricante'
+                title: 'Nombre del fabricante'
+            name_slug:
+                title: 'Detalles del fabricante'
+            product_count:
+                title: Productos
+            slug:
+                customize: 'Personalizar enlace'
+                placeholder: 'ej. mi/genial/fabricante'
+                title: Ruta
+        list: 'Lista de fabricantes'
+        new: 'Nuevo fabricante'
+        plural: Fabricantes
+        saved: 'Fabricante guardado'
         section:
             basic:
-                title: Detalles básicos
-                description: Proporciona un nombre tan corto como sea posible para ayudar a tus clientes a encontrar el producto de esta categoria.
-            categorization:
-                title: Categorización
-                description: Configura la categoria como principal si no tiene ningún padre o va a ser padre de otras categorías.
+                description: 'Proporciona un nombre tan corto como sea posible para ayudar a tus clientes a encontrar el producto de este fabricante. También puedes añadir una descripción que se mostrará en la página del Fabricante.'
+                title: 'Detalles básicos'
+            logo:
+                description: 'Sube una imagen del logo del fabricante/marca del producto. Se recomienda que el logo no contenga textos adicionales, sólo la marca, y que sea de la mayor resolución posible.'
+                title: 'Logotipo del fabricante'
             visibility:
+                description: 'Configura el fabricante como visible y activo.'
                 title: Visibilidad
-                description: Configurar la categoria como visible u oculta.
-            edit:
-                title: "Edita y ordena"
-                description:
-                    - "Arrastra y suelta las categorías para ordenarlas o anidarlas."
-                    - "Haz click en un categoría para editarla."
-                    - "Haz click en la papelera para borrar la categoría."
-
+        single: Fabricante
+    media:
+        list: 'Listado de Imágenes'
+        plural: Imágenes
+        single: Imagen
+    menu:
+        design: 'Personalizar tienda'
     metadata:
-        customize: Personalizar metadatos
+        customize: 'Personalizar metadatos'
         disclaimer:
-            - Esta area es para usuarios avanzados.
-            - Deja estos campos en blanco para obtener automaticamente metadatos para tu página.
+            - 'Esta area es para usuarios avanzados.'
+            - 'Deja estos campos en blanco para obtener automaticamente metadatos para tu página.'
+        field:
+            metadescription:
+                title: 'Meta Descripción'
+            metakeywords:
+                title: 'Palabras clave'
+            metatitle:
+                title: 'Meta Título'
         section:
             metadata:
+                description: 'La descripción y palabras claves en los meta tags se usan para describir el contenido de la página. La mayoria de los motores de búsqueda usan esta información para su índice de busqueda.'
                 title: Metadatos
-                description: La descripción y palabras claves en los meta tags se usan para describir el contenido de la página. La mayoria de los motores de búsqueda usan esta información para su índice de busqueda.
+    metrics:
+        action:
+            show: 'Mostrar métricas'
+        info:
+            no_data: 'Sin datos'
+            visitors: Visitas
+        plural: Métricas
+        single: Métrica
+        type:
+            line:
+                total: Total
+                unique: Únicos
+    name: Administración
+    order:
+        all: 'Todos los pedidos'
+        details:
+            discount: 'Cupón de descuento'
+            item: Artículo
+            price: Precio
+            shipping: Entrega
+            subtotal: Subtotal
+            title: Detalles
+            units: Unidades
+        edit: 'Editar #%id%'
         field:
-            metatitle:
-                title: Meta Título
+            billing_address: 'Dirección de facturación'
+            both_addresses: 'Dirección de entrega y facturación'
+            carrier: Transportista
+            customer: Cliente
+            date: Fecha
+            delivery_address: 'Dirección de entrega'
+            id: 'Pedido #%id%'
+            status: Estado
+            total: Total
+        from_user: 'Pedidos de %name%'
+        list: 'Listado de pedidos'
+        new: 'Nuevo pedido'
+        notes: Notas
+        plural: Pedidos
+        single: Pedido
+        to_user: 'Ir al cliente'
+        transition:
+            cancel: Cancelar
+            delivered: Entregado
+            'order ready': 'Pedido listo'
+            'picked up by carrier': 'Recogido por el transportista'
+            'picked up on store': 'Recogido en tienda'
+            refund: Reembolsar
+            return: Devolver
+    page:
+        edit: 'Editar "%name%"'
+        error:
+            cant_modify_permanent: 'Esta página es permanente y no puede ser modificada'
+        field:
+            content:
+                placeholder: 'ej. Esta genial página es exactamente lo que buscabas.'
+                title: Contenido
+            enabled:
+                title: Activa
+            link:
+                title: Enlace
             metadescription:
-                title: Meta Descripción
+                placeholder: 'ej. Esta genial página es exactamente lo que buscabas.'
             metakeywords:
-                title: Palabras clave
-
-    shipping_range:
-        single: Rango de envio
-        plural: Rangos de envio
-        edit:   Editar rango "%name%"
-        new:    Crear nuevo rango de envio
-        list:   Listado de rangos de envio
-        saved:  Cambios guardados
-        field:
-            name:
-                title: Nombre del rango de envio
-                placeholder: ej. Entrega en 3-5 días
-            to_zone:
-                title: A la zona
-            price:
-                title: Precio
-            type:
-                title: Los precios se calcularan…
-                options:
-                    price: En base al precio del pedido
-                    weight: En base al peso del pedido
-            fromPrice:
-                title: Desde el precio
-            toPrice:
-                title: Hasta el precio
-            fromWeight:
-                title: Desde el peso
-            toWeight:
-                title: Hasta el peso
-            value:
-                title: Valor
-                price_format: De %from% a %to%
-                weight_format: De %from% g a %to% g
+                placeholder: 'ej. pagina,genial'
+            metatitle:
+                placeholder: 'ej. My genial página'
+            path:
+                customize: 'Personalizar enlace'
+                placeholder: 'ej. my/genial/pagina'
+                title: Ruta
+            title:
+                placeholder: 'ej. My genial página'
+                title: Título
+        in_store: 'Ver en la tienda'
+        list: 'Listado de páginas'
+        new: 'Nueva página'
+        plural: Páginas
+        saved: 'Cambios guardados'
         section:
             basic:
-                title: Detalles básicos
-                description: Proporciona el nombre del rango de entrega y la zona para el que estará disponible
-            pricing:
-                title: Precio
-                description: Configura el precio para este rango de entrega y define si va a ser calculado segun el precio del pedido o su peso.
+                description: 'Proporciona un título muy específico para tu página que proporcione toda la información necesaria para sus consumidores.'
+                title: 'Detálles básicos'
             visibility:
-                title: Visibilidad
-                description: Configura el rango de envio como activo o inactivo.
-
+                description: 'Configurar la página como visible u oculta, también puedes hacerla visible en tu página principal.'
+                title: visibilidad
+        single: Página
     plugin:
-        single: Complemento
-        plural: Complementos
-        app_store: Listado de complementos
-        saved:  Estado de la app guardado
+        app_store: 'Listado de complementos'
         field:
-            visibility: Activo:
+            visibility: 'Activo:'
+        plural: Complementos
+        saved: 'Estado de la app guardado'
         section:
             settings: Configuración
-
-    settings:
-        single: Configuración
-        plural: Configuraciones
-        saved: Configuración guardada
+        single: Complemento
+    product:
+        edit: 'Editar "%name%"'
+        error:
+            no_category: '¡Atención! Este producto no está asociado a ninguna categoría'
+            no_manufacturer: '¡Atención! Este producto no está asociado a ningún fabricante'
+        field:
+            depth:
+                title: 'Profundidad (en cm)'
+            description:
+                placeholder: 'ej. Este genial producto es exactamente lo que buscabas.'
+                title: Descripción
+            enabled:
+                options:
+                    active: Habilitado
+                    inactive: Deshabilitado
+                title: Habilitado
+            height:
+                title: 'Altura (en cm)'
+            image:
+                title: Image
+            in_home:
+                title: 'Mostrar en la página principal'
+            main_category:
+                placeholder: 'ej. Ordenadores, bolsas de mano...'
+                title: Categoría
+            manufacturer:
+                placeholder: 'ej. Apple, Disney...'
+                title: Fabricante
+            metadescription:
+                placeholder: 'ej. Este genial producto es exactamente lo que buscabas.'
+            metakeywords:
+                placeholder: 'ej. product,genial'
+            metatitle:
+                placeholder: 'ej. Mi genial producto'
+            name:
+                placeholder: 'ej. Mi genial producto'
+                title: Título
+            name_details:
+                title: 'Detalles del producto'
+            price:
+                title: Precio
+            reduced_price:
+                title: 'Precio de oferta'
+            sku:
+                placeholder: 'ej. SAU102'
+                title: 'Número de referencia'
+            slug:
+                customize: 'Personalizar enlace'
+                placeholder: 'ej. my/genial/producto'
+                title: Slug
+            stock:
+                title: Unidades
+            weight:
+                title: 'Peso (en g)'
+            width:
+                title: 'Ancho (en cm)'
+        in_store: Visualizar
+        info:
+            variants_before_saving: 'Podrás añadir variantes una vez hayas guardo el producto'
+        list: 'Listado de productos'
+        new: 'Nuevo producto'
+        note: Notas
+        plural: Productos
+        saved: 'Producto guardado'
         section:
-            products:
-                title: Configuración del producto
-                description: Configura los datos del producto.
+            basic:
+                description: 'Proporciona un título muy específico que ayude a explicar y vender tu producto y propocione toda la información necesaria para tus clientes.'
+                title: 'Detalles básicos'
+            categorization:
+                description: 'El producto debe ser clasificado en una categoría y un fabricante. Estos serán visibles en la tienda y ayudarán a los clientes a navegar por ella.'
+                title: Categorización
+            dimensions:
+                description: 'Configura las dimensiones y peso de tu producto. Esta información será realmente útil para calcular los costes de envio.'
+                title: Dimensiones
+            pricing:
+                description: 'Configura el precio para tu producto, no incluyas tasas ni costes de envio. También puedes configurar un precio de oferta.'
+                title: Precio
+            sku:
+                description: 'El Número de referencia (SKU) es un identificador único que permite identificar los productos. Cada SKU se asocia con un sólo producto.'
+                title: 'Número de referencia'
+            stock:
+                description: 'Configura las existencias de este producto. Cada compra disminuirá tus existencias.'
+                title: Stock
+            variants:
+                description: 'Las variantes son versiones diferentes del mismo producto (Color, talla...). Las variantes pueden tener diferente precio o atributos.'
+                title: Variantes
+            visibility:
+                description: 'Configura este producto como visible u oculto, también puedes hacerlo visible en la página principal.'
+                title: Visibilidad
+        show_metrics: Estadísticas
+        single: Producto
+        tag:
+            has_variants: 'Tiene variantes'
+            in_home: Portada
+            no_category: 'Sin categoría'
+            no_manufacturer: 'Sin fabricante'
+    profile:
+        plural: Perfiles
+        single: Perfil
+    recover_user:
+        action:
+            email_sent:
+                description: 'Por favor, comprueba tu correo electrónico y sigue las intrucciones para recuperar tu contraseña.'
+                title: 'Correo electrónico enviado'
+        field:
+            email:
+                placeholder: 'Tu correo electrónico'
+            password:
+                placeholder: 'Nueva contraseña'
+            repeat_password:
+                placeholder: 'Repite contraseña'
+        title: 'Nueva contraseña'
+    remember_user:
+        description: 'No te preocupes, te mandamos un email para reiniciar tu contraseña.'
+        title: '¿Olvidaste tu contraseña?'
+    settings:
+        field:
+            currency: 'Configuración de moneda'
+            product_stock:
+                description: 'Activa esta opción para habilitar el control de existencias'
+                title: Stock
+            store_email: 'Correo electrónico de la tienda'
+            store_enabled: 'Tienda activada'
+            store_leitmotiv: 'Leitmotiv de la tienda'
+            store_name: 'Nombre de la tienda'
+            store_phone: 'Teléfono de la tienda'
+            store_under_construction: 'Tienda en construcción'
+        plural: Configuraciones
+        saved: 'Configuración guardada'
+        section:
+            address:
+                title: 'Dirección fiscal'
+            corporate:
+                title: 'Imagen corporativa'
             payment:
-                title: Métodos de pago
+                title: 'Métodos de pago'
+            products:
+                description: 'Configura los datos del producto.'
+                title: 'Configuración del producto'
             store:
                 title: General
-            address:
-                title: Dirección fiscal
-            corporate:
-                title: Imagen corporativa
+        single: Configuración
+    shipping_payment:
+        plural: 'Pagos / envíos'
+        single: 'Pago y envío'
+    shipping_range:
+        edit: 'Editar rango "%name%"'
         field:
-            store_enabled: Tienda activada
-            store_under_construction: Tienda en construcción
-            store_name: Nombre de la tienda
-            store_leitmotiv: Leitmotiv de la tienda
-            store_phone: Teléfono de la tienda
-            store_email: Correo electrónico de la tienda
-            currency: Configuración de moneda
-            product_stock:
+            fromPrice:
+                title: 'Desde el precio'
+            fromWeight:
+                title: 'Desde el peso'
+            name:
+                placeholder: 'ej. Entrega en 3-5 días'
+                title: 'Nombre del rango de envio'
+            price:
+                title: Precio
+            toPrice:
+                title: 'Hasta el precio'
+            toWeight:
+                title: 'Hasta el peso'
+            to_zone:
+                title: 'A la zona'
+            type:
+                options:
+                    price: 'En base al precio del pedido'
+                    weight: 'En base al peso del pedido'
+                title: 'Los precios se calcularan…'
+            value:
+                price_format: 'De %from% a %to%'
+                title: Valor
+                weight_format: 'De %from% g a %to% g'
+        list: 'Listado de rangos de envio'
+        new: 'Crear nuevo rango de envio'
+        plural: 'Rangos de envio'
+        saved: 'Cambios guardados'
+        section:
+            basic:
+                description: 'Proporciona el nombre del rango de entrega y la zona para el que estará disponible'
+                title: 'Detalles básicos'
+            pricing:
+                description: 'Configura el precio para este rango de entrega y define si va a ser calculado segun el precio del pedido o su peso.'
+                title: Precio
+            visibility:
+                description: 'Configura el rango de envio como activo o inactivo.'
+                title: Visibilidad
+        single: 'Rango de envio'
+    store:
+        field:
+            enabled:
+                title: 'Activar tienda'
+            routingStrategy:
+                custom: 'Ningun prefijo para las lenguajes, traduciré todas las urls'
+                prefix: 'Todas las urls tienen un prefijo'
+                prefix_except_default: 'Todas las urls tienen un prefijo excepto el lenguaje principal'
+                title: 'Estrategia de URLs para multiples lenguajes'
+            useStock:
+                title: 'Usar Control de stock'
+        saved: 'Configuración guardada.'
+        section:
+            advanced:
+                description: 'En esta sección encontrarás opciones avanzadas de configuración.'
+                title: 'Opciones Avanzadas'
+            status:
+                description: 'Controla si la tienda esta abierta o cerrada al público.'
+                title: 'Estado de la tienda'
+            stock:
+                description: 'Activa esta opción para gestionar el stock de tus productos.'
                 title: Stock
-                description: Activa esta opción para habilitar el control de existencias
-
+        settings: Configuraciones
     template:
-        single: Tema
-        plural: Temas
-        label:
-            status: Habilitado:
         action:
-            preview: Vista previa
-
+            preview: 'Vista previa'
+        label:
+            status: 'Habilitado:'
+        plural: Temas
+        single: Tema
+    user:
+        field:
+            birthday:
+                title: 'Fecha de nacimiento'
+            email:
+                placeholder: 'ej. john.doe@mail.com'
+                title: 'Correo electrónico'
+            enabled:
+                options:
+                    active: Activo
+                    inactive: Inactivo
+                title: Estado
+            firstname:
+                placeholder: 'ej. John'
+                title: Nombre
+            fullname:
+                title: 'Nombre completo'
+            gender:
+                options:
+                    female: Femenino
+                    male: Masculino
+                title: Sexo
+            lastname:
+                placeholder: 'ej. Doe'
+                title: Apellido
+            password:
+                title: Contraseña
+            username:
+                title: 'Nombre de usuario'
+    variant:
+        edit: 'Editar variante "%name%"'
+        field:
+            enabled:
+                options:
+                    active: Habilitado
+                    inactive: Deshabilitado
+                title: Estado
+            name:
+                title: 'Nombre de la variante'
+            options:
+                title: 'Selecciona uno o más atributos:'
+            price:
+                title: Precio
+            reduced_price:
+                title: 'Precio de oferta'
+            stock:
+                title: Stock
+        list: 'Listado de variantes'
+        new: 'Nueva variante'
+        plural: Variantes
+        saved: 'Variante guardada'
+        section:
+            attributes:
+                description: 'Selecciona los atributos de esta variante.'
+                title: Atributos
+            pricing:
+                description: 'Configura el precio de esta variante (sin incluir impuestos ni envíos). También puedes poner un precio de oferta (opcional).'
+                title: Precios
+            visibility:
+                description: 'Configura esta variante como visible u oculto.'
+                title: Visibilidad
+        single: Variante
 plugin:
-    paypal:
-        title: Configuración de la cuenta de paypal
-        register:
-            title: ¿No tienes una cuenta de paypal?
-            call_to_action: Crear una cuenta de paypal
-        settings:
-            recipient_email: Correo electrónico de recibo de pagos de Paypal
     paymill:
-        title: Configuración de la cuenta de Paymill
         register:
-            title: ¿No tienes una cuenta de Paymill?
-            call_to_action: ¡Crea una cuenta de paymill ahora!
+            call_to_action: '¡Crea una cuenta de paymill ahora!'
+            title: '¿No tienes una cuenta de Paymill?'
         settings:
-            private_key: Clave privada de Paymill
-            public_key: Clave pública de Paymill
-
-ui:
-    address:
-        full_name: Nombre completo
-        phone:     Teléfono
-        address:   Dirección
-        city:      Ciudad
-        zipcode:   Código postal
-        comment:   Comentario
-    date:
-        today_at: Hoy a las %time%
-        yesterday_at: Ayer a las %time%
-    list:
-        no_items:     No hay %items%.
-        create_first: Crear %item%
-    label:
-        enabled:  Habilitado
-        disabled: Deshabilitado
-    paginator:
-        elements: Mostrando de %first% a %last% de %total% entradas.
-    forms:
-        cancel: Cancelar
-        save:   Guardar
-        delete: Borrar
-    confirm:
-        delete: ¿Seguro que deseas eliminarlo?
-    tags:
-        placeholder:
-            comma_separated: Añadir tags separados por comas.
-    language:
-        master_language: Lengua principal (Obligatoria)
-    delete:
-        success: Borrado correctamente
-    editor:
-        help: Selecciona el texto para ver las opciones de formato
-
+            private_key: 'Clave privada de Paymill'
+            public_key: 'Clave pública de Paymill'
+        title: 'Configuración de la cuenta de Paymill'
+    paypal:
+        register:
+            call_to_action: 'Crear una cuenta de paypal'
+            title: '¿No tienes una cuenta de paypal?'
+        settings:
+            recipient_email: 'Correo electrónico de recibo de pagos de Paypal'
+        title: 'Configuración de la cuenta de paypal'
 plugin_type:
     app: Aplicaciones
-    payment: Métodos de pago
+    payment: 'Métodos de pago'
     shipping: Transportistas
     social: Social
+ui:
+    address:
+        address: Dirección
+        city: Ciudad
+        comment: Comentario
+        full_name: 'Nombre completo'
+        phone: Teléfono
+        zipcode: 'Código postal'
+    confirm:
+        delete: '¿Seguro que deseas eliminarlo?'
+    date:
+        today_at: 'Hoy a las %time%'
+        yesterday_at: 'Ayer a las %time%'
+    delete:
+        success: 'Borrado correctamente'
+    editor:
+        help: 'Selecciona el texto para ver las opciones de formato'
+    forms:
+        cancel: Cancelar
+        delete: Borrar
+        save: Guardar
+    label:
+        disabled: Deshabilitado
+        enabled: Habilitado
+    language:
+        master_language: 'Lengua principal (Obligatoria)'
+    list:
+        create_first: 'Crear %item%'
+        no_items: 'No hay %items%.'
+    paginator:
+        elements: 'Mostrando de %first% a %last% de %total% entradas.'
+    tags:
+        placeholder:
+            comma_separated: 'Añadir tags separados por comas.'

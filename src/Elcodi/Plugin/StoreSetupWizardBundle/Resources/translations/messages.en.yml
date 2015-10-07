@@ -1,37 +1,32 @@
 elcodi_plugin:
     store_wizard:
-        name: Store Wizard
-        description: |
-            A wizard to setup the store for the first time.
-            On the first step it configures the physical address and the store owner
-            data. After all it aims to add the first category, product and manufacturer
-            and at the end asks the store administrator for the carrier and payment data
-
-        first_finish_wizard: Complete the following steps before going online
-        welcome_title: Welcome to your new store!
-        go_general_settings: Go to general settings
-        ready_launch: Ready to launch!
+        description: "A wizard to setup the store for the first time.\nOn the first step it configures the physical address and the store owner\ndata. After all it aims to add the first category, product and manufacturer\nand at the end asks the store administrator for the carrier and payment data\n"
+        disable_under_construction: 'Disable the <strong>Under construction</strong> mode to start selling'
         done: Done!
-        go_enable_store: Go to setup and disable the "under construction" mode.
-        go_next_step: Go to next step
-        step_finished: <strong>Yehaaaaa!</strong> One step less to go!
-        time_to_sell: You are <strong>%1 steps</strong> more to opening your store
-        disable_under_construction: Disable the <strong>Under construction</strong> mode to start selling
-        estimated_time: Estimated time %1 min
+        estimated_time: 'Estimated time %1 min'
+        first_finish_wizard: 'Complete the following steps before going online'
+        go_enable_store: 'Go to setup and disable the "under construction" mode.'
+        go_general_settings: 'Go to general settings'
+        go_next_step: 'Go to next step'
+        name: 'Store Wizard'
+        ready_launch: 'Ready to launch!'
         step1:
-            title: Add products
-            description: The most important thing in your store... after your customers.
-            action: Create my first product
+            action: 'Create my first product'
+            description: 'The most important thing in your store... after your customers.'
+            title: 'Add products'
         step2:
-            title: Setup your address
-            description: In order to be able to sell online we need you to introduce your shop address.
-            action: Add an address
+            action: 'Add an address'
+            description: 'In order to be able to sell online we need you to introduce your shop address.'
+            title: 'Setup your address'
         step3:
-            title: Setup the payments
-            description: Do you want to get paid? Just say how and where.
-            action: Setup payments methods
+            action: 'Setup payments methods'
+            description: 'Do you want to get paid? Just say how and where.'
+            title: 'Setup the payments'
         step4:
-            title: Setup the shipping
-            description: You need to add handling and shipping prices. (Even if they are free)
-            action_range: Setup shipping range
-            action_carrier: Add carrier
+            action_carrier: 'Add carrier'
+            action_range: 'Setup shipping range'
+            description: 'You need to add handling and shipping prices. (Even if they are free)'
+            title: 'Setup the shipping'
+        step_finished: '<strong>Yehaaaaa!</strong> One step less to go!'
+        time_to_sell: 'You are <strong>%1 steps</strong> more to opening your store'
+        welcome_title: 'Welcome to your new store!'

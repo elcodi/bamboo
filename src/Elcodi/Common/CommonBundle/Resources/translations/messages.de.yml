@@ -1,8 +1,8 @@
 common:
     order:
         states:
-            title:       Verlauf
-            initial:     Neue Bestellung
-            unpaid:      Unbezahlt
-            refunded:    Zurückerstattet
-            paid:        Bezahlt
+            initial: 'Neue Bestellung'
+            paid: Bezahlt
+            refunded: Zurückerstattet
+            title: Verlauf
+            unpaid: Unbezahlt

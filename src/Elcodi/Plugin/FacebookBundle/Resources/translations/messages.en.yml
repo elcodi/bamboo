@@ -1,9 +1,8 @@
 elcodi_plugin:
     facebook:
-        name: Facebook
-        description: Facebook integration for your shop
-
+        description: 'Facebook integration for your shop'
         field:
             facebook_account:
-                label: Facebook account
-                placeholder: e.g. jondoe
+                label: 'Facebook account'
+                placeholder: 'e.g. jondoe'
+        name: Facebook
