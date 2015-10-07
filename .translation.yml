@@ -1,0 +1,15 @@
+master_language: en
+languages:
+    - en
+    - es
+    - ca
+    - fr
+    - de
+    - it
+    - fi
+    - eu
+    - gl
+    - eo
+    - nl
+paths:
+    - src/Elcodi/*/*/Resources/translations
