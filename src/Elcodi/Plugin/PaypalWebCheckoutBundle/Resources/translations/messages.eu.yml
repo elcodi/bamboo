@@ -1,0 +1,8 @@
+elcodi_plugin:
+    paypal_web_checkout:
+        description: '< p > Paypal -en bidez zure erabiltzaileei euren paypal kontua erabiliz ordaintzeko . Gaitu Paypal kontu bat sortu eta ezarri hemen behar duzu < / p > < p > Ez Paypal kontu bat < / p > < a href = '' https : . ? //www.paypal.com/ webapps / mpp / merkatari '' class = '' botoia '' target = "_ blank '' > Sortu kontu berri bat </a>'
+        name: 'Paypal Web Eskaera egin'
+        field:
+            business:
+                placeholder: john@doo.com
+                label: 'Paypal kontua'

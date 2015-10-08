@@ -1,0 +1,203 @@
+template:
+    store_template_bundle:
+        checkout:
+            payment:
+                payment_method: 'Ordainketa metodoak'
+                credit_debit_card: 'Kreditu / zor txartela'
+                back: Itzuli
+                shipping_carrier_method: 'Bidalketa garraiolari / metodoa'
+                paypal: Paypal
+                continue: Jarraitu
+                set_shipping_payment: 'Ezarri bidalketa & ordainketa'
+                bankwire: 'Bank alanbre'
+                try_again: 'Mesedez, saiatu berriz .'
+            address:
+                select_address: 'Aukeratu entrega eta fakturazio helbidea'
+                add_new_address: 'Gehitu helbide berri'
+                payment: Ordainketa
+            layout:
+                your_cart: 'zure saskia'
+                total: Guztira
+            back: Itzuli
+        address:
+            list:
+                no_addresses: 'Ez daude helbideak'
+                add_new_address: 'Gehitu helbide berri'
+                addresses: Helbideak
+            item:
+                city: Herriaren
+                state: Estatuko
+                fullname: 'Izen osoa'
+                phone_and_mobile: 'Telefonoa / Mobile'
+                address_name: izena
+                actions: ekintzak
+                country: Herriko
+                address: helbidea
+                province: Probintzia
+                remove: kendu
+                billing: Billing
+                edit: Edit
+                postal_code: 'posta kodea'
+                comment: Komentarioak
+                delivery: erak
+            new:
+                phone:
+                    example: 'adibidez 935 555 555'
+                cancel: Utzi
+                recipient:
+                    example_name: 'adibidez John'
+                    example_surname: 'adibidez Doe'
+                name:
+                    example: 'adibidez Nire helbide lehenetsia'
+                address_more:
+                    example: 'adibidez Doe Enpresak'
+                mobile:
+                    example: 'adibidez 555 555 555'
+                address:
+                    example: 'adibidez Awesome Street , 21'
+                comments:
+                    example: 'adibidez Etxe bat It'
+                postalcode:
+                    example: 'adibidez 08080'
+            edit:
+                add_new_address: 'Gehitu helbide berri'
+                edit_address: 'Editatu helbidea'
+        blog:
+            post:
+                list:
+                    blog_posts: 'Blog mezu'
+                    read_more: 'Irakurri gehiago'
+                    next_posts: 'hurrengo mezu'
+                    previous_posts: 'aurreko mezu'
+                view:
+                    read_more: 'Irakurri gehiago'
+                    last_post: 'azken mezua'
+        order:
+            view:
+                status: 'Egoera:'
+                continue_shopping: 'Jarraitu erosketak'
+                shipping: 'Bidalketa:'
+                order: Ordena
+                total: Guztira
+                thanks: 'Eskerrik asko zure eskaera ! Zuk bezain azkar bidaltzeko ahalik eta lan egiteko ari gara .'
+                congratulations: 'ZORIONAK !'
+            item:
+                total: Guztira
+                image: image
+                units: Unitateak
+                price: Prezioa
+                item: Item
+            list:
+                date: data
+                order_number: 'Ordena #'
+                orders: Eskariak
+                number_of_order: 'Ordena kopurua'
+                image: image
+                shipping_state: 'Bidalketa egoera'
+                payment_state: 'Ordainketa egoera'
+                total: Guztira
+                no_orders: 'Ez dago eskaririk'
+            coupon:
+                units: Unitateak
+                values: Baloreak
+                coupon: Coupon
+                total: Guztira
+                description: Deskribapena
+        user:
+            login:
+                login_with_social: 'Zure sozialak batera Login'
+                forgot_your_password: 'Pasahitza ahaztu duzu ?'
+                create_new_account: 'Kontu berri bat sortu'
+                unregistered: 'Unregistered ?'
+                login_with_account: 'Zure kontuarekin sartu'
+            home:
+                profile: ikusi
+                my_orders: 'Nire erosketak'
+                dashboard: arbela
+                my_addresses: 'Nire helbideak'
+            password:
+                recover_password: 'pasahitza berreskuratu'
+                password_sent: 'pasahitza bidali'
+                register: 'Izena eman'
+                password_sent_text: 'E-mail bat bidali dizugu informazioa pasahitza berreskuratzeko guztiekin.'
+            nav:
+                create_new_account: 'Kontu berri bat sortu'
+                login: Login
+                logout: 'Saioa amaitu'
+            edit:
+                profile: ikusi
+        cart:
+            view:
+                your_cart_is_empty: 'Saskia hutsik dago'
+                update_basket: 'Update saskian'
+                checkout: 'Eskaera egin'
+                total: Guztira
+                title: 'Zure erosketa saskia'
+                checkout_title: 'Egiaztatu elementu guztiak eta / edo aplikatu kupoiak'
+                continue_shopping: 'Jarraitu Erosketak'
+                empty_basket: 'saski empty'
+            item:
+                total: Guztira
+                price: Prezioa
+                remove: kendu
+                image: image
+                item: Item
+                units: Unitateak
+            nav:
+                items: elementuak
+                amount: Zenbateko
+        shipping:
+            costs_will_be_calculated_after_login: 'Ondoren saioa edo gehitu zure bidalketa helbidea bidalketa gastuak kalkulatuko dira .'
+            costs_will_be_calculated_after_address: 'Zure helbide aktibatu ondoren, bidalketa gastuak kalkulatuko da.'
+            carrier: Carrier
+            from: etatik
+            no_shipping_matching: 'No bidalketa bat datorren . Mesedez, jarri harremanetan aurretik zure bidalketa amaitzeko digu .'
+        product:
+            view_item:
+                product: Produktuen
+                offer: Eskaintza
+                usually_dispatched_24_hours: 'Normalean, 24 orduko epean bidali'
+                stock: Badago
+                delivery: erak
+                in_stock: 'Elementu hau stock eta dena prest ontziratu !'
+                description: Deskribapena
+                no_stock: 'ez dago stock'
+                not_available: 'Elementu hau ez dago erabilgarri'
+                add_to_cart: 'Gehitu saskian'
+            list:
+                no_products_in_category: 'Barkatu , ez dugu produktu kategoria honetarako'
+            item:
+                offer: Eskaintza
+            also_like: 'Zuk ere gustuko izatea ...'
+        coupon:
+            item:
+                units: Unitateak
+                coupon: Coupon
+                remove: kendu
+                total: Guztira
+                value: balio
+                description: Deskribapena
+        category:
+            view:
+                category: Kategoria
+            nav:
+                new: New
+        payment:
+            year: Urtea
+            month: hilabetea
+            security_code: 'Segurtasun kodea'
+            credit_card_owner: 'Txartelarekin jabea'
+            credit_card_numbers: 'Kreditu-txartelen zenbakiak'
+        footer:
+            follow_us: 'Jarrai gaitzazu'
+            quick_links: 'loturak Quick'
+            more: gehiago
+            latest_news: 'latests albisteak'
+        header:
+            menu: Menu
+store:
+    pagination:
+        first: Lehen
+        previous: aurreko
+        last: azken
+        next: hurrengo

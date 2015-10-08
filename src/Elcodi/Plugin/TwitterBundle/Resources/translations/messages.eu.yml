@@ -1,0 +1,8 @@
+elcodi_plugin:
+    twitter:
+        description: 'Twitter- denda integrazioa'
+        field:
+            twitter_account:
+                label: 'Twitter kontu'
+                placeholder: 'adibidez jondoe'
+        name: Twitter

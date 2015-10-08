@@ -1,0 +1,32 @@
+elcodi_plugin:
+    store_wizard:
+        welcome_title: 'Ongi zure denda berria !'
+        step_finished: '< strong > Yehaaaaa ! < / strong > Urrats bat gutxiago joan!'
+        step1:
+            title: 'Gehitu produktuak'
+            action: 'Sortu nire lehen produktua'
+            description: 'Zure dendan Garrantzitsuena ... zure bezeroei ondoren .'
+        disable_under_construction: 'Desgaitu < strong > eraikuntza < / strong > -moduan saltzen hasteko'
+        step4:
+            title: 'Setup bidalketa'
+            description: 'Manipulazioa eta bidalketa prezioak gehitu behar duzu . ( Doan badira ere )'
+            action_range: 'Setup bidalketa sorta'
+            action_carrier: 'Gehitu garraiolari'
+        go_general_settings: 'Ezarpen orokorrak Joan'
+        step2:
+            title: 'Setup zure helbide'
+            action: 'Gehitu helbide bat'
+            description: 'Ordena online saldu ahal izateko , zure denda helbide aurkeztu behar dugu .'
+        time_to_sell: 'Zaude < strong > % 1 urratsak < / strong > zure denda irekitzearekin gehiago'
+        step3:
+            title: 'Setup ordainketak'
+            action: 'Setup ordaintzeko metodo'
+            description: 'Ez get ordaindu nahi al duzu? Besterik esan non eta nola .'
+        go_next_step: 'Hurrengo pausoa joan'
+        go_enable_store: 'Konfigurazioa joan eta desaktibatzeko "eraikitzen" moduan .'
+        description: "Konfiguratzeko morroia lehen aldiz dendan .\nLehen urratsa egin du helbide fisiko eta denda jabeak konfiguratzen da\ndatuak . Azken finean helburua da lehen kategorian , produktuaren eta fabrikatzaileak gehitzeko\neta amaieran denda garraiolari eta ordainketa datuen administratzaileak eskatu dio"
+        done: Done!
+        first_finish_wizard: 'Ondorengo urratsak egin online joan aurretik'
+        name: 'Denda morroia'
+        ready_launch: 'Prest abiarazteko !'
+        estimated_time: 'Aurreikusitako denbora % 1 min'

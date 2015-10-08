@@ -1,0 +1,8 @@
+elcodi_plugin:
+    google_analytics:
+        field:
+            analytics_tracker_id:
+                placeholder: 'adibidez 123456789'
+                label: 'Analytics tracker ID'
+        description: 'Google analytics zure denda integrazioa'
+        name: 'Google Analytics'

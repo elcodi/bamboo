@@ -1,0 +1,4 @@
+elcodi_plugin:
+    free_payment:
+        name: 'ordainketa Free'
+        description: 'Zure denda doan ordainketa integrazioa'
