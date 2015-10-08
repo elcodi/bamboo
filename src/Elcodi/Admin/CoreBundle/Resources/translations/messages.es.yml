@@ -309,10 +309,10 @@ admin:
             setting_disabled_master_currency: 'No se puede guardar como principal una divisa desactivada'
         field:
             iso: ISO
+            master: 'Moneda principal'
             name: Nombre
             status: Activo
             symbol: Símbolo
-            master: 'Moneda principal'
         list: 'Listado de divisas'
         plural: Divisas
         saved:
@@ -781,10 +781,10 @@ admin:
             products:
                 description: 'Configura los datos del producto.'
                 title: 'Configuración del producto'
-            store:
-                title: General
             profile:
                 title: 'Imagen corporativa'
+            store:
+                title: General
         single: Configuración
     shipping_payment:
         plural: 'Pagos / envíos'

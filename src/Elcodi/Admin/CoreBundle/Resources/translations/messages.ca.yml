@@ -309,10 +309,10 @@ admin:
             setting_disabled_master_currency: 'No es pot guardar com a principal una divisa desactivada'
         field:
             iso: ISO
+            master: 'Moneda principal'
             name: Nom
             status: Activa
             symbol: Símbol
-            master: 'Moneda principal'
         list: 'Llista de divises'
         plural: Divises
         saved:
@@ -685,6 +685,9 @@ admin:
                 title: Preu
             reduced_price:
                 title: 'Preu reduït'
+            sku:
+                placeholder: 'ex. SAU102'
+                title: SKU
             slug:
                 customize: 'Personalitzar la ruta'
                 placeholder: 'p.e. meu/producte/genial'
@@ -695,9 +698,6 @@ admin:
                 title: 'Pes (en g)'
             width:
                 title: 'Amplada (en cm)'
-            sku:
-                title: SKU
-                placeholder: 'ex. SAU102'
         in_store: 'Veure a la tenda'
         info:
             variants_before_saving: 'Podràs afegir variants un cop hagis guardat el producte'
@@ -774,6 +774,8 @@ admin:
         section:
             address:
                 title: 'Direcció fiscal'
+            corporate:
+                title: 'Imatge corporativa'
             payment:
                 title: 'Métodes de pagament'
             products:
@@ -783,8 +785,6 @@ admin:
                 title: 'Imatge corporativa'
             store:
                 title: General
-            corporate:
-                title: 'Imatge corporativa'
         single: Configuració
     shipping_payment:
         plural: 'Pagaments / Enviaments'

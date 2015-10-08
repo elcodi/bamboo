@@ -193,7 +193,7 @@ template:
             password:
                 email_sent: 'Correo enviado'
                 email_sent_text: 'Le hemos enviado un correo con todas las instrucciones para recuperar su contraseña'
-                recover_password: 'Recuperar contraseña'
-                register: Registrarse
                 password_sent: 'Contraseña enviada'
                 password_sent_text: 'Te hemos enviado un email con toda la información necesaria para que recuperes tu contraseña'
+                recover_password: 'Recuperar contraseña'
+                register: Registrarse

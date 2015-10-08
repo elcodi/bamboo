@@ -101,6 +101,7 @@
         "phpunit/phpunit": "4.5.0",
 
         "mmoreram/php-formatter": "1.0.4",
+        "mmoreram/translation-server": "dev-master",
         "fabpot/php-cs-fixer": "1.4.2",
         "visithor/visithor-bundle": "^0.1.8"
     },
