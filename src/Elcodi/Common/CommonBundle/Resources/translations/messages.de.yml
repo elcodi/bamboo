@@ -6,3 +6,9 @@ common:
             refunded: Zurückerstattet
             title: Verlauf
             unpaid: Unbezahlt
+            'in delivery': 'im Lieferumfang'
+            preparing: Vorbereitung
+            cancelled: Abgesagt
+            delivered: geliefert
+            returned: zurückgegeben
+            processed: verarbeitet

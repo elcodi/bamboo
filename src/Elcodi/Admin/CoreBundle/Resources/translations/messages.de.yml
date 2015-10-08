@@ -40,6 +40,16 @@ admin:
             save: 'Adresse Speichern'
             state:
                 title: Bundesland
+            cif:
+                title: 'CIF / NIF'
+            isCompany:
+                value:
+                    company: Unternehmen
+                    individual: Einzel
+                title: 'Haben Sie ein Unternehmen besitzen ?'
+            email:
+                title: Email
+                placeholder: 'z.B. john.doe@mail.com'
         plural: Adressen
         saved: 'Adressen gespeichert'
         select:
@@ -268,6 +278,8 @@ admin:
                 title: Von
             valid_to:
                 title: Bis
+            stackable:
+                title: 'Dieser Gutschein kann angewendet werden, wenn andere Coupons vorhanden sind'
         list: Gutscheinliste
         new: 'Neuer Gutschein'
         plural: Gutscheine
@@ -297,9 +309,17 @@ admin:
             name: Name
             status: Aktiviert
             symbol: Symbol
+            master: 'Meister Währung'
         list: Währungsliste
         plural: Währungen
         single: Währung
+        error:
+            setting_disabled_master_currency: 'Sie können nicht einen behinderten Währung als Master'
+            disable_master_currency: 'Sie können nicht deaktivieren Sie Ihre Master- Währung'
+        saved:
+            disabled: 'Diese currancy wurde deaktiviert'
+            enabled: 'Diese Währung wurde aktiviert'
+            master: 'Hauptwährung gespeichert'
     customer:
         edit: '%name% bearbeiten'
         error:
@@ -380,6 +400,8 @@ admin:
             principal: 'Das erste Bild wird das Hauptbild sein.'
             reorder: 'Du kannst die Bilder per Drag & Drop neu anordnen.'
             upload: 'Bilder hochladen'
+            upload_logo: 'Logo hochladen'
+            upload_single: 'Bild hochladen'
         plural: Bilder
         single: Bild
     language:
@@ -390,6 +412,13 @@ admin:
         list: Sprachliste
         plural: Sprachen
         single: Sprache
+        error:
+            setting_disabled_master_language: 'Sie können eine behinderte Sprache als Master nicht gesetzt'
+            disable_master_language: 'Sie können Ihre Mastersprache nicht deaktivieren'
+        saved:
+            master: 'Hauptsprache gespeichert'
+            disabled: 'Diese Sprache wurde deaktiviert'
+            enabled: 'Diese Sprache aktiviert wurde'
     login:
         action:
             login: Login
@@ -460,6 +489,9 @@ admin:
             visibility:
                 description: 'Setze diesen Hersteller auf sichtbar oder unsichtbar.'
                 title: Sichtbarkeit
+            logo:
+                description: 'Ein Logobild der Hersteller Laden als größere wie möglich. Wenn es zusätzliche Texte enthält , desto besser.'
+                title: 'Hersteller- Logo'
         single: Hersteller
     media:
         list: Medienliste
@@ -523,6 +555,13 @@ admin:
         to_user: 'Gehe zu Kunde'
         transition:
             refund: Rückerstattung
+            'order ready': 'Auftrag fertig'
+            return: Zurück
+            'picked up on store': 'Auf Shop abgeholt'
+            delivered: geliefert
+            'picked up by carrier': 'Von Träger abgeholt'
+            cancel: Absagen
+        notes: Hinweise
     page:
         edit: '%name% bearbeiten'
         error:
@@ -569,6 +608,7 @@ admin:
         section:
             settings: Einstellungen
         single: App
+        app_store: 'App Store'
     product:
         edit: '%name% bearbeiten'
         error:
@@ -623,6 +663,9 @@ admin:
                 title: 'Gewicht (in g)'
             width:
                 title: 'Breite (in cm)'
+            sku:
+                placeholder: 'ej . SAU102'
+                title: SKU
         in_store: 'Im Store zeigen'
         info:
             variants_before_saving: 'Varianten können nach dem Speichern hinzugefügt werden'
@@ -652,6 +695,9 @@ admin:
             visibility:
                 description: 'Setze das Produkt auf sichtbar oder unsichtbar und mache es auf der Startseite verfügbar.'
                 title: Sichtbarkeit
+            sku:
+                title: SKU
+                description: 'SKU ist eine Kennung , die zur Identifikation der Produkte ermöglicht . Jedes SKU es auf nur ein Produkt.'
         show_metrics: 'Metriken anzeigen'
         single: Produkt
         tag:
@@ -659,6 +705,7 @@ admin:
             in_home: Startseite
             no_category: 'Keine Kategorie'
             no_manufacturer: 'Kein Hersteller'
+        note: Hinweise
     profile:
         plural: Profile
         single: Profil
@@ -701,6 +748,12 @@ admin:
             store:
                 description: 'Lege die Storedaten fest.'
                 title: 'Store Setup'
+            profile:
+                title: Unternehmensbild
+            address:
+                title: 'Adresse & Kontakt'
+            corporate:
+                title: 'Corporate Image'
         single: Einstellung
     shipping_payment:
         plural: 'Bezahlungen & Versendungen'
@@ -816,6 +869,61 @@ admin:
                 description: 'Setze diese Variante auf sichtbar oder unsichtbar.'
                 title: Sichtbarkeit
         single: Variante
+    identity:
+        section:
+            backgroundImage:
+                title: Hintergrundbild
+                description: 'Fügen Sie ein Bild so groß wie möglich (quadratisch oder Hochformat ) , und es wird das spektakuläre Hintergrundbild von Ihrem Online-Shop zu werden. Wenn Sie ein Hintergrundbild hinzuzufügen, ist es besser, Header nicht verwenden .'
+            mobileLogo:
+                title: 'Logo für mobile'
+                description: 'Dieses Bild wird zeigen, auf die Clients mit einem Mobil zu Ihrem Geschäft zu navigieren. Ist optional, aber wenn Sie das mobile Erlebnis verbessern möchten , können Sie.'
+            logo:
+                title: Logo
+                description: 'Hier können Sie ein Bild mit Ihrem Logo hinzufügen. Bitte benutzen Sie die maximale Qualität posible .'
+            headerImage:
+                description: 'Fügen Sie ein Hintergrundbild für den Header von Ihrem Geschäft .'
+                title: 'Header image'
+            info:
+                description: 'Geben Sie einen Namen Ihres Shops und ein Leitmotiv (optional).'
+                title: Grundinformation
+            secondaryLogo:
+                title: 'Logo für footer'
+                description: 'Wenn Sie das Logo der Fußzeile (optional) anpassen möchten Sie können.'
+        field:
+            leitmotiv:
+                placeholder: 'z : Awesome Produkte für tolle Leute'
+                title: Leitmotiv
+            name:
+                title: Shop-Name
+                placeholder: 'z : My Awesome Shop'
+        less: Weniger
+        singular: 'Corporate Image'
+        more: Mehr
+    store:
+        section:
+            advanced:
+                title: Erweiterte
+                description: 'Erweiterte Einstellungen für Ihr Geschäft .'
+            status:
+                title: Status
+                description: 'Steuert , wenn der Speicher geöffnet oder geschlossen wird .'
+            stock:
+                description: 'Wenn Sie diese Option aktivieren, werden Sie die Aktie in Ihre Produkte , um das Setup in der Lage .'
+                title: Lager
+        saved: 'Einstellungen gespeichert.'
+        field:
+            useStock:
+                title: 'Aktivieren Bestandskontrolle'
+            routingStrategy:
+                prefix_except_default: 'Alle URLs haben eine Sprache Präfix mit Ausnahme der Standardsprache'
+                title: 'Mehrsprachig urls Format'
+                prefix: 'Alle URLs haben eine Sprache Präfix'
+                custom: 'Kein Präfix für Sprachen , nur übersetzt URLs'
+            enabled:
+                title: 'Shop Aktiviert'
+        settings: Einstellungen
+    menu:
+        design: 'anfertigen Shop'
 plugin:
     paymill:
         register:
@@ -866,3 +974,8 @@ ui:
     tags:
         placeholder:
             comma_separated: 'Füge Tags durch ein Komma getrennt hinzu.'
+plugin_type:
+    app: Apps
+    social: Soziales
+    payment: Zahlungsarten
+    shipping: Versandmöglichkeiten
