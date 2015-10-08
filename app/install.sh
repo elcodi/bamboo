@@ -26,23 +26,4 @@ case $FLAG in
 esac
 
 # Creating database schema and tables
-/usr/bin/env php app/console --no-interaction doc:dat:cre --if-not-exists
-/usr/bin/env php app/console --no-interaction doc:sch:dro --force
-/usr/bin/env php app/console --no-interaction doc:sch:cre
-
-/usr/bin/env php app/console --no-interaction doctrine:fixtures:load --fixtures="src/Elcodi/Fixtures"
-
-# Add geographic information by ISO code. Adding "Spain" as a reference
-/usr/bin/env php app/console elcodi:locations:populate ES
-
-# Loads elcodi plugins. See Elcodi\Component\Plugin\Services\PluginManager
-/usr/bin/env php app/console elcodi:plugins:load
-
-# Enables the store and makes it visible. Also enables the default template
-/usr/bin/env php app/console elcodi:configuration:set store.enabled 1
-/usr/bin/env php app/console elcodi:configuration:set store.under_construction 0
-/usr/bin/env php app/console elcodi:configuration:set store.template "\"StoreTemplateBundle\""
-
-# Assets & Assetic
-/usr/bin/env php app/console --no-interaction assets:install web --symlink
-/usr/bin/env php app/console --no-interaction assetic:dump
+/usr/bin/env php app/console --no-interaction elcodi:install
