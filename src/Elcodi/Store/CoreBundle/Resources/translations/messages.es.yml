@@ -1,107 +1,102 @@
 store:
-    error:
-        store_unavailable_title:     Tienda no disponible
-        store_is_disabled:           La tienda está desactivada
-        store_is_under_construction: La tienda está en construcción
-        page_not_found_title:        Página no encontrada
-        page_not_found:              Uy si, has descubierto nuestro plan secreto para conquistar el mundo
-
     address:
-        save:
-            response_ok: Dirección guardada
-        delete:
-            response_ok: Dirección borrada correctamente
-        select_address_type: Selecciona una dirección de %1
         billing: facturación
+        delete:
+            response_ok: 'Dirección borrada correctamente'
         delivery: entrega
         form:
             fields:
-                city:
-                    label: Ciudad
-                name:
-                    label: Nombre de la dirección
-                recipientName:
-                    label: Nombre del destinatario
-                recipientSurname:
-                    label: Apellido del destinatario
                 address:
                     label: Dirección
                 addressMore:
-                    label: Más dirección (opcional)
-                postalcode:
-                    label: Código postal
-                phone:
-                    label: Teléfono
-                mobile:
-                    label: Teléfono móvil
+                    label: 'Más dirección (opcional)'
+                city:
+                    label: Ciudad
                 comments:
                     label: Comentarios
-                send:
-                    label: Guardar dirección
                 country:
                     label: País
-                state:
-                    label: Comunidad autónoma
+                mobile:
+                    label: 'Teléfono móvil'
+                name:
+                    label: 'Nombre de la dirección'
+                phone:
+                    label: Teléfono
+                postalcode:
+                    label: 'Código postal'
                 province:
                     label: Provincia
-
+                recipientName:
+                    label: 'Nombre del destinatario'
+                recipientSurname:
+                    label: 'Apellido del destinatario'
+                send:
+                    label: 'Guardar dirección'
+                state:
+                    label: 'Comunidad autónoma'
+        save:
+            response_ok: 'Dirección guardada'
+        select_address_type: 'Selecciona una dirección de %1'
+    coupon:
+        applied:
+            message_ko: 'No se pudo aplicar el cupón'
+            message_ok: 'Cupón aplicado correctamente'
+        form:
+            fields:
+                apply:
+                    label: 'Aplicar cupón'
+                code:
+                    label: 'Código de cupón'
+    error:
+        page_not_found: 'Uy si, has descubierto nuestro plan secreto para conquistar el mundo'
+        page_not_found_title: 'Página no encontrada'
+        store_is_disabled: 'La tienda está desactivada'
+        store_is_under_construction: 'La tienda está en construcción'
+        store_unavailable_title: 'Tienda no disponible'
     login:
-        wrong_combination: Combinación de email y contraseña incorrectos.
         form:
             fields:
                 email:
-                    label: Correo electrónico
+                    label: 'Correo electrónico'
                 password:
                     label: Contraseña
                 send:
                     label: Enviar
+        wrong_combination: 'Combinación de email y contraseña incorrectos.'
+    pagination:
+        current: Actual
+        first: Primero
+        last: Último
+        next: Siguiente
+        previous: Anterior
     recovery:
         form:
             fields:
+                email:
+                    label: 'Correo electrónico'
                 password:
                     label: Contraseña
+                remember:
+                    label: 'No recuerdo mi contraseña'
                 repeat_password:
-                    label: Repetir contraseña
-                email:
-                    label: Correo electrónico
+                    label: 'Repetir contraseña'
                 send:
                     label: Enviar
-                remember:
-                    label: No recuerdo mi contraseña
-
     user:
-        profile:
-            save:
-                message_ok: Perfil guardado
         form:
             fields:
+                email:
+                    label: 'Correo electrónico'
                 firstname:
                     label: Nombre
                 lastname:
                     label: Apellido
-                email:
-                    label: Correo electrónico
                 password:
                     label: Contraseña
                 repeat_password:
-                    label: Repetir contraseña
+                    label: 'Repetir contraseña'
                 send:
                     label: Guardar
-
-    coupon:
-        form:
-            fields:
-                code:
-                    label: Código de cupón
-                apply:
-                    label: Aplicar cupón
-        applied:
-            message_ok: Cupón aplicado correctamente
-            message_ko: No se pudo aplicar el cupón
-
-    pagination:
-        first: Primero
-        previous: Anterior
-        current: Actual
-        next: Siguiente
-        last: Último
+        profile:
+            save:
+                message_ok: 'Perfil guardado'

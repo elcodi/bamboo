@@ -1,0 +1,12 @@
+elcodi_plugin:
+    disqus:
+        field:
+            disqus_enabled_product:
+                label: 'Aktivieren Disqus auf Produktseiten'
+            disqus_identifier:
+                placeholder: 'z.B. 123456789'
+                label: Identifier
+            disqus_enabled_blog_post:
+                label: 'Aktivieren Disqus auf Blog-Beiträge'
+        description: 'Disqus Integration für Ihren Shop'
+        name: Disqus

@@ -1,37 +1,32 @@
 elcodi_plugin:
     store_wizard:
-        name: Assistent de botiga
-        description: |
-            Un assistent per a configurar la teva botiga per primera vegada.
-            Al primer pas configura dades sobre la direcció física de la botiga i del seu administrador.
-            Després d'això, ofereix afegir la primera categoria, marca i producte, i finalment demana
-            informació sobre mètodes de pagament i de enviament.
-
-        first_finish_wizard: Finalitza tots els passos abans de desactivar la "botiga en construcció"
-        welcome_title: Ja tens la teva botiga online!
-        go_general_settings: Anar a la configuració de la botiga
-        ready_launch: Tot llest!
+        description: "Un assistent per a configurar la teva botiga per primera vegada.\nAl primer pas configura dades sobre la direcció física de la botiga i del seu administrador.\nDesprés d'això, ofereix afegir la primera categoria, marca i producte, i finalment demana\ninformació sobre mètodes de pagament i de enviament.\n"
+        disable_under_construction: 'Desactiva el mode <strong>Tienda en construcció</strong> per a començar a vendre'
         done: Fet!
-        go_enable_store: Ves a la configuració i desactiva la "botiga en construcció".
-        go_next_step: Ves al següent pas
-        step_finished: <strong>Visca!</strong> Un pas menys per a finalitzar!
-        time_to_sell: Estàs a <strong>%1 passos</strong> de començar a vendre
-        disable_under_construction: Desactiva el mode <strong>Tienda en construcció</strong> per a començar a vendre
-        estimated_time: Temps estimat %1 min
+        estimated_time: 'Temps estimat %1 min'
+        first_finish_wizard: 'Finalitza tots els passos abans de desactivar la "botiga en construcció"'
+        go_enable_store: 'Ves a la configuració i desactiva la "botiga en construcció".'
+        go_general_settings: 'Anar a la configuració de la botiga'
+        go_next_step: 'Ves al següent pas'
+        name: 'Assistent de botiga'
+        ready_launch: 'Tot llest!'
         step1:
-            title: Afegeix un producte
-            description: El més important de la teva botiga... a part dels clients, clar.
-            action: Afegir un producte
+            action: 'Afegir un producte'
+            description: 'El més important de la teva botiga... a part dels clients, clar.'
+            title: 'Afegeix un producte'
         step2:
-            title: Afegeix les teves dades
-            description: Introduceix la direcció de la teva botiga (o la teva direcció si no tens botiga física) per a poder vendre.
-            action: Afegir dades
+            action: 'Afegir dades'
+            description: 'Introduceix la direcció de la teva botiga (o la teva direcció si no tens botiga física) per a poder vendre.'
+            title: 'Afegeix les teves dades'
         step3:
-            title: Configura els pagaments
-            description: Per a que els usuaris puguin pagar a la teva botiga has de configurar els métodes de pagament.
-            action: Configurar els pagaments
+            action: 'Configurar els pagaments'
+            description: 'Per a que els usuaris puguin pagar a la teva botiga has de configurar els métodes de pagament.'
+            title: 'Configura els pagaments'
         step4:
-            title: Configura les entregues
-            description: Afegeix les dades d'enciament (Encara que siguin gratis).
-            action_range: Afegir el rang d'enviament
-            action_carrier: Afegir el transportista
+            action_carrier: 'Afegir el transportista'
+            action_range: 'Afegir el rang d''enviament'
+            description: 'Afegeix les dades d''enciament (Encara que siguin gratis).'
+            title: 'Configura les entregues'
+        step_finished: '<strong>Visca!</strong> Un pas menys per a finalitzar!'
+        time_to_sell: 'Estàs a <strong>%1 passos</strong> de començar a vendre'
+        welcome_title: 'Ja tens la teva botiga online!'

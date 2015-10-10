@@ -1,51 +1,59 @@
 store:
-    error:
-        store_unavailable_title:     Store nicht verfügbar
-        store_is_disabled:           Dieser Store ist zur Zeit deaktiviert
-        store_is_under_construction: Dieser Store befindet sich im Aufbau
-        page_not_found_title:        Seite nicht gefunden
-        page_not_found:              OK, du hast also unsere geheimen Weltherrschaftspläne entdeckt.
-
     address:
-        save:
-            response_ok: Adresse gespeichert
-        delete:
-            response_ok: Adresse gelöscht
-        select_address_type: Wähle eine %1-Adresse aus
         billing: Rechnungslegung
+        delete:
+            response_ok: 'Adresse gelöscht'
         delivery: Lieferung
         form:
             fields:
-                city:
-                    label: Stadt
-                name:
-                    label: Adress Name
-                recipientName:
-                    label: Empfänger Nachname
-                recipientSurname:
-                    label: Empfänger Vorname
                 address:
                     label: Adresse
                 addressMore:
-                    label: Address Zusatz (optional)
-                postalcode:
-                    label: Postleitzahl
-                phone:
-                    label: Telefonnummer
-                mobile:
-                    label: Mobilnummer
+                    label: 'Address Zusatz (optional)'
+                city:
+                    label: Stadt
                 comments:
                     label: Kommentare
-                send:
-                    label: Adresse speichern
                 country:
                     label: Land
-                state:
-                    label: Bundesland
+                mobile:
+                    label: Mobilnummer
+                name:
+                    label: 'Adress Name'
+                phone:
+                    label: Telefonnummer
+                postalcode:
+                    label: Postleitzahl
                 province:
                     label: Region
+                recipientName:
+                    label: 'Empfänger Nachname'
+                recipientSurname:
+                    label: 'Empfänger Vorname'
+                send:
+                    label: 'Adresse speichern'
+                state:
+                    label: Bundesland
+        save:
+            response_ok: 'Adresse gespeichert'
+        select_address_type: 'Wähle eine %1-Adresse aus'
+    coupon:
+        applied:
+            message_ko: 'Gutschein konnte nicht eingelöst werden'
+            message_ok: 'Gutschein erfolgreich eingelöst'
+        form:
+            fields:
+                apply:
+                    label: 'Gutschein einlösen'
+                code:
+                    label: Gutscheincode
+    error:
+        page_not_found: 'OK, du hast also unsere geheimen Weltherrschaftspläne entdeckt.'
+        page_not_found_title: 'Seite nicht gefunden'
+        store_is_disabled: 'Dieser Store ist zur Zeit deaktiviert'
+        store_is_under_construction: 'Dieser Store befindet sich im Aufbau'
+        store_unavailable_title: 'Store nicht verfügbar'
     login:
-        wrong_combination: Falsche Email-Passwort kombination.
         form:
             fields:
                 email:
@@ -54,53 +62,41 @@ store:
                     label: Passwort
                 send:
                     label: Senden
+        wrong_combination: 'Falsche Email-Passwort kombination.'
+    pagination:
+        current: Aktuell
+        first: Erste
+        last: Letzte
+        next: Nächste
+        previous: Vorher
     recovery:
         form:
             fields:
-                password:
-                    label: Passwort
-                repeat_password:
-                    label: Passwort wiederholen
                 email:
                     label: Email
-                send:
-                    label: Senden
+                password:
+                    label: Passwort
                 remember:
                     label: Erinnern
-
+                repeat_password:
+                    label: 'Passwort wiederholen'
+                send:
+                    label: Senden
     user:
-        profile:
-            save:
-                message_ok: Profil gespeichert
         form:
             fields:
+                email:
+                    label: Email
                 firstname:
                     label: Vorname
                 lastname:
                     label: Nachname
-                email:
-                    label: Email
                 password:
                     label: Passwort
                 repeat_password:
-                    label: Passwort wiederholen
+                    label: 'Passwort wiederholen'
                 send:
                     label: Speichern
-
-    coupon:
-        form:
-            fields:
-                code:
-                    label: Gutscheincode
-                apply:
-                    label: Gutschein einlösen
-        applied:
-            message_ok: Gutschein erfolgreich eingelöst
-            message_ko: Gutschein konnte nicht eingelöst werden
-
-    pagination:
-        first: Erste
-        previous: Vorher
-        current: Aktuell
-        next: Nächste
-        last: Letzte
+        profile:
+            save:
+                message_ok: 'Profil gespeichert'

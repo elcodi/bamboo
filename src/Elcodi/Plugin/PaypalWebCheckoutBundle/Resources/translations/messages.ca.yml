@@ -1,8 +1,8 @@
 elcodi_plugin:
     paypal_web_checkout:
-        name: Paypal Web Checkout
-        description: "<p>Stripe permeteix pagar als teus usuaris fent servir el seu compte de Paypal. Per activar-ho necesites tenir un compte de Paypal i configurar-lo aquí.</p><p>No tens un compte de Paypal?</p> <a href='https://www.paypal.com/webapps/mpp/merchant' class='button' target='_blank'>Crear un compte de Paypal</a>"
+        description: '<p>Stripe permeteix pagar als teus usuaris fent servir el seu compte de Paypal. Per activar-ho necesites tenir un compte de Paypal i configurar-lo aquí.</p><p>No tens un compte de Paypal?</p> <a href=''https://www.paypal.com/webapps/mpp/merchant'' class=''button'' target=''_blank''>Crear un compte de Paypal</a>'
         field:
             business:
-                label: Compte de Paypal
+                label: 'Compte de Paypal'
                 placeholder: pere@punyetes.com
+        name: 'Paypal Web Checkout'

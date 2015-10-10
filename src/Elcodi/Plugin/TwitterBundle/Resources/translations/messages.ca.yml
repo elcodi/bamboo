@@ -1,9 +1,8 @@
 elcodi_plugin:
     twitter:
-        name: Twitter
-        description: Integració de Twitter per a la teva botiga
-
+        description: 'Integració de Twitter per a la teva botiga'
         field:
             twitter_account:
-                label: Compte de Twitter
+                label: 'Compte de Twitter'
                 placeholder: joanpetit
+        name: Twitter

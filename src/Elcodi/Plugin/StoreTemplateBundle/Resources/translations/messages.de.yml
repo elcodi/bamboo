@@ -1,0 +1,197 @@
+template:
+    store_template_bundle:
+        address:
+            new:
+                recipient:
+                    example_surname: 'z.B. Doe'
+                    example_name: 'z.B. John'
+                phone:
+                    example: 'z.B. 935 555 555'
+                mobile:
+                    example: 'z.B. 555 555 555'
+                address:
+                    example: 'z.B. Fantastische Street, 21'
+                address_more:
+                    example: 'z.B. Doe Enterprises'
+                comments:
+                    example: 'z.B. Es ist ein Haus'
+                postalcode:
+                    example: 'z.B. 08080'
+                cancel: Absagen
+                name:
+                    example: 'z.B. Meine Standardadresse'
+            list:
+                no_addresses: 'Es gibt keine Adressen'
+                addresses: Adressen
+                add_new_address: 'Neue Adresse hinzufügen'
+            item:
+                actions: Aktionen
+                state: Staats
+                fullname: 'Voller Name'
+                remove: herausnehmen
+                edit: redigieren
+                delivery: Auslieferung
+                country: Land
+                postal_code: Postleitzahl
+                province: Land
+                address_name: Name
+                address: Anschrift
+                comment: Comments
+                city: Stadt
+                billing: Billing
+                phone_and_mobile: 'Telefon / Handy'
+            edit:
+                edit_address: 'Adresse bearbeiten'
+                add_new_address: 'Neue Adresse hinzufügen'
+        payment:
+            credit_card_owner: Kreditkarteninhaber
+            credit_card_numbers: Kreditkartennummern
+            year: Jahr
+            month: Monat
+            security_code: Sicherheitscode
+        order:
+            list:
+                no_orders: 'Es sind keine Bestellungen'
+                date: Datum
+                payment_state: 'Payment Zustand'
+                number_of_order: Auftragsnummer
+                order_number: 'Auftrag #'
+                orders: Bestellungen
+                shipping_state: Lieferzustand
+                total: Gesamt
+                image: image
+            coupon:
+                units: Einheiten
+                total: Gesamt
+                values: Werte
+                coupon: Gutschein
+                description: Bezeichnung
+            item:
+                item: Posten
+                units: Einheiten
+                image: image
+                price: Kurs
+                total: Gesamt
+            view:
+                shipping: 'Versand:'
+                total: Gesamt
+                thanks: 'Vielen Dank für Ihre Bestellung! Wir werden zusammenarbeiten, um Ihnen so schnell wie möglich zu schicken.'
+                order: Auftrag
+                continue_shopping: 'Mit dem Einkaufen fortfahren'
+                status: 'Status:'
+                congratulations: 'Herzlichen Glückwunsch!'
+        checkout:
+            payment:
+                continue: fortsetzen
+                bankwire: Banküberweisung
+                credit_debit_card: 'Kredit- / Debitkarte'
+                back: zurück
+                try_again: 'Bitte versuche es erneut.'
+                payment_method: Zahlungsmethode
+                set_shipping_payment: 'Stellen Sie die Liefer- und die Zahlung'
+                shipping_carrier_method: 'Versandträger/ Verfahren'
+                paypal: Paypal
+            address:
+                select_address: 'Liefer auswählen und Rechnungsadresse'
+                payment: Bezahlung
+                add_new_address: 'Neue Adresse hinzufügen'
+            back: zurück
+            layout:
+                total: Gesamt
+                your_cart: 'Ihr Warenkorb'
+        footer:
+            follow_us: 'Folge uns'
+            latest_news: 'Latests News'
+            quick_links: Quick-Links
+            more: Mehr
+        shipping:
+            costs_will_be_calculated_after_login: 'Nachdem Sie sich einloggen oder fügen Sie Ihre Lieferadresse die Versandkosten berechnet werden.'
+            no_shipping_matching: 'Keine Versand Matching. Bitte kontaktieren Sie uns , bevor Kasse Versandkosten.'
+            carrier: Träger
+            from: von
+            costs_will_be_calculated_after_address: 'Nachdem Sie Ihre Adresse eingestellt , werden die Versandkosten berechnet werden.'
+        product:
+            view_item:
+                description: Bezeichnung
+                delivery: Auslieferung
+                in_stock: 'Dieser Artikel ist auf Lager und sofort lieferbar!'
+                offer: anbieten
+                not_available: 'Dieser Artikel ist zur Zeit nicht lieferbar'
+                add_to_cart: 'In den Einkaufswagen hinzufügen'
+                no_stock: 'Kein Bestand'
+                usually_dispatched_24_hours: 'Gewöhnlich versandfertig in 24 Stunden'
+                stock: Lager
+                product: Erzeugnis
+            item:
+                offer: anbieten
+            list:
+                no_products_in_category: 'Sorry, wir haben keine Produkte in dieser Kategorie'
+            also_like: 'Sie konnten auch mögen ...'
+        user:
+            nav:
+                create_new_account: 'Neuen Account erstellen'
+                logout: Abmelden
+                login: Einloggen
+            password:
+                recover_password: 'Passwort wieder herstellen'
+                password_sent_text: 'Wir haben Ihnen eine E-Mail mit allen Informationen , um Ihr Passwort wieder gesendet.'
+                register: Registrieren
+                password_sent: 'Kennwort geschickt'
+            edit:
+                profile: Profil
+            home:
+                my_addresses: 'Meine Adressen'
+                my_orders: 'Meine Befehle'
+                profile: Profil
+                dashboard: Armaturenbrett
+            login:
+                unregistered: 'Noch nicht registriert ?'
+                login_with_account: 'Einloggen mit Ihrem Account'
+                forgot_your_password: 'Haben Sie Ihr Passwort vergessen?'
+                login_with_social: 'Einloggen mit Ihrer sozialen Konten'
+                create_new_account: 'Neuen Account erstellen'
+        category:
+            nav:
+                new: neue
+            view:
+                category: Rubrik
+        cart:
+            nav:
+                items: Artikel
+                amount: Höhe
+            view:
+                empty_basket: 'Empty basket'
+                your_cart_is_empty: 'dein Wagen ist leer'
+                checkout: Auschecken
+                total: Gesamt
+                title: 'Dein Einkaufswagen'
+                update_basket: 'Update Warenkorb'
+                checkout_title: 'Überprüfen Sie alle Einzelteile und / oder Übernehmen Gutscheine'
+                continue_shopping: 'Mit dem Einkaufen fortfahren'
+            item:
+                image: image
+                price: Kurs
+                total: Gesamt
+                remove: herausnehmen
+                units: Einheiten
+                item: Posten
+        coupon:
+            item:
+                remove: herausnehmen
+                total: Gesamt
+                value: Wert
+                units: Einheiten
+                description: Bezeichnung
+                coupon: Gutschein
+        blog:
+            post:
+                view:
+                    read_more: 'Lies mehr'
+                    last_post: 'Letzter Beitrag'
+                list:
+                    blog_posts: 'Blog -Beiträge'
+                    read_more: 'Lies mehr'
+                    next_posts: 'Nächste Artikel'
+                    previous_posts: 'Aktuellere Beiträge'
+        header:
+            menu: Menu

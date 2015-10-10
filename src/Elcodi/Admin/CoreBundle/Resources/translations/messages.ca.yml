@@ -1,1006 +1,980 @@
 admin:
-    name: Administració
-    menu:
-        design: Personalitzar Botiga
-    store:
-        saved: Configuració guardada.
-        settings: Configuracions
-        section:
-            advanced:
-                title: Opciones avançades
-                description: A Aquesta secció trobarás opcions avançades de configuració.
-            stock:
-                title: Stock
-                description: "Activa aquesta opció per gestionar l'stock dels teus productes."
-            status:
-                title: Estat de la botiga
-                description: "Controla si la botiga esta oberta o tancada al públic."
-        field:
-            routingStrategy:
-                title: Estrategia de URLs per multiples llenguatges
-                prefix_except_default: Totes les URLs tenen un prefixe excepte l'idioma principal
-                prefix: Totes les URLs tenen un prefixe
-                custom: No fer servir prefixes, traduire totes les urls
-            enabled:
-                title: Activar botiga
-            useStock:
-                title: Fer servir control de stock
-    identity:
-        singular: Imatge corporativa
-        more: Més
-        less: Menys
-        field:
-            name:
-                title: Nom de la botiga
-                placeholder: e.g: La meva botiga
-            leitmotiv:
-                title: Eslogan
-                placeholder: e.g: Productes per la gent
-        section:
-            info:
-                title: Informació básica
-                description: "Introdueix el nom de la botiga i l'eslogan (opcional)."
-            logo:
-                title: Logotip de la teva botiga
-                description: Si tens un logotip de la teva botiga afegeix-lo i es mostrarà a varies parts de la tenda. Es recomanable que sigui amb bona qualitat.
-            mobileLogo:
-                title: Logotip versió mòbil
-                description: Aquesta imatge es mostrarà als clients que accedeixin a la teva tenda online des d'un mòbil. És opcional, però et servirà si vols personalitzar l'experiencia mòbil.
-            secondaryLogo:
-                title: Logotip a peu de pàgina
-                description: Si vols personalitzar el logotip a peu de pàgina, afegeix-lo. És opcional.
-            headerImage:
-                title: Imatge de capçalera
-                description: Aquesta imatge es mostrarà com a capçalera de la teva tenda. Depenent del diseny que seleccionis varia lleugerament com es mostra, ja sigui com a fons o de forma més prominent. Tot i que és opcional, recomanem afegir-la. Li donarà molta personalitat a la teva tenda. Consell: procura que la imatge tingui el màxim de definició possible i que sigui horitzontal i rectangular.
-            backgroundImage:
-                title: Imatge de fons
-                description: Puja aquí una imatge el més gran possible (quadrada o vertical) i es convertirà en l'espectacular fons de la teva botiga en línia. Si afegeixes la imatge de fons és recomanable no utilitzar cap imatge de capçalera.
-    dashboard:
-        single: Tauler de contol
-        plural: Taulers de control
-        title:  Tauler de control
-        view_store: Veure la meva tenda
-        chart:
-            visitors:
-                title: Visites
-                unique: Usuaris unics
-                total: Pàgines vistes
-            sales:
-                title: Vendes
-                sales: Vendes
-            cart_conversion:
-                title: Conversió de cistella
-                cart_view: Resum
-                billing_shipping: Adreça
-                payment: Pagament
-                ordered: Finalitzat
-            devices:
-                title: Dispositius
-                mobile: Mòbils
-                desktop: Escriptori
-            traffic_source:
-                title: Origen de visites
-                direct: Directe
-                referrals: Referits
-                search_engine: Cercadors
-        chart_range:
-            today: Avui
-            yesterday: Ahir
-            last7days: Ultims 7 dies
-            last30days: Ultims 30 dies
-            last90days: Ultims 90 dies
     UI:
-        show_code: Mostrar codi font
-        show_visual: Ocultar codi font
+        show_code: 'Mostrar codi font'
+        show_visual: 'Ocultar codi font'
     address:
-        single: Adreça fiscal
-        plural: Adreçes fiscals
-        saved:  Adreça guardada
         edit:
-            billing_address: Adreça de facturació de la teva botiga
-            description: "La direcció que ha de constar a les factures que la teva tenda emeti. En el cas de tenir una empresa aquesta serà la direcció fiscal d'aquesta. En cas contrari, segurament serà la teva direcció física."
-        select:
-            placeholder: Sel·lecciona una
+            billing_address: 'Adreça de facturació de la teva botiga'
+            description: 'La direcció que ha de constar a les factures que la teva tenda emeti. En el cas de tenir una empresa aquesta serà la direcció fiscal d''aquesta. En cas contrari, segurament serà la teva direcció física.'
         field:
-            recipient_name:
-                title:       Nom / Empresa
-                placeholder: p.e. Joan
-            recipient_surname:
-                title:       Cognóms (Opcional si es empresa)
-                placeholder: p.e. Capdevila
-            email:
-                title: Adreça electrònica
-                placeholder: p.e. joan.capdevila@mail.com
             address:
-                title:       Adreça
-                placeholder: "Plaça de a vil·la, 42"
+                placeholder: 'Plaça de a vil·la, 42'
+                title: Adreça
             address_more:
-                title:       Més adreça (opcional)
-                placeholder: p.e. Oficina central
-            postalcode:
-                title:       Codi postal
-                placeholder: p.e. 08080
-            phone:
-                title:       Telèfon
-                placeholder: p.e. 935 555 555
-            mobile:
-                title:       Mòbil
-                placeholder: p.e. 555 555 555
-            comments:
-                title:       Comentaris
-                placeholder: p.e. És una casa
-            country:
-                title: Pais
-            state:
-                title: Comunitat Autònoma
-            province:
-                title: Província
+                placeholder: 'p.e. Oficina central'
+                title: 'Més adreça (opcional)'
+            cif:
+                title: 'CIF / NIF'
             city:
                 title: Ciutat
+            comments:
+                placeholder: 'p.e. És una casa'
+                title: Comentaris
+            country:
+                title: Pais
+            email:
+                placeholder: 'p.e. joan.capdevila@mail.com'
+                title: 'Adreça electrònica'
             isCompany:
-                title: Es una empresa?
+                title: 'Es una empresa?'
                 value:
-                    individual: Persona física
-                    company:    Empresa
-            cif:
-                title: CIF / NIF
-            save: Guardar adreça
-
-    remember_user:
-        title: Has perdut la teva contrasenya?
-        description: "No et preocupis, t'enviem un correu electrònic per a que reiniciis la teva contrasenya."
-
-    recover_user:
-        title: Nova contrasenya
+                    company: Empresa
+                    individual: 'Persona física'
+            mobile:
+                placeholder: 'p.e. 555 555 555'
+                title: Mòbil
+            phone:
+                placeholder: 'p.e. 935 555 555'
+                title: Telèfon
+            postalcode:
+                placeholder: 'p.e. 08080'
+                title: 'Codi postal'
+            province:
+                title: Província
+            recipient_name:
+                placeholder: 'p.e. Joan'
+                title: 'Nom / Empresa'
+            recipient_surname:
+                placeholder: 'p.e. Capdevila'
+                title: 'Cognóms (Opcional si es empresa)'
+            save: 'Guardar adreça'
+            state:
+                title: 'Comunitat Autònoma'
+        plural: 'Adreçes fiscals'
+        saved: 'Adreça guardada'
+        select:
+            placeholder: 'Sel·lecciona una'
+        single: 'Adreça fiscal'
+    admin_user:
+        edit: 'Editar "%name%"'
+        error:
+            cant_disable_yourself: 'No pots desactivar el teu propi compte'
+            cant_remove_yourself: 'No pots esborrar el teu propi compte'
+        list: 'Llista d''administradors'
+        new: 'Crea un nou administrador'
+        plural: Administradors
+        saved: 'Canvis guardats'
+        section:
+            contact:
+                description: 'Els detalls de contacte per aquest administrador.'
+                title: 'Detalls de contacte'
+            login:
+                description: 'Cada usuari ha de tenir una adreça de correu electrònic únic.'
+                title: 'Detalls de sessió'
+            status:
+                description: 'Pots configurar els administradors com actius o inactius.'
+                title: 'Estat de l''usuari'
+        single: Administrador
+    attribute:
+        edit: 'Editar "%name%"'
         field:
-            email:
-                placeholder: La teva adreça de correu electrònic
-            password:
-                placeholder: Nova contrasenya
-            repeat_password:
-                placeholder: Repeteix contrasenya
-        action:
-            email_sent:
-                title: Correu electrònic enviat
-                description: "Si us plau, comprova la teva bústia electrònica i segueix les instruccions per a recuperar la teva contrasenya."
-
-    login:
-        title: És necessari iniciar sessió
-        field:
-            email:
-                placeholder: La teva adreça electrònica
-            password:
-                placeholder: La teva contrasenya
-        action:
-            login: Iniciar sessió
-            logout: Tancar sessió
-            remember: No recordo la meva contrasenya
-
-    user:
-        field:
-            email:
-                title: Adreça electrònica
-                placeholder: p.e. joan.capdevila@mail.com
-            firstname:
-                title: Nom
-                placeholder: p.e. Joan
-            lastname:
-                title: Cognom
-                placeholder: p.e. Capdevila
-            fullname:
-                title: Nom complet
-            username:
-                title: Nom d'usuari
-            birthday:
-                title: Data de naixement
-            gender:
-                title: Sexe
-                options:
-                    male: Masculí
-                    female: Femení
-            password:
-                title: Contrasenya
             enabled:
                 title: Estat
-                options:
-                    active:   Actiu
-                    inactive: Inactiu
-
-    admin_user:
-        single: Administrador
-        plural: Administradors
-        list:   Llista d'administradors
-        edit:   Editar "%name%"
-        new:    Crea un nou administrador
-        saved:  Canvis guardats
-        error:
-            cant_disable_yourself: No pots desactivar el teu propi compte
-            cant_remove_yourself: No pots esborrar el teu propi compte
-        section:
-            login:
-                title: Detalls de sessió
-                description: Cada usuari ha de tenir una adreça de correu electrònic únic.
-            contact:
-                title: Detalls de contacte
-                description: Els detalls de contacte per aquest administrador.
-            status:
-                title: Estat de l'usuari
-                description: Pots configurar els administradors com actius o inactius.
-
-    customer:
-        single: Client
-        plural: Clients
-        list:   Llista de clients
-        edit:   Editar "%name%"
-        new:    Crear un nou client
-        saved:  Canvis guardats
-        info:
-            password_changed: Contrasenya guardada correctament
-        error:
-            password_change: Hi ha hagut un error guardant la contrasenya
-        field:
-            username:
-                title: Nom d'usuari
-                placeholder: p.e. john_doe
-            identity_document:
-                title: Document d'identitat
-                placeholder: p.e. 12345678A
-            phone:
-                title: Telèfon
-                placeholder: p.e. 555 55 55 55
-            language:
-                title: Idioma preferit
-            guest:
-                title: Convidat
-            newsletter:
-                title: Butlletí de notícies
-            order_count:
-                title: 'Nº de comanda'
-        section:
-            login:
-                title: Dades de sessió
-                description: Cada usuari ha de tenir un correu electrónic únic.
-            contact:
-                title: Dades de contacte
-                description: Les dades de contacte per a aquest usuari.
-            status:
-                title: 'Estat i configuració'
-                description: Configura l'usuari i el seu estat.
-
-    attribute:
-        single: Atribut
-        plural: Atributs
-        edit:   Editar "%name%"
-        new:    Nou atribut
-        saved:  Atribut guardat
-        list:   Llista d'atributs
-        field:
             name:
-                placeholder: p.e. Color
-                title:       Nom
-                values:      Valors
-            enabled:
-                title:       Estat
+                placeholder: 'p.e. Color'
+                title: Nom
+                values: Valors
+        list: 'Llista d''atributs'
+        new: 'Nou atribut'
+        plural: Atributs
+        saved: 'Atribut guardat'
         section:
             basic:
-                title:       Dades bàsiques
-                description: Defineix el nom de l'atribut i els seus valors (Separats per comes).
+                description: 'Defineix el nom de l''atribut i els seus valors (Separats per comes).'
+                title: 'Dades bàsiques'
             visibility:
-                title:       Visibilitat
-                description: Configura aquest atribut com a visible o ocult.
-
+                description: 'Configura aquest atribut com a visible o ocult.'
+                title: Visibilitat
+        single: Atribut
     blog:
-        single: Blog
         plural: Blogs
-
+        single: Blog
     blog_post:
-        single: Entrada del Blog
-        plural: Entrades del Blog
-        edit:   Editar "%name%"
-        new:    Crea una nova entrada
-        list:   Llista d'entrades del blog
-        saved:  Entrada guardada
-        in_store: Veure a la tenda
-        show_metrics: Mostrar mètriques
+        edit: 'Editar "%name%"'
         field:
-            title:
-                title: Títol
-                placeholder: p.e. Un títol genial
-            path:
-                title: Ruta
-                placeholder: p.e. una/magnifica/entrada
-                customize: Personalitzar ruta
+            content:
+                placeholder: 'p.e. Aquesta magnífica entrada es exactament el que estaves buscant.'
+                title: Contingut
+            enabled:
+                title: Estat
             link:
                 title: Enllaç
-            enabled:
-                title: Estat
-            content:
-                title: Contingut
-                placeholder: p.e. Aquesta magnífica entrada es exactament el que estaves buscant.
-            publication_date:
-                title: Data de publicació
-            metatitle:
-                placeholder: p.e. La meva magnífica entrada
             metadescription:
-                placeholder: p.e. Aquesta magnífica entrada es exactament el que estaves buscant.
+                placeholder: 'p.e. Aquesta magnífica entrada es exactament el que estaves buscant.'
             metakeywords:
                 placeholder: 'p.e. blog,entrada,genial'
-        section:
-            basic:
-                title: Detalls bàsics
-                description: Proporciona un títol molt específic per la teva entrada del blog que expliqui, ajudi a vendre i proporcioni tota l'informació necessaria per als teus clients.
-            visibility:
-                title: Visibilitat
-                description: Configura aquesta entrada com a visible o oculta.
-
-    mailing:
-        single: Correu
-        plural: Correus
-        edit:   Editar "%title%"
-        new:    Crear un nou correu
-        saved:  Correu guardat
-        list:   Llista de correus
-        field:
+            metatitle:
+                placeholder: 'p.e. La meva magnífica entrada'
+            path:
+                customize: 'Personalitzar ruta'
+                placeholder: 'p.e. una/magnifica/entrada'
+                title: Ruta
+            publication_date:
+                title: 'Data de publicació'
             title:
+                placeholder: 'p.e. Un títol genial'
                 title: Títol
-                placeholder: p.e. El meu magnífic correu
-            content:
-                title: Contingut
-                placeholder: p.e. Aquest magnífic correu es tot allò que buscaves.
+        in_store: 'Veure a la tenda'
+        list: 'Llista d''entrades del blog'
+        new: 'Crea una nova entrada'
+        plural: 'Entrades del Blog'
+        saved: 'Entrada guardada'
         section:
             basic:
-                title: Contingut bàsic
-                description: Proporciona un títol descriptiu per al teu correu i el contingut a enviar.
-
+                description: 'Proporciona un títol molt específic per la teva entrada del blog que expliqui, ajudi a vendre i proporcioni tota l''informació necessaria per als teus clients.'
+                title: 'Detalls bàsics'
+            visibility:
+                description: 'Configura aquesta entrada com a visible o oculta.'
+                title: Visibilitat
+        show_metrics: 'Mostrar mètriques'
+        single: 'Entrada del Blog'
     carrier:
-        single: Transportista
-        plural: Transportistes
-        saved:  Canvis guardats
-        edit:   Editar "%name%"
-        new:    Nou transportista
-        list:   Llista de transportistes
+        action:
+            add_shipping_range: 'Afegir el rang d''enviament'
+        edit: 'Editar "%name%"'
         error:
-            no_active_carrier: ¡Atenció! No tens cap transportista actiu
+            no_active_carrier: '¡Atenció! No tens cap transportista actiu'
         field:
-            name:
-                title: Nom
-                placeholder: p.e. SuperTransportista
             description:
+                placeholder: 'p.e. La millor opció per al transport local'
                 title: Descripció
-                placeholder: p.e. La millor opció per al transport local
-            taxes:
-                title: Tases
-                format: Tases %value%%
+            name:
+                placeholder: 'p.e. SuperTransportista'
+                title: Nom
             status:
                 title: Actiu
+            taxes:
+                format: 'Tases %value%%'
+                title: Tases
         info:
-            shipping_rates_before_saving: Podràs afegir els despeses d'enviament un cop guardis el transportista
-        action:
-            add_shipping_range: Afegir el rang d'enviament
+            shipping_rates_before_saving: 'Podràs afegir els despeses d''enviament un cop guardis el transportista'
+        list: 'Llista de transportistes'
+        new: 'Nou transportista'
+        plural: Transportistes
+        saved: 'Canvis guardats'
         section:
             basic:
-                title: Detalls bàsics
-                description: Proporciona el nom del transportista i una descropció interna si es necessari
-            taxes:
-                title: Taxes
-                description: Les taxes que s'aplicaràn al transportista.
+                description: 'Proporciona el nom del transportista i una descropció interna si es necessari'
+                title: 'Detalls bàsics'
             shipping_rates:
-                title: Despeses d'enviament
-                description: Afegir despestes d'enviament
+                description: 'Afegir despestes d''enviament'
+                title: 'Despeses d''enviament'
+            taxes:
+                description: 'Les taxes que s''aplicaràn al transportista.'
+                title: Taxes
             visibility:
+                description: 'Configurar aquest transportista com a actiu o inactiu.'
                 title: Visibilitat
-                description: Configurar aquest transportista com a actiu o inactiu.
-
+        single: Transportista
     catalog:
-        single: Catàleg
         plural: Catàlegs
+        single: Catàleg
     categorization:
-        single: Categorització
         plural: Categoritzacions
+        single: Categorització
+    category:
+        edit: 'Editar "%name%"'
+        field:
+            contains:
+                title: 'Conté %count% productes'
+            enabled:
+                options:
+                    active: Habilitada
+                    inactive: Deshabilitada
+                title: Habilitada
+            metadescription:
+                placeholder: 'p.e. Aquesta genial categoria es exactament tot allò que esperaves trobar.'
+            metakeywords:
+                placeholder: 'p.e. categoria,genial'
+            metatitle:
+                placeholder: 'p.e. La meva categoria'
+            name:
+                placeholder: 'p.e. La meva categoria'
+                title: 'Nom de la categoria'
+            parent:
+                title: 'Categoria Pare'
+            root:
+                title: 'Categoria principal'
+            slug:
+                customize: 'Personalitzar ruta'
+                placeholder: 'p.e. la/meva/categoria'
+                title: Ruta
+        in_store: 'Veure a la tenda'
+        list: 'Llista de categories'
+        new: 'Nova categoría'
+        plural: Categories
+        saved: 'Categoría guardada'
+        section:
+            basic:
+                description: 'Proporciona un nom tant curt com sigui possible per a ajudar als teus clients a trobar el productes d''aquesta categoria.'
+                title: 'Dades bàsiques'
+            categorization:
+                description: 'Configura la categoria com a principal si no te cap pare o serà pare d''altres categories.'
+                title: Categorizació
+            edit:
+                description:
+                    - 'Arrossega i deixa anar les categories per ordenar-les o aniuar-les.'
+                    - 'Fes click a una categoria per a editarla.'
+                    - 'Fes click a la paperera per a borrar la categoria.'
+                title: 'Edita i ordena'
+            visibility:
+                description: 'Configurar la categoria com a visible o oculta.'
+                title: Visibilitat
+        single: Categoria
     communication:
-        single: Comunicació
         plural: Comunicacions
-    shipping_payment:
-        single: Pagament / Enviament
-        plural: Pagaments / Enviaments
+        single: Comunicació
     coupon:
-        single: Cupó
-        plural: Cupons
-        edit:   Editar "%code%"
-        new:    Nou cupó
-        saved:  Cupó guardat
-        list:   Llista de cupons
+        edit: 'Editar "%code%"'
         field:
             code:
-                placeholder: p.e. ELMEUCODI
-                title:        Codi
+                placeholder: 'p.e. ELMEUCODI'
+                title: Codi
             count:
-                title: Límit d'usos
+                title: 'Límit d''usos'
             datetime:
                 title: 'Data i hora'
             description:
-                placeholder: p.e. Códi de 10% de descompte
-                title:       Descripció
+                placeholder: 'p.e. Códi de 10% de descompte'
+                title: Descripció
             discount:
-                title: "Percentatge"
+                title: Percentatge
             enabled:
                 title: Estat
             enforcement:
-                title: Mode
                 options:
-                    manual: Aplicació manual
-                    automatic: Aplicació automàtica
-            stackable:
-                title: Aquest cupó pot ser utilitzat juntament amb altres cupons.
+                    automatic: 'Aplicació automàtica'
+                    manual: 'Aplicació manual'
+                title: Mode
             minimum_purchase:
-                title: Compra mínima
+                title: 'Compra mínima'
             price:
                 title: Quantitat
             priority:
                 title: Prioritat
             rule:
-                title:       Regla
-                placeholder: Sense regla
+                placeholder: 'Sense regla'
+                title: Regla
+            stackable:
+                title: 'Aquest cupó pot ser utilitzat juntament amb altres cupons.'
             status:
                 title: Estat
             type:
-                title: Tipus
                 options:
-                    fixed:  Cuantitat fixa
+                    fixed: 'Cuantitat fixa'
                     percent: Percentatge
+                title: Tipus
             used:
                 title: Usat
             valid_from:
-                title: Des de
+                title: 'Des de'
             valid_to:
-                title: Fins a
+                title: 'Fins a'
+        list: 'Llista de cupons'
+        new: 'Nou cupó'
+        plural: Cupons
+        saved: 'Cupó guardat'
         section:
             basic:
-                title: Informació bàsica
                 description:
                     - 'Configura el nom del codi (El que els usuaris han de proporcionar en el carret per a activar el cupo).'
                     - 'Configura també la descripció per a identificar el cupó, el tipus i la manera en que serà aplicat.'
+                title: 'Informació bàsica'
             fixed_amount:
-                title:       Quantitat fixa
-                description: Configura la cuantitat fixa que es descontarà directament al carret.
+                description: 'Configura la cuantitat fixa que es descontarà directament al carret.'
+                title: 'Quantitat fixa'
             percent_amount:
-                title:       Percentatge
-                description: Configura el percentatge de descompte directe en el carret.
+                description: 'Configura el percentatge de descompte directe en el carret.'
+                title: Percentatge
             rules:
-                title:       Normes
-                description: Selecciona la norma que s'utilitzarà així com la quantitat mínima de compra per a activar el cupó (Opcional).
+                description: 'Selecciona la norma que s''utilitzarà així com la quantitat mínima de compra per a activar el cupó (Opcional).'
+                title: Normes
             validity:
-                title:       Validesa
-                description: Configura la validesa del cupó i el seu estat.
-
+                description: 'Configura la validesa del cupó i el seu estat.'
+                title: Validesa
+        single: Cupó
     currency:
-        single: Divisa
-        plural: Divises
-        list:   Llista de divises
+        error:
+            disable_master_currency: 'No pots desactivar la divisa principal'
+            setting_disabled_master_currency: 'No es pot guardar com a principal una divisa desactivada'
         field:
-            symbol: Símbol
             iso: ISO
+            master: 'Moneda principal'
             name: Nom
             status: Activa
+            symbol: Símbol
+        list: 'Llista de divises'
+        plural: Divises
         saved:
-            enabled: "S'ha habilitat la divisa"
-            disabled: "S'ha deshabilitat la divisa"
-            master: "S'ha guardat la divisa principal"
+            disabled: 'S''ha deshabilitat la divisa'
+            enabled: 'S''ha habilitat la divisa'
+            master: 'S''ha guardat la divisa principal'
+        single: Divisa
+    customer:
+        edit: 'Editar "%name%"'
         error:
-            setting_disabled_master_currency: No es pot guardar com a principal una divisa desactivada
-            disable_master_currency: No pots desactivar la divisa principal
-
-    image:
-        single: Imatge
-        plural: Imatges
+            password_change: 'Hi ha hagut un error guardant la contrasenya'
+        field:
+            guest:
+                title: Convidat
+            identity_document:
+                placeholder: 'p.e. 12345678A'
+                title: 'Document d''identitat'
+            language:
+                title: 'Idioma preferit'
+            newsletter:
+                title: 'Butlletí de notícies'
+            order_count:
+                title: 'Nº de comanda'
+            phone:
+                placeholder: 'p.e. 555 55 55 55'
+                title: Telèfon
+            username:
+                placeholder: 'p.e. john_doe'
+                title: 'Nom d''usuari'
         info:
-            principal: La primera imatge serà la imatge principal.
-            reorder: "Pots arrosegar les imatges per a ordenar-les."
-            upload: Pujar imatges
-            upload_single: Pujar imatge
-            upload_logo: Pujar Logotip
-            deleted: Imatge esborrada
-            format: Format JPG, PNG o GIF d'un maxim de 20 MB
-
+            password_changed: 'Contrasenya guardada correctament'
+        list: 'Llista de clients'
+        new: 'Crear un nou client'
+        plural: Clients
+        saved: 'Canvis guardats'
+        section:
+            contact:
+                description: 'Les dades de contacte per a aquest usuari.'
+                title: 'Dades de contacte'
+            login:
+                description: 'Cada usuari ha de tenir un correu electrónic únic.'
+                title: 'Dades de sessió'
+            status:
+                description: 'Configura l''usuari i el seu estat.'
+                title: 'Estat i configuració'
+        single: Client
+    dashboard:
+        chart:
+            cart_conversion:
+                billing_shipping: Adreça
+                cart_view: Resum
+                ordered: Finalitzat
+                payment: Pagament
+                title: 'Conversió de cistella'
+            devices:
+                desktop: Escriptori
+                mobile: Mòbils
+                title: Dispositius
+            sales:
+                sales: Vendes
+                title: Vendes
+            traffic_source:
+                direct: Directe
+                referrals: Referits
+                search_engine: Cercadors
+                title: 'Origen de visites'
+            visitors:
+                title: Visites
+                total: 'Pàgines vistes'
+                unique: 'Usuaris unics'
+        chart_range:
+            last30days: 'Ultims 30 dies'
+            last7days: 'Ultims 7 dies'
+            last90days: 'Ultims 90 dies'
+            today: Avui
+            yesterday: Ahir
+        plural: 'Taulers de control'
+        single: 'Tauler de contol'
+        title: 'Tauler de control'
+        view_store: 'Veure la meva tenda'
+    identity:
+        field:
+            leitmotiv:
+                placeholder: 'e.g: Productes per la gent'
+                title: Eslogan
+            name:
+                placeholder: 'e.g: La meva botiga'
+                title: 'Nom de la botiga'
+        less: Menys
+        more: Més
+        section:
+            backgroundImage:
+                description: 'Puja aquí una imatge el més gran possible (quadrada o vertical) i es convertirà en l''espectacular fons de la teva botiga en línia. Si afegeixes la imatge de fons és recomanable no utilitzar cap imatge de capçalera.'
+                title: 'Imatge de fons'
+            headerImage:
+                description: 'Aquesta imatge es mostrarà com a capçalera de la teva tenda. Depenent del diseny que seleccionis varia lleugerament com es mostra, ja sigui com a fons o de forma més prominent. Tot i que és opcional, recomanem afegir-la. Li donarà molta personalitat a la teva tenda. Consell: procura que la imatge tingui el màxim de definició possible i que sigui horitzontal i rectangular.'
+                title: 'Imatge de capçalera'
+            info:
+                description: 'Introdueix el nom de la botiga i l''eslogan (opcional).'
+                title: 'Informació básica'
+            logo:
+                description: 'Si tens un logotip de la teva botiga afegeix-lo i es mostrarà a varies parts de la tenda. Es recomanable que sigui amb bona qualitat.'
+                title: 'Logotip de la teva botiga'
+            mobileLogo:
+                description: 'Aquesta imatge es mostrarà als clients que accedeixin a la teva tenda online des d''un mòbil. És opcional, però et servirà si vols personalitzar l''experiencia mòbil.'
+                title: 'Logotip versió mòbil'
+            secondaryLogo:
+                description: 'Si vols personalitzar el logotip a peu de pàgina, afegeix-lo. És opcional.'
+                title: 'Logotip a peu de pàgina'
+        singular: 'Imatge corporativa'
+    image:
+        info:
+            deleted: 'Imatge esborrada'
+            format: 'Format JPG, PNG o GIF d''un maxim de 20 MB'
+            principal: 'La primera imatge serà la imatge principal.'
+            reorder: 'Pots arrosegar les imatges per a ordenar-les.'
+            upload: 'Pujar imatges'
+            upload_logo: 'Pujar Logotip'
+            upload_single: 'Pujar imatge'
+        plural: Imatges
+        single: Imatge
     language:
-        single: Idioma
-        plural: Idiomes
-        list:   Llista d'idiomes
+        error:
+            disable_master_language: 'No pots desactivar l''idioma principal'
+            setting_disabled_master_language: 'No es pot guardar com a principal un idioma desactivat'
         field:
             iso: ISO
-            master: Idioma principal
+            master: 'Idioma principal'
             status: Actiu
+        list: 'Llista d''idiomes'
+        plural: Idiomes
         saved:
-            enabled: "S'ha habilitat l'idioma"
-            disabled: "S'ha deshabilitat l'idioma"
-            master: "S'ha guardat l'idioma principal"
-        error:
-            setting_disabled_master_language: No es pot guardar com a principal un idioma desactivat
-            disable_master_language: "No pots desactivar l'idioma principal"
-
-    media:
-        single: Imatge
-        plural: Imatges
-        list:   Llista d'imatges
-
-    metrics:
-        single: Métrica
-        plural: Métriques
-        info:
-            visitors: Visites
-            no_data: Sense dades
+            disabled: 'S''ha deshabilitat l''idioma'
+            enabled: 'S''ha habilitat l''idioma'
+            master: 'S''ha guardat l''idioma principal'
+        single: Idioma
+    login:
         action:
-            show: Mostrar métriques
-        type:
-            line:
-                unique: Únics
-                total: Total
-
-    order:
-        single:    Comanda
-        plural:    Comandes
-        edit:      'Editar #%id%'
-        new:       Nova comanda
-        notes:     Notes
-        all:       Totes les comandes
-        list:      Llista de comandes
-        from_user: Comandes de %name%
-        to_user:   Anar al client
+            login: 'Iniciar sessió'
+            logout: 'Tancar sessió'
+            remember: 'No recordo la meva contrasenya'
         field:
-            id:               'Comanda #%id%'
-            date:             Data
-            carrier:          Transportista
-            customer:         Client
-            status:           Estat
-            delivery_address: Direcció d'entrega
-            billing_address:  Direcció de facturació
-            both_addresses:   "Direcció d'entrega y facturació"
-            total:            Total
-        details:
-            title:    Detalls
-            item:     Articles
-            units:    Unitats
-            price:    Preu
-            subtotal: Subtotal
-            discount: Cupó de descompte
-            shipping: Entrega
-        transition:
-            refund: Reemborsar
-            order ready: Comanda llesta
-            picked up on store: Recollida a la tenda
-            picked up by carrier: Recollida per el transportista
-            delivered: Entregada
-            cancel: Cancel·lar
-            return: Retornar
-
-    page:
-        single:   Pàgina
-        plural:   Pàgines
-        edit:     Editar "%name%"
-        new:      Nova pàgina
-        list:     Llistat de pàgines
-        saved:    Canvis guardats
-        in_store: Veure a la tenda
+            email:
+                placeholder: 'La teva adreça electrònica'
+            password:
+                placeholder: 'La teva contrasenya'
+        title: 'És necessari iniciar sessió'
+    mailing:
+        edit: 'Editar "%title%"'
         field:
-            title:
-                title: Títol
-                placeholder: p.e. Una pàgina genial
-            path:
-                title: Ruta
-                placeholder: p.e. una/pagina/genial
-                customize: Personalitzar la ruta
-            link:
-                title: Enllaç
-            enabled:
-                title: Activa
             content:
+                placeholder: 'p.e. Aquest magnífic correu es tot allò que buscaves.'
                 title: Contingut
-                placeholder: p.e. Aquesta pàgina genial es exactament el que esperaves trobar.
-            metatitle:
-                placeholder: p.e. La meva pagina genial
-            metadescription:
-                placeholder: p.e. Aquesta pàgina genial es exactament el que esperaves trobar.
-            metakeywords:
-                placeholder: 'p.e. pagina,genial'
-        section:
-            basic:
-                title: Detalls bàsics
-                description: Proporciona un títol molt específic per a la teva pàgina que proporcioni tota la informació necessaria per als teus clients.
-            visibility:
-                title: visibilitat
-                description: Configura la pàgina com a visible o oculta, també pots fer-la visible a la teva pàgina principal.
-        error:
-            cant_modify_permanent: Aquest pàgina es permanent i no es pot modificar.
-
-    profile:
-        single: Perfil
-        plural: Perfils
-
-    product:
-        single:   Producte
-        plural:   Productes
-        edit:     Editar "%name%"
-        new:      Nou producte
-        note:     Notes
-        list:     Llista de productes
-        saved:    Producte guardat
-        in_store:     Veure a la tenda
-        show_metrics: Veure métriques
-        field:
-            name:
+            title:
+                placeholder: 'p.e. El meu magnífic correu'
                 title: Títol
-                placeholder: p.e. El meu producte genial
-            slug:
-                title: Slug
-                placeholder: p.e. meu/producte/genial
-                customize: Personalitzar la ruta
-            description:
-                title: Descripció
-                placeholder: p.e. Aquest producte es exactament el que esperaves trobar.
-            main_category:
-                title: Categoria
-                placeholder: 'p.e. Ordenadors, boses de mà...'
-            manufacturer:
-                title: Fabricant
-                placeholder: 'p.e. Apple, Disney...'
-            price:
-                title: Preu
-            stock:
-                title: Unitats
-            reduced_price:
-                title: Preu reduït
-            weight:
-                title: Pes (en g)
-            height:
-                title: Alçada (en cm)
-            width:
-                title: Amplada (en cm)
-            depth:
-                title: Profunditat (en cm)
-            in_home:
-                title: Mostrar a la pàgina principal
-            image:
-                title: Imatge
-            name_details:
-                title: "Detalls del producte"
-            enabled:
-                title: Habilitat
-                options:
-                    active: Habilitat
-                    inactive: Deshabilitat
-
-            metatitle:
-                placeholder: p.e. El meu producte genial
-            metadescription:
-                placeholder: p.e. Aquest producte es exactament el que esperaves trobar.
-            metakeywords:
-                placeholder: 'p.e. producte,genial'
-        info:
-            variants_before_saving: Podràs afegir variants un cop hagis guardat el producte
-        error:
-            no_category: ¡Atenció! Aquest producte no està associat a cap categoria
-            no_manufacturer: ¡Atenció! Aquest producte no està associat a cap fabricant
-        tag:
-            in_home: Portada
-            has_variants: Té variants
-            no_category: Sense categoria
-            no_manufacturer: Sense fabricant
+        list: 'Llista de correus'
+        new: 'Crear un nou correu'
+        plural: Correus
+        saved: 'Correu guardat'
         section:
             basic:
-                title: Detalls bàsics
-                description: Proporciona un títol molt específic que ajudi a explicar i vendre el teu producte i proporcioni la informació necessaria als teus clients.
-            categorization:
-                title: Categorizació
-                description: El producta s'ha de classificar en una categoria i fabricant. Aquests seràn visibles a la tenda i ajudaràn al client a navegar-hi a través.
-            pricing:
-                title: Preu
-                description: "Configura el preu per al teu producte, no incloguis tases ni despeses d'enviament. També pots configurar el preu d'oferta."
-            dimensions:
-                title: Dimensions
-                description: "Configura les dimensions i el pes del teu producte. Aquesta informació serà molt útil per a calcular les despeses d'enviament."
-            sku:
-                title: Número de referencia
-                description: "El Número de referencia (SKU) es un identificador unic que permeteix identificar els productes. Cada SKU va relacionat a un producte."
-            variants:
-                title: Variants
-                description: 'Les variants son diferents versions del mateix producte (Color, talla...) que poden tenir un preu o atributs diferents.'
-            visibility:
-                title: Visibilitat
-                description: "Configura aquest producte com a visible o ocult, també pots fer-lo visible a la pàgina principal."
-            stock:
-                title: Stock
-                description: "Configura les existencies d'aquest producte. Cada compra farà disminuir les existencies."
-
-    variant:
-        single: Variant
-        plural: Variants
-        edit:   Editar variant "%name%"
-        new:    Nova variant
-        saved:  Canvis guardats
-        list:   Llista de variants
-        field:
-            name:
-                title: Nom de la variant
-            price:
-                title: Preu
-            stock:
-                title: Stock
-            reduced_price:
-                title: Preu de l'oferta
-            enabled:
-                title: Estat
-                options:
-                    active: Habilitat
-                    inactive: Deshabilitat
-            options:
-                title: "Selecciona un o més atributs:"
-        section:
-            attributes:
-                title: Atributs
-                description: "Selecciona els atributs d'aquesta variant."
-            pricing:
-                title: Preus
-                description: "Configura el preu de la variant (sense incloure impostos ni enviaments). També pots posar un preu d'oferta (opcional)."
-            visibility:
-                title: Visibilitat
-                description: "Configura aquesta variant com a visible o ocult."
-
+                description: 'Proporciona un títol descriptiu per al teu correu i el contingut a enviar.'
+                title: 'Contingut bàsic'
+        single: Correu
     manufacturer:
-        single:   Fabricant
-        plural:   Fabricants
-        edit:     Editar "%name%"
-        new:      Nou fabricant
-        saved:    Fabricant guardat
-        list:     Llista de fabricants
+        edit: 'Editar "%name%"'
         field:
-            name:
-                title: Nom del fabricant
-                placeholder: p.e. El meu fabricant
-            slug:
-                title: Ruta
-                customize: Personalitzar ruta
-                placeholder: p.e. el/meu/fabricant
             description:
+                placeholder: 'p.e. Aquest genial fabricant es exactament tot allò que esperaves trobar.'
                 title: Descripció
-                placeholder: p.e. Aquest genial fabricant es exactament tot allò que esperaves trobar.
             enabled:
-                title: Estat
                 options:
                     active: Habilitat
                     inactive: Deshabilitat
+                title: Estat
             image:
                 title: Imatge
-            name_slug:
-                title: "Detalls del fabricant"
-            product_count:
-                title: Productes
-            metatitle:
-                placeholder: p.e. El meu fabricant
             metadescription:
-                placeholder: p.e. Aquest genial fabricant es exactament tot allò que esperaves trobar.
+                placeholder: 'p.e. Aquest genial fabricant es exactament tot allò que esperaves trobar.'
             metakeywords:
                 placeholder: 'p.e. fabricant,meu'
-        section:
-            basic:
-                title: Dades bàsiques
-                description: Proporciona un nom tant curt com sigui possible per a ajudar als teus clients a trobar el producte d'aquest fabricant. També pots afegir una descripció que es mostrarà a la pàgina del fabricant.
-            visibility:
-                title: Visibilitat
-                description: Configura el fabricant com a visible i actiu.
-            logo:
-                title: Logotip del fabricant
-                description: Puja una imatge del logo del fabricant/marca del producte. Es Recomana Que el logo no contingui cap texte adicional, només la marca, i que sigui a la major resolució possible.
-
-    category:
-        single:   Categoria
-        plural:   Categories
-        edit:     Editar "%name%"
-        new:      Nova categoría
-        saved:    Categoría guardada
-        list:     Llista de categories
-        in_store: Veure a la tenda
-        field:
-            name:
-                title: Nom de la categoria
-                placeholder: p.e. La meva categoria
-            slug:
-                title: Ruta
-                placeholder: p.e. la/meva/categoria
-                customize: Personalitzar ruta
-            root:
-                title: Categoria principal
-            enabled:
-                title: Habilitada
-                options:
-                    active: Habilitada
-                    inactive: Deshabilitada
-            parent:
-                title: Categoria Pare
-            contains:
-                title: Conté %count% productes
             metatitle:
-                placeholder: p.e. La meva categoria
-            metadescription:
-                placeholder: p.e. Aquesta genial categoria es exactament tot allò que esperaves trobar.
-            metakeywords:
-                placeholder: 'p.e. categoria,genial'
+                placeholder: 'p.e. El meu fabricant'
+            name:
+                placeholder: 'p.e. El meu fabricant'
+                title: 'Nom del fabricant'
+            name_slug:
+                title: 'Detalls del fabricant'
+            product_count:
+                title: Productes
+            slug:
+                customize: 'Personalitzar ruta'
+                placeholder: 'p.e. el/meu/fabricant'
+                title: Ruta
+        list: 'Llista de fabricants'
+        new: 'Nou fabricant'
+        plural: Fabricants
+        saved: 'Fabricant guardat'
         section:
             basic:
-                title: Dades bàsiques
-                description: Proporciona un nom tant curt com sigui possible per a ajudar als teus clients a trobar el productes d'aquesta categoria.
-            categorization:
-                title: Categorizació
-                description: Configura la categoria com a principal si no te cap pare o serà pare d'altres categories.
+                description: 'Proporciona un nom tant curt com sigui possible per a ajudar als teus clients a trobar el producte d''aquest fabricant. També pots afegir una descripció que es mostrarà a la pàgina del fabricant.'
+                title: 'Dades bàsiques'
+            logo:
+                description: 'Puja una imatge del logo del fabricant/marca del producte. Es Recomana Que el logo no contingui cap texte adicional, només la marca, i que sigui a la major resolució possible.'
+                title: 'Logotip del fabricant'
             visibility:
+                description: 'Configura el fabricant com a visible i actiu.'
                 title: Visibilitat
-                description: Configurar la categoria com a visible o oculta.
-            edit:
-                title: "Edita i ordena"
-                description:
-                    - "Arrossega i deixa anar les categories per ordenar-les o aniuar-les."
-                    - "Fes click a una categoria per a editarla."
-                    - "Fes click a la paperera per a borrar la categoria."
-
+        single: Fabricant
+    media:
+        list: 'Llista d''imatges'
+        plural: Imatges
+        single: Imatge
+    menu:
+        design: 'Personalitzar Botiga'
     metadata:
-        customize: Personalitzar metadades
+        customize: 'Personalitzar metadades'
         disclaimer:
-            - Aquesta zona es per a usuaris avançats.
-            - Deixa aquests camp en blanc per a obtenir automàticament metadades per a la teva pàgina.
+            - 'Aquesta zona es per a usuaris avançats.'
+            - 'Deixa aquests camp en blanc per a obtenir automàticament metadades per a la teva pàgina.'
+        field:
+            metadescription:
+                title: 'Meta Descripció'
+            metakeywords:
+                title: 'Paraules clau'
+            metatitle:
+                title: 'Meta Títol'
         section:
             metadata:
+                description: 'La descripció i paraules clau dels meta tags s''utilitzen per a descriure el contingut de la pàgina. La majoria de cercadors utilitzen aquesta informació per al seu índex de cerca..'
                 title: Metadades
-                description: La descripció i paraules clau dels meta tags s'utilitzen per a descriure el contingut de la pàgina. La majoria de cercadors utilitzen aquesta informació per al seu índex de cerca..
+    metrics:
+        action:
+            show: 'Mostrar métriques'
+        info:
+            no_data: 'Sense dades'
+            visitors: Visites
+        plural: Métriques
+        single: Métrica
+        type:
+            line:
+                total: Total
+                unique: Únics
+    name: Administració
+    order:
+        all: 'Totes les comandes'
+        details:
+            discount: 'Cupó de descompte'
+            item: Articles
+            price: Preu
+            shipping: Entrega
+            subtotal: Subtotal
+            title: Detalls
+            units: Unitats
+        edit: 'Editar #%id%'
         field:
-            metatitle:
-                title: Meta Títol
+            billing_address: 'Direcció de facturació'
+            both_addresses: 'Direcció d''entrega y facturació'
+            carrier: Transportista
+            customer: Client
+            date: Data
+            delivery_address: 'Direcció d''entrega'
+            id: 'Comanda #%id%'
+            status: Estat
+            total: Total
+        from_user: 'Comandes de %name%'
+        list: 'Llista de comandes'
+        new: 'Nova comanda'
+        notes: Notes
+        plural: Comandes
+        single: Comanda
+        to_user: 'Anar al client'
+        transition:
+            cancel: Cancel·lar
+            delivered: Entregada
+            'order ready': 'Comanda llesta'
+            'picked up by carrier': 'Recollida per el transportista'
+            'picked up on store': 'Recollida a la tenda'
+            refund: Reemborsar
+            return: Retornar
+    page:
+        edit: 'Editar "%name%"'
+        error:
+            cant_modify_permanent: 'Aquest pàgina es permanent i no es pot modificar.'
+        field:
+            content:
+                placeholder: 'p.e. Aquesta pàgina genial es exactament el que esperaves trobar.'
+                title: Contingut
+            enabled:
+                title: Activa
+            link:
+                title: Enllaç
             metadescription:
-                title: Meta Descripció
+                placeholder: 'p.e. Aquesta pàgina genial es exactament el que esperaves trobar.'
             metakeywords:
-                title: Paraules clau
-
-    shipping_range:
-        single: Rang d'enviament
-        plural: Rangs d'enviament
-        edit:   Editar rang "%name%"
-        new:    Crear rang d'enviament
-        list:   Llista de rangs d'enviament
-        saved:  Canvis guardats
-        field:
-            name:
-                title: Nom del rang d'enviament
-                placeholder: p.e. Entrega en 3-5 dies
-            to_zone:
-                title: A la zona
-            price:
-                title: Preu
-            type:
-                title: Els preus es calcularàn…
-                options:
-                    price: En base al preu de la comanda
-                    weight: En base al pes de la comanda
-            fromPrice:
-                title: Des del preu
-            toPrice:
-                title: Fins el preu
-            fromWeight:
-                title: Des del pes
-            toWeight:
-                title: Fins el pes
-            value:
-                title: Valor
-                price_format: Des de %from% fins a %to%
-                weight_format: Des de %from% g fins a %to% g
+                placeholder: 'p.e. pagina,genial'
+            metatitle:
+                placeholder: 'p.e. La meva pagina genial'
+            path:
+                customize: 'Personalitzar la ruta'
+                placeholder: 'p.e. una/pagina/genial'
+                title: Ruta
+            title:
+                placeholder: 'p.e. Una pàgina genial'
+                title: Títol
+        in_store: 'Veure a la tenda'
+        list: 'Llistat de pàgines'
+        new: 'Nova pàgina'
+        plural: Pàgines
+        saved: 'Canvis guardats'
         section:
             basic:
-                title: Detalls bàsics
-                description: Proporciona el nom del rang d'entrega i la zona en el que estarà disponible
-            pricing:
-                title: Preu
-                description: Configura el preu per aquest rang d'entrega i defineix si serà calculat segons el preu de la comanda o del seu pes.
+                description: 'Proporciona un títol molt específic per a la teva pàgina que proporcioni tota la informació necessaria per als teus clients.'
+                title: 'Detalls bàsics'
             visibility:
-                title: Visibilitat
-                description: Configura el rang d'enviament com a actiu o inactiu.
-
+                description: 'Configura la pàgina com a visible o oculta, també pots fer-la visible a la teva pàgina principal.'
+                title: visibilitat
+        single: Pàgina
     plugin:
-        single: Complement
-        plural: Complements
-        app_store: Llistat de complements
-        saved: Configuració guardada
+        app_store: 'Llistat de complements'
         field:
-            visibility: Actiu:
+            visibility: 'Actiu:'
+        plural: Complements
+        saved: 'Configuració guardada'
         section:
             settings: Configuració
-
-    settings:
-      single: Configuració
-      plural: Configuracions
-      saved: Configuració guardada
-      section:
-          products:
-              title: Configuració del producte
-              description: Configura les dades del producte.
-          payment:
-              title: Métodes de pagament
-          store:
-            title: General
-          address:
-            title: Direcció fiscal
-          profile:
-            title: Imatge corporativa
-      field:
-          store_enabled: Tenda activa
-          store_under_construction: Tenda en construcció
-          store_name: Nom de la tenda
-          store_leitmotiv: Leitmotiv de la tenda
-          store_phone: Telèfon de la tenda
-          store_email: Correo electrónic de la tenda
-          currency: Configuració de moneda
-          product_stock:
-              title: Stock
-              description: Activa aquesta opció per a habilitar el control d'existencies
-
-    template:
-        single: Tema
-        plural: Temes
-        label:
-            status: Habilitat:
+        single: Complement
+    product:
+        edit: 'Editar "%name%"'
+        error:
+            no_category: '¡Atenció! Aquest producte no està associat a cap categoria'
+            no_manufacturer: '¡Atenció! Aquest producte no està associat a cap fabricant'
+            price_negative: 'Atenció! El preu no pot ser negatiu!'
+        field:
+            depth:
+                title: 'Profunditat (en cm)'
+            description:
+                placeholder: 'p.e. Aquest producte es exactament el que esperaves trobar.'
+                title: Descripció
+            enabled:
+                options:
+                    active: Habilitat
+                    inactive: Deshabilitat
+                title: Habilitat
+            height:
+                title: 'Alçada (en cm)'
+            image:
+                title: Imatge
+            in_home:
+                title: 'Mostrar a la pàgina principal'
+            main_category:
+                placeholder: 'p.e. Ordenadors, boses de mà...'
+                title: Categoria
+            manufacturer:
+                placeholder: 'p.e. Apple, Disney...'
+                title: Fabricant
+            metadescription:
+                placeholder: 'p.e. Aquest producte es exactament el que esperaves trobar.'
+            metakeywords:
+                placeholder: 'p.e. producte,genial'
+            metatitle:
+                placeholder: 'p.e. El meu producte genial'
+            name:
+                placeholder: 'p.e. El meu producte genial'
+                title: Títol
+            name_details:
+                title: 'Detalls del producte'
+            price:
+                title: Preu
+            reduced_price:
+                title: 'Preu reduït'
+            sku:
+                placeholder: 'ex. SAU102'
+                title: SKU
+            slug:
+                customize: 'Personalitzar la ruta'
+                placeholder: 'p.e. meu/producte/genial'
+                title: Slug
+            stock:
+                title: Unitats
+            weight:
+                title: 'Pes (en g)'
+            width:
+                title: 'Amplada (en cm)'
+        in_store: 'Veure a la tenda'
+        info:
+            variants_before_saving: 'Podràs afegir variants un cop hagis guardat el producte'
+        list: 'Llista de productes'
+        new: 'Nou producte'
+        note: Notes
+        plural: Productes
+        saved: 'Producte guardat'
+        section:
+            basic:
+                description: 'Proporciona un títol molt específic que ajudi a explicar i vendre el teu producte i proporcioni la informació necessaria als teus clients.'
+                title: 'Detalls bàsics'
+            categorization:
+                description: 'El producta s''ha de classificar en una categoria i fabricant. Aquests seràn visibles a la tenda i ajudaràn al client a navegar-hi a través.'
+                title: Categorizació
+            dimensions:
+                description: 'Configura les dimensions i el pes del teu producte. Aquesta informació serà molt útil per a calcular les despeses d''enviament.'
+                title: Dimensions
+            pricing:
+                description: 'Configura el preu per al teu producte, no incloguis tases ni despeses d''enviament. També pots configurar el preu d''oferta.'
+                title: Preu
+            sku:
+                description: 'El Número de referencia (SKU) es un identificador unic que permeteix identificar els productes. Cada SKU va relacionat a un producte.'
+                title: 'Número de referencia'
+            stock:
+                description: 'Configura les existencies d''aquest producte. Cada compra farà disminuir les existencies.'
+                title: Stock
+            variants:
+                description: 'Les variants son diferents versions del mateix producte (Color, talla...) que poden tenir un preu o atributs diferents.'
+                title: Variants
+            visibility:
+                description: 'Configura aquest producte com a visible o ocult, també pots fer-lo visible a la pàgina principal.'
+                title: Visibilitat
+        show_metrics: 'Veure métriques'
+        single: Producte
+        tag:
+            has_variants: 'Té variants'
+            in_home: Portada
+            no_category: 'Sense categoria'
+            no_manufacturer: 'Sense fabricant'
+    profile:
+        plural: Perfils
+        single: Perfil
+    recover_user:
         action:
-            preview: Vista prèvia
-
+            email_sent:
+                description: 'Si us plau, comprova la teva bústia electrònica i segueix les instruccions per a recuperar la teva contrasenya.'
+                title: 'Correu electrònic enviat'
+        field:
+            email:
+                placeholder: 'La teva adreça de correu electrònic'
+            password:
+                placeholder: 'Nova contrasenya'
+            repeat_password:
+                placeholder: 'Repeteix contrasenya'
+        title: 'Nova contrasenya'
+    remember_user:
+        description: 'No et preocupis, t''enviem un correu electrònic per a que reiniciis la teva contrasenya.'
+        title: 'Has perdut la teva contrasenya?'
+    settings:
+        field:
+            currency: 'Configuració de moneda'
+            product_stock:
+                description: 'Activa aquesta opció per a habilitar el control d''existencies'
+                title: Stock
+            store_email: 'Correo electrónic de la tenda'
+            store_enabled: 'Tenda activa'
+            store_leitmotiv: 'Leitmotiv de la tenda'
+            store_name: 'Nom de la tenda'
+            store_phone: 'Telèfon de la tenda'
+            store_under_construction: 'Tenda en construcció'
+        plural: Configuracions
+        saved: 'Configuració guardada'
+        section:
+            address:
+                title: 'Direcció fiscal'
+            corporate:
+                title: 'Imatge corporativa'
+            payment:
+                title: 'Métodes de pagament'
+            products:
+                description: 'Configura les dades del producte.'
+                title: 'Configuració del producte'
+            profile:
+                title: 'Imatge corporativa'
+            store:
+                title: General
+        single: Configuració
+    shipping_payment:
+        plural: 'Pagaments / Enviaments'
+        single: 'Pagament / Enviament'
+    shipping_range:
+        edit: 'Editar rang "%name%"'
+        field:
+            fromPrice:
+                title: 'Des del preu'
+            fromWeight:
+                title: 'Des del pes'
+            name:
+                placeholder: 'p.e. Entrega en 3-5 dies'
+                title: 'Nom del rang d''enviament'
+            price:
+                title: Preu
+            toPrice:
+                title: 'Fins el preu'
+            toWeight:
+                title: 'Fins el pes'
+            to_zone:
+                title: 'A la zona'
+            type:
+                options:
+                    price: 'En base al preu de la comanda'
+                    weight: 'En base al pes de la comanda'
+                title: 'Els preus es calcularàn…'
+            value:
+                price_format: 'Des de %from% fins a %to%'
+                title: Valor
+                weight_format: 'Des de %from% g fins a %to% g'
+        list: 'Llista de rangs d''enviament'
+        new: 'Crear rang d''enviament'
+        plural: 'Rangs d''enviament'
+        saved: 'Canvis guardats'
+        section:
+            basic:
+                description: 'Proporciona el nom del rang d''entrega i la zona en el que estarà disponible'
+                title: 'Detalls bàsics'
+            pricing:
+                description: 'Configura el preu per aquest rang d''entrega i defineix si serà calculat segons el preu de la comanda o del seu pes.'
+                title: Preu
+            visibility:
+                description: 'Configura el rang d''enviament com a actiu o inactiu.'
+                title: Visibilitat
+        single: 'Rang d''enviament'
+    store:
+        field:
+            enabled:
+                title: 'Activar botiga'
+            routingStrategy:
+                custom: 'No fer servir prefixes, traduire totes les urls'
+                prefix: 'Totes les URLs tenen un prefixe'
+                prefix_except_default: 'Totes les URLs tenen un prefixe excepte l''idioma principal'
+                title: 'Estrategia de URLs per multiples llenguatges'
+            useStock:
+                title: 'Fer servir control de stock'
+        saved: 'Configuració guardada.'
+        section:
+            advanced:
+                description: 'A Aquesta secció trobarás opcions avançades de configuració.'
+                title: 'Opciones avançades'
+            status:
+                description: 'Controla si la botiga esta oberta o tancada al públic.'
+                title: 'Estat de la botiga'
+            stock:
+                description: 'Activa aquesta opció per gestionar l''stock dels teus productes.'
+                title: Stock
+        settings: Configuracions
+    template:
+        action:
+            preview: 'Vista prèvia'
+        label:
+            status: 'Habilitat:'
+        plural: Temes
+        single: Tema
+    user:
+        field:
+            birthday:
+                title: 'Data de naixement'
+            email:
+                placeholder: 'p.e. joan.capdevila@mail.com'
+                title: 'Adreça electrònica'
+            enabled:
+                options:
+                    active: Actiu
+                    inactive: Inactiu
+                title: Estat
+            firstname:
+                placeholder: 'p.e. Joan'
+                title: Nom
+            fullname:
+                title: 'Nom complet'
+            gender:
+                options:
+                    female: Femení
+                    male: Masculí
+                title: Sexe
+            lastname:
+                placeholder: 'p.e. Capdevila'
+                title: Cognom
+            password:
+                title: Contrasenya
+            username:
+                title: 'Nom d''usuari'
+    variant:
+        edit: 'Editar variant "%name%"'
+        field:
+            enabled:
+                options:
+                    active: Habilitat
+                    inactive: Deshabilitat
+                title: Estat
+            name:
+                title: 'Nom de la variant'
+            options:
+                title: 'Selecciona un o més atributs:'
+            price:
+                title: Preu
+            reduced_price:
+                title: 'Preu de l''oferta'
+            stock:
+                title: Stock
+        list: 'Llista de variants'
+        new: 'Nova variant'
+        plural: Variants
+        saved: 'Canvis guardats'
+        section:
+            attributes:
+                description: 'Selecciona els atributs d''aquesta variant.'
+                title: Atributs
+            pricing:
+                description: 'Configura el preu de la variant (sense incloure impostos ni enviaments). També pots posar un preu d''oferta (opcional).'
+                title: Preus
+            visibility:
+                description: 'Configura aquesta variant com a visible o ocult.'
+                title: Visibilitat
+        single: Variant
 plugin:
-    paypal:
-        title: Configuració del compte de paypal
-        register:
-            title: No tens compte de paypal?
-            call_to_action: Crear un compte de paypal
-        settings:
-            recipient_email: Correu electrònic de rebut de pagaments de Paypal
     paymill:
-        title: Configuració del compte de Paymill
         register:
-            title: ¿No tens un compte de Paymill?
-            call_to_action: ¡Crea un compte de paymill ara!
+            call_to_action: '¡Crea un compte de paymill ara!'
+            title: '¿No tens un compte de Paymill?'
         settings:
-            private_key: Clau privada de Paymill
-            public_key: Clau pública de Paymill
-
-ui:
-    address:
-        full_name: Nom complet
-        phone:     Teléfon
-        address:   Direcció
-        city:      Ciutat
-        zipcode:   Códi postal
-        comment:   Comentari
-    date:
-        today_at: Avui a les %time%
-        yesterday_at: Ahir a les %time%
-    list:
-        no_items:     No hi ha %items%.
-        create_first: Crear %item%
-    label:
-        enabled:  Habilitat
-        disabled: Deshabilitat
-    paginator:
-        elements: Mostrant de %first% a %last% de %total% elements.
-    forms:
-        cancel: Cancel·lar
-        save:   Guardar
-        delete: Borrar
-    confirm:
-        delete: N'estàs segur que vols borrar-ho?
-    tags:
-        placeholder:
-            comma_separated: Afegeix els tags separats per comes.
-    language:
-        master_language: Llengua principal (Obligatòria)
-    delete:
-        success: Borrat correctament
-    editor:
-        help: Selecciona el text per a veure les opcions de format
-
+            private_key: 'Clau privada de Paymill'
+            public_key: 'Clau pública de Paymill'
+        title: 'Configuració del compte de Paymill'
+    paypal:
+        register:
+            call_to_action: 'Crear un compte de paypal'
+            title: 'No tens compte de paypal?'
+        settings:
+            recipient_email: 'Correu electrònic de rebut de pagaments de Paypal'
+        title: 'Configuració del compte de paypal'
 plugin_type:
     app: Aplicacions
-    payment: Mètodes de pagament
+    payment: 'Mètodes de pagament'
     shipping: Transportistes
     social: Social
+ui:
+    address:
+        address: Direcció
+        city: Ciutat
+        comment: Comentari
+        full_name: 'Nom complet'
+        phone: Teléfon
+        zipcode: 'Códi postal'
+    confirm:
+        delete: 'N''estàs segur que vols borrar-ho?'
+    date:
+        today_at: 'Avui a les %time%'
+        yesterday_at: 'Ahir a les %time%'
+    delete:
+        success: 'Borrat correctament'
+    editor:
+        help: 'Selecciona el text per a veure les opcions de format'
+    forms:
+        cancel: Cancel·lar
+        delete: Borrar
+        save: Guardar
+    label:
+        disabled: Deshabilitat
+        enabled: Habilitat
+    language:
+        master_language: 'Llengua principal (Obligatòria)'
+    list:
+        create_first: 'Crear %item%'
+        no_items: 'No hi ha %items%.'
+    paginator:
+        elements: 'Mostrant de %first% a %last% de %total% elements.'
+    tags:
+        placeholder:
+            comma_separated: 'Afegeix els tags separats per comes.'

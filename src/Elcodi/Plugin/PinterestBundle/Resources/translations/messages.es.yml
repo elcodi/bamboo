@@ -1,8 +1,7 @@
 elcodi_plugin:
     pinterest:
-        name: Pinterest
-        description: Integración de Pinterest para tu tienda
-
+        description: 'Integración de Pinterest para tu tienda'
         field:
             asynchronous:
-                label: Utiliza Pinterest de forma asíncrona
+                label: 'Utiliza Pinterest de forma asíncrona'
+        name: Pinterest

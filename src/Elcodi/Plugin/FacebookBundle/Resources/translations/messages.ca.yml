@@ -1,9 +1,8 @@
 elcodi_plugin:
     facebook:
-        name: Facebook
-        description: Integració de Facebook per a la teva botiga
-
+        description: 'Integració de Facebook per a la teva botiga'
         field:
             facebook_account:
-                label: Compte de Facebook
+                label: 'Compte de Facebook'
                 placeholder: joanpetit
+        name: Facebook

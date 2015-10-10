@@ -1,9 +1,9 @@
 elcodi_plugin:
     stripe:
-        name: Stripe
-        description: "<p>Stripe allows your users to pay using a Credit card.<br/> To enable it you need to create a Stripe Account and copy here your private and public keys.</p><p>Don't you have a Stripe account?</p> <a href='https://dashboard.stripe.com/register' class='button' target='_blank'>Create a new account</a>"
+        description: '<p>Stripe allows your users to pay using a Credit card.<br/> To enable it you need to create a Stripe Account and copy here your private and public keys.</p><p>Don''t you have a Stripe account?</p> <a href=''https://dashboard.stripe.com/register'' class=''button'' target=''_blank''>Create a new account</a>'
         field:
             private_key:
-                label: Private key
+                label: 'Private key'
             public_key:
-                label: Public key
+                label: 'Public key'
+        name: Stripe
