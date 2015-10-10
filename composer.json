@@ -47,6 +47,7 @@
         "doctrine/doctrine-bundle": "^1.5.0",
         "doctrine/annotations": "^1.2",
         "doctrine/doctrine-fixtures-bundle": "^2.2",
+        "doctrine/doctrine-migrations-bundle": "^1.0",
 
         "twig/twig": "^1.18",
         "twig/extensions": "^1.0",

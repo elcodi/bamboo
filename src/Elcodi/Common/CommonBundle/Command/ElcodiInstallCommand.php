@@ -125,8 +125,15 @@ class ElcodiInstallCommand extends AbstractElcodiCommand
             ->setAutoExit(false);
 
         $this
-            ->executeCommand('doctrine:database:create')
-            ->executeCommand('doctrine:schema:create')
+            ->executeCommand('doctrine:database:create', [
+                '--if-not-exists' => true,
+            ])
+            ->executeCommand('doctrine:schema:drop', [
+                '--force' => true,
+                '--full-database' => true,
+            ])
+            ->executeCommand('doctrine:migrations:status')
+            ->executeCommand('doctrine:migrations:migrate')
             ->loadCommonFixtures()
             ->loadLocations($output, $countries)
             ->executeCommand('elcodi:plugins:load')
@@ -140,17 +147,20 @@ class ElcodiInstallCommand extends AbstractElcodiCommand
      * Execute a command
      *
      * @param string $command Command
+     * @param array  $options Command options
      *
      * @return $this Self object
      */
-    private function executeCommand($command)
+    private function executeCommand($command, array $options = [])
     {
+        $options = array_merge($options, [
+            'command'          => $command,
+            '--no-interaction' => true,
+        ]);
+
         $this
             ->getApplication()
-            ->run(new ArrayInput([
-                'command'          => $command,
-                '--no-interaction' => true,
-            ]));
+            ->run(new ArrayInput($options));
 
         return $this;
     }

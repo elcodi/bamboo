@@ -134,12 +134,12 @@
             var referrerIsSearchEngine = {{ referrer_is_search_engine() }};
             if (referrerIsSearchEngine) {
                 _etc.push(["{{ store_tracker }}", 'source_se', '', '1']);
-                _etc.push(["{{ store_tracker }}", 'rf', referrer, '8'])
+                _etc.push(["{{ store_tracker }}", 'rf', referrer, '8']);
             } else if (referrer != false) {
                 _etc.push(["{{ store_tracker }}", 'source_ref', '', '1']);
-                _etc.push(["{{ store_tracker }}", 'rf', referrer, '8'])
+                _etc.push(["{{ store_tracker }}", 'rf', referrer, '8']);
             } else {
-                _etc.push(["{{ store_tracker }}", 'source_dir', '', '1'])
+                _etc.push(["{{ store_tracker }}", 'source_dir', '', '1']);
             }
         </script>
 
