@@ -1,107 +1,102 @@
 store:
-    error:
-        store_unavailable_title:     Botiga no disponible
-        store_is_disabled:           La botiga està desactivada
-        store_is_under_construction: La botiga està en construcció
-        page_not_found_title:        Pàgina no trobada
-        page_not_found:              Uh si, has descobert els nostres plans secrets per conquerir el mon
-
     address:
-        save:
-            response_ok: Adreça guardada
-        delete:
-            response_ok: Adreça guardada correctament
-        select_address_type: Sel·lecciona una adreça de %1
         billing: facturació
+        delete:
+            response_ok: 'Adreça guardada correctament'
         delivery: entrega
         form:
             fields:
-                city:
-                    label: Ciutat
-                name:
-                    label: Nom de l'adreça
-                recipientName:
-                    label: Nom del destinatari
-                recipientSurname:
-                    label: Cognom del destinatari
                 address:
                     label: Adreça
                 addressMore:
-                    label: Més adreça (opcional)
-                postalcode:
-                    label: Codi postal
-                phone:
-                    label: Telèfon
-                mobile:
-                    label: Telèfon mòvil
+                    label: 'Més adreça (opcional)'
+                city:
+                    label: Ciutat
                 comments:
                     label: Comentaris
-                send:
-                    label: Guardar adreça
                 country:
                     label: Pais
-                state:
-                    label: Comunitat Autònoma
+                mobile:
+                    label: 'Telèfon mòvil'
+                name:
+                    label: 'Nom de l''adreça'
+                phone:
+                    label: Telèfon
+                postalcode:
+                    label: 'Codi postal'
                 province:
                     label: Provincia
-
+                recipientName:
+                    label: 'Nom del destinatari'
+                recipientSurname:
+                    label: 'Cognom del destinatari'
+                send:
+                    label: 'Guardar adreça'
+                state:
+                    label: 'Comunitat Autònoma'
+        save:
+            response_ok: 'Adreça guardada'
+        select_address_type: 'Sel·lecciona una adreça de %1'
+    coupon:
+        applied:
+            message_ko: 'No es pot aplicar el cupó'
+            message_ok: 'Cupó aplicat correctament'
+        form:
+            fields:
+                apply:
+                    label: 'Aplicar cupó'
+                code:
+                    label: 'Codi de cupó'
+    error:
+        page_not_found: 'Uh si, has descobert els nostres plans secrets per conquerir el mon'
+        page_not_found_title: 'Pàgina no trobada'
+        store_is_disabled: 'La botiga està desactivada'
+        store_is_under_construction: 'La botiga està en construcció'
+        store_unavailable_title: 'Botiga no disponible'
     login:
-        wrong_combination: Combinació de email i contrasenya incorrectes.
         form:
             fields:
                 email:
-                    label: Correu electrònic
+                    label: 'Correu electrònic'
                 password:
                     label: Contrasenya
                 send:
                     label: Enviar
+        wrong_combination: 'Combinació de email i contrasenya incorrectes.'
+    pagination:
+        current: Actual
+        first: Primer
+        last: Darrer
+        next: Següent
+        previous: Anterior
     recovery:
         form:
             fields:
+                email:
+                    label: 'Correu electrònic'
                 password:
                     label: Contrasenya
+                remember:
+                    label: 'No recordo la meva contrasenya'
                 repeat_password:
-                    label: Repetir Contrasenya
-                email:
-                    label: Correu electrònic
+                    label: 'Repetir Contrasenya'
                 send:
                     label: Enviar
-                remember:
-                    label: No recordo la meva contrasenya
-
     user:
-        profile:
-            save:
-                message_ok: Perfil guardat
         form:
             fields:
+                email:
+                    label: 'Correo electrònic'
                 firstname:
                     label: Nom
                 lastname:
                     label: Cognom
-                email:
-                    label: Correo electrònic
                 password:
                     label: Contrasenya
                 repeat_password:
-                    label: Repetir Contrasenya
+                    label: 'Repetir Contrasenya'
                 send:
                     label: Guardar
-
-    coupon:
-        form:
-            fields:
-                code:
-                    label: Codi de cupó
-                apply:
-                    label: Aplicar cupó
-        applied:
-            message_ok: Cupó aplicat correctament
-            message_ko: No es pot aplicar el cupó
-
-    pagination:
-        first: Primer
-        previous: Anterior
-        current: Actual
-        next: Següent
-        last: Darrer
+        profile:
+            save:
+                message_ok: 'Perfil guardat'

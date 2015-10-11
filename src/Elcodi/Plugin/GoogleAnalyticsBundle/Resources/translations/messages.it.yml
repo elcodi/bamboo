@@ -1,0 +1,3 @@
+elcodi_plugin:
+    google_analytics:
+        description: 'Google analytics integration for your shop'

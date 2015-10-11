@@ -1,106 +1,102 @@
 store:
-    error:
-        store_unavailable_title:     Boutique pas disponible
-        store_is_disabled:           La boutique est désactivée
-        store_is_under_construction: La boutique est en cours de construction
-        page_not_found_title:        Page non trouvée
-        page_not_found:              Oh, vous avez découvert notre plan secret pour conquérir le monde
-
     address:
-        save:
-            response_ok: Adresse sauvée
-        delete:
-            response_ok: Adresse supprimée avec succès
-        select_address_type: Choisissez %1 adresse(s)
         billing: facturation
+        delete:
+            response_ok: 'Adresse supprimée avec succès'
         delivery: livraison
         form:
             fields:
-                city:
-                    label: Ville
-                name:
-                    label: Nom de l'adresse
-                recipientName:
-                    label: Nom du destinataire
-                recipientSurname:
-                    label: Nom de famille du destinataire
                 address:
                     label: Adresse
                 addressMore:
-                    label: Adresse complément (optionnel)
-                postalcode:
-                    label: Code postal
-                phone:
-                    label: Téléphone fixe
-                mobile:
-                    label: Téléphone mobile
+                    label: 'Adresse complément (optionnel)'
+                city:
+                    label: Ville
                 comments:
                     label: Commentaires
-                send:
-                    label: Sauvegarder adresse
                 country:
                     label: Pays
-                state:
-                    label: Etat/Région
+                mobile:
+                    label: 'Téléphone mobile'
+                name:
+                    label: 'Nom de l''adresse'
+                phone:
+                    label: 'Téléphone fixe'
+                postalcode:
+                    label: 'Code postal'
                 province:
                     label: Département
+                recipientName:
+                    label: 'Nom du destinataire'
+                recipientSurname:
+                    label: 'Nom de famille du destinataire'
+                send:
+                    label: 'Sauvegarder adresse'
+                state:
+                    label: Etat/Région
+        save:
+            response_ok: 'Adresse sauvée'
+        select_address_type: 'Choisissez %1 adresse(s)'
+    coupon:
+        applied:
+            message_ko: 'Une erreur est survenue lors de l''application du coupon'
+            message_ok: 'Le Coupon a été appliqué avec succès'
+        form:
+            fields:
+                apply:
+                    label: 'Appliquer le coupon'
+                code:
+                    label: 'Code du Coupon'
+    error:
+        page_not_found: 'Oh, vous avez découvert notre plan secret pour conquérir le monde'
+        page_not_found_title: 'Page non trouvée'
+        store_is_disabled: 'La boutique est désactivée'
+        store_is_under_construction: 'La boutique est en cours de construction'
+        store_unavailable_title: 'Boutique pas disponible'
     login:
-        wrong_combination: Mauvaise combinaison Email / Mot de passe.
         form:
             fields:
                 email:
                     label: Email
                 password:
-                    label: Mot de passe
+                    label: 'Mot de passe'
                 send:
-                    label: Se connecter
+                    label: 'Se connecter'
+        wrong_combination: 'Mauvaise combinaison Email / Mot de passe.'
+    pagination:
+        current: Actual
+        first: Première
+        last: Dernière
+        next: Suivant
+        previous: Précédent
     recovery:
         form:
             fields:
-                password:
-                    label: Mot de passe
-                repeat_password:
-                    label: Confirmer mot de passe
                 email:
                     label: email
+                password:
+                    label: 'Mot de passe'
+                remember:
+                    label: 'Se souvenir de moi'
+                repeat_password:
+                    label: 'Confirmer mot de passe'
                 send:
                     label: Envoyer
-                remember:
-                    label: Se souvenir de moi
-
     user:
-        profile:
-            save:
-                message_ok: Profil enregistré
         form:
             fields:
+                email:
+                    label: Email
                 firstname:
                     label: Prénom
                 lastname:
                     label: Nom
-                email:
-                    label: Email
                 password:
-                    label: Mot de passe
+                    label: 'Mot de passe'
                 repeat_password:
-                    label: Confirmer mot de passe
+                    label: 'Confirmer mot de passe'
                 send:
                     label: Enregistrer
-
-    coupon:
-        form:
-            fields:
-                code:
-                    label: Code du Coupon
-                apply:
-                    label: Appliquer le coupon
-        applied:
-            message_ok: Le Coupon a été appliqué avec succès
-            message_ko: Une erreur est survenue lors de l'application du coupon
-
-    pagination:
-        first: Première
-        previous: Précédent
-        current: Actual
-        next: Suivant
-        last: Dernière
+        profile:
+            save:
+                message_ok: 'Profil enregistré'

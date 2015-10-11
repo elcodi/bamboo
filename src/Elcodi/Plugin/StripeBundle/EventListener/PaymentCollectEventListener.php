@@ -62,7 +62,9 @@ class PaymentCollectEventListener
     protected $formFactory;
 
     /**
-     * @var
+     * @var EngineInterface
+     *
+     * Templating
      */
     protected $templating;
 
@@ -136,21 +138,41 @@ class PaymentCollectEventListener
         }
     }
 
+    /**
+     * Return stripe form
+     *
+     * @return string Stripe form
+     */
     protected function getStripeForm()
     {
-        $formType = $this->formFactory->create('stripe_view');
+        $formType = $this
+            ->formFactory
+            ->create('stripe_view');
 
-        return $this->templating->render('StripeBundle:Stripe:view.html.twig', [
-            'stripe_form'  =>  $formType->createView(),
-            'stripe_execute_route' =>  StripeRoutesLoader::ROUTE_NAME,
-        ]);
+        return $this
+            ->templating
+            ->render('StripeBundle:Stripe:view.html.twig', [
+                'stripe_form'  =>  $formType->createView(),
+                'stripe_execute_route' =>  StripeRoutesLoader::ROUTE_NAME,
+            ]);
     }
 
+    /**
+     * Return stripe script
+     *
+     * @return string Stripe script
+     */
     protected function getStripeScript()
     {
-        return $this->templating->render('StripeBundle:Stripe:scripts.html.twig', [
-            'public_key'    =>  $this->publicKey,
-            'currency'      =>  $this->paymentBridgeInterface->getCurrency(),
-        ]);
+        $currency = $this
+            ->paymentBridgeInterface
+            ->getCurrency();
+
+        return $this
+            ->templating
+            ->render('StripeBundle:Stripe:scripts.html.twig', [
+                'public_key'    =>  $this->publicKey,
+                'currency'      =>  $currency,
+            ]);
     }
 }

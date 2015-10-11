@@ -1,14 +1,14 @@
 common:
     order:
         states:
-            title:       History
-            initial:     New order
-            unpaid:      Unpaid
-            paid:        Paid
-            refunded:    Refunded
-            preparing:   Preparing
-            processed:   Processed
-            in delivery: In delivery
-            delivered:   Delivered
-            cancelled:   Cancelled
-            returned:    Returned
+            cancelled: Cancelled
+            delivered: Delivered
+            'in delivery': 'In delivery'
+            initial: 'New order'
+            paid: Paid
+            preparing: Preparing
+            processed: Processed
+            refunded: Refunded
+            returned: Returned
+            title: History
+            unpaid: Unpaid

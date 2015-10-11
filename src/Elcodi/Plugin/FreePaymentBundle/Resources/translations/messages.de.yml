@@ -1,0 +1,4 @@
+elcodi_plugin:
+    free_payment:
+        description: 'Kostenlose Zahlung Integration für Ihren Shop'
+        name: 'Kostenlose Zahlung'

@@ -1,37 +1,32 @@
 elcodi_plugin:
     store_wizard:
-        name: Assistente de tienda
-        description: |
-            Un assistente para configurar tu tienda por primera vez.
-            En el primer paso configura datos sobre la dirección física de la tienda y de su administrador.
-            Luego, ofrece el añadir la primera categoría, marca y producto, y finalmente pide información
-            sobre métodos de pago y de envío.
-
-        first_finish_wizard: Acaba todos los pasos antes de desactivar "tienda en construcción"
-        welcome_title: ¡Ya tienes tu tienda online!
-        go_general_settings: Ir a la configuración de la tienda
-        ready_launch: Todo a punto!
+        description: "Un assistente para configurar tu tienda por primera vez.\nEn el primer paso configura datos sobre la dirección física de la tienda y de su administrador.\nLuego, ofrece el añadir la primera categoría, marca y producto, y finalmente pide información\nsobre métodos de pago y de envío.\n"
+        disable_under_construction: 'Desactiva el modo <strong>Tienda en construcción</strong> para empezar a vender'
         done: Hecho!
-        go_enable_store: Ve a la configuración y desactiva "tienda en construcción".
-        go_next_step: Ve al siguiente paso
-        step_finished: <strong>¡Bravo!</strong> ¡Un paso menos para finalizar!
-        time_to_sell: Estás a <strong>%1 pasos</strong> de empezar a vender
-        disable_under_construction: Desactiva el modo <strong>Tienda en construcción</strong> para empezar a vender
-        estimated_time: Tiempo estimado %1 min
+        estimated_time: 'Tiempo estimado %1 min'
+        first_finish_wizard: 'Acaba todos los pasos antes de desactivar "tienda en construcción"'
+        go_enable_store: 'Ve a la configuración y desactiva "tienda en construcción".'
+        go_general_settings: 'Ir a la configuración de la tienda'
+        go_next_step: 'Ve al siguiente paso'
+        name: 'Assistente de tienda'
+        ready_launch: 'Todo a punto!'
         step1:
-            title: Añade un producto
-            description: Lo más importante de tu tienda... después de los clientes, claro.
-            action: Añadir un producto
+            action: 'Añadir un producto'
+            description: 'Lo más importante de tu tienda... después de los clientes, claro.'
+            title: 'Añade un producto'
         step2:
-            title: Añade tu dirección
-            description: Introduce la dirección de tu tienda (o tu dirección si no tienes tienda física) para poder vender.
-            action: Añadir dirección
+            action: 'Añadir dirección'
+            description: 'Introduce la dirección de tu tienda (o tu dirección si no tienes tienda física) para poder vender.'
+            title: 'Añade tu dirección'
         step3:
-            title: Configura los pagos
-            description: Para que lo usuarios puedan pagar en tu tienda tienes que configurar los métodos de pago.
-            action: Configurar pagos
+            action: 'Configurar pagos'
+            description: 'Para que lo usuarios puedan pagar en tu tienda tienes que configurar los métodos de pago.'
+            title: 'Configura los pagos'
         step4:
-            title: Configura las entregas
-            description: Añade los gastos de envío. (Aunque sean gratis)
-            action_range: Añadir rango de envío
-            action_carrier: Añadir transportista
+            action_carrier: 'Añadir transportista'
+            action_range: 'Añadir rango de envío'
+            description: 'Añade los gastos de envío. (Aunque sean gratis)'
+            title: 'Configura las entregas'
+        step_finished: '<strong>¡Bravo!</strong> ¡Un paso menos para finalizar!'
+        time_to_sell: 'Estás a <strong>%1 pasos</strong> de empezar a vender'
+        welcome_title: '¡Ya tienes tu tienda online!'

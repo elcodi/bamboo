@@ -1,94 +1,38 @@
-#
-# Divisas
-#
-store_currency_nav: /divisas/nav
-
-#
-# Idiomas
-#
-store_language_nav: /idiomas/nav
-
-#
-# Mis direcciones
-#
+location_selectors: '/localizacion/selectores/{locationId}'
+store_address_delete: '/mi-direccion/{id}/eliminar'
+store_address_edit: '/mi-direccion/{id}/editar/{source}'
 store_address_list: /mis-direcciones
-store_address_edit: /mi-direccion/{id}/editar/{source}
-store_address_new: /mi-direccion/nueva/{source}
-store_address_delete: /mi-direccion/{id}/eliminar
-
-#
-# Localizacion
-#
-location_selectors: /localizacion/selectores/{locationId}
-
-#
-# Blog
-#
-store_blog_view: /blog/{page}
-store_blog_post_view: /blog/{id}/{slug}
-
-#
-# Categoría
-#
-store_categories_nav: /categorias/nav
-store_category_products_list: /categoria/{slug}/{id}
-
-#
-# Producto
-#
-store_product_view: /producto/{slug}/{id}
-
-
-#
-# Mi carrito
-#
-store_cart_view: /mi-carrito
-store_cart_add_product: /mi-carrito/producto/{id}/añadir
-store_cart_add_product_variant: /mi-carrito/producto/variante/{id}/añadir
+store_address_new: '/mi-direccion/nueva/{source}'
+store_blog_post_view: '/blog/{id}/{slug}'
+store_blog_view: '/blog/{page}'
+store_cart_add_product: '/mi-carrito/producto/{id}/añadir'
+store_cart_add_product_variant: '/mi-carrito/producto/variante/{id}/añadir'
+store_cart_coupon_form_type_coupon_apply: /mi-carrito/cupones
 store_cart_empty: /mi-carrito/vaciar
-store_cart_update: /mi-carrito/actualizar
-store_cartline_remove: /mi-carrito/linea/{id}/eliminar
 store_cart_nav: /mi-carrito/nav
-
-#
-# Proceso de compra
-#
+store_cart_update: /mi-carrito/actualizar
+store_cart_view: /mi-carrito
+store_cartline_remove: '/mi-carrito/linea/{id}/eliminar'
+store_categories_nav: /categorias/nav
+store_category_products_list: '/categoria/{slug}/{id}'
 store_checkout_address: /mi-carrito/direccion
 store_checkout_address_save: /mi-carrito/direccion/guardar
 store_checkout_payment: /mi-carrito/pago
-store_checkout_payment_fail: /mi-carrito/pago/error/{id}
-store_checkout_shipping_range_apply: /mi-carrito/envio/rango/cambiar/{rangeId}
-
-#
-# Pedidos
-#
-store_order_view: /pedido/{id}
-store_order_view_thanks: /pedido/{id}/gracias
-store_order_list: /mis-pedidos
-
-#
-# Cupones de carrito
-#
-store_cart_coupon_form_type_coupon_apply: /mi-carrito/cupones
+store_checkout_payment_fail: '/mi-carrito/pago/error/{id}'
+store_checkout_shipping_range_apply: '/mi-carrito/envio/rango/cambiar/{rangeId}'
 store_coupon_apply: /mi-carrito/cupon/aplicar
-store_coupon_remove: /mi-carrito/cupon/eliminar/{code}
-
-#
-# Contraseña
-#
-store_password_remember: /contrasena/recordar
-store_password_recover_sent: /contrasena/enviado
-store_password_recover: /contrasena/recuperar
-
-#
-# Seguridad
-#
-store_register: /registar-se
+store_coupon_remove: '/mi-carrito/cupon/eliminar/{code}'
+store_currency_nav: /divisas/nav
+store_language_nav: /idiomas/nav
 store_login: /entrar
-
-#
-# Usuario
-#
-store_user_nav: /usuario/nav
+store_order_list: /mis-pedidos
+store_order_view: '/pedido/{id}'
+store_order_view_thanks: '/pedido/{id}/gracias'
+store_password_recover: /contrasena/recuperar
+store_password_recover_sent: /contrasena/enviado
+store_password_remember: /contrasena/recordar
+store_product_view: '/producto/{slug}/{id}'
+store_register: /registar-se
 store_user: /usuario
 store_user_edit: /usuario/editar
+store_user_nav: /usuario/nav
