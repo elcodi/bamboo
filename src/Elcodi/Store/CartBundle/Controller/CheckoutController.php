@@ -259,7 +259,7 @@ class CheckoutController extends Controller
          */
         $paymentMethods = $this
             ->get('elcodi.wrapper.payment_methods')
-            ->get();
+            ->get($cart);
 
         /**
          * Available shipping methods
@@ -306,7 +306,8 @@ class CheckoutController extends Controller
     /**
      * Checkout shipping range
      *
-     * @param CartInterface $cart Cart
+     * @param CartInterface $cart           Cart
+     * @param string        $shippingMethod Shipping method
      *
      * @return Response Response
      *
@@ -324,8 +325,10 @@ class CheckoutController extends Controller
      *      name = "cart"
      * )
      */
-    public function applyShippingMethodAction(CartInterface $cart, $shippingMethod)
-    {
+    public function applyShippingMethodAction(
+        CartInterface $cart,
+        $shippingMethod
+    ) {
         /**
          * Desired shipping method
          */
