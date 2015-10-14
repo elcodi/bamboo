@@ -90,7 +90,7 @@ admin:
         saved: 'Atribuutti tallennettiin'
         section:
             basic:
-            	description: 'Määrittele atribuutin nimi ja arvot pilkulla erotettuna.'
+                description: 'Määrittele atribuutin nimi ja arvot pilkulla erotettuna.'
                 title: 'Perustiedot'
             visibility:
                 description: 'Aseta atribuutin näkyvyys'
@@ -132,7 +132,7 @@ admin:
         section:
             basic:
 
-            	description: 'Kirjoita mahdollisimman hyvä otsikko artikkelillesi. Sen tulisi olla lyhyt, kuvata sisältöä ja houkuttaa asiakkaita lukemaan sisältöäsi.'
+                description: 'Kirjoita mahdollisimman hyvä otsikko artikkelillesi. Sen tulisi olla lyhyt, kuvata sisältöä ja houkuttaa asiakkaita lukemaan sisältöäsi.'
                 title: 'Perustiedot'
             visibility:
                 description: 'Aseta artikkelin näkyvyys'
@@ -158,7 +158,7 @@ admin:
                 format: '%value%% vero'
                 title: Verot
         info:
-        	shipping_rates_before_saving: 'Voit lisätä toimituksen hinnan tallennuksen jälkeen'
+            shipping_rates_before_saving: 'Voit lisätä toimituksen hinnan tallennuksen jälkeen'
         list: 'Toimitustavat'
         new: 'Uusi toimitustapa'
         plural: Toimitustavat
@@ -217,7 +217,7 @@ admin:
         saved: 'Tuoteryhmä tallennettiin'
         section:
             basic:
-            	description: 'Syötä mahdollisimman kuvaava nimi, joka auttaa asiakkaitasi löytämään haluamansa tuotteet helposti.'
+                description: 'Syötä mahdollisimman kuvaava nimi, joka auttaa asiakkaitasi löytämään haluamansa tuotteet helposti.'
             categorization:
                 description: 'Valitse tuoteryhmäksi pääryhmä mikäli sillä ei ole ylärymiä tai sillä tulee olemaan alaryhmiä.'
                 title: Tuoteryhmät
@@ -420,7 +420,7 @@ admin:
                 description: 'Logo mobiililaitteille. Tämä ei ole pakollinen, mutta voi jossain tapauksissa tarjota mobiilikäyttäjille paremman kokemuksen.'
                 title: 'Logo mobiililaitteille'
             secondaryLogo:
-            	description: 'Alatunnisteen (footer) logo. Tämä on valinnainen.'
+                description: 'Alatunnisteen (footer) logo. Tämä on valinnainen.'
                 title: 'Alatunnisteen logo'
         singular: 'Kaupan yritysilme'
     image:
@@ -686,7 +686,7 @@ admin:
             reduced_price:
                 title: 'Alennettu hinta'
             sku:
-                placeholder: 'esim. 1293A
+                placeholder: 'esim. 1293A'
                 title: Tuotetunnus
             slug:
                 customize: 'Muokkaa polkua'
