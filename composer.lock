@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "fde782753c7d6ceb69bca0f756ae9117",
-    "content-hash": "4ce92406f0c11f707b225cab6476c8f1",
+    "hash": "78de891a406213239e5b812ae3cae292",
+    "content-hash": "365ef2aa978ca9e033b0272a343b85d5",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1010,16 +1010,16 @@
         },
         {
             "name": "elcodi/elcodi",
-            "version": "v1.0.1",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/elcodi/elcodi.git",
-                "reference": "d65e9ac2c832307a9d6b305fbba38f175cf31378"
+                "reference": "3f107917ef9bdfdc5a75a6910d5d33b31f3056c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elcodi/elcodi/zipball/d65e9ac2c832307a9d6b305fbba38f175cf31378",
-                "reference": "d65e9ac2c832307a9d6b305fbba38f175cf31378",
+                "url": "https://api.github.com/repos/elcodi/elcodi/zipball/3f107917ef9bdfdc5a75a6910d5d33b31f3056c9",
+                "reference": "3f107917ef9bdfdc5a75a6910d5d33b31f3056c9",
                 "shasum": ""
             },
             "require": {
@@ -1161,7 +1161,7 @@
                 "elcodi",
                 "symfony"
             ],
-            "time": "2015-09-28 15:18:37"
+            "time": "2015-10-13 17:26:47"
         },
         {
             "name": "goodby/csv",
@@ -1386,12 +1386,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/hwi/HWIOAuthBundle.git",
-                "reference": "2f8027f85ef137f25dd3291860807c3697acfa3e"
+                "reference": "7b26e8b87945f825bb5df29691ee72e12cf97894"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hwi/HWIOAuthBundle/zipball/2f8027f85ef137f25dd3291860807c3697acfa3e",
-                "reference": "2f8027f85ef137f25dd3291860807c3697acfa3e",
+                "url": "https://api.github.com/repos/hwi/HWIOAuthBundle/zipball/7b26e8b87945f825bb5df29691ee72e12cf97894",
+                "reference": "7b26e8b87945f825bb5df29691ee72e12cf97894",
                 "shasum": ""
             },
             "require": {
@@ -1502,7 +1502,7 @@
                 "yahoo",
                 "yandex"
             ],
-            "time": "2015-09-30 09:11:03"
+            "time": "2015-10-09 06:46:40"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -2880,11 +2880,13 @@
             "authors": [
                 {
                     "name": "Thibault Duplessis",
-                    "email": "thibault.duplessis@gmail.com"
+                    "email": "thibault.duplessis@gmail.com",
+                    "homepage": "http://ornicar.github.com"
                 },
                 {
-                    "name": "Henrik Bjørnskov",
-                    "email": "henrik@bjrnskov.dk"
+                    "name": "Henrik Bjornskov",
+                    "email": "henrik@bjrnskov.dk",
+                    "homepage": "http://henrik.bjrnskov.dk"
                 }
             ],
             "description": "This bundles provides a Gravatar API various utilities to work with it in templates",
@@ -4102,16 +4104,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.22.2",
+            "version": "v1.22.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "79249fc8c9ff62e41e217e0c630e2e00bcadda6a"
+                "reference": "ebfc36b7e77b0c1175afe30459cf943010245540"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/79249fc8c9ff62e41e217e0c630e2e00bcadda6a",
-                "reference": "79249fc8c9ff62e41e217e0c630e2e00bcadda6a",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/ebfc36b7e77b0c1175afe30459cf943010245540",
+                "reference": "ebfc36b7e77b0c1175afe30459cf943010245540",
                 "shasum": ""
             },
             "require": {
@@ -4159,7 +4161,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2015-09-22 13:59:32"
+            "time": "2015-10-13 07:07:02"
         },
         {
             "name": "zendframework/zend-code",
@@ -5018,6 +5020,69 @@
             "time": "2014-09-14 13:15:42"
         },
         {
+            "name": "mmoreram/translation-server",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mmoreram/translation-server.git",
+                "reference": "cc49be4055ad49e26622a4a0beb8b7e3cb385b10"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mmoreram/translation-server/zipball/cc49be4055ad49e26622a4a0beb8b7e3cb385b10",
+                "reference": "cc49be4055ad49e26622a4a0beb8b7e3cb385b10",
+                "shasum": ""
+            },
+            "require": {
+                "elcodi/core": "^1.0.2",
+                "php": ">=5.4",
+                "stichoza/google-translate-php": "^3.1",
+                "symfony/console": "^2.7",
+                "symfony/event-dispatcher": "^2.7",
+                "symfony/filesystem": "^2.7",
+                "symfony/finder": "^2.7",
+                "symfony/process": "^2.7",
+                "symfony/property-access": "^2.7",
+                "symfony/yaml": "^2.7"
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "1.4.2",
+                "mmoreram/php-formatter": "1.0.4",
+                "phpunit/phpunit": "4.5.0"
+            },
+            "bin": [
+                "bin/translation-server"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mmoreram\\TranslationServer\\": "src/TranslationServer"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marc Morera",
+                    "email": "yuhu@mmoreram.com"
+                }
+            ],
+            "description": "PHP translation server",
+            "keywords": [
+                "php",
+                "server",
+                "translation"
+            ],
+            "time": "2015-10-10 18:20:46"
+        },
+        {
             "name": "phpdocumentor/reflection-docblock",
             "version": "2.0.4",
             "source": {
@@ -5725,16 +5790,16 @@
         },
         {
             "name": "sebastian/global-state",
-            "version": "1.0.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/global-state.git",
-                "reference": "c7428acdb62ece0a45e6306f1ae85e1c05b09c01"
+                "reference": "bc37d50fea7d017d3d340f230811c9f1d7280af4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/global-state/zipball/c7428acdb62ece0a45e6306f1ae85e1c05b09c01",
-                "reference": "c7428acdb62ece0a45e6306f1ae85e1c05b09c01",
+                "url": "https://api.github.com/repos/sebastianbergmann/global-state/zipball/bc37d50fea7d017d3d340f230811c9f1d7280af4",
+                "reference": "bc37d50fea7d017d3d340f230811c9f1d7280af4",
                 "shasum": ""
             },
             "require": {
@@ -5772,7 +5837,7 @@
             "keywords": [
                 "global state"
             ],
-            "time": "2014-10-06 09:23:50"
+            "time": "2015-10-12 03:26:01"
         },
         {
             "name": "sebastian/recursion-context",
@@ -5861,6 +5926,55 @@
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
             "time": "2015-06-21 13:59:46"
+        },
+        {
+            "name": "stichoza/google-translate-php",
+            "version": "v3.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Stichoza/google-translate-php.git",
+                "reference": "8720d3004d9fa8f83aad918b29a6d43f25e5f70c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Stichoza/google-translate-php/zipball/8720d3004d9fa8f83aad918b29a6d43f25e5f70c",
+                "reference": "8720d3004d9fa8f83aad918b29a6d43f25e5f70c",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Stichoza\\GoogleTranslate\\": "src/"
+                },
+                "psr-4": {
+                    "Stichoza\\GoogleTranslate\\": "src/Stichoza/GoogleTranslate/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Levan Velijanashvili",
+                    "email": "me@stichoza.com"
+                }
+            ],
+            "description": "Free Google Translate API PHP Package",
+            "homepage": "http://github.com/Stichoza/google-translate-php",
+            "keywords": [
+                "google",
+                "php",
+                "translate"
+            ],
+            "time": "2015-06-02 19:36:34"
         },
         {
             "name": "visithor/visithor",
@@ -5985,7 +6099,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "hwi/oauth-bundle": 20
+        "hwi/oauth-bundle": 20,
+        "mmoreram/translation-server": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
