@@ -4,8 +4,8 @@ admin:
         show_visual: 'Piilota HTML-koodi'
     address:
         edit:
-            billing_address: 'Kauppasi laskutusosoite'
-            description: 'Osoite, jonka tulisi näkyä kauppasi laskuissa. Tämä on luultavasti yrityksesi laskutusosoite tai toimipaikan osoite.'
+            billing_address: 'Verkkokauppasi laskutusosoite'
+            description: 'Osoite, jonka tulisi näkyä verkkokauppasi laskuissa. Tämä on luultavasti yrityksesi laskutusosoite tai toimipaikan osoite.'
         field:
             address:
                 placeholder: 'esim. Luostarinkatu 1'
@@ -141,10 +141,10 @@ admin:
         single: 'Artikkeli'
     carrier:
         action:
-            add_shipping_range: 'TODO: Add range'
+            add_shipping_range: 'Lisää toimitusalue'
         edit: 'Muokkaa "%name%"'
         error:
-            no_active_carrier: 'Varoitus! Kuljetustapaa ei ole valittu'
+            no_active_carrier: 'Varoitus! toimitustapaa ei ole valittu'
         field:
             description:
                 placeholder: 'esim. Edullisin vaihtoehto suurille kotimaan paketeille'
@@ -176,7 +176,7 @@ admin:
             visibility:
                 description: 'Aseta toimitustavan näkyvyys'
                 title: Näkyvyys
-        single: Kuljetustapa
+        single: Toimitustapa
     catalog:
         plural: Kuvastot
         single: Kuvasto
@@ -392,7 +392,7 @@ admin:
         plural: Kojelaudat
         single: Kojelauta
         title: Kojelauta
-        view_store: 'Siirry kauppaan'
+        view_store: 'Siirry verkkokauppaan'
     identity:
         field:
             leitmotiv:
@@ -408,10 +408,10 @@ admin:
                 description: 'Lisää tähän mahdollisimman suuri kuva. Tämä on taustakuva, joten vältä käyttämästä samaa kuvaa kuin pääkuva.'
                 title: 'Taustakuva'
             headerImage:
-                description: 'Lisää pääkuva kauppasi ylätunnisteeseen (header)'
+                description: 'Lisää pääkuva verkkokauppasi ylätunnisteeseen (header)'
                 title: 'Kaupan pääkuva'
             info:
-                description: 'Syötä kauppasi nimi ja huutolause (valinnainen).'
+                description: 'Syötä verkkokauppasi nimi ja huutolause (valinnainen).'
                 title: 'Perustiedot'
             logo:
                 description: 'Tähän voit lisätä logosi. Käytäthän mahdollisimman hyvälaatuista kuvaa, jotta logo on mahdollisimman näyttävä.'
@@ -528,7 +528,7 @@ admin:
         plural: Mediat
         single: Media
     menu:
-        design: 'Muokkaa kauppaa'
+        design: 'Muokkaa verkkokauppaa'
     metadata:
         customize: 'Muokkaa metadataa'
         disclaimer:
@@ -764,11 +764,11 @@ admin:
                 description: 'Kytke tämä päälle varastosaldojen seurantaa varten'
                 title: Varastosaldo
             store_email: 'Kaupan sähköpostiosoite'
-            store_enabled: 'Kauppa käytössä'
+            store_enabled: 'Verkkokauppa käytössä'
             store_leitmotiv: 'Kaupan iskulause'
             store_name: 'Kaupan nimi'
             store_phone: 'Kaupan puhelinnumero'
-            store_under_construction: 'Kauppa on rakenteilla'
+            store_under_construction: 'Verkkokauppa on rakenteilla'
         plural: Asetukset
         saved: 'Asetukset tallennettiin'
         section:
@@ -790,15 +790,15 @@ admin:
         plural: 'Maksu- ja toimitustavat'
         single: 'Maksu- ja toimitustavat'
     shipping_range:
-        edit: 'TODO: Edit Range "%name%"'
+        edit: 'Muokkaa toimitusaluetta "%name%"'
         field:
             fromPrice:
                 title: 'Alkaen hinnasta'
             fromWeight:
                 title: 'Alkaen painosta'
             name:
-                placeholder: 'esim. Kuljetus 3-5 päivässä'
-                title: 'TODO: Shipping range name'
+                placeholder: 'esim. Toimitus 3-5 päivässä'
+                title: 'Toimitusalueen nimi'
             price:
                 title: Hinta
             toPrice:
@@ -816,25 +816,25 @@ admin:
                 price_format: 'Alkaen %from% ja päättyen %to%'
                 title: Summa
                 weight_format: 'Alkaen %from% grammasta %to% grammaan'
-        list: 'TODO: Shipping Range list'
-        new: 'TODO: Create New Range'
-        plural: 'TODO: Shipping ranges'
+        list: 'Toimitusalueiden listaus'
+        new: 'Luo uusi Toimitusalue'
+        plural: 'Toimitusalueet'
         saved: 'Muutokset tallennettiin'
         section:
             basic:
-                description: 'TODO: Provide the name of the shipping range and in what zone it will be available.'
+                description: 'Syötä toimitusalueen nimi ja millä alueilla se on saatavilla'
                 title: 'Perustiedot'
             pricing:
-                description: 'TODO: Set the price for this shipping range and define if it''s going to be calculated based on order price or order wesim.t.'
+                description: 'Syötä toimitusalueen hinta ja määrittele lasketaanko se tilauksen hinnan vai painon mukaan'
                 title: Hinnoittelu
             visibility:
-                description: 'TODO: Set this shipping range as enabled or disabled.'
+                description: 'Määritä toimitusalueen näkyvyys'
                 title: Näkyvyys
-        single: 'TODO: Shipping range'
+        single: 'Toimitusalue'
     store:
         field:
             enabled:
-                title: 'Kauppa avoinna'
+                title: 'Verkkokauppa avoinna'
             routingStrategy:
                 custom: 'Ei etuliitettä kielille'
                 prefix: 'Kaikilla kielillä on etuliite'
@@ -848,7 +848,7 @@ admin:
                 description: 'Verkkokaupan edistyneet asetukset'
                 title: 'Erikoisasetukset'
             status:
-                description: 'Määrittelee onko kauppa avoin vai suljettu'
+                description: 'Määrittelee onko verkkokauppa avoin vai suljettu'
                 title: Tila
             stock:
                 description: 'Voit seurata varastosaldojasi kytkemällä tämän toiminnon käyttöön'
