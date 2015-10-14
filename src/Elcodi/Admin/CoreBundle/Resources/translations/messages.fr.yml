@@ -496,6 +496,8 @@ admin:
         new: 'Nouvelle commande'
         plural: Commandes
         single: Commande
+        states:
+            title: Statut
         to_user: 'Accéder au client'
         transition:
             refund: Remboursement

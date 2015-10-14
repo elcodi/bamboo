@@ -585,6 +585,8 @@ admin:
         notes: Notes
         plural: Orders
         single: Order
+        states:
+            title: Status
         to_user: 'Go to customer'
         transition:
             cancel: Cancel

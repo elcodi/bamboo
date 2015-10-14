@@ -585,6 +585,8 @@ admin:
         notes: Notes
         plural: Comandes
         single: Comanda
+        states:
+            title: Estat
         to_user: 'Anar al client'
         transition:
             cancel: Cancel·lar
