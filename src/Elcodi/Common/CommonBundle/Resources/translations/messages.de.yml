@@ -1,14 +1,14 @@
 common:
     order:
         states:
-            initial: 'Neue Bestellung'
-            paid: Bezahlt
-            refunded: Zurückerstattet
-            title: Verlauf
-            unpaid: Unbezahlt
-            'in delivery': 'im Lieferumfang'
-            preparing: Vorbereitung
             cancelled: Abgesagt
             delivered: geliefert
-            returned: zurückgegeben
+            'in delivery': 'im Lieferumfang'
+            initial: 'Neue Bestellung'
+            paid: Bezahlt
+            preparing: Vorbereitung
             processed: verarbeitet
+            refunded: Zurückerstattet
+            returned: zurückgegeben
+            title: Verlauf
+            unpaid: Unbezahlt

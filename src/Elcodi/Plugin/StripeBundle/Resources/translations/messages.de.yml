@@ -1,9 +1,9 @@
 elcodi_plugin:
     stripe:
+        description: '<p> Stripe ermöglicht Ihren Nutzern zu zahlen mit einer Kreditkarte . <br/> Um sie zu aktivieren , müssen Sie ein Stripe Konto erstellen und kopieren Sie hier Ihre privaten und öffentlichen Schlüssel . </ p> <p> Haben Sie nicht ein Stripe Account? </ p> <a href=''https://dashboard.stripe.com/register'' class=''button'' target=''_blank''> Konto erstellen </a>'
         field:
             private_key:
                 label: 'privaten Schlüssel'
             public_key:
                 label: Public-Key-
-        description: '<p> Stripe ermöglicht Ihren Nutzern zu zahlen mit einer Kreditkarte . <br/> Um sie zu aktivieren , müssen Sie ein Stripe Konto erstellen und kopieren Sie hier Ihre privaten und öffentlichen Schlüssel . </ p> <p> Haben Sie nicht ein Stripe Account? </ p> <a href=''https://dashboard.stripe.com/register'' class=''button'' target=''_blank''> Konto erstellen </a>'
         name: Stripe
