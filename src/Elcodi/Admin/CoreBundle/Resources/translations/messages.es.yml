@@ -585,6 +585,8 @@ admin:
         notes: Notas
         plural: Pedidos
         single: Pedido
+        states:
+            title: Estado
         to_user: 'Ir al cliente'
         transition:
             cancel: Cancelar
