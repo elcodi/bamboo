@@ -151,7 +151,7 @@ class CartController extends Controller
 
         $this
             ->get('elcodi.manager.cart')
-            ->addProduct(
+            ->addPurchasable(
                 $cart,
                 $product,
                 $cartQuantity
@@ -210,7 +210,7 @@ class CartController extends Controller
 
         $this
             ->get('elcodi.manager.cart')
-            ->addProduct(
+            ->addPurchasable(
                 $cart,
                 $variant,
                 $cartQuantity
