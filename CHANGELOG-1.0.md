@@ -8,6 +8,42 @@ https://github.com/elcodi/bamboo/commit/XXX where XXX is the change hash To
 get the diff between two versions, go to
 https://github.com/elcodi/bamboo/compare/v1.0.0...v1.0.1
 
+### v1.0.1 (14-10-2015)
+
+Added translations and fixed some issues
+
+#### TL;DR
+
+* Added serbian language
+* Added italian language
+* Removed Redis as default usage
+* Fixed some major issues from v1.0.0
+
+#### Release Log
+
+* [`3856d71`](https://github.com/elcodi/bamboo/commit/3856d71b7b726c5c279d26e97c14477b4290c5fc) Sorted translations (mmoreram)
+* [`670273d`](https://github.com/elcodi/bamboo/commit/670273d194036d3a293e187d49862f3a070e9d0d) italian translation (Emanuele Minotto)
+* [`7ca2699`](https://github.com/elcodi/bamboo/commit/7ca2699e420c3ec60bbd4653b99b96d24f2bf76f) Issue #594 Changed addProduct to addPurchasable (mmoreram)
+* [`8b01de9`](https://github.com/elcodi/bamboo/commit/8b01de911e6e574c13dd98b65dd865ba2590c91e) Updated composer.lock (mmoreram)
+* [`e135f09`](https://github.com/elcodi/bamboo/commit/e135f09f16a82eebc8a3f34ebe26d55b361de2df) Add admin status title translation (Germán Figna)
+* [`3c7f25d`](https://github.com/elcodi/bamboo/commit/3c7f25db50b84fc2446db887457e7382a1e90a9a) Updated payment_methods wrapper usage (mmoreram)
+* [`fd4f919`](https://github.com/elcodi/bamboo/commit/fd4f91958618b2850419b9a52064050fd1c0e908) Production settings (Emanuele Minotto)
+* [`10bb4fe`](https://github.com/elcodi/bamboo/commit/10bb4fe57882a0b1a5da675193b6cef2847d16d2) Completed german translations using a guesser (mmoreram)
+* [`90029b9`](https://github.com/elcodi/bamboo/commit/90029b982f3e0a9fa95ff4d5ab53457bdc372b9a) Added translation-server as dependency (mmoreram)
+* [`6b0ab70`](https://github.com/elcodi/bamboo/commit/6b0ab70d8b362e903263d14de6d572dd639590a1) Added some missing spanish translations (mmoreram)
+* [`d567855`](https://github.com/elcodi/bamboo/commit/d56785517f76559e85e4ae7837eb9c07d7fb87d9) Added some missing catalan translations (mmoreram)
+* [`94c61e8`](https://github.com/elcodi/bamboo/commit/94c61e875b88d324815708182bd04ba51594a474) Sorted all translations (mmoreram)
+* [`0c951d4`](https://github.com/elcodi/bamboo/commit/0c951d44f1ff46ef87a287b924e7b698690168a8) Added .translation.yml file (mmoreram)
+* [`e223b20`](https://github.com/elcodi/bamboo/commit/e223b20259989d66e8fe158bffb1e91f0d437a0b) Fixes #571 Updated PHPDoc and improved format (mmoreram)
+* [`be27fd3`](https://github.com/elcodi/bamboo/commit/be27fd366a8415a396071302b4f217b513f06f73) Fixes #585. Added semicolons in JS code lines (mmoreram)
+* [`7d438fe`](https://github.com/elcodi/bamboo/commit/7d438fed0bd6adafae034590051099bbe1550d50) Updated changelog with new stable version (mmoreram)
+* [`9b815ed`](https://github.com/elcodi/bamboo/commit/9b815ed76c04ca04a84a503aa6e5abbbbae62221) Serbian translation (Aleksandar-A)
+* [`bea1f8e`](https://github.com/elcodi/bamboo/commit/bea1f8e49f1f5d2ac703b3320383d92e325d1b35) Serbian translation (Aleksandar-A)
+* [`e710d20`](https://github.com/elcodi/bamboo/commit/e710d2072a867081bf4ccd72b63ef1d7c8582df3) Serbian translation (Aleksandar-A)
+* [`d2445f2`](https://github.com/elcodi/bamboo/commit/d2445f288f8cab5ed047a4c766cce922e24b1e3e) Serbian translation (Aleksandar-A)
+* [`6aa70e8`](https://github.com/elcodi/bamboo/commit/6aa70e81ebc7062391b423f90237d1eab96315b2) schema security drop before the create (Emanuele Minotto)
+* [`e210339`](https://github.com/elcodi/bamboo/commit/e21033942a005cc9da43af3b0b1281fabb867b98) replaced puppet with ansible (Emanuele Minotto)
+
 ### v1.0.0 (23-09-2015)
 
 First stable release of Bamboo
