@@ -1,0 +1,980 @@
+admin:
+    UI:
+        show_code: 'Näytä HTML-koodi'
+        show_visual: 'Piilota HTML-koodi'
+    address:
+        edit:
+            billing_address: 'Verkkokauppasi laskutusosoite'
+            description: 'Osoite, jonka tulisi näkyä verkkokauppasi laskuissa. Tämä on luultavasti yrityksesi laskutusosoite tai toimipaikan osoite.'
+        field:
+            address:
+                placeholder: 'esim. Luostarinkatu 1'
+                title: Address
+            address_more:
+                placeholder: 'esim. Kivikirkko Oy'
+                title: 'Address more (optional)'
+            cif:
+                title: 'Sosiaaliturvatunnus'
+            city:
+                title: Kaupunki
+            comments:
+                placeholder: 'esim. kolmas kerros'
+                title: Viesti
+            country:
+                title: Maa
+            email:
+                placeholder: 'esim. maija.meikalainen@iki.fi'
+                title: Sähköpostiosoite
+            isCompany:
+                title: 'Omistatko yrityksen?'
+                value:
+                    company: Yritys
+                    individual: Yksityishenkilö
+            mobile:
+                placeholder: 'esim 040 715 517'
+                title: Matkapuhelin
+            phone:
+                placeholder: 'esim. 050 133 337'
+                title: Puhelinnumero
+            postalcode:
+                placeholder: 'esim. 26100'
+                title: 'Postinumero'
+            province:
+                title: Maakunta
+            recipient_name:
+                placeholder: 'esim. Matti / Makkaratehdas Ky'
+                title: 'Nimi / Yritys'
+            recipient_surname:
+                placeholder: 'esim. Meikäläinen'
+                title: 'Sukunimi (yritykselle valinnainen)'
+            save: 'Tallenna osoite'
+            state:
+                title: Maakunta
+        plural: Osoitteet
+        saved: 'Osoite tallennettiin'
+        select:
+            placeholder: 'Valitse yksi'
+        single: Osoite
+    admin_user:
+        edit: 'Muokkaa "%name%"'
+        error:
+            cant_disable_yourself: 'Et voi sulkea omaa tiliäsi'
+            cant_remove_yourself: 'Et voi poistaa omaa tiliäsi'
+        list: 'Pääkäyttäjien listaus'
+        new: 'Luo uusi pääkäyttäjä'
+        plural: Pääkäyttäjät
+        saved: 'Muutokset tallennettiin'
+        section:
+            contact:
+                description: 'Pääkäyttäjän yhteystiedot'
+                title: 'Yhteystiedot'
+            login:
+                description: 'Jokaisella käyttäjällä tulee olla yksilöllinen sähköpostiosoite'
+                title: 'Kirjautumisen lisätiedot'
+            status:
+                description: 'Voit asettaa pääkäyttäjiätilejä suljetuiksi tai poistaa niitä'
+                title: 'Käyttäjän tila'
+        single: Pääkäyttäjä
+    attribute:
+        edit: 'Muokkaa "%name%"'
+        field:
+            enabled:
+                title: Tila
+            name:
+                placeholder: 'esim. väri'
+                title: Nimi
+                values: Arvot
+        list: 'Atribuuttilistaus'
+        new: 'Uusi atribuutti'
+        plural: Atribuutit
+        saved: 'Atribuutti tallennettiin'
+        section:
+            basic:
+                description: 'Määrittele atribuutin nimi ja arvot pilkulla erotettuna.'
+                title: 'Perustiedot'
+            visibility:
+                description: 'Aseta atribuutin näkyvyys'
+                title: Näkyvyys
+        single: Atribuutti
+    blog:
+        plural: Blogit
+        single: Blogi
+    blog_post:
+        edit: 'Muokkaa "%name%"'
+        field:
+            content:
+                placeholder: 'esim. Tämä artikkeli on hieno esimerkki sisältömarkkinoinnista!'
+                title: Sisältö
+            enabled:
+                title: Käytössä
+            link:
+                title: Linkki
+            metadescription:
+                placeholder: 'esim. Tämä on lyhys kuvaus artikkelistasi'
+            metakeywords:
+                placeholder: 'esim. makkara,sisältömarkkinointi,kesä'
+            metatitle:
+                placeholder: 'esim. Sisältömarkkinoinnin esimerkki'
+            path:
+                customize: 'Määrittele artikkelin polku'
+                placeholder: 'esim. /sisaltomarkkinointi/makkara'
+                title: Polku
+            publication_date:
+                title: 'Julkaisupäivä'
+            title:
+                placeholder: 'esim. Makkara maistuu kesällä'
+                title: Otsikko
+        in_store: 'Näytä kaupassa'
+        list: 'Artikkelien listaus'
+        new: 'Luo uusi artikkeli'
+        plural: 'Artikkelit'
+        saved: 'Artikkeli tallennettiin'
+        section:
+            basic:
+
+                description: 'Kirjoita mahdollisimman hyvä otsikko artikkelillesi. Sen tulisi olla lyhyt, kuvata sisältöä ja houkuttaa asiakkaita lukemaan sisältöäsi.'
+                title: 'Perustiedot'
+            visibility:
+                description: 'Aseta artikkelin näkyvyys'
+                title: Näkyvyys
+        show_metrics: 'Näytä tilastot'
+        single: 'Artikkeli'
+    carrier:
+        action:
+            add_shipping_range: 'Lisää toimitusalue'
+        edit: 'Muokkaa "%name%"'
+        error:
+            no_active_carrier: 'Varoitus! toimitustapaa ei ole valittu'
+        field:
+            description:
+                placeholder: 'esim. Edullisin vaihtoehto suurille kotimaan paketeille'
+                title: Kuvaus
+            name:
+                placeholder: 'esim. Posti'
+                title: Nimi
+            status:
+                title: Käytössä
+            taxes:
+                format: '%value%% vero'
+                title: Verot
+        info:
+            shipping_rates_before_saving: 'Voit lisätä toimituksen hinnan tallennuksen jälkeen'
+        list: 'Toimitustavat'
+        new: 'Uusi toimitustapa'
+        plural: Toimitustavat
+        saved: 'Muutokset tallennettiin'
+        section:
+            basic:
+                description: 'Syötä toimitustavan kuvaus ja mahdolliset lisätiedot'
+                title: 'Perustiedot'
+            shipping_rates:
+                description: 'Lisää toimitustapojen hinnat'
+                title: 'Toimitustapojen hinnat'
+            taxes:
+                description: 'Toimitukseen lisättävät verot'
+                title: 'Toimitustavan verot'
+            visibility:
+                description: 'Aseta toimitustavan näkyvyys'
+                title: Näkyvyys
+        single: Toimitustapa
+    catalog:
+        plural: Kuvastot
+        single: Kuvasto
+    categorization:
+        plural: Tuoteryhmät
+        single: Tuoteryhmä
+    category:
+        edit: 'Muokkaa "%name%"'
+        field:
+            contains:
+                title: '%count% tuotetta'
+            enabled:
+                options:
+                    active: Käytössä
+                    inactive: Ei käytössä
+                title: Tila
+            metadescription:
+                placeholder: 'esim. Tämä tuoteryhmä on juuri se mikä olet etsinyt'
+            metakeywords:
+                placeholder: 'esim. makkarat,leivonnaiset'
+            metatitle:
+                placeholder: 'esim. huikea tuoteryhmäni'
+            name:
+                placeholder: 'esim. Leivonnaiset'
+                title: 'Tuoteryhmän nimi'
+            parent:
+                title: Yläryhmä
+            root:
+                title: 'Pääryhmä'
+            slug:
+                customize: 'Muokkaa polkua'
+                placeholder: 'esim. leivonnaiset/makkarat'
+                title: Polku
+        in_store: 'Näytä kaupassa'
+        list: 'Tuoteryhmien listaus'
+        new: 'Uusi tuoteryhmä'
+        plural: Tuoteryhmät
+        saved: 'Tuoteryhmä tallennettiin'
+        section:
+            basic:
+                description: 'Syötä mahdollisimman kuvaava nimi, joka auttaa asiakkaitasi löytämään haluamansa tuotteet helposti.'
+            categorization:
+                description: 'Valitse tuoteryhmäksi pääryhmä mikäli sillä ei ole ylärymiä tai sillä tulee olemaan alaryhmiä.'
+                title: Tuoteryhmät
+            edit:
+                description:
+                    - 'Vedä ja pudota haluamasi tuoteryhmät haluamaasi järjestykseen tai alaryhmiksi toisiin ryhmiin (maks. 2 tasoa)'
+                    - 'Valitse muokattava kategoria'
+                    - 'Klikkaa roskakoria poistaaksesi tuoteryhmän'
+                title: 'Järjestä ja muokkaa'
+            visibility:
+                description: 'Aseta tuoteryhmän näkyvyys'
+                title: Näkyvyys
+        single: Tuoteryhmä
+    communication:
+        plural: Viestinnät
+        single: Viestintä
+    coupon:
+        edit: 'Muokkaa "%code%"'
+        field:
+            code:
+                placeholder: 'esim. ALE2020'
+                title: Koodi
+            count:
+                title: 'Käyttörajoitus'
+            datetime:
+                title: 'Päivämäärä ja aika'
+            description:
+                placeholder: 'esim. 10% alennuskuponki'
+                title: Kuvaus
+            discount:
+                title: '% määrä'
+            enabled:
+                title: Tila
+            enforcement:
+                options:
+                    automatic: 'Automattinen alennuksen käyttö'
+                    manual: 'Manuaalinen alennuksen käyttö'
+                title: Tila
+            minimum_purchase:
+                title: 'Minimiostos'
+            price:
+                title: Määrä
+            priority:
+                title: Prioriteetti
+            rule:
+                placeholder: 'Ei sääntöä'
+                title: Sääntö
+            stackable:
+                title: 'Tämän alennuskupongin voi yhdistää muihin kuponkeihin'
+            status:
+                title: Tila
+            type:
+                options:
+                    fixed: 'Kiinteä alennus'
+                    percent: 'Prosenttialennus'
+                title: Tyyppi
+            used:
+                title: Käytetty
+            valid_from:
+                title: Alkaen
+            valid_to:
+                title: Päättyen
+        list: 'Kuponkien listaus'
+        new: 'Uusi kuponki'
+        plural: Kupongit
+        saved: 'Kuponki tallennettiin'
+        section:
+            basic:
+                description:
+                    - 'Aseta koodin arvo (mitä käyttäjien tulisi syöttää alennuksen aktivointiin)'
+                    - 'Aseta myös kupongin tunniste, tyyppi ja tila.'
+                title: 'Perustiedot'
+            fixed_amount:
+                description: 'Aseta kiinteä alennus suoraan ostoskorissa'
+                title: 'Kiinteä alennus'
+            percent_amount:
+                description: 'Aseta prosenttialennus suoraan ostoskorissa'
+                title: 'Prosenttialennus'
+            rules:
+                description: 'Valitse haluttu sääntö ja kupongin aktivointiin edellyttävä minimiostos (valinnainen)'
+                title: Säännöt
+            validity:
+                description: 'Aseta kupongin voimassaolo ja tila'
+                title: Voimassaolo
+        single: Kuponki
+    currency:
+        error:
+            disable_master_currency: 'Et voi kytkeä oletusvaluuttaa pois päältä'
+            setting_disabled_master_currency: 'Et voi valita poiskytkettyä valuuttaa oletusvaluutaksi'
+        field:
+            iso: ISO
+            master: 'Oletusvaluutta'
+            name: Nimi
+            status: Käytössä
+            symbol: Symboli
+        list: 'Valuuttojen listaus'
+        plural: Valuutat
+        saved:
+            disabled: 'Tämä valuutta on kytketty pois käytöstä'
+            enabled: 'Tämä valuutta on kytketty käyttöön'
+            master: 'Päävaluutta tallennettiin'
+        single: Valuutta
+    customer:
+        edit: 'Muokkaa "%name%"'
+        error:
+            password_change: 'Virhe salasanan vaihdossa'
+        field:
+            guest:
+                title: Vieras
+            identity_document:
+                placeholder: 'esim. 281178-188Z'
+                title: Identiteetin tunniste
+            language:
+                title: 'Oletuskieli'
+            newsletter:
+                title: Uutiskirje
+            order_count:
+                title: 'Tilausten lukumäärä'
+            phone:
+                placeholder: 'esim. 040 715 517'
+                title: Puhelinnumero
+            username:
+                placeholder: 'esim. maija_meikalainen'
+                title: Käyttäjätunnus
+        info:
+            password_changed: 'Salasana vaihdettiin onnistuneesti'
+        list: 'Asiakkaiden listaus'
+        new: 'Luo uusi asiakas'
+        plural: Asiakkaat
+        saved: 'Muutokset tallennettiin'
+        section:
+            contact:
+                description: 'Käyttäjän yhteystiedot'
+                title: 'Käyttäjän yhteystiedot'
+            login:
+                description: 'Jokaisella käyttäjällä tulee olla yksilöllinen käyttäjätunnus ja sähköpostiosoite'
+                title: 'Tunnuksen tiedot'
+            status:
+                description: 'Aseta käyttäjän tila ja asetukset'
+                title: 'Tila ja asetukset'
+        single: Asiakas
+    dashboard:
+        chart:
+            cart_conversion:
+                billing_shipping: Toimitus-/laskutusosoite
+                cart_view: 'Näytä ostoskori'
+                ordered: Tilattu
+                payment: Maksu
+                title: 'Ostoskorin konversio'
+            devices:
+                desktop: Tietokone
+                mobile: Mobiililaite
+                title: Laitteet
+            sales:
+                sales: Myynnit
+                title: Myynnit
+            traffic_source:
+                direct: Suora
+                referrals: Viittaus
+                search_engine: Hakukone
+                title: 'Likenteen lähde'
+            visitors:
+                title: Kävijät
+                total: Kokonaismäärä
+                unique: Yksilöidyt
+        chart_range:
+            last30days: 'Viimeiset 30 päivää'
+            last7days: 'Viimeiset 7 päivää'
+            last90days: 'Viimeiset 90 päivää'
+            today: Tänään
+            yesterday: Eilen
+        plural: Kojelaudat
+        single: Kojelauta
+        title: Kojelauta
+        view_store: 'Siirry verkkokauppaan'
+    identity:
+        field:
+            leitmotiv:
+                placeholder: 'esim. Huikeita tuotteita huikeille ihmisille'
+                title: Iskulause
+            name:
+                placeholder: 'esim. Huikea verkkokauppa'
+                title: 'Kaupan nimi'
+        less: Näytä vähemmän
+        more: Näytä enemmän
+        section:
+            backgroundImage:
+                description: 'Lisää tähän mahdollisimman suuri kuva. Tämä on taustakuva, joten vältä käyttämästä samaa kuvaa kuin pääkuva.'
+                title: 'Taustakuva'
+            headerImage:
+                description: 'Lisää pääkuva verkkokauppasi ylätunnisteeseen (header)'
+                title: 'Kaupan pääkuva'
+            info:
+                description: 'Syötä verkkokauppasi nimi ja huutolause (valinnainen).'
+                title: 'Perustiedot'
+            logo:
+                description: 'Tähän voit lisätä logosi. Käytäthän mahdollisimman hyvälaatuista kuvaa, jotta logo on mahdollisimman näyttävä.'
+                title: Logo
+            mobileLogo:
+                description: 'Logo mobiililaitteille. Tämä ei ole pakollinen, mutta voi jossain tapauksissa tarjota mobiilikäyttäjille paremman kokemuksen.'
+                title: 'Logo mobiililaitteille'
+            secondaryLogo:
+                description: 'Alatunnisteen (footer) logo. Tämä on valinnainen.'
+                title: 'Alatunnisteen logo'
+        singular: 'Kaupan yritysilme'
+    image:
+        info:
+            deleted: 'Kuva tuhottiin'
+            format: 'Tuetut kuvaformaatit JPG, PNG ja GIF. Maksimikoko 20 megatavua.'
+            principal: 'Ensimmäistä kuvaa käytetään pääkuvana.'
+            reorder: 'Voit järjestää kuvia vetämällä ja tiputtamalla.'
+            upload: 'Lataa kuvia'
+            upload_logo: 'Lataa logo'
+            upload_single: 'Lataa kuva'
+        plural: Kuvat
+        single: Kuva
+    language:
+        error:
+            disable_master_language: 'Et voi kytkeä oletuskieltä pois päältä'
+            setting_disabled_master_language: 'Et voi valita poiskytkettyä kieltä oletuskieleksi'
+        field:
+            iso: ISO
+            master: 'Oletuskieli'
+            status: Käytössä
+        list: 'Kielien listaus'
+        plural: Kielet
+        saved:
+            disabled: 'Tämä kieli on kytketty pois käytöstä'
+            enabled: 'Tämä kieli on kytketty käyttöön'
+            master: 'Pääkieli tallennettiin'
+        single: Kieli
+    login:
+        action:
+            login: 'Kirjaudu sisään'
+            logout: 'Kirjaudu ulos'
+            remember: 'Unohditko salasanasi?'
+        field:
+            email:
+                placeholder: 'Syötä sähköpostiosoitteesi'
+            password:
+                placeholder: 'Syötä salasanasi'
+        title: 'Voimassaolevat tunnukset vaaditaan'
+    mailing:
+        edit: 'Muokkaa "%title%"'
+        field:
+            content:
+                placeholder: 'esim. Tällä viikolla tarjouksessa makkara'
+                title: Sisältö
+            title:
+                placeholder: 'esim. Viikon tarjoukset etuasiakkaille'
+                title: Otsikko
+        list: 'Postituslista'
+        new: 'Luo uusi uutiskirje'
+        plural: Uutiskirjeet
+        saved: 'Uutiskirje tallennettiin'
+        section:
+            basic:
+                description: 'Syötä kuvaava otsikko uutiskirjeellesi.'
+                title: 'Sisältö'
+        single: Uutiskirje
+    manufacturer:
+        edit: 'Muokkaa "%name%"'
+        field:
+            description:
+                placeholder: 'esim. Tämän valmistajan tuotteet tunnetaan laadustaan'
+                title: Kuvaus
+            enabled:
+                options:
+                    active: Käytössä
+                    inactive: Ei käytössä
+                title: Tila
+            image:
+                title: Kuva
+            metadescription:
+                placeholder: 'esim. Tämän pohjanmaalaisen valmistajan tuotteet tunnetaan korkeasta laadustaan.'
+            metakeywords:
+                placeholder: 'esim. makkara,leivonnaiset'
+            metatitle:
+                placeholder: 'esim. Tämän valmistajan tuotteet tunnetaan laadustaan.'
+            name:
+                placeholder: 'esim. Luotettava valmistaja'
+                title: 'Valmistajan nimi'
+            name_slug:
+                title: 'Nimi ja polku'
+            product_count:
+                title: Tuotetta
+            slug:
+                customize: 'Moukkaa polkua'
+                placeholder: 'esim. leipomot/kauhavan-lihamestari'
+                title: Polku
+        list: 'Valmistajien listaus'
+        new: 'Uusi valmistaja'
+        plural: Valmistajat
+        saved: 'Valmistaja tallennettiin'
+        section:
+            basic:
+                description: 'Syötä mahdollisimman lyhyt ja nimi, jotta asiakkaasi löytävät valmistan tuotteet helposti.'
+                title: 'Perustiedot'
+            logo:
+                description: 'Lataa valmistajan logo mahdollisimman suuressa koossa.'
+                title: 'Valmistajan logo'
+            visibility:
+                description: 'Aseta valmistajan näkyvyys'
+                title: Näkyvyys
+        single: Valmistaja
+    media:
+        list: 'Median listaus'
+        plural: Mediat
+        single: Media
+    menu:
+        design: 'Muokkaa verkkokauppaa'
+    metadata:
+        customize: 'Muokkaa metadataa'
+        disclaimer:
+            - 'Tämä osio on tarkoitettu edistyneille käyttäjille'
+            - 'Jätä kentät tyhjäksi jos haluat että järjestelmä täyttää metatiedot automaattisesti'
+        field:
+            metadescription:
+                title: Metakuvaus
+            metakeywords:
+                title: Avainsanat
+            metatitle:
+                title: Metaotsikko
+        section:
+            metadata:
+                description: 'Metadataa käytetään hakukonenäkyvyyden parantamiseen, mutta se ei ole pakollinen ja usein pelkät hyvät tuotetiedot riittävät hyvin.'
+                title: Metadata
+    metrics:
+        action:
+            show: 'Näytä tilastot'
+        info:
+            no_data: 'Ei tietoja'
+            visitors: Kävijöitä
+        plural: Tilastot
+        single: Tilasto
+        type:
+            line:
+                total: Kokonaismäärä
+                unique: Yksilöidyt
+    name: Hallinta
+    order:
+        all: 'Kaikki tilaukset'
+        details:
+            discount: 'Alennuskupongit'
+            item: Tuote
+            price: Hinta
+            shipping: Toimitustapa
+            subtotal: Välisumma
+            title: Lisätiedot
+            units: Yksiköt
+        edit: 'Muokkaa #%id%'
+        field:
+            billing_address: 'laskutusosoite'
+            both_addresses: 'Toimitus- ja laskutusosoitteet'
+            carrier: Toimitustapa
+            customer: Asiakas
+            date: Päivämäärä
+            delivery_address: 'Toimitusosoite'
+            id: 'Tilaus #%id%'
+            status: Tila
+            total: Kokonaissumma
+        from_user: 'Käyttäjän %name% tilaukset'
+        list: 'Tilausten listaus'
+        new: 'Uusi tilaus'
+        notes: Lisätiedot
+        plural: Tilaukset
+        single: Tilaus
+        to_user: 'Siirry asiakkaaseen'
+        transition:
+            cancel: Peruuta
+            delivered: Toimitettu
+            'order ready': 'Tilaus valmis'
+            'picked up by carrier': 'Tilaus toimituksessa'
+            'picked up on store': 'Tilaus noudettavissa kaupasta'
+            refund: Hyvitys
+            return: Palautus
+    page:
+        edit: 'Muokkaa "%name%"'
+        error:
+            cant_modify_permanent: 'Tätä sivua ei voi muokata'
+        field:
+            content:
+                placeholder: 'esim. Tämä sivu tarjoaa tärkeää lisätietoa tuotteistasi'
+                title: Sisältö
+            enabled:
+                title: Käytössä
+            link:
+                title: Linkki
+            metadescription:
+                placeholder: 'esim. Tämä sivu listaa tuotteiden toimitusehdot'
+            metakeywords:
+                placeholder: 'esim. toimitusehdot,laki,palautus'
+            metatitle:
+                placeholder: 'esim. Tuotteiden toimitusehdot'
+            path:
+                customize: 'Muokkaa polkua'
+                placeholder: 'esim. lisatiedot/toimitusehdot'
+                title: Polku
+            title:
+                placeholder: 'esim. Verkkokaupan toimitusehdot'
+                title: Otsikko
+        in_store: 'Näytä kaupassa'
+        list: 'Sivujen listaus'
+        new: 'Uusi sivu'
+        plural: Sivut
+        saved: 'Muutokset tallennettiin'
+        section:
+            basic:
+                description: 'Syötä mahdollisimman kuvaava otsikko, jotta ihmiset löytävät haluamansa lisätiedon.'
+                title: 'Perustiedot'
+            visibility:
+                description: 'Aseta sivun näkyvyys sivustolla. Voit piilottaa haluamasi sisällön ja näyttää sen jälleen myöhemmin.'
+                title: Näkyvyys
+        single: Sivu
+    plugin:
+        app_store: 'Laajennuskauppa'
+        field:
+            visibility: 'Käytössä:'
+        plural: Laajennukset
+        saved: 'Laajennuksen tila tallennettiin'
+        section:
+            settings: Asetukset
+        single: Laajennus
+    product:
+        edit: 'Muokkaa "%name%"'
+        error:
+            no_category: 'Varoitus! Tälle tuotteelle ei ole valittu tuoteryhmää'
+            no_manufacturer: 'Varoitus! Tälle tuotteelle ei ole valittu valmistajaa'
+            price_negative: 'Varoitus! Hinta ei voi olla negatiivinen'
+        field:
+            depth:
+                title: 'Syvyys (cm)'
+            description:
+                placeholder: 'esim. Tämä tuote täyttää kaikki toiveesi ja enemmän.'
+                title: Kuvaus
+            enabled:
+                options:
+                    active: Käytössä
+                    inactive: Ei käytössä
+                title: Näkyvyys
+            height:
+                title: 'Korkeus (cm)'
+            image:
+                title: Kuva
+            in_home:
+                title: 'Näytä tuote'
+            main_category:
+                placeholder: 'esim. leivonnaiset, makkarat...'
+                title: Tuoteryhmä
+            manufacturer:
+                placeholder: 'esim. Paakari, Lihamestari...'
+                title: Valmistaja
+            metadescription:
+                placeholder: 'esim. Tätä tuotetta olet etsinyt. Luet tämän kuvauksen hakukoneen tuloksissa ja olet myyty.'
+            metakeywords:
+                placeholder: 'esim. leivonnainen,makkara'
+            metatitle:
+                placeholder: 'esim. Reijon Rautamakkara (30cm)'
+            name:
+                placeholder: 'esim. Reijon valimon Rautamakkara, pituus 30 cm'
+                title: Otsikko
+            name_details:
+                title: 'Nimi ja lisätiedot'
+            price:
+                title: Hinta
+            reduced_price:
+                title: 'Alennettu hinta'
+            sku:
+                placeholder: 'esim. 1293A'
+                title: Tuotetunnus
+            slug:
+                customize: 'Muokkaa polkua'
+                placeholder: 'esim. /vitamiinit/reijon-rautamakkara'
+                title: Polku
+            stock:
+                title: Varastosaldo
+            weight:
+                title: 'Paino (g)'
+            width:
+                title: 'Leveys (cm)'
+        in_store: Näytä
+        info:
+            variants_before_saving: 'Voit lisätä tuotevariaatioita tallennuksen jälkeen'
+        list: 'Tuotteiden listaus'
+        new: 'Uusi tuote'
+        note: Muistiinpanot
+        plural: Tuotteet
+        saved: 'Tuote tallennettu'
+        section:
+            basic:
+                description: 'Syötä mahdollisimman laaja kuvaus jotta ihmiset löytäisivät tuotteesi ja haluaisivat ostaa sen.'
+                title: 'Perustiedot'
+            categorization:
+                description: 'Tuotteen tulee kuulua yhden valmistajan ja tuoteryhmän alle. Tiedot auttavat asiakkaita löytämään tuotteesi.'
+                title: Tuoteryhmät
+            dimensions:
+                description: 'Syötä tuotteen mitat. Näitä tietoja voidaan käyttää toimituskustannuksen laskentaan.'
+                title: Mitat
+            pricing:
+                description: 'Aseta tuotteelle hinta, ilman veroja ja toimituskustannuksia. Halutessasi voi asettaa myös tarjoushinnan.'
+                title: Hinnoittelu
+            sku:
+                description: 'Tuotetunnus on tunniste jolla yksittäiset tuotetyypit voidaan tunnistaa. Tunnisteen tulee olla yksilöllinen.'
+                title: Tuotetunnus
+            stock:
+                description: 'Aseta tuotteen varastosaldo. Jokainen tilaus vähentää tätä lukua automaattisesti'
+                title: Varastosaldo
+            variants:
+                description: 'Tuotevariaatiot ovat eri versiota tuotteesta (väri, koko, jne). Varianteilla voi olla eri hinnat ja atribuutit.'
+                title: Tuotevariaatiot
+            visibility:
+                description: 'Aseta tuotteen näkyvyys. Voit piilottaa tuotteen ja palauttaa sen näkyväksi myöhemmin.'
+                title: Näkyvyys
+        show_metrics: 'Näytä tilastot'
+        single: Tuote
+        tag:
+            has_variants: 'Omaa tuotevariaatioita'
+            in_home: Koti
+            no_category: 'Ei tuoteryhmää'
+            no_manufacturer: 'Ei valmistajaa'
+    profile:
+        plural: Profiilit
+        single: Profiili
+    recover_user:
+        action:
+            email_sent:
+                description: 'Ole hyvä ja seuraa sähköpostiisi lähetettyjä ohjeita salasanasi palauttamiseen.'
+                title: 'Sähköposti lähetetty'
+        field:
+            email:
+                placeholder: 'Syötä sähköpostiosoitteesi'
+            password:
+                placeholder: 'Uusi salasana'
+            repeat_password:
+                placeholder: 'Syötä salasana uudelleen'
+        title: 'Uusi salasana'
+    remember_user:
+        description: 'Ei hätää. Lähetämme sinulle salasanasis palautusohjeet sähköpostiisi.'
+        title: 'Unohditko salasanasi?'
+    settings:
+        field:
+            currency: 'Valuutta-asetukset'
+            product_stock:
+                description: 'Kytke tämä päälle varastosaldojen seurantaa varten'
+                title: Varastosaldo
+            store_email: 'Kaupan sähköpostiosoite'
+            store_enabled: 'Verkkokauppa käytössä'
+            store_leitmotiv: 'Kaupan iskulause'
+            store_name: 'Kaupan nimi'
+            store_phone: 'Kaupan puhelinnumero'
+            store_under_construction: 'Verkkokauppa on rakenteilla'
+        plural: Asetukset
+        saved: 'Asetukset tallennettiin'
+        section:
+            address:
+                title: 'Osoite- ja yhteystiedot'
+            corporate:
+                title: 'Verkkokaupan yritysilme'
+            payment:
+                title: 'Maksutavat'
+            products:
+                description: 'Syötä tuotetiedot'
+                title: 'Tuotteiden asetukset'
+            profile:
+                title: 'Verkkokaupan yritysilme'
+            store:
+                title: Yleiset
+        single: Asetus
+    shipping_payment:
+        plural: 'Maksu- ja toimitustavat'
+        single: 'Maksu- ja toimitustavat'
+    shipping_range:
+        edit: 'Muokkaa toimitusaluetta "%name%"'
+        field:
+            fromPrice:
+                title: 'Alkaen hinnasta'
+            fromWeight:
+                title: 'Alkaen painosta'
+            name:
+                placeholder: 'esim. Toimitus 3-5 päivässä'
+                title: 'Toimitusalueen nimi'
+            price:
+                title: Hinta
+            toPrice:
+                title: 'Päättyen hintaan'
+            toWeight:
+                title: 'Päättyen painoon'
+            to_zone:
+                title: 'Päättyen alueeseen'
+            type:
+                options:
+                    price: 'Perustuen tilauksen hintaan'
+                    weight: 'Perustuen tilauksen painoon'
+                title: 'Lasketaan hintoja…'
+            value:
+                price_format: 'Alkaen %from% ja päättyen %to%'
+                title: Summa
+                weight_format: 'Alkaen %from% grammasta %to% grammaan'
+        list: 'Toimitusalueiden listaus'
+        new: 'Luo uusi Toimitusalue'
+        plural: 'Toimitusalueet'
+        saved: 'Muutokset tallennettiin'
+        section:
+            basic:
+                description: 'Syötä toimitusalueen nimi ja millä alueilla se on saatavilla'
+                title: 'Perustiedot'
+            pricing:
+                description: 'Syötä toimitusalueen hinta ja määrittele lasketaanko se tilauksen hinnan vai painon mukaan'
+                title: Hinnoittelu
+            visibility:
+                description: 'Määritä toimitusalueen näkyvyys'
+                title: Näkyvyys
+        single: 'Toimitusalue'
+    store:
+        field:
+            enabled:
+                title: 'Verkkokauppa avoinna'
+            routingStrategy:
+                custom: 'Ei etuliitettä kielille'
+                prefix: 'Kaikilla kielillä on etuliite'
+                prefix_except_default: 'Kaikilla paitsi oletuskielelllä on etuliite'
+                title: 'Monikielisen kaupan osoitepolut'
+            useStock:
+                title: 'Aktivoi varastosaldojen seuranta'
+        saved: 'Asetukset tallennettiin'
+        section:
+            advanced:
+                description: 'Verkkokaupan edistyneet asetukset'
+                title: 'Erikoisasetukset'
+            status:
+                description: 'Määrittelee onko verkkokauppa avoin vai suljettu'
+                title: Tila
+            stock:
+                description: 'Voit seurata varastosaldojasi kytkemällä tämän toiminnon käyttöön'
+                title: Varastosaldot
+        settings: Asetukset
+    template:
+        action:
+            preview: Esikatselu
+        label:
+            status: 'Aktivoi:'
+        plural: Teemat
+        single: Teema
+    user:
+        field:
+            birthday:
+                title: Syntymäpäivä
+            email:
+                placeholder: 'esim. matti.meikalainen@suomi.fi'
+                title: Sähköpostiosoite
+            enabled:
+                options:
+                    active: Käytössä
+                    inactive: Inactive
+                title: 'Tila'
+            firstname:
+                placeholder: 'esim. Matti'
+                title: 'Etunimi'
+            fullname:
+                title: 'Koko nimi'
+            gender:
+                options:
+                    female: Nainen
+                    male: Mies
+                title: Sukupuoli
+            lastname:
+                placeholder: 'esim. Meikäläinen'
+                title: 'Sukunimi'
+            password:
+                title: Salasana
+            username:
+                title: Käyttäjätunnus
+    variant:
+        edit: 'Muokkaa tuotevariaatiota "%name%"'
+        field:
+            enabled:
+                options:
+                    active: Käytössä
+                    inactive: 'Ei käytössä'
+                title: Tila
+            name:
+                title: 'Tuotevariaation nimi'
+            options:
+                title: 'Valitse yksi tai useampi:'
+            price:
+                title: Hinta
+            reduced_price:
+                title: 'Alennettu hinta'
+            stock:
+                title: Varastosaldo
+        list: 'Tuotevariaatio'
+        new: 'Uusi tuotevariaatio'
+        plural: Tuotevariaatiot
+        saved: 'Tuotevariaatio tallennettiin'
+        section:
+            attributes:
+                description: 'Aseta tuotevariaation pääatribuutit.'
+                title: Atribuutit
+            pricing:
+                description: 'Aseta tuotevariaation hinta. Vois myöt asettaa alennetun hinnan.'
+                title: Hinnoittelu
+            visibility:
+                description: 'Aseta tuotevariaation näkyvyys'
+                title: Näkyvyys
+        single: Tuotevariaatio
+plugin:
+    paymill:
+        register:
+            call_to_action: 'Luo Paymill tunnus nyt'
+            title: 'Eikö sinulla ole Paymill-tunnusta?'
+        settings:
+            private_key: 'Paymill maksun yksityinen avain'
+            public_key: 'Paymill maksun julkinen avain'
+        title: 'Paymill-maksun asetukset'
+    paypal:
+        register:
+            call_to_action: 'Luo Paypal tunnus nyt'
+            title: 'Eikö sinulla ole Paypal-tunnusta?'
+        settings:
+            recipient_email: 'Paypal-maksun saajan sähköpostiosoite'
+        title: 'Paypal-tilin luonti'
+plugin_type:
+    app: Laajennukset
+    payment: 'Maksutavat'
+    shipping: 'Toimitustavat'
+    social: SoMe
+ui:
+    address:
+        address: Osoite
+        city: Kaupunki
+        comment: Viesti
+        full_name: 'Nimi'
+        phone: Puhelinnumero
+        zipcode: Postinumero
+    confirm:
+        delete: 'Oletko varma että haluat poistaa tämän?'
+    date:
+        today_at: 'Tänään, kello %time%'
+        yesterday_at: 'Eilen, kello %time%'
+    delete:
+        success: 'Tuhottiin onnistuneesti'
+    editor:
+        help: 'Valitse tekstiä muokataksesi sen muotoilua'
+    forms:
+        cancel: Peruuta
+        delete: Tuhoa
+        save: Tallenna
+    label:
+        disabled: Ei käytössä
+        enabled: Käytössä
+    language:
+        master_language: 'Oletuskieli (pakollinen)'
+    list:
+        create_first: 'Luo ensimmäinen %item%.'
+        no_items: 'Ei yhtäkään %items%.'
+    paginator:
+        elements: '%first%-%last%, yhteensä %total%'
+    tags:
+        placeholder:
+            comma_separated: 'Lisää pilkulla erotettuja avainsanoja'

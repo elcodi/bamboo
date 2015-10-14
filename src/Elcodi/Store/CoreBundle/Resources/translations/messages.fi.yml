@@ -1,0 +1,102 @@
+store:
+    address:
+        billing: laskutus
+        delete:
+            response_ok: 'Osoite poistettiin onnistuneesti'
+        delivery: toimitus
+        form:
+            fields:
+                address:
+                    label: Osoite
+                addressMore:
+                    label: 'Osoitteen lisätiedot (ei pakollinen)'
+                city:
+                    label: Kaupunki
+                comments:
+                    label: Viesti
+                country:
+                    label: Maa
+                mobile:
+                    label: Matkapuhelin
+                name:
+                    label: 'Osoitteen nimi'
+                phone:
+                    label: Puhelinnumero
+                postalcode:
+                    label: Postinumero
+                province:
+                    label: Maakunta tai alue
+                recipientName:
+                    label: 'Vastaanottajan etunimi'
+                recipientSurname:
+                    label: 'Vastaanottajan sukunimi'
+                send:
+                    label: 'Tallenna osoite'
+                state:
+                    label: 'Osavaltio'
+        save:
+            response_ok: 'Osoite tallennettu'
+        select_address_type: 'Valitse osoitetyyppi %1'
+    coupon:
+        applied:
+            message_ko: 'Kuponkia ei voitu käyttää'
+            message_ok: 'Kuponki käytettiin onnistuneesti'
+        form:
+            fields:
+                apply:
+                    label: 'Käytä kuponki'
+                code:
+                    label: 'Kuponkikoodi'
+    error:
+        page_not_found: 'Jaahas... olet löytänyt sivun jota ei ole olemassa.'
+        page_not_found_title: 'Sivua ei löytynyt'
+        store_is_disabled: 'Palvelu on väliaikaisella huoltotauolla'
+        store_is_under_construction: 'Tämä kauppa on rakenteilla'
+        store_unavailable_title: 'Haluamaasi kauppaa ei löydy'
+    login:
+        form:
+            fields:
+                email:
+                    label: Sähköpostiosoite
+                password:
+                    label: Salasana
+                send:
+                    label: Lähetä
+        wrong_combination: 'Käyttäjätunnus ja salasana eivät täsmää'
+    pagination:
+        current: Nykyinen
+        first: Ensimmäinen
+        last: Viimeinen
+        next: Seuraava
+        previous: Edellinen
+    recovery:
+        form:
+            fields:
+                email:
+                    label: Sähköpostiosoite
+                password:
+                    label: Salasana
+                remember:
+                    label: Muista kirjautuminen
+                repeat_password:
+                    label: 'Syötä salasana uudelleen'
+                send:
+                    label: Lähetä
+    user:
+        form:
+            fields:
+                email:
+                    label: Sähköpostiosoite
+                firstname:
+                    label: Etunimi
+                lastname:
+                    label: Sukunimi
+                password:
+                    label: Salasana
+                repeat_password:
+                    label: 'Syötä salasana uudelleen'
+                send:
+                    label: Tallenna
+        profile:
+            save:
+                message_ok: 'Käyttäjäprofiili tallennettiin'

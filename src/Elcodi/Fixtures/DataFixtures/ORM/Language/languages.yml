@@ -57,7 +57,7 @@ tl:
     enabled: 0
 fi:
     name: Finnish
-    enabled: 0
+    enabled: 1
 fr:
     name: French
     enabled: 0
