@@ -1,8 +1,8 @@
 elcodi_plugin:
     paypal_web_checkout:
-        name: 'Paypal Web Kasse'
+        description: '<p> Paypal ermöglicht Ihren Nutzern zu zahlen mit ihrem Paypal-Konto . Um sie zu aktivieren Sie ein PayPal-Konto erstellen und hier müssen </ p> <p> Sie nicht Paypal-Konto haben, </ p> <a href = " https: . ? //www.paypal.com/ webapps / mpp / Händler " class = " Taste " target = " _ blank " > erstellen Sie ein neues Konto </a>'
         field:
             business:
-                placeholder: john@doo.com
                 label: Paypal-Konto
-        description: '<p> Paypal ermöglicht Ihren Nutzern zu zahlen mit ihrem Paypal-Konto . Um sie zu aktivieren Sie ein PayPal-Konto erstellen und hier müssen </ p> <p> Sie nicht Paypal-Konto haben, </ p> <a href = " https: . ? //www.paypal.com/ webapps / mpp / Händler " class = " Taste " target = " _ blank " > erstellen Sie ein neues Konto </a>'
+                placeholder: john@doo.com
+        name: 'Paypal Web Kasse'

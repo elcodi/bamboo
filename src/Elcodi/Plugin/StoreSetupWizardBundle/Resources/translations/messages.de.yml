@@ -1,32 +1,32 @@
 elcodi_plugin:
     store_wizard:
-        name: 'Shop -Assistenten'
         description: "Ein Assistent zum Einrichten der Speicher zum ersten Mal .\nAuf dem ersten Schritt der physikalischen Adresse und die Shop-Besitzer konfiguriert\nDaten. Schließlich zielt darauf ab, die erste Kategorie , Produkt- und Hersteller hinzuzufügen\nund am Ende fragt Shop -Administrator für den Träger und Zahlungsdaten"
-        go_general_settings: 'Zum allgemeinen Einstellungen'
-        first_finish_wizard: 'Führen Sie die folgenden Schritte aus, bevor Sie online gehen'
+        disable_under_construction: 'Deaktivieren Sie die <strong> Under construction </ strong> Modus zu starten den Verkauf'
+        done: Fertig!
         estimated_time: 'Geschätzter Aufwand% 1 min'
+        first_finish_wizard: 'Führen Sie die folgenden Schritte aus, bevor Sie online gehen'
+        go_enable_store: 'Gehen Sie zu Setup und deaktivieren Sie die "under construction" Modus .'
+        go_general_settings: 'Zum allgemeinen Einstellungen'
+        go_next_step: 'Zum nächsten Schritt'
+        name: 'Shop -Assistenten'
+        ready_launch: 'Startbereit !'
         step1:
             action: 'Erstelle meine erste Produkt'
-            title: 'In Artikel'
             description: 'Das Wichtigste, was in Ihrem Geschäft ... , nachdem Ihre Kunden.'
-        done: Fertig!
+            title: 'In Artikel'
         step2:
+            action: 'Adresse hinzufügen'
             description: 'Um in der Lage , online zu verkaufen sein, wir müssen Sie Ihre Shop-Adresse einzuführen.'
             title: 'Richten Sie Ihre Adresse'
-            action: 'Adresse hinzufügen'
-        go_next_step: 'Zum nächsten Schritt'
         step3:
-            title: 'Setup die Zahlungen'
             action: 'Setup- Zahlungsmethoden'
             description: 'Möchten Sie bezahlt? Sagen Sie einfach , wie und wo .'
+            title: 'Setup die Zahlungen'
         step4:
-            title: 'Richten Sie die Versand'
-            action_range: 'Setup Versandbereich'
             action_carrier: 'Träger hinzufügen'
+            action_range: 'Setup Versandbereich'
             description: 'Sie müssen sich Handling und Versand Preise hinzufügen. (Auch wenn sie frei sind )'
-        time_to_sell: 'Sie sind <strong> 1 % Schritten </ strong> mehr Eröffnung Ihrem Geschäft'
-        go_enable_store: 'Gehen Sie zu Setup und deaktivieren Sie die "under construction" Modus .'
-        ready_launch: 'Startbereit !'
+            title: 'Richten Sie die Versand'
         step_finished: '<strong> Yehaaaaa ! </ strong> Ein Schritt weniger zu gehen!'
-        disable_under_construction: 'Deaktivieren Sie die <strong> Under construction </ strong> Modus zu starten den Verkauf'
+        time_to_sell: 'Sie sind <strong> 1 % Schritten </ strong> mehr Eröffnung Ihrem Geschäft'
         welcome_title: 'Willkommen in Ihrem neuen Speicher!'

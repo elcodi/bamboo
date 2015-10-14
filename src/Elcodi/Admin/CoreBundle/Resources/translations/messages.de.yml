@@ -13,6 +13,8 @@ admin:
             address_more:
                 placeholder: 'z.B. Atom GmbH'
                 title: 'Adresszusatz (optional)'
+            cif:
+                title: 'CIF / NIF'
             city:
                 title: Stadt
             comments:
@@ -20,6 +22,14 @@ admin:
                 title: Kommentare
             country:
                 title: Land
+            email:
+                placeholder: 'z.B. john.doe@mail.com'
+                title: Email
+            isCompany:
+                title: 'Haben Sie ein Unternehmen besitzen ?'
+                value:
+                    company: Unternehmen
+                    individual: Einzel
             mobile:
                 placeholder: 'z.B. 0176 666666666'
                 title: Handynummer
@@ -40,16 +50,6 @@ admin:
             save: 'Adresse Speichern'
             state:
                 title: Bundesland
-            cif:
-                title: 'CIF / NIF'
-            isCompany:
-                value:
-                    company: Unternehmen
-                    individual: Einzel
-                title: 'Haben Sie ein Unternehmen besitzen ?'
-            email:
-                title: Email
-                placeholder: 'z.B. john.doe@mail.com'
         plural: Adressen
         saved: 'Adressen gespeichert'
         select:
@@ -265,6 +265,8 @@ admin:
             rule:
                 placeholder: 'Keine Regel'
                 title: Regel
+            stackable:
+                title: 'Dieser Gutschein kann angewendet werden, wenn andere Coupons vorhanden sind'
             status:
                 title: Status
             type:
@@ -278,8 +280,6 @@ admin:
                 title: Von
             valid_to:
                 title: Bis
-            stackable:
-                title: 'Dieser Gutschein kann angewendet werden, wenn andere Coupons vorhanden sind'
         list: Gutscheinliste
         new: 'Neuer Gutschein'
         plural: Gutscheine
@@ -304,22 +304,22 @@ admin:
                 title: Gültigkeit
         single: Gutschein
     currency:
+        error:
+            disable_master_currency: 'Sie können nicht deaktivieren Sie Ihre Master- Währung'
+            setting_disabled_master_currency: 'Sie können nicht einen behinderten Währung als Master'
         field:
             iso: ISO
+            master: 'Meister Währung'
             name: Name
             status: Aktiviert
             symbol: Symbol
-            master: 'Meister Währung'
         list: Währungsliste
         plural: Währungen
-        single: Währung
-        error:
-            setting_disabled_master_currency: 'Sie können nicht einen behinderten Währung als Master'
-            disable_master_currency: 'Sie können nicht deaktivieren Sie Ihre Master- Währung'
         saved:
             disabled: 'Diese currancy wurde deaktiviert'
             enabled: 'Diese Währung wurde aktiviert'
             master: 'Hauptwährung gespeichert'
+        single: Währung
     customer:
         edit: '%name% bearbeiten'
         error:
@@ -393,6 +393,36 @@ admin:
         single: Dashboard
         title: Dashboard
         view_store: 'Zeige meinen Store'
+    identity:
+        field:
+            leitmotiv:
+                placeholder: 'z : Awesome Produkte für tolle Leute'
+                title: Leitmotiv
+            name:
+                placeholder: 'z : My Awesome Shop'
+                title: Shop-Name
+        less: Weniger
+        more: Mehr
+        section:
+            backgroundImage:
+                description: 'Fügen Sie ein Bild so groß wie möglich (quadratisch oder Hochformat ) , und es wird das spektakuläre Hintergrundbild von Ihrem Online-Shop zu werden. Wenn Sie ein Hintergrundbild hinzuzufügen, ist es besser, Header nicht verwenden .'
+                title: Hintergrundbild
+            headerImage:
+                description: 'Fügen Sie ein Hintergrundbild für den Header von Ihrem Geschäft .'
+                title: 'Header image'
+            info:
+                description: 'Geben Sie einen Namen Ihres Shops und ein Leitmotiv (optional).'
+                title: Grundinformation
+            logo:
+                description: 'Hier können Sie ein Bild mit Ihrem Logo hinzufügen. Bitte benutzen Sie die maximale Qualität posible .'
+                title: Logo
+            mobileLogo:
+                description: 'Dieses Bild wird zeigen, auf die Clients mit einem Mobil zu Ihrem Geschäft zu navigieren. Ist optional, aber wenn Sie das mobile Erlebnis verbessern möchten , können Sie.'
+                title: 'Logo für mobile'
+            secondaryLogo:
+                description: 'Wenn Sie das Logo der Fußzeile (optional) anpassen möchten Sie können.'
+                title: 'Logo für footer'
+        singular: 'Corporate Image'
     image:
         info:
             deleted: 'Bild gelöscht'
@@ -405,20 +435,20 @@ admin:
         plural: Bilder
         single: Bild
     language:
+        error:
+            disable_master_language: 'Sie können Ihre Mastersprache nicht deaktivieren'
+            setting_disabled_master_language: 'Sie können eine behinderte Sprache als Master nicht gesetzt'
         field:
             iso: ISO
             master: Hauptsprache
             status: Aktiviert
         list: Sprachliste
         plural: Sprachen
-        single: Sprache
-        error:
-            setting_disabled_master_language: 'Sie können eine behinderte Sprache als Master nicht gesetzt'
-            disable_master_language: 'Sie können Ihre Mastersprache nicht deaktivieren'
         saved:
-            master: 'Hauptsprache gespeichert'
             disabled: 'Diese Sprache wurde deaktiviert'
             enabled: 'Diese Sprache aktiviert wurde'
+            master: 'Hauptsprache gespeichert'
+        single: Sprache
     login:
         action:
             login: Login
@@ -486,17 +516,19 @@ admin:
             basic:
                 description: 'Gib einen spezifischen und so kurz wie möglichen Namen an welcher deinen Kunden hilft mehr Produkte dieses Herstellers zu finden.'
                 title: Basisinformationen
-            visibility:
-                description: 'Setze diesen Hersteller auf sichtbar oder unsichtbar.'
-                title: Sichtbarkeit
             logo:
                 description: 'Ein Logobild der Hersteller Laden als größere wie möglich. Wenn es zusätzliche Texte enthält , desto besser.'
                 title: 'Hersteller- Logo'
+            visibility:
+                description: 'Setze diesen Hersteller auf sichtbar oder unsichtbar.'
+                title: Sichtbarkeit
         single: Hersteller
     media:
         list: Medienliste
         plural: Medien
         single: Medium
+    menu:
+        design: 'anfertigen Shop'
     metadata:
         customize: 'Metadaten anpassen'
         disclaimer:
@@ -550,20 +582,20 @@ admin:
         from_user: 'Bestellungen von %name%'
         list: Bestellungsliste
         new: 'Neue Bestellung'
+        notes: Hinweise
         plural: Bestellungen
         single: Bestellung
         states:
             title: Status
         to_user: 'Gehe zu Kunde'
         transition:
-            refund: Rückerstattung
-            'order ready': 'Auftrag fertig'
-            return: Zurück
-            'picked up on store': 'Auf Shop abgeholt'
-            delivered: geliefert
-            'picked up by carrier': 'Von Träger abgeholt'
             cancel: Absagen
-        notes: Hinweise
+            delivered: geliefert
+            'order ready': 'Auftrag fertig'
+            'picked up by carrier': 'Von Träger abgeholt'
+            'picked up on store': 'Auf Shop abgeholt'
+            refund: Rückerstattung
+            return: Zurück
     page:
         edit: '%name% bearbeiten'
         error:
@@ -603,6 +635,7 @@ admin:
                 title: Sichtbarkeit
         single: Seite
     plugin:
+        app_store: 'App Store'
         field:
             visibility: 'Aktiviere:'
         plural: Apps
@@ -610,7 +643,6 @@ admin:
         section:
             settings: Einstellungen
         single: App
-        app_store: 'App Store'
     product:
         edit: '%name% bearbeiten'
         error:
@@ -655,6 +687,9 @@ admin:
                 title: Preis
             reduced_price:
                 title: Reduziert
+            sku:
+                placeholder: 'ej . SAU102'
+                title: SKU
             slug:
                 customize: 'Slug anpassen'
                 placeholder: 'z.B. mein/tolles/produkt'
@@ -665,14 +700,12 @@ admin:
                 title: 'Gewicht (in g)'
             width:
                 title: 'Breite (in cm)'
-            sku:
-                placeholder: 'ej . SAU102'
-                title: SKU
         in_store: 'Im Store zeigen'
         info:
             variants_before_saving: 'Varianten können nach dem Speichern hinzugefügt werden'
         list: Produktliste
         new: 'Neues Produkt'
+        note: Hinweise
         plural: Produkte
         saved: 'Produkt gespeichert'
         section:
@@ -688,6 +721,9 @@ admin:
             pricing:
                 description: 'Gib den Preis für dein Produkt ohne Steurn, Gebühren und Versandkosten an. Es kann auch ein Angebotspreis eingesetzt werden.'
                 title: Preisbildung
+            sku:
+                description: 'SKU ist eine Kennung , die zur Identifikation der Produkte ermöglicht . Jedes SKU es auf nur ein Produkt.'
+                title: SKU
             stock:
                 description: 'Konfiguriere den Lagervorrat deines Produkts. Jede Bestellung wird diese Zahl reduzieren.'
                 title: Vorrat
@@ -697,9 +733,6 @@ admin:
             visibility:
                 description: 'Setze das Produkt auf sichtbar oder unsichtbar und mache es auf der Startseite verfügbar.'
                 title: Sichtbarkeit
-            sku:
-                title: SKU
-                description: 'SKU ist eine Kennung , die zur Identifikation der Produkte ermöglicht . Jedes SKU es auf nur ein Produkt.'
         show_metrics: 'Metriken anzeigen'
         single: Produkt
         tag:
@@ -707,7 +740,6 @@ admin:
             in_home: Startseite
             no_category: 'Keine Kategorie'
             no_manufacturer: 'Kein Hersteller'
-        note: Hinweise
     profile:
         plural: Profile
         single: Profil
@@ -742,20 +774,20 @@ admin:
         plural: Einstellungen
         saved: 'Einstellungen gespeichert'
         section:
+            address:
+                title: 'Adresse & Kontakt'
+            corporate:
+                title: 'Corporate Image'
             payment:
                 title: Zahlungsmethoden
             products:
                 description: 'Lege die Produktdaten fest.'
                 title: 'Produkte Setup'
+            profile:
+                title: Unternehmensbild
             store:
                 description: 'Lege die Storedaten fest.'
                 title: 'Store Setup'
-            profile:
-                title: Unternehmensbild
-            address:
-                title: 'Adresse & Kontakt'
-            corporate:
-                title: 'Corporate Image'
         single: Einstellung
     shipping_payment:
         plural: 'Bezahlungen & Versendungen'
@@ -802,6 +834,29 @@ admin:
                 description: 'Setze diesen Lieferzeitraum auf sichtbar oder unsichtbar.'
                 title: Sichtbarkeit
         single: Lieferzeitraum
+    store:
+        field:
+            enabled:
+                title: 'Shop Aktiviert'
+            routingStrategy:
+                custom: 'Kein Präfix für Sprachen , nur übersetzt URLs'
+                prefix: 'Alle URLs haben eine Sprache Präfix'
+                prefix_except_default: 'Alle URLs haben eine Sprache Präfix mit Ausnahme der Standardsprache'
+                title: 'Mehrsprachig urls Format'
+            useStock:
+                title: 'Aktivieren Bestandskontrolle'
+        saved: 'Einstellungen gespeichert.'
+        section:
+            advanced:
+                description: 'Erweiterte Einstellungen für Ihr Geschäft .'
+                title: Erweiterte
+            status:
+                description: 'Steuert , wenn der Speicher geöffnet oder geschlossen wird .'
+                title: Status
+            stock:
+                description: 'Wenn Sie diese Option aktivieren, werden Sie die Aktie in Ihre Produkte , um das Setup in der Lage .'
+                title: Lager
+        settings: Einstellungen
     template:
         action:
             preview: Vorschau
@@ -871,61 +926,6 @@ admin:
                 description: 'Setze diese Variante auf sichtbar oder unsichtbar.'
                 title: Sichtbarkeit
         single: Variante
-    identity:
-        section:
-            backgroundImage:
-                title: Hintergrundbild
-                description: 'Fügen Sie ein Bild so groß wie möglich (quadratisch oder Hochformat ) , und es wird das spektakuläre Hintergrundbild von Ihrem Online-Shop zu werden. Wenn Sie ein Hintergrundbild hinzuzufügen, ist es besser, Header nicht verwenden .'
-            mobileLogo:
-                title: 'Logo für mobile'
-                description: 'Dieses Bild wird zeigen, auf die Clients mit einem Mobil zu Ihrem Geschäft zu navigieren. Ist optional, aber wenn Sie das mobile Erlebnis verbessern möchten , können Sie.'
-            logo:
-                title: Logo
-                description: 'Hier können Sie ein Bild mit Ihrem Logo hinzufügen. Bitte benutzen Sie die maximale Qualität posible .'
-            headerImage:
-                description: 'Fügen Sie ein Hintergrundbild für den Header von Ihrem Geschäft .'
-                title: 'Header image'
-            info:
-                description: 'Geben Sie einen Namen Ihres Shops und ein Leitmotiv (optional).'
-                title: Grundinformation
-            secondaryLogo:
-                title: 'Logo für footer'
-                description: 'Wenn Sie das Logo der Fußzeile (optional) anpassen möchten Sie können.'
-        field:
-            leitmotiv:
-                placeholder: 'z : Awesome Produkte für tolle Leute'
-                title: Leitmotiv
-            name:
-                title: Shop-Name
-                placeholder: 'z : My Awesome Shop'
-        less: Weniger
-        singular: 'Corporate Image'
-        more: Mehr
-    store:
-        section:
-            advanced:
-                title: Erweiterte
-                description: 'Erweiterte Einstellungen für Ihr Geschäft .'
-            status:
-                title: Status
-                description: 'Steuert , wenn der Speicher geöffnet oder geschlossen wird .'
-            stock:
-                description: 'Wenn Sie diese Option aktivieren, werden Sie die Aktie in Ihre Produkte , um das Setup in der Lage .'
-                title: Lager
-        saved: 'Einstellungen gespeichert.'
-        field:
-            useStock:
-                title: 'Aktivieren Bestandskontrolle'
-            routingStrategy:
-                prefix_except_default: 'Alle URLs haben eine Sprache Präfix mit Ausnahme der Standardsprache'
-                title: 'Mehrsprachig urls Format'
-                prefix: 'Alle URLs haben eine Sprache Präfix'
-                custom: 'Kein Präfix für Sprachen , nur übersetzt URLs'
-            enabled:
-                title: 'Shop Aktiviert'
-        settings: Einstellungen
-    menu:
-        design: 'anfertigen Shop'
 plugin:
     paymill:
         register:
@@ -942,6 +942,11 @@ plugin:
         settings:
             recipient_email: 'PayPal Zahlungsempfänger Email'
         title: 'Paypal Account Einrichtung'
+plugin_type:
+    app: Apps
+    payment: Zahlungsarten
+    shipping: Versandmöglichkeiten
+    social: Soziales
 ui:
     address:
         address: Adresse
@@ -976,8 +981,3 @@ ui:
     tags:
         placeholder:
             comma_separated: 'Füge Tags durch ein Komma getrennt hinzu.'
-plugin_type:
-    app: Apps
-    social: Soziales
-    payment: Zahlungsarten
-    shipping: Versandmöglichkeiten
