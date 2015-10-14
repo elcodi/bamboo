@@ -1,0 +1,106 @@
+store:
+    error:
+        store_unavailable_title:     Store non disponibile
+        store_is_disabled:           Questo store è al momento disabilitato
+        store_is_under_construction: Questo store è in costruzione
+        page_not_found_title:        Pagina non trovata
+        page_not_found:              Quindi hai scoperto il nostro piano segreto per la conquista del mondo...
+
+    address:
+        save:
+            response_ok: Indirizzo salvato
+        delete:
+            response_ok: Indirizzo rimosso correttamente
+        select_address_type: Select a %1 address
+        billing: billing
+        delivery: delivery
+        form:
+            fields:
+                city:
+                    label: Città
+                name:
+                    label: Address name
+                recipientName:
+                    label: Recipient name
+                recipientSurname:
+                    label: Recipient surname
+                address:
+                    label: Indirizzo
+                addressMore:
+                    label: Indirizzo secondario (opzionale)
+                postalcode:
+                    label: CAP
+                phone:
+                    label: Telefono
+                mobile:
+                    label: Cellulare
+                comments:
+                    label: Commenti
+                send:
+                    label: Salva indirizzo
+                country:
+                    label: Nazione
+                state:
+                    label: Regione
+                province:
+                    label: Provincia
+    login:
+        wrong_combination: Email e/o password sbagliate.
+        form:
+            fields:
+                email:
+                    label: Email
+                password:
+                    label: Password
+                send:
+                    label: Invia
+    recovery:
+        form:
+            fields:
+                password:
+                    label: Password
+                repeat_password:
+                    label: Conferma password
+                email:
+                    label: email
+                send:
+                    label: Invia
+                remember:
+                    label: Ricordami
+
+    user:
+        profile:
+            save:
+                message_ok: Profilo salvato
+        form:
+            fields:
+                firstname:
+                    label: Nome
+                lastname:
+                    label: Cognome
+                email:
+                    label: Email
+                password:
+                    label: Password
+                repeat_password:
+                    label: Conferma password
+                send:
+                    label: Invia
+
+    coupon:
+        form:
+            fields:
+                code:
+                    label: Codice Coupon
+                apply:
+                    label: Applica coupon
+        applied:
+            message_ok: Coupon applicato con successo
+            message_ko: Coupon non applicabile
+
+    pagination:
+        first: Prima
+        previous: Precedente
+        current: Attuale
+        next: Prossima
+        last: Ultima

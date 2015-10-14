@@ -1,0 +1,94 @@
+#
+# Currencies
+#
+store_currency_nav: /valute/nav
+
+#
+# Languages
+#
+store_language_nav: /lingue/nav
+
+#
+# Addresses
+#
+store_address_list: /mio-indirizzo
+store_address_edit: /mio-indirizzo/{id}/modifica/{source}
+store_address_new: /mio-indirizzo/new/{source}
+store_address_delete: /mio-indirizzo/{id}/elimina
+
+#
+# Location
+#
+location_selectors: /locazione/selettori/{locationId}
+
+#
+# Blog
+#
+store_blog_view: /blog/{page}
+store_blog_post_view: /blog/{id}/{slug}
+
+#
+# Category
+#
+store_categories_nav: /categorie/nav
+store_category_products_list: /categoria/{slug}/{id}
+
+#
+# Product
+#
+store_product_view: /prodotto/{slug}/{id}
+
+
+#
+# Cart
+#
+store_cart_view: /carrello
+store_cart_add_product: /carrello/prodotto/{id}/aggiungi
+store_cart_add_product_variant: /carrello/prodotto/variante/{id}/aggiungi
+store_cart_empty: /carrello/svuota
+store_cart_update: /carrello/aggiorna
+store_cartline_remove: /carrello/linea/{id}/rimuovi
+store_cart_nav: /carrello/nav
+
+#
+# Checkout
+#
+store_checkout_address: /carrello/indirizzo
+store_checkout_address_save: /carrello/indirizzo/save
+store_checkout_payment: /carrello/pagamento
+store_checkout_payment_fail: /carrello/pagamento/errore/{id}
+store_checkout_shipping_range_apply: /carrello/shipping/range/change/{rangeId}
+
+#
+# Order
+#
+store_order_view: /ordine/{id}
+store_order_view_thanks: /ordine/{id}/grazie
+store_order_list: /miei-ordini
+
+#
+# Cart Coupon
+#
+store_cart_coupon_form_type_coupon_apply: /carrello/coupons
+store_coupon_apply: /carrello/coupon/applica
+store_coupon_remove: /carrello/coupon/rimuovi/{code}
+
+#
+# Password
+#
+store_password_remember: /password/ricorda
+store_password_recover_sent: /password/invia
+store_password_recover: /password/resetta
+
+#
+# Security
+#
+store_register: /registrazione
+store_login: /login
+
+#
+# User
+#
+store_user_nav: /utente/nav
+store_user: /utente
+store_user_edit: /utente/modifica
