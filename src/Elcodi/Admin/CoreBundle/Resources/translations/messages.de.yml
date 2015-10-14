@@ -552,6 +552,8 @@ admin:
         new: 'Neue Bestellung'
         plural: Bestellungen
         single: Bestellung
+        states:
+            title: Status
         to_user: 'Gehe zu Kunde'
         transition:
             refund: Rückerstattung

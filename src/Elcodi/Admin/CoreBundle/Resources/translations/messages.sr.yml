@@ -585,6 +585,8 @@ admin:
         notes: Zabeleške
         plural: Narudžbine
         single: Narudžbina
+        states:
+            title: Status
         to_user: 'Ide na kupca'
         transition:
             cancel: Otakazano
