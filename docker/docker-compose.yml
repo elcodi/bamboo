@@ -1,0 +1,46 @@
+data:
+    image: busybox
+    volumes:
+        - ../:/var/www/app
+
+nginx:
+    image: yappabe/nginx
+    links:
+        - php
+    volumes_from:
+        - data
+    environment:
+        DOCUMENT_ROOT: /var/www/app/web
+        INDEX_FILE: app_dev.php
+        PHP_FPM_SOCKET: php:9000
+        DNSDOCK_ALIAS: bamboo.docker
+
+mysql:
+    image: yappabe/mysql
+    environment:
+        MYSQL_PASS: bamboo
+        MYSQL_USER: bamboo
+        ON_CREATE_DB: bamboo
+        DNSDOCK_ALIAS: mysql.bamboo.docker
+
+php:
+    image: yappabe/php
+    working_dir: /var/www/app
+    volumes_from:
+        - data
+    links:
+        - mysql
+    mem_limit: 2000000000
+
+mailcatcher:
+    image: yappabe/mailcatcher
+    environment:
+        DNSDOCK_ALIAS: mailcatcher.bamboo.docker
+
+# password: secret
+# vnc port 5999
+selenium:
+    image: vvoyer/docker-selenium-firefox-chrome
+    privileged: true
+    environment:
+        DNSDOCK_ALIAS: selenium.bamboo.docker
