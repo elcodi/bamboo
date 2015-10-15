@@ -34,6 +34,7 @@ install:
   - echo extension=php_fileinfo.dll >> php.ini
   - echo extension=php_pdo_sqlite.dll >> php.ini
   - echo memory_limit=1G >> php.ini
+  - mkdir /tmp/Bamboo
   - cd c:\projects\elcodi\bamboo
   - php -r "readfile('http://getcomposer.org/installer');" | php
   - php composer.phar update --prefer-source --no-interaction --no-progress
