@@ -32,7 +32,7 @@
         }
     ],
     "require": {
-        "php": ">=5.4",
+        "php": "^5.4|^7.0",
 
         "paymentsuite/free-payment-bundle": "^1.0",
         "elcodi/core-bundle": "^1.0",
