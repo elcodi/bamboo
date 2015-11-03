@@ -24,7 +24,7 @@ redis:
 php:
     install: '1'
     ppa: php5-oldstable
-    packages: [php5-cli, php5-curl, php5-intl, php5-mcrypt, php5-gd, php5-mysql, php5-redis]
+    packages: [php5-cli, php5-curl, php5-intl, php5-mcrypt, php5-gd, php5-mysql, php5-redis, php5-sqlite]
 xdebug:
     install: '1'
 composer:
