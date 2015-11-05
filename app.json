@@ -1,0 +1,67 @@
+{
+    "addons": [
+        "cleardb:ignite",
+        "sendgrid:starter"
+    ],
+    "buildpacks": [
+        {
+            "url": "https://github.com/heroku/heroku-buildpack-nodejs"
+        },
+        {
+            "url": "https://github.com/elcodi/heroku-buildpack-php"
+        }
+    ],
+    "description": "A one-click Bamboo deployment system for Heroku",
+    "env": {
+        "SYMFONY__BAMBOO_SOCIAL_GITHUB_CLIENT_ID": {
+            "description": "GitHub client ID.",
+            "value": "github-client-id"
+        },
+        "SYMFONY__BAMBOO_SOCIAL_GITHUB_CLIENT_SECRET": {
+            "description": "GitHub client secret.",
+            "value": "github-client-secret"
+        },
+        "SYMFONY__BAMBOO_SOCIAL_PAYPAL_CLIENT_ID": {
+            "description": "PayPal client ID.",
+            "value": "paypal-client-id"
+        },
+        "SYMFONY__BAMBOO_SOCIAL_PAYPAL_CLIENT_IS_SANDBOX": {
+            "description": "Keep the PayPal transactions in the sandbox (recommended if you're still trying the store).",
+            "value": "true"
+        },
+        "SYMFONY__BAMBOO_SOCIAL_PAYPAL_CLIENT_SECRET": {
+            "description": "PayPal client secret.",
+            "value": "paypal-client-secret"
+        },
+        "SYMFONY__LOCALE": {
+            "description": "The ISO 639-1 language code of your store and optional an underscore (_) and then the ISO 3166-1 alpha-2 country code (e.g. fr_FR for French/France).",
+            "value": "en"
+        },
+        "SYMFONY__PAYPAL_WEB_CHECKOUT_RECIPIENT": {
+            "description": "PayPal checkout recipient.",
+            "value": "payment-test-facilitator@elcodi.com"
+        },
+        "SYMFONY__SECRET": {
+            "description": "This is a string that should be unique to your application and it's commonly used to add more entropy to security related operations.",
+            "generator": "secret"
+        },
+        "SYMFONY_ENV": {
+            "description": "Symfony 2 environment mode.",
+            "value": "prod"
+        },
+        "COMPOSER_GITHUB_OAUTH_TOKEN": {
+            "description": "GitHub's API is subject to rate limits for anonymous requests. If the limit is hit, Composer will fall back to source-based installs instead of distribution tarballs, which will slow down builds. Using a personal OAuth token raises the limit significantly.",
+            "required": false
+        }
+    },
+    "image": "heroku/php",
+    "keywords": [
+        "ecommerce",
+        "elcodi",
+        "php",
+        "symfony"
+    ],
+    "logo": "http://elcodi.io/img/icon/apple-icon-180x180.png",
+    "name": "Bamboo E-commerce",
+    "website": "http://elcodi.io/"
+}
