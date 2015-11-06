@@ -110,6 +110,17 @@
         "ext-redis": "If doctrine cache works on top of redis"
     },
     "scripts": {
+        "check-style": [
+            "php-cs-fixer fix --config-file=.php_cs",
+            "php-formatter f:u:s src"
+        ],
+        "compile": [
+            "app/console -n doctrine:migrations:status",
+            "app/console -n doctrine:migrations:migrate",
+            "app/console -n elcodi:plugins:load",
+            "app/console -n assets:install",
+            "app/console -n assetic:dump"
+        ],
         "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
@@ -123,6 +134,11 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+        ],
+        "test": [
+            "behat -fprogress --tags=\"~javascript\"",
+            "phpunit",
+            "app/console -n visithor:go --format=pretty --env=test"
         ]
     },
     "autoload": {
