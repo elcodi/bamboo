@@ -1,5 +1,6 @@
 imports:
     - { resource: parameters.yml }
+    - { resource: heroku.php, ignore_errors: true }
     - { resource: security/security.yml }
 
     # Common Elcodi configuration
