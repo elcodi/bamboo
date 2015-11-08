@@ -66,6 +66,8 @@ class ShippingCollectEventListenerTest extends WebTestCase
      */
     public function getServiceCallableName()
     {
+        $this->loadFixtures();
+
         return ['elcodi_plugin.custom_shipping.event_listener.shipping_collect'];
     }
 }
