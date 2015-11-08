@@ -2,7 +2,7 @@ knp_gaufrette:
     adapters:
         local:
             local:
-                directory: /tmp/local
+                directory: '%kernel.root_dir%/../web/local'
                 create: true
     filesystems:
         local:
