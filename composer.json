@@ -31,6 +31,7 @@
     ],
     "require": {
         "php": "^5.4|^7.0",
+        "ext-bcmath": "*",
         "ext-openssl": "*",
 
         "symfony/symfony": "^2.7",
