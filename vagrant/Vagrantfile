@@ -40,6 +40,22 @@ Vagrant.configure("2") do |config|
     config.vm.network :private_network, ip: "10.10.10.10"
     config.ssh.forward_agent = true
 
+    # shared git configuration
+    if File.exists?(File.join(Dir.home, '.gitconfig')) then
+        config.vm.provision :file do |file|
+            file.source = '~/.gitconfig'
+            file.destination = '/home/vagrant/.gitconfig'
+        end
+    end
+
+    # shared composer authentication
+    if File.exists?(File.join(Dir.home, '.composer/auth.json')) then
+        config.vm.provision :file do |file|
+            file.source = '~/.composer/auth.json'
+            file.destination = '/home/vagrant/.composer/auth.json'
+        end
+    end
+
     # If ansible is in your path it will provision from your HOST machine
     # If ansible is not found in the path it will be instaled in the VM and provisioned from there
     if which('ansible-playbook')
