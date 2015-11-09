@@ -1,0 +1,13 @@
+services:
+
+    #
+    # Factories
+    #
+    elcodi.factory.template_converter_loader:
+        class: Elcodi\Plugin\TemplateConverterBundle\Adapter\Loader\LoaderFactory
+
+    elcodi.factory.template_converter_parser:
+        class: Elcodi\Plugin\TemplateConverterBundle\Adapter\Parser\ParserFactory
+
+    elcodi.factory.template_converter_transformer:
+        class: Elcodi\Plugin\TemplateConverterBundle\Transformer\TemplateTransformerFactory

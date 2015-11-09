@@ -1,0 +1,11 @@
+services:
+
+    #
+    # Commands
+    #
+    elcodi.command.template_converter:
+        class: Elcodi\Plugin\TemplateConverterBundle\Command\TemplateConvertCommand
+        arguments:
+            - @elcodi.template_converter
+        tags:
+            -  { name: console.command }

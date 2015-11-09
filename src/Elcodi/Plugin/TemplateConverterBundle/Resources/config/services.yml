@@ -1,0 +1,11 @@
+services:
+
+    #
+    # Services
+    #
+    elcodi.template_converter:
+        class: Elcodi\Plugin\TemplateConverterBundle\Converter\TemplateConverter
+        arguments:
+            - @elcodi.factory.template_converter_loader
+            - @elcodi.factory.template_converter_parser
+            - @elcodi.factory.template_converter_transformer
