@@ -20,15 +20,14 @@
         {% endblock messages %}
 
         <div class="grid grid-pad">
-                {% block content %}
-                    <article class="blog-post">
-                        <h1>{{ block('title') }}</h1>
-                        <div class="blog-post-content">
-                            {{ page.content|raw }}
-                        </div>
-                    </article>
-                {% endblock content %}
-            </div>
+            {% block content %}
+                <article class="blog-post">
+                    <h1>{{ block('title') }}</h1>
+                    <div class="blog-post-content">
+                        {{ page.content|raw }}
+                    </div>
+                </article>
+            {% endblock content %}
         </div>
         {% block prefooter %}{% endblock prefooter %}
         {%  block footer %}

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "308cb5886cc0129581979b0a956e17a5",
-    "content-hash": "3c2c2de996f0935415c6b1712b22878e",
+    "hash": "66f49e3061b6dab2148fdf297b89602c",
+    "content-hash": "16dc835f350728468a48b9625281584c",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1010,16 +1010,16 @@
         },
         {
             "name": "elcodi/elcodi",
-            "version": "v1.0.5",
+            "version": "v1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/elcodi/elcodi.git",
-                "reference": "6b8e975d8cb6e25c3b3021e0ab77bd0fd7f6a693"
+                "reference": "87e5d12ebdf5b9a959a88b2645e28a677a9dee71"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elcodi/elcodi/zipball/6b8e975d8cb6e25c3b3021e0ab77bd0fd7f6a693",
-                "reference": "6b8e975d8cb6e25c3b3021e0ab77bd0fd7f6a693",
+                "url": "https://api.github.com/repos/elcodi/elcodi/zipball/87e5d12ebdf5b9a959a88b2645e28a677a9dee71",
+                "reference": "87e5d12ebdf5b9a959a88b2645e28a677a9dee71",
                 "shasum": ""
             },
             "require": {
@@ -1161,7 +1161,7 @@
                 "elcodi",
                 "symfony"
             ],
-            "time": "2015-11-04 22:20:38"
+            "time": "2015-11-09 13:00:54"
         },
         {
             "name": "goodby/csv",
@@ -2881,11 +2881,13 @@
             "authors": [
                 {
                     "name": "Thibault Duplessis",
-                    "email": "thibault.duplessis@gmail.com"
+                    "email": "thibault.duplessis@gmail.com",
+                    "homepage": "http://ornicar.github.com"
                 },
                 {
-                    "name": "Henrik Bjørnskov",
-                    "email": "henrik@bjrnskov.dk"
+                    "name": "Henrik Bjornskov",
+                    "email": "henrik@bjrnskov.dk",
+                    "homepage": "http://henrik.bjrnskov.dk"
                 }
             ],
             "description": "This bundles provides a Gravatar API various utilities to work with it in templates",

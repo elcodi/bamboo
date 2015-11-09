@@ -90,5 +90,7 @@
 {% endblock content %}
 
 {% block prefooter %}
-    {% include "@StoreTemplate/Modules/_product-related.html.twig" with {'products' : related_products} %}
+    {{ render(url('store_product_related', {
+        'id': product.id
+    })) }}
 {% endblock prefooter %}

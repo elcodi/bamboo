@@ -25,7 +25,7 @@ store:
                 postalcode:
                     label: Postinumero
                 province:
-                    label: Maakunta tai alue
+                    label: 'Maakunta tai alue'
                 recipientName:
                     label: 'Vastaanottajan etunimi'
                 recipientSurname:
@@ -33,7 +33,7 @@ store:
                 send:
                     label: 'Tallenna osoite'
                 state:
-                    label: 'Osavaltio'
+                    label: Osavaltio
         save:
             response_ok: 'Osoite tallennettu'
         select_address_type: 'Valitse osoitetyyppi %1'
@@ -46,7 +46,7 @@ store:
                 apply:
                     label: 'Käytä kuponki'
                 code:
-                    label: 'Kuponkikoodi'
+                    label: Kuponkikoodi
     error:
         page_not_found: 'Jaahas... olet löytänyt sivun jota ei ole olemassa.'
         page_not_found_title: 'Sivua ei löytynyt'
@@ -77,7 +77,7 @@ store:
                 password:
                     label: Salasana
                 remember:
-                    label: Muista kirjautuminen
+                    label: 'Muista kirjautuminen'
                 repeat_password:
                     label: 'Syötä salasana uudelleen'
                 send:

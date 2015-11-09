@@ -36,6 +36,42 @@ class ProductController extends Controller
     use TemplateRenderTrait;
 
     /**
+     * Product related view
+     *
+     * @param ProductInterface $product Product
+     *
+     * @return array
+     *
+     * @Route(
+     *      path = "/{id}/related",
+     *      name = "store_product_related",
+     *      requirements = {
+     *          "id": "\d+",
+     *      },
+     *      methods = {"GET"}
+     * )
+     *
+     * @AnnotationEntity(
+     *      class = "elcodi.entity.product.class",
+     *      name = "product",
+     *      mapping = {
+     *          "id" = "~id~",
+     *          "enabled" = true,
+     *      }
+     * )
+     */
+    public function relatedAction(ProductInterface $product)
+    {
+        $relatedProducts = $this
+            ->get('elcodi.related_purchasables_provider')
+            ->getRelatedPurchasables($product, 3);
+
+        return $this->renderTemplate('Modules:_product-related.html.twig', [
+            'products' => $relatedProducts,
+        ]);
+    }
+
+    /**
      * Product view
      *
      * @param ProductInterface $product Product
@@ -79,17 +115,12 @@ class ProductController extends Controller
             ->get('elcodi.store')
             ->getUseStock();
 
-        $relatedProducts = $this
-            ->get('elcodi_store.provider.product_collection')
-            ->getRelatedProducts($product, 3);
-
         $template = $product->hasVariants()
             ? 'Pages:product-view-variant.html.twig'
             : 'Pages:product-view-item.html.twig';
 
         return $this->renderTemplate($template, [
             'product'          => $product,
-            'related_products' => $relatedProducts,
             'useStock'         => $useStock,
         ]);
     }

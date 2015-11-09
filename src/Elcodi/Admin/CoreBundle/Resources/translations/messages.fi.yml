@@ -14,7 +14,7 @@ admin:
                 placeholder: 'esim. Kivikirkko Oy'
                 title: 'Address more (optional)'
             cif:
-                title: 'Sosiaaliturvatunnus'
+                title: Sosiaaliturvatunnus
             city:
                 title: Kaupunki
             comments:
@@ -38,7 +38,7 @@ admin:
                 title: Puhelinnumero
             postalcode:
                 placeholder: 'esim. 26100'
-                title: 'Postinumero'
+                title: Postinumero
             province:
                 title: Maakunta
             recipient_name:
@@ -67,7 +67,7 @@ admin:
         section:
             contact:
                 description: 'Pääkäyttäjän yhteystiedot'
-                title: 'Yhteystiedot'
+                title: Yhteystiedot
             login:
                 description: 'Jokaisella käyttäjällä tulee olla yksilöllinen sähköpostiosoite'
                 title: 'Kirjautumisen lisätiedot'
@@ -84,14 +84,14 @@ admin:
                 placeholder: 'esim. väri'
                 title: Nimi
                 values: Arvot
-        list: 'Atribuuttilistaus'
+        list: Atribuuttilistaus
         new: 'Uusi atribuutti'
         plural: Atribuutit
         saved: 'Atribuutti tallennettiin'
         section:
             basic:
                 description: 'Määrittele atribuutin nimi ja arvot pilkulla erotettuna.'
-                title: 'Perustiedot'
+                title: Perustiedot
             visibility:
                 description: 'Aseta atribuutin näkyvyys'
                 title: Näkyvyys
@@ -120,25 +120,24 @@ admin:
                 placeholder: 'esim. /sisaltomarkkinointi/makkara'
                 title: Polku
             publication_date:
-                title: 'Julkaisupäivä'
+                title: Julkaisupäivä
             title:
                 placeholder: 'esim. Makkara maistuu kesällä'
                 title: Otsikko
         in_store: 'Näytä kaupassa'
         list: 'Artikkelien listaus'
         new: 'Luo uusi artikkeli'
-        plural: 'Artikkelit'
+        plural: Artikkelit
         saved: 'Artikkeli tallennettiin'
         section:
             basic:
-
                 description: 'Kirjoita mahdollisimman hyvä otsikko artikkelillesi. Sen tulisi olla lyhyt, kuvata sisältöä ja houkuttaa asiakkaita lukemaan sisältöäsi.'
-                title: 'Perustiedot'
+                title: Perustiedot
             visibility:
                 description: 'Aseta artikkelin näkyvyys'
                 title: Näkyvyys
         show_metrics: 'Näytä tilastot'
-        single: 'Artikkeli'
+        single: Artikkeli
     carrier:
         action:
             add_shipping_range: 'Lisää toimitusalue'
@@ -159,14 +158,14 @@ admin:
                 title: Verot
         info:
             shipping_rates_before_saving: 'Voit lisätä toimituksen hinnan tallennuksen jälkeen'
-        list: 'Toimitustavat'
+        list: Toimitustavat
         new: 'Uusi toimitustapa'
         plural: Toimitustavat
         saved: 'Muutokset tallennettiin'
         section:
             basic:
                 description: 'Syötä toimitustavan kuvaus ja mahdolliset lisätiedot'
-                title: 'Perustiedot'
+                title: Perustiedot
             shipping_rates:
                 description: 'Lisää toimitustapojen hinnat'
                 title: 'Toimitustapojen hinnat'
@@ -191,7 +190,7 @@ admin:
             enabled:
                 options:
                     active: Käytössä
-                    inactive: Ei käytössä
+                    inactive: 'Ei käytössä'
                 title: Tila
             metadescription:
                 placeholder: 'esim. Tämä tuoteryhmä on juuri se mikä olet etsinyt'
@@ -205,7 +204,7 @@ admin:
             parent:
                 title: Yläryhmä
             root:
-                title: 'Pääryhmä'
+                title: Pääryhmä
             slug:
                 customize: 'Muokkaa polkua'
                 placeholder: 'esim. leivonnaiset/makkarat'
@@ -241,7 +240,7 @@ admin:
                 placeholder: 'esim. ALE2020'
                 title: Koodi
             count:
-                title: 'Käyttörajoitus'
+                title: Käyttörajoitus
             datetime:
                 title: 'Päivämäärä ja aika'
             description:
@@ -257,7 +256,7 @@ admin:
                     manual: 'Manuaalinen alennuksen käyttö'
                 title: Tila
             minimum_purchase:
-                title: 'Minimiostos'
+                title: Minimiostos
             price:
                 title: Määrä
             priority:
@@ -272,7 +271,7 @@ admin:
             type:
                 options:
                     fixed: 'Kiinteä alennus'
-                    percent: 'Prosenttialennus'
+                    percent: Prosenttialennus
                 title: Tyyppi
             used:
                 title: Käytetty
@@ -289,13 +288,13 @@ admin:
                 description:
                     - 'Aseta koodin arvo (mitä käyttäjien tulisi syöttää alennuksen aktivointiin)'
                     - 'Aseta myös kupongin tunniste, tyyppi ja tila.'
-                title: 'Perustiedot'
+                title: Perustiedot
             fixed_amount:
                 description: 'Aseta kiinteä alennus suoraan ostoskorissa'
                 title: 'Kiinteä alennus'
             percent_amount:
                 description: 'Aseta prosenttialennus suoraan ostoskorissa'
-                title: 'Prosenttialennus'
+                title: Prosenttialennus
             rules:
                 description: 'Valitse haluttu sääntö ja kupongin aktivointiin edellyttävä minimiostos (valinnainen)'
                 title: Säännöt
@@ -309,7 +308,7 @@ admin:
             setting_disabled_master_currency: 'Et voi valita poiskytkettyä valuuttaa oletusvaluutaksi'
         field:
             iso: ISO
-            master: 'Oletusvaluutta'
+            master: Oletusvaluutta
             name: Nimi
             status: Käytössä
             symbol: Symboli
@@ -329,9 +328,9 @@ admin:
                 title: Vieras
             identity_document:
                 placeholder: 'esim. 281178-188Z'
-                title: Identiteetin tunniste
+                title: 'Identiteetin tunniste'
             language:
-                title: 'Oletuskieli'
+                title: Oletuskieli
             newsletter:
                 title: Uutiskirje
             order_count:
@@ -401,18 +400,18 @@ admin:
             name:
                 placeholder: 'esim. Huikea verkkokauppa'
                 title: 'Kaupan nimi'
-        less: Näytä vähemmän
-        more: Näytä enemmän
+        less: 'Näytä vähemmän'
+        more: 'Näytä enemmän'
         section:
             backgroundImage:
                 description: 'Lisää tähän mahdollisimman suuri kuva. Tämä on taustakuva, joten vältä käyttämästä samaa kuvaa kuin pääkuva.'
-                title: 'Taustakuva'
+                title: Taustakuva
             headerImage:
                 description: 'Lisää pääkuva verkkokauppasi ylätunnisteeseen (header)'
                 title: 'Kaupan pääkuva'
             info:
                 description: 'Syötä verkkokauppasi nimi ja huutolause (valinnainen).'
-                title: 'Perustiedot'
+                title: Perustiedot
             logo:
                 description: 'Tähän voit lisätä logosi. Käytäthän mahdollisimman hyvälaatuista kuvaa, jotta logo on mahdollisimman näyttävä.'
                 title: Logo
@@ -440,7 +439,7 @@ admin:
             setting_disabled_master_language: 'Et voi valita poiskytkettyä kieltä oletuskieleksi'
         field:
             iso: ISO
-            master: 'Oletuskieli'
+            master: Oletuskieli
             status: Käytössä
         list: 'Kielien listaus'
         plural: Kielet
@@ -469,14 +468,14 @@ admin:
             title:
                 placeholder: 'esim. Viikon tarjoukset etuasiakkaille'
                 title: Otsikko
-        list: 'Postituslista'
+        list: Postituslista
         new: 'Luo uusi uutiskirje'
         plural: Uutiskirjeet
         saved: 'Uutiskirje tallennettiin'
         section:
             basic:
                 description: 'Syötä kuvaava otsikko uutiskirjeellesi.'
-                title: 'Sisältö'
+                title: Sisältö
         single: Uutiskirje
     manufacturer:
         edit: 'Muokkaa "%name%"'
@@ -487,7 +486,7 @@ admin:
             enabled:
                 options:
                     active: Käytössä
-                    inactive: Ei käytössä
+                    inactive: 'Ei käytössä'
                 title: Tila
             image:
                 title: Kuva
@@ -515,7 +514,7 @@ admin:
         section:
             basic:
                 description: 'Syötä mahdollisimman lyhyt ja nimi, jotta asiakkaasi löytävät valmistan tuotteet helposti.'
-                title: 'Perustiedot'
+                title: Perustiedot
             logo:
                 description: 'Lataa valmistajan logo mahdollisimman suuressa koossa.'
                 title: 'Valmistajan logo'
@@ -561,7 +560,7 @@ admin:
     order:
         all: 'Kaikki tilaukset'
         details:
-            discount: 'Alennuskupongit'
+            discount: Alennuskupongit
             item: Tuote
             price: Hinta
             shipping: Toimitustapa
@@ -570,12 +569,12 @@ admin:
             units: Yksiköt
         edit: 'Muokkaa #%id%'
         field:
-            billing_address: 'laskutusosoite'
+            billing_address: laskutusosoite
             both_addresses: 'Toimitus- ja laskutusosoitteet'
             carrier: Toimitustapa
             customer: Asiakas
             date: Päivämäärä
-            delivery_address: 'Toimitusosoite'
+            delivery_address: Toimitusosoite
             id: 'Tilaus #%id%'
             status: Tila
             total: Kokonaissumma
@@ -627,13 +626,13 @@ admin:
         section:
             basic:
                 description: 'Syötä mahdollisimman kuvaava otsikko, jotta ihmiset löytävät haluamansa lisätiedon.'
-                title: 'Perustiedot'
+                title: Perustiedot
             visibility:
                 description: 'Aseta sivun näkyvyys sivustolla. Voit piilottaa haluamasi sisällön ja näyttää sen jälleen myöhemmin.'
                 title: Näkyvyys
         single: Sivu
     plugin:
-        app_store: 'Laajennuskauppa'
+        app_store: Laajennuskauppa
         field:
             visibility: 'Käytössä:'
         plural: Laajennukset
@@ -656,7 +655,7 @@ admin:
             enabled:
                 options:
                     active: Käytössä
-                    inactive: Ei käytössä
+                    inactive: 'Ei käytössä'
                 title: Näkyvyys
             height:
                 title: 'Korkeus (cm)'
@@ -709,7 +708,7 @@ admin:
         section:
             basic:
                 description: 'Syötä mahdollisimman laaja kuvaus jotta ihmiset löytäisivät tuotteesi ja haluaisivat ostaa sen.'
-                title: 'Perustiedot'
+                title: Perustiedot
             categorization:
                 description: 'Tuotteen tulee kuulua yhden valmistajan ja tuoteryhmän alle. Tiedot auttavat asiakkaita löytämään tuotteesi.'
                 title: Tuoteryhmät
@@ -759,7 +758,7 @@ admin:
         title: 'Unohditko salasanasi?'
     settings:
         field:
-            currency: 'Valuutta-asetukset'
+            currency: Valuutta-asetukset
             product_stock:
                 description: 'Kytke tämä päälle varastosaldojen seurantaa varten'
                 title: Varastosaldo
@@ -777,7 +776,7 @@ admin:
             corporate:
                 title: 'Verkkokaupan yritysilme'
             payment:
-                title: 'Maksutavat'
+                title: Maksutavat
             products:
                 description: 'Syötä tuotetiedot'
                 title: 'Tuotteiden asetukset'
@@ -818,19 +817,19 @@ admin:
                 weight_format: 'Alkaen %from% grammasta %to% grammaan'
         list: 'Toimitusalueiden listaus'
         new: 'Luo uusi Toimitusalue'
-        plural: 'Toimitusalueet'
+        plural: Toimitusalueet
         saved: 'Muutokset tallennettiin'
         section:
             basic:
                 description: 'Syötä toimitusalueen nimi ja millä alueilla se on saatavilla'
-                title: 'Perustiedot'
+                title: Perustiedot
             pricing:
                 description: 'Syötä toimitusalueen hinta ja määrittele lasketaanko se tilauksen hinnan vai painon mukaan'
                 title: Hinnoittelu
             visibility:
                 description: 'Määritä toimitusalueen näkyvyys'
                 title: Näkyvyys
-        single: 'Toimitusalue'
+        single: Toimitusalue
     store:
         field:
             enabled:
@@ -846,7 +845,7 @@ admin:
         section:
             advanced:
                 description: 'Verkkokaupan edistyneet asetukset'
-                title: 'Erikoisasetukset'
+                title: Erikoisasetukset
             status:
                 description: 'Määrittelee onko verkkokauppa avoin vai suljettu'
                 title: Tila
@@ -872,10 +871,10 @@ admin:
                 options:
                     active: Käytössä
                     inactive: Inactive
-                title: 'Tila'
+                title: Tila
             firstname:
                 placeholder: 'esim. Matti'
-                title: 'Etunimi'
+                title: Etunimi
             fullname:
                 title: 'Koko nimi'
             gender:
@@ -885,7 +884,7 @@ admin:
                 title: Sukupuoli
             lastname:
                 placeholder: 'esim. Meikäläinen'
-                title: 'Sukunimi'
+                title: Sukunimi
             password:
                 title: Salasana
             username:
@@ -908,7 +907,7 @@ admin:
                 title: 'Alennettu hinta'
             stock:
                 title: Varastosaldo
-        list: 'Tuotevariaatio'
+        list: Tuotevariaatio
         new: 'Uusi tuotevariaatio'
         plural: Tuotevariaatiot
         saved: 'Tuotevariaatio tallennettiin'
@@ -941,15 +940,15 @@ plugin:
         title: 'Paypal-tilin luonti'
 plugin_type:
     app: Laajennukset
-    payment: 'Maksutavat'
-    shipping: 'Toimitustavat'
+    payment: Maksutavat
+    shipping: Toimitustavat
     social: SoMe
 ui:
     address:
         address: Osoite
         city: Kaupunki
         comment: Viesti
-        full_name: 'Nimi'
+        full_name: Nimi
         phone: Puhelinnumero
         zipcode: Postinumero
     confirm:
@@ -966,7 +965,7 @@ ui:
         delete: Tuhoa
         save: Tallenna
     label:
-        disabled: Ei käytössä
+        disabled: 'Ei käytössä'
         enabled: Käytössä
     language:
         master_language: 'Oletuskieli (pakollinen)'

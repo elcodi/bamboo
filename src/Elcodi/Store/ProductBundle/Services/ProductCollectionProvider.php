@@ -17,6 +17,13 @@
 
 namespace Elcodi\Store\ProductBundle\Services;
 
+@trigger_error(
+    'The ' . __NAMESPACE__ . '\ProductCollectionProvider class is
+        deprecated since version 1.0.2 and will be removed in 2.0.0. Use the
+        class Elcodi\Component\Product\Adapter\SimilarPurchasablesProvider\SameCategoryRelatedPurchasableProvider instead.',
+    E_USER_DEPRECATED
+);
+
 use Doctrine\Common\Collections\ArrayCollection;
 
 use Elcodi\Component\Product\Entity\Interfaces\CategoryInterface;
@@ -28,6 +35,8 @@ use Elcodi\Component\Product\Services\ProductCollectionProvider as BaseProductCo
  * Product Collection provider
  *
  * Locale is injected because we can just query products, loading at the same
+ *
+ * @deprecated since version 1.0.2, to be removed in 2.0.0. Use SameCategoryRelatedPurchasableProvider
  */
 class ProductCollectionProvider extends BaseProductCollectionProvider
 {
