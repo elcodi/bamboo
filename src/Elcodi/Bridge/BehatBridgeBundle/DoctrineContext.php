@@ -66,21 +66,31 @@ class DoctrineContext extends AbstractElcodiContext
      */
     public function cleanDB(AfterScenarioScope $scope)
     {
-        $this
-            ->getContainer()
+        $container = $this->getContainer();
+
+        $container
             ->get('doctrine')
             ->getConnection()
             ->close();
 
-        $this
-            ->application
-            ->run(new ArrayInput([
-                'command'          => 'doctrine:database:drop',
-                '--env'            => 'test',
-                '--no-interaction' => true,
-                '--force'          => true,
-                '--quiet'          => true,
-            ]));
+        // to remove if tests move from sqlite to *
+        $params = $container
+            ->get('doctrine')
+            ->getConnection()
+            ->getParams();
+
+        unlink($params['path']);
+
+        // to restore if tests move from sqlite to *
+        // $this
+        //     ->application
+        //     ->run(new ArrayInput([
+        //         'command'          => 'doctrine:database:drop',
+        //         '--env'            => 'test',
+        //         '--no-interaction' => true,
+        //         '--force'          => true,
+        //         '--quiet'          => true,
+        //     ]));
     }
 
     /**
@@ -109,6 +119,7 @@ class DoctrineContext extends AbstractElcodiContext
             [
                 'command'          => $command,
                 '--no-interaction' => true,
+                '--env'            => 'test',
             ], $parameters
         );
 
@@ -152,14 +163,10 @@ class DoctrineContext extends AbstractElcodiContext
      */
     private function loadCommonFixtures()
     {
-        $rootDir = $this
-            ->kernel
-            ->getRootDir();
-
         $command =
             'doctrine:fixtures:load ' .
-            '--fixtures=' . $rootDir . '/../src/Elcodi/Plugin/ ' .
-            '--fixtures=' . $rootDir . '/../src/Elcodi/Fixtures ' .
+            '--fixtures=src/Elcodi/Plugin ' .
+            '--fixtures=src/Elcodi/Fixtures ' .
             '--env=test ' .
             '--no-interaction ';
 
