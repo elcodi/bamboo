@@ -38,7 +38,7 @@ class LoaderFactory
     {
         $adapterName = strtolower($adapterName);
         $adapterName = ucfirst($adapterName);
-        $adapterNamespace = __NAMESPACE__ . '\\' . $adapterName;
+        $adapterNamespace = __NAMESPACE__ . '\\' . $adapterName . 'Loader';
 
         if (!class_exists($adapterNamespace)) {
 

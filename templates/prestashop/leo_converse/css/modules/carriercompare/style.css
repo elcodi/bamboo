@@ -1,0 +1,77 @@
+/**
+ * Web Application Prefix Apply For Making Owner Styles
+ */
+/**
+ *   Blocks Layout Selectors 
+ */
+/**
+ * Product Item Selectors
+ */
+/***********************************************************************/
+/**
+* Transition-timing-function property@mixin 
+*/
+/*background RGBA
+============================================*/
+/****/
+/* RIGHT TO LEFT */
+/** CHECKOUT BY STEP */
+/*  
+ * LAYOUT VARIABLES 
+ */
+#compare_shipping .table thead tr th {
+  padding: 4px 10px 3px 10px;
+}
+#compare_shipping .table tbody td {
+  margin: 0;
+}
+#compare_shipping .table tbody td.carrier_action {
+  width: 54px;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+}
+#compare_shipping .table tbody td.carrier_action input {
+  margin: 0;
+}
+
+#availableCarriers .table {
+  margin-bottom: 20px;
+}
+
+#compare_shipping ul#carriercompare_errors_list {
+  color: red;
+}
+
+#compare_shipping_form {
+  padding-bottom: 20px;
+}
+
+#compare_shipping ul#carriercompare_errors_list li {
+  margin-left: 30px;
+  text-decoration: none;
+  list-style: none;
+}
+
+#SE_AjaxDisplay {
+  text-align: center;
+  display: none;
+}
+
+#SE_AjaxDisplay img {
+  width: 15px;
+}
+
+.SE_SubmitRefreshCard button {
+  float: left;
+}
+.rtl .SE_SubmitRefreshCard button {
+  float: right;
+}
+.SE_SubmitRefreshCard button#carriercompare_submit {
+  margin-right: 10px;
+}
+
+#carriercompare_errors {
+  display: none;
+}

@@ -1,0 +1,43 @@
+/*.adminleosliderlayer #main .bootstrap, .adminleosliderlayer #header, .adminleosliderlayer #footer{display: none}
+.adminleosliderlayer #main{margin: 0;padding: 0}
+.adminleosliderlayer #content{margin: 0 !important;padding:0 !important}
+.adminleosliderlayer .page-head{display: none}*/
+.adminleosliderlayer #header, .adminleosliderlayer #footer, .adminleosliderlayer #nav-sidebar, .page-head{
+    display: none;
+}
+.page-sidebar #content, .adminleosliderlayer #main{margin: 0;padding: 0}
+#list-imgs {
+padding-left: 0;
+padding-bottom: 1px;
+margin-bottom: 20px;
+list-style: none;
+overflow: hidden;
+}
+#list-imgs li a{
+    font-size: 11px
+}
+#list-imgs li {
+float: left;
+width: 20%;
+height: 115px;
+padding: 10px 5px;
+margin: 0 -1px -1px 0;
+font-size: 12px;
+line-height: 1.4;
+text-align: center;
+border: 1px solid #ddd;
+}
+.img-row{
+    overflow: hidden;
+    height: 80px;
+}
+.typos{
+    padding: 10px
+}
+.typos-wrap .typo {
+ position: relative;
+ min-height: 60px;
+}
+.typos-wrap .typo-big{
+    min-height: 123px
+}

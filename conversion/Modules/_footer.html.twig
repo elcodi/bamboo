@@ -1,0 +1,103 @@
+{*
+* 2007-2015 PrestaShop
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the Academic Free License (AFL 3.0)
+* that is bundled with this package in the file LICENSE.txt.
+* It is also available through the world-wide-web at this URL:
+* http://opensource.org/licenses/afl-3.0.php
+* If you did not receive a copy of the license and are unable to
+* obtain it through the world-wide-web, please send an email
+* to license@prestashop.com so we can send you a copy immediately.
+*
+* DISCLAIMER
+*
+* Do not edit or add to this file if you wish to upgrade PrestaShop to newer
+* versions in the future. If you wish to customize PrestaShop for your
+* needs please refer to http://www.prestashop.com for more information.
+*
+*  @author PrestaShop SA <contact@prestashop.com>
+*  @copyright  2007-2015 PrestaShop SA
+*  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+*  International Registered Trademark & Property of PrestaShop SA
+*}
+{% if content_only is not defined or not content_only %}
+						{% include  %}/footer.tpl"  }
+                	</div>
+				</div>
+            </section>
+<!-- Footer -->
+            {% if HOOK_BOTTOM is defined and HOOK_BOTTOM is not empty %}
+			
+				<section id="bottom">
+					<div class="container">
+						<div class="row">
+							{% HOOK_BOTTOM %}
+						</div>
+					</div>
+				</section>
+			{% endif %}
+			<footer id="footer" class="footer-container">
+                {% if HOOK_FOOTERTOP is defined and HOOK_FOOTERTOP is not empty %}
+					<section id="leo-footer-top" class="footer-top"> 
+						<div class="container"> 
+							<div class="inner">			  
+								<div class="row">
+									{% HOOK_FOOTERTOP %}
+								</div>  
+							</div>
+						</div> 
+					</section><!-- #footertop -->
+                {% endif %}
+                <section id="leo-footer-center" class="footer-center">
+					<div class="container"> 
+						<div class="inner">			
+							
+								{% HOOK_FOOTER %}
+							
+						</div> 
+					</div>
+				</section><!-- #footercenter -->
+                {% if HOOK_FOOTERBOTTOM is defined and HOOK_FOOTERBOTTOM is not empty %}
+					<section id="leo-footer-bottom" class="footer-bottom">
+						<div class="container">
+							<div class="inner">			
+								<div class="row">
+									{% HOOK_FOOTERBOTTOM %}
+								</div>
+							</div>
+						</div>
+					</section><!-- #footerbottom -->
+                {% endif %}
+				<section id="footernav" class="footer-nav">
+					<div class="container">
+						<div class="inner">	
+							{% if HOOK_FOOTNAV is defined and HOOK_FOOTNAV is not empty %}
+								<div id="footnav">
+									{% if ENABLE_COPYRIGHT is defined and ENABLE_COPYRIGHT == 1 %}
+										<div id="powered" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-sp-12">
+											{% if CUSTOM_COPYRIGHT is defined and CUSTOM_COPYRIGHT is not empty %}
+												{% CUSTOM_COPYRIGHT %}
+											{% else %}
+												&copy; 2014 {l s='Powered by PrestaShop. All Rights Reserved.'} 
+											{% endif %}
+												Developed By <span>LeoTheme</span>
+										</div><!-- #poweredby -->
+									{% endif %}
+									{% HOOK_FOOTNAV %}
+										
+								</div>
+							{% endif %}							
+						</div>
+					</div>
+				</section>
+            </footer><!-- .footer-container -->
+		</section><!-- #page -->
+{% endif %}
+{% include "@~~bundle_name~~/global.tpl" %}
+{% if LEO_PANELTOOL is defined and LEO_PANELTOOL %}
+    {% include "@~~bundle_name~~/info/paneltool.tpl" %}
+{% endif %}
+	</body>
+</html>

@@ -1,0 +1,19 @@
+#homefeatured {
+  margin-top: 20px;
+}
+#homefeatured .ajax_block_product {
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+#homefeatured .ajax_block_product .product-container {
+  overflow: visible !important;
+}
+#homefeatured .ajax_block_product .product-container::after {
+  content: "";
+  background: #eaeaea;
+  position: absolute;
+  right: -10px;
+  top: 0;
+  width: 1px;
+  height: 98%;
+}

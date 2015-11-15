@@ -1,0 +1,83 @@
+@charset "utf-8";
+
+#toolspanelcontent{
+	width:240px
+}
+#toolspanelcontent > div:hover {
+	color:#285151
+}
+#toolspanelcontent #bottombox input{
+	*clear: both;
+	*margin-left: 10px;
+}
+#toolspanelcontent #bottombox a{
+	
+}
+#toolspanelcontent #bottombox input[type="submit"]{height: 28px; line-height: 28px;}
+
+#toolspanel {
+	position:fixed;
+	top:100px;
+	left:0;
+	background:red;
+	z-index:999;
+	*height:0;
+}
+#toolspanelcontent {
+	position:fixed;
+	top:100px;
+	-webkit-border-radius: 0 5px 5px 0;
+	-moz-border-radius: 0 5px 5px 0;
+	border-radius: 0 5px 5px 0;
+	color: #000;
+	font-size: 90%;
+	z-index: 999;
+	border-bottom: 1px solid #DBDDD8;
+	border-top: 1px solid #DBDDD8;
+	background: #fff;
+}
+#toolspanelcontent > div {
+	padding:12px
+}
+#toolspanel .pn-button {
+	cursor: pointer;
+	right:-38px;
+	height:20px;
+	width:14px;
+	position: absolute;
+	top: 115px;
+	z-index: 999;
+	border-bottom: 1px solid #DBDDD8;
+	border-right: 1px solid #DBDDD8;
+	border-top: 1px solid #DBDDD8;
+	-webkit-border-radius: 0 5px 5px 0;
+	-moz-border-radius: 0 5px 5px 0;
+	border-radius: 0 5px 5px 0;
+	-webkit-box-shadow: 3px 0 4px #cecece;
+	-moz-box-shadow: 3px 0 4px #cecece;
+	box-shadow: 3px 0 4px #cecece;
+	background: #fff;
+}
+#toolspanel .pn-button {
+	background: url("icon.png") no-repeat scroll 12px 13px #FFFFFF;
+	opacity:1;
+}
+#toolspanel .open {
+	background: url("icon.png") no-repeat scroll 12px -27px #FFFFFF;
+}
+#pnpartterns a {
+	border: 1px solid #BBBBBB;
+	display: block;
+	float: left;
+	height: 6px;
+	margin: 0 5px 5px 0;
+	padding: 6px;
+	width: 6px;
+}
+#pnpartterns a.active{ border-color:red; -moz-transition:border-color 0.8s}
+
+#template_theme select {
+	width: 200px;
+	background: #fff!important;
+	border-color: #ccc;
+}

@@ -22,17 +22,5 @@ namespace Elcodi\Plugin\TemplateConverterBundle\Transformer\Interfaces;
  */
 interface PieceInterface
 {
-    /**
-     * From regexp
-     *
-     * @return string Regexp with original data
-     */
-    public function from();
 
-    /**
-     * To regexp
-     *
-     * @return string Regexp with converted data
-     */
-    public function to();
 }

@@ -1,0 +1,33 @@
+<?php
+
+global $_MODULE;
+$_MODULE = array();
+$_MODULE['<{productcomments}base1610_fwold1610_fwold>productcomments-extra_dda9c06f33071c9b6fc237ee164109d8'] = 'Valutazione';
+$_MODULE['<{productcomments}base1610_fwold1610_fwold>productcomments-extra_899139b5174d8d7a6e38a0360008a695'] = 'Leggi i commenti';
+$_MODULE['<{productcomments}base1610_fwold1610_fwold>productcomments-extra_c31732fda0c6f01c446db7163b214de4'] = 'Scrivi una recensione';
+$_MODULE['<{productcomments}base1610_fwold1610_fwold>productcomments_4b3b9db8c9784468094acde0f8bf7071'] = 'Grado';
+$_MODULE['<{productcomments}base1610_fwold1610_fwold>productcomments_39630ad6ee79b8653ea89194cdb45bec'] = 'Questo commento utile a voi?';
+$_MODULE['<{productcomments}base1610_fwold1610_fwold>productcomments_93cba07454f06a4a960172bbd6e2a435'] = 'Sì';
+$_MODULE['<{productcomments}base1610_fwold1610_fwold>productcomments_bafd7322c6e97d25b6299b5d6fe8920b'] = 'No';
+$_MODULE['<{productcomments}base1610_fwold1610_fwold>productcomments_28b3b1e564a00f572c5d4e21da986d49'] = 'Segnalare un abuso';
+$_MODULE['<{productcomments}base1610_fwold1610_fwold>productcomments_c565011debb8e2812ef12853eb6a38a9'] = 'Scrivi la tua opinione!';
+$_MODULE['<{productcomments}base1610_fwold1610_fwold>productcomments_f444678e4f3575d59b32a858630741fd'] = 'Puoi essere il primo a scrivere la tua recensione!';
+$_MODULE['<{productcomments}base1610_fwold1610_fwold>productcomments_08c7d6f84301ee7d0aab0a5f67edc419'] = 'Commenti Nessun cliente per il momento.';
+$_MODULE['<{productcomments}base1610_fwold1610_fwold>productcomments_c31732fda0c6f01c446db7163b214de4'] = 'Scrivi una recensione';
+$_MODULE['<{productcomments}base1610_fwold1610_fwold>productcomments_51ec9bf4aaeab1b25bb57f9f8d4de557'] = 'Titolo:';
+$_MODULE['<{productcomments}base1610_fwold1610_fwold>productcomments_240f3031f25601fa128bd4e15f0a37de'] = 'Commento:';
+$_MODULE['<{productcomments}base1610_fwold1610_fwold>productcomments_a2ed44743411cf8b80e397448fce104c'] = 'Il tuo nome:';
+$_MODULE['<{productcomments}base1610_fwold1610_fwold>productcomments_70397c4b252a5168c5ec003931cea215'] = 'Campi obbligatori';
+$_MODULE['<{productcomments}base1610_fwold1610_fwold>productcomments_a4d3b161ce1309df1c4e25df28694b7b'] = 'Presentare';
+$_MODULE['<{productcomments}base1610_fwold1610_fwold>productcomments_e81c4e4f2b7b93b481e13a8553c2ae1b'] = 'o';
+$_MODULE['<{productcomments}base1610_fwold1610_fwold>productcomments_ea4788705e6873b424c65e91c2846b19'] = 'Cancellare';
+$_MODULE['<{productcomments}base1610_fwold1610_fwold>productcomments_ab51a81c76d95ddc762194d58ec5db63'] = 'Sei sicuro di voler segnalare questo commento?';
+$_MODULE['<{productcomments}base1610_fwold1610_fwold>productcomments_9a2ccd41653469a8bd94fbb84b271a14'] = 'Il tuo commento è stato aggiunto!';
+$_MODULE['<{productcomments}base1610_fwold1610_fwold>productcomments_4e3ee0f5bd8f527715fb0776741b9754'] = 'Il tuo commento è stato aggiunto e sarà disponibile una volta approvato da un moderatore.';
+$_MODULE['<{productcomments}base1610_fwold1610_fwold>productcomments_186c30cab59f6b64a453778330d4bbf0'] = 'Nuovo commento';
+$_MODULE['<{productcomments}base1610_fwold1610_fwold>productcomments_e0aa021e21dddbd6d8cecec71e9cf564'] = 'OK';
+$_MODULE['<{productcomments}base1610_fwold1610_fwold>productcomments_reviews_d844ad9202d0de8442498775ba6ef819'] = 'Review (s)';
+$_MODULE['<{productcomments}base1610_fwold1610_fwold>products-comparison_8413c683b4b27cc3f4dbd4c90329d8ba'] = 'Commenti';
+$_MODULE['<{productcomments}base1610_fwold1610_fwold>products-comparison_b1897515d548a960afe49ecf66a29021'] = 'Media';
+$_MODULE['<{productcomments}base1610_fwold1610_fwold>products-comparison_5d9acecbb0b55a71dea7403896356001'] = 'Visualizza commenti';
+$_MODULE['<{productcomments}base1610_fwold1610_fwold>tab_34e80a799d144cfe4af46815e103f017'] = 'Recensioni';

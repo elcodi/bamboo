@@ -1,0 +1,66 @@
+
+/* customize for body */ 
+body { background-image:url(../../img/patterns/pattern1.png)} 
+body { background-color:#c48181} 
+.container { background-image:url(../../img/patterns/pattern13.png)} 
+body { font-size:15} 
+body { color:#ffffff} 
+a { color:#f75656} 
+a:hover { color:#ffffff} 
+
+/* customize for topbar */ 
+#topbar { background-color:#d41515} 
+#topbar .container > .inner { background-color:#b35252} 
+#topbar { border-color:#29e633} 
+#topbar .container > .inner { color:#bf6464} 
+#topbar .container > .inner a { color:#f2e6e6} 
+
+/* customize for header-main */ 
+#header-main { background-color:#8c5959} 
+#header-main .container > .inner { background-color:#a13030} 
+#header-main .container > .inner { color:#ffffff} 
+
+/* customize for leo-mainnav */ 
+#leo-mainnav { background-color:#be1bdb} 
+#leo-mainnav .container > .inner { background-color:#fc1212} 
+
+/* customize for footer-top */ 
+.footer-top { background-color:#cf1010} 
+.footer-top .container > .inner { background-color:#fff5f5} 
+.footer-top .container > .inner { color:#000000} 
+.footer-top .container > .inner a { color:#a66262} 
+
+/* customize for footer-center */ 
+.footer-center { background-color:#826868} 
+.footer-center .container > .inner { background-color:#8c2626} 
+.footer-center .container > .inner { color:#50ff29} 
+.footer-center .container > .inner a { color:#ffffff} 
+
+/* customize for powered */ 
+.footer-nav { background-color:#27e8b5} 
+.footer-nav .container > .inner { background-color:#00ffee} 
+.footer-nav .container > .inner { color:#e30404} 
+.footer-nav .container > .inner a { color:#996e6e} 
+
+/* customize for product */ 
+.pb-center-column h1 { color:#ffffff} 
+.box-info-product .price { color:#41db09} 
+.box-info-product .old-price { color:#f24e4e} 
+.box-info-product .exclusive { background-color:#cf5dcf} 
+.box-info-product .exclusive { color:#ffdbdb} 
+.box-info-product #wishlist_button, .box-info-product #wishlist_button:before { color:#ed5c5c} 
+
+/* customize for modules */ 
+.sidebar .block .title_block { background-color:#692e69} 
+.sidebar .block .title_block a, .sidebar .block .title_block { color:#faf0f0} 
+.sidebar .block .block_content { background-color:#e0d7e0} 
+.sidebar .block .block_content { color:#916060} 
+.sidebar .block .block_content, .sidebar .block_content li  { border-color:#19fc00} 
+
+/* customize for highlighted-modules */ 
+.sidebar .block-highlighted .title_block { background-color:#00ff37} 
+.sidebar .block-highlighted .title_block, .sidebar .block-highlighted .title_block a  { color:#d10000} 
+.sidebar .block-highlighted .block_content { background-color:#c72ac7} 
+.sidebar .block-highlighted .block_content { color:#ffe8e8} 
+.sidebar .block-highlighted .block_content a { color:#ffffff} 
+.sidebar .block-highlighted .block_content li a, .sidebar .block-highlighted .block_content  { border-color:#ede351} 

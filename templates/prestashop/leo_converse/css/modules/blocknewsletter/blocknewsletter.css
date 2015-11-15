@@ -1,0 +1,99 @@
+/**
+ * Web Application Prefix Apply For Making Owner Styles
+ */
+/**
+ *   Blocks Layout Selectors 
+ */
+/**
+ * Product Item Selectors
+ */
+/***********************************************************************/
+/**
+* Transition-timing-function property@mixin 
+*/
+/*background RGBA
+============================================*/
+/****/
+/* RIGHT TO LEFT */
+/** CHECKOUT BY STEP */
+/*  
+ * LAYOUT VARIABLES 
+ */
+/* Block newsletter */
+#columns #newsletter_block_left .success_inline, #columns #newsletter_block_left .warning_inline {
+  text-align: left;
+  padding: 1px 0 0 0;
+  margin-bottom: -19px;
+}
+.rtl #columns #newsletter_block_left .success_inline, .rtl #columns #newsletter_block_left .warning_inline {
+  text-align: right;
+}
+#columns #newsletter_block_left .success_inline {
+  color: #418B19;
+}
+#columns #newsletter_block_left .warning_inline {
+  color: #f13340;
+}
+
+/* Block newsletter footer */
+#footer #newsletter_block_left {
+  overflow: hidden;
+  float: right;
+  margin-bottom: 0;
+}
+.rtl #footer #newsletter_block_left {
+  float: left;
+}
+@media (max-width: 767px) {
+  #footer #newsletter_block_left {
+    width: 100%;
+  }
+}
+#footer #newsletter_block_left h5 {
+  text-transform: none;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-top: 0;
+}
+#footer #newsletter_block_left h5:after {
+  display: none;
+}
+#footer #newsletter_block_left .block_content {
+  overflow: hidden;
+}
+#footer #newsletter_block_left .form-group {
+  margin: 0;
+}
+#footer #newsletter_block_left .warning_inline {
+  display: block;
+  color: #f13340;
+  font-size: 13px;
+  line-height: 26px;
+  clear: both;
+}
+#footer #newsletter_block_left .newsletter-input {
+  float: left;
+  width: 200px;
+  height: 30px;
+  background: #181818;
+  position: relative;
+  right: -25px;
+  margin: 6px 0;
+  font-size: 12px;
+  border: none;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+.rtl #footer #newsletter_block_left .newsletter-input {
+  float: right;
+}
+.rtl #footer #newsletter_block_left .newsletter-input {
+  left: -25px;
+  right: auto;
+}
+#footer #newsletter_block_left .success_inline {
+  color: #418B19;
+}

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<theme>
+    <version value="1.4">
+        <ccc available="true" />
+        <guest_checkout available="true" />
+        <one_page_checkout available="true" />
+        <store_locator available="true" />
+    </version>
+    <theme_key>leo_converse</theme_key>
+        <modules>
+            <module>
+                <name>leotempcp</name>
+                <fields>
+                    <field>
+                        <table_name>leohook</table_name>
+                        <string_column>theme,name_hook</string_column>
+                        <searchField>id_shop</searchField>
+                    </field>
+                    <field>
+                        <objectMName>LeoTempcpWidget</objectMName>
+                        <objectMFile>widget.php</objectMFile>
+                        <searchField>id_shop</searchField>
+                    </field>
+                </fields>
+                <config_prefix>leo_converse</config_prefix>
+                <table_prefix>leowidgets,leohook</table_prefix>
+            </module>
+            <module>
+                <name>leomanagewidgets</name>
+                <fields>
+                    <field>
+                        <objectMName>LeoManageWidgetGroup</objectMName>
+                        <objectMFile>LeoManageWidgetGroup.php</objectMFile>
+                        <searchField>id_shop</searchField>
+                        <field>
+                            <objectMName>LeoManageWidgetColumn</objectMName>
+                            <objectMFile>LeoManageWidgetColumn.php</objectMFile>
+                            <searchField>id_group</searchField>
+                            <field>
+                                <objectMName>LeoManagerWidgetContent</objectMName>
+                                <objectMFile>LeoManagerWidgetContent.php</objectMFile>
+                                <searchField>id_column</searchField>
+                            </field>
+                        </field>
+                    </field>
+                </fields>
+                <table_prefix>leomanagewidget</table_prefix>
+            </module>    
+			<module>
+                <name>leocustomajax</name>
+                <config_prefix>leo_customajax</config_prefix>
+            </module>
+        </modules>
+</theme>

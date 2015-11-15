@@ -1,0 +1,45 @@
+/**
+ * Web Application Prefix Apply For Making Owner Styles
+ */
+/**
+ *   Blocks Layout Selectors 
+ */
+/**
+ * Product Item Selectors
+ */
+/***********************************************************************/
+/**
+* Transition-timing-function property@mixin 
+*/
+/*background RGBA
+============================================*/
+/****/
+/* RIGHT TO LEFT */
+/** CHECKOUT BY STEP */
+/*  
+ * LAYOUT VARIABLES 
+ */
+#mailalerts_block_account li.last_item {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+#mailalerts_block_account li .products-block-image {
+  float: left;
+  margin-right: 19px;
+}
+.rtl #mailalerts_block_account li .products-block-image {
+  float: right;
+}
+.rtl #mailalerts_block_account li .products-block-image {
+  margin-left: 19px;
+  margin-right: inherit;
+}
+#mailalerts_block_account li .remove {
+  float: right;
+}
+.rtl #mailalerts_block_account li .remove {
+  float: left;
+}
+#mailalerts_block_account li .remove i {
+  cursor: pointer;
+}

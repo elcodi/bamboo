@@ -1,0 +1,36 @@
+<?php
+
+global $_MODULE;
+$_MODULE = array();
+$_MODULE['<{statspersonalinfos}base1610_fwold1610_fwold>statspersonalinfos_1b94af23fd8ea879910a6307460ebba4'] = 'Registrierte Kundeninformationen';
+$_MODULE['<{statspersonalinfos}base1610_fwold1610_fwold>statspersonalinfos_b0cb4ea4e89c2107cb100be8417fd94e'] = 'Fügt Informationen zu Ihren registrierten Kunden (wie Geschlecht und Alter) an die Stats Armaturenbrett.';
+$_MODULE['<{statspersonalinfos}base1610_fwold1610_fwold>statspersonalinfos_6602bbeb2956c035fb4cb5e844a4861b'] = 'Führung';
+$_MODULE['<{statspersonalinfos}base1610_fwold1610_fwold>statspersonalinfos_3ca26e413e485538a7f3e610c0324636'] = 'Ihre Zielgruppe';
+$_MODULE['<{statspersonalinfos}base1610_fwold1610_fwold>statspersonalinfos_74036f0101d2f3f9b082b8de981c18dc'] = 'Um für jede Nachricht, eine Auswirkung haben, müssen Sie wissen, wer es ist angegangen. ';
+$_MODULE['<{statspersonalinfos}base1610_fwold1610_fwold>statspersonalinfos_daa0ad6a8b07a64f18b26e0f5e1255bd'] = 'Definieren Sie Ihre Zielgruppe ist von wesentlicher Bedeutung bei der Auswahl der richtigen Werkzeuge, um sie zu gewinnen.';
+$_MODULE['<{statspersonalinfos}base1610_fwold1610_fwold>statspersonalinfos_8044a3d0d61282c4c425cd0da5432f11'] = 'Am besten ist es, um eine Aktion zu einer Gruppe zu begrenzen - oder Gruppen - Kunden.';
+$_MODULE['<{statspersonalinfos}base1610_fwold1610_fwold>statspersonalinfos_05f074d112460c990203ff2f17a7d46d'] = 'Speichern von registrierten Kundeninformationen können Sie genau definieren, Kundenprofile, damit Sie Ihre Sonderangebote und Aktionen können angepasst werden.';
+$_MODULE['<{statspersonalinfos}base1610_fwold1610_fwold>statspersonalinfos_9dc739320e2523183e8b31f395e1e489'] = 'Sie können Ihren Umsatz steigern durch:';
+$_MODULE['<{statspersonalinfos}base1610_fwold1610_fwold>statspersonalinfos_2f619981f1abd95da0907766cc409be9'] = 'Starten von gezielten Werbekampagnen.';
+$_MODULE['<{statspersonalinfos}base1610_fwold1610_fwold>statspersonalinfos_428dc481e13dad2818d8088da7362dd2'] = 'Kontaktieren einer Gruppe von Kunden per E-Mail oder Newsletter.';
+$_MODULE['<{statspersonalinfos}base1610_fwold1610_fwold>statspersonalinfos_12344d957b4aee1e2c322549ddc9741f'] = 'Geschlechterverteilung ermöglicht es Ihnen, den Anteil von Frauen und Männern Käufer auf Ihr Geschäft festzustellen.';
+$_MODULE['<{statspersonalinfos}base1610_fwold1610_fwold>statspersonalinfos_998e4c5c80f27dec552e99dfed34889a'] = 'CSV Export';
+$_MODULE['<{statspersonalinfos}base1610_fwold1610_fwold>statspersonalinfos_08a12630390dc8ddd4c9fdcd9060dce6'] = 'Altersstufen können Sie von Zielgruppen besser zu verstehen.';
+$_MODULE['<{statspersonalinfos}base1610_fwold1610_fwold>statspersonalinfos_db9750afee08c6e88c91fbe1b3404ba6'] = 'Landverteilung ermöglicht es Ihnen, welcher Teil der Welt Ihre Kunden vom Einkaufen zu analysieren.';
+$_MODULE['<{statspersonalinfos}base1610_fwold1610_fwold>statspersonalinfos_e0fcbbd416a4872ec8f91fefa823debe'] = 'Währungsbereich ermöglicht es Ihnen, festzustellen, welche Währung Sie Ihre Kunden verwenden.';
+$_MODULE['<{statspersonalinfos}base1610_fwold1610_fwold>statspersonalinfos_94d50571d0f2e98276cfbe2f3de41b20'] = 'Sprache Verteilung können Sie die Browser-Sprache, die von Ihren Kunden verwendet zu analysieren.';
+$_MODULE['<{statspersonalinfos}base1610_fwold1610_fwold>statspersonalinfos_9fde3510abe63111086fd4288a19e1be'] = 'Es wurden noch keine Kunden registriert.';
+$_MODULE['<{statspersonalinfos}base1610_fwold1610_fwold>statspersonalinfos_8dc514f6da8c696c4a522efc145ad28a'] = 'Geschlechterverteilung';
+$_MODULE['<{statspersonalinfos}base1610_fwold1610_fwold>statspersonalinfos_63889cfb9d3cbe05d1bd2be5cc9953fd'] = 'Männlich';
+$_MODULE['<{statspersonalinfos}base1610_fwold1610_fwold>statspersonalinfos_b719ce180ec7bd9641fece2f920f4817'] = 'Weiblich';
+$_MODULE['<{statspersonalinfos}base1610_fwold1610_fwold>statspersonalinfos_88183b946cc5f0e8c96b2e66e1c74a7e'] = 'Unbekannt';
+$_MODULE['<{statspersonalinfos}base1610_fwold1610_fwold>statspersonalinfos_4d79e3d0b4d09b2f42d0831193cea200'] = 'Altersspanne';
+$_MODULE['<{statspersonalinfos}base1610_fwold1610_fwold>statspersonalinfos_6e69fbf88d84db874f365542b0284a95'] = '0-18';
+$_MODULE['<{statspersonalinfos}base1610_fwold1610_fwold>statspersonalinfos_b20e0ed6158978a3a23d092060b5dbab'] = '18-24';
+$_MODULE['<{statspersonalinfos}base1610_fwold1610_fwold>statspersonalinfos_e5884ca49180d38295ee426c624d936c'] = '25-34';
+$_MODULE['<{statspersonalinfos}base1610_fwold1610_fwold>statspersonalinfos_62ce9f61153b331eabe9efc2fc7eb5c2'] = '35-49';
+$_MODULE['<{statspersonalinfos}base1610_fwold1610_fwold>statspersonalinfos_a7724f78dcdf2179c5ca651d15ed5b2c'] = '50-59';
+$_MODULE['<{statspersonalinfos}base1610_fwold1610_fwold>statspersonalinfos_6a239f88f1aeb0561e7786b6120d1d5e'] = '60+';
+$_MODULE['<{statspersonalinfos}base1610_fwold1610_fwold>statspersonalinfos_73b0130037e21b76351aebfd29d0b9aa'] = 'Landverteilung';
+$_MODULE['<{statspersonalinfos}base1610_fwold1610_fwold>statspersonalinfos_28e81c8343702f6c813cc31a7f90616a'] = 'Währungsverteilung';
+$_MODULE['<{statspersonalinfos}base1610_fwold1610_fwold>statspersonalinfos_f1dd68fb6a00d3e4d7f751deacde995d'] = 'Sprache Verteilung';

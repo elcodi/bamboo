@@ -58,6 +58,8 @@ class ParserCollector extends AbstractTemplateParser
      *
      * @param FileCollector $fileCollector File collector
      * @param TemplateTransformerInterface $templateTransformer Template Transformer
+     *
+     * @return string data to be saved
      */
     public function load(
         FileCollector $fileCollector,
@@ -71,6 +73,18 @@ class ParserCollector extends AbstractTemplateParser
                 $templateTransformer
             );
         }
+
+        return;
+    }
+
+    /**
+     * Get filename
+     *
+     * @return string Filename
+     */
+    public function getFilename()
+    {
+
     }
 
     /**

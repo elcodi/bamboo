@@ -1,0 +1,31 @@
+<?php
+
+global $_MODULE;
+$_MODULE = array();
+$_MODULE['<{blockuserinfo}base-theme>blockuserinfo_a2e9cd952cda8ba167e62b25a496c6c1'] = 'معلومات المستخدم كتلة';
+$_MODULE['<{blockuserinfo}base-theme>blockuserinfo_970a31aa19d205f92ccfd1913ca04dc0'] = 'ويضيف كتلة يعرض معلومات حول العميل.';
+$_MODULE['<{blockuserinfo}base-theme>blockuserinfo_0c3bf3014aafb90201805e45b5e62881'] = 'عرض عربة التسوق بلدي';
+$_MODULE['<{blockuserinfo}base-theme>blockuserinfo_a85eba4c6c699122b2bb1387ea4813ad'] = 'سلة الشراء';
+$_MODULE['<{blockuserinfo}base-theme>blockuserinfo_deb10517653c255364175796ace3553f'] = 'منتج';
+$_MODULE['<{blockuserinfo}base-theme>blockuserinfo_068f80c7519d0528fb08e82137a72131'] = 'المنتجات';
+$_MODULE['<{blockuserinfo}base-theme>blockuserinfo_9e65b51e82f2a9b9f72ebe3e083582bb'] = '(فارغة)';
+$_MODULE['<{blockuserinfo}base-theme>blockuserinfo_2cbfb6731610056e1d0aaacde07096c1'] = 'مشاهدة الحساب الخاص بك';
+$_MODULE['<{blockuserinfo}base-theme>blockuserinfo_a0623b78a5f2cfe415d9dbbd4428ea40'] = 'حسابي';
+$_MODULE['<{blockuserinfo}base-theme>blockuserinfo_83218ac34c1834c26781fe4bde918ee4'] = 'مرحباً';
+$_MODULE['<{blockuserinfo}base-theme>blockuserinfo_4b877ba8588b19f1b278510bf2b57ebb'] = 'تسجيل الخروج';
+$_MODULE['<{blockuserinfo}base-theme>blockuserinfo_c87aacf5673fada1108c9f809d354311'] = 'تسجيل الخروج';
+$_MODULE['<{blockuserinfo}base-theme>blockuserinfo_b145abfd6b2f88971d725cbd94a5879f'] = 'تسجيل الدخول للحساب الخاص بك';
+$_MODULE['<{blockuserinfo}base-theme>blockuserinfo_b6d4223e60986fa4c9af77ee5f7149c5'] = 'توقيع في';
+$_MODULE['<{blockuserinfo}base-theme>nav_2cbfb6731610056e1d0aaacde07096c1'] = 'عرض حساب زبوني';
+$_MODULE['<{blockuserinfo}base-theme>nav_4b877ba8588b19f1b278510bf2b57ebb'] = 'تسجيل الخروج';
+$_MODULE['<{blockuserinfo}base-theme>nav_c87aacf5673fada1108c9f809d354311'] = 'تسجيل خروج';
+$_MODULE['<{blockuserinfo}base-theme>nav_b145abfd6b2f88971d725cbd94a5879f'] = 'تسجيل الدخول إلى حساب العميل';
+$_MODULE['<{blockuserinfo}base-theme>nav_b6d4223e60986fa4c9af77ee5f7149c5'] = 'تسجيل الدخول';
+$_MODULE['<{blockuserinfo}base-theme>nav_50201c8fdd58cd7e69fe955450afceb7'] = 'أعلى الروابط';
+$_MODULE['<{blockuserinfo}base-theme>nav_7ec9cceb94985909c6994e95c31c1aa8'] = 'بلدي قوائم الأماني';
+$_MODULE['<{blockuserinfo}base-theme>nav_9f7b857dbd2834e6dbae6d8de2611789'] = 'قائمتي المفضلة';
+$_MODULE['<{blockuserinfo}base-theme>nav_d95cf4ab2cbf1dfb63f066b50558b07d'] = 'حسابي';
+$_MODULE['<{blockuserinfo}base-theme>nav_bea8d9e6a0d57c4a264756b4f9822ed9'] = 'حسابي';
+$_MODULE['<{blockuserinfo}base-theme>nav_6ff063fbc860a79759a7369ac32cee22'] = 'الخروج';
+$_MODULE['<{blockuserinfo}base-theme>nav_b75443a19207ed3a3552edda86536857'] = 'سلة التسوق';
+$_MODULE['<{blockuserinfo}base-theme>nav_8b1a9953c4611296a827abf8c47804d7'] = 'مرحبا';

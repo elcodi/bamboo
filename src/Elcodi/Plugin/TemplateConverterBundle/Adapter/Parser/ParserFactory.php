@@ -48,13 +48,15 @@ class ParserFactory
         $parserCollector = new ParserCollector();
         $skeleton = [
             'Layout\\LayoutParser',
+            'Modules\\FooterParser',
+            'Modules\\HeaderParser',
         ];
 
         foreach ($skeleton as $file) {
-            $fileNamespace = $adapterNamespace . $file;
+            $fileNamespace = $adapterNamespace . '\\' . $file;
             $parserCollector->addTemplateParser(new $fileNamespace());
         }
 
-        return new $adapterNamespace;
+        return $parserCollector;
     }
 }

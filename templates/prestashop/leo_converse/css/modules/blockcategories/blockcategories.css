@@ -1,0 +1,118 @@
+/**
+ * Web Application Prefix Apply For Making Owner Styles
+ */
+/**
+ *   Blocks Layout Selectors 
+ */
+/**
+ * Product Item Selectors
+ */
+/***********************************************************************/
+/**
+* Transition-timing-function property@mixin 
+*/
+/*background RGBA
+============================================*/
+/****/
+/* RIGHT TO LEFT */
+/** CHECKOUT BY STEP */
+/*  
+ * LAYOUT VARIABLES 
+ */
+#categories_block_top {
+  clear: both;
+  position: relative;
+  top: 30px;
+}
+#categories_block_top .sf-menu {
+  position: relative;
+}
+#categories_block_top .sf-menu > li {
+  position: static;
+}
+#categories_block_top .sf-menu > li > ul {
+  width: 100%;
+  top: 60px;
+  margin: 0 20px;
+}
+#categories_block_top .sf-menu > li > ul > li {
+  display: block;
+  float: left;
+  width: 20%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 10px;
+}
+.rtl #categories_block_top .sf-menu > li > ul > li {
+  float: right;
+}
+#categories_block_top .sf-menu > li > ul > .category_thumb {
+  display: block;
+  clear: both;
+  overflow: hidden;
+  width: 100%;
+}
+#categories_block_top .sf-menu > li > ul > .category_thumb img {
+  display: inline-block;
+  width: 33%;
+}
+#categories_block_top .sf-menu > li h4 a {
+  font-size: 1.1em;
+}
+#categories_block_top .sf-menu > li h4 a:before {
+  display: none;
+}
+#categories_block_top .sf-menu > li .main-level-submenus {
+  position: relative;
+  display: block !important;
+  visibility: visible !important;
+  top: 0;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  left: 0;
+}
+.rtl #categories_block_top .sf-menu > li .main-level-submenus {
+  right: 0;
+  left: auto;
+}
+#categories_block_top .sf-menu .category_thumb {
+  display: none;
+}
+
+#categories_block_left li span.grower {
+  display: block;
+  cursor: pointer;
+  font-family: "FontAwesome";
+  font-size: 14px;
+  width: 25px;
+  height: 25px;
+  z-index: 999;
+}
+#categories_block_left li span.grower.OPEN:before, #categories_block_left li span.grower.CLOSE:before {
+  content: "-";
+  display: block;
+  vertical-align: middle;
+  width: 25px;
+  height: 25px;
+  color: #5f5f5f;
+  line-height: 25px;
+  text-align: center;
+}
+#categories_block_left li span.grower.CLOSE:before {
+  content: "+";
+  color: #5f5f5f;
+}
+#categories_block_left li .leo-qty {
+  margin-top: 3px;
+}
+#categories_block_left li span.grower:hover {
+  color: #1ba1e2;
+}
+#categories_block_left li ul {
+  margin-top: 3px;
+}
+#categories_block_left li ul li a:before {
+  display: none;
+}

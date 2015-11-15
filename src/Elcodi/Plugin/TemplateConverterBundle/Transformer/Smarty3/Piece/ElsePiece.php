@@ -17,12 +17,12 @@
  
 namespace Elcodi\Plugin\TemplateConverterBundle\Transformer\Smarty3\Piece;
 
-use Elcodi\Plugin\TemplateConverterBundle\Transformer\Interfaces\PieceInterface;
+use Elcodi\Plugin\TemplateConverterBundle\Transformer\Interfaces\SimplePieceInterface;
 
 /**
  * Class ElsePiece
  */
-class ElsePiece implements PieceInterface
+class ElsePiece implements SimplePieceInterface
 {
     /**
      * From regexp
@@ -31,16 +31,16 @@ class ElsePiece implements PieceInterface
      */
     public function from()
     {
-        return '{else}';
+        return '~{\s*else\s*}~';
     }
 
     /**
      * To regexp
      *
-     * @return string Regexp with converted data
+     * @return string string to replace with
      */
     public function to()
     {
-        return '{{ else }}';
+        return '{% else %}';
     }
 }

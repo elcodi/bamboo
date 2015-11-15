@@ -37,7 +37,11 @@ class LayoutParser extends AbstractTemplateParser
         TemplateTransformerInterface $templateTransformer
     )
     {
-        // TODO: Implement load() method.
+        $this->convertAndSaveFile(
+            $fileCollector,
+            $templateTransformer,
+            'layout.tpl'
+        );
     }
 
     /**

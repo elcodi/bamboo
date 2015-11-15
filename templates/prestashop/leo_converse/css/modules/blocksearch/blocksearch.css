@@ -1,0 +1,110 @@
+/**
+ * Web Application Prefix Apply For Making Owner Styles
+ */
+/**
+ *   Blocks Layout Selectors 
+ */
+/**
+ * Product Item Selectors
+ */
+/***********************************************************************/
+/**
+* Transition-timing-function property@mixin 
+*/
+/*background RGBA
+============================================*/
+/****/
+/* RIGHT TO LEFT */
+/** CHECKOUT BY STEP */
+/*  
+ * LAYOUT VARIABLES 
+ */
+.ac_results {
+  background: white;
+  border: 1px solid #eeeeee;
+  width: 271px;
+  margin-top: -1px;
+}
+.ac_results li {
+  padding: 0 10px;
+  font-weight: normal;
+  color: #686666;
+  font-size: 13px;
+  line-height: 22px;
+}
+.ac_results li.ac_odd {
+  background: white;
+}
+.ac_results li:hover, .ac_results li.ac_over {
+  background: #fbfbfb;
+}
+
+form#searchbox {
+  margin: 0 auto;
+  position: absolute;
+}
+form#searchbox label {
+  color: #5f5f5f;
+}
+form#searchbox input#search_query_block {
+  margin-right: 10px;
+  max-width: 222px;
+  margin-bottom: 10px;
+  display: inline-block;
+  float: left;
+}
+form#searchbox .button.button-small {
+  float: left;
+}
+form#searchbox .button.button-small i {
+  margin-right: 0;
+}
+
+#search_block_top {
+  overflow: hidden;
+  width: 21%;
+}
+
+.search-top {
+  position: relative;
+  margin: 7px 0px;
+  left: -36px;
+}
+.rtl .search-top {
+  right: -36px;
+  left: auto;
+}
+.search-top button {
+  background: url(.../../img/bg-search.png) no-repeat;
+  padding: 17px 28px;
+  border: none;
+}
+.search-top button:hover {
+  background: url(.../../img/bg-search.png) no-repeat;
+}
+.rtl .search-top button:hover {
+  background: url(v) no-repeat;
+}
+.rtl .search-top button {
+  background: url(img/bg-search-rtl.png) no-repeat;
+}
+.search-top button span {
+  display: none;
+}
+.search-top input {
+  height: 33px;
+  width: 222px !important;
+  outline: none;
+  border: none;
+  padding-left: 10px;
+}
+.search-top input:hover, .search-top input:active, .search-top input:focus {
+  border: none;
+}
+.search-top:hover {
+  right: 0px;
+}
+.rtl .search-top:hover {
+  left: 0px;
+  right: auto;
+}

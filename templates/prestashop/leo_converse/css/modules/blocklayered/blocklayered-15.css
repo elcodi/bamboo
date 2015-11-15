@@ -1,0 +1,267 @@
+/**
+ * Web Application Prefix Apply For Making Owner Styles
+ */
+/**
+ *   Blocks Layout Selectors 
+ */
+/**
+ * Product Item Selectors
+ */
+/***********************************************************************/
+/**
+* Transition-timing-function property@mixin 
+*/
+/*background RGBA
+============================================*/
+/****/
+/* RIGHT TO LEFT */
+/** CHECKOUT BY STEP */
+/*  
+ * LAYOUT VARIABLES 
+ */
+#enabled_filters {
+  margin: 0 0 10px 0;
+  background: #eee;
+  padding: 5px;
+}
+
+#enabled_filters .layered_subtitle {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+#enabled_filters ul li {
+  padding: 2px 0;
+}
+
+#enabled_filters li a {
+  float: right;
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+  text-indent: -5000px;
+  /*background: url(../../../img/icon/delete.gif) no-repeat 0 0 transparent;*/
+  background: url(../../../img/icon/delete.gif) no-repeat 0 0 transparent;
+  cursor: pointer;
+}
+.rtl #enabled_filters li a {
+  float: left;
+}
+
+#layered_block_left .layered_close {
+  float: right;
+  padding-right: 5px;
+}
+.rtl #layered_block_left .layered_close {
+  float: left;
+}
+
+#layered_block_left span.layered_close a,
+#layered_block_left span.layered_close a {
+  display: block;
+  height: 13px;
+  width: 9px;
+  text-decoration: none;
+  text-indent: -5000px;
+  background: url(../../../img/icon/less.gif) no-repeat 0px 4px;
+}
+
+#layered_block_left span.closed a {
+  background: url(../../../img/icon/more.gif) no-repeat 0px 4px;
+}
+
+#layered_block_left .layered_subtitle {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+#layered_block_left ul {
+  clear: both;
+  padding: 5px 0;
+}
+
+#layered_block_left ul li {
+  padding: 2px 0;
+}
+
+#layered_block_left ul li .checker span {
+  top: 0;
+}
+
+#layered_block_left ul li label {
+  cursor: pointer;
+  font-weight: normal;
+}
+
+#layered_block_left ul {
+  padding-left: 0;
+}
+.rtl #layered_block_left ul {
+  padding-right: 0;
+  padding-left: inherit;
+}
+
+#layered_block_left ul li {
+  list-style-type: none;
+}
+
+#layered_block_left div > form > div > div {
+  margin-top: 5px;
+}
+
+#layered_block_left #enabled_filters, #layered_url_filter_block {
+  font-size: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+  margin-top: 0px;
+  border-bottom: 1px dotted #CCC;
+}
+
+#layered_block_left #enabled_filters ul li {
+  margin-left: 0;
+  padding-left: 0;
+  font-size: 13px;
+}
+
+/* Style moved form the template to the css  */
+#layered_block_left #enabled_filters ul li:hover {
+  background: inherit;
+  color: inherit;
+}
+
+#layered_block_left #enabled_filters a {
+  text-decoration: none;
+  color: red;
+}
+
+#layered_block_left ul li input.checkbox {
+  vertical-align: middle;
+  margin-left: 2px;
+}
+.rtl #layered_block_left ul li input.checkbox {
+  margin-right: 2px;
+  margin-left: inherit;
+}
+
+#layered_block_left ul li .disabled {
+  color: #666;
+}
+
+#layered_block_left .color-option {
+  border: 1px solid #666666;
+  height: 16px;
+  margin-left: 0;
+  padding: 0;
+  width: 16px;
+}
+.rtl #layered_block_left .color-option {
+  margin-right: 0;
+  margin-left: inherit;
+}
+
+#layered_block_left .color-option.disable {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
+#layered_block_left .nomargin a {
+  display: inline;
+}
+
+#layered_form .select {
+  width: 165px;
+}
+
+#layered_form .color-option {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  float: left;
+  margin: 0 9px 0 0;
+  border: 1px solid #666;
+}
+
+#layered_form .color-option.on {
+  border: 1px solid red;
+}
+
+#layered_form input[type=radio] {
+  margin-left: 2px;
+  vertical-align: middle;
+}
+.rtl #layered_form input[type=radio] {
+  margin-right: 2px;
+  margin-left: inherit;
+}
+
+.layered_price_range {
+  margin-left: 7px;
+}
+.rtl .layered_price_range {
+  margin-right: 7px;
+  margin-left: inherit;
+}
+
+.layered_price_range_unit {
+  margin-right: 7px;
+}
+.rtl .layered_price_range_unit {
+  margin-left: 7px;
+  margin-right: inherit;
+}
+
+.layered_slider_container {
+  margin: 6px 0 6px 7px;
+  width: 91%;
+}
+
+.layered_slider {
+  margin-top: 5px;
+}
+
+.layered_input_range_min {
+  width: 30px;
+}
+
+.layered_input_range_max {
+  width: 40px;
+}
+
+.layered_list_selected {
+  font-weight: bold;
+}
+
+.layered_list {
+  display: block;
+  cursor: pointer;
+}
+
+.layered_list:hover {
+  font-weight: bold;
+}
+
+.layered_ajax_loader p {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.hide-action {
+  text-align: center;
+  text-align: right;
+  display: block;
+  cursor: pointer;
+}
+
+.hide-action:hover {
+  font-weight: bold;
+}
+
+#layered_form div div ul {
+  max-height: 200px;
+  overflow-x: auto;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+  margin-left: -8px;
+}

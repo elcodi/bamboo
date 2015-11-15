@@ -36,14 +36,7 @@ class PrestashopLoader extends AbstractProjectLoader
     protected function getProjectSkeleton()
     {
         return [
-            '*.tpl',
-            'modules/*.tpl',
-            'css/*',
-            'img/*',
-            'js/*',
-            'sass/*',
-            'modules/*',
-            'font/*',
+            '/',
         ];
     }
 }

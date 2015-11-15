@@ -1,0 +1,96 @@
+/**
+ * Web Application Prefix Apply For Making Owner Styles
+ */
+/**
+ *   Blocks Layout Selectors 
+ */
+/**
+ * Product Item Selectors
+ */
+/***********************************************************************/
+/**
+* Transition-timing-function property@mixin 
+*/
+/*background RGBA
+============================================*/
+/****/
+/* RIGHT TO LEFT */
+/** CHECKOUT BY STEP */
+/*  
+ * LAYOUT VARIABLES 
+ */
+.shop-phone {
+  float: left;
+  margin: 6px 0;
+  margin: 6px 5px 6px 5px;
+}
+.rtl .shop-phone {
+  float: right;
+}
+.rtl .shop-phone {
+  margin: 6px 5px 6px 5px;
+}
+@media (max-width: 767px) {
+  .shop-phone {
+    display: none;
+  }
+}
+.shop-phone i {
+  color: black;
+}
+
+#contact-link {
+  float: left;
+  margin: 6px 5px 6px 5px;
+}
+.rtl #contact-link {
+  float: right;
+}
+.rtl #contact-link {
+  margin: 6px 5px 6px 5px;
+}
+@media (max-width: 479px) {
+  #contact-link {
+    width: 25%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 767px) {
+  #contact_block {
+    margin-bottom: 20px;
+  }
+}
+#contact_block .label {
+  display: none;
+}
+#contact_block .block_content {
+  color: #888888;
+  background: url(../../../img/block_contact_bg.jpg) no-repeat left bottom;
+}
+#contact_block .block_content a {
+  margin-left: 65px;
+  display: block;
+  background: linear-gradient(to bottom, #666666 0%, #000000 100%);
+  color: white;
+  padding: 5px 10px;
+  line-height: 16px;
+  font-size: 12px;
+}
+#contact_block p {
+  margin-bottom: 4px;
+}
+#contact_block p.tel {
+  margin: 15px 0px 15px 65px;
+}
+#contact_block p.tel::before {
+  content: url(../../../img/block_contact_pict_tel.png);
+  padding-right: 5px;
+  vertical-align: middle;
+  display: inline-block;
+}
+#contact_block p.tel i {
+  font-size: 25px;
+  vertical-align: -2px;
+  padding-right: 10px;
+}

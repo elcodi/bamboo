@@ -1,0 +1,59 @@
+/**
+ * Web Application Prefix Apply For Making Owner Styles
+ */
+/**
+ *   Blocks Layout Selectors 
+ */
+/**
+ * Product Item Selectors
+ */
+/***********************************************************************/
+/**
+* Transition-timing-function property@mixin 
+*/
+/*background RGBA
+============================================*/
+/****/
+/* RIGHT TO LEFT */
+/** CHECKOUT BY STEP */
+/*  
+ * LAYOUT VARIABLES 
+ */
+#leosearchtopbox {
+  position: relative;
+  margin: 8px 0 8px 8px;
+}
+#leosearchtopbox select, #leosearchtopbox input {
+  height: 39px;
+  line-height: 39px;
+  padding: 9px;
+  border: 1px solid #ddd;
+  background: #fff;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  -webkit-appearance: none;
+}
+#leosearchtopbox select {
+  line-height: 17px;
+}
+#leosearchtopbox button {
+  position: absolute;
+  right: 7px;
+  top: 10px;
+  color: #9c9c9c;
+  background: transparent !important;
+  border: none!important;
+  width: 20px;
+  padding: 0;
+}
+.rtl #leosearchtopbox button {
+  left: 7px;
+  right: auto;
+}

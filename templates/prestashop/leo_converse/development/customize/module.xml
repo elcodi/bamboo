@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<modules>
+		 
+	<author>leotheme</author>
+	<name>Internal Module</name>	
+	
+	<module>
+		 <name>Top Banner</name>
+		 <key>top_banner1</key>
+		 <lang>1</lang>
+		 <data><![CDATA[Prestafs daf sdaf sdafShop]]></data>
+		 <explain>fadsfas</explain>  	
+	</module>
+	<module>
+		 <name>Top Banner</name>
+		 <key>top_banneree1</key>
+		 <lang>1</lang>
+		 <data><![CDATA[Prestafs daf sdaf sdafShop]]></data>
+		 <explain>fadsfas</explain>
+	</module>
+ 
+
+</modules>

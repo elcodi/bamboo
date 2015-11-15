@@ -14,9 +14,13 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  * @author Elcodi Team <tech@elcodi.com>
  */
- 
+
 namespace Elcodi\Plugin\TemplateConverterBundle\Transformer;
+
+use Elcodi\Plugin\TemplateConverterBundle\Transformer\Interfaces\CodeCaptureInterface;
 use Elcodi\Plugin\TemplateConverterBundle\Transformer\Interfaces\PieceInterface;
+use Elcodi\Plugin\TemplateConverterBundle\Transformer\Interfaces\SimplePieceInterface;
+use Elcodi\Plugin\TemplateConverterBundle\Transformer\Interfaces\SplitablePieceInterface;
 use Elcodi\Plugin\TemplateConverterBundle\Transformer\Interfaces\TemplateTransformerInterface;
 
 /**
@@ -38,7 +42,7 @@ class PieceCollector implements TemplateTransformerInterface
      */
     public function addPiece(PieceInterface $piece)
     {
-        $this->pieces = $piece;
+        $this->pieces[] = $piece;
     }
 
     /**
@@ -52,13 +56,84 @@ class PieceCollector implements TemplateTransformerInterface
     {
         foreach ($this->pieces as $piece) {
 
-            $data = preg_replace(
-                "\\{$piece->from()}\\",
-                $piece->to(),
-                $data
-            );
+            if ($piece instanceof SimplePieceInterface) {
+                $data = $this->toTwigSimple($piece, $data);
+            }
+
+            if ($piece instanceof SplitablePieceInterface) {
+                $data = $this->toTwigSplitable($piece, $data);
+            }
         }
 
         return $data;
+    }
+
+    /**
+     * To Twig simple
+     *
+     * @param SimplePieceInterface $piece Simple piece
+     * @param string               $data  Data
+     *
+     * @return string Data
+     */
+    private function toTwigSimple(
+        SimplePieceInterface $piece,
+        $data
+    )
+    {
+        do {
+            $newData = preg_replace(
+                $piece->from(),
+                $piece->to(),
+                $data
+            );
+        } while ($newData != $data && $data = $newData);
+
+        return $data;
+    }
+
+    /**
+     * To Twig splitable
+     *
+     * @param SplitablePieceInterface $piece Splitable piece
+     * @param string                  $data  Data
+     *
+     * @return string Data
+     */
+    private function toTwigSplitable(
+        SplitablePieceInterface $piece,
+        $data
+    )
+    {
+        while (preg_match_all(
+                $piece->fromSplit(),
+                $data,
+                $matches,
+                PREG_SET_ORDER
+            ) > 0) {
+
+            if (isset($matches[0])) {
+                foreach ($matches[0] as $match) {
+
+                    $data = str_replace(
+                        $match,
+                        $piece->toSplit($match),
+                        $data
+                    );
+                }
+            }
+        }
+
+        return $data;
+    }
+
+    /**
+     * Get Capturer piece
+     *
+     * @return CodeCaptureInterface Code capturer
+     */
+    public function getCapturer()
+    {
+        // TODO: Implement getCapturer() method.
     }
 }

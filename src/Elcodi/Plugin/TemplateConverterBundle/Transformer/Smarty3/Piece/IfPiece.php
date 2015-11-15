@@ -17,12 +17,12 @@
  
 namespace Elcodi\Plugin\TemplateConverterBundle\Transformer\Smarty3\Piece;
 
-use Elcodi\Plugin\TemplateConverterBundle\Transformer\Interfaces\PieceInterface;
+use Elcodi\Plugin\TemplateConverterBundle\Transformer\Interfaces\SimplePieceInterface;
 
 /**
  * Class IfPiece
  */
-class IfPiece implements PieceInterface
+class IfPiece implements SimplePieceInterface
 {
     /**
      * From regexp
@@ -31,16 +31,16 @@ class IfPiece implements PieceInterface
      */
     public function from()
     {
-        return '{if}';
+        return '~{\s*if\s+(.*?)\s*}~';
     }
 
     /**
      * To regexp
      *
-     * @return string Regexp with converted data
+     * @return string string to replace with
      */
     public function to()
     {
-        return '{{ if }}';
+        return '{% if $1 %}';
     }
 }

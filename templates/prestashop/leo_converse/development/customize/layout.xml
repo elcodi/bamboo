@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<themeeditor>
+		 
+		<author>leotheme</author>
+	<name>Live Theme Editor</name>	
+	<layout>
+		
+		<item>
+			<block>layout_mode</block>
+			<title>Layout Mode</title>
+			<default>fullwidth</default>
+			<option>
+				 <name>Full Width</name>
+				 <id>fullwidth</id>
+			</option> 
+			<option>
+				 <name>Boxed Large</name>
+				 <id>layout-boxed-lg</id>
+			</option>
+			<option>
+				 <name>Boxed Medium</name>
+				 <id>layout-boxed-md</id>
+			</option> 
+			 
+		</item>
+	</layout>
+</themeeditor>

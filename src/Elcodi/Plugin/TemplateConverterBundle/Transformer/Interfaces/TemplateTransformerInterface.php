@@ -23,6 +23,13 @@ namespace Elcodi\Plugin\TemplateConverterBundle\Transformer\Interfaces;
 interface TemplateTransformerInterface
 {
     /**
+     * Get Capturer piece
+     *
+     * @return CodeCaptureInterface Code capturer
+     */
+    public function getCapturer();
+
+    /**
      * Transform to Twig
      *
      * @param string $data Data

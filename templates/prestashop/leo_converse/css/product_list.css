@@ -1,0 +1,161 @@
+/**
+ * Web Application Prefix Apply For Making Owner Styles
+ */
+/**
+ *   Blocks Layout Selectors 
+ */
+/**
+ * Product Item Selectors
+ */
+/***********************************************************************/
+/**
+* Transition-timing-function property@mixin 
+*/
+/*background RGBA
+============================================*/
+/****/
+/* RIGHT TO LEFT */
+/** CHECKOUT BY STEP */
+/*  
+ * LAYOUT VARIABLES 
+ */
+/*******************************************************
+Product list Styles
+********************************************************/
+@media (min-width: 992px) {
+  #subcategories .row > div:nth-child(4n+1),
+  .first-in-line {
+    clear: both;
+  }
+}
+@media (min-width: 480px) and (max-width: 991px) {
+  #subcategories .row > div:nth-child(2n+1),
+  .first-item-of-tablet-line {
+    clear: both;
+  }
+}
+@media (min-width: 1200px) {
+  #blockpack ul > li.last-line {
+    border: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+}
+@media (min-width: 480px) and (max-width: 767px) {
+  #blockpack ul > li.first-item-of-tablet-line {
+    clear: none;
+  }
+  #blockpack ul > li.first-item-of-mobile-line {
+    clear: left;
+  }
+}
+
+/*******************************************************
+Product list(List) Styles 
+********************************************************/
+.product_list {
+  margin: 15px 0px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.product_list .nopadding {
+  padding: 0;
+}
+.product_list .nomargin {
+  margin: 0;
+}
+.product_list.nomargin {
+  margin: 0;
+}
+.widget .product_list {
+  border-right: none;
+  border-left: none;
+}
+.widget .product_list .product-block {
+  border-bottom: none;
+}
+.widget .product_list .row {
+  border-bottom: 1px solid #eeeeee;
+}
+.widget .product_list .row:last-child {
+  border-bottom: none;
+}
+.product_list .last-in-line .product-block,
+.product_list .product_block:nth-child(4n) .product-block {
+  border-right: none;
+}
+.product_list .color-list-container {
+  margin-bottom: 12px;
+}
+.product_list .color-list-container ul li {
+  display: inline-block;
+  border: 1px solid #eeeeee;
+}
+.product_list .color-list-container ul li a {
+  display: block;
+  width: 23px;
+  height: 23px;
+  margin: 1px;
+}
+
+.product_list.list .right-block {
+  overflow: hidden;
+}
+.product_list.list .product-block {
+  border-right: none;
+}
+.product_list.list .product-block .functional-buttons {
+  left: -300px;
+  top: 50%;
+  position: absolute;
+  width: 200px;
+}
+.product_list.list .product-block .product-meta {
+  text-align: left;
+}
+.rtl .product_list.list .product-block .product-meta {
+  text-align: right;
+}
+.product_list.list .product-block:hover .product-meta {
+  background: none;
+}
+.product_list.list .product-block:hover .functional-buttons {
+  left: 10px;
+}
+.product_list.list .product-block .product-desc {
+  margin-bottom: 13%;
+}
+.product_list.list .product-block .cart {
+  left: 10px;
+}
+@media (max-width: 479px) {
+  .product_list.list > .ajax_block_product .left-block {
+    width: 100%;
+  }
+}
+@media (max-width: 479px) {
+  .product_list.list > .ajax_block_product .product-image-container {
+    max-width: 290px;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 479px) {
+  .product_list.list > .ajax_block_product .center-block {
+    width: 100%;
+  }
+}
+@media (max-width: 479px) {
+  .product_list.list > .ajax_block_product {
+    text-align: center;
+  }
+}
+
+/*******************************************************
+Product list(Index page) Styles 
+********************************************************/
+/***** IE code *****/
+.ie8 .quick-view {
+  background: #fff;
+  border: 1px solid #eeeeee;
+}

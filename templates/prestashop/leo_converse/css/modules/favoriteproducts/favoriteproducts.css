@@ -1,0 +1,76 @@
+/**
+ * Web Application Prefix Apply For Making Owner Styles
+ */
+/**
+ *   Blocks Layout Selectors 
+ */
+/**
+ * Product Item Selectors
+ */
+/***********************************************************************/
+/**
+* Transition-timing-function property@mixin 
+*/
+/*background RGBA
+============================================*/
+/****/
+/* RIGHT TO LEFT */
+/** CHECKOUT BY STEP */
+/*  
+ * LAYOUT VARIABLES 
+ */
+#favoriteproducts_block_account .favoriteproduct {
+  position: relative;
+  margin-bottom: 14px;
+  padding: 12px 8px;
+  border: 1px solid #eeeeee;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+#favoriteproducts_block_account .favoriteproduct a.product_img_link {
+  border: 1px solid #eeeeee;
+  display: block;
+  float: left;
+  margin-right: 14px;
+  overflow: hidden;
+  position: relative;
+}
+.rtl #favoriteproducts_block_account .favoriteproduct a.product_img_link {
+  float: right;
+}
+#favoriteproducts_block_account .favoriteproduct p.product_desc {
+  line-height: 16px;
+  overflow: hidden;
+  padding: 0;
+}
+#favoriteproducts_block_account .favoriteproduct .remove {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.rtl #favoriteproducts_block_account .favoriteproduct .remove {
+  left: 10px;
+  right: auto;
+}
+#favoriteproducts_block_account .favoriteproduct .remove .icon {
+  cursor: pointer;
+}
+
+/* lnk fiche produit */
+#usefull_link_block li#favoriteproducts_block_extra_add, #usefull_link_block li#favoriteproducts_block_extra_remove, #usefull_link_block li#favoriteproducts_block_extra_added, #usefull_link_block li#favoriteproducts_block_extra_removed {
+  padding-left: 30px;
+  cursor: pointer;
+}
+.rtl #usefull_link_block li#favoriteproducts_block_extra_add, .rtl #usefull_link_block li#favoriteproducts_block_extra_remove, .rtl #usefull_link_block li#favoriteproducts_block_extra_added, .rtl #usefull_link_block li#favoriteproducts_block_extra_removed {
+  padding-right: 30px;
+  padding-left: inherit;
+}
+#usefull_link_block li#favoriteproducts_block_extra_added {
+  display: none;
+}
+#usefull_link_block li#favoriteproducts_block_extra_removed {
+  display: none;
+}

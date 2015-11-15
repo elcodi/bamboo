@@ -1,0 +1,587 @@
+/**
+ * Web Application Prefix Apply For Making Owner Styles
+ */
+/**
+ *   Blocks Layout Selectors 
+ */
+/**
+ * Product Item Selectors
+ */
+/***********************************************************************/
+/**
+* Transition-timing-function property@mixin 
+*/
+/*background RGBA
+============================================*/
+/****/
+/* RIGHT TO LEFT */
+/** CHECKOUT BY STEP */
+/*  
+ * LAYOUT VARIABLES 
+ */
+/* RIGHT TO LEFT */
+/**********************************/
+.paneltool.themetool .panelcontent {
+  min-height: 130px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.fancybox-skin .leo-paneltool {
+  display: none;
+}
+
+.paneltool {
+  position: fixed;
+  top: 0px;
+  -webkit-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+  right: -280px;
+  z-index: 9999;
+}
+.rtl .paneltool {
+  left: -280px;
+  right: auto;
+}
+.paneltool .leo-dynamic-update-side.current-sidebar {
+  color: #1ba1e2;
+}
+.paneltool .leo-dynamic-update-header.current-header {
+  color: #1ba1e2;
+}
+.paneltool.themetool .group-input .leo-dynamic-update-layout, .paneltool.themetool .group-input .leo-dynamic-update-side, .paneltool.themetool .group-input .leo-dynamic-update-header {
+  display: block;
+  float: left;
+  width: 50%;
+  padding: 10px 0 10px 0px;
+  position: relative;
+}
+.rtl .paneltool.themetool .group-input .leo-dynamic-update-layout, .rtl .paneltool.themetool .group-input .leo-dynamic-update-side, .rtl .paneltool.themetool .group-input .leo-dynamic-update-header {
+  float: right;
+}
+.paneltool.themetool .group-input .leo-dynamic-update-layout:before, .paneltool.themetool .group-input .leo-dynamic-update-side:before, .paneltool.themetool .group-input .leo-dynamic-update-header:before {
+  content: "+";
+}
+.paneltool.themetool .panelinner .group-input:last-child {
+  margin-bottom: 0px;
+}
+
+.paneltool.active {
+  right: 0;
+  transition: all 0.6s;
+}
+.rtl .paneltool.active {
+  left: 0;
+  right: auto;
+}
+
+.paneltool.active .panelbutton {
+  color: #1ba1e2;
+}
+
+.paneltool .panelcontent {
+  background: #f2f2f2;
+  width: 280px;
+  min-height: 340px;
+}
+
+.paneltool .panelcontent > div {
+  padding: 15px;
+}
+
+.paneltool.themetool {
+  top: 0px;
+}
+.paneltool.themetool.active {
+  z-index: 9999;
+}
+.paneltool.themetool .group-input {
+  margin-bottom: 15px;
+}
+.paneltool.themetool .group-input span {
+  cursor: pointer;
+}
+.paneltool.themetool label {
+  font-weight: normal;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.paneltool.themetool label .fa {
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.rtl .paneltool.themetool label .fa {
+  margin-left: 10px;
+  margin-right: inherit;
+}
+
+.panelbutton {
+  background: #fff;
+  position: absolute;
+  left: -50px;
+  top: 220px;
+  border-left: none;
+  cursor: hand;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  line-height: 56px;
+  text-align: center;
+  font-size: 30px;
+  overflow: hidden;
+  color: #594343;
+}
+.rtl .panelbutton {
+  right: -50px;
+  left: auto;
+}
+.rtl .panelbutton {
+  border-right: none;
+  border-left: inherit;
+}
+.panelbutton .fa {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+}
+
+.editortool .panelbutton {
+  top: 290px;
+}
+
+#leo-paneltool.panel-open .panel-inner {
+  right: 0;
+}
+.rtl #leo-paneltool.panel-open .panel-inner {
+  left: 0;
+  right: auto;
+}
+
+#leo-paneltool h4 {
+  margin-bottom: 20px;
+  margin-top: 0;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#leo-paneltool .accordion-group {
+  margin-bottom: 5px;
+}
+
+#leo-paneltool .panel-body {
+  max-height: 500px;
+  overflow-y: auto;
+}
+#leo-paneltool .block-panelcontent {
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 620px;
+}
+
+#leo-paneltool form .group-input {
+  margin-bottom: 10px;
+}
+
+#leo-paneltool select {
+  padding: 5px;
+}
+
+.box-patterns div {
+  display: block;
+  width: 38px;
+  height: 38px;
+  float: left;
+  cursor: hand;
+  cursor: pointer;
+  border: solid 1px #f3f3f3;
+  margin: 6px;
+  border: 1px solid #ccc;
+}
+.rtl .box-patterns div {
+  float: right;
+}
+
+.box-patterns div.active {
+  border: solid 1px red;
+}
+
+#leo-paneltool .nav-tabs > li:before,
+#leo-paneltool .nav-tabs > li:after {
+  display: none;
+}
+
+#customize-form {
+  position: relative;
+}
+
+.rtl #main-preview {
+  right: 0;
+  left: auto;
+}
+
+.rtl #main-preview {
+  left: 0;
+  right: auto;
+}
+
+.rtl #main-preview {
+  margin-right: 300px;
+  margin-left: inherit;
+}
+
+.main-preview #leo-paneltool {
+  display: none;
+}
+
+.colorpicker {
+  z-index: 99999;
+}
+
+#leo-paneltool {
+  width: 300px;
+  height: 100%;
+  top: 0;
+  left: -320px;
+  z-index: 9999;
+  box-shadow: 0 1px 3px #999;
+  transition-duration: 0.2s;
+  transition-property: left, right, top, bottom, width, margin;
+  background: none repeat scroll 0 0 #F5F5F5;
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+.rtl #leo-paneltool {
+  right: -320px;
+  left: auto;
+}
+
+#leo-paneltool .wrapper {
+  padding: 12px;
+}
+
+#customize-body input[type="text"], #customize-body select {
+  border: 1px solid #E2E2E2;
+  border-radius: 2px 2px 2px 2px;
+  color: #FFFFFF;
+  font-size: 11px;
+  margin: 0 5px 0 0;
+  padding: 2px 3px;
+  width: 65px;
+  height: auto;
+  display: inline-block;
+}
+
+#customize-body select {
+  color: #888;
+}
+
+#customize-body .accordion-group label {
+  color: #888;
+  font-size: 11px;
+  font-weight: normal;
+}
+
+#customize-body .panel-heading {
+  padding: 5px 6px;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+#customize-body .accordion-group .input-group .input-group-addon {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  float: right;
+  margin-top: 2px;
+  width: 20px;
+}
+.rtl #customize-body .accordion-group .input-group .input-group-addon {
+  float: left;
+}
+
+#customize-body .panel-heading a {
+  display: block;
+}
+
+.form-group {
+  margin-right: 6px;
+}
+.rtl .form-group {
+  margin-left: 6px;
+  margin-right: inherit;
+}
+
+.accordion-group label, .form-group label {
+  display: block;
+}
+
+.accordion-group label {
+  min-width: 100px;
+}
+
+#leo-paneltool .btn {
+  padding: 4px 12px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+#leo-paneltool .btn-show {
+  position: absolute;
+  top: 39px;
+  padding: 6px 18px;
+  background: #CCC;
+  right: 11px;
+  z-index: 99;
+  -webkit-transition: all 1.2s;
+  transition: all 1.2s;
+  cursor: hand;
+  cursor: pointer;
+}
+.rtl #leo-paneltool .btn-show {
+  left: 11px;
+  right: auto;
+}
+
+#customize-body .nav-tabs a {
+  font-weight: bold;
+  font-size: 11px;
+  padding: 6px 12px;
+}
+
+#customize-body .nav-tabs .active a {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
+
+.accordion-heading .accordion-toggle {
+  font-size: 11px;
+}
+
+#customize-body .form-group {
+  margin-bottom: 10px;
+  margin-right: 0;
+}
+
+.rtl #customize-body .form-group {
+  margin-left: 0;
+  margin-right: inherit;
+}
+
+#customize-body .accordion-inner .form-group .input-group {
+  display: inline-block;
+  width: 92px;
+  float: left;
+}
+
+.rtl #customize-body .accordion-inner .form-group .input-group {
+  float: right;
+}
+
+.clear-bg {
+  padding: 3px 6px;
+  margin-left: 5px;
+}
+
+.bi-wrapper > div {
+  float: left;
+  width: 25px;
+  height: 25px;
+  margin: 3px 4px;
+  border: solid 1px #999;
+  cursor: hand;
+  cursor: pointer;
+}
+
+.rtl .bi-wrapper > div {
+  float: right;
+}
+
+.bi-wrapper > div.active {
+  border-color: red;
+}
+
+.editortool .label-customize {
+  background-color: transparent;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  border: 0 none;
+  border-radius: 0;
+  box-shadow: none;
+  height: 74px;
+  padding: 0;
+  position: absolute;
+  right: -155px;
+  top: 250px;
+  width: 115px;
+  display: none;
+}
+
+.rtl .editortool .label-customize {
+  left: -155px;
+  right: auto;
+}
+
+.editortool .label-customize:hover {
+  background-position: 0 -111px;
+}
+
+.paneltool.active .label-customize {
+  display: none;
+}
+
+.leo-dynamic-theme-skin {
+  float: left;
+  width: 40px;
+  height: 40px;
+  margin: 10px 7px;
+  cursor: pointer;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  -ms-border-radius: 40px;
+  -o-border-radius: 40px;
+  border-radius: 40px;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  line-height: 40px;
+}
+.rtl .leo-dynamic-theme-skin {
+  float: right;
+}
+.leo-dynamic-theme-skin:before {
+  position: absolute;
+  content: "\f00c";
+  font-family: "FontAwesome";
+  width: 100%;
+  left: 0;
+  color: #fff;
+  font-size: 16px;
+  display: none;
+}
+.leo-dynamic-theme-skin.current-theme-skin:before {
+  display: inline-block;
+}
+.leo-dynamic-theme-skin label {
+  cursor: pointer;
+  background-color: #1ba1e2;
+  text-indent: -99999px;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.leo-dynamic-theme-skin label.blue {
+  background-color: #0b926a;
+}
+.leo-dynamic-theme-skin label.gold {
+  background-color: #f0a30a;
+}
+.leo-dynamic-theme-skin label.pink {
+  background-color: #f6605e;
+}
+.leo-dynamic-theme-skin label.purple {
+  background-color: #773e94;
+}
+.leo-dynamic-theme-skin label.red {
+  background-color: #ce2920;
+}
+
+.leo-dynamic-update-layout:hover {
+  color: #1ba1e2;
+}
+.leo-dynamic-update-layout.current-layout-mod {
+  color: #1ba1e2;
+}
+
+.btn_enable_fheader {
+  background-color: #25292C;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100px;
+  height: 40px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
+  position: relative;
+}
+
+.enable_fheader {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: white;
+  background-color: #504C4C;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+}
+.enable_fheader i {
+  position: relative;
+  z-index: 9;
+}
+.enable_fheader:first-child {
+  float: left;
+  margin-left: -3px;
+}
+.enable_fheader:last-child {
+  float: right;
+  margin-right: -3px;
+}
+.enable_fheader.btn_no:before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 0px;
+  left: -3px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
+  background-color: #1ba1e2;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  visibility: hidden;
+}
+.enable_fheader.btn_yes:after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 0px;
+  right: -3px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
+  background-color: #1ba1e2;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  visibility: hidden;
+}
+.enable_fheader.current.btn_no:before {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  visibility: visible;
+  left: 64px;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+.enable_fheader.current.btn_yes:after {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  visibility: visible;
+  right: 64px;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}

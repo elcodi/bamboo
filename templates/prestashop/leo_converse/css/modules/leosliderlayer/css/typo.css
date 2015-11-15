@@ -1,0 +1,999 @@
+/*-----------------------------------------------------------------------------
+
+	-	Revolution Slider 1.5.3 -
+
+		Screen Stylesheet
+
+version:   	2.1
+date:      	09/18/11
+last update: 06.12.2012
+author:		themepunch
+email:     	info@themepunch.com
+website:   	http://www.themepunch.com
+-----------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------
+
+	-	Revolution Slider 2.0 Captions -
+
+		Screen Stylesheet
+
+version:   	1.4.5
+date:      	09/18/11
+last update: 06.12.2012
+author:		themepunch
+email:     	info@themepunch.com
+website:   	http://www.themepunch.com
+-----------------------------------------------------------------------------*/
+/**
+ * Web Application Prefix Apply For Making Owner Styles
+ */
+/**
+ *   Blocks Layout Selectors 
+ */
+/**
+ * Product Item Selectors
+ */
+/***********************************************************************/
+/**
+* Transition-timing-function property@mixin 
+*/
+/*background RGBA
+============================================*/
+/****/
+/* RIGHT TO LEFT */
+/** CHECKOUT BY STEP */
+/*  
+ * LAYOUT VARIABLES 
+ */
+.layerslider-wrapper {
+  margin: 0 auto 20px;
+  position: relative;
+  z-index: 9;
+}
+
+.rev_slider {
+  position: relative;
+  overflow: hidden;
+  height: 300px;
+  width: 940px;
+  z-index: 9;
+}
+
+.bannercontainer {
+  position: relative;
+  margin: 0px auto;
+  overflow: hidden;
+  /*	BUTTONS	*/
+  /*	BUTTON COLORS	*/
+  /* SET THE ANIMATION EVEN MORE SMOOTHER ON ANDROID  */
+  /* SOME CAPTION MODIFICATION AT START  */
+  /*	IE8 HACKS	*/
+  /* SHADOWS	*/
+  /* FULLSCREEN VIDEO	*/
+  /* NAVIGATION */
+  /** BULLETS **/
+  /**	SQUARE BULLETS **/
+  /**	SQUARE BULLETS **/
+  /** navbar NAVIGATION VERSION **/
+  /** navbar NAVIGATION VERSION **/
+  /*	TP ARROWS */
+  /*	TP THUMBS */
+  /* TP BANNER TIMER */
+  /* RESPONSIVE SETTINGS */
+  /* BASIC SETTINGS FOR THE BANNER */
+  /*  CAPTION SLIDELINK   **/
+}
+.bannercontainer .banner-fullwidth {
+  width: 100% !important;
+  max-height: 500px !important;
+}
+.bannercontainer .fullwidthbanner {
+  max-height: 500px !important;
+  overflow: hidden!important;
+  padding: 0;
+  position: relative;
+}
+.bannercontainer.banner-fullwidth {
+  width: 100% !important;
+}
+.bannercontainer div.caption {
+  cursor: pointer;
+}
+.bannercontainer .tp-hide-revslider, .bannercontainer .tp-caption.tp-hidden-caption {
+  visibility: hidden !important;
+  display: none !important;
+}
+.bannercontainer .tp-caption {
+  z-index: 1;
+}
+.bannercontainer .tp-caption.big_white {
+  position: absolute;
+  color: #fff;
+  text-shadow: none;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  font-family: "Roboto Condensed", sans-serif;
+  padding: 3px 4px;
+  padding-top: 1px;
+  margin: 0px;
+  border-width: 0px;
+  border-style: none;
+  background-color: #000;
+  letter-spacing: 0px;
+}
+.bannercontainer .tp-caption.big_orange {
+  position: absolute;
+  color: #fff;
+  text-shadow: none;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 36px;
+  font-family: "Roboto Condensed", sans-serif;
+  padding: 0px 4px;
+  margin: 0px;
+  border-width: 0px;
+  border-style: none;
+  background-color: #fb7354;
+  letter-spacing: -1.5px;
+}
+.bannercontainer .tp-caption.big_black {
+  position: absolute;
+  color: #000;
+  text-shadow: none;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 36px;
+  font-family: "Roboto Condensed", sans-serif;
+  padding: 0px 4px;
+  margin: 0px;
+  border-width: 0px;
+  border-style: none;
+  background-color: #fff;
+  letter-spacing: -1.5px;
+}
+.bannercontainer .tp-caption.medium_grey {
+  position: absolute;
+  color: #fff;
+  text-shadow: none;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  font-family: "Roboto Condensed", sans-serif;
+  padding: 2px 4px;
+  margin: 0px;
+  border-width: 0px;
+  border-style: none;
+  background-color: #888;
+  white-space: nowrap;
+  text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+.bannercontainer .tp-caption.small_text {
+  position: absolute;
+  color: #6e6e6e;
+  text-shadow: none;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  font-family: "Roboto Condensed", sans-serif;
+  margin: 0px;
+  border-width: 0px;
+  border-style: none;
+  white-space: nowrap;
+}
+.bannercontainer .tp-caption.medium_text {
+  position: absolute;
+  color: #d95f5e;
+  text-shadow: none;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 30px;
+  font-family: "Roboto Condensed", sans-serif;
+  margin: 0px;
+  border-width: 0px;
+  border-style: none;
+  white-space: nowrap;
+  text-shadow: none;
+  text-transform: uppercase;
+}
+.bannercontainer .tp-caption.large_text {
+  position: absolute;
+  color: #282b2f;
+  text-shadow: none;
+  font-weight: normal;
+  font-size: 54px;
+  line-height: 36px;
+  font-family: "Roboto Condensed", sans-serif;
+  margin: 0px;
+  border-width: 0px;
+  border-style: none;
+  white-space: nowrap;
+  text-shadow: none;
+  text-transform: uppercase;
+}
+.bannercontainer .tp-caption.large_black_text {
+  position: absolute;
+  color: #000;
+  text-shadow: none;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 30px;
+  font-family: "Roboto Condensed", sans-serif;
+  margin: 0px;
+  border-width: 0px;
+  border-style: none;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+.bannercontainer .tp-caption.very_large_text {
+  position: absolute;
+  color: #fff;
+  text-shadow: none;
+  font-weight: 800;
+  font-size: 60px;
+  line-height: 60px;
+  font-family: "Roboto Condensed", sans-serif;
+  margin: 0px;
+  border-width: 0px;
+  border-style: none;
+  white-space: nowrap;
+  text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0px;
+}
+.bannercontainer .tp-caption.very_large_black_text {
+  position: absolute;
+  color: #000;
+  text-shadow: none;
+  font-weight: 800;
+  font-size: 72px;
+  line-height: 72px;
+  font-family: "Roboto Condensed", sans-serif;
+  margin: 0px;
+  border-width: 0px;
+  border-style: none;
+  white-space: nowrap;
+}
+.bannercontainer .tp-caption.bold_red_text {
+  position: absolute;
+  color: #d31e00;
+  text-shadow: none;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 20px;
+  font-family: "Roboto Condensed", sans-serif;
+  margin: 0px;
+  border-width: 0px;
+  border-style: none;
+  white-space: nowrap;
+}
+.bannercontainer .tp-caption.bold_brown_text {
+  position: absolute;
+  color: #a04606;
+  text-shadow: none;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 20px;
+  font-family: "Roboto Condensed", sans-serif;
+  margin: 0px;
+  border-width: 0px;
+  border-style: none;
+  white-space: nowrap;
+}
+.bannercontainer .tp-caption.bold_green_text {
+  position: absolute;
+  color: #5b9830;
+  text-shadow: none;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 20px;
+  font-family: "Roboto Condensed", sans-serif;
+  margin: 0px;
+  border-width: 0px;
+  border-style: none;
+  white-space: nowrap;
+}
+.bannercontainer .tp-caption.very_big_white {
+  position: absolute;
+  color: #fff;
+  text-shadow: none;
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 36px;
+  font-family: "Roboto Condensed", sans-serif;
+  margin: 0px;
+  border-width: 0px;
+  border-style: none;
+  white-space: nowrap;
+  padding: 3px 4px;
+  padding-top: 1px;
+  background-color: #7e8e96;
+}
+.bannercontainer .tp-caption.very_big_black {
+  position: absolute;
+  color: #000;
+  text-shadow: none;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 60px;
+  font-family: "Roboto Condensed", sans-serif;
+  margin: 0px;
+  border-width: 0px;
+  border-style: none;
+  white-space: nowrap;
+  padding: 0px 4px;
+  padding-top: 1px;
+  background-color: #fff;
+}
+.bannercontainer .tp-caption.cus_black {
+  position: absolute;
+  color: #232323;
+  font-weight: 700;
+  font-size: 54px;
+  line-height: 54px;
+  font-family: "Roboto Condensed", sans-serif;
+  text-transform: uppercase;
+}
+.bannercontainer .tp-caption.cus_color {
+  position: absolute;
+  color: #5f9a7b;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 64px;
+  font-family: "Roboto Condensed", sans-serif;
+  text-transform: uppercase;
+}
+.bannercontainer .tp-caption.boxshadow {
+  -moz-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+}
+.bannercontainer .tp-caption.black {
+  color: #000;
+  text-shadow: none;
+  font-weight: 300;
+  font-size: 19px;
+  line-height: 19px;
+  font-family: "Roboto Condensed", sans-serif;
+}
+.bannercontainer .tp-caption.noshadow {
+  text-shadow: none;
+}
+.bannercontainer .tp-caption a {
+  color: #ff7302;
+  text-shadow: none;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+}
+.bannercontainer .tp-caption a:hover {
+  color: #ffa902;
+}
+.bannercontainer .tp_inner_padding {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  max-height: none !important;
+}
+.bannercontainer .tp-button {
+  padding: 0 15px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  height: 35px;
+  cursor: pointer;
+  color: #fff !important;
+  font-size: 15px;
+  line-height: 35px !important;
+  font-family: "Roboto Condensed", sans-serif;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+}
+.bannercontainer .button.big {
+  color: #fff;
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.6);
+  font-weight: bold;
+  padding: 9px 20px;
+  font-size: 19px;
+  line-height: 57px !important;
+  background: url(../images/gradient/g40.png) repeat-x top;
+}
+.bannercontainer .purchase:hover, .bannercontainer .button:hover, .bannercontainer .button.big:hover {
+  background-position: bottom, 15px 11px;
+}
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .bannercontainer .button {
+    padding: 4px 8px 3px;
+    line-height: 25px !important;
+    font-size: 11px !important;
+    font-weight: normal;
+  }
+  .bannercontainer a.button {
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    -ms-transition: none;
+  }
+}
+@media only screen and (min-width: 0px) and (max-width: 479px) {
+  .bannercontainer .button {
+    padding: 2px 5px 2px;
+    line-height: 20px !important;
+    font-size: 10px !important;
+  }
+  .bannercontainer a.button {
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    -ms-transition: none;
+  }
+}
+.bannercontainer .button.green, .bannercontainer .button:hover.green, .bannercontainer .purchase.green, .bannercontainer .purchase:hover.green {
+  background-color: #21a117;
+  -webkit-box-shadow: 0px 3px 0px 0px #104d0b;
+  -moz-box-shadow: 0px 3px 0px 0px #104d0b;
+  box-shadow: 0px 3px 0px 0px #104d0b;
+}
+.bannercontainer .button.blue, .bannercontainer .button:hover.blue, .bannercontainer .purchase.blue, .bannercontainer .purchase:hover.blue {
+  background-color: #1d78cb;
+  -webkit-box-shadow: 0px 3px 0px 0px #0f3e68;
+  -moz-box-shadow: 0px 3px 0px 0px #0f3e68;
+  box-shadow: 0px 3px 0px 0px #0f3e68;
+}
+.bannercontainer .button.red, .bannercontainer .button:hover.red, .bannercontainer .purchase.red, .bannercontainer .purchase:hover.red {
+  background-color: #cb1d1d;
+  -webkit-box-shadow: 0px 3px 0px 0px #7c1212;
+  -moz-box-shadow: 0px 3px 0px 0px #7c1212;
+  box-shadow: 0px 3px 0px 0px #7c1212;
+}
+.bannercontainer .button.orange, .bannercontainer .button:hover.orange, .bannercontainer .purchase.orange, .bannercontainer .purchase:hover.orange {
+  background-color: #ff7700;
+  -webkit-box-shadow: 0px 3px 0px 0px #a34c00;
+  -moz-box-shadow: 0px 3px 0px 0px #a34c00;
+  box-shadow: 0px 3px 0px 0px #a34c00;
+}
+.bannercontainer .button.darkgrey, .bannercontainer .button.grey, .bannercontainer .button:hover.darkgrey, .bannercontainer .button:hover.grey, .bannercontainer .purchase.darkgrey, .bannercontainer .purchase:hover.darkgrey {
+  background-color: #555;
+  -webkit-box-shadow: 0px 3px 0px 0px #222;
+  -moz-box-shadow: 0px 3px 0px 0px #222;
+  box-shadow: 0px 3px 0px 0px #222;
+}
+.bannercontainer .button.lightgrey, .bannercontainer .button:hover.lightgrey, .bannercontainer .purchase.lightgrey, .bannercontainer .purchase:hover.lightgrey {
+  background-color: #888;
+  -webkit-box-shadow: 0px 3px 0px 0px #555;
+  -moz-box-shadow: 0px 3px 0px 0px #555;
+  box-shadow: 0px 3px 0px 0px #555;
+}
+.bannercontainer .tp-simpleresponsive .slotholder *, .bannercontainer .tp-simpleresponsive img {
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+}
+.bannercontainer .tp-simpleresponsive .caption, .bannercontainer .tp-simpleresponsive .tp-caption {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  opacity: 0;
+  position: absolute;
+  visibility: hidden;
+}
+.bannercontainer .tp-simpleresponsive img {
+  max-width: none;
+}
+.bannercontainer .noFilterClass {
+  filter: none !important;
+}
+.bannercontainer .tp-bannershadow {
+  margin-left: auto;
+  margin-right: auto;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+}
+.bannercontainer .tp-bannershadow.tp-shadow1 {
+  background: url(../assets/shadow1.png) no-repeat;
+  background-size: 100%;
+  width: 890px;
+  height: 60px;
+  bottom: -30px;
+}
+.bannercontainer .tp-bannershadow.tp-shadow2 {
+  background: url(../assets/shadow2.png) no-repeat;
+  background-size: 100%;
+  width: 890px;
+  height: 110px;
+  bottom: -60px;
+}
+.bannercontainer .tp-bannershadow.tp-shadow3 {
+  background: url(../assets/shadow3.png) no-repeat;
+  background-size: 100%;
+  width: 890px;
+  height: 60px;
+  bottom: -60px;
+}
+.bannercontainer .caption.fullscreenvideo {
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.bannercontainer .caption.fullscreenvideo iframe {
+  width: 100% !important;
+  height: 100% !important;
+}
+.bannercontainer .tp-caption.fullscreenvideo {
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.bannercontainer .tp-caption.fullscreenvideo iframe {
+  width: 100% !important;
+  height: 100% !important;
+}
+.bannercontainer .tpclear {
+  clear: both;
+}
+.bannercontainer .tp-bullets {
+  z-index: 25;
+  position: absolute;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  opacity: 1;
+  -webkit-transition: opacity 0.2s ease-out;
+  -moz-transition: opacity 0.2s ease-out;
+  -o-transition: opacity 0.2s ease-out;
+  -ms-transition: opacity 0.2s ease-out;
+}
+.bannercontainer .tp-bullets.hidebullets {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  opacity: 0;
+}
+.bannercontainer .tp-bullets.simplebullets.navbar {
+  border: 1px solid #666;
+  border-bottom: 1px solid #444;
+  background: url(../assets/boxed_bgtile.png);
+  height: 40px;
+  padding: 0px 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.bannercontainer .tp-bullets.simplebullets.navbar-old {
+  background: url(../assets/navigdots_bgtile.png);
+  height: 35px;
+  padding: 0px 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.bannercontainer .tp-bullets.simplebullets.round .bullet {
+  cursor: pointer;
+  position: relative;
+  background: url(../assets/bullet.png) no-Repeat top left;
+  width: 20px;
+  height: 20px;
+  margin-right: 0px;
+  float: left;
+  margin-top: -10px;
+  margin-left: 3px;
+}
+.bannercontainer .tp-bullets.simplebullets.round .bullet.last {
+  margin-right: 3px;
+}
+.bannercontainer .tp-bullets.simplebullets.round-old .bullet {
+  cursor: pointer;
+  position: relative;
+  background: url(../assets/bullets.png) no-Repeat bottom left;
+  width: 23px;
+  height: 23px;
+  margin-right: 0px;
+  float: left;
+  margin-top: -12px;
+}
+.bannercontainer .tp-bullets.simplebullets.round-old .bullet.last {
+  margin-right: 0px;
+}
+.bannercontainer .tp-bullets.simplebullets.square .bullet {
+  cursor: pointer;
+  position: relative;
+  background: url(../assets/bullets2.png) no-Repeat bottom left;
+  width: 19px;
+  height: 19px;
+  margin-right: 0px;
+  float: left;
+  margin-top: -10px;
+}
+.bannercontainer .tp-bullets.simplebullets.square .bullet.last {
+  margin-right: 0px;
+}
+.bannercontainer .tp-bullets.simplebullets.square-old .bullet {
+  cursor: pointer;
+  position: relative;
+  background: url(../assets/bullets2.png) no-Repeat bottom left;
+  width: 19px;
+  height: 19px;
+  margin-right: 0px;
+  float: left;
+  margin-top: -10px;
+}
+.bannercontainer .tp-bullets.simplebullets.square-old .bullet.last {
+  margin-right: 0px;
+}
+.bannercontainer .tp-bullets.simplebullets.navbar .bullet {
+  cursor: pointer;
+  position: relative;
+  background: url(../assets/bullet_boxed.png) no-Repeat top left;
+  width: 18px;
+  height: 19px;
+  margin-right: 5px;
+  float: left;
+  margin-top: 10px;
+}
+.bannercontainer .tp-bullets.simplebullets.navbar .bullet.first {
+  margin-left: 0px !important;
+}
+.bannercontainer .tp-bullets.simplebullets.navbar .bullet.last {
+  margin-right: 0px !important;
+}
+.bannercontainer .tp-bullets.simplebullets.navbar-old .bullet {
+  cursor: pointer;
+  position: relative;
+  background: url(../assets/navigdots.png) no-Repeat bottom left;
+  width: 15px;
+  height: 15px;
+  margin-left: 5px !important;
+  margin-right: 5px !important;
+  float: left;
+  margin-top: 10px;
+}
+.bannercontainer .tp-bullets.simplebullets.navbar-old .bullet.first {
+  margin-left: 0px !important;
+}
+.bannercontainer .tp-bullets.simplebullets.navbar-old .bullet.last {
+  margin-right: 0px !important;
+}
+.bannercontainer .tp-bullets.simplebullets .bullet:hover, .bannercontainer .tp-bullets.simplebullets .bullet.selected {
+  background-position: top left;
+}
+.bannercontainer .tp-bullets.simplebullets.round .bullet:hover, .bannercontainer .tp-bullets.simplebullets.round .bullet.selected, .bannercontainer .tp-bullets.simplebullets.navbar .bullet:hover, .bannercontainer .tp-bullets.simplebullets.navbar .bullet.selected {
+  background-position: bottom left;
+}
+.bannercontainer .tparrows {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  opacity: 1;
+  -webkit-transition: opacity 0.2s ease-out;
+  -moz-transition: opacity 0.2s ease-out;
+  -o-transition: opacity 0.2s ease-out;
+  -ms-transition: opacity 0.2s ease-out;
+}
+.bannercontainer .tparrows.hidearrows {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  opacity: 0;
+}
+.bannercontainer .tp-leftarrow {
+  z-index: 100;
+  cursor: pointer;
+  position: relative;
+  background: url(../assets/large_left.png) no-Repeat top left;
+  width: 40px;
+  height: 40px;
+}
+.bannercontainer .tp-rightarrow {
+  z-index: 100;
+  cursor: pointer;
+  position: relative;
+  background: url(../assets/large_right.png) no-Repeat top left;
+  width: 40px;
+  height: 40px;
+}
+.bannercontainer .tp-leftarrow.round {
+  z-index: 100;
+  cursor: pointer;
+  position: relative;
+  background: url(../assets/small_left.png) no-Repeat top left;
+  width: 19px;
+  height: 14px;
+  margin-right: 0px;
+  float: left;
+  margin-top: -7px;
+}
+.bannercontainer .tp-rightarrow.round {
+  z-index: 100;
+  cursor: pointer;
+  position: relative;
+  background: url(../assets/small_right.png) no-Repeat top left;
+  width: 19px;
+  height: 14px;
+  margin-right: 0px;
+  float: left;
+  margin-top: -7px;
+}
+.bannercontainer .tp-leftarrow.round-old {
+  z-index: 100;
+  cursor: pointer;
+  position: relative;
+  background: url(../assets/arrow_left.png) no-Repeat top left;
+  width: 26px;
+  height: 26px;
+  margin-right: 0px;
+  float: left;
+  margin-top: -13px;
+}
+.bannercontainer .tp-rightarrow.round-old {
+  z-index: 100;
+  cursor: pointer;
+  position: relative;
+  background: url(../assets/arrow_right.png) no-Repeat top left;
+  width: 26px;
+  height: 26px;
+  margin-right: 0px;
+  float: left;
+  margin-top: -13px;
+}
+.bannercontainer .tp-leftarrow.navbar {
+  z-index: 100;
+  cursor: pointer;
+  position: relative;
+  background: url(../assets/small_left_boxed.png) no-Repeat top left;
+  width: 20px;
+  height: 15px !important;
+  min-height: 15px !important;
+  float: left;
+  margin-right: 6px;
+  margin-top: 12px;
+}
+.bannercontainer .tp-rightarrow.navbar {
+  z-index: 100;
+  cursor: pointer;
+  position: relative;
+  background: url(../assets/small_right_boxed.png) no-Repeat top left;
+  width: 20px;
+  height: 15px !important;
+  min-height: 15px !important;
+  float: left;
+  margin-left: 6px;
+  margin-top: 12px;
+}
+.bannercontainer .tp-leftarrow.navbar-old {
+  z-index: 100;
+  cursor: pointer;
+  position: relative;
+  background: url(../assets/arrowleft.png) no-Repeat top left;
+  width: 9px;
+  height: 16px;
+  float: left;
+  margin-right: 6px;
+  margin-top: 10px;
+}
+.bannercontainer .tp-rightarrow.navbar-old {
+  z-index: 100;
+  cursor: pointer;
+  position: relative;
+  background: url(../assets/arrowright.png) no-Repeat top left;
+  width: 9px;
+  height: 16px;
+  float: left;
+  margin-left: 6px;
+  margin-top: 10px;
+}
+.bannercontainer .tp-leftarrow.navbar-old:hover, .bannercontainer .tp-rightarrow.navbar-old:hover {
+  background-position: left -16px;
+}
+.bannercontainer .tp-leftarrow.navbar-old.thumbswitharrow {
+  margin-right: 10px;
+}
+.bannercontainer .tp-rightarrow.navbar-old.thumbswitharrow {
+  margin-left: 0px;
+}
+.bannercontainer .tp-leftarrow.square {
+  z-index: 100;
+  cursor: pointer;
+  position: relative;
+  background: url(../assets/arrow_left2.png) no-repeat top left;
+  width: 12px;
+  height: 17px;
+  float: left;
+  margin-right: 0px;
+  margin-top: -9px;
+}
+.bannercontainer .tp-rightarrow.square {
+  z-index: 100;
+  cursor: pointer;
+  position: relative;
+  background: url(../assets/arrow_right2.png) no-repeat top left;
+  width: 12px;
+  height: 17px;
+  float: left;
+  margin-left: 0px;
+  margin-top: -9px;
+}
+.bannercontainer .tp-leftarrow.square-old {
+  z-index: 100;
+  cursor: pointer;
+  position: relative;
+  background: url(../assets/arrow_left2.png) no-repeat top left;
+  width: 12px;
+  height: 17px;
+  float: left;
+  margin-right: 0px;
+  margin-top: -9px;
+}
+.bannercontainer .tp-rightarrow.square-old {
+  z-index: 100;
+  cursor: pointer;
+  position: relative;
+  background: url(../assets/arrow_right2.png) no-repeat top left;
+  width: 12px;
+  height: 17px;
+  float: left;
+  margin-left: 0px;
+  margin-top: -9px;
+}
+.bannercontainer .tp-leftarrow.square-old:hover, .bannercontainer .tp-rightarrow.square-old:hover {
+  background-position: left -17px;
+}
+.bannercontainer .tp-leftarrow.default {
+  z-index: 20;
+  cursor: pointer;
+  position: relative;
+  background: url(../assets/large_left.png) no-repeat 0 0;
+  width: 40px;
+  height: 40px;
+  left: 0;
+}
+.bannercontainer .tp-rightarrow.default {
+  z-index: 20;
+  cursor: pointer;
+  position: relative;
+  background: url(../assets/large_right.png) no-repeat 0 0;
+  width: 40px;
+  height: 40px;
+  right: 0;
+}
+.bannercontainer .tp-leftarrow.default:hover, .bannercontainer .tp-rightarrow.default:hover {
+  background-position: left -40px;
+}
+.bannercontainer .tp-leftarrow:hover, .bannercontainer .tp-rightarrow:hover {
+  background-position: left -14px;
+}
+.bannercontainer .tp-bullets.tp-thumbs {
+  z-index: 1000;
+  position: absolute;
+  padding: 3px;
+  background-color: #fff;
+  width: 500px;
+  height: 50px;
+  /* THE DIMENSIONS OF THE THUMB CONTAINER */
+  margin-top: -50px;
+}
+.bannercontainer .fullwidthbanner-container .tp-thumbs {
+  padding: 3px;
+}
+.bannercontainer .tp-bullets.tp-thumbs .tp-mask {
+  width: 500px;
+  height: 50px;
+  /* THE DIMENSIONS OF THE THUMB CONTAINER */
+  overflow: hidden;
+  position: relative;
+}
+.bannercontainer .tp-bullets.tp-thumbs .tp-mask .tp-thumbcontainer {
+  width: 5000px;
+  position: absolute;
+}
+.bannercontainer .tp-bullets.tp-thumbs .bullet {
+  width: 100px;
+  height: 50px;
+  /* THE DIMENSION OF A SINGLE THUMB */
+  cursor: pointer;
+  overflow: hidden;
+  background: none;
+  margin: 0;
+  float: left;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  /*filter: alpha(opacity=50);	*/
+  -moz-opacity: 0.5;
+  -khtml-opacity: 0.5;
+  opacity: 0.5;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+}
+.bannercontainer .tp-bullets.tp-thumbs .bullet:hover, .bannercontainer .tp-bullets.tp-thumbs .bullet.selected {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  opacity: 1;
+}
+.bannercontainer .tp-thumbs img {
+  width: 100%;
+}
+.bannercontainer .tp-bannertimer {
+  width: 100%;
+  height: 10px;
+  background: url(../assets/timer.png) red;
+  position: absolute;
+  z-index: 200;
+}
+.bannercontainer .tp-bannertimer.tp-bottom {
+  bottom: 0px !important;
+  height: 5px;
+}
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .bannercontainer .responsive .tp-bullets.tp-thumbs {
+    width: 300px !important;
+    height: 30px !important;
+  }
+  .bannercontainer .responsive .tp-bullets.tp-thumbs .tp-mask {
+    width: 300px !important;
+    height: 30px !important;
+  }
+  .bannercontainer .responsive .tp-bullets.tp-thumbs .bullet {
+    width: 60px !important;
+    height: 30px !important;
+  }
+}
+@media only screen and (min-width: 0px) and (max-width: 479px) {
+  .bannercontainer .responsive .tp-bullets {
+    display: none;
+  }
+  .bannercontainer .responsive .tparrows {
+    display: none;
+  }
+}
+.bannercontainer .tp-simpleresponsive img {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+}
+.bannercontainer .tp-simpleresponsive a {
+  text-decoration: none;
+}
+.bannercontainer .tp-simpleresponsive ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.bannercontainer .tp-simpleresponsive > ul > li {
+  list-stye: none;
+  position: absolute;
+  visibility: hidden;
+}
+.bannercontainer .caption.slidelink a div, .bannercontainer .tp-caption.slidelink a div {
+  width: 10000px;
+  height: 10000px;
+  background: url(../assets/coloredbg.png) repeat;
+}
+.bannercontainer .tp-loader {
+  background: url(../assets/loader.gif) no-repeat 10px 10px;
+  background-color: #fff;
+  margin: -22px -22px;
+  top: 50%;
+  left: 50%;
+  z-index: 10000;
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+.bannercontainer .tp-transparentimg {
+  content: "url(../assets/transparent.png)";
+}
+.bannercontainer .tp-3d {
+  -webkit-transform-style: preserve-3d;
+  -webkit-transform-origin: 50% 50%;
+}
