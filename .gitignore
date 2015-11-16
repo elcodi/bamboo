@@ -13,3 +13,4 @@
 /composer.phar
 /web/*/
 /vagrant/.vagrant
+.idea

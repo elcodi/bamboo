@@ -1,0 +1,982 @@
+admin:
+    UI:
+        show_code: 'Show HTML code'
+        show_visual: 'Hide HTML code'
+    address:
+        edit:
+            billing_address: 'Billing address for your store'
+            description: 'The address that should appear on the bills from your store. If you own a company that should be its fiscal address. Otherwise will surely be your physical address.'
+        field:
+            address:
+                placeholder: 'e.g. Awesonme Street, 42'
+                title: Address
+            address_more:
+                placeholder: 'e.g. Doe Enterprises'
+                title: 'Address more (optional)'
+            cif:
+                title: 'CIF / NIF'
+            city:
+                title: City
+            comments:
+                placeholder: 'e.g. It''s a house'
+                title: Comments
+            country:
+                title: Country
+            email:
+                placeholder: 'e.g. john.doe@mail.com'
+                title: Email
+            isCompany:
+                title: 'Do you own a company?'
+                value:
+                    company: Company
+                    individual: Individual
+            mobile:
+                placeholder: 'e.g. 555 555 555'
+                title: Cellphone
+            phone:
+                placeholder: 'e.g. 935 555 555'
+                title: Phone
+            postalcode:
+                placeholder: 'e.g. 08080'
+                title: 'Postal code'
+            province:
+                title: Province
+            recipient_name:
+                placeholder: 'e.g. John'
+                title: 'Name / Company'
+            recipient_surname:
+                placeholder: 'e.g. Doe'
+                title: 'Surname (Optional if is company)'
+            save: 'Save address'
+            state:
+                title: State
+        plural: Addresses
+        saved: 'Address saved'
+        select:
+            placeholder: 'Select one'
+        single: Address
+    admin_user:
+        edit: 'Edit "%name%"'
+        error:
+            cant_disable_yourself: 'You can''t disable your own account'
+            cant_remove_yourself: 'You can''t delete your own account'
+        list: 'Administrator list'
+        new: 'Create new Admin User'
+        plural: Administrators
+        saved: 'Changes saved'
+        section:
+            contact:
+                description: 'The contact information for this administrator.'
+                title: 'Contact details'
+            login:
+                description: 'Each user should have a unique e-mail.'
+                title: 'Login details'
+            status:
+                description: 'You can set administrators as active or inactive.'
+                title: 'User status'
+        single: Administrator
+    attribute:
+        edit: 'Edit "%name%"'
+        field:
+            enabled:
+                title: Status
+            name:
+                placeholder: 'e.g. Color'
+                title: Name
+                values: Values
+        list: 'Attribute list'
+        new: 'New attribute'
+        plural: Атрибуты
+        saved: 'Attribute saved'
+        section:
+            basic:
+                description: 'Define the name of the attribute and the values (separated by comma).'
+                title: 'Basic Details'
+            visibility:
+                description: 'Set this attribute as visible or hidden.'
+                title: Visibility
+        single: Attribute
+    blog:
+        plural: Blogs
+        single: Blog
+    blog_post:
+        edit: 'Edit "%name%"'
+        field:
+            content:
+                placeholder: 'e.g. This awesome blog post is exactly what you are lookin for.'
+                title: Content
+            enabled:
+                title: Enabled
+            link:
+                title: Link
+            metadescription:
+                placeholder: 'e.g. This awesome blog post is exactly what you are lookin for.'
+            metakeywords:
+                placeholder: 'e.g. blog,post,awesome'
+            metatitle:
+                placeholder: 'e.g. My Awesome Blog Post'
+            path:
+                customize: 'Customize slug'
+                placeholder: 'e.g. my/awesome/blog-post'
+                title: Path
+            publication_date:
+                title: 'Publication Date'
+            title:
+                placeholder: 'e.g. My Awesome Blog Post'
+                title: Title
+        in_store: 'View at store'
+        list: 'Blog post list'
+        new: 'Create blog post'
+        plural: 'Blog posts'
+        saved: 'Post saved'
+        section:
+            basic:
+                description: 'Provide a very specific title for your blog post that explains and help sell your blog post and description that provides all the information required for your consumers.'
+                title: 'Basic Details'
+            visibility:
+                description: 'Set this blog post as visible or hidden.'
+                title: Visibility
+        show_metrics: 'Show metrics'
+        single: 'Blog post'
+    carrier:
+        action:
+            add_shipping_range: 'Add range'
+        edit: 'Edit "%name%"'
+        error:
+            no_active_carrier: 'Warning! You have no active carrier'
+        field:
+            description:
+                placeholder: 'e.g. Best option for local shipping'
+                title: Description
+            name:
+                placeholder: 'e.g. AwesomeCarrier'
+                title: Name
+            status:
+                title: Enabled
+            taxes:
+                format: '%value%% Tax'
+                title: Taxes
+        info:
+            shipping_rates_before_saving: 'You will be able to add shipping rates after save the carrier'
+        list: 'Carrier list'
+        new: 'New Carrier'
+        plural: Carriers
+        saved: 'Changes saved'
+        section:
+            basic:
+                description: 'Provide the name of the carrier and an internal description if needed.'
+                title: 'Basic Details'
+            shipping_rates:
+                description: 'Add the shipping rates.'
+                title: 'Shipping Rates'
+            taxes:
+                description: 'The taxes that will be applied for this carrier.'
+                title: 'Carrier taxes'
+            visibility:
+                description: 'Set this carrier as enabled or disabled.'
+                title: Visibility
+        single: Carrier
+    catalog:
+        plural: Catalogs
+        single: Catalog
+    categorization:
+        plural: Классификаторы
+        single: Классификатор
+    category:
+        edit: 'Edit "%name%"'
+        field:
+            contains:
+                title: '%count% products inside'
+            enabled:
+                options:
+                    active: Active
+                    inactive: Inactive
+                title: Enabled
+            metadescription:
+                placeholder: 'e.g. This awesome category is exactly what you are lookin for.'
+            metakeywords:
+                placeholder: 'e.g. category,awesome'
+            metatitle:
+                placeholder: 'e.g. My Awesome Category'
+            name:
+                placeholder: 'e.g. My Awesome Category'
+                title: 'Category name'
+            parent:
+                title: Parent
+            root:
+                title: 'Root Category'
+            slug:
+                customize: 'Customize slug'
+                placeholder: 'e.g. my/awesome/category'
+                title: Slug
+        in_store: 'View at the store'
+        list: 'Category list'
+        new: 'New Category'
+        plural: Категории
+        saved: 'Category saved'
+        section:
+            basic:
+                description: 'Provide a very specific name as short as you can that helps your consumers to find the products of this category.'
+                title: 'Basic Details'
+            categorization:
+                description: 'Set your category as root if doesn''t have any parent or it''s going to be parent of others.'
+                title: Categorization
+            edit:
+                description:
+                    - 'Drag & Drop the categories to order or nest one inside others. (2 Level max).'
+                    - 'Click a category to edit.'
+                    - 'Click the trash to delete a category.'
+                title: 'Order & Edit'
+            visibility:
+                description: 'Set this category as visible or hidden.'
+                title: Visibility
+        single: Category
+    communication:
+        plural: Communications
+        single: Коммуникация
+    coupon:
+        edit: 'Edit "%code%"'
+        field:
+            code:
+                placeholder: 'e.g. MYCODE'
+                title: Code
+            count:
+                title: 'Usage Limit'
+            datetime:
+                title: 'Date & Time'
+            description:
+                placeholder: 'e.g. 10% Discount code'
+                title: Description
+            discount:
+                title: '% Amount'
+            enabled:
+                title: Status
+            enforcement:
+                options:
+                    automatic: 'Automatic application'
+                    manual: 'Manual application'
+                title: Mode
+            minimum_purchase:
+                title: 'Minimum purchase'
+            price:
+                title: Amount
+            priority:
+                title: Priority
+            rule:
+                placeholder: 'No rule'
+                title: Rule
+            stackable:
+                title: 'This coupon can be applied when other coupons are present'
+            status:
+                title: Status
+            type:
+                options:
+                    fixed: 'Fixed amount'
+                    percent: 'Percent amount'
+                title: Type
+            used:
+                title: Used
+            valid_from:
+                title: From
+            valid_to:
+                title: To
+        list: 'Coupon list'
+        new: 'New coupon'
+        plural: 'Купоны'
+        saved: 'Coupon saved'
+        section:
+            basic:
+                description:
+                    - 'Set the code name (what users should type in the cart to activate the coupon)'
+                    - 'Set also the description to identify the coupon, the type and the mode to be applied.'
+                title: 'Basic Data'
+            fixed_amount:
+                description: 'Set the fixed amount to discount directly in the cart.'
+                title: 'Fixed amount'
+            percent_amount:
+                description: 'Set the percentage amount to discount directly in the cart.'
+                title: 'Percent amount'
+            rules:
+                description: 'Select the rule the coupon will use and a minimum purchase necessary to apply the coupon (optional).'
+                title: Rules
+            validity:
+                description: 'Set the time validity of the coupon and the status.'
+                title: Validity
+        single: Coupon
+    currency:
+        error:
+            disable_master_currency: 'You can not disable your master currency'
+            setting_disabled_master_currency: 'You can''t set a disabled currency as master'
+        field:
+            iso: ISO
+            master: 'Master currency'
+            name: Name
+            status: Enabled
+            symbol: Symbol
+        list: 'Currency list'
+        plural: Currencies
+        saved:
+            disabled: 'This currancy has been disabled'
+            enabled: 'This currency has been enabled'
+            master: 'Main currency saved'
+        single: Currency
+    customer:
+        edit: 'Edit "%name%"'
+        error:
+            password_change: 'Error changing password'
+        field:
+            guest:
+                title: Guest
+            identity_document:
+                placeholder: 'e.g. 12345678A'
+                title: Identity
+            language:
+                title: 'Preferred language'
+            newsletter:
+                title: Newsletter
+            order_count:
+                title: '# Orders'
+            phone:
+                placeholder: 'e.g. 555 55 55 55'
+                title: Phone
+            username:
+                placeholder: 'e.g. john_doe'
+                title: Username
+        info:
+            password_changed: 'Password successfully changed'
+        list: 'Customer list'
+        new: 'Create new Customer'
+        plural: 'Покупатели'
+        saved: 'Changes saved'
+        section:
+            contact:
+                description: 'The contact information for this user.'
+                title: 'Contact details'
+            login:
+                description: 'Each user should have a unique e-mail and unique username.'
+                title: 'Login details'
+            status:
+                description: 'Set the user status and preferences.'
+                title: 'Status & Preferences'
+        single: Customer
+    dashboard:
+        chart:
+            cart_conversion:
+                billing_shipping: Billing/Shipping
+                cart_view: 'Cart view'
+                ordered: Ordered
+                payment: Payment
+                title: 'Cart conversion'
+            devices:
+                desktop: Desktop
+                mobile: Mobile
+                title: Devices
+            sales:
+                sales: Sales
+                title: Sales
+            traffic_source:
+                direct: Direct
+                referrals: Referrals
+                search_engine: 'Search Engines'
+                title: 'Traffic Source'
+            visitors:
+                title: Visitors
+                total: Total
+                unique: Unique
+        chart_range:
+            last30days: 'Last 30 days'
+            last7days: 'Last 7 days'
+            last90days: 'Last 90 days'
+            today: Today
+            yesterday: Yesterday
+        plural: Dashboards
+        single: 'Панель управления'
+        title: Панель управления
+        view_store: 'Интернет-магазин'
+    identity:
+        field:
+            leitmotiv:
+                placeholder: 'e.g: Awesome products for awesome people'
+                title: Leitmotiv
+            name:
+                placeholder: 'e.g: My Awesome Store'
+                title: 'Store name'
+        less: Less
+        more: More
+        section:
+            backgroundImage:
+                description: 'Add here an image as big as possible (square or vertical format) and it will become the spectacular background image of your online store. If you add a wallpaper image it is better to not use header image.'
+                title: 'Wallpaper image'
+            headerImage:
+                description: 'Add a background image for the header of your store.'
+                title: 'Header image'
+            info:
+                description: 'Provide a the name of your store and a leitmotiv (optional).'
+                title: 'Basic information'
+            logo:
+                description: 'Here you can add an image with your logo. Please use the maximum quality posible.'
+                title: Logo
+            mobileLogo:
+                description: 'This image will be show to the clients using a mobile to navigate your store. Is optional, but if you want to improve the mobile experience, you can.'
+                title: 'Logo for mobile'
+            secondaryLogo:
+                description: 'If you want to customize the logo of the footer (optional) you can.'
+                title: 'Logo for footer'
+        singular: 'Corporate image'
+    image:
+        info:
+            deleted: 'Image deleted'
+            format: 'Format JPG, PNG or GIF. Max 20mb.'
+            principal: 'First image will be the principal image.'
+            reorder: 'You can drag & drop the images to reorder.'
+            upload: 'Upload images'
+            upload_logo: 'Upload Logo'
+            upload_single: 'Upload image'
+        plural: Images
+        single: Image
+    language:
+        error:
+            disable_master_language: 'You can not disable your master language'
+            setting_disabled_master_language: 'You can''t set a disabled language as master'
+        field:
+            iso: ISO
+            master: 'Master language'
+            status: Enabled
+        list: 'Language list'
+        plural: Languages
+        saved:
+            disabled: 'This language has been disabled'
+            enabled: 'This language has been enabled'
+            master: 'Main language saved'
+        single: Language
+    login:
+        action:
+            login: 'Log In'
+            logout: 'Log Out'
+            remember: 'Do you forgot your password?'
+        field:
+            email:
+                placeholder: 'Enter your mail'
+            password:
+                placeholder: 'Enter password'
+        title: 'Login access required'
+    mailing:
+        edit: 'Edit "%title%"'
+        field:
+            content:
+                placeholder: 'e.g. This awesome mailing is exactly what you are lookin for.'
+                title: Content
+            title:
+                placeholder: 'e.g. My Awesome Mailing'
+                title: Title
+        list: 'Mailing list'
+        new: 'Create new mailing'
+        plural: Mailings
+        saved: 'Mailing saved'
+        section:
+            basic:
+                description: 'Provide a descriptive title for your mailing and the content to deliver.'
+                title: 'Basic content'
+        single: Mailing
+    manufacturer:
+        edit: 'Edit "%name%"'
+        field:
+            description:
+                placeholder: 'e.g. This awesome manufacturer is exactly what you are lookin for.'
+                title: Description
+            enabled:
+                options:
+                    active: Active
+                    inactive: Inactive
+                title: Enabled
+            image:
+                title: Image
+            metadescription:
+                placeholder: 'e.g. This awesome manufacturer is exactly what you are lookin for.'
+            metakeywords:
+                placeholder: 'e.g. manufacturer,awesome'
+            metatitle:
+                placeholder: 'e.g. My Awesome Manufacturer'
+            name:
+                placeholder: 'e.g. My Awesome Manufacturer'
+                title: 'Manufacturer name'
+            name_slug:
+                title: 'Name & slug'
+            product_count:
+                title: Products
+            slug:
+                customize: 'Customize slug'
+                placeholder: 'e.g. my/awesome/manufacturer'
+                title: Slug
+        list: 'Manufacturer list'
+        new: 'New Manufacturer'
+        plural: 'Производители'
+        saved: 'Manufacturer saved'
+        section:
+            basic:
+                description: 'Provide a very specific name as short as you can that helps your consumers to find the products of this manufacturer. Also you can add a description that will be shown in the manufacturer page in your store.'
+                title: 'Basic Details'
+            logo:
+                description: 'Upload a logo image of the Manufacturer as bigger as possible. If it doesn''t contain additional texts the better.'
+                title: 'Manufacturer''s Logo'
+            visibility:
+                description: 'Set this manufacturer as visible or hidden.'
+                title: Visibility
+        single: Manufacturer
+    media:
+        list: 'Media list'
+        plural: Media
+        single: Media
+    menu:
+        design: 'Шаблоны'
+    metadata:
+        customize: 'Customize Metadata'
+        disclaimer:
+            - 'This area for advanced users.'
+            - 'Leave this fields in blank to obtain automatically the metadata of your page.'
+        field:
+            metadescription:
+                title: MetaDescription
+            metakeywords:
+                title: MetaKeywords
+            metatitle:
+                title: MetaTitle
+        section:
+            metadata:
+                description: 'Description and keywords in meta tags are commonly used to describe the Web page''s content. Most search engines use these data when adding pages to their search index.'
+                title: Metadata
+    metrics:
+        action:
+            show: 'Show Metrics'
+        info:
+            no_data: 'No data'
+            visitors: Visitors
+        plural: Metrics
+        single: Metric
+        type:
+            line:
+                total: Total
+                unique: Unique
+    name: Admin
+    order:
+        all: 'All orders'
+        details:
+            discount: 'Coupon Discount'
+            item: Item
+            price: Price
+            shipping: Shipping
+            subtotal: Subtotal
+            title: Details
+            units: Units
+        edit: 'Edit #%id%'
+        field:
+            billing_address: 'Billing address'
+            both_addresses: 'Delivery & Billing address'
+            carrier: Carrier
+            customer: Customer
+            date: Date
+            delivery_address: 'Delivery address'
+            id: 'Order #%id%'
+            status: Status
+            total: Total
+        from_user: '%name%''s orders'
+        list: 'Order list'
+        new: 'New order'
+        notes: Notes
+        plural: 'Заказы'
+        single: Order
+        states:
+            title: Status
+        to_user: 'Go to customer'
+        transition:
+            cancel: Cancel
+            delivered: Delivered
+            'order ready': 'Order ready'
+            'picked up by carrier': 'Picked by carrier'
+            'picked up on store': 'Picked on store'
+            refund: Refund
+            return: Return
+    page:
+        edit: 'Edit "%name%"'
+        error:
+            cant_modify_permanent: 'This page is permanent and can''t be modified'
+        field:
+            content:
+                placeholder: 'e.g. This awesome page is exactly what you are lookin for.'
+                title: Content
+            enabled:
+                title: Enabled
+            link:
+                title: Link
+            metadescription:
+                placeholder: 'e.g. This awesome page is exactly what you are lookin for.'
+            metakeywords:
+                placeholder: 'e.g. page,awesome'
+            metatitle:
+                placeholder: 'e.g. My Awesome Page'
+            path:
+                customize: 'Customize path'
+                placeholder: 'e.g. my/awesome/page'
+                title: Path
+            title:
+                placeholder: 'e.g. My Awesome Page'
+                title: Title
+        in_store: 'View at store'
+        list: 'Page list'
+        new: 'New Page'
+        plural: Pages
+        saved: 'Changes saved'
+        section:
+            basic:
+                description: 'Provide a very specific title for your page that explains and help sell your page and description that provides all the information required for your consumers.'
+                title: 'Basic Details'
+            visibility:
+                description: 'Set this page as visible or hidden, and make it visible in your home.'
+                title: Visibility
+        single: Page
+    plugin:
+        app_store: 'App store'
+        field:
+            visibility: 'Enable:'
+        plural: 'Маркетплейс'
+        saved: 'Plugin status saved'
+        section:
+            settings: Settings
+        single: App
+    product:
+        edit: 'Edit "%name%"'
+        error:
+            no_category: 'Warning! This product has no associated category'
+            no_manufacturer: 'Warning! This product has no associated manufacturer'
+            price_negative: 'Warning! The price can not be negative'
+        field:
+            depth:
+                title: 'Depth (in cm)'
+            description:
+                placeholder: 'e.g. This awesome product is exactly what you are lookin for.'
+                title: Description
+            enabled:
+                options:
+                    active: Active
+                    inactive: Inactive
+                title: Visibility
+            height:
+                title: 'Height (in cm)'
+            image:
+                title: Image
+            in_home:
+                title: 'Show in home'
+            main_category:
+                placeholder: 'e.g. Computers, handbags...'
+                title: Category
+            manufacturer:
+                placeholder: 'e.g. Apple, Disney...'
+                title: Manufacturer
+            metadescription:
+                placeholder: 'e.g. This awesome product is exactly what you are lookin for.'
+            metakeywords:
+                placeholder: 'e.g. product,awesome'
+            metatitle:
+                placeholder: 'e.g. My Awesome Product'
+            name:
+                placeholder: 'e.g. My Awesome Product'
+                title: Title
+            name_details:
+                title: 'Name & Details'
+            price:
+                title: Price
+            reduced_price:
+                title: 'Reduced price'
+            sku:
+                placeholder: 'ej. SAU102'
+                title: SKU
+            slug:
+                customize: 'Customize slug'
+                placeholder: 'e.g. my/awesome/product'
+                title: Slug
+            stock:
+                title: Stock
+            weight:
+                title: 'Weight (in g)'
+            width:
+                title: 'Width (in cm)'
+        in_store: View
+        info:
+            variants_before_saving: 'You will be able to add variants after saving the product'
+        list: 'Product list'
+        new: 'New Product'
+        note: Notes
+        plural: 'Продукты'
+        saved: 'Product saved'
+        section:
+            basic:
+                description: 'Provide a very specific title for your product that explains and help sell your product and description that provides all the information required for your consumers.'
+                title: 'Basic Details'
+            categorization:
+                description: 'The product must be clasified under one category and one manufacturer. They will be visible in your store and must help your customers to navigate in your store.'
+                title: Categorization
+            dimensions:
+                description: 'Set the dimensions and weight for your product. This information will be useful to calculate shipping costs.'
+                title: Dimensions
+            pricing:
+                description: 'Set the price for your product, without including taxes nor shipping. Also you can set an offer price.'
+                title: Pricing
+            sku:
+                description: 'SKU is an identifier that allows to identify the products. Each SKU it''s related to just one product.'
+                title: SKU
+            stock:
+                description: 'Configure the stock for your product. Each order will reduce this number.'
+                title: Stock
+            variants:
+                description: 'Variants are diferent versions of this product (color, size... ). Variants can have different prices or other attributes.'
+                title: Variants
+            visibility:
+                description: 'Set this product as visible or hidden, and make it visible in your home.'
+                title: Visibility
+        show_metrics: 'Show metrics'
+        single: Product
+        tag:
+            has_variants: 'Has variants'
+            in_home: Home
+            no_category: 'No category'
+            no_manufacturer: 'No manufacturer'
+    profile:
+        plural: Profiles
+        single: Profile
+    recover_user:
+        action:
+            email_sent:
+                description: 'Please, check your email and follow the instruction to recover your password.'
+                title: 'Email sent'
+        field:
+            email:
+                placeholder: 'Enter your mail'
+            password:
+                placeholder: 'New password'
+            repeat_password:
+                placeholder: 'Repeat password'
+        title: 'New password'
+    remember_user:
+        description: 'Don''t worry, we''ll send you an email to reset your password.'
+        title: 'Forgot your password?'
+    settings:
+        field:
+            currency: 'Currency configuration'
+            product_stock:
+                description: 'Enable this option to activate stock control'
+                title: Stock
+            store_email: 'Store e-mail'
+            store_enabled: 'Store enabled'
+            store_leitmotiv: 'Store Leitmotiv'
+            store_name: 'Store Name'
+            store_phone: 'Store Phone'
+            store_under_construction: 'Store under construction'
+        plural: Настройки
+        saved: 'Settings saved'
+        section:
+            address:
+                title: 'Address & Contact'
+            corporate:
+                title: 'Corporate image'
+            payment:
+                title: 'Payment methods'
+            products:
+                description: 'Set the product data.'
+                title: 'Products Setup'
+            profile:
+                title: 'Corporate Image'
+            store:
+                title: General
+        single: Setting
+    shipping_payment:
+        plural: 'Payments & Shipping'
+        single: 'Payment & Shipping'
+    shipping_range:
+        edit: 'Edit Range "%name%"'
+        field:
+            fromPrice:
+                title: 'From price'
+            fromWeight:
+                title: 'From weight'
+            name:
+                placeholder: 'e.g. Delivery in 3-5 days'
+                title: 'Shipping range name'
+            price:
+                title: Price
+            toPrice:
+                title: 'To price'
+            toWeight:
+                title: 'To weight'
+            to_zone:
+                title: 'To Zone'
+            type:
+                options:
+                    price: 'Based on order price'
+                    weight: 'Based on order weight'
+                title: 'Prices will be calculated…'
+            value:
+                price_format: 'From %from% to %to%'
+                title: Value
+                weight_format: 'From %from% g to %to% g'
+        list: 'Shipping Range list'
+        new: 'Create New Range'
+        plural: 'Shipping ranges'
+        saved: 'Changes saved'
+        section:
+            basic:
+                description: 'Provide the name of the shipping range and in what zone it will be available.'
+                title: 'Basic Details'
+            pricing:
+                description: 'Set the price for this shipping range and define if it''s going to be calculated based on order price or order weight.'
+                title: Pricing
+            visibility:
+                description: 'Set this shipping range as enabled or disabled.'
+                title: Visibility
+        single: 'Shipping range'
+    store:
+        field:
+            enabled:
+                title: 'Store Enabled'
+            routingStrategy:
+                custom: 'No prefix for languages, only translated urls'
+                prefix: 'All urls have a language prefix'
+                prefix_except_default: 'All urls have a language prefix except the default language'
+                title: 'Multilanguage urls format'
+            useStock:
+                title: 'Activate stock Control'
+        saved: 'Settings saved.'
+        section:
+            advanced:
+                description: 'Advanced settings for your store.'
+                title: Advanced
+            status:
+                description: 'Controls if the store is opened or closed.'
+                title: Status
+            stock:
+                description: 'If you activate this option you will be able to setup the stock in your products.'
+                title: Stock
+        settings: Settings
+    template:
+        action:
+            preview: Preview
+        label:
+            status: 'Enable:'
+        plural: Themes
+        single: Theme
+    user:
+        field:
+            birthday:
+                title: Birthday
+            email:
+                placeholder: 'e.g. john.doe@mail.com'
+                title: Email
+            enabled:
+                options:
+                    active: Active
+                    inactive: Inactive
+                title: Status
+            firstname:
+                placeholder: 'e.g. John'
+                title: 'First name'
+            fullname:
+                title: 'Full name'
+            gender:
+                options:
+                    female: Female
+                    male: Male
+                title: Gender
+            lastname:
+                placeholder: 'e.g. Doe'
+                title: 'Last name'
+            password:
+                title: Password
+            username:
+                title: Username
+    variant:
+        edit: 'Edit variant "%name%"'
+        field:
+            enabled:
+                options:
+                    active: Active
+                    inactive: Inactive
+                title: Status
+            name:
+                title: 'Variant name'
+            options:
+                title: 'Select one or more attributes:'
+            price:
+                title: Price
+            reduced_price:
+                title: 'Reduced price'
+            stock:
+                title: Stock
+        list: 'Variant list'
+        new: 'New Variant'
+        plural: Variants
+        saved: 'Variant saved'
+        section:
+            attributes:
+                description: 'Set the principal attributes of this variant.'
+                title: Attributes
+            pricing:
+                description: 'Set the price for your variant, without including taxes or shipping. Also you can set an offer price.'
+                title: Pricing
+            visibility:
+                description: 'Set this variant as visible or hidden.'
+                title: Visibility
+        single: Variant
+plugin:
+    paymill:
+        register:
+            call_to_action: 'Create a Paymill account NOW!'
+            title: 'Don''t you have a Paymill account?'
+        settings:
+            private_key: 'Paymill payment private key'
+            public_key: 'Paymill payment public key'
+        title: 'Paymill Account Setup'
+    paypal:
+        register:
+            call_to_action: 'Create a PayPal account'
+            title: 'Don''t you have a PayPal account?'
+        settings:
+            recipient_email: 'Payment Paypal recipient email'
+        title: 'Paypal Account Setup'
+plugin_type:
+    app: Apps
+    payment: 'Payment methods'
+    shipping: 'Доставка'
+    social: Social
+ui:
+    address:
+        address: Address
+        city: City
+        comment: Comment
+        full_name: 'Full name'
+        phone: Phone
+        zipcode: Zipcode
+    confirm:
+        delete: 'Are you sure you want to delete it?'
+    date:
+        today_at: 'Today at %time%'
+        yesterday_at: 'Yesterday at %time%'
+    delete:
+        success: 'Correctly deleted'
+    editor:
+        help: 'Select some text to get some format options'
+    forms:
+        cancel: Cancel
+        delete: Delete
+        save: Save
+    label:
+        disabled: Disabled
+        enabled: Enabled
+    language:
+        master_language: 'Master Language (Mandatory)'
+    list:
+        create_first: 'Create my first %item%.'
+        no_items: 'There are no %items%.'
+    paginator:
+        elements: 'Showing %first% to %last% from %total% entries.'
+    tags:
+        placeholder:
+            comma_separated: 'Add tags separated by comma.'
