@@ -1,0 +1,9 @@
+elcodi_plugin:
+    stripe:
+        name: Stripe
+        field:
+            private_key:
+                label: 'Clave privada'
+            public_key:
+                label: 'Clave pública'
+        description: '<p>Stripe permite aos seus usuarios pagar empregando unha tarxeta de crédito.<br/>Para habilitalo necesitas crear unha conta de Stripe e copiar aquí as túas claves privadas e públicas.</p><p>Non tes unha conta de Stripe?</p> <a href=''https://dashboard.stripe.com/register'' class=''button'' target=''_blank''>Crear unha conta nova</a>'
