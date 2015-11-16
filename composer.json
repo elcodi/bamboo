@@ -67,7 +67,7 @@
         "hwi/oauth-bundle": "0.4.*@dev",
         "snc/redis-bundle": "^1.1.9",
         "predis/predis": "^1.0.1",
-        "jms/i18n-routing-bundle": "1.1.1",
+        "acasademont/i18n-routing-bundle": "2.0.0",
 
         "mmoreram/controller-extra-bundle": "^1.1.11",
         "mmoreram/extractor": "^1.1.1",
