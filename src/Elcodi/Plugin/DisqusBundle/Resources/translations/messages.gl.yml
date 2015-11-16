@@ -1,0 +1,12 @@
+elcodi_plugin:
+    disqus:
+        description: 'Integración da ttenda con Disqus'
+        field:
+            disqus_enabled_blog_post:
+                label: 'Activar disqus nas entradas do blog'
+            disqus_identifier:
+                placeholder: 'p.ex. 123456789'
+                label: Identificador
+            disqus_enabled_product:
+                label: 'Habilitar Disqus nas páxinas de produto'
+        name: Disqus
