@@ -38,5 +38,5 @@ install:
 
 test_script:
   - cd %APPVEYOR_BUILD_FOLDER%
-  - bin\behat.bat -fprogress --tags="~javascript"
-  - bin\phpunit.bat --verbose
+  - 'bin\behat.bat -fprogress --tags="~javascript&&@store"'
+  - 'bin\phpunit.bat --verbose'
