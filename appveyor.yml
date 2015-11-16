@@ -4,7 +4,7 @@ clone_folder: c:\projects\elcodi
 
 environment:
   composer_oauth_token:
-    secure: dt/I7q2VlRVoaVYSvTSGjLP6whbow65qLUbZZXhy01ptcsoLtPFdpJysswEIghoP
+    secure: 5C0BklEY/lq+iNw/I6jxBgwqC9yWeQL+/Am9vJQ0gRRg1gddmkZhkAZOmxplfw1i
 
 matrix:
   fast_finish: true
