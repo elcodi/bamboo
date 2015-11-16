@@ -7,8 +7,6 @@ services:
         class: Elcodi\Plugin\CustomShippingBundle\EventListener\ShippingCollectEventListener
         arguments:
             - @elcodi_plugin.custom_shipping
-            - @elcodi.repository.carrier
-            - @elcodi.converter.currency
-            - @elcodi.matcher.zone
+            - @elcodi_plugin.custom_shipping.provider.shipping_ranges
         tags:
             - { name: kernel.event_listener, event: shipping.collect, method: addCustomShippingMethods }

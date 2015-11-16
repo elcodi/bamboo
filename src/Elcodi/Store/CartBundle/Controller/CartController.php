@@ -77,17 +77,6 @@ class CartController extends Controller
         FormView $formView,
         CartInterface $cart
     ) {
-        $relatedProducts = [];
-
-        if ($cart->getCartLines()->count()) {
-            $relatedProducts = $this
-                ->get('elcodi_store.provider.product_collection')
-                ->getRelatedProducts($cart
-                    ->getCartLines()
-                    ->first()
-                    ->getProduct(), 3);
-        }
-
         $cartCoupons = $this
             ->get('elcodi.manager.cart_coupon')
             ->getCartCoupons($cart);
@@ -98,7 +87,6 @@ class CartController extends Controller
                 'cart'             => $cart,
                 'cartCoupons'      => $cartCoupons,
                 'form'             => $formView,
-                'related_products' => $relatedProducts,
             ]
         );
     }
@@ -376,5 +364,47 @@ class CartController extends Controller
                 'cart' => $cart,
             ]
         );
+    }
+    /**
+     * Product related view
+     *
+     * @param CartInterface $cart Cart
+     *
+     * @return array
+     *
+     * @Route(
+     *      path = "/related",
+     *      name = "store_cart_related",
+     *      methods = {"GET"}
+     * )
+     *
+     * @AnnotationEntity(
+     *      class = {
+     *          "factory" = "elcodi.wrapper.cart",
+     *          "method" = "get",
+     *          "static" = false,
+     *      },
+     *      name = "cart"
+     * )
+     */
+    public function relatedAction(CartInterface $cart)
+    {
+        $purchasables = [];
+        $cartLines = $cart->getCartLines();
+
+        /**
+         * @var CartLineInterface $cartLine
+         */
+        foreach ($cartLines as $cartLine) {
+            $purchasables[] = $cartLine->getPurchasable();
+        }
+
+        $relatedProducts = $this
+            ->get('elcodi.related_purchasables_provider')
+            ->getRelatedPurchasablesFromArray($purchasables, 3);
+
+        return $this->renderTemplate('Modules:_product-related.html.twig', [
+            'products' => $relatedProducts,
+        ]);
     }
 }
