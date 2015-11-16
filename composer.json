@@ -58,7 +58,7 @@
         "jms/serializer-bundle": "^0.13.0",
 
         "guzzlehttp/guzzle": "^5.2",
-        "ornicar/gravatar-bundle" : "1.1.2",
+        "ornicar/gravatar-bundle" : "1.1.3",
         "knplabs/knp-gaufrette-bundle": "^0.1.7",
         "paymentsuite/paypal-web-checkout-bundle": "^1.5.2",
         "paymentsuite/stripe-bundle": "^1.5.2",
