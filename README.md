@@ -3,6 +3,7 @@ Bamboo e-commerce
 
 [![Build Status](https://travis-ci.org/elcodi/bamboo.svg?branch=master)](https://travis-ci.org/elcodi/bamboo)
 [![Build status](https://ci.appveyor.com/api/projects/status/o6tiwno8tw4om86h/branch/master?svg=true)](https://ci.appveyor.com/project/mmoreram/bamboo/branch/master)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 Welcome to Bamboo e-commerce - a fully-functional e-commerce application built
 using [Elcodi] components on top of the [Symfony] framework.
