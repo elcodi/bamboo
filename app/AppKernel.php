@@ -159,6 +159,11 @@ class AppKernel extends Kernel
             new Elcodi\Plugin\FreePaymentBundle\ElcodiFreePaymentBundle(),
             new Elcodi\Plugin\StripeBundle\ElcodiStripeBundle(),
             new Elcodi\Plugin\CustomShippingBundle\ElcodiCustomShippingBundle(),
+
+            /**
+             * Elcodi Templates
+             */
+            new Elcodi\Themes\MotulTemplateBundle\MotulTemplateBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
