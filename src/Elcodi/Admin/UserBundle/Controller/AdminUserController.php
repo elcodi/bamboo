@@ -149,6 +149,16 @@ class AdminUserController extends AbstractAdminController
         $isValid
     ) {
         if ($isValid) {
+            // change user password
+            if ($form->get('password')->getData()) {
+                $newPassword = $form
+                    ->get('new_password')
+                    ->get('first')
+                    ->getData();
+                
+                $adminUser->setPassword($newPassword);
+            }
+
             $this->flush($adminUser);
 
             $this->addFlash(
