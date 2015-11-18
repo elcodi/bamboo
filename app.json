@@ -63,5 +63,6 @@
     ],
     "logo": "http://elcodi.io/img/icon/apple-icon-180x180.png",
     "name": "Bamboo E-commerce",
+    "success_url": "/admin",
     "website": "http://elcodi.io/"
 }
