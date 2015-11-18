@@ -2,6 +2,10 @@ build: false
 platform: x86
 clone_folder: c:\projects\elcodi
 
+environment:
+  composer_oauth_token:
+    secure: 5C0BklEY/lq+iNw/I6jxBgwqC9yWeQL+/Am9vJQ0gRRg1gddmkZhkAZOmxplfw1i
+
 matrix:
   fast_finish: true
 
@@ -9,11 +13,12 @@ cache:
   - '%LOCALAPPDATA%\Composer\files'
 
 init:
-  - SET PATH=C:\Program Files\OpenSSL;c:\tools\php;%PATH%
+  - SET PATH=C:\Program Files\OpenSSL;c:\tools\php;C:\tools\SQLite\;%PATH%
 
 install:
   - cinst -y OpenSSL.Light
   - cinst -y php
+  - cinst -y sqlite
   - cd c:\tools\php
   - copy php.ini-production php.ini /Y
   - echo extension_dir=ext >> php.ini
@@ -28,9 +33,10 @@ install:
   - echo extension=php_pdo_sqlite.dll >> php.ini
   - cd %APPVEYOR_BUILD_FOLDER%
   - php -r "readfile('http://getcomposer.org/installer');" | php
+  - php composer.phar config -g github-oauth.github.com %composer_oauth_token%
   - php composer.phar install --prefer-dist --no-interaction --no-progress
 
 test_script:
   - cd %APPVEYOR_BUILD_FOLDER%
-  - bin\behat.bat -fprogress --tags="~javascript"
-  - bin\phpunit.bat --verbose
+  - 'bin\behat.bat -fprogress --tags="~javascript&&@store"'
+  - 'bin\phpunit.bat --verbose'
