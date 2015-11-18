@@ -71,6 +71,9 @@ admin:
             login:
                 description: 'Each user should have a unique e-mail.'
                 title: 'Login details'
+            password:
+                description: 'Change admin password.'
+                title: 'Password'
             status:
                 description: 'You can set administrators as active or inactive.'
                 title: 'User status'
@@ -888,6 +891,11 @@ admin:
             lastname:
                 placeholder: 'e.g. Doe'
                 title: 'Last name'
+            new_password:
+                first:
+                    title: 'New Password'
+                second:
+                    title: 'Repeat Password'
             password:
                 title: Password
             username:
