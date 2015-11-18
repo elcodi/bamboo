@@ -1,0 +1,4 @@
+elcodi_plugin:
+    free_payment:
+        description: 'Soporte para el pago por transferencia para tu tienda'
+        name: 'Pago por transferencia'

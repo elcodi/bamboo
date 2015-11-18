@@ -1,0 +1,4 @@
+elcodi_plugin:
+    free_payment:
+        name: 'Pago por transferencia'
+        description: 'Integración de pago por transferencia para a túa tenda'

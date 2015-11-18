@@ -599,6 +599,7 @@ admin:
             'picked up on store': 'Picked on store'
             refund: Refund
             return: Return
+            pay: Pay
     page:
         edit: 'Edit "%name%"'
         error:

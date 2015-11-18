@@ -15,7 +15,7 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-namespace Elcodi\Plugin\FreePaymentBundle\EventListener;
+namespace Elcodi\Plugin\BankwireBundle\EventListener;
 
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
@@ -67,18 +67,18 @@ class PaymentCollectEventListener
             ->plugin
             ->isUsable()
         ) {
-            $freePayment = new PaymentMethod(
+            $bankwire = new PaymentMethod(
                 $this
                     ->plugin
                     ->getHash(),
-                'elcodi_plugin.free_payment.name',
-                'elcodi_plugin.free_payment.description',
+                'elcodi_plugin.bankwire.name',
+                'elcodi_plugin.bankwire.description',
                 $this
                     ->router
-                    ->generate('paymentsuite_freepayment_execute')
+                    ->generate('paymentsuite_bankwire_execute')
             );
 
-            $event->addPaymentMethod($freePayment);
+            $event->addPaymentMethod($bankwire);
         }
     }
 }

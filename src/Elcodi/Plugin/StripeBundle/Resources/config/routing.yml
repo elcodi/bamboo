@@ -1,4 +1,2 @@
-stripe_execute:
-    path: /payment/stripe/execute
-    defaults:
-        _controller: StripeBundle:Stripe:execute
+stripe_routes:
+    resource: "@StripeBundle/Resources/config/routing.yml"

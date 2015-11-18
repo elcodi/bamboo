@@ -1,7 +1,5 @@
 paypal_web_checkout:
     business: default
-    payment_process:
-        route: store_payment_paypal_web_checkout_process
     payment_success:
         route: store_order_thanks
         order_append: true
@@ -9,7 +7,3 @@ paypal_web_checkout:
     payment_cancel:
         route: store_homepage
         order_append: false
-    payment_fail:
-        route: store_checkout_payment_fail
-        order_append: true
-        order_append_field: id

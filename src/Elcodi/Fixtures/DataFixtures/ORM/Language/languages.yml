@@ -60,10 +60,10 @@ fi:
     enabled: 1
 fr:
     name: French
-    enabled: 0
+    enabled: 1
 gl:
     name: Galician
-    enabled: 0
+    enabled: 1
 ka:
     name: Georgian
     enabled: 0
@@ -147,7 +147,7 @@ ru:
     enabled: 0
 sr:
     name: Serbian
-    enabled: 0
+    enabled: 1
 sk:
     name: Slovak
     enabled: 0

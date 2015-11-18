@@ -32,10 +32,10 @@ Feature: Test payment
     And I go to "/cart/payment"
     And I should see "Card number"
     And I fill in the following:
-      | stripe_view_credit_cart                  | 4242424242424242 |
-      | stripe_view_credit_cart_security         | 123              |
-      | stripe_view_credit_cart_expiration_month | 12               |
-      | stripe_view_credit_cart_expiration_year  | 2020             |
+      | stripe_view_credit_card                  | 4242424242424242 |
+      | stripe_view_credit_card_security         | 123              |
+      | stripe_view_credit_card_expiration_month | 12               |
+      | stripe_view_credit_card_expiration_year  | 2020             |
     And I press "payment-submit"
     And I should be on "/order/1/thanks"
     And I should see "$5.41"

@@ -1,0 +1,12 @@
+services:
+
+    #
+    # Twig renderer
+    #
+    elcodi_plugin.bankwire.event_listener.payment_collect:
+        class: Elcodi\Plugin\BankwireBundle\EventListener\PaymentCollectEventListener
+        arguments:
+            - "@router"
+            - "@elcodi_plugin.bankwire"
+        tags:
+            - { name: kernel.event_listener, event: payment.collect, method: addFreePaymentPaymentMethod }

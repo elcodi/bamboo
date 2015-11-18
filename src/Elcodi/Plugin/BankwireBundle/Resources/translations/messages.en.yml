@@ -1,0 +1,4 @@
+elcodi_plugin:
+    bankwire:
+        description: 'Transfer payment integration for your shop'
+        name: 'Transfer payment'

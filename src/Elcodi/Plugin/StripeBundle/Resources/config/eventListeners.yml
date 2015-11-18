@@ -6,11 +6,10 @@ services:
     elcodi_plugin.stripe.event_listener.payment_collect:
         class: Elcodi\Plugin\StripeBundle\EventListener\PaymentCollectEventListener
         arguments:
-            - "@router"
             - "@elcodi_plugin.stripe"
-            - "@elcodi_plugin.stripe.public_key"
+            - "@paymentsuite.bridge"
             - "@form.factory"
-            - "@payment.bridge"
             - "@templating"
+            - "@elcodi_plugin.stripe.public_key"
         tags:
             - { name: kernel.event_listener, event: payment.collect, method: addStripePaymentMethod }

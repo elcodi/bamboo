@@ -159,6 +159,7 @@ class AppKernel extends Kernel
             'Elcodi\Plugin\FreePaymentBundle\ElcodiFreePaymentBundle',
             'Elcodi\Plugin\StripeBundle\ElcodiStripeBundle',
             'Elcodi\Plugin\CustomShippingBundle\ElcodiCustomShippingBundle',
+            'Elcodi\Plugin\BankwireBundle\ElcodiBankwireBundle',
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'])) {

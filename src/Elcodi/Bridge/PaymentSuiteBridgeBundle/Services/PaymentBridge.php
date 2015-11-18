@@ -17,6 +17,7 @@
 
 namespace Elcodi\Bridge\PaymentSuiteBridgeBundle\Services;
 
+use LogicException;
 use PaymentSuite\PaymentCoreBundle\Services\Interfaces\PaymentBridgeInterface;
 
 use Elcodi\Component\Cart\Entity\Interfaces\OrderInterface;
@@ -135,7 +136,7 @@ class PaymentBridge implements PaymentBridgeInterface
     /**
      * Get the currency in which the order is paid
      *
-     * @throws \LogicException
+     * @throws LogicException
      *
      * @return string
      */
@@ -162,7 +163,7 @@ class PaymentBridge implements PaymentBridgeInterface
             return $currency->getIso();
         }
 
-        throw new \LogicException(
+        throw new LogicException(
             sprintf(
                 'Invalid Currency for Order [%d]',
                 $this->getOrderId()
@@ -197,7 +198,9 @@ class PaymentBridge implements PaymentBridgeInterface
                 ->getAmount();
         }
 
-        $amount = $this->order->getAmount();
+        $amount = $this
+            ->order
+            ->getAmount();
 
         if ($amount instanceof Money) {
             return $this
@@ -206,7 +209,7 @@ class PaymentBridge implements PaymentBridgeInterface
                 ->getAmount();
         }
 
-        throw new \LogicException(
+        throw new LogicException(
             sprintf(
                 'Invalid Amount for Order [%d]',
                 $this->getOrderId()
@@ -284,18 +287,26 @@ class PaymentBridge implements PaymentBridgeInterface
             }
 
             // We add the shipping costs as a new "shadow" line in the extraData structure.
-            if ($this->order->getShippingAmount()->isGreaterThan(Money::create(0, $currency))) {
+            $shippingAmount = $this
+                ->order
+                ->getShippingAmount();
+
+            if ($shippingAmount->isGreaterThan(Money::create(0, $shippingAmount->getCurrency()))) {
                 $extraData['items'][] = [
                     'item_name' => 'shipping',
-                    'item_currency_code' => $this->getCurrency(),
+                    'item_currency_code' => $shippingAmount->getCurrency(),
                     'quantity' => 1,
-                    'amount' => $this->order->getShippingAmount()->getAmount(),
+                    'amount' => $shippingAmount->getAmount(),
                 ];
             }
 
             // We add the coupon discounts as a new "shadow" line in the extraData structure.
-            if ($this->order->getCouponAmount()->isGreaterThan(Money::create(0, $currency))) {
-                $extraData['discount_amount_cart'] = $this->order->getCouponAmount()->getAmount();
+            $couponAmount = $this
+                ->order
+                ->getCouponAmount();
+
+            if ($couponAmount->isGreaterThan(Money::create(0, $couponAmount->getCurrency()))) {
+                $extraData['discount_amount_cart'] = $couponAmount->getAmount();
             }
 
             $extraData['order_description'] = implode(" - ", $orderDescription);
@@ -311,6 +322,12 @@ class PaymentBridge implements PaymentBridgeInterface
      */
     public function isOrderPaid()
     {
-        return true;
+        return $this->order instanceof OrderInterface
+            ? $this
+                ->order
+                ->getPaymentStateLineStack()
+                ->getLastStateLine()
+                ->getName('paid')
+            : false;
     }
 }

@@ -1,0 +1,9 @@
+services:
+
+    #
+    # Plugin
+    #
+    elcodi_plugin.bankwire:
+        parent: elcodi.abstract_plugin
+        arguments:
+            - "Elcodi\\Plugin\\BankwireBundle\\ElcodiBankwireBundle"

@@ -17,9 +17,8 @@
 
 namespace Elcodi\Plugin\StoreSetupWizardBundle\Controller;
 
+use Elcodi\Plugin\CustomShippingBundle\Entity\Interfaces\CarrierInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
-use Elcodi\Component\Shipping\Entity\Interfaces\CarrierInterface;
 
 /**
  * Class AdminController
@@ -33,8 +32,7 @@ class WizardController extends Controller
      */
     public function viewAction()
     {
-        $wizardStatusService = $this
-            ->get('elcodi_plugin.store_setup_wizard.wizard_status');
+        $wizardStatusService = $this->get('elcodi_plugin.store_setup_wizard.wizard_status');
         $stepsFinished = $wizardStatusService->getStepsFinishStatus();
 
         $firstCarrier = $this
