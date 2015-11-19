@@ -13,7 +13,13 @@
   lineinfile: dest=/etc/php5/fpm/php.ini
               regexp='date.timezone ='
               line='date.timezone = {{ server.timezone }}'
+
 - name: enabling opcache
   lineinfile: dest=/etc/php5/fpm/php.ini
               regexp=';?opcache.enable=\d'
               line='opcache.enable=1'
+
+- name: ensure xdebug.max_nesting_level is set to 255 in fpm php.ini
+  lineinfile: dest=/etc/php5/fpm/php.ini
+              regexp='xdebug.max_nesting_level ='
+              line='xdebug.max_nesting_level = 255'

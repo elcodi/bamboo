@@ -62,7 +62,6 @@ class AppKernel extends Kernel
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
             new Snc\RedisBundle\SncRedisBundle(),
             new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
-            new JMS\TranslationBundle\JMSTranslationBundle(),
             new Mmoreram\ControllerExtraBundle\ControllerExtraBundle(),
             new Mmoreram\CacheFlushBundle\CacheFlushBundle(),
             new Mmoreram\HttpHeadersBundle\HttpHeadersBundle(),

@@ -1,0 +1,8 @@
+elcodi_plugin:
+    twitter:
+        description: 'Integración da tenda con Twitter'
+        field:
+            twitter_account:
+                placeholder: 'p.ex. xoanalonso'
+                label: 'Conta de Twitter'
+        name: Twitter
