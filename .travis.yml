@@ -33,10 +33,14 @@ before_install:
 install:
   - composer update --prefer-dist --no-interaction --no-progress
 
+before_script:
+    - app/console server:run &
+
 script:
-  - bin/behat -fprogress --tags="~javascript"
+  - bin/behat -fprogress
   - bin/phpunit
   - php app/console visithor:go --format=pretty --env=test
+
 
 notifications:
   email: false
