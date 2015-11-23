@@ -33,6 +33,7 @@ class MenuBuilder extends AbstractMenuBuilder implements MenuBuilderInterface
      */
     public function build(MenuInterface $menu)
     {
+
         $menu
             ->addSubnode(
                 $this

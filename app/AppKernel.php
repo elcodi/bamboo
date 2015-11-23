@@ -158,7 +158,7 @@ class AppKernel extends Kernel
             new Elcodi\Plugin\FreePaymentBundle\ElcodiFreePaymentBundle(),
             new Elcodi\Plugin\StripeBundle\ElcodiStripeBundle(),
             new Elcodi\Plugin\CustomShippingBundle\ElcodiCustomShippingBundle(),
-
+            new Elcodi\Plugin\ClearCacheBundle\ElcodiClearCacheBundle(),
             /**
              * Elcodi Templates
              */
