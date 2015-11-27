@@ -17,12 +17,12 @@
 
 namespace Elcodi\Plugin\CustomShippingBundle;
 
+use Mmoreram\SymfonyBundleDependencies\DependentBundleInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\HttpKernel\KernelInterface;
 
-use Elcodi\Bundle\CoreBundle\Interfaces\DependentBundleInterface;
 use Elcodi\Component\Plugin\Interfaces\PluginInterface;
 use Elcodi\Plugin\CustomShippingBundle\CompilerPass\MappingCompilerPass;
 use Elcodi\Plugin\CustomShippingBundle\DependencyInjection\ElcodiCustomShippingExtension;

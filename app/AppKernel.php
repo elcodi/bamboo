@@ -18,7 +18,7 @@
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\HttpKernel\Bundle\BundleInterface;
-use Elcodi\Bundle\CoreBundle\Traits\BundleDependenciesResolver;
+use Mmoreram\SymfonyBundleDependencies\BundleDependenciesResolver;
 
 /**
  * Class AppKernel

@@ -18,16 +18,14 @@
 namespace Elcodi\Admin\PaymentBundle;
 
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
-use Symfony\Component\HttpKernel\KernelInterface;
 
 use Elcodi\Admin\PaymentBundle\DependencyInjection\AdminPaymentExtension;
 use Elcodi\Bundle\CoreBundle\Abstracts\AbstractElcodiBundle;
-use Elcodi\Bundle\CoreBundle\Interfaces\DependentBundleInterface;
 
 /**
  * Class AdminPaymentBundle
  */
-class AdminPaymentBundle extends AbstractElcodiBundle implements DependentBundleInterface
+class AdminPaymentBundle extends AbstractElcodiBundle
 {
     /**
      * Returns the bundle's container extension.
@@ -37,19 +35,5 @@ class AdminPaymentBundle extends AbstractElcodiBundle implements DependentBundle
     public function getContainerExtension()
     {
         return new AdminPaymentExtension();
-    }
-
-    /**
-     * Return all bundle dependencies.
-     *
-     * Values can be a simple bundle namespace or its instance
-     *
-     * @return array Bundle instances
-     */
-    public static function getBundleDependencies(KernelInterface $kernel)
-    {
-        return [
-              'Elcodi\Admin\CoreBundle\AdminCoreBundle',
-        ];
     }
 }

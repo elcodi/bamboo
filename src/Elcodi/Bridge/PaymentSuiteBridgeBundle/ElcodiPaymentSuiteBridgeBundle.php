@@ -17,13 +17,13 @@
 
 namespace Elcodi\Bridge\PaymentSuiteBridgeBundle;
 
+use Mmoreram\SymfonyBundleDependencies\DependentBundleInterface;
 use Symfony\Component\Console\Application;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\HttpKernel\KernelInterface;
 
 use Elcodi\Bridge\PaymentSuiteBridgeBundle\DependencyInjection\ElcodiPaymentSuiteBridgeExtension;
-use Elcodi\Bundle\CoreBundle\Interfaces\DependentBundleInterface;
 
 /**
  * Class ElcodiPaymentSuiteBridgeBundle

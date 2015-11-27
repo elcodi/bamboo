@@ -73,8 +73,9 @@
         "mmoreram/extractor": "^1.1.1",
         "mmoreram/cache-flush-bundle": "0.1.2",
         "mmoreram/http-headers-bundle": "1.0.0",
+        "mmoreram/symfony-bundle-dependencies": "^1.0",
 
-        "elcodi/elcodi": "^1.0.6"
+        "elcodi/elcodi": "^1.0.9"
     },
     "replace": {
         "elcodi-templates/template": "self.version",
