@@ -17,17 +17,16 @@
 
 namespace Elcodi\Plugin\StoreSetupWizardBundle;
 
-use Symfony\Component\Console\Application;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
 
+use Elcodi\Bundle\CoreBundle\Abstracts\AbstractElcodiBundle;
 use Elcodi\Component\Plugin\Interfaces\PluginInterface;
 use Elcodi\Plugin\StoreSetupWizardBundle\DependencyInjection\ElcodiStoreSetupWizardExtension;
 
 /**
  * Class ElcodiStoreSetupWizardBundle
  */
-class ElcodiStoreSetupWizardBundle extends Bundle implements PluginInterface
+class ElcodiStoreSetupWizardBundle extends AbstractElcodiBundle implements PluginInterface
 {
     /**
      * Returns the bundle's container extension.
@@ -37,19 +36,5 @@ class ElcodiStoreSetupWizardBundle extends Bundle implements PluginInterface
     public function getContainerExtension()
     {
         return new ElcodiStoreSetupWizardExtension();
-    }
-
-    /**
-     * Register Commands.
-     *
-     * Disabled as commands are registered as services.
-     *
-     * @param Application $application An Application instance
-     *
-     * @return null
-     */
-    public function registerCommands(Application $application)
-    {
-        return null;
     }
 }

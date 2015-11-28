@@ -17,15 +17,13 @@
 
 namespace Elcodi\Plugin\StoreTemplateBundle;
 
-use Symfony\Component\Console\Application;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
-
+use Elcodi\Bundle\CoreBundle\Abstracts\AbstractElcodiBundle;
 use Elcodi\Component\Plugin\Interfaces\PluginInterface;
 
 /**
  * Class StoreTemplateBundle
  */
-class StoreTemplateBundle extends Bundle implements PluginInterface
+class StoreTemplateBundle extends AbstractElcodiBundle implements PluginInterface
 {
     /**
      * Returns the bundle's container extension.
@@ -33,20 +31,6 @@ class StoreTemplateBundle extends Bundle implements PluginInterface
      * @return null
      */
     public function getContainerExtension()
-    {
-        return null;
-    }
-
-    /**
-     * Register Commands.
-     *
-     * Disabled as commands are registered as services.
-     *
-     * @param Application $application An Application instance
-     *
-     * @return null
-     */
-    public function registerCommands(Application $application)
     {
         return null;
     }

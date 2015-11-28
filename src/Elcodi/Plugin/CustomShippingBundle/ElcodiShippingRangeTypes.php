@@ -20,7 +20,7 @@ namespace Elcodi\Plugin\CustomShippingBundle;
 /**
  * Class ElcodiShippingRangeTypes
  */
-class ElcodiShippingRangeTypes
+final class ElcodiShippingRangeTypes
 {
     /**
      * @var string

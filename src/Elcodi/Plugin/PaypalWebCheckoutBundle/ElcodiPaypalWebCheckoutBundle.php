@@ -18,18 +18,17 @@
 namespace Elcodi\Plugin\PaypalWebCheckoutBundle;
 
 use Mmoreram\SymfonyBundleDependencies\DependentBundleInterface;
-use Symfony\Component\Console\Application;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\HttpKernel\KernelInterface;
 
+use Elcodi\Bundle\CoreBundle\Abstracts\AbstractElcodiBundle;
 use Elcodi\Component\Plugin\Interfaces\PluginInterface;
 use Elcodi\Plugin\PaypalWebCheckoutBundle\DependencyInjection\ElcodiPaypalWebCheckoutExtension;
 
 /**
  * Class ElcodiPaypalWebCheckoutBundle
  */
-class ElcodiPaypalWebCheckoutBundle extends Bundle implements PluginInterface, DependentBundleInterface
+class ElcodiPaypalWebCheckoutBundle extends AbstractElcodiBundle implements PluginInterface, DependentBundleInterface
 {
     /**
      * Returns the bundle's container extension.
@@ -39,20 +38,6 @@ class ElcodiPaypalWebCheckoutBundle extends Bundle implements PluginInterface, D
     public function getContainerExtension()
     {
         return new ElcodiPaypalWebCheckoutExtension();
-    }
-
-    /**
-     * Register Commands.
-     *
-     * Disabled as commands are registered as services.
-     *
-     * @param Application $application An Application instance
-     *
-     * @return null
-     */
-    public function registerCommands(Application $application)
-    {
-        return null;
     }
 
     /**

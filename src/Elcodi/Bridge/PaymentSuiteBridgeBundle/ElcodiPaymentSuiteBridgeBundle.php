@@ -18,17 +18,16 @@
 namespace Elcodi\Bridge\PaymentSuiteBridgeBundle;
 
 use Mmoreram\SymfonyBundleDependencies\DependentBundleInterface;
-use Symfony\Component\Console\Application;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\HttpKernel\KernelInterface;
 
 use Elcodi\Bridge\PaymentSuiteBridgeBundle\DependencyInjection\ElcodiPaymentSuiteBridgeExtension;
+use Elcodi\Bundle\CoreBundle\Abstracts\AbstractElcodiBundle;
 
 /**
  * Class ElcodiPaymentSuiteBridgeBundle
  */
-class ElcodiPaymentSuiteBridgeBundle extends Bundle implements DependentBundleInterface
+class ElcodiPaymentSuiteBridgeBundle extends AbstractElcodiBundle implements DependentBundleInterface
 {
     /**
      * Returns the bundle's container extension.
@@ -38,20 +37,6 @@ class ElcodiPaymentSuiteBridgeBundle extends Bundle implements DependentBundleIn
     public function getContainerExtension()
     {
         return new ElcodiPaymentSuiteBridgeExtension();
-    }
-
-    /**
-     * Register Commands.
-     *
-     * Disabled as commands are registered as services.
-     *
-     * @param Application $application An Application instance
-     *
-     * @return null
-     */
-    public function registerCommands(Application $application)
-    {
-        return null;
     }
 
     /**
