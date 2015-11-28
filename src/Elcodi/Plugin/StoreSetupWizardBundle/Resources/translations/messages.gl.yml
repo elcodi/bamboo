@@ -1,0 +1,32 @@
+elcodi_plugin:
+    store_wizard:
+        step4:
+            description: 'Tes que engadir prezos de envio e manipulación (inda que sexan gratis).'
+            title: 'Configurar mmétodos de transporte'
+            action_carrier: 'Engadir transportista'
+            action_range: 'Configurar rangos de envío'
+        name: 'Asistente de tenda'
+        description: 'Un asistente para configurar a tenda a primeira vez. No primeiro paso configura o enderezo físico e os datos do propietario da tenda. Logo proba de engadir a primeira categoría, produto e fabricante. Finalmente pregunta ao administrador da tenda polos datos de envío e de pago.'
+        go_enable_store: 'Vai á configuración e desactiva o modo "en construcción".'
+        ready_launch: 'Listo para o lanzamento!'
+        step1:
+            action: 'Crear o meu primeiro produto'
+            title: 'Engadir produtos'
+            description: 'O máis importante na túa tenda... despois dos clientes.'
+        step3:
+            action: 'Configurar métodos de pago'
+            title: 'Configura os métodos de pago'
+            description: 'Queres recibir pagamentos? Só tes que indicar como e onde.'
+        disable_under_construction: 'Deshabilita o modo <strong>En construción</strong> para comezar a vender'
+        step2:
+            title: 'Configura o teu enderezo'
+            action: 'Engade un enderezo'
+            description: 'Para poder vender en liña necesitamos que introduzas o enderezo da túa tenda.'
+        step_finished: '<strong>Si!</strong> Un paso máis e acabamos!'
+        welcome_title: 'Benvido á túa nova tenda!'
+        first_finish_wizard: 'Completa os seguintes pasos antes de poñer a tenda en liña'
+        estimated_time: 'Tempo estimado %1 min'
+        time_to_sell: 'Estás a un <strong>%1 pasos</strong> de abrir a túa tenda'
+        go_next_step: 'Ir ao paso seguinte'
+        done: Feito!
+        go_general_settings: 'Ir á configuración xeral'

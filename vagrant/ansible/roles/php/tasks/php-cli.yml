@@ -8,3 +8,8 @@
   lineinfile: dest=/etc/php5/cli/php.ini
               regexp=';?opcache.enable_cli=\d'
               line='opcache.enable_cli=1'
+
+- name: ensure xdebug.max_nesting_level is set to 255 in cli php.ini
+  lineinfile: dest=/etc/php5/cli/php.ini
+              regexp='xdebug.max_nesting_level ='
+              line='xdebug.max_nesting_level = 255'

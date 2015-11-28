@@ -20,6 +20,7 @@ namespace Elcodi\Admin\UserBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Security\Core\Validator\Constraints\UserPassword;
 
 use Elcodi\Component\Core\Factory\Traits\FactoryTrait;
 use Elcodi\Component\User\ElcodiUserProperties;
@@ -62,6 +63,18 @@ class AdminUserType extends AbstractType
             ->setMethod('POST')
             ->add('email', 'email', [
                 'required' => true,
+            ])
+            ->add('password', 'password', [
+                'constraints' => [
+                    new UserPassword(),
+                ],
+                'mapped' => false,
+                'required' => false,
+            ])
+            ->add('new_password', 'repeated', [
+                'mapped' => false,
+                'required' => false,
+                'type' => 'password',
             ])
             ->add('firstname', 'text', [
                 'required' => false,

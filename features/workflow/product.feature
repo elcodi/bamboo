@@ -9,11 +9,12 @@ Feature: Product engine
     Given In admin, I am logged as "admin@admin.com" - "1234"
     When I am on "/admin/product/new"
     And I fill in the following:
-      | elcodi_admin_product_form_type_product_name_en_name               | Product x     |
-      | elcodi_admin_product_form_type_product_description_en_description | Description x |
-      | elcodi_admin_product_form_type_product_principalCategory          | 1             |
-      | elcodi_admin_product_form_type_product_manufacturer               | 1             |
-      | elcodi_admin_product_form_type_product_price_amount               | 10            |
+      | elcodi_admin_product_form_type_product_name_en_name               | Product x      |
+      | elcodi_admin_product_form_type_product_description_en_description | Description x  |
+      | elcodi_admin_product_form_type_product_slug_en_slug               | my-new-product |
+      | elcodi_admin_product_form_type_product_principalCategory          | 1              |
+      | elcodi_admin_product_form_type_product_manufacturer               | 1              |
+      | elcodi_admin_product_form_type_product_price_amount               | 10             |
     And I check "elcodi_admin_product_form_type_product_showInHome"
     And I check "elcodi_admin_product_form_type_product_enabled"
     And I press "submit-save"
