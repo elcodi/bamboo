@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8ef7861c6c1fd2aba406a3d30cca49a6",
-    "content-hash": "167ce6be5039e7f885b347981233a97c",
+    "hash": "d66e61e7afec6f4267944c4debaaf87b",
+    "content-hash": "7f6fabf822cc09b887c26909ba3bd6f1",
     "packages": [
         {
             "name": "acasademont/i18n-routing-bundle",
@@ -2302,25 +2302,25 @@
         },
         {
             "name": "mmoreram/cache-flush-bundle",
-            "version": "v0.1.2",
+            "version": "v0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mmoreram/CacheFlushBundle.git",
-                "reference": "d18a078d2ab62edd7b7138a15645021cc3945182"
+                "reference": "c88fa902b877447fc0ae843eb9f1bac397f769e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mmoreram/CacheFlushBundle/zipball/d18a078d2ab62edd7b7138a15645021cc3945182",
-                "reference": "d18a078d2ab62edd7b7138a15645021cc3945182",
+                "url": "https://api.github.com/repos/mmoreram/CacheFlushBundle/zipball/c88fa902b877447fc0ae843eb9f1bac397f769e7",
+                "reference": "c88fa902b877447fc0ae843eb9f1bac397f769e7",
                 "shasum": ""
             },
             "require": {
                 "elcodi/core-bundle": "^1.0",
-                "php": ">=5.4",
-                "symfony/dependency-injection": "^2.7",
-                "symfony/event-dispatcher": "^2.7",
-                "symfony/framework-bundle": "^2.7",
-                "symfony/http-kernel": "^2.7"
+                "php": "^5.4|^7.0",
+                "symfony/dependency-injection": "^2.7|^3.0",
+                "symfony/event-dispatcher": "^2.7|^3.0",
+                "symfony/framework-bundle": "^2.7|^3.0",
+                "symfony/http-kernel": "^2.7|^3.0"
             },
             "type": "symfony-bundle",
             "autoload": {
@@ -2345,7 +2345,7 @@
                 "cache",
                 "flush"
             ],
-            "time": "2015-06-15 06:59:25"
+            "time": "2015-11-18 20:16:42"
         },
         {
             "name": "mmoreram/controller-extra-bundle",
@@ -3813,28 +3813,28 @@
         },
         {
             "name": "symfony/swiftmailer-bundle",
-            "version": "v2.3.8",
+            "version": "v2.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/swiftmailer-bundle.git",
-                "reference": "970b13d01871207e81d17b17ddda025e7e21e797"
+                "reference": "3d21ada19f23631f558ad6df653b168e35362e78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/swiftmailer-bundle/zipball/970b13d01871207e81d17b17ddda025e7e21e797",
-                "reference": "970b13d01871207e81d17b17ddda025e7e21e797",
+                "url": "https://api.github.com/repos/symfony/swiftmailer-bundle/zipball/3d21ada19f23631f558ad6df653b168e35362e78",
+                "reference": "3d21ada19f23631f558ad6df653b168e35362e78",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
                 "swiftmailer/swiftmailer": ">=4.2.0,~5.0",
-                "symfony/swiftmailer-bridge": "~2.1"
+                "symfony/config": "~2.3|~3.0",
+                "symfony/dependency-injection": "~2.3|~3.0",
+                "symfony/http-kernel": "~2.3|~3.0",
+                "symfony/yaml": "~2.3|~3.0"
             },
             "require-dev": {
-                "symfony/config": "~2.1",
-                "symfony/dependency-injection": "~2.1",
-                "symfony/http-kernel": "~2.1",
-                "symfony/yaml": "~2.1"
+                "symfony/phpunit-bridge": "~2.7|~3.0"
             },
             "suggest": {
                 "psr/log": "Allows logging"
@@ -3866,7 +3866,7 @@
             ],
             "description": "Symfony SwiftmailerBundle",
             "homepage": "http://symfony.com",
-            "time": "2014-12-01 17:44:50"
+            "time": "2015-11-28 10:59:29"
         },
         {
             "name": "symfony/symfony",
@@ -4904,30 +4904,31 @@
         },
         {
             "name": "mmoreram/php-formatter",
-            "version": "v1.0.4",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mmoreram/php-formatter.git",
-                "reference": "8e15fce634ccd6d4a99e51e5363f86a65e408b8c"
+                "reference": "0bc5d387f1870cfea4d27e7c0740b418c841100a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mmoreram/php-formatter/zipball/8e15fce634ccd6d4a99e51e5363f86a65e408b8c",
-                "reference": "8e15fce634ccd6d4a99e51e5363f86a65e408b8c",
+                "url": "https://api.github.com/repos/mmoreram/php-formatter/zipball/0bc5d387f1870cfea4d27e7c0740b418c841100a",
+                "reference": "0bc5d387f1870cfea4d27e7c0740b418c841100a",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4",
-                "symfony/console": "~2.2",
-                "symfony/event-dispatcher": "~2.2",
-                "symfony/filesystem": "~2.2",
-                "symfony/finder": "~2.2",
-                "symfony/process": "~2.2",
-                "symfony/property-access": "~2.2",
-                "symfony/yaml": "~2.2"
+                "php": "^5.4|^7.0",
+                "symfony/console": "^2.2|^3.0",
+                "symfony/event-dispatcher": "^2.2|^3.0",
+                "symfony/filesystem": "^2.2|^3.0",
+                "symfony/finder": "^2.2|^3.0",
+                "symfony/process": "^2.2|^3.0",
+                "symfony/property-access": "^2.2|^3.0",
+                "symfony/yaml": "^2.2|^3.0"
             },
             "require-dev": {
-                "phpunit/phpunit": ">=3.7"
+                "fabpot/php-cs-fixer": "1.4.2",
+                "phpunit/phpunit": "4.5.0"
             },
             "bin": [
                 "bin/php-formatter"
@@ -4958,37 +4959,37 @@
                 "formatter",
                 "php"
             ],
-            "time": "2014-09-14 13:15:42"
+            "time": "2015-11-18 18:24:09"
         },
         {
             "name": "mmoreram/translation-server",
-            "version": "dev-master",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mmoreram/translation-server.git",
-                "reference": "66d93539f096fbd85e5c41c09cd16b8172cf636b"
+                "reference": "a599a5ee6179895e4850cbb2f3e10522f9b53c8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mmoreram/translation-server/zipball/66d93539f096fbd85e5c41c09cd16b8172cf636b",
-                "reference": "66d93539f096fbd85e5c41c09cd16b8172cf636b",
+                "url": "https://api.github.com/repos/mmoreram/translation-server/zipball/a599a5ee6179895e4850cbb2f3e10522f9b53c8b",
+                "reference": "a599a5ee6179895e4850cbb2f3e10522f9b53c8b",
                 "shasum": ""
             },
             "require": {
                 "elcodi/core": "^1.0.2",
-                "php": ">=5.4",
+                "php": "^5.4|^7.0",
                 "stichoza/google-translate-php": "^3.1",
-                "symfony/console": "^2.7",
-                "symfony/event-dispatcher": "^2.7",
-                "symfony/filesystem": "^2.7",
-                "symfony/finder": "^2.7",
-                "symfony/process": "^2.7",
-                "symfony/property-access": "^2.7",
-                "symfony/yaml": "^2.7"
+                "symfony/console": "^2.7|^3.0",
+                "symfony/event-dispatcher": "^2.7|^3.0",
+                "symfony/filesystem": "^2.7|^3.0",
+                "symfony/finder": "^2.7|^3.0",
+                "symfony/process": "^2.7|^3.0",
+                "symfony/property-access": "^2.7|^3.0",
+                "symfony/yaml": "^2.7|^3.0"
             },
             "require-dev": {
                 "fabpot/php-cs-fixer": "1.4.2",
-                "mmoreram/php-formatter": "1.0.4",
+                "mmoreram/php-formatter": "1.1.0",
                 "phpunit/phpunit": "4.5.0"
             },
             "bin": [
@@ -5021,7 +5022,7 @@
                 "server",
                 "translation"
             ],
-            "time": "2015-11-04 12:38:13"
+            "time": "2015-11-28 20:51:35"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -5919,28 +5920,28 @@
         },
         {
             "name": "visithor/visithor",
-            "version": "v0.1.7",
+            "version": "v0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Visithor/visithor.git",
-                "reference": "491fff041716dd636beee7d739d0a8a3204f2357"
+                "reference": "6374a1272dd0574c6dff5f96783b7bd90b34bcaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Visithor/visithor/zipball/491fff041716dd636beee7d739d0a8a3204f2357",
-                "reference": "491fff041716dd636beee7d739d0a8a3204f2357",
+                "url": "https://api.github.com/repos/Visithor/visithor/zipball/6374a1272dd0574c6dff5f96783b7bd90b34bcaf",
+                "reference": "6374a1272dd0574c6dff5f96783b7bd90b34bcaf",
                 "shasum": ""
             },
             "require": {
                 "guzzlehttp/guzzle": ">=4.0.0",
-                "php": ">=5.4",
-                "symfony/console": "~2.1",
-                "symfony/stopwatch": "~2.1",
-                "symfony/yaml": "~2.1"
+                "php": "^5.4|^7.0",
+                "symfony/console": "^2.7|^3.0",
+                "symfony/stopwatch": "^2.7|^3.0",
+                "symfony/yaml": "^2.7|^3.0"
             },
             "require-dev": {
                 "fabpot/php-cs-fixer": "1.4.2",
-                "mmoreram/php-formatter": "1.0.4",
+                "mmoreram/php-formatter": "1.1.0",
                 "phpunit/phpunit": "4.5.0"
             },
             "bin": [
@@ -5972,39 +5973,39 @@
                 "php",
                 "visithor"
             ],
-            "time": "2015-11-03 14:55:39"
+            "time": "2015-11-18 18:50:27"
         },
         {
             "name": "visithor/visithor-bundle",
-            "version": "v0.1.8",
+            "version": "v0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Visithor/VisithorBundle.git",
-                "reference": "c8e561186d850c4621e4789cc5b6a63a0067ca2c"
+                "reference": "ea536050a7fb1e2bde26bd25f05fde295fc39d37"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Visithor/VisithorBundle/zipball/c8e561186d850c4621e4789cc5b6a63a0067ca2c",
-                "reference": "c8e561186d850c4621e4789cc5b6a63a0067ca2c",
+                "url": "https://api.github.com/repos/Visithor/VisithorBundle/zipball/ea536050a7fb1e2bde26bd25f05fde295fc39d37",
+                "reference": "ea536050a7fb1e2bde26bd25f05fde295fc39d37",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4",
-                "symfony/config": "^2.3",
-                "symfony/console": "^2.3",
-                "symfony/dependency-injection": "^2.3",
-                "symfony/framework-bundle": "^2.5.10,<2.6|^2.6.4",
-                "symfony/http-foundation": "^2.3",
-                "symfony/routing": "^2.3",
-                "symfony/security": "^2.3",
-                "visithor/visithor": "^0.1, >=0.1.6"
+                "php": "^5.4|^7.0",
+                "symfony/config": "^2.7|^3.0",
+                "symfony/console": "^2.7|^3.0",
+                "symfony/dependency-injection": "^2.7|^3.0",
+                "symfony/framework-bundle": "^2.7|^3.0",
+                "symfony/http-foundation": "^2.7|^3.0",
+                "symfony/routing": "^2.7|^3.0",
+                "symfony/security": "^2.7|^3.0",
+                "visithor/visithor": "^0.2.0"
             },
             "require-dev": {
                 "fabpot/php-cs-fixer": "1.4.2",
-                "mmoreram/php-formatter": "1.0.4",
+                "mmoreram/php-formatter": "1.1.0",
                 "phpunit/phpunit": "4.5.0",
-                "symfony/browser-kit": "^2.3",
-                "symfony/security-bundle": "^2.3"
+                "symfony/browser-kit": "^2.3|^3.0",
+                "symfony/security-bundle": "^2.3|^3.0"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -6034,14 +6035,13 @@
                 "symfony",
                 "visithor"
             ],
-            "time": "2015-05-26 19:26:45"
+            "time": "2015-11-18 20:05:08"
         }
     ],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "hwi/oauth-bundle": 20,
-        "mmoreram/translation-server": 20
+        "hwi/oauth-bundle": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
