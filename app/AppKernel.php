@@ -92,6 +92,7 @@ class AppKernel extends Kernel
             new Elcodi\Bundle\PluginBundle\ElcodiPluginBundle($this),
             new Elcodi\Bundle\CommentBundle\ElcodiCommentBundle(),
             new Elcodi\Bundle\ZoneBundle\ElcodiZoneBundle(),
+            new \Elcodi\Bundle\CartShippingBundle\ElcodiCartShippingBundle(),
             new Elcodi\Bundle\ShippingBundle\ElcodiShippingBundle(),
             new Elcodi\Bundle\SitemapBundle\ElcodiSitemapBundle(),
             new Elcodi\Bundle\PaymentBundle\ElcodiPaymentBundle(),

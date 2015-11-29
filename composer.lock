@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d66e61e7afec6f4267944c4debaaf87b",
-    "content-hash": "7f6fabf822cc09b887c26909ba3bd6f1",
+    "hash": "c66d029b5b8f81a8eb8832b025ba11fd",
+    "content-hash": "7a79ce235f7c3655d33fd7bb00f242b8",
     "packages": [
         {
             "name": "acasademont/i18n-routing-bundle",
@@ -1075,16 +1075,16 @@
         },
         {
             "name": "elcodi/elcodi",
-            "version": "v1.0.9",
+            "version": "v1.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/elcodi/elcodi.git",
-                "reference": "4893d171e965684c666ec4220dbb0da940475a54"
+                "reference": "ac9fa31baa138ccc049947d90d9b197b6e940945"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elcodi/elcodi/zipball/4893d171e965684c666ec4220dbb0da940475a54",
-                "reference": "4893d171e965684c666ec4220dbb0da940475a54",
+                "url": "https://api.github.com/repos/elcodi/elcodi/zipball/ac9fa31baa138ccc049947d90d9b197b6e940945",
+                "reference": "ac9fa31baa138ccc049947d90d9b197b6e940945",
                 "shasum": ""
             },
             "require": {
@@ -1134,6 +1134,8 @@
                 "elcodi/cart-bundle": "self.version",
                 "elcodi/cart-coupon": "self.version",
                 "elcodi/cart-coupon-bundle": "self.version",
+                "elcodi/cart-shipping": "self.version",
+                "elcodi/cart-shipping-bundle": "self.version",
                 "elcodi/comment": "self.version",
                 "elcodi/comment-bundle": "self.version",
                 "elcodi/configuration": "self.version",
@@ -1197,6 +1199,9 @@
                 }
             },
             "autoload": {
+                "exclude-from-classmap": [
+                    "src/**/Tests/"
+                ],
                 "psr-4": {
                     "Elcodi\\": "src/Elcodi"
                 }
@@ -1227,7 +1232,7 @@
                 "elcodi",
                 "symfony"
             ],
-            "time": "2015-11-27 19:13:36"
+            "time": "2015-11-29 19:57:32"
         },
         {
             "name": "goodby/csv",
