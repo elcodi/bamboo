@@ -18,16 +18,14 @@
 namespace Elcodi\Admin\StoreBundle;
 
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
-use Symfony\Component\HttpKernel\KernelInterface;
 
 use Elcodi\Admin\StoreBundle\DependencyInjection\AdminStoreExtension;
 use Elcodi\Bundle\CoreBundle\Abstracts\AbstractElcodiBundle;
-use Elcodi\Bundle\CoreBundle\Interfaces\DependentBundleInterface;
 
 /**
  * Class AdminStoreBundle
  */
-class AdminStoreBundle extends AbstractElcodiBundle implements DependentBundleInterface
+class AdminStoreBundle extends AbstractElcodiBundle
 {
     /**
      * Returns the bundle's container extension.
@@ -37,17 +35,5 @@ class AdminStoreBundle extends AbstractElcodiBundle implements DependentBundleIn
     public function getContainerExtension()
     {
         return new AdminStoreExtension();
-    }
-
-    /**
-     * Return all bundle dependencies.
-     *
-     * Values can be a simple bundle namespace or its instance
-     *
-     * @return array Bundle instances
-     */
-    public static function getBundleDependencies(KernelInterface $kernel)
-    {
-        return ['Elcodi\Admin\CoreBundle\AdminCoreBundle'];
     }
 }

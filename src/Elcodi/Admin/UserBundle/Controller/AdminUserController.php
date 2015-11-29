@@ -155,7 +155,7 @@ class AdminUserController extends AbstractAdminController
                     ->get('new_password')
                     ->get('first')
                     ->getData();
-                
+
                 $adminUser->setPassword($newPassword);
             }
 

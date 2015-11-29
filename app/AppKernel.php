@@ -18,7 +18,7 @@
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\HttpKernel\Bundle\BundleInterface;
-use Elcodi\Bundle\CoreBundle\Traits\BundleDependenciesResolver;
+use Mmoreram\SymfonyBundleDependencies\BundleDependenciesResolver;
 
 /**
  * Class AppKernel
@@ -92,6 +92,7 @@ class AppKernel extends Kernel
             new Elcodi\Bundle\PluginBundle\ElcodiPluginBundle($this),
             new Elcodi\Bundle\CommentBundle\ElcodiCommentBundle(),
             new Elcodi\Bundle\ZoneBundle\ElcodiZoneBundle(),
+            new \Elcodi\Bundle\CartShippingBundle\ElcodiCartShippingBundle(),
             new Elcodi\Bundle\ShippingBundle\ElcodiShippingBundle(),
             new Elcodi\Bundle\SitemapBundle\ElcodiSitemapBundle(),
             new Elcodi\Bundle\PaymentBundle\ElcodiPaymentBundle(),
