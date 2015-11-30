@@ -3,7 +3,7 @@
 /*
  * This file is part of the Elcodi package.
  *
- * Copyright (c) 2014 Elcodi.com
+ * Copyright (c) 2014-2015 Elcodi.com
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -21,8 +21,8 @@ use Doctrine\Common\Annotations\AnnotationRegistry;
 /**
  * @var ClassLoader $loader
  */
-$loader = require __DIR__.'/../vendor/autoload.php';
+$loader = require __DIR__ . '/../vendor/autoload.php';
 
-AnnotationRegistry::registerLoader(array($loader, 'loadClass'));
+AnnotationRegistry::registerLoader([$loader, 'loadClass']);
 
 return $loader;

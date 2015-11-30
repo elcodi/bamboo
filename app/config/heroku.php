@@ -15,7 +15,6 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-// if the app isn't on Heroku, don't do anything
 if (!($stack = getenv('STACK')) || !($stack == 'cedar' || $stack == 'cedar-14')) {
     return;
 }
