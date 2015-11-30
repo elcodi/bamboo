@@ -26,6 +26,7 @@ use Elcodi\Component\Cart\Repository\OrderRepository;
 use Elcodi\Component\Cart\Wrapper\CartWrapper;
 use Elcodi\Component\Currency\Entity\Money;
 use Elcodi\Component\Currency\Services\CurrencyConverter;
+use Elcodi\Component\Product\Services\PurchasableNameResolver;
 
 /**
  * Class PaymentBridge
@@ -61,18 +62,28 @@ class PaymentBridge implements PaymentBridgeInterface
     private $currencyConverter;
 
     /**
-     * @param OrderRepository   $orderRepository   Order repository
-     * @param CartWrapper       $cartWrapper
-     * @param CurrencyConverter $currencyConverter
+     * @var PurchasableNameResolver
+     *
+     * Purchasable name resolver
+     */
+    private $purchasableNameResolver;
+
+    /**
+     * @param OrderRepository         $orderRepository         Order repository
+     * @param CartWrapper             $cartWrapper
+     * @param CurrencyConverter       $currencyConverter
+     * @param PurchasableNameResolver $purchasableNameResolver
      */
     public function __construct(
         OrderRepository $orderRepository,
         CartWrapper $cartWrapper,
-        CurrencyConverter $currencyConverter
+        CurrencyConverter $currencyConverter,
+        PurchasableNameResolver $purchasableNameResolver
     ) {
         $this->orderRepository = $orderRepository;
         $this->cartWrapper = $cartWrapper;
         $this->currencyConverter = $currencyConverter;
+        $this->purchasableNameResolver = $purchasableNameResolver;
     }
 
     /**
@@ -236,9 +247,11 @@ class PaymentBridge implements PaymentBridgeInterface
             foreach ($this->order->getOrderLines() as $orderLine) {
                 $orderLineArray = [];
 
-                $orderLineName = $orderLine
-                    ->getPurchasable()
-                    ->getName();
+                $purchasable = $orderLine->getPurchasable();
+                $orderLineName = $this
+                    ->purchasableNameResolver
+                    ->getPurchasableName($purchasable);
+
                 $orderLineArray['item_name'] = $orderLineName;
 
                 $lineAmount = $orderLine
