@@ -60,7 +60,6 @@ admin:
         error:
             cant_disable_yourself: 'You can''t disable your own account'
             cant_remove_yourself: 'You can''t delete your own account'
-            wrong_new_password: 'New Password does not match the confirm password'
         list: 'Administrator list'
         new: 'Create new Admin User'
         plural: Administrators
@@ -72,9 +71,6 @@ admin:
             login:
                 description: 'Each user should have a unique e-mail.'
                 title: 'Login details'
-            password:
-                description: 'Change admin password.'
-                title: 'Password'
             status:
                 description: 'You can set administrators as active or inactive.'
                 title: 'User status'
@@ -90,7 +86,7 @@ admin:
                 values: Values
         list: 'Attribute list'
         new: 'New attribute'
-        plural: Attributes
+        plural: Атрибуты
         saved: 'Attribute saved'
         section:
             basic:
@@ -184,8 +180,8 @@ admin:
         plural: Catalogs
         single: Catalog
     categorization:
-        plural: Categorizations
-        single: Categorization
+        plural: Классификаторы
+        single: Классификатор
     category:
         edit: 'Edit "%name%"'
         field:
@@ -216,7 +212,7 @@ admin:
         in_store: 'View at the store'
         list: 'Category list'
         new: 'New Category'
-        plural: Categories
+        plural: Категории
         saved: 'Category saved'
         section:
             basic:
@@ -237,7 +233,7 @@ admin:
         single: Category
     communication:
         plural: Communications
-        single: Communication
+        single: Коммуникация
     coupon:
         edit: 'Edit "%code%"'
         field:
@@ -286,7 +282,7 @@ admin:
                 title: To
         list: 'Coupon list'
         new: 'New coupon'
-        plural: Coupons
+        plural: 'Купоны'
         saved: 'Coupon saved'
         section:
             basic:
@@ -350,7 +346,7 @@ admin:
             password_changed: 'Password successfully changed'
         list: 'Customer list'
         new: 'Create new Customer'
-        plural: Customers
+        plural: 'Покупатели'
         saved: 'Changes saved'
         section:
             contact:
@@ -394,9 +390,9 @@ admin:
             today: Today
             yesterday: Yesterday
         plural: Dashboards
-        single: Dashboard
-        title: Dashboard
-        view_store: 'View my store'
+        single: 'Панель управления'
+        title: Панель управления
+        view_store: 'Интернет-магазин'
     identity:
         field:
             leitmotiv:
@@ -514,7 +510,7 @@ admin:
                 title: Slug
         list: 'Manufacturer list'
         new: 'New Manufacturer'
-        plural: Manufacturers
+        plural: 'Производители'
         saved: 'Manufacturer saved'
         section:
             basic:
@@ -532,7 +528,7 @@ admin:
         plural: Media
         single: Media
     menu:
-        design: 'Customize Store'
+        design: 'Шаблоны'
     metadata:
         customize: 'Customize Metadata'
         disclaimer:
@@ -587,7 +583,7 @@ admin:
         list: 'Order list'
         new: 'New order'
         notes: Notes
-        plural: Orders
+        plural: 'Заказы'
         single: Order
         states:
             title: Status
@@ -642,7 +638,7 @@ admin:
         app_store: 'App store'
         field:
             visibility: 'Enable:'
-        plural: Apps
+        plural: 'Маркетплейс'
         saved: 'Plugin status saved'
         section:
             settings: Settings
@@ -710,7 +706,7 @@ admin:
         list: 'Product list'
         new: 'New Product'
         note: Notes
-        plural: Products
+        plural: 'Продукты'
         saved: 'Product saved'
         section:
             basic:
@@ -775,7 +771,7 @@ admin:
             store_name: 'Store Name'
             store_phone: 'Store Phone'
             store_under_construction: 'Store under construction'
-        plural: Settings
+        plural: Настройки
         saved: 'Settings saved'
         section:
             address:
@@ -892,11 +888,6 @@ admin:
             lastname:
                 placeholder: 'e.g. Doe'
                 title: 'Last name'
-            new_password:
-                first:
-                    title: 'New Password'
-                second:
-                    title: 'Repeat Password'
             password:
                 title: Password
             username:
@@ -953,7 +944,7 @@ plugin:
 plugin_type:
     app: Apps
     payment: 'Payment methods'
-    shipping: 'Shipping methods'
+    shipping: 'Доставка'
     social: Social
 ui:
     address:

@@ -1,0 +1,4 @@
+plugin:
+    type: template
+    name: 'Шаблон для motul'
+    enabled_by_default: false
