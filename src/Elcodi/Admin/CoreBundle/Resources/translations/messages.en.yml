@@ -60,6 +60,7 @@ admin:
         error:
             cant_disable_yourself: 'You can''t disable your own account'
             cant_remove_yourself: 'You can''t delete your own account'
+            wrong_new_password: 'New Password does not match the confirm password'
         list: 'Administrator list'
         new: 'Create new Admin User'
         plural: Administrators
