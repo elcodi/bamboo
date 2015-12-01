@@ -82,8 +82,8 @@ class OrderController extends Controller
         }
 
         $orderCoupons = $this
-            ->get('elcodi.manager.order_coupon')
-            ->getOrderCoupons($order);
+            ->get('elcodi.repository.order_coupon')
+            ->findOrderCouponsByOrder($order);
 
         return $this->renderTemplate(
             'Pages:order-view.html.twig',

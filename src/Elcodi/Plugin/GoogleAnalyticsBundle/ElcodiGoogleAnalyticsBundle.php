@@ -17,17 +17,16 @@
 
 namespace Elcodi\Plugin\GoogleAnalyticsBundle;
 
-use Symfony\Component\Console\Application;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
 
+use Elcodi\Bundle\CoreBundle\Abstracts\AbstractElcodiBundle;
 use Elcodi\Component\Plugin\Interfaces\PluginInterface;
 use Elcodi\Plugin\GoogleAnalyticsBundle\DependencyInjection\ElcodiGoogleAnalyticsExtension;
 
 /**
  * Class ElcodiGoogleAnalyticsBundle
  */
-class ElcodiGoogleAnalyticsBundle extends Bundle implements PluginInterface
+class ElcodiGoogleAnalyticsBundle extends AbstractElcodiBundle implements PluginInterface
 {
     /**
      * Returns the bundle's container extension.
@@ -37,19 +36,5 @@ class ElcodiGoogleAnalyticsBundle extends Bundle implements PluginInterface
     public function getContainerExtension()
     {
         return new ElcodiGoogleAnalyticsExtension();
-    }
-
-    /**
-     * Register Commands.
-     *
-     * Disabled as commands are registered as services.
-     *
-     * @param Application $application An Application instance
-     *
-     * @return null
-     */
-    public function registerCommands(Application $application)
-    {
-        return null;
     }
 }

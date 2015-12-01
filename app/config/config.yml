@@ -16,6 +16,7 @@ imports:
 
     # Project-specific configuration
     - { resource: config_local.yml }
+    - { resource: config_ignored.yml, ignore_errors: true }
 
 #
 # Framework configuration

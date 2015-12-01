@@ -17,14 +17,14 @@
 
 namespace Elcodi\Store\CurrencyBundle;
 
-use Symfony\Component\Console\Application;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+
+use Elcodi\Bundle\CoreBundle\Abstracts\AbstractElcodiBundle;
 
 /**
  * Class StoreCurrencyBundle
  */
-class StoreCurrencyBundle extends Bundle
+class StoreCurrencyBundle extends AbstractElcodiBundle
 {
     /**
      * Returns the bundle's container extension.
@@ -32,20 +32,6 @@ class StoreCurrencyBundle extends Bundle
      * @return ExtensionInterface The container extension
      */
     public function getContainerExtension()
-    {
-        return null;
-    }
-
-    /**
-     * Register Commands.
-     *
-     * Disabled as commands are registered as services.
-     *
-     * @param Application $application An Application instance
-     *
-     * @return null
-     */
-    public function registerCommands(Application $application)
     {
         return null;
     }

@@ -9,3 +9,4 @@ services:
             order_repository: @elcodi.repository.order
             cart_wrapper: @elcodi.wrapper.cart
             currency_converter: @elcodi.converter.currency
+            purchasable_name_resolver: @elcodi.resolver.purchasable_name

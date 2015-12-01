@@ -3,7 +3,7 @@
 /*
  * This file is part of the Elcodi package.
  *
- * Copyright (c) 2014 Elcodi.com
+ * Copyright (c) 2014-2015 Elcodi.com
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -15,10 +15,10 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
+use Mmoreram\SymfonyBundleDependencies\BundleDependenciesResolver;
 use Symfony\Component\Config\Loader\LoaderInterface;
-use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\HttpKernel\Bundle\BundleInterface;
-use Elcodi\Bundle\CoreBundle\Traits\BundleDependenciesResolver;
+use Symfony\Component\HttpKernel\Kernel;
 
 /**
  * Class AppKernel
@@ -36,7 +36,7 @@ class AppKernel extends Kernel
      */
     public function registerBundles()
     {
-        $bundles = array(
+        $bundles = [
 
             /**
              * Symfony dependencies
@@ -92,6 +92,7 @@ class AppKernel extends Kernel
             new Elcodi\Bundle\PluginBundle\ElcodiPluginBundle($this),
             new Elcodi\Bundle\CommentBundle\ElcodiCommentBundle(),
             new Elcodi\Bundle\ZoneBundle\ElcodiZoneBundle(),
+            new \Elcodi\Bundle\CartShippingBundle\ElcodiCartShippingBundle(),
             new Elcodi\Bundle\ShippingBundle\ElcodiShippingBundle(),
             new Elcodi\Bundle\SitemapBundle\ElcodiSitemapBundle(),
             new Elcodi\Bundle\PaymentBundle\ElcodiPaymentBundle(),
@@ -158,15 +159,9 @@ class AppKernel extends Kernel
             new Elcodi\Plugin\FreePaymentBundle\ElcodiFreePaymentBundle(),
             new Elcodi\Plugin\StripeBundle\ElcodiStripeBundle(),
             new Elcodi\Plugin\CustomShippingBundle\ElcodiCustomShippingBundle(),
-            new Elcodi\Plugin\ClearCacheBundle\ElcodiClearCacheBundle(),
-            /**
-             * Elcodi Templates
-             */
-            new Elcodi\Themes\MotulTemplateBundle\MotulTemplateBundle(),
-        );
+        ];
 
-        if (in_array($this->getEnvironment(), array('dev', 'test'))) {
-
+        if (in_array($this->getEnvironment(), ['dev', 'test'])) {
             $bundles[] = new Elcodi\Bundle\FixturesBoosterBundle\ElcodiFixturesBoosterBundle();
             $bundles[] = new Elcodi\Bridge\BehatBridgeBundle\BehatBridgeBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();

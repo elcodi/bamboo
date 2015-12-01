@@ -17,19 +17,20 @@
 
 namespace Elcodi\Plugin\FreePaymentBundle;
 
-use Symfony\Component\Console\Application;
+use Mmoreram\SymfonyBundleDependencies\DependentBundleInterface;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\HttpKernel\KernelInterface;
 
-use Elcodi\Bundle\CoreBundle\Interfaces\DependentBundleInterface;
+use Elcodi\Bundle\CoreBundle\Abstracts\AbstractElcodiBundle;
 use Elcodi\Component\Plugin\Interfaces\PluginInterface;
 use Elcodi\Plugin\FreePaymentBundle\DependencyInjection\ElcodiFreePaymentExtension;
 
 /**
  * Class ElcodiFreePaymentBundle
  */
-class ElcodiFreePaymentBundle extends Bundle implements PluginInterface, DependentBundleInterface
+class ElcodiFreePaymentBundle
+    extends AbstractElcodiBundle
+    implements PluginInterface, DependentBundleInterface
 {
     /**
      * Returns the bundle's container extension.
@@ -39,20 +40,6 @@ class ElcodiFreePaymentBundle extends Bundle implements PluginInterface, Depende
     public function getContainerExtension()
     {
         return new ElcodiFreePaymentExtension();
-    }
-
-    /**
-     * Register Commands.
-     *
-     * Disabled as commands are registered as services.
-     *
-     * @param Application $application An Application instance
-     *
-     * @return null
-     */
-    public function registerCommands(Application $application)
-    {
-        return null;
     }
 
     /**

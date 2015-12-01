@@ -6,6 +6,7 @@
 /app/SymfonyRequirements.php
 /app/cache/*
 /app/config/parameters.yml
+/app/config/config_ignored.yml
 /app/logs/*
 /build/
 /vendor/

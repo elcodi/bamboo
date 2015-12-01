@@ -17,16 +17,15 @@
 
 namespace Elcodi\Store\UserBundle;
 
-use Symfony\Component\Console\Application;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
 
+use Elcodi\Bundle\CoreBundle\Abstracts\AbstractElcodiBundle;
 use Elcodi\Store\UserBundle\DependencyInjection\StoreUserExtension;
 
 /**
  * Class StoreUserBundle
  */
-class StoreUserBundle extends Bundle
+class StoreUserBundle extends AbstractElcodiBundle
 {
     /**
      * Returns the bundle's container extension.
@@ -36,19 +35,5 @@ class StoreUserBundle extends Bundle
     public function getContainerExtension()
     {
         return new StoreUserExtension();
-    }
-
-    /**
-     * Register Commands.
-     *
-     * Disabled as commands are registered as services.
-     *
-     * @param Application $application An Application instance
-     *
-     * @return null
-     */
-    public function registerCommands(Application $application)
-    {
-        return null;
     }
 }

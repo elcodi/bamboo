@@ -14,5 +14,9 @@ return Symfony\CS\Config\Config::create()
     ->finder(
         Symfony\CS\Finder\DefaultFinder::create()
             ->in('src/')
+            ->in('app/')
+            ->exclude('cache')
+            ->exclude('logs')
+            ->exclude('Resources')
     )
 ;

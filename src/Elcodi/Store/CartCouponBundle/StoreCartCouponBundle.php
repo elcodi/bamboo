@@ -17,16 +17,15 @@
 
 namespace Elcodi\Store\CartCouponBundle;
 
-use Symfony\Component\Console\Application;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
 
+use Elcodi\Bundle\CoreBundle\Abstracts\AbstractElcodiBundle;
 use Elcodi\Store\CartCouponBundle\DependencyInjection\StoreCartCouponExtension;
 
 /**
  * Class StoreCartCouponBundle
  */
-class StoreCartCouponBundle extends Bundle
+class StoreCartCouponBundle extends AbstractElcodiBundle
 {
     /**
      * Returns the bundle's container extension.
@@ -36,19 +35,5 @@ class StoreCartCouponBundle extends Bundle
     public function getContainerExtension()
     {
         return new StoreCartCouponExtension();
-    }
-
-    /**
-     * Register Commands.
-     *
-     * Disabled as commands are registered as services.
-     *
-     * @param Application $application An Application instance
-     *
-     * @return null
-     */
-    public function registerCommands(Application $application)
-    {
-        return null;
     }
 }

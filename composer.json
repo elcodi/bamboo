@@ -34,12 +34,10 @@
         "ext-bcmath": "*",
         "ext-openssl": "*",
 
-        "symfony/symfony": "^2.7",
-        "symfony/framework-bundle": "^2.7",
-        "symfony/assetic-bundle": "^2.5",
-        "symfony/swiftmailer-bundle": "^2.3.8",
-        "symfony/monolog-bundle": "^2.7",
-        "symfony/proxy-manager-bridge": "^2.7",
+        "symfony/symfony": "^2.7|^3.0",
+        "symfony/assetic-bundle": "^2.7|^3.0",
+        "symfony/swiftmailer-bundle": "^2.3.8|^3.0",
+        "symfony/monolog-bundle": "^2.7|^3.0",
 
         "ocramius/proxy-manager": "^1.0",
         "doctrine/orm": "^2.5",
@@ -69,12 +67,13 @@
         "predis/predis": "^1.0.1",
         "acasademont/i18n-routing-bundle": "2.0.0",
 
-        "mmoreram/controller-extra-bundle": "^1.1.11",
-        "mmoreram/extractor": "^1.1.1",
-        "mmoreram/cache-flush-bundle": "0.1.2",
+        "mmoreram/controller-extra-bundle": "^1.2.1",
+        "mmoreram/extractor": "^1.2",
+        "mmoreram/cache-flush-bundle": "^0.2",
         "mmoreram/http-headers-bundle": "1.0.0",
+        "mmoreram/symfony-bundle-dependencies": "^1.0",
 
-        "elcodi/elcodi": "^1.0.6"
+        "elcodi/elcodi": "^1.0.10"
     },
     "replace": {
         "elcodi-templates/template": "self.version",
@@ -102,18 +101,21 @@
         "behat/mink": "^1.6",
         "phpunit/phpunit": "4.5.0",
 
-        "mmoreram/php-formatter": "1.0.4",
-        "mmoreram/translation-server": "dev-master",
+        "mmoreram/php-formatter": "1.1.0",
+        "mmoreram/translation-server": "^1.0",
         "fabpot/php-cs-fixer": "1.4.2",
-        "visithor/visithor-bundle": "^0.1.8"
+        "visithor/visithor-bundle": "^0.2.0"
     },
     "suggest": {
         "ext-redis": "If doctrine cache works on top of redis"
     },
     "scripts": {
         "check-style": [
-            "php-cs-fixer fix --config-file=.php_cs",
-            "php-formatter f:u:s src"
+            "bin/php-cs-fixer fix --config-file=.php_cs",
+            "bin/php-formatter f:u:s src",
+            "bin/php-formatter f:u:s app",
+            "bin/php-formatter f:h:f src",
+            "bin/php-formatter f:h:f app"
         ],
         "compile": [
             "app/console -n doctrine:migrations:status",

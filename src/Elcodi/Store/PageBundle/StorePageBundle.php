@@ -17,16 +17,15 @@
 
 namespace Elcodi\Store\PageBundle;
 
-use Symfony\Component\Console\Application;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
 
+use Elcodi\Bundle\CoreBundle\Abstracts\AbstractElcodiBundle;
 use Elcodi\Store\PageBundle\DependencyInjection\StorePageExtension;
 
 /**
  * Class StorePageBundle
  */
-class StorePageBundle extends Bundle
+class StorePageBundle extends AbstractElcodiBundle
 {
     /**
      * Returns the bundle's container extension.
@@ -36,19 +35,5 @@ class StorePageBundle extends Bundle
     public function getContainerExtension()
     {
         return new StorePageExtension();
-    }
-
-    /**
-     * Register Commands.
-     *
-     * Disabled as commands are registered as services.
-     *
-     * @param Application $application An Application instance
-     *
-     * @return null
-     */
-    public function registerCommands(Application $application)
-    {
-        return null;
     }
 }
