@@ -64,17 +64,10 @@ class AdminUserType extends AbstractType
             ->add('email', 'email', [
                 'required' => true,
             ])
-            ->add('password', 'password', [
-                'constraints' => [
-                    new UserPassword(),
-                ],
-                'mapped' => false,
-                'required' => false,
-            ])
             ->add('new_password', 'repeated', [
                 'mapped' => false,
                 'required' => false,
-                'type' => 'password',
+                'type' => 'password'
             ])
             ->add('firstname', 'text', [
                 'required' => false,
