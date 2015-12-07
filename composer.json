@@ -62,7 +62,7 @@
         "paymentsuite/stripe-bundle": "^1.5.2",
         "paymentsuite/free-payment-bundle": "^1.5.2",
         "incenteev/composer-parameter-handler": "^2.0",
-        "hwi/oauth-bundle": "0.4.*@dev",
+        "hwi/oauth-bundle": "^0.4.0",
         "snc/redis-bundle": "^1.1.9",
         "predis/predis": "^1.0.1",
         "acasademont/i18n-routing-bundle": "2.0.0",
