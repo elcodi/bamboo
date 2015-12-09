@@ -1,6 +1,0 @@
-parameters:
-
-    #
-    # Event Listeners
-    #
-    elcodi_elcodi_store.event_listener.add_order_completed_metric.class: Elcodi\Store\MetricBundle\EventListener\AddOrderCompletedMetricEventListener

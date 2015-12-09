@@ -6,6 +6,6 @@ services:
     elcodi_store.event_listener.just_one_manual:
         class: Elcodi\Store\CartCouponBundle\EventListener\JustOneManualCouponEventListener
         arguments:
-            - @elcodi.repository.cart_coupon
+            - "@elcodi.repository.cart_coupon"
         tags:
             - { name: kernel.event_listener, event: cart_coupon.onapply, method: assertJustOneManualCoupon, priority: 16 }

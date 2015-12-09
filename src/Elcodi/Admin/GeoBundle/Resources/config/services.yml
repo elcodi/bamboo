@@ -6,4 +6,4 @@ services:
     elcodi_admin.form.location_selector_builder:
         class: Elcodi\Admin\GeoBundle\Form\LocationSelectorBuilder
         arguments:
-            - @elcodi.location_provider
+            - "@elcodi.location_provider"

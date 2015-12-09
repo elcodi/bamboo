@@ -18,7 +18,7 @@ doctrine:
         charset:  UTF8
 
     orm:
-        auto_generate_proxy_classes: "%kernel.debug%"
+        auto_generate_proxy_classes: true
         auto_mapping: false
 
 web_profiler:

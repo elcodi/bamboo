@@ -10,8 +10,8 @@ services:
             - %elcodi.entity.category.class%
             - %elcodi.entity.image.class%
         calls:
-            - [setFactory, [@elcodi.factory.product]]
-            - [setEntityTranslatorFormEventListener, [@elcodi.entity_translator_form_event_listener]]
+            - [setFactory, ["@elcodi.factory.product"]]
+            - [setEntityTranslatorFormEventListener, ["@elcodi.entity_translator_form_event_listener"]]
         tags:
             - { name: form.type, alias: elcodi_admin_product_form_type_product }
 
@@ -21,15 +21,15 @@ services:
             - %elcodi.entity.attribute_value.class%
             - %elcodi.entity.image.class%
         calls:
-            - [setFactory, [@elcodi.factory.product_variant]]
+            - [setFactory, ["@elcodi.factory.product_variant"]]
         tags:
             - { name: form.type, alias: elcodi_admin_product_form_type_product_variant }
 
     elcodi_admin.form_type.category:
         class: Elcodi\Admin\ProductBundle\Form\Type\CategoryType
         calls:
-            - [setFactory, [@elcodi.factory.category]]
-            - [setEntityTranslatorFormEventListener, [@elcodi.entity_translator_form_event_listener]]
+            - [setFactory, ["@elcodi.factory.category"]]
+            - [setEntityTranslatorFormEventListener, ["@elcodi.entity_translator_form_event_listener"]]
         tags:
             - { name: form.type, alias: elcodi_admin_product_form_type_category }
 
@@ -38,7 +38,7 @@ services:
         arguments:
             - %elcodi.entity.image.class%
         calls:
-            - [setFactory, [@elcodi.factory.manufacturer]]
-            - [setEntityTranslatorFormEventListener, [@elcodi.entity_translator_form_event_listener]]
+            - [setFactory, ["@elcodi.factory.manufacturer"]]
+            - [setEntityTranslatorFormEventListener, ["@elcodi.entity_translator_form_event_listener"]]
         tags:
             - { name: form.type, alias: elcodi_admin_product_form_type_manufacturer }

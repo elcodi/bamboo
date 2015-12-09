@@ -6,22 +6,22 @@ services:
     elcodi_plugin.store_setup_wizard.event_listener.dashboard_redirection:
         class: Elcodi\Plugin\StoreSetupWizardBundle\EventListener\DashboardRedirectionEventListener
         arguments:
-            - @router
-            - @elcodi_plugin.store_setup_wizard.wizard_status
-            - @elcodi_plugin.store_setup_wizard.wizard_routes
+            - "@router"
+            - "@elcodi_plugin.store_setup_wizard.wizard_status"
+            - "@elcodi_plugin.store_setup_wizard.wizard_routes"
         calls:
-            - [setPlugin, [@elcodi_plugin.store_setup_wizard]]
+            - [setPlugin, ["@elcodi_plugin.store_setup_wizard"]]
         tags:
             - { name: firewall_listener, firewall: admin_area }
 
     elcodi_plugin.store_setup_wizard.event_listener.disable_wizard:
         class: Elcodi\Plugin\StoreSetupWizardBundle\EventListener\DisableWizardEventListener
         arguments:
-            - @elcodi_plugin.store_setup_wizard.wizard_status
-            - @elcodi.manager.plugin
-            - @elcodi.object_manager.plugin
-            - @elcodi.store
+            - "@elcodi_plugin.store_setup_wizard.wizard_status"
+            - "@elcodi.manager.plugin"
+            - "@elcodi.object_manager.plugin"
+            - "@elcodi.store"
         calls:
-            - [setPlugin, [@elcodi_plugin.store_setup_wizard]]
+            - [setPlugin, ["@elcodi_plugin.store_setup_wizard"]]
         tags:
             - { name: firewall_listener, firewall: admin_area }

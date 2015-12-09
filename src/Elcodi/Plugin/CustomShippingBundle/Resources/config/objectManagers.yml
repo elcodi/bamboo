@@ -5,8 +5,10 @@ services:
     #
     elcodi.object_manager.shipping_range:
         parent: elcodi.abstract_manager
-        arguments: [ %elcodi.entity.shipping_range.class% ]
+        arguments:
+            - %elcodi.entity.shipping_range.class%
 
     elcodi.object_manager.carrier:
         parent: elcodi.abstract_manager
-        arguments: [ %elcodi.entity.carrier.class% ]
+        arguments:
+            - %elcodi.entity.carrier.class%

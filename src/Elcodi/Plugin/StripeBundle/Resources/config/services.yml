@@ -11,7 +11,7 @@ services:
     stripe.transaction.wrapper:
         class: %stripe.transaction.wrapper.class%
         arguments:
-            stripe.private.key: @elcodi_plugin.stripe.private_key
+            - "@elcodi_plugin.stripe.private_key"
 
     #
     # Plugin fields
@@ -19,7 +19,7 @@ services:
     elcodi_plugin.stripe.public_key:
         class: StdClass
         factory:
-            - @elcodi_plugin.stripe
+            - "@elcodi_plugin.stripe"
             - getFieldValue
         arguments:
             - public_key
@@ -27,7 +27,7 @@ services:
     elcodi_plugin.stripe.private_key:
         class: StdClass
         factory:
-            - @elcodi_plugin.stripe
+            - "@elcodi_plugin.stripe"
             - getFieldValue
         arguments:
             - private_key
@@ -37,11 +37,12 @@ services:
     #
     stripe.twig.extension:
         class: %stripe.twig.extension.class%
+        lazy: true
         arguments:
-            stripe.public.key: @elcodi_plugin.stripe.public_key
-            form.factory: @form.factory
-            payment.bridge: @payment.bridge
-            view_template: %stripe.templates.view_template%
-            scripts_template: %stripe.templates.scripts_template%
+            - "@elcodi_plugin.stripe.public_key"
+            - "@form.factory"
+            - "@payment.bridge"
+            - %stripe.templates.view_template%
+            - %stripe.templates.scripts_template%
         tags:
             - { name: twig.extension }

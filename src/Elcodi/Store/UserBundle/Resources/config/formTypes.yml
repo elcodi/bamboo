@@ -6,21 +6,21 @@ services:
     elcodi_elcodi_store.form_type.login:
         class: Elcodi\Store\UserBundle\Form\Type\LoginType
         arguments:
-            router: @router
+            - "@router"
         tags:
             - { name: form.type, alias: store_user_form_type_login }
 
     elcodi_elcodi_store.form_type.register:
         class: Elcodi\Store\UserBundle\Form\Type\RegisterType
         calls:
-            - [setFactory, [@elcodi.factory.customer]]
+            - [setFactory, ["@elcodi.factory.customer"]]
         tags:
             - { name: form.type, alias: store_user_form_type_register }
 
     elcodi_elcodi_store.form_type.profile:
         class: Elcodi\Store\UserBundle\Form\Type\ProfileType
         calls:
-            - [setFactory, [@elcodi.factory.customer]]
+            - [setFactory, ["@elcodi.factory.customer"]]
         tags:
             - { name: form.type, alias: store_user_form_type_profile }
 

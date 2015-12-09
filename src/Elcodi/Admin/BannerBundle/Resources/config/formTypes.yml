@@ -9,7 +9,7 @@ services:
             - %elcodi.entity.image.class%
             - %elcodi.entity.banner_zone.class%
         calls:
-            - [setFactory, [@elcodi.factory.banner]]
+            - [setFactory, ["@elcodi.factory.banner"]]
         tags:
             - { name: form.type, alias: elcodi_admin_banner_form_type_banner }
 
@@ -19,6 +19,6 @@ services:
             - %elcodi.entity.language.class%
             - %elcodi.entity.banner.class%
         calls:
-            - [setFactory, [@elcodi.factory.banner_zone]]
+            - [setFactory, ["@elcodi.factory.banner_zone"]]
         tags:
             - { name: form.type, alias: elcodi_admin_banner_form_type_banner_zone }

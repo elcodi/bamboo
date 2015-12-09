@@ -6,16 +6,16 @@ services:
     elcodi_bridge.payment_suite.event_listener.cart_paid:
         class: Elcodi\Bridge\PaymentSuiteBridgeBundle\EventListener\CartPaidEventListener
         arguments:
-            cart_wrapper: @elcodi.wrapper.cart
-            cart_order_transformer: @elcodi.transformer.cart_order
+            - "@elcodi.wrapper.cart"
+            - "@elcodi.transformer.cart_order"
         tags:
             - { name: kernel.event_listener, event: payment.order.load, method: transformCartToOrder }
 
     elcodi_bridge.payment_suite.event_listener.order_to_paid:
         class: Elcodi\Bridge\PaymentSuiteBridgeBundle\EventListener\OrderToPaidEventListener
         arguments:
-            payment_machine_manager: @elcodi.order_payment_states_machine_manager
-            order_object_manager: @elcodi.object_manager.order
-            cart_line_object_manager: @elcodi.object_manager.state_transition_machine_state_line
+            - "@elcodi.order_payment_states_machine_manager"
+            - "@elcodi.object_manager.order"
+            - "@elcodi.object_manager.state_transition_machine_state_line"
         tags:
             - { name: kernel.event_listener, event: payment.order.success, method: setOrderToPaid }

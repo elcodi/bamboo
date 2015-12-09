@@ -51,9 +51,9 @@ twig:
 
     globals:
         elcodi_context: []
-        currency_wrapper: @elcodi.wrapper.currency
-        store: @elcodi.store
-        store_tracker: @elcodi.store_tracker
+        currency_wrapper: "@elcodi.wrapper.currency"
+        store: "@elcodi.store"
+        store_tracker: "@elcodi.store_tracker"
 
 #
 # Doctrine Configuration

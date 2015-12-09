@@ -7,8 +7,8 @@ services:
         class: Elcodi\Store\PageBundle\EventListener\Abstracts\AbstractEmailSenderEventListener
         abstract: true
         arguments:
-            - @mailer
-            - @twig
-            - @elcodi.repository.page
-            - @elcodi.store
-            - @elcodi_store.template_locator.page
+            - "@mailer"
+            - "@twig"
+            - "@elcodi.repository.page"
+            - "@elcodi.store"
+            - "@elcodi_store.template_locator.page"

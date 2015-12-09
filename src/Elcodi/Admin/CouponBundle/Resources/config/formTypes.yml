@@ -8,6 +8,6 @@ services:
         arguments:
             - %elcodi.entity.rule.class%
         calls:
-            - [setFactory, [@elcodi.factory.coupon]]
+            - [setFactory, ["@elcodi.factory.coupon"]]
         tags:
             - { name: form.type, alias: elcodi_admin_coupon_form_type_coupon }

@@ -6,6 +6,6 @@ services:
     elcodi_plugin.event_listener.facebook_username:
         class: Elcodi\Plugin\FacebookBundle\EventListener\FacebookUsernameEventListener
         arguments:
-            facebook_username_cleaner: @elcodi_plugin.service.facebook_username_cleaner
+            - "@elcodi_plugin.service.facebook_username_cleaner"
         tags:
             - { name: doctrine.event_listener, event: preUpdate, method: preUpdate }

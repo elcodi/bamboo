@@ -6,21 +6,21 @@ services:
     elcodi_admin.form_type.login:
         class: Elcodi\Admin\UserBundle\Form\Type\LoginType
         arguments:
-            router: @router
+            - "@router"
         tags:
             - { name: form.type, alias: elcodi_admin_user_form_type_login }
 
     elcodi_admin.form_type.register:
         class: Elcodi\Admin\UserBundle\Form\Type\RegisterType
         arguments:
-            customer_namespace: %elcodi.entity.customer.class%
+            - %elcodi.entity.customer.class%
         tags:
             - { name: form.type, alias: elcodi_admin_user_form_type_register }
 
     elcodi_admin.form_type.profile:
         class: Elcodi\Admin\UserBundle\Form\Type\ProfileType
         calls:
-            - [setFactory, [@elcodi.factory.customer]]
+            - [setFactory, ["@elcodi.factory.customer"]]
         tags:
             - { name: form.type, alias: elcodi_admin_user_form_type_profile }
 
@@ -39,13 +39,13 @@ services:
         arguments:
             - %elcodi.entity.language.class%
         calls:
-            - [setFactory, [@elcodi.factory.customer]]
+            - [setFactory, ["@elcodi.factory.customer"]]
         tags:
             - { name: form.type, alias: elcodi_admin_user_form_type_customer }
 
     elcodi_admin.form_type.admin_user:
         class: Elcodi\Admin\UserBundle\Form\Type\AdminUserType
         calls:
-            - [setFactory, [@elcodi.factory.admin_user]]
+            - [setFactory, ["@elcodi.factory.admin_user"]]
         tags:
             - { name: form.type, alias: elcodi_admin_user_form_type_admin_user }

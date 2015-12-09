@@ -6,5 +6,5 @@ services:
     visitor.environment_builder:
         class: Elcodi\Bridge\VisithorBridgeBundle\Environment\EnvironmentBuilder
         arguments:
-            - @elcodi.repository.customer
-            - @elcodi.repository.admin_user
+            - "@elcodi.repository.customer"
+            - "@elcodi.repository.admin_user"

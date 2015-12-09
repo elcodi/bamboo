@@ -7,4 +7,4 @@ services:
         class: Elcodi\Store\CoreBundle\Controller\ExceptionController
         parent: twig.controller.exception
         arguments:
-            - @elcodi_store.template_locator.core
+            - "@elcodi_store.template_locator.core"

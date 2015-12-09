@@ -5,4 +5,5 @@ services:
     #
     store.connect.repository.authorization:
         parent: elcodi.abstract_repository
-        arguments: [ %store.connect.entity.authorization.class% ]
+        arguments:
+            - %store.connect.entity.authorization.class%

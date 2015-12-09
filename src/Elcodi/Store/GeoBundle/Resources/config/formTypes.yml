@@ -6,6 +6,6 @@ services:
     elcodi_store.form_type.address:
         class: Elcodi\Store\GeoBundle\Form\Type\AddressType
         calls:
-            - [setFactory, [@elcodi.factory.address]]
+            - [setFactory, ["@elcodi.factory.address"]]
         tags:
             - { name: form.type, alias: store_geo_form_type_address }

@@ -6,6 +6,6 @@ services:
     elcodi_plugin.custom_shipping.menu_builder:
         class: Elcodi\Plugin\CustomShippingBundle\Builder\MenuBuilder
         arguments:
-            - @elcodi.factory.menu_node
+            - "@elcodi.factory.menu_node"
         tags:
             - { name: menu.builder }

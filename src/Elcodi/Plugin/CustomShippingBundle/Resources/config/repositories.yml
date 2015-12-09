@@ -9,11 +9,13 @@ services:
     #
     elcodi.repository.shipping_range:
         parent: elcodi.abstract_repository
-        arguments: [ %elcodi.entity.shipping_range.class% ]
+        arguments:
+            - %elcodi.entity.shipping_range.class%
 
     #
     # Repository for entity carrier
     #
     elcodi.repository.carrier:
         parent: elcodi.abstract_repository
-        arguments: [ %elcodi.entity.carrier.class% ]
+        arguments:
+            - %elcodi.entity.carrier.class%
