@@ -1,0 +1,11 @@
+services:
+
+    #
+    # Menu builders
+    #
+    elcodi_plugin.clear_cache.menu_builder:
+        class: Elcodi\Plugin\ClearCacheBundle\Builder\MenuBuilder
+        arguments:
+            - @elcodi.factory.menu_node
+        tags:
+            - { name: menu.builder }

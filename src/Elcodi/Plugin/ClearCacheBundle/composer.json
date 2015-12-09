@@ -1,0 +1,39 @@
+{
+    "name": "kodermax/clear-cache",
+    "description": "Elcodi Clear Cache Plugin",
+    "type": "symfony-bundle",
+    "require": {
+        "php": "^5.4|^7.0",
+        "symfony/config": "^2.7",
+        "symfony/console": "^2.7",
+        "symfony/dependency-injection": "^2.7",
+        "symfony/expression-language": "^2.7",
+        "symfony/framework-bundle": "^2.7",
+        "symfony/http-foundation": "^2.7",
+        "symfony/http-kernel": "^2.7",
+        "symfony/yaml": "^2.7",
+        "sensio/framework-extra-bundle": "^3.0",
+        "twig/twig": "^1.18",
+        "elcodi/core-bundle": "^1.0",
+        "elcodi/configuration-bundle": "^1.0",
+        "elcodi/plugin-bundle": "^1.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Maksim",
+            "email": "kodermax@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Elcodi\\Plugin\\ClearCacheBundle\\": ""
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "minimum-stability": "dev"
+}

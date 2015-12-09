@@ -1,0 +1,6 @@
+plugin:
+    type: plugin
+    category: utility
+    name: elcodi_plugin.clear_cache.name
+    description: elcodi_plugin.clear_cache.description
+    fa_icon: eraser

@@ -1,0 +1,77 @@
+{% extends 'AdminCoreBundle::layout.html.twig' %}
+{% block breadcrumb %}
+    {% include '@AdminCore/Common/breadcrumb.html.twig' with {
+    breadcrumb: [
+    { name: 'elcodi_plugin.clear_cache.name'|trans, active: true },
+    ]
+    } %}
+{% endblock breadcrumb %}
+
+{% block content %}
+    <div id="container" style="min-width: 310px; height: 400px; max-width: 600px;"></div>
+    <br/>
+    {% set formAction = url('admin_clear_cache_update')   %}
+    <form class="form" name="clearcache" method="post" action="{{ formAction }}">
+        <button type="submit" class="button-primary icon-times">{{ 'elcodi_plugin.clear_cache.button'|trans }}</button>
+    </form>
+    <script>
+        function bytesToSize(bytes) {
+            var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+            if (bytes == 0) return 'n/a';
+            var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+            return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
+        }
+        ;
+        $(function () {
+            $(document).ready(function () {
+                var sizes = JSON.parse('{{ sizes|raw }}');
+                var series = [];
+                $.each(sizes, function (key, value) {
+                    series.push({name: key, y: value});
+
+                });
+                $('#container').highcharts({
+                    chart: {
+                        type: 'pie',
+                        options3d: {
+                            enabled: true,
+                            alpha: 45
+                        }
+                    },
+                    legend: {
+                        align: 'right',
+                        verticalAlign: 'top',
+                        layout: 'vertical',
+                        itemStyle: {"fontWeight": "normal"},
+                        useHTML: true,
+                        labelFormatter: function () {
+                            return '<div style="width:160px;"><div style="float:left">' + this.name + '</div><div style="float:right;font-weight:bold">' + bytesToSize(this.y) + '</div></div>';
+                        }
+                    },
+                    title: {
+                        text: 'FILE CACHE'
+                    },
+                    tooltip: {
+                        formatter: function () {
+                            return bytesToSize(this.y);
+                        }
+                    },
+                    plotOptions: {
+                        pie: {
+                            innerSize: 100,
+                            depth: 45,
+                            dataLabels: {
+                                enabled: false
+                            },
+                            showInLegend: true
+                        },
+                    },
+                    series: [{
+                        name: "Cache Types",
+                        data: series
+                    }]
+                });
+            });
+        });
+    </script>
+    {% endblock content %}
