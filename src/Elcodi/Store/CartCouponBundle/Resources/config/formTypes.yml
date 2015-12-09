@@ -6,6 +6,6 @@ services:
     elcodi_store.form_type.coupon_apply:
         class: Elcodi\Store\CartCouponBundle\Form\Type\CouponApplyType
         arguments:
-            router: @router
+            - "@router"
         tags:
             - { name: form.type, alias: store_cart_coupon_form_type_coupon_apply }

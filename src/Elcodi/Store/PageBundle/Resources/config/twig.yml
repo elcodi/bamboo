@@ -14,6 +14,6 @@ services:
     elcodi_elcodi_store.twig_extension.store_page:
         class: Elcodi\Store\PageBundle\Twig\PageExtension
         arguments:
-            - @elcodi.repository.page
+            - "@elcodi.repository.page"
         tags:
             - { name: twig.extension }

@@ -5,19 +5,22 @@ services:
     #
     elcodi_store.twig_extension.encrypt:
         class: Elcodi\Store\CoreBundle\Twig\EncryptExtension
+        public: false
         tags:
             - { name: twig.extension }
 
     elcodi_store.twig_extension.referrer:
         class: Elcodi\Store\CoreBundle\Twig\ReferrerExtension
+        public: false
         arguments:
-            - @elcodi.referrer_provider
+            - "@elcodi.referrer_provider"
         tags:
             - { name: twig.extension }
 
     elcodi_store.twig_extension.template_locator:
         class: Elcodi\Store\CoreBundle\Twig\TemplateLocatorExtension
+        public: false
         arguments:
-            - @service_container
+            - "@service_container"
         tags:
             - { name: twig.extension }

@@ -3,15 +3,15 @@ services:
     elcodi_store.provider.product_collection:
         class: Elcodi\Store\ProductBundle\Services\ProductCollectionProvider
         arguments:
-            - @elcodi.repository.product
+            - "@elcodi.repository.product"
 
     elcodi_store.store_category_tree:
         class: Elcodi\Store\ProductBundle\Services\StoreCategoryTree
         arguments:
-            category_tree_service: @elcodi.provider.category_tree
-            load_only_categories_with_products: %elcodi.core.product.load_only_categories_with_products%
-            key: %elcodi.core.product.cache_key%
-            locale: @elcodi.locale
+            - "@elcodi.provider.category_tree"
+            - %elcodi.core.product.load_only_categories_with_products%
+            - %elcodi.core.product.cache_key%
+            - "@elcodi.locale"
         calls:
-            - [setCache, [@doctrine_cache.providers.elcodi_categories]]
-            - [setEncoder, [@elcodi.json_encoder]]
+            - [setCache, ["@doctrine_cache.providers.elcodi_categories"]]
+            - [setEncoder, ["@elcodi.json_encoder"]]

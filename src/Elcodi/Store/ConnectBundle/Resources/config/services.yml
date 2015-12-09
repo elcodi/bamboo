@@ -6,8 +6,8 @@ services:
     elcodi_store.provider.oauth:
         class: Elcodi\Store\ConnectBundle\Services\OAuthUserProvider
         arguments:
-            - @security.user.provider.concrete.customer
-            - @elcodi_store.director.authorization
-            - @elcodi.director.customer
-            - @elcodi.object_manager.customer
-            - @elcodi.event_dispatcher.user
+            - "@security.user.provider.concrete.customer"
+            - "@elcodi_store.director.authorization"
+            - "@elcodi.director.customer"
+            - "@elcodi.object_manager.customer"
+            - "@elcodi.event_dispatcher.user"

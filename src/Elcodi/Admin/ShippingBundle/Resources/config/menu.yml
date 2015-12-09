@@ -6,6 +6,6 @@ services:
     elcodi_admin.menu_builder.shipping:
         class: Elcodi\Admin\ShippingBundle\Builder\MenuBuilder
         arguments:
-            - @elcodi.factory.menu_node
+            - "@elcodi.factory.menu_node"
         tags:
             - { name: menu.builder, menu: admin, priority: 32 }

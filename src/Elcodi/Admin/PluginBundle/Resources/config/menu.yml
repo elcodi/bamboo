@@ -6,6 +6,6 @@ services:
     elcodi_admin.menu_builder.plugin_list:
         class: Elcodi\Admin\PluginBundle\Builder\MenuBuilder
         arguments:
-            - @elcodi.factory.menu_node
+            - "@elcodi.factory.menu_node"
         tags:
             - { name: menu.builder, menu: admin, priority: 32 }

@@ -9,14 +9,14 @@ services:
             - %elcodi.entity.currency.class%
             - %elcodi.entity.language.class%
         calls:
-            - [setFactory, [@elcodi.factory.store]]
+            - [setFactory, ["@elcodi.factory.store"]]
         tags:
             - { name: form.type, alias: elcodi_admin_store_form_type_store_settings }
 
     elcodi_admin.form_type.store_address:
         class: Elcodi\Admin\StoreBundle\Form\Type\StoreAddressType
         calls:
-            - [setFactory, [@elcodi.factory.store]]
+            - [setFactory, ["@elcodi.factory.store"]]
         tags:
             - { name: form.type, alias: elcodi_admin_store_form_type_store_address }
 
@@ -25,6 +25,6 @@ services:
         arguments:
             - %elcodi.entity.image.class%
         calls:
-            - [setFactory, [@elcodi.factory.store]]
+            - [setFactory, ["@elcodi.factory.store"]]
         tags:
             - { name: form.type, alias: elcodi_admin_store_form_type_store_corporate }

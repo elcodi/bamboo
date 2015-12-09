@@ -34,7 +34,7 @@
         "ext-bcmath": "*",
         "ext-openssl": "*",
 
-        "symfony/symfony": "^2.7|^3.0",
+        "symfony/symfony": "~2.7.0",
         "symfony/assetic-bundle": "^2.7|^3.0",
         "symfony/swiftmailer-bundle": "^2.3.8|^3.0",
         "symfony/monolog-bundle": "^2.7|^3.0",
@@ -62,7 +62,7 @@
         "paymentsuite/stripe-bundle": "^1.5.2",
         "paymentsuite/free-payment-bundle": "^1.5.2",
         "incenteev/composer-parameter-handler": "^2.0",
-        "hwi/oauth-bundle": "0.4.*@dev",
+        "hwi/oauth-bundle": "^0.4.0",
         "snc/redis-bundle": "^1.1.9",
         "predis/predis": "^1.0.1",
         "acasademont/i18n-routing-bundle": "2.0.0",
@@ -139,8 +139,8 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
         ],
         "test": [
-            "behat -fprogress --tags=\"~javascript\"",
-            "phpunit",
+            "bin/behat",
+            "bin/phpunit -c app",
             "app/console -n visithor:go --format=pretty --env=test"
         ]
     },

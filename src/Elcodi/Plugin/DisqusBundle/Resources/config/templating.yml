@@ -6,8 +6,8 @@ services:
     elcodi_plugin.disqus.renderer:
         class: Elcodi\Plugin\DisqusBundle\Templating\TwigRenderer
         calls:
-            - [setTemplating, [@twig]]
-            - [setPlugin, [@elcodi_plugin.disqus]]
+            - [setTemplating, ["@twig"]]
+            - [setPlugin, ["@elcodi_plugin.disqus"]]
         tags:
             - { name: kernel.event_listener, event: store.head_bottom, method: renderJavascript }
             - { name: kernel.event_listener, event: store.blog_post_view_bottom, method: renderDisqusBlogPostBlock }

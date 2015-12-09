@@ -6,6 +6,6 @@ services:
     elcodi_admin.category_sorter:
         class: Elcodi\Admin\ProductBundle\Services\CategorySorter
         arguments:
-            category_repository: @elcodi.repository.category
-            category_object_manager: @elcodi.object_manager.category
-            event_dispatcher: @event_dispatcher
+            - "@elcodi.repository.category"
+            - "@elcodi.object_manager.category"
+            - "@event_dispatcher"

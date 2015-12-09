@@ -6,7 +6,7 @@ services:
     elcodi_elcodi_store.event_listener.password_remember_credentials:
         class: Elcodi\Store\UserBundle\EventListener\RememberPasswordCredentialsEventListener
         arguments:
-            - @security.token_storage
+            - "@security.token_storage"
             - %bamboo_store_firewall%
         tags:
             - { name: kernel.event_listener, event: password.recover, method: giveCredentialsWithNewPassword }
@@ -32,9 +32,9 @@ services:
     elcodi_elcodi_store.event_listener.autologin_on_register:
         class: Elcodi\Component\User\EventListener\AutologinOnRegisterEventListener
         arguments:
-            - @request_stack
-            - @security.token_storage
-            - @event_dispatcher
+            - "@request_stack"
+            - "@security.token_storage"
+            - "@event_dispatcher"
             - %bamboo_store_firewall%
         tags:
             - { name: firewall_listener, firewall: %bamboo_store_firewall%, event: user.register, method: onUserRegister }

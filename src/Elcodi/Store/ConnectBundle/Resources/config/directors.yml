@@ -7,6 +7,6 @@ services:
         class: Elcodi\Component\Core\Services\ObjectDirector
         lazy: true
         arguments:
-            - @store.connect.object_manager.authorization
-            - @store.connect.repository.authorization
-            - @elcodi_store.factory.authorization
+            - "@store.connect.object_manager.authorization"
+            - "@store.connect.repository.authorization"
+            - "@elcodi_store.factory.authorization"

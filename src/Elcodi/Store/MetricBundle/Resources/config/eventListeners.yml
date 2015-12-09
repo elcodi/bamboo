@@ -6,7 +6,7 @@ services:
     elcodi_elcodi_store.event_listener.add_order_completed_metric:
         class: Elcodi\Store\MetricBundle\EventListener\AddOrderCompletedMetricEventListener
         arguments:
-            - @elcodi.metric_manager
-            - @elcodi.store
+            - "@elcodi.metric_manager"
+            - "@elcodi.store"
         tags:
             - { name: kernel.event_listener, event: order.oncreated, method: addMetric, priority: 0}

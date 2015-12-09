@@ -8,7 +8,7 @@ services:
         arguments:
             - %elcodi.entity.zone.class%
         calls:
-            - [setFactory, [@elcodi_plugin.custom_shipping.factory.shipping_range]]
+            - [setFactory, ["@elcodi_plugin.custom_shipping.factory.shipping_range"]]
         tags:
             - { name: form.type, alias: elcodi_plugin_custom_shipping_form_type_shipping_range }
 
@@ -17,7 +17,7 @@ services:
         arguments:
             - %elcodi.entity.tax.class%
         calls:
-            - [setFactory, [@elcodi_plugin.custom_shipping.factory.carrier]]
-            - [setEntityTranslatorFormEventListener, [@elcodi.entity_translator_form_event_listener]]
+            - [setFactory, ["@elcodi_plugin.custom_shipping.factory.carrier"]]
+            - [setEntityTranslatorFormEventListener, ["@elcodi.entity_translator_form_event_listener"]]
         tags:
             - { name: form.type, alias: elcodi_plugin_custom_shipping_form_type_carrier }

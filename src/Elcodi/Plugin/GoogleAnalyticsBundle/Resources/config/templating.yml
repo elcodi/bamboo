@@ -6,7 +6,7 @@ services:
     elcodi_plugin.google_analytics.renderer:
         class: Elcodi\Plugin\GoogleAnalyticsBundle\Templating\TwigRenderer
         calls:
-            - [setTemplating, [@twig]]
-            - [setPlugin, [@elcodi_plugin.plugin.google_analytics]]
+            - [setTemplating, ["@twig"]]
+            - [setPlugin, ["@elcodi_plugin.plugin.google_analytics"]]
         tags:
             - { name: kernel.event_listener, event: store.head_bottom, method: renderJavascript }

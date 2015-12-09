@@ -18,6 +18,6 @@ services:
     elcodi_plugin.custom_shipping.factory.shipping_range:
         class: Elcodi\Plugin\CustomShippingBundle\Factory\ShippingRangeFactory
         arguments:
-            - @elcodi.wrapper.default_currency
+            - "@elcodi.wrapper.default_currency"
         calls:
             - [setEntityNamespace, ["%elcodi.entity.shipping_range.class%"]]
