@@ -34,7 +34,7 @@
         "ext-bcmath": "*",
         "ext-openssl": "*",
 
-        "symfony/symfony": "^2.7|^3.0",
+        "symfony/symfony": "~2.7.0",
         "symfony/assetic-bundle": "^2.7|^3.0",
         "symfony/swiftmailer-bundle": "^2.3.8|^3.0",
         "symfony/monolog-bundle": "^2.7|^3.0",
@@ -139,8 +139,8 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
         ],
         "test": [
-            "behat -fprogress --tags=\"~javascript\"",
-            "phpunit",
+            "bin/behat",
+            "bin/phpunit -c app",
             "app/console -n visithor:go --format=pretty --env=test"
         ]
     },

@@ -1075,16 +1075,16 @@
         },
         {
             "name": "elcodi/elcodi",
-            "version": "v1.0.11",
+            "version": "v1.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/elcodi/elcodi.git",
-                "reference": "c942bd0fb6039886736fad4931d333bb6dab7239"
+                "reference": "2e88b1780cdcdb0b54fbc07dc792d59190a64a45"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elcodi/elcodi/zipball/c942bd0fb6039886736fad4931d333bb6dab7239",
-                "reference": "c942bd0fb6039886736fad4931d333bb6dab7239",
+                "url": "https://api.github.com/repos/elcodi/elcodi/zipball/2e88b1780cdcdb0b54fbc07dc792d59190a64a45",
+                "reference": "2e88b1780cdcdb0b54fbc07dc792d59190a64a45",
                 "shasum": ""
             },
             "require": {
@@ -1232,7 +1232,7 @@
                 "elcodi",
                 "symfony"
             ],
-            "time": "2015-12-07 18:36:26"
+            "time": "2015-12-09 15:34:26"
         },
         {
             "name": "goodby/csv",
@@ -1735,22 +1735,25 @@
         },
         {
             "name": "jms/aop-bundle",
-            "version": "1.1.0",
-            "target-dir": "JMS/AopBundle",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/JMSAopBundle.git",
-                "reference": "66287749c020b4c667c0ff4937b07e66c04bbe71"
+                "reference": "78000d007e74283cc564a58e184d7f62548ad394"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/JMSAopBundle/zipball/66287749c020b4c667c0ff4937b07e66c04bbe71",
-                "reference": "66287749c020b4c667c0ff4937b07e66c04bbe71",
+                "url": "https://api.github.com/repos/schmittjoh/JMSAopBundle/zipball/78000d007e74283cc564a58e184d7f62548ad394",
+                "reference": "78000d007e74283cc564a58e184d7f62548ad394",
                 "shasum": ""
             },
             "require": {
                 "jms/cg": "^1.1",
-                "symfony/framework-bundle": "2.*"
+                "php": ">=5.3.9",
+                "symfony/framework-bundle": "^2.3|^3.0"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "^2.7"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -1759,8 +1762,8 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "JMS\\AopBundle": ""
+                "psr-4": {
+                    "JMS\\AopBundle\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1778,7 +1781,7 @@
                 "annotations",
                 "aop"
             ],
-            "time": "2015-09-13 09:02:33"
+            "time": "2015-12-09 16:30:46"
         },
         {
             "name": "jms/cg",
