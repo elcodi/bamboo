@@ -1,0 +1,9 @@
+plugin_type:
+    utility: 'Utilities'
+elcodi_plugin:
+    clear_cache:
+        description: 'Clear file cache button for Elcodi'
+        field:
+        name: 'Clear Cache'
+        button: 'Clear'
+        cleared: 'File cache cleared!'
