@@ -1,6 +1,6 @@
 stripe:
-    public_key: @elcodi_plugin.stripe.public_key
-    private_key: @elcodi_plugin.stripe.private_key
+    public_key: "@elcodi_plugin.stripe.public_key"
+    private_key: "@elcodi_plugin.stripe.private_key"
     payment_success:
         route: store_order_thanks
         order_append: true

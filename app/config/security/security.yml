@@ -8,7 +8,7 @@ imports:
     #
     # Bamboo store & admin imported security
     #
-    - { resource: @ElcodiUserBundle/Resources/security/encoders.yml }
-    - { resource: @ElcodiUserBundle/Resources/security/providers.yml }
-    - { resource: @StoreUserBundle/Resources/security/roles.yml }
-    - { resource: @AdminUserBundle/Resources/security/roles.yml }
+    - { resource: "@ElcodiUserBundle/Resources/security/encoders.yml" }
+    - { resource: "@ElcodiUserBundle/Resources/security/providers.yml" }
+    - { resource: "@StoreUserBundle/Resources/security/roles.yml" }
+    - { resource: "@AdminUserBundle/Resources/security/roles.yml" }
