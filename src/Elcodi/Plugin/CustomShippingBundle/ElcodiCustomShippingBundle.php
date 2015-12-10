@@ -77,7 +77,7 @@ class ElcodiCustomShippingBundle
             'Elcodi\Bundle\CurrencyBundle\ElcodiCurrencyBundle',
             'Elcodi\Bundle\EntityTranslatorBundle\ElcodiEntityTranslatorBundle',
             'Elcodi\Bundle\MenuBundle\ElcodiMenuBundle',
-             new \Elcodi\Bundle\PluginBundle\ElcodiPluginBundle($kernel),
+            'Elcodi\Bundle\PluginBundle\ElcodiPluginBundle',
         ];
     }
 }

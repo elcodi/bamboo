@@ -15,7 +15,7 @@
  * @author Elcodi Team <tech@elcodi.com>
  */
 
-use Mmoreram\SymfonyBundleDependencies\BundleDependenciesResolver;
+use Mmoreram\SymfonyBundleDependencies\CachedBundleDependenciesResolver;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpKernel\Bundle\BundleInterface;
 use Symfony\Component\HttpKernel\Kernel;
@@ -25,7 +25,7 @@ use Symfony\Component\HttpKernel\Kernel;
  */
 class AppKernel extends Kernel
 {
-    use BundleDependenciesResolver;
+    use CachedBundleDependenciesResolver;
 
     /**
      * Returns an array of bundles to register.
@@ -41,136 +41,136 @@ class AppKernel extends Kernel
             /**
              * Symfony dependencies
              */
-            new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
-            new Symfony\Bundle\SecurityBundle\SecurityBundle(),
-            new Symfony\Bundle\TwigBundle\TwigBundle(),
-            new Symfony\Bundle\MonologBundle\MonologBundle(),
-            new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
-            new Symfony\Bundle\AsseticBundle\AsseticBundle(),
+            'Symfony\Bundle\FrameworkBundle\FrameworkBundle',
+            'Symfony\Bundle\SecurityBundle\SecurityBundle',
+            'Symfony\Bundle\TwigBundle\TwigBundle',
+            'Symfony\Bundle\MonologBundle\MonologBundle',
+            'Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle',
+            'Symfony\Bundle\AsseticBundle\AsseticBundle',
 
             /**
              * Third-party dependencies
              */
-            new Doctrine\Bundle\DoctrineCacheBundle\DoctrineCacheBundle(),
-            new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
-            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
-            new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
-            new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+            'Doctrine\Bundle\DoctrineCacheBundle\DoctrineCacheBundle',
+            'Doctrine\Bundle\DoctrineBundle\DoctrineBundle',
+            'Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle',
+            'Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle',
+            'Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle',
 
-            new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
-            new Ornicar\GravatarBundle\OrnicarGravatarBundle(),
-            new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
-            new Snc\RedisBundle\SncRedisBundle(),
-            new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
-            new Mmoreram\ControllerExtraBundle\ControllerExtraBundle(),
-            new Mmoreram\CacheFlushBundle\CacheFlushBundle(),
-            new Mmoreram\HttpHeadersBundle\HttpHeadersBundle(),
+            'Knp\Bundle\GaufretteBundle\KnpGaufretteBundle',
+            'Ornicar\GravatarBundle\OrnicarGravatarBundle',
+            'HWI\Bundle\OAuthBundle\HWIOAuthBundle',
+            'Snc\RedisBundle\SncRedisBundle',
+            'JMS\I18nRoutingBundle\JMSI18nRoutingBundle',
+            'Mmoreram\ControllerExtraBundle\ControllerExtraBundle',
+            'Mmoreram\CacheFlushBundle\CacheFlushBundle',
+            'Mmoreram\HttpHeadersBundle\HttpHeadersBundle',
 
             /**
              * Elcodi core bundles
              */
-            new Elcodi\Bundle\CoreBundle\ElcodiCoreBundle(),
-            new Elcodi\Bundle\LanguageBundle\ElcodiLanguageBundle(),
-            new Elcodi\Bundle\CartBundle\ElcodiCartBundle(),
-            new Elcodi\Bundle\CartCouponBundle\ElcodiCartCouponBundle(),
-            new Elcodi\Bundle\CouponBundle\ElcodiCouponBundle(),
-            new Elcodi\Bundle\BannerBundle\ElcodiBannerBundle(),
-            new Elcodi\Bundle\CurrencyBundle\ElcodiCurrencyBundle(),
-            new Elcodi\Bundle\UserBundle\ElcodiUserBundle(),
-            new Elcodi\Bundle\GeoBundle\ElcodiGeoBundle(),
-            new Elcodi\Bundle\ProductBundle\ElcodiProductBundle(),
-            new Elcodi\Bundle\AttributeBundle\ElcodiAttributeBundle(),
-            new Elcodi\Bundle\MediaBundle\ElcodiMediaBundle(),
-            new Elcodi\Bundle\RuleBundle\ElcodiRuleBundle(),
-            new Elcodi\Bundle\NewsletterBundle\ElcodiNewsletterBundle(),
-            new Elcodi\Bundle\MenuBundle\ElcodiMenuBundle(),
-            new Elcodi\Bundle\TaxBundle\ElcodiTaxBundle(),
-            new Elcodi\Bundle\EntityTranslatorBundle\ElcodiEntityTranslatorBundle(),
-            new Elcodi\Bundle\StateTransitionMachineBundle\ElcodiStateTransitionMachineBundle(),
-            new Elcodi\Bundle\PageBundle\ElcodiPageBundle(),
-            new Elcodi\Bundle\MetricBundle\ElcodiMetricBundle(),
-            new Elcodi\Bundle\PluginBundle\ElcodiPluginBundle($this),
-            new Elcodi\Bundle\CommentBundle\ElcodiCommentBundle(),
-            new Elcodi\Bundle\ZoneBundle\ElcodiZoneBundle(),
-            new \Elcodi\Bundle\CartShippingBundle\ElcodiCartShippingBundle(),
-            new Elcodi\Bundle\ShippingBundle\ElcodiShippingBundle(),
-            new Elcodi\Bundle\SitemapBundle\ElcodiSitemapBundle(),
-            new Elcodi\Bundle\PaymentBundle\ElcodiPaymentBundle(),
-            new Elcodi\Bundle\StoreBundle\ElcodiStoreBundle(),
+            'Elcodi\Bundle\CoreBundle\ElcodiCoreBundle',
+            'Elcodi\Bundle\LanguageBundle\ElcodiLanguageBundle',
+            'Elcodi\Bundle\CartBundle\ElcodiCartBundle',
+            'Elcodi\Bundle\CartCouponBundle\ElcodiCartCouponBundle',
+            'Elcodi\Bundle\CouponBundle\ElcodiCouponBundle',
+            'Elcodi\Bundle\BannerBundle\ElcodiBannerBundle',
+            'Elcodi\Bundle\CurrencyBundle\ElcodiCurrencyBundle',
+            'Elcodi\Bundle\UserBundle\ElcodiUserBundle',
+            'Elcodi\Bundle\GeoBundle\ElcodiGeoBundle',
+            'Elcodi\Bundle\ProductBundle\ElcodiProductBundle',
+            'Elcodi\Bundle\AttributeBundle\ElcodiAttributeBundle',
+            'Elcodi\Bundle\MediaBundle\ElcodiMediaBundle',
+            'Elcodi\Bundle\RuleBundle\ElcodiRuleBundle',
+            'Elcodi\Bundle\NewsletterBundle\ElcodiNewsletterBundle',
+            'Elcodi\Bundle\MenuBundle\ElcodiMenuBundle',
+            'Elcodi\Bundle\TaxBundle\ElcodiTaxBundle',
+            'Elcodi\Bundle\EntityTranslatorBundle\ElcodiEntityTranslatorBundle',
+            'Elcodi\Bundle\StateTransitionMachineBundle\ElcodiStateTransitionMachineBundle',
+            'Elcodi\Bundle\PageBundle\ElcodiPageBundle',
+            'Elcodi\Bundle\MetricBundle\ElcodiMetricBundle',
+            'Elcodi\Bundle\PluginBundle\ElcodiPluginBundle',
+            'Elcodi\Bundle\CommentBundle\ElcodiCommentBundle',
+            'Elcodi\Bundle\ZoneBundle\ElcodiZoneBundle',
+            'Elcodi\Bundle\CartShippingBundle\ElcodiCartShippingBundle',
+            'Elcodi\Bundle\ShippingBundle\ElcodiShippingBundle',
+            'Elcodi\Bundle\SitemapBundle\ElcodiSitemapBundle',
+            'Elcodi\Bundle\PaymentBundle\ElcodiPaymentBundle',
+            'Elcodi\Bundle\StoreBundle\ElcodiStoreBundle',
 
             /**
              * Elcodi store bundle
              */
-            new Elcodi\Store\CoreBundle\StoreCoreBundle(),
-            new Elcodi\Store\ProductBundle\StoreProductBundle(),
-            new Elcodi\Store\UserBundle\StoreUserBundle(),
-            new Elcodi\Store\GeoBundle\StoreGeoBundle(),
-            new Elcodi\Store\CartBundle\StoreCartBundle(),
-            new Elcodi\Store\CurrencyBundle\StoreCurrencyBundle(),
-            new Elcodi\Store\CartCouponBundle\StoreCartCouponBundle(),
-            new Elcodi\Store\ConnectBundle\StoreConnectBundle(),
-            new Elcodi\Store\MetricBundle\StoreMetricBundle(),
-            new Elcodi\Store\PageBundle\StorePageBundle(),
-            new Elcodi\Store\LanguageBundle\StoreLanguageBundle(),
-            new Elcodi\Store\OverrideBundle\StoreOverrideBundle(),
-            new Elcodi\Store\FallbackBundle\StoreFallbackBundle(),
+            'Elcodi\Store\CoreBundle\StoreCoreBundle',
+            'Elcodi\Store\ProductBundle\StoreProductBundle',
+            'Elcodi\Store\UserBundle\StoreUserBundle',
+            'Elcodi\Store\GeoBundle\StoreGeoBundle',
+            'Elcodi\Store\CartBundle\StoreCartBundle',
+            'Elcodi\Store\CurrencyBundle\StoreCurrencyBundle',
+            'Elcodi\Store\CartCouponBundle\StoreCartCouponBundle',
+            'Elcodi\Store\ConnectBundle\StoreConnectBundle',
+            'Elcodi\Store\MetricBundle\StoreMetricBundle',
+            'Elcodi\Store\PageBundle\StorePageBundle',
+            'Elcodi\Store\LanguageBundle\StoreLanguageBundle',
+            'Elcodi\Store\OverrideBundle\StoreOverrideBundle',
+            'Elcodi\Store\FallbackBundle\StoreFallbackBundle',
 
             /**
              * Elcodi admin bundles
              */
-            new Elcodi\Admin\CoreBundle\AdminCoreBundle(),
-            new Elcodi\Admin\UserBundle\AdminUserBundle(),
-            new Elcodi\Admin\AttributeBundle\AdminAttributeBundle(),
-            new Elcodi\Admin\BannerBundle\AdminBannerBundle(),
-            new Elcodi\Admin\CartBundle\AdminCartBundle(),
-            new Elcodi\Admin\CouponBundle\AdminCouponBundle(),
-            new Elcodi\Admin\CurrencyBundle\AdminCurrencyBundle(),
-            new Elcodi\Admin\LanguageBundle\AdminLanguageBundle(),
-            new Elcodi\Admin\MediaBundle\AdminMediaBundle(),
-            new Elcodi\Admin\NewsletterBundle\AdminNewsletterBundle(),
-            new Elcodi\Admin\ProductBundle\AdminProductBundle(),
-            new Elcodi\Admin\PageBundle\AdminPageBundle(),
-            new Elcodi\Admin\TemplateBundle\AdminTemplateBundle(),
-            new Elcodi\Admin\MetricBundle\AdminMetricBundle(),
-            new Elcodi\Admin\PluginBundle\AdminPluginBundle(),
-            new Elcodi\Admin\ShippingBundle\AdminShippingBundle(),
-            new Elcodi\Admin\GeoBundle\AdminGeoBundle(),
-            new Elcodi\Admin\PaymentBundle\AdminPaymentBundle(),
-            new Elcodi\Admin\StoreBundle\AdminStoreBundle(),
+            'Elcodi\Admin\CoreBundle\AdminCoreBundle',
+            'Elcodi\Admin\UserBundle\AdminUserBundle',
+            'Elcodi\Admin\AttributeBundle\AdminAttributeBundle',
+            'Elcodi\Admin\BannerBundle\AdminBannerBundle',
+            'Elcodi\Admin\CartBundle\AdminCartBundle',
+            'Elcodi\Admin\CouponBundle\AdminCouponBundle',
+            'Elcodi\Admin\CurrencyBundle\AdminCurrencyBundle',
+            'Elcodi\Admin\LanguageBundle\AdminLanguageBundle',
+            'Elcodi\Admin\MediaBundle\AdminMediaBundle',
+            'Elcodi\Admin\NewsletterBundle\AdminNewsletterBundle',
+            'Elcodi\Admin\ProductBundle\AdminProductBundle',
+            'Elcodi\Admin\PageBundle\AdminPageBundle',
+            'Elcodi\Admin\TemplateBundle\AdminTemplateBundle',
+            'Elcodi\Admin\MetricBundle\AdminMetricBundle',
+            'Elcodi\Admin\PluginBundle\AdminPluginBundle',
+            'Elcodi\Admin\ShippingBundle\AdminShippingBundle',
+            'Elcodi\Admin\GeoBundle\AdminGeoBundle',
+            'Elcodi\Admin\PaymentBundle\AdminPaymentBundle',
+            'Elcodi\Admin\StoreBundle\AdminStoreBundle',
 
             /**
              * Elcodi common bundle
              */
-            new Elcodi\Common\FirewallBundle\ElcodiFirewallBundle(),
-            new Elcodi\Common\CommonBundle\ElcodiCommonBundle(),
+            'Elcodi\Common\FirewallBundle\ElcodiFirewallBundle',
+            'Elcodi\Common\CommonBundle\ElcodiCommonBundle',
 
             /**
              * Elcodi Plugins
              */
-            new Elcodi\Plugin\GoogleAnalyticsBundle\ElcodiGoogleAnalyticsBundle(),
-            new Elcodi\Plugin\PinterestBundle\ElcodiPinterestBundle(),
-            new Elcodi\Plugin\ProductCsvBundle\ElcodiProductCsvBundle(),
-            new Elcodi\Plugin\StoreSetupWizardBundle\ElcodiStoreSetupWizardBundle(),
-            new Elcodi\Plugin\DisqusBundle\ElcodiDisqusBundle(),
-            new Elcodi\Plugin\TwitterBundle\ElcodiTwitterBundle(),
-            new Elcodi\Plugin\FacebookBundle\ElcodiFacebookBundle(),
-            new Elcodi\Plugin\StoreTemplateBundle\StoreTemplateBundle(),
-            new Elcodi\Plugin\PaypalWebCheckoutBundle\ElcodiPaypalWebCheckoutBundle(),
-            new Elcodi\Plugin\FreePaymentBundle\ElcodiFreePaymentBundle(),
-            new Elcodi\Plugin\StripeBundle\ElcodiStripeBundle(),
-            new Elcodi\Plugin\CustomShippingBundle\ElcodiCustomShippingBundle(),
+            'Elcodi\Plugin\GoogleAnalyticsBundle\ElcodiGoogleAnalyticsBundle',
+            'Elcodi\Plugin\PinterestBundle\ElcodiPinterestBundle',
+            'Elcodi\Plugin\ProductCsvBundle\ElcodiProductCsvBundle',
+            'Elcodi\Plugin\StoreSetupWizardBundle\ElcodiStoreSetupWizardBundle',
+            'Elcodi\Plugin\DisqusBundle\ElcodiDisqusBundle',
+            'Elcodi\Plugin\TwitterBundle\ElcodiTwitterBundle',
+            'Elcodi\Plugin\FacebookBundle\ElcodiFacebookBundle',
+            'Elcodi\Plugin\StoreTemplateBundle\StoreTemplateBundle',
+            'Elcodi\Plugin\PaypalWebCheckoutBundle\ElcodiPaypalWebCheckoutBundle',
+            'Elcodi\Plugin\FreePaymentBundle\ElcodiFreePaymentBundle',
+            'Elcodi\Plugin\StripeBundle\ElcodiStripeBundle',
+            'Elcodi\Plugin\CustomShippingBundle\ElcodiCustomShippingBundle',
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'])) {
-            $bundles[] = new Elcodi\Bundle\FixturesBoosterBundle\ElcodiFixturesBoosterBundle();
-            $bundles[] = new Elcodi\Bridge\BehatBridgeBundle\BehatBridgeBundle();
-            $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
-            $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
+            $bundles[] = 'Elcodi\Bundle\FixturesBoosterBundle\ElcodiFixturesBoosterBundle';
+            $bundles[] = 'Elcodi\Bridge\BehatBridgeBundle\BehatBridgeBundle';
+            $bundles[] = 'Symfony\Bundle\WebProfilerBundle\WebProfilerBundle';
+            $bundles[] = 'Sensio\Bundle\DistributionBundle\SensioDistributionBundle';
         }
 
         if (class_exists('Visithor\Bundle\VisithorBundle')) {
-            $bundles[] = new Visithor\Bundle\VisithorBundle();
-            $bundles[] = new Elcodi\Bridge\VisithorBridgeBundle\ElcodiVisithorBridgeBundle();
+            $bundles[] = 'Visithor\Bundle\VisithorBundle';
+            $bundles[] = 'Elcodi\Bridge\VisithorBridgeBundle\ElcodiVisithorBridgeBundle';
         }
 
         return $this
