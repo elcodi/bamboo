@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "859d2138f94e09f35c53518a80acfef2",
-    "content-hash": "8961ac8d86910f4afdf36c4ee07e8dca",
+    "hash": "caf94cfad01b8c7ecad22ce46e27261e",
+    "content-hash": "a54dd5a36b3e3a0bc1f8cc2dac47dde4",
     "packages": [
         {
             "name": "acasademont/i18n-routing-bundle",
@@ -2609,16 +2609,16 @@
         },
         {
             "name": "mmoreram/symfony-bundle-dependencies",
-            "version": "v1.0.0",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mmoreram/symfony-bundle-dependencies.git",
-                "reference": "fd20e2c926dbbb0d7a1af793f7491ec7df5eb201"
+                "reference": "34b33b947558d1ab3a018f3de8255ecfc1135b01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mmoreram/symfony-bundle-dependencies/zipball/fd20e2c926dbbb0d7a1af793f7491ec7df5eb201",
-                "reference": "fd20e2c926dbbb0d7a1af793f7491ec7df5eb201",
+                "url": "https://api.github.com/repos/mmoreram/symfony-bundle-dependencies/zipball/34b33b947558d1ab3a018f3de8255ecfc1135b01",
+                "reference": "34b33b947558d1ab3a018f3de8255ecfc1135b01",
                 "shasum": ""
             },
             "require": {
@@ -2626,9 +2626,9 @@
                 "symfony/http-kernel": "^2.2|^3.0"
             },
             "require-dev": {
-                "fabpot/php-cs-fixer": "1.4.2",
+                "fabpot/php-cs-fixer": "1.11",
                 "mmoreram/php-formatter": "1.1.0",
-                "phpunit/phpunit": "4.5.0"
+                "phpunit/phpunit": "4.8.19"
             },
             "type": "library",
             "extra": {
@@ -2657,7 +2657,7 @@
                 "dependencies",
                 "symfony"
             ],
-            "time": "2015-11-23 21:28:44"
+            "time": "2015-12-10 19:34:00"
         },
         {
             "name": "monolog/monolog",
