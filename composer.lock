@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "caf94cfad01b8c7ecad22ce46e27261e",
-    "content-hash": "a54dd5a36b3e3a0bc1f8cc2dac47dde4",
+    "hash": "6dc77a2404e1d1dda63e1264cfdb3e29",
+    "content-hash": "564fb8b68a293cb263e208e9a65a4946",
     "packages": [
         {
             "name": "acasademont/i18n-routing-bundle",
@@ -1075,16 +1075,16 @@
         },
         {
             "name": "elcodi/elcodi",
-            "version": "v1.0.12",
+            "version": "1.0.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/elcodi/elcodi.git",
-                "reference": "2e88b1780cdcdb0b54fbc07dc792d59190a64a45"
+                "reference": "792bd50c0b697b3116c5c25a29188eb8d00a56f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elcodi/elcodi/zipball/2e88b1780cdcdb0b54fbc07dc792d59190a64a45",
-                "reference": "2e88b1780cdcdb0b54fbc07dc792d59190a64a45",
+                "url": "https://api.github.com/repos/elcodi/elcodi/zipball/792bd50c0b697b3116c5c25a29188eb8d00a56f2",
+                "reference": "792bd50c0b697b3116c5c25a29188eb8d00a56f2",
                 "shasum": ""
             },
             "require": {
@@ -1098,7 +1098,7 @@
                 "knplabs/knp-gaufrette-bundle": "^0.1.7",
                 "mmoreram/extractor": "^1.2.0",
                 "mmoreram/simple-doctrine-mapping": "^1.0",
-                "mmoreram/symfony-bundle-dependencies": "^1.0",
+                "mmoreram/symfony-bundle-dependencies": "^1.1.1",
                 "ocramius/proxy-manager": "^1.0",
                 "php": "^5.4|^7.0",
                 "predis/predis": "^1.0.1",
@@ -1232,7 +1232,7 @@
                 "elcodi",
                 "symfony"
             ],
-            "time": "2015-12-09 15:34:26"
+            "time": "2015-12-11 19:58:42"
         },
         {
             "name": "goodby/csv",

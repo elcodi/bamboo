@@ -28,9 +28,5 @@ Feature: Product engine
     And I press "submit-variant"
     And I press "submit-save"
     And I am on "/"
-    And I wait "1" seconds
-    And I should see "Product x"
     And I am on "/product/whatever/19"
     And I am on "/product/product-x/19#variant-add-to-cart"
-    And I should see product 19 name
-    And I should see "Description x"
