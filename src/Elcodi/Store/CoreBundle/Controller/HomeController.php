@@ -17,9 +17,6 @@
 
 namespace Elcodi\Store\CoreBundle\Controller;
 
-use Doctrine\ORM\Tools\Pagination\Paginator;
-use Mmoreram\ControllerExtraBundle\Annotation\Paginator as PaginatorAnnotation;
-use Mmoreram\ControllerExtraBundle\ValueObject\PaginatorAttributes;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
@@ -38,49 +35,24 @@ class HomeController extends Controller
     /**
      * Home page.
      *
-     * @param Paginator           $paginator
-     * @param PaginatorAttributes $paginatorAttributes
-     *
      * @return Response Response
      *
      * @Route(
-     *      path = "/{page}",
+     *      path = "/",
      *      name = "store_homepage",
-     *      methods = {"GET"},
-     *      requirements = {
-     *          "page" = "\d+",
-     *      },
-     *      defaults = {
-     *          "page" = "1",
-     *      },
+     *      methods = {"GET"}
      * )
-     *
-     * @PaginatorAnnotation(
-     *      attributes = "paginatorAttributes",
-     *      class = "elcodi.entity.product.class",
-     *      page = "~page~",
-     *      limit = "6",
-     *      wheres = {
-     *          {"x", "enabled", "=", true},
-     *          {"x", "showInHome", "=", true},
-     *      },
-     *      orderBy = {
-     *          {"x", "updatedAt", "DESC"},
-     *      }
-     * )
-     *
      */
-    public function homeAction(
-        Paginator $paginator,
-        PaginatorAttributes $paginatorAttributes
-    ) {
+    public function homeAction()
+    {
+        $products = $this
+            ->get('elcodi.repository.product')
+            ->getHomeProducts(9, true);
+
         return $this->renderTemplate(
             'Pages:home-view.html.twig',
             [
-                'products' => $paginator,
-                'currentPage' => $paginatorAttributes->getCurrentPage(),
-                'totalPages' => $paginatorAttributes->getTotalPages(),
-                'limitPerPage' => $paginatorAttributes->getLimitPerPage(),
+                'products' => $products,
             ]
         );
     }

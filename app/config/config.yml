@@ -76,6 +76,9 @@ doctrine:
             default:
                 connection: default
                 auto_mapping: false
+                metadata_cache_driver: array
+                query_cache_driver: array
+                result_cache_driver: array
 
 #
 # Assetic Configuration

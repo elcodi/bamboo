@@ -73,7 +73,7 @@
         "mmoreram/http-headers-bundle": "1.0.0",
         "mmoreram/symfony-bundle-dependencies": "^1.1.1",
 
-        "elcodi/elcodi": "^1.0.10"
+        "elcodi/elcodi": "^1.0.13"
     },
     "replace": {
         "elcodi-templates/template": "self.version",
