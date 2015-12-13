@@ -44,12 +44,27 @@ class PasswordRecoverType extends AbstractType
     }
 
     /**
+     * Returns the prefix of the template block name for this type.
+     *
+     * The block prefix defaults to the underscored short class name with
+     * the "Type" suffix removed (e.g. "UserProfileType" => "user_profile").
+     *
+     * @return string The prefix of the template block name
+     */
+    public function getBlockPrefix()
+    {
+        return 'elcodi_admin_user_form_type_password_recover';
+    }
+
+    /**
      * Return unique name for this form
+     *
+     * @deprecated Deprecated since Symfony 2.8, to be removed from Symfony 3.
      *
      * @return string
      */
     public function getName()
     {
-        return 'elcodi_admin_user_form_type_password_recover';
+        return $this->getBlockPrefix();
     }
 }
