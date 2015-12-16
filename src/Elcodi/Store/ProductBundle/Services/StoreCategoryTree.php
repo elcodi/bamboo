@@ -235,7 +235,7 @@ class StoreCategoryTree extends AbstractCacheWrapper
                 'id'            => $categoryNode['entity']->getId(),
                 'name'          => $categoryNode['entity']->getName(),
                 'slug'          => $categoryNode['entity']->getSlug(),
-                'productsCount' => count($categoryNode['entity']->getProducts()),
+                'productsCount' => count($categoryNode['entity']->getPurchasables()),
             ],
             'children' => empty($categoryNode['children'])
                 ? []

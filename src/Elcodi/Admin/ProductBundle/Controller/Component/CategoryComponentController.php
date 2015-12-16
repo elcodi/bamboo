@@ -31,6 +31,10 @@ use Elcodi\Component\Product\Entity\Interfaces\CategoryInterface;
 
 /**
  * Class CategoryComponentController
+ *
+ * @Route(
+ *      path = "",
+ * )
  */
 class CategoryComponentController extends AbstractAdminController
 {
@@ -43,7 +47,7 @@ class CategoryComponentController extends AbstractAdminController
      * @return array Result
      *
      * @Route(
-     *      path = "s/list/component",
+     *      path = "/categories/component",
      *      name = "admin_category_list_component"
      * )
      * @Template("AdminProductBundle:Category:listComponent.html.twig")
@@ -69,14 +73,14 @@ class CategoryComponentController extends AbstractAdminController
      * @return array Result
      *
      * @Route(
-     *      path = "/{id}/component",
+     *      path = "/category/{id}/component",
      *      name = "admin_category_edit_component",
      *      requirements = {
      *          "id" = "\d+",
      *      }
      * )
      * @Route(
-     *      path = "/new/component",
+     *      path = "/category/new/component",
      *      name = "admin_category_new_component",
      *      methods = {"GET"}
      * )
@@ -122,7 +126,7 @@ class CategoryComponentController extends AbstractAdminController
      * @return array Result
      *
      * @Route(
-     *      path = "/sort/component",
+     *      path = "/category/sort/component",
      *      name = "admin_category_sort_component",
      *      methods = {"POST"}
      * )

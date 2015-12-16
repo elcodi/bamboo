@@ -32,6 +32,10 @@ use Elcodi\Component\Newsletter\Entity\Interfaces\NewsletterSubscriptionInterfac
 
 /**
  * Class NewsletterSubscriptionComponentController
+ *
+ * @Route(
+ *      path = "/newsletter/subscription"
+ * )
  */
 class NewsletterSubscriptionComponentController
     extends
@@ -53,7 +57,7 @@ class NewsletterSubscriptionComponentController
      * @return array Result
      *
      * @Route(
-     *      path = "/newsletter/subscriptions/list/component/{page}/{limit}/{orderByField}/{orderByDirection}",
+     *      path = "s/component/{page}/{limit}/{orderByField}/{orderByDirection}",
      *      name = "admin_newsletter_subscription_list_component",
      *      requirements = {
      *          "page" = "\d*",
@@ -109,7 +113,7 @@ class NewsletterSubscriptionComponentController
      * @return array Result
      *
      * @Route(
-     *      path = "/newsletter/subscription/component/{id}",
+     *      path = "/component/{id}",
      *      name = "admin_newsletter_subscription_view_component",
      *      requirements = {
      *          "id" = "\d*",
@@ -145,7 +149,7 @@ class NewsletterSubscriptionComponentController
      * @return array Result
      *
      * @Route(
-     *      path = "/newsletter/subscription/new/component",
+     *      path = "/new/component",
      *      name = "admin_newsletter_subscription_new_component"
      * )
      * @Template("AdminNewsletterBundle:NewsletterSubscription:Component/newComponent.html.twig")
@@ -181,7 +185,7 @@ class NewsletterSubscriptionComponentController
      * @return array Result
      *
      * @Route(
-     *      path = "/newsletter/subscription/{id}/edit/component",
+     *      path = "/{id}/edit/component",
      *      name = "admin_newsletter_subscription_edit_component"
      * )
      * @Template("AdminNewsletterBundle:NewsletterSubscription:Component/editComponent.html.twig")

@@ -24,6 +24,7 @@ use Exception;
 use Elcodi\Bridge\BehatBridgeBundle\Abstracts\AbstractElcodiContext;
 use Elcodi\Component\Product\Entity\Interfaces\CategoryInterface;
 use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
+use Elcodi\Component\Product\Entity\Interfaces\PurchasableInterface;
 
 /**
  * Class Context
@@ -35,13 +36,28 @@ class Context extends AbstractElcodiContext
      */
     public function iAmOnTheProductPage($productId)
     {
-        $product = $this->getProduct($productId);
+        $product = $this->getPurchasable($productId);
 
         $this
             ->getSession()
             ->visit($this->getRoute('store_product_view', [
                 'id' => $productId,
                 'slug' => $product->getSlug(),
+            ]));
+    }
+
+    /**
+     * @Given ~^I am on the pack (?P<packId>\d+) page$~
+     */
+    public function iAmOnThePackPage($packId)
+    {
+        $pack = $this->getPurchasable($packId);
+
+        $this
+            ->getSession()
+            ->visit($this->getRoute('store_purchasable_pack_view', [
+                'id' => $packId,
+                'slug' => $pack->getSlug(),
             ]));
     }
 
@@ -100,26 +116,18 @@ class Context extends AbstractElcodiContext
     }
 
     /**
-     * @Then ~^I should see product (?P<productId>\d+) name$~
+     * @Then ~^I should see product (?P<id>\d+) name$~
+     * @Then ~^I should see pack (?P<id>\d+) name$~
+     * @Then ~^I should see purchasable (?P<id>\d+) name$~
      */
-    public function iShouldSeeProductName($productId)
+    public function iShouldSeePurchasableName($id)
     {
-        $product = $this->getProduct($productId);
+        $purchasable = $this->getPurchasable($id);
 
-        $elements = $this
+        $this
             ->getSession()
             ->getPage()
-            ->findAll('xpath', '//h1[contains(., "' . $product->getName() . '")]');
-
-        if (count($elements) != 1) {
-            throw new Exception(
-                sprintf(
-                    'Product with id %d found %d times. expected 1',
-                    $product->getId(),
-                    count($elements)
-                )
-            );
-        }
+            ->findAll('xpath', '//h1[contains(., "' . $purchasable->getName() . '")]');
     }
 
     /**
@@ -160,32 +168,31 @@ class Context extends AbstractElcodiContext
     }
 
     /**
-     * Get product by id
+     * Get purchasable by id
      *
-     * @param integer $productId Product Id
+     * @param integer $purchasableId Purchasable Id
      *
-     * @return ProductInterface Product
+     * @return PurchasableInterface Purchasable
      *
      * @throws EntityNotFoundException Product not found
      */
-    protected function getProduct($productId)
+    protected function getPurchasable($purchasableId)
     {
-        $product = $this
+        $purchasable = $this
             ->getContainer()
-            ->get('elcodi.provider.repository')
-            ->getRepositoryByEntityParameter('elcodi.entity.product.class')
-            ->find($productId);
+            ->get('elcodi.repository.purchasable')
+            ->find($purchasableId);
 
-        if (!($product instanceof ProductInterface)) {
+        if (!($purchasable instanceof PurchasableInterface)) {
             throw new EntityNotFoundException(
                 sprintf(
-                    'Product with id %d was not found',
-                    $productId
+                    'Purchasable with id %d was not found',
+                    $purchasableId
                 )
             );
         }
 
-        return $product;
+        return $purchasable;
     }
 
     /**
@@ -201,8 +208,7 @@ class Context extends AbstractElcodiContext
     {
         $category = $this
             ->getContainer()
-            ->get('elcodi.provider.repository')
-            ->getRepositoryByEntityParameter('elcodi.entity.category.class')
+            ->get('elcodi.repository.category')
             ->find($categoryId);
 
         if (!($category instanceof ProductInterface)) {

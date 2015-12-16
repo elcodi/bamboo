@@ -8,9 +8,7 @@ Feature: Admin product
     Given In admin, I am logged as "admin@admin.com" - "1234"
     When I go to "/admin/products"
     Then the response should contain a "product-1" test attribute
-    And the response should contain a "product-2" test attribute
     And the response should contain a "product-18" test attribute
-    And the response should not contain a "product-19" test attribute
     And the response should contain a "new-product" test attribute
 
   Scenario: Add a new product

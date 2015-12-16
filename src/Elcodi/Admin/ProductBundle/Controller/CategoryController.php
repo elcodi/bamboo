@@ -131,11 +131,10 @@ class CategoryController extends AbstractAdminController
             $this->addFlash('success', 'admin.category.saved');
 
             if ($request->query->get('modal', false)) {
-                $redirection = $this
-                        ->redirectToRoute(
-                            'admin_category_edit',
-                            ['id' => $category->getId()]
-                        );
+                $redirection = $this->redirectToRoute(
+                    'admin_category_edit',
+                    ['id' => $category->getId()]
+                );
             } else {
                 $redirection = $this->redirectToRoute('admin_category_list');
             }

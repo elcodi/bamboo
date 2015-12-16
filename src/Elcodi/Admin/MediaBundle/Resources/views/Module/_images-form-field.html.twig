@@ -14,7 +14,7 @@
             <div id="thumb-gallery-select" class="d-n">
                 {{ form_row(form.images, { attr: { class: 'js-images-select' } }) }}
             </div>
-            <ul id="thumb-gallery" data-fc-modules="sortable" data-fc-input="elcodi_admin_product_form_type_product_imagesSort" class="thumbnail-group thumbnail-group-extended pl-s mb-n">
+            <ul id="thumb-gallery" data-fc-modules="sortable" data-fc-input="{{ form.imagesSort.vars.id }}" class="thumbnail-group thumbnail-group-extended pl-s mb-n">
             {% for image in images %}
                 {% set imageResize = image|resize({ height: 150, width: 150, type: 5 }) %}
                 {% set imageView = image|resize({ height: 1024, width: 1024, type: 5 }) %}

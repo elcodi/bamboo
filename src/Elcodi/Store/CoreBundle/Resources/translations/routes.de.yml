@@ -5,8 +5,7 @@ store_address_list: /meine-adressen
 store_address_new: '/meine-adressen/neu/{source}'
 store_blog_post_view: '/blog/{id}/{slug}'
 store_blog_view: '/blog/{page}'
-store_cart_add_product: '/warenkorb/produkt/{id}/add'
-store_cart_add_product_variant: '/warenkorb/produkt/variante/{id}/hinzu'
+store_cart_add_purchasable: '/warenkorb/produkt/{id}/add'
 store_cart_coupon_form_type_coupon_apply: /warenkorb/gutscheine
 store_cart_empty: /warenkorb/leeren
 store_cart_nav: /warenkorb/nav
@@ -14,7 +13,7 @@ store_cart_update: /warenkorb/erweitern
 store_cart_view: /warenkorb
 store_cartline_remove: '/warenkorb/artikel/{id}/löschen'
 store_categories_nav: /kategorien/nav
-store_category_products_list: '/kategorie/{slug}/{id}'
+store_category_purchasables_list: '/kategorie/{slug}/{id}'
 store_checkout_address: /warenkorb/adresse
 store_checkout_address_save: /warenkorb/adresse/save
 store_checkout_payment: /warenkorb/bezahlung

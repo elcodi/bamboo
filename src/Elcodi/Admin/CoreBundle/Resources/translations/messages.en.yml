@@ -73,7 +73,7 @@ admin:
                 title: 'Login details'
             password:
                 description: 'Change admin password.'
-                title: 'Password'
+                title: Password
             status:
                 description: 'You can set administrators as active or inactive.'
                 title: 'User status'
@@ -374,6 +374,7 @@ admin:
                 desktop: Desktop
                 mobile: Mobile
                 title: Devices
+            orders: orders
             sales:
                 sales: Sales
                 title: Sales
@@ -531,6 +532,7 @@ admin:
         plural: Media
         single: Media
     menu:
+        custom_shipping: 'Custom Shipping'
         design: 'Customize Store'
     metadata:
         customize: 'Customize Metadata'
@@ -747,6 +749,106 @@ admin:
     profile:
         plural: Profiles
         single: Profile
+    purchasable_pack:
+        edit: 'Edit "%name%"'
+        error:
+            no_category: 'Warning! This pack has no associated category'
+            no_manufacturer: 'Warning! This pack has no associated manufacturer'
+            price_negative: 'Warning! The price can not be negative'
+        field:
+            depth:
+                title: 'Depth (in cm)'
+            description:
+                placeholder: 'e.g. This awesome pack is exactly what you are lookin for.'
+                title: Description
+            enabled:
+                options:
+                    active: Active
+                    inactive: Inactive
+                title: Visibility
+            height:
+                title: 'Height (in cm)'
+            image:
+                title: Image
+            in_home:
+                title: 'Show in home'
+            main_category:
+                placeholder: 'e.g. Computers, handbags...'
+                title: Category
+            manufacturer:
+                placeholder: 'e.g. Apple, Disney...'
+                title: Manufacturer
+            metadescription:
+                placeholder: 'e.g. This awesome pack is exactly what you are lookin for.'
+            metakeywords:
+                placeholder: 'e.g. pack,awesome'
+            metatitle:
+                placeholder: 'e.g. My Awesome Pack'
+            name:
+                placeholder: 'e.g. My Awesome Pack'
+                title: Title
+            name_details:
+                title: 'Name & Details'
+            price:
+                title: Price
+            purchasables:
+                title: 'Pack elements'
+            reduced_price:
+                title: 'Reduced price'
+            sku:
+                placeholder: 'ej. SAU102'
+                title: SKU
+            slug:
+                customize: 'Customize slug'
+                placeholder: 'e.g. my/awesome/pack'
+                title: Slug
+            stock:
+                title: Stock
+            stock_type:
+                inherit_stock: Inherit
+                specific_stock: Specific
+                title: 'Stock type'
+            weight:
+                title: 'Weight (in g)'
+            width:
+                title: 'Width (in cm)'
+        in_store: View
+        list: 'Pack list'
+        new: 'New Pack'
+        note: Notes
+        plural: Packs
+        saved: 'Pack saved'
+        section:
+            basic:
+                description: 'Provide a very specific title for your pack that explains and help sell your pack and description that provides all the information required for your consumers.'
+                title: 'Basic Details'
+            catalog:
+                description: 'Define what elements should be included in this pack'
+                title: Catalog
+            categorization:
+                description: 'The pack must be clasified under one category and one manufacturer. They will be visible in your store and must help your customers to navigate in your store.'
+                title: Categorization
+            dimensions:
+                description: 'Set the dimensions and weight for your pack. This information will be useful to calculate shipping costs.'
+                title: Dimensions
+            pricing:
+                description: 'Set the price for your pack, without including taxes nor shipping. Also you can set an offer price.'
+                title: Pricing
+            sku:
+                description: 'SKU is an identifier that allows to identify the pack. Each SKU it''s related to just one pack.'
+                title: SKU
+            stock:
+                description: 'Configure the stock for your pack. If you define the stock as inherit, then all stocks of this pack elements will be decreased. Otherwise, you will have to define a specific stock and this one will be decreased.'
+                title: Stock
+            visibility:
+                description: 'Set this pack as visible or hidden, and make it visible in your home.'
+                title: Visibility
+        show_metrics: 'Show metrics'
+        single: Pack
+        tag:
+            in_home: Home
+            no_category: 'No category'
+            no_manufacturer: 'No manufacturer'
     recover_user:
         action:
             email_sent:

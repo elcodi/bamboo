@@ -1,26 +1,27 @@
-{% set productRoute = url('store_product_view', { slug: line.product.slug, id: line.product.id }) %}
+{% set purchasable = line.purchasable %}
+{% set purchasable = purchasable.product ?: purchasable %}
+{% set purchasableRouteName = purchasable.products ? 'store_purchasable_pack_view' : 'store_product_view' %}
+{% set purchasableRoute = url(purchasableRouteName, { slug: purchasable.slug, id: purchasable.id }) %}
+{% set productName = purchasable|purchasable_name %}
+{% set validImage = purchasable|valid_image %}
+
 <dl class="{{ class|default('cart-item') }}">
     <dt class="cart-item-image">{{ 'template.store_template_bundle.order.item.image'|trans }}</dt>
     <dd class="cart-item-image">
         <a href="{{ productRoute }}">
-            <img src="{{ line.product.images|length > 0 ? line.product.images.first|resize({
+            <img src="{{ validImage ? validImage|resize({
                 width: 150,
                 height: 150,
-                type: 5 }) : '//placehold.it/80x80'
+                type: 5 }) : '//placehold.it/150x150'
             }}" alt="{{ product.name }}" class="product-thumbnail" />
         </a>
     </dd>
     <dt class="cart-item-name">{{ 'template.store_template_bundle.order.item.item'|trans }}</dt>
-    <dd class="cart-item-name"><a href="{{ productRoute }}" class="product-title">{{ line.purchasable|purchasable_name }}</a></dd>
+    <dd class="cart-item-name"><a href="{{ purchasableRoute }}" class="product-title">{{ productName }}</a></dd>
     <dt class="cart-item-units">{{ 'template.store_template_bundle.order.item.units'|trans }}</dt>
     <dd class="cart-item-units">{{ line.quantity }}</dd>
-    {% if line.purchasable.reducedPrice.amount > 0 %}
-        {% set purchasablePrice = purchasable.ReducedPrice %}
-    {% else %}
-        {% set purchasablePrice = line.purchasable.price %}
-        <dt class="cart-item-price">{{ 'template.store_template_bundle.order.item.price'|trans }}</dt>
-        <dd class="cart-item-price">{{ purchasablePrice|print_convert_money() }}</dd>
-        <dt class="cart-item-total">{{ 'template.store_template_bundle.order.item.total'|trans }}</dt>
-        <dd class="cart-item-total">{{ line.amount|print_convert_money() }}</dd>
-    {% endif %}
+    <dt class="cart-item-price">{{ 'template.store_template_bundle.order.item.price'|trans }}</dt>
+    <dd class="cart-item-price">{{ line.purchasableAmount|print_convert_money() }}</dd>
+    <dt class="cart-item-total">{{ 'template.store_template_bundle.order.item.total'|trans }}</dt>
+    <dd class="cart-item-total">{{ line.amount|print_convert_money() }}</dd>
 </dl>

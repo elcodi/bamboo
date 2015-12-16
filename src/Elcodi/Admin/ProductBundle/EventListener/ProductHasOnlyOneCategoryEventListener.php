@@ -17,7 +17,6 @@
 
 namespace Elcodi\Admin\ProductBundle\EventListener;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Event\PreFlushEventArgs;
 use Doctrine\ORM\Event\PreUpdateEventArgs;
 
@@ -74,9 +73,9 @@ class ProductHasOnlyOneCategoryEventListener
         $principalCategory = $product->getPrincipalCategory();
 
         if ($principalCategory instanceof CategoryInterface) {
-            $categories = new ArrayCollection();
+            $categories = $product->getCategories();
+            $categories->clear();
             $categories->add($principalCategory);
-            $product->setCategories($categories);
         }
     }
 }

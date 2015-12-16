@@ -30,8 +30,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 use Elcodi\Component\Cart\Entity\Interfaces\CartInterface;
 use Elcodi\Component\Cart\Entity\Interfaces\CartLineInterface;
-use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
-use Elcodi\Component\Product\Entity\Interfaces\VariantInterface;
+use Elcodi\Component\Product\Entity\Interfaces\PurchasableInterface;
 use Elcodi\Store\CoreBundle\Controller\Traits\TemplateRenderTrait;
 
 /**
@@ -84,9 +83,9 @@ class CartController extends Controller
         return $this->renderTemplate(
             'Pages:cart-view.html.twig',
             [
-                'cart'             => $cart,
-                'cartCoupons'      => $cartCoupons,
-                'form'             => $formView,
+                'cart'        => $cart,
+                'cartCoupons' => $cartCoupons,
+                'form'        => $formView,
             ]
         );
     }
@@ -94,31 +93,23 @@ class CartController extends Controller
     /**
      * Adds product into cart
      *
-     * @param Request          $request Request object
-     * @param ProductInterface $product Product id
-     * @param CartInterface    $cart    Cart
+     * @param Request       $request Request object
+     * @param CartInterface $cart    Cart
+     * @param integer       $id      Purchasable Id
      *
      * @return Response Redirect response
      *
-     * @throws EntityNotFoundException product not found
+     * @throws EntityNotFoundException Purchasable not found
      *
      * @Route(
-     *      path = "/product/{id}/add",
-     *      name = "store_cart_add_product",
+     *      path = "/purchasable/{id}/add",
+     *      name = "store_cart_add_purchasable",
      *      requirements = {
      *          "id": "\d+"
      *      },
      *      methods = {"GET", "POST"}
      * )
      *
-     * @AnnotationEntity(
-     *      class = "elcodi.entity.product.class",
-     *      name = "product",
-     *      mapping = {
-     *          "id" = "~id~",
-     *          "enabled" = true,
-     *      }
-     * )
      * @AnnotationEntity(
      *      class = {
      *          "factory" = "elcodi.wrapper.cart",
@@ -128,11 +119,19 @@ class CartController extends Controller
      *      name = "cart"
      * )
      */
-    public function addProductAction(
+    public function addPurchasableAction(
         Request $request,
-        ProductInterface $product,
-        CartInterface $cart
+        CartInterface $cart,
+        $id
     ) {
+        $purchasable = $this
+            ->get('elcodi.repository.purchasable')
+            ->find($id);
+
+        if (!$purchasable instanceof PurchasableInterface) {
+            throw new EntityNotFoundException('Purchasable not found');
+        }
+
         $cartQuantity = (int) $request
             ->request
             ->get('add-cart-quantity', 1);
@@ -141,66 +140,7 @@ class CartController extends Controller
             ->get('elcodi.manager.cart')
             ->addPurchasable(
                 $cart,
-                $product,
-                $cartQuantity
-            );
-
-        return $this->redirect(
-            $this->generateUrl('store_cart_view')
-        );
-    }
-
-    /**
-     * Adds product variant into cart
-     *
-     * @param Request          $request Request object
-     * @param VariantInterface $variant variant
-     * @param CartInterface    $cart    Cart
-     *
-     * @return Response Redirect response
-     *
-     * @throws EntityNotFoundException product not found
-     *
-     * @Route(
-     *      path = "/product/variant/{id}/add",
-     *      name = "store_cart_add_product_variant",
-     *      requirements = {
-     *          "id": "\d+"
-     *      },
-     *      methods = {"GET", "POST"}
-     * )
-     *
-     * @AnnotationEntity(
-     *      class = "elcodi.entity.product_variant.class",
-     *      name = "variant",
-     *      mapping = {
-     *          "id" = "~id~",
-     *          "enabled" = true,
-     *      }
-     * )
-     * @AnnotationEntity(
-     *      class = {
-     *          "factory" = "elcodi.wrapper.cart",
-     *          "method" = "get",
-     *          "static" = false,
-     *      },
-     *      name = "cart"
-     * )
-     */
-    public function addVariantAction(
-        Request $request,
-        VariantInterface $variant,
-        CartInterface $cart
-    ) {
-        $cartQuantity = (int) $request
-            ->request
-            ->get('add-cart-quantity', 1);
-
-        $this
-            ->get('elcodi.manager.cart')
-            ->addPurchasable(
-                $cart,
-                $variant,
+                $purchasable,
                 $cartQuantity
             );
 
@@ -365,8 +305,9 @@ class CartController extends Controller
             ]
         );
     }
+
     /**
-     * Product related view
+     * Purchasable related view
      *
      * @param CartInterface $cart Cart
      *
@@ -399,12 +340,12 @@ class CartController extends Controller
             $purchasables[] = $cartLine->getPurchasable();
         }
 
-        $relatedProducts = $this
+        $relatedPurchasables = $this
             ->get('elcodi.related_purchasables_provider')
             ->getRelatedPurchasablesFromArray($purchasables, 3);
 
-        return $this->renderTemplate('Modules:_product-related.html.twig', [
-            'products' => $relatedProducts,
+        return $this->renderTemplate('Modules:_purchasable-related.html.twig', [
+            'purchasables' => $relatedPurchasables,
         ]);
     }
 }

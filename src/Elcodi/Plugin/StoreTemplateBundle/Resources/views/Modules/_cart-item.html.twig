@@ -1,32 +1,31 @@
 {% set lineObject = line.vars.data %}
-{% set product = lineObject.product %}
 {% set purchasable = lineObject.purchasable %}
-{% set productRoute = url('store_product_view', { slug: product.slug, id: product.id }) %}
+{% set masterPurchasable = purchasable.product ?: purchasable %}
+{% set purchasableRouteName = masterPurchasable.products ? 'store_purchasable_pack_view' : 'store_product_view' %}
+{% set purchasableRoute = url(purchasableRouteName, { slug: masterPurchasable.slug, id: masterPurchasable.id }) %}
+{% set purchasableName = purchasable|purchasable_name %}
+{% set validImage = purchasable|valid_image %}
+{% set purchasablePrice = purchasable.resolvedPrice %}
 
 <dl class="cart-item">
     <dt class="cart-item-image">{{ 'template.store_template_bundle.cart.item.image'|trans }}</dt>
     <dd class="cart-item-image">
-        <a href="{{ productRoute }}">
-            <img src="{{ product.images|length > 0 ? product.images.first|resize({
+        <a href="{{ purchasableRoute }}">
+            <img src="{{ validImage ? validImage|resize({
                 width: 150,
                 height: 150,
-                type: 5 }) : '//placehold.it/80x80'
-            }}" alt="{{ product.name }}" class="product-thumbnail" />
+                type: 5 }) : '//placehold.it/150x150'
+            }}" alt="{{ purchasableName }}" class="product-thumbnail" />
         </a>
     </dd>
     <dt class="cart-item-name">{{ 'template.store_template_bundle.cart.item.item'|trans }}</dt>
-    <dd class="cart-item-name"><a href="{{ productRoute }}" class="product-title">{{ product.name }}</a></dd>
+    <dd class="cart-item-name"><a href="{{ purchasableRoute }}" class="purchasable-title">{{ purchasableName }}</a></dd>
     <dt class="cart-item-units">{{ 'template.store_template_bundle.cart.item.units'|trans }}</dt>
     <dd class="cart-item-units">{{ form_row(line.quantity) }}</dd>
-    {% if purchasable.reducedPrice.amount > 0 %}
-        {% set purchasablePrice = purchasable.ReducedPrice %}
-    {% else %}
-        {% set purchasablePrice = purchasable.price %}
     <dt class="cart-item-price">{{ 'template.store_template_bundle.cart.item.price'|trans }}</dt>
     <dd class="cart-item-price">{{ purchasablePrice|print_convert_money() }}</dd>
     <dt class="cart-item-total">{{ 'template.store_template_bundle.cart.item.total'|trans }}</dt>
     <dd class="cart-item-total">{{ lineObject.amount|print_convert_money() }}</dd>
-    {% endif %}
     <dt class="cart-item-remove">{{ 'template.store_template_bundle.cart.item.remove'|trans }}</dt>
     <dd class="cart-item-remove"><a href="{{ url('store_cartline_remove', { id: lineObject.id }) }}" class="fa fa-trash-o button"></a></dd>
 </dl>

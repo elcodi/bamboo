@@ -172,6 +172,9 @@ template:
                 product: Product
                 stock: Stock
                 usually_dispatched_24_hours: 'Usually dispatched within 24 hours'
+        purchasable_pack:
+            view_item:
+                purchasable_pack: Pack
         shipping:
             carrier: Carrier
             costs_will_be_calculated_after_address: 'After you set your address, shipping costs will be calculated.'

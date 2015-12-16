@@ -21,9 +21,9 @@ use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
 use Elcodi\Bundle\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
+use Elcodi\Bundle\MediaBundle\DataFixtures\ORM\Traits\ImageManagerTrait;
 use Elcodi\Component\Core\Services\ObjectDirector;
 use Elcodi\Component\Store\Entity\Interfaces\StoreInterface;
-use Elcodi\Fixtures\DataFixtures\ORM\Media\Traits\ImageManagerTrait;
 
 /**
  * Class StoreData

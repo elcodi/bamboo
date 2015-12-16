@@ -5,8 +5,7 @@ store_address_list: /les-meves-direccions
 store_address_new: '/les-meves-direccions/nova/{source}'
 store_blog_post_view: '/blog/{id}/{slug}'
 store_blog_view: '/blog/{page}'
-store_cart_add_product: '/cistella/producte/{id}/afegir'
-store_cart_add_product_variant: '/cistella/producte/variacio/{id}/afegir'
+store_cart_add_purchasable: '/cistella/producte/{id}/afegir'
 store_cart_coupon_form_type_coupon_apply: /cistella/cupons
 store_cart_empty: /cistella/buidar
 store_cart_nav: /cistella/nav
@@ -14,7 +13,7 @@ store_cart_update: /cistella/actualitzar
 store_cart_view: /cistella
 store_cartline_remove: '/cistella/linia/{id}/eliminar'
 store_categories_nav: /categories/nav
-store_category_products_list: '/categoria/{slug}/{id}'
+store_category_purchasables_list: '/categoria/{slug}/{id}'
 store_checkout_address: /cistella/adreça
 store_checkout_address_save: /cistella/adreça/guardar
 store_checkout_payment: /cistella/pagament

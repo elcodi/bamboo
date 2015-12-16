@@ -20,7 +20,7 @@
 
 {% block breadcrumb %}
     <li>
-        <a href="{{ url('store_category_products_list', { slug: product.principalCategory.slug, id: product.principalCategory.id }) }}">{{ product.principalCategory }}</a> <i class="fa fa-angle-right"></i>
+        <a href="{{ url('store_category_purchasables_list', { slug: product.principalCategory.slug, id: product.principalCategory.id }) }}">{{ product.principalCategory }}</a> <i class="fa fa-angle-right"></i>
     </li>
     <li>
         <a href="{{ url('store_product_view', { 'slug': product.slug, 'id': product.id }) }}"><strong>{{ product.name }}</strong></a>
@@ -28,6 +28,9 @@
 {% endblock breadcrumb %}
 
 {% block content %}
+    {% set productName = product|purchasable_name %}
+    {% set validImage = product|valid_image %}
+
     <div class="product-view">
        <h1 class="product-title">{{ product.name }}</h1>
        <div class="grid">
@@ -38,7 +41,7 @@
                    'height': 1024,
                    'type': 5
                }) : '//placehold.it/772x604' }}" alt="{{ product.name }}" class="product-thumbnail">
-                {% if product.reducedPrice.amount > 0 %}<span class="product-badge">{{ 'template.store_template_bundle.product.view_item.offer'|trans }}</span> {% endif %}
+                {% if product.inOffer %}<span class="product-badge">{{ 'template.store_template_bundle.product.view_item.offer'|trans }}</span> {% endif %}
                    <img src="{{ product.images|length > 0 ? product.images.first|resize({
                        'width': 772,
                        'height': 604,
@@ -53,7 +56,7 @@
                        <div class= "product-to-basket">
                            <h5 class="product-title desktop">{{ product.name }}</h5>
                            <p class="product-actions">
-                               {% if product.reducedPrice.amount > 0 %}
+                               {% if product.inOffer %}
                                    <span class="product-pricing product-pricing-before">{{ product.price|print_convert_money() }}</span>
                                    <span class="product-pricing product-pricing-now">{{ product.reducedPrice|print_convert_money() }}</span>
                                {% else %}
@@ -63,7 +66,7 @@
                                <a title="{{ 'template.store_template_bundle.product.view_item.add_to_cart'|trans }}"
                                   class="fa fa-shopping-cart button button-secondary"
                                   data-test="add-product-{{ product.id }}-to-cart"
-                                  href="{{ url('store_cart_add_product', { id: product.id }) }}"> {{ 'template.store_template_bundle.product.view_item.add_to_cart'|trans }}</a>
+                                  href="{{ url('store_cart_add_purchasable', { id: product.id }) }}"> {{ 'template.store_template_bundle.product.view_item.add_to_cart'|trans }}</a>
                                {% else %}
                                <a title="{{ 'template.store_template_bundle.product.view_item.no_stock'|trans }}"
                                   class="fa fa-times button"
@@ -90,7 +93,7 @@
 {% endblock content %}
 
 {% block prefooter %}
-    {{ render(url('store_product_related', {
+    {{ render(url('store_purchasable_related', {
         'id': product.id
     })) }}
 {% endblock prefooter %}

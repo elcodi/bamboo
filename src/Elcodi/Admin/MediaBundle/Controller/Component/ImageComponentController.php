@@ -40,7 +40,7 @@ class ImageComponentController extends AbstractAdminController
      * @return array Result
      *
      * @Route(
-     *      path = "s/list/component",
+     *      path = "s/component",
      *      name = "admin_image_list_component",
      *      methods = {"GET"}
      * )

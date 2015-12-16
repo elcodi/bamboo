@@ -11,5 +11,6 @@ languages:
     - gl
     - eo
     - nl
+    - sr
 paths:
     - src/Elcodi/*/*/Resources/translations

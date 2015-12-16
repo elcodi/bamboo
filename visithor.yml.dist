@@ -12,10 +12,12 @@ urls:
     #
     - [store_homepage, 200]
     - [store_categories_nav, 200]
-    - [[store_category_products_list, {'slug': 'women-shirts', 'id': 1}], 200]
-    - [[store_category_products_list, {'slug': 'another-name', 'id': 1}], 301]
+    - [[store_category_purchasables_list, {'slug': 'women-shirts', 'id': 1}], 200]
+    - [[store_category_purchasables_list, {'slug': 'another-name', 'id': 1}], 301]
     - [[store_product_view, {'slug': 'ibiza-lips-en', 'id': 1}], 200]
     - [[store_product_view, {'slug': 'another-name', 'id': 1}], 301]
+    - [[store_purchasable_pack_view, {'slug': 'pack-4-flavors-en', 'id': 23}], 200]
+    - [[store_purchasable_pack_view, {'slug': 'another-name', 'id': 23}], 301]
     - [store_password_recover_sent, 200]
     - [store_login, 200]
     - [store_user_nav, 200]
@@ -78,10 +80,21 @@ urls:
     # Product Variants
     #
     - [[admin_product_variant_list_component, {productId: 1}], 200, {profile: admin}]
-    - [[admin_product_variant_edit, {productId: 1, id:1}], 200, {profile: admin}]
-    - [[admin_product_variant_edit_component, {productId: 1, id:1}], 200, {profile: admin}]
+    - [[admin_product_variant_edit, {productId: 1, id: 2}], 200, {profile: admin}]
+    - [[admin_product_variant_edit_component, {productId: 1, id: 2}], 200, {profile: admin}]
     - [[admin_product_variant_new, {productId: 1}], 200, {profile: admin}]
     - [[admin_product_variant_new_component, {productId: 1}], 200, {profile: admin}]
+
+    #
+    # Packs
+    #
+    - [[admin_purchasable_pack_view, {id:23}], 200, {profile: admin}]
+    - [admin_purchasable_pack_list, 200, {profile: admin}]
+    - [admin_purchasable_pack_list_component, 200, {profile: admin}]
+    - [[admin_purchasable_pack_edit, {id: 23}], 200, {profile: admin}]
+    - [[admin_purchasable_pack_edit_component, {id: 23}], 200, {profile: admin}]
+    - [admin_purchasable_pack_new, 200, {profile: admin}]
+    - [admin_purchasable_pack_new_component, 200, {profile: admin}]
 
     #
     # Attributes
