@@ -376,7 +376,7 @@ class ShippingRangesProviderTest extends PHPUnit_Framework_TestCase
         $cart = $this->prophesize('Elcodi\Component\Cart\Entity\Interfaces\CartInterface');
 
         $cart
-            ->getProductAmount()
+            ->getPurchasableAmount()
             ->willReturn(Money::create(
                 1000,
                 $this->getCurrency()

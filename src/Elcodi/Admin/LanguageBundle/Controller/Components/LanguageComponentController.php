@@ -41,7 +41,7 @@ class LanguageComponentController extends AbstractAdminController
      * @return array Result
      *
      * @Route(
-     *      path = "s/list/component",
+     *      path = "s/component",
      *      name = "admin_language_list_component",
      * )
      * @Template("AdminLanguageBundle:Language:Component/listComponent.html.twig")

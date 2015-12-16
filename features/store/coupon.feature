@@ -10,7 +10,7 @@ Feature: Store coupon
     And the response should not contain a "coupon-add" test attribute
 
   Scenario: Apply a coupon
-    Given I am on "/cart/product/10/add"
+    Given I am on "/cart/purchasable/10/add"
     When I go to "/cart"
     And the page does not contain a "coupon-item" test attribute
     And I fill in "store_cart_coupon_form_type_coupon_apply_code" with "5euros"
@@ -20,7 +20,7 @@ Feature: Store coupon
     And the response should contain "-$6.78"
 
   Scenario: Remove a coupon
-    Given I am on "/cart/product/10/add"
+    Given I am on "/cart/purchasable/10/add"
     When I go to "/cart"
     And I fill in "store_cart_coupon_form_type_coupon_apply_code" with "5euros"
     And I press "store_cart_coupon_form_type_coupon_apply_apply"

@@ -1,9 +1,11 @@
-{% if products|length > 0 %}
+{% if purchasables|length > 0 %}
 <div class="product-related">
     <div class="grid">
         <div class="col-1-1">
             <h2 class="product-title">{{ "template.store_template_bundle.product.also_like"|trans }}</h2>
-            {% include "@StoreTemplate/Modules/_product-list.html.twig" with {'products' : products} %}
+            {% include "@StoreTemplate/Modules/_purchasable-list.html.twig" with {
+                'purchasables' : purchasables
+            } %}
         </div>
     </div>
 </div>

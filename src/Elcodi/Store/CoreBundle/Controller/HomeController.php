@@ -45,14 +45,14 @@ class HomeController extends Controller
      */
     public function homeAction()
     {
-        $products = $this
-            ->get('elcodi.repository.product')
-            ->getHomeProducts(9, true);
+        $purchasables = $this
+            ->get('elcodi.repository.purchasable')
+            ->getHomePurchasables(9, true);
 
         return $this->renderTemplate(
             'Pages:home-view.html.twig',
             [
-                'products' => $products,
+                'purchasables' => $purchasables,
             ]
         );
     }

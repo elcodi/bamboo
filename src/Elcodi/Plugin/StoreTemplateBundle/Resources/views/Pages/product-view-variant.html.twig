@@ -11,7 +11,7 @@
 <div class= "product-to-basket-group">
 {% for variant in product.variants %}
     <div class= "product-to-basket">
-        {% set variant_price = variant.reducedPrice.amount > 0 ? variant.reducedPrice : variant.price %}
+        {% set variant_price = variant.inOffer ? variant.reducedPrice : variant.price %}
             {% if variant.images|length > 0  %}
             <img hspace="10" src="{{ variant.images.first|resize({
                 'width': 300,
@@ -28,7 +28,7 @@
 
         <h5 class="product-title">{{ variant|purchasable_name }}</h5>
         <p class="product-actions">
-            {% if product.reducedPrice.amount > 0 %}
+            {% if product.inOffer %}
                 <span class="product-pricing product-pricing-before">{{ variant.price|print_convert_money() }}</span>
                 <span class="product-pricing product-pricing-now">{{ variant.reducedPrice|print_convert_money() }}</span>
             {% else %}
@@ -37,7 +37,7 @@
             {% if not useStock or variant.stock > 0 %}
             <a title="{{ 'template.store_template_bundle.product.view_item.add_to_cart'|trans }}"
                class="fa fa-shopping-cart button button-secondary"
-               href="{{ url('store_cart_add_product_variant', { id: variant.id }) }}"> {{ 'template.store_template_bundle.product.view_item.add_to_cart'|trans }}</a>
+               href="{{ url('store_cart_add_purchasable', { id: variant.id }) }}"> {{ 'template.store_template_bundle.product.view_item.add_to_cart'|trans }}</a>
             {% else %}
                 <a title="{{ 'template.store_template_bundle.product.view_item.no_stock'|trans }}"
                    class="fa fa-times button button"

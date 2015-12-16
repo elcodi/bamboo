@@ -9,7 +9,7 @@ Feature: Store cart
     Then the response should contain a "empty-cart" test attribute
 
   Scenario: Add a product
-    Given I am on "/cart/product/10/add"
+    Given I am on "/cart/purchasable/10/add"
     Then I should be on "/cart"
     And the response should not contain a "empty-cart" test attribute
 

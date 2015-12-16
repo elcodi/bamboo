@@ -1,98 +1,98 @@
 store:
     address:
+        billing: Facturación
+        delete:
+            response_ok: 'Enderezo borrado correctamente'
+        delivery: entrega
         form:
             fields:
                 address:
                     label: Enderezo
-                name:
-                    label: 'Nome do enderezo'
-                recipientSurname:
-                    label: 'Apelido do receptor'
-                recipientName:
-                    label: 'Nome do receptor'
-                city:
-                    label: Cidade
                 addressMore:
                     label: 'Máis enderezo (opcional)'
-                province:
-                    label: Provincia
-                phone:
-                    label: Teléfono
-                send:
-                    label: 'Gardar enderezo'
+                city:
+                    label: Cidade
                 comments:
                     label: Comentarios
-                postalcode:
-                    label: 'Código postal'
                 country:
                     label: País
-                state:
-                    label: Estado
                 mobile:
                     label: Móbil
+                name:
+                    label: 'Nome do enderezo'
+                phone:
+                    label: Teléfono
+                postalcode:
+                    label: 'Código postal'
+                province:
+                    label: Provincia
+                recipientName:
+                    label: 'Nome do receptor'
+                recipientSurname:
+                    label: 'Apelido do receptor'
+                send:
+                    label: 'Gardar enderezo'
+                state:
+                    label: Estado
         save:
             response_ok: 'Enderezo gardado'
         select_address_type: 'Selecciona un enderezo %1'
-        delivery: entrega
-        delete:
-            response_ok: 'Enderezo borrado correctamente'
-        billing: Facturación
-    recovery:
+    coupon:
+        applied:
+            message_ko: 'Non se puido aplicar o cupón'
+            message_ok: 'Aplicouse o cupón con éxito'
         form:
             fields:
-                send:
-                    label: Enviar
-                email:
-                    label: correo
-                repeat_password:
-                    label: 'Repite o contrasinal'
-                remember:
-                    label: Lembrar
-                password:
-                    label: Contrasinal
+                apply:
+                    label: 'Aplicar cupón'
+                code:
+                    label: 'Código do cupón'
     error:
-        store_unavailable_title: 'Tenda non dispoñible'
-        store_is_disabled: 'Esta tenda está deshabilitada'
         page_not_found: 'E logo, descobriches o noso plan secreto para dominar o mundo.'
-        store_is_under_construction: 'Esta tenda está en construcción'
         page_not_found_title: 'Non se atopou a páxina'
+        store_is_disabled: 'Esta tenda está deshabilitada'
+        store_is_under_construction: 'Esta tenda está en construcción'
+        store_unavailable_title: 'Tenda non dispoñible'
     login:
         form:
             fields:
-                send:
-                    label: Enviar
                 email:
                     label: 'Correo electrónico'
                 password:
                     label: Contrasinal
+                send:
+                    label: Enviar
         wrong_combination: 'Combinación de correo e contrasinal errónea.'
+    pagination:
+        current: Actual
+    recovery:
+        form:
+            fields:
+                email:
+                    label: correo
+                password:
+                    label: Contrasinal
+                remember:
+                    label: Lembrar
+                repeat_password:
+                    label: 'Repite o contrasinal'
+                send:
+                    label: Enviar
     user:
         form:
             fields:
-                lastname:
-                    label: Apelido
                 email:
                     label: Correo
-                password:
-                    label: Contrasinal
                 firstname:
                     label: Nome
-                send:
-                    label: Gardar
+                lastname:
+                    label: Apelido
+                password:
+                    label: Contrasinal
                 repeat_password:
                     label: 'Repite o contrasinal'
+                send:
+                    label: Gardar
         profile:
             save:
                 message_ok: 'Perfil gardado'
-    coupon:
-        form:
-            fields:
-                code:
-                    label: 'Código do cupón'
-                apply:
-                    label: 'Aplicar cupón'
-        applied:
-            message_ko: 'Non se puido aplicar o cupón'
-            message_ok: 'Aplicouse o cupón con éxito'
-    pagination:
-        current: Actual

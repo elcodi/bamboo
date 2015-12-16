@@ -4,7 +4,7 @@
     </li>
     {% for category in categoryTree %}
         <li {% if ( currentCategory.id == category.entity.id or currentCategory.parent.id == category.entity.id ) and category.children|length > 0 %} class="expand" {% endif %}>
-            <a href="{{ url('store_category_products_list', { slug: category.entity.slug, id: category.entity.id }) }}"
+            <a href="{{ url('store_category_purchasables_list', { slug: category.entity.slug, id: category.entity.id }) }}"
                 {% if currentCategory.id == category.entity.id %}class="active"{% endif %}>
                 {{ category.entity.name }}
             </a>
@@ -12,7 +12,7 @@
                 <ul>
                     {% for subCategory in category.children %}
                         <li>
-                            <a href="{{ url('store_category_products_list', {
+                            <a href="{{ url('store_category_purchasables_list', {
                                 slug: subCategory.entity.slug,
                                 id: subCategory.entity.id
                             }) }}" {% if currentCategory.id == subCategory.entity.id %} class="active"{% endif %}>{{ subCategory.entity.name }}</a>

@@ -16,7 +16,9 @@
     {% endif %}
     <div class="cart-list">
         {% for line in order.orderLines %}
-            {% include "@StoreTemplate/Modules/_order-item.html.twig" with {"line": line} %}
+            {% include "@StoreTemplate/Modules/_order-item.html.twig" with {
+                "line": line
+            } %}
         {% endfor %}
     </div>
     <div class="coupon-list">

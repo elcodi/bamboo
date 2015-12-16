@@ -12,11 +12,14 @@
                 {{ 'template.store_template_bundle.order.list.image'|trans }}
             </dt>
             <dd class="order-item-image">
-                <img src="{{ order.orderLines.first.product.principalImage|resize({
-                    width: 80,
-                    height: 80,
-                    type: 5 })
-                }}" alt="{{ line.product.name }}" class="product-thumbnail" />
+                {% set purchasable = order.orderLines.first.purchasable %}
+                {% set purchasableName = purchasable|purchasable_name %}
+                {% set validImage = purchasable|valid_image %}
+                <img src="{{ validImage ? validImage|resize({
+                   'width': 80,
+                   'height': 80,
+                   'type': 5
+               }) : '//placehold.it/80x80' }}" alt="{{ purchasableName }}" class="product-thumbnail" />
             </dd>
             <dt class="order-item-id">
                 {{ 'template.store_template_bundle.order.list.number_of_order'|trans }}

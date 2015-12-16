@@ -116,11 +116,6 @@ class CategoryType extends AbstractType
                 'query_builder' => $this->getAvailableCategories($currentCategoryId),
                 'required'      => true,
                 'multiple'      => false,
-            ])
-            ->add('products', 'entity', [
-                'class'    => $categoryNamespace,
-                'required' => false,
-                'multiple' => true,
             ]);
 
         $builder->addEventSubscriber($this->getEntityTranslatorFormEventListener());

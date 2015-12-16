@@ -1,8 +1,8 @@
 elcodi_plugin:
     paypal_web_checkout:
+        description: '<p>Paypal permite aos teus usuarios pagar empregando a súa conta de Paypal. Para habilitalo necesitas crear unha conta de Paypal e configurala aquí.</p><p>Non tes unha conta de Paypal?</p> <a href=''https://www.paypal.com/webapps/mpp/merchant'' class=''button'' target=''_blank''>Crea unha conta nova</a>.'
         field:
             business:
                 label: 'Conta de Paypal'
                 placeholder: xoan@example.com
-        description: '<p>Paypal permite aos teus usuarios pagar empregando a súa conta de Paypal. Para habilitalo necesitas crear unha conta de Paypal e configurala aquí.</p><p>Non tes unha conta de Paypal?</p> <a href=''https://www.paypal.com/webapps/mpp/merchant'' class=''button'' target=''_blank''>Crea unha conta nova</a>.'
         name: 'Paypal Web Checkout'

@@ -3,39 +3,41 @@
  #}
 <div class="product-item">
     {% set productRoute = url('store_product_view', { 'slug': product.slug, 'id': product.id }) %}
+    {% set productName = product|purchasable_name %}
 
     {% block pin_title %}
     <h4 class="product-title">
-        <a href="{{ productRoute }}">{{ product.name }}</a>
+        <a href="{{ productRoute }}">{{ productName }}</a>
     </h4>
     {% endblock %}
 
     {% block pin_image %}
         <a href="{{ productRoute }}" class="product-thumbnail">
-            {% if product.reducedPrice.amount > 0 %}<span class="product-badge">{{ 'template.store_template_bundle.product.item.offer'|trans }}</span> {% endif %}
-            <img class="image" src="{{ product.images|length > 0 ? product.images.first|resize({
+            {% if product.inOffer %}<span class="product-badge">{{ 'template.store_template_bundle.product.item.offer'|trans }}</span> {% endif %}
+            {% set validImage = product|valid_image %}
+            <img class="image" src="{{ validImage ? validImage|resize({
                 'width': 372,
                 'height': 291,
                 'type': 5
-            }) : '//placehold.it/372x291' }}" alt="{{ product.name }}" />
+            }) : '//placehold.it/372x291'  }}" alt="{{ productName }}" />
         </a>
     {% endblock %}
 
     <p class="product-actions">
         {% block pin_button_view %}
             <a class="fa fa-eye button button"
-               title="View details for {{ product.name }}"
+               title="View details for {{ productName }}"
                href="{{ productRoute }}"></a>
         {% endblock %}
-        {% if product.reducedPrice.amount > 0 %}
-        <span class="product-pricing product-pricing-before">{{ product.price|print_convert_money() }}</span>
-        <span class="product-pricing product-pricing-now">{{ product.reducedPrice|print_convert_money() }}</span>
+        {% if product.inOffer %}
+            <span class="product-pricing product-pricing-before">{{ product.price|print_convert_money() }}</span>
+            <span class="product-pricing product-pricing-now">{{ product.reducedPrice|print_convert_money() }}</span>
         {% else %}
-        <span class="product-pricing">{{ product.price|print_convert_money() }}</span>
+            <span class="product-pricing">{{ product.price|print_convert_money() }}</span>
         {% endif %}
         {% if product.hasVariants() %}
             <a class="fa fa-list button button-secondary"
-               title="Choose a model of {{ product.name }}"
+               title="Choose a model of {{ productName }}"
                href="{{ url('store_product_view', {
                    'slug': product.slug,
                    'id': product.id
@@ -43,13 +45,13 @@
         {% else %}
             <a class="fa fa-shopping-cart button button-secondary"
                data-test="add-product-{{ product.id }}-to-cart"
-               href="{{ url('store_cart_add_product', { id: product.id }) }}"
-               title="{{ 'template.store_template_bundle.product.view_item.add_to_cart'|trans }} {{ product.name }}"></a>
+               href="{{ url('store_cart_add_purchasable', { id: product.id }) }}"
+               title="{{ 'template.store_template_bundle.product.view_item.add_to_cart'|trans }} {{ productName }}"></a>
         {% endif %}
 
     </p>
 
     {{ elcodi_hook("store.product_pin_bottom", {
-        'product': product
+        'product': purchasable
     }) }}
 </div>
