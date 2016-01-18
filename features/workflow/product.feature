@@ -11,7 +11,6 @@ Feature: Product engine
     And I fill in the following:
       | elcodi_admin_product_form_type_product_name_en_name               | Product x      |
       | elcodi_admin_product_form_type_product_description_en_description | Description x  |
-      | elcodi_admin_product_form_type_product_slug_en_slug               | my-new-product |
       | elcodi_admin_product_form_type_product_principalCategory          | 1              |
       | elcodi_admin_product_form_type_product_manufacturer               | 1              |
       | elcodi_admin_product_form_type_product_price_amount               | 10             |
