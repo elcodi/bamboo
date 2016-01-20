@@ -6,9 +6,9 @@ that your code fulfills these standards before any Pull Request.
 
 ``` bash
 composer.phar update
-bin/php-cs-fixer fix
-bin/php-formatter formatter:use:sort src/
-bin/php-formatter formatter:header:fix src/
+vendor/bin/php-cs-fixer fix
+vendor/bin/php-formatter formatter:use:sort src/
+vendor/bin/php-formatter formatter:header:fix src/
 ```
 
 There is also a policy for contributing to this project. Pull requests must

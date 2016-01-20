@@ -77,7 +77,7 @@ class PaymentCollectEventListener
                 'elcodi_plugin.paypal_web_checkout.description',
                 $this
                     ->router
-                    ->generate('store_payment_paypal_web_checkout_process')
+                    ->generate('paymentsuite_paypal_web_checkout_execute')
             );
 
             $event->addPaymentMethod($paypal);

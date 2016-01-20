@@ -22,6 +22,9 @@ use Doctrine\ORM\Event\PreUpdateEventArgs;
 use Elcodi\Component\Plugin\Entity\Plugin;
 use Elcodi\Plugin\TwitterBundle\Services\TwitterUsernameCleaner;
 
+/**
+ * Class TwitterUsernameEventListener
+ */
 class TwitterUsernameEventListener
 {
     /**
@@ -29,7 +32,7 @@ class TwitterUsernameEventListener
      *
      * A twitter username cleaner service.
      */
-    protected $twitterUsernameCleaner;
+    private $twitterUsernameCleaner;
 
     /**
      * Builds a new twitter username event listener.
@@ -37,9 +40,8 @@ class TwitterUsernameEventListener
      * @param TwitterUsernameCleaner $twitterUsernameCleaner A twitter username
      *                                                       cleaner
      */
-    public function __construct(
-        TwitterUsernameCleaner $twitterUsernameCleaner
-    ) {
+    public function __construct(TwitterUsernameCleaner $twitterUsernameCleaner)
+    {
         $this->twitterUsernameCleaner = $twitterUsernameCleaner;
     }
 

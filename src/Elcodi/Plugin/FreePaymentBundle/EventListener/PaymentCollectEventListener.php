@@ -75,7 +75,7 @@ class PaymentCollectEventListener
                 'elcodi_plugin.free_payment.description',
                 $this
                     ->router
-                    ->generate('freepayment_payment_routes')
+                    ->generate('paymentsuite_freepayment_execute')
             );
 
             $event->addPaymentMethod($freePayment);

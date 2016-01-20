@@ -22,24 +22,11 @@ services:
     #
     # Paypal services
     #
-    paypal_web_checkout.wrapper:
-        class: %paypal_web_checkout.wrapper.class%
+    paymentsuite.paypal_web_checkout.form_type_builder:
+        class: PaymentSuite\PaypalWebCheckoutBundle\Services\PaypalWebCheckoutFormTypeBuilder
         arguments:
+            - "@paymentsuite.paypal_web_checkout.url_factory"
+            - "@paymentsuite.bridge"
             - "@form.factory"
-            - "@payment.bridge"
             - "@router"
             - "@elcodi_plugin.paypal_web_checkout.business"
-            - "@paypal_web_checkout.url_factory"
-
-    paypal_web_checkout.url_factory:
-        class: %paypal_web_checkout.url_factory.class%
-        arguments:
-            - "@router"
-            - "@elcodi_plugin.paypal_web_checkout.business"
-            - %paypal_web_checkout.api_endpoint%
-            - %paypal_web_checkout.sandbox_api_endpoint%
-            - { cmd: _notify-validate }
-            - %paypal_web_checkout.success.route.name%
-            - %paypal_web_checkout.cancel.route.name%
-            - %paypal_web_checkout.process.route.name%
-            - %paypal_web_checkout.debug%

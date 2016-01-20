@@ -1,4 +1,2 @@
-store_payment_paypal_web_checkout_process:
-    path: /payment/paypal-web-checkout/execute
-    defaults:
-        _controller: PaypalWebCheckoutBundle:PaypalWebCheckout:execute
+paypal_web_checkout_bundle:
+    resource: "@PaypalWebCheckoutBundle/Resources/config/routing.yml"

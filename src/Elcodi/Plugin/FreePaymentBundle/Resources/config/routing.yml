@@ -1,4 +1,2 @@
-freepayment_payment_routes:
-    path: /payment/free/execute
-    defaults:
-        _controller: FreePaymentBundle:FreePayment:execute
+free_payment_routes:
+    resource: "@FreePaymentBundle/Resources/config/routing.yml"

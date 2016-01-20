@@ -5,7 +5,7 @@ stripe:
         route: store_order_thanks
         order_append: true
         order_append_field: id
-    payment_fail:
+    payment_failure:
         route: store_checkout_payment_fail
         order_append: true
         order_append_field: id

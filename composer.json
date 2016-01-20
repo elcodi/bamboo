@@ -48,7 +48,7 @@
         "doctrine/doctrine-fixtures-bundle": "^2.2",
         "doctrine/doctrine-migrations-bundle": "^1.0",
 
-        "twig/twig": "^1.18",
+        "twig/twig": "^1.23",
         "twig/extensions": "^1.0",
         "sensio/distribution-bundle": "^3.0",
         "sensio/framework-extra-bundle": "^3.0",
@@ -58,9 +58,6 @@
         "guzzlehttp/guzzle": "^5.2",
         "ornicar/gravatar-bundle" : "1.1.3",
         "knplabs/knp-gaufrette-bundle": "^0.1.7",
-        "paymentsuite/paypal-web-checkout-bundle": "^1.5.2",
-        "paymentsuite/stripe-bundle": "^1.5.2",
-        "paymentsuite/free-payment-bundle": "^1.5.2",
         "incenteev/composer-parameter-handler": "^2.0",
         "hwi/oauth-bundle": "^0.4.0",
         "snc/redis-bundle": "^1.1.9",
@@ -73,7 +70,8 @@
         "mmoreram/http-headers-bundle": "1.0.0",
         "mmoreram/symfony-bundle-dependencies": "^1.1.1",
 
-        "elcodi/elcodi": "^1.0.13"
+        "elcodi/elcodi": "^1.0.13",
+        "paymentsuite/paymentsuite": "^2.0.2"
     },
     "replace": {
         "elcodi-templates/template": "self.version",

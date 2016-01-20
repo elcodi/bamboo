@@ -34,7 +34,13 @@
     "require": {
         "php": "^5.4|^7.0",
 
-        "paymentsuite/free-payment-bundle": "^1.0",
+        "symfony/framework-bundle": "^2.7|^3.0",
+        "symfony/dependency-injection": "^2.7|3.0",
+        "symfony/http-kernel": "^2.7|^3.0",
+        "symfony/routing": "^2.7|^3.0",
+        "symfony/console": "^2.7|^3.0",
+
+        "paymentsuite/free-payment-bundle": "^2.0",
         "elcodi/core-bundle": "^1.0",
         "elcodi/plugin-bundle": "^1.0"
     },

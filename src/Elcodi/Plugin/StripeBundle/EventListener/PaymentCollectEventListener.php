@@ -18,11 +18,8 @@
 namespace Elcodi\Plugin\StripeBundle\EventListener;
 
 use PaymentSuite\PaymentCoreBundle\Services\Interfaces\PaymentBridgeInterface;
-use PaymentSuite\StripeBundle\Router\StripeRoutesLoader;
-use PaymentSuite\StripeBundle\Twig\StripeExtension;
-use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\Form\FormFactory;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\Templating\EngineInterface;
 
 use Elcodi\Component\Payment\Entity\PaymentMethod;
 use Elcodi\Component\Payment\Event\PaymentCollectionEvent;
@@ -34,39 +31,25 @@ use Elcodi\Component\Plugin\Entity\Plugin;
 class PaymentCollectEventListener
 {
     /**
-     * @var UrlGeneratorInterface
-     *
-     * Router
-     */
-    protected $router;
-
-    /**
      * @var Plugin
      *
      * Plugin
      */
-    protected $plugin;
-
-    /**
-     * @var StripeExtension
-     *
-     * Stripe twig extension.
-     */
-    protected $stripeTwigExtension;
+    private $plugin;
 
     /**
      * @var FormFactory
      *
      * Form factory
      */
-    protected $formFactory;
+    private $formFactory;
 
     /**
      * @var EngineInterface
      *
      * Templating
      */
-    protected $templating;
+    private $templating;
 
     /**
      * @var string
@@ -85,26 +68,25 @@ class PaymentCollectEventListener
     /**
      * Construct
      *
-     * @param UrlGeneratorInterface  $router                 Router
      * @param Plugin                 $plugin                 Plugin
-     * @param string                 $publicKey              Public key
-     * @param FormFactory            $formFactory            Form factory
      * @param PaymentBridgeInterface $paymentBridgeInterface Payment Bridge Interface
+     * @param FormFactory            $formFactory            Form factory
+     * @param EngineInterface        $templating             Templating
+     * @param string                 $publicKey              Public key
      */
     public function __construct(
-        UrlGeneratorInterface $router,
         Plugin $plugin,
-        $publicKey,
-        FormFactory $formFactory,
         PaymentBridgeInterface $paymentBridgeInterface,
-        EngineInterface $templating
-    ) {
-        $this->router = $router;
+        FormFactory $formFactory,
+        EngineInterface $templating,
+        $publicKey
+    )
+    {
         $this->plugin = $plugin;
-        $this->publicKey = $publicKey;
-        $this->formFactory = $formFactory;
         $this->paymentBridgeInterface = $paymentBridgeInterface;
+        $this->formFactory = $formFactory;
         $this->templating = $templating;
+        $this->publicKey = $publicKey;
     }
 
     /**
@@ -152,8 +134,8 @@ class PaymentCollectEventListener
         return $this
             ->templating
             ->render('StripeBundle:Stripe:view.html.twig', [
-                'stripe_form'  =>  $formType->createView(),
-                'stripe_execute_route' =>  StripeRoutesLoader::ROUTE_NAME,
+                'stripe_form'          => $formType->createView(),
+                'stripe_execute_route' => 'paymentsuite_stripe_execute',
             ]);
     }
 
@@ -171,8 +153,8 @@ class PaymentCollectEventListener
         return $this
             ->templating
             ->render('StripeBundle:Stripe:scripts.html.twig', [
-                'public_key'    =>  $this->publicKey,
-                'currency'      =>  $currency,
+                'public_key' => $this->publicKey,
+                'currency'   => $currency,
             ]);
     }
 }

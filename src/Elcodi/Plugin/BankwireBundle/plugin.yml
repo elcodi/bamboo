@@ -1,0 +1,6 @@
+plugin:
+    type: plugin
+    category: payment
+    name: elcodi_plugin.bankwire.name
+    description: elcodi_plugin.bankwire.description
+    enabled_by_default: true

@@ -3,7 +3,7 @@ services:
     #
     # Services
     #
-    payment.bridge:
+    paymentsuite.bridge:
         class: Elcodi\Bridge\PaymentSuiteBridgeBundle\Services\PaymentBridge
         arguments:
             - "@elcodi.repository.order"

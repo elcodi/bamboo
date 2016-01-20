@@ -8,11 +8,6 @@ services:
         arguments:
             - "Elcodi\\Plugin\\StripeBundle\\ElcodiStripeBundle"
 
-    stripe.transaction.wrapper:
-        class: %stripe.transaction.wrapper.class%
-        arguments:
-            - "@elcodi_plugin.stripe.private_key"
-
     #
     # Plugin fields
     #
@@ -35,14 +30,16 @@ services:
     #
     # Services
     #
-    stripe.twig.extension:
-        class: %stripe.twig.extension.class%
-        lazy: true
+    paymentsuite.stripe.twig_extension:
+        class: PaymentSuite\StripeBundle\Twig\StripeExtension
         arguments:
-            - "@elcodi_plugin.stripe.public_key"
+            - "@paymentsuite.bridge"
             - "@form.factory"
-            - "@payment.bridge"
-            - %stripe.templates.view_template%
-            - %stripe.templates.scripts_template%
-        tags:
-            - { name: twig.extension }
+            - "@elcodi_plugin.stripe.private_key"
+            - %paymentsuite.stripe.view_template%
+            - %paymentsuite.stripe.scripts_template%
+
+    paymentsuite.stripe.transaction_factory:
+        class: PaymentSuite\StripeBundle\Services\StripeTransactionFactory
+        arguments:
+            - "@elcodi_plugin.stripe.private_key"
