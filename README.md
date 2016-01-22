@@ -16,6 +16,11 @@ Why should I use Bamboo? That's simple, to sell your products. We provide you
 with an interface to sell your products and manage your store. You only have to 
 focus on offering a good product, we take care of the rest.
 
+Elcodi was awarded as the **Best Open Source** project of 2015 by the Symfony
+Community awards.
+
+![Best Open Source](http://awards.symfony.com/images/badges/business/open_source.png)
+
 ## Requirements
 
 We're trying to build this project with a light default dependencies. These are
