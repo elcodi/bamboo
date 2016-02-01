@@ -3,7 +3,7 @@
 /*
  * This file is part of the Elcodi package.
  *
- * Copyright (c) 2014-2015 Elcodi.com
+ * Copyright (c) 2014-2016 Elcodi.com
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -17,7 +17,6 @@
 
 namespace Elcodi\Bridge\PaymentSuiteBridgeBundle\Services;
 
-use Elcodi\Component\Product\NameResolver\Interfaces\PurchasableNameResolverInterface;
 use LogicException;
 use PaymentSuite\PaymentCoreBundle\Services\Interfaces\PaymentBridgeInterface;
 
@@ -28,6 +27,7 @@ use Elcodi\Component\Cart\Repository\OrderRepository;
 use Elcodi\Component\Cart\Wrapper\CartWrapper;
 use Elcodi\Component\Currency\Entity\Money;
 use Elcodi\Component\Currency\Services\CurrencyConverter;
+use Elcodi\Component\Product\NameResolver\Interfaces\PurchasableNameResolverInterface;
 
 /**
  * Class PaymentBridge
@@ -80,8 +80,7 @@ class PaymentBridge implements PaymentBridgeInterface
         CartWrapper $cartWrapper,
         CurrencyConverter $currencyConverter,
         PurchasableNameResolverInterface $purchasableNameResolver
-    )
-    {
+    ) {
         $this->orderRepository = $orderRepository;
         $this->cartWrapper = $cartWrapper;
         $this->currencyConverter = $currencyConverter;
