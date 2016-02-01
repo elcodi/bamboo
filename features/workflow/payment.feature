@@ -10,7 +10,7 @@ Feature: Test payment
     When I go to "/admin/plugins"
     And I uncheck "enable-plugin-887ee51dc5572759c418db09b66988664f0ecbc1"
     And I am logged as "customer@customer.com" - "1234"
-    And I go to "/cart/product/2/add"
+    And I go to "/cart/purchasable/6/add"
     And I follow "Checkout"
     And I press "Payment"
     And I should not see "Card number"

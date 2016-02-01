@@ -12,6 +12,7 @@ Feature: Admin menus
     And the page contains a "admin.customer.plural" test attribute
     And the page contains a "admin.categorization.single" test attribute
     And the page contains a "admin.product.plural" test attribute
+    And the page contains a "admin.purchasable_pack.plural" test attribute
     And the page contains a "admin.attribute.plural" test attribute
     And the page contains a "admin.manufacturer.plural" test attribute
     And the page contains a "admin.category.plural" test attribute

@@ -17,6 +17,7 @@
 
 namespace Elcodi\Bridge\PaymentSuiteBridgeBundle\Services;
 
+use Elcodi\Component\Product\NameResolver\Interfaces\PurchasableNameResolverInterface;
 use LogicException;
 use PaymentSuite\PaymentCoreBundle\Services\Interfaces\PaymentBridgeInterface;
 
@@ -27,7 +28,6 @@ use Elcodi\Component\Cart\Repository\OrderRepository;
 use Elcodi\Component\Cart\Wrapper\CartWrapper;
 use Elcodi\Component\Currency\Entity\Money;
 use Elcodi\Component\Currency\Services\CurrencyConverter;
-use Elcodi\Component\Product\Services\PurchasableNameResolver;
 
 /**
  * Class PaymentBridge
@@ -63,24 +63,25 @@ class PaymentBridge implements PaymentBridgeInterface
     private $currencyConverter;
 
     /**
-     * @var PurchasableNameResolver
+     * @var PurchasableNameResolverInterface
      *
      * Purchasable name resolver
      */
     private $purchasableNameResolver;
 
     /**
-     * @param OrderRepository         $orderRepository         Order repository
-     * @param CartWrapper             $cartWrapper
-     * @param CurrencyConverter       $currencyConverter
-     * @param PurchasableNameResolver $purchasableNameResolver
+     * @param OrderRepository                  $orderRepository         Order repository
+     * @param CartWrapper                      $cartWrapper             Cart wrapper
+     * @param CurrencyConverter                $currencyConverter       Currency converter
+     * @param PurchasableNameResolverInterface $purchasableNameResolver Purchasable name resolver
      */
     public function __construct(
         OrderRepository $orderRepository,
         CartWrapper $cartWrapper,
         CurrencyConverter $currencyConverter,
-        PurchasableNameResolver $purchasableNameResolver
-    ) {
+        PurchasableNameResolverInterface $purchasableNameResolver
+    )
+    {
         $this->orderRepository = $orderRepository;
         $this->cartWrapper = $cartWrapper;
         $this->currencyConverter = $currencyConverter;
@@ -253,12 +254,11 @@ class PaymentBridge implements PaymentBridgeInterface
                 $purchasable = $orderLine->getPurchasable();
                 $orderLineName = $this
                     ->purchasableNameResolver
-                    ->getPurchasableName($purchasable);
+                    ->resolveName($purchasable);
 
                 $orderLineArray['item_name'] = $orderLineName;
 
-                $lineAmount = $orderLine
-                    ->getProductAmount();
+                $lineAmount = $orderLine->getPurchasableAmount();
 
                 /*
                  * We need to convert any price to match
@@ -293,10 +293,10 @@ class PaymentBridge implements PaymentBridgeInterface
 
             if ($shippingAmount->isGreaterThan(Money::create(0, $shippingAmount->getCurrency()))) {
                 $extraData['items'][] = [
-                    'item_name' => 'shipping',
+                    'item_name'          => 'shipping',
                     'item_currency_code' => $shippingAmount->getCurrency(),
-                    'quantity' => 1,
-                    'amount' => $shippingAmount->getAmount(),
+                    'quantity'           => 1,
+                    'amount'             => $shippingAmount->getAmount(),
                 ];
             }
 

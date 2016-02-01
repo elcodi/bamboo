@@ -1,0 +1,50 @@
+{#
+ # Base display block for a Product with no variants in listing page.
+ #}
+<div class="product-item">
+
+    {% set packRoute = url('store_purchasable_pack_view', { 'slug': pack.slug, 'id': pack.id }) %}
+    {% set packName = pack|purchasable_name %}
+
+    {% block pin_title %}
+    <h4 class="product-title">
+        <a href="{{ packRoute }}">{{ packName }}</a>
+    </h4>
+    {% endblock %}
+
+    {% block pin_image %}
+        <a href="{{ packRoute }}" class="product-thumbnail">
+            {% if pack.inOffer %}<span class="product-badge">{{ 'template.store_template_bundle.product.item.offer'|trans }}</span> {% endif %}
+            {% set validImage = pack|valid_image %}
+            <img class="image" src="{{ validImage ? validImage|resize({
+                'width': 372,
+                'height': 291,
+                'type': 5
+            }) : '//placehold.it/372x291'  }}" alt="{{ packName }}" />
+        </a>
+    {% endblock %}
+
+    <p class="product-actions">
+        {% block pin_button_view %}
+            <a class="fa fa-eye button button"
+               title="View details for {{ packName }}"
+               href="{{ packRoute }}"></a>
+        {% endblock %}
+        {% if pack.inOffer %}
+            <span class="product-pricing product-pricing-before">{{ pack.price|print_convert_money() }}</span>
+            <span class="product-pricing product-pricing-now">{{ pack.reducedPrice|print_convert_money() }}</span>
+        {% else %}
+            <span class="product-pricing">{{ pack.price|print_convert_money() }}</span>
+        {% endif %}
+
+        <a class="fa fa-shopping-cart button button-secondary"
+           data-test="add-product-{{ pack.id }}-to-cart"
+           href="{{ url('store_cart_add_purchasable', { id: pack.id }) }}"
+           title="{{ 'template.store_template_bundle.product.view_item.add_to_cart'|trans }} {{ packName }}"></a>
+
+    </p>
+
+    {{ elcodi_hook("store.pack_pin_bottom", {
+        'pack': purchasable
+    }) }}
+</div>

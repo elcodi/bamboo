@@ -5,9 +5,9 @@ Feature: Store product
   I need to be able to see some elements in the product page
 
   Scenario: View the product name
-    Given I am on the product 1 page
-    Then I should see product 1 name
-    And the response should contain a "add-product-2-to-cart" test attribute
+    Given I am on the product 6 page
+    Then I should see product 6 name
+    And the response should contain a "add-product-6-to-cart" test attribute
 
   Scenario: Product redirection
     Given I am on "product/ibiza-lips-en-false/1"

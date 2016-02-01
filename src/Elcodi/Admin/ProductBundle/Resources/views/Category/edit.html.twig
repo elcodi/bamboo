@@ -8,7 +8,7 @@
 
 {% block header_actions %}
     {% if category.id > 0 and false %}
-        <a target="_blank" href="{{ url('store_category_products_list', { id: category.id, slug: category.slug }) }}" class="button-primary">
+        <a target="_blank" href="{{ url('store_category_purchasables_list', { id: category.id, slug: category.slug }) }}" class="button-primary">
             <i class="icon-eye"></i>
             <span>{{ 'admin.category.in_store'|trans }}</span>
         </a>

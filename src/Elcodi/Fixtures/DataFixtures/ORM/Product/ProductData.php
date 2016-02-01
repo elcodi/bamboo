@@ -20,20 +20,18 @@ namespace Elcodi\Fixtures\DataFixtures\ORM\Product;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
-use Elcodi\Bundle\CoreBundle\DataFixtures\ORM\Abstracts\AbstractFixture;
 use Elcodi\Component\Currency\Entity\Interfaces\CurrencyInterface;
 use Elcodi\Component\Currency\Entity\Money;
 use Elcodi\Component\EntityTranslator\Services\Interfaces\EntityTranslatorInterface;
 use Elcodi\Component\Product\Entity\Interfaces\CategoryInterface;
 use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
-use Elcodi\Fixtures\DataFixtures\ORM\Media\Traits\ImageManagerTrait;
+use Elcodi\Fixtures\DataFixtures\ORM\Product\Abstracts\AbstractPurchasableData;
 
 /**
  * Class ProductData
  */
-class ProductData extends AbstractFixture implements DependentFixtureInterface
+class ProductData extends AbstractPurchasableData implements DependentFixtureInterface
 {
-    use ImageManagerTrait;
 
     /**
      * Load data fixtures with the passed EntityManager
@@ -124,6 +122,10 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
         $productObjectManager->persist($variantBlackMedium);
 
         $this->addReference('product-ibiza-lips', $product);
+        $this->addReference('variant-ibiza-lips-white-small', $variantWhiteSmall);
+        $this->addReference('variant-ibiza-lips-black-small', $variantBlackSmall);
+        $this->addReference('variant-ibiza-lips-white-medium', $variantWhiteMedium);
+        $this->addReference('variant-ibiza-lips-black-medium', $variantBlackMedium);
         $productObjectManager->flush($product);
 
         $entityTranslator->save($product, [
@@ -169,7 +171,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ],
         ]);
 
-        $this->storeProductImage(
+        $this->storePurchasableImage(
             $product,
             'product-1.jpg'
         );
@@ -243,7 +245,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ],
         ]);
 
-        $this->storeProductImage(
+        $this->storePurchasableImage(
             $product,
             'product-2.jpg'
         );
@@ -318,7 +320,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ],
         ]);
 
-        $this->storeProductImage(
+        $this->storePurchasableImage(
             $product,
             'product-3.jpg'
         );
@@ -393,7 +395,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ],
         ]);
 
-        $this->storeProductImage(
+        $this->storePurchasableImage(
             $product,
             'product-4.jpg'
         );
@@ -468,7 +470,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ],
         ]);
 
-        $this->storeProductImage(
+        $this->storePurchasableImage(
             $product,
             'product-5.jpg'
         );
@@ -543,7 +545,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ],
         ]);
 
-        $this->storeProductImage(
+        $this->storePurchasableImage(
             $product,
             'product-6.jpg'
         );
@@ -618,7 +620,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ],
         ]);
 
-        $this->storeProductImage(
+        $this->storePurchasableImage(
             $product,
             'product-7.jpg'
         );
@@ -693,7 +695,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ],
         ]);
 
-        $this->storeProductImage(
+        $this->storePurchasableImage(
             $product,
             'product-8.jpg'
         );
@@ -768,7 +770,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ],
         ]);
 
-        $this->storeProductImage(
+        $this->storePurchasableImage(
             $product,
             'product-9.jpg'
         );
@@ -843,7 +845,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ],
         ]);
 
-        $this->storeProductImage(
+        $this->storePurchasableImage(
             $product,
             'product-10.jpg'
         );
@@ -918,7 +920,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ],
         ]);
 
-        $this->storeProductImage(
+        $this->storePurchasableImage(
             $product,
             'product-11.jpg'
         );
@@ -993,7 +995,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ],
         ]);
 
-        $this->storeProductImage(
+        $this->storePurchasableImage(
             $product,
             'product-12.jpg'
         );
@@ -1068,7 +1070,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ],
         ]);
 
-        $this->storeProductImage(
+        $this->storePurchasableImage(
             $product,
             'product-13.jpg'
         );
@@ -1143,7 +1145,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ],
         ]);
 
-        $this->storeProductImage(
+        $this->storePurchasableImage(
             $product,
             'product-14.jpg'
         );
@@ -1219,7 +1221,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ],
         ]);
 
-        $this->storeProductImage(
+        $this->storePurchasableImage(
             $product,
             'product-15.jpg'
         );
@@ -1295,7 +1297,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ],
         ]);
 
-        $this->storeProductImage(
+        $this->storePurchasableImage(
             $product,
             'product-16.jpg'
         );
@@ -1371,7 +1373,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ],
         ]);
 
-        $this->storeProductImage(
+        $this->storePurchasableImage(
             $product,
             'product-17.jpg'
         );
@@ -1446,33 +1448,12 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ],
         ]);
 
-        $this->storeProductImage(
+        $this->storePurchasableImage(
             $product,
             'product-18.jpg'
         );
 
         $productObjectManager->flush();
-    }
-
-    /**
-     * Steps necessary to store an image
-     *
-     * @param ProductInterface $product   Product
-     * @param string           $imageName Image name
-     *
-     * @return $this Self object
-     */
-    protected function storeProductImage(
-        ProductInterface $product,
-        $imageName
-    ) {
-        $imagePath = realpath(dirname(__FILE__) . '/images/' . $imageName);
-        $image = $this->storeImage($imagePath);
-
-        $product->addImage($image);
-        $product->setPrincipalImage($image);
-
-        return $this;
     }
 
     /**

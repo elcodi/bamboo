@@ -1,0 +1,112 @@
+{#
+ # Base view for a Pack detail page with no variants.
+ #}
+{% extends '@StoreTemplate/Layout/_layout.html.twig' %}
+
+
+{% block title %}Bamboo - {{ 'template.store_template_bundle.purchasable_pack.view_item.purchasable_pack'|trans }} {{ pack.name }}{% endblock title %}
+
+{% block meta_tags %}
+    {% if pack.metaTitle is not empty %}
+        <meta name="title" content="{{ pack.metaTitle }}">
+    {% endif %}
+{% if pack.metaDescription is not empty %}
+    <meta name="description" content="{{ pack.metaDescription }}">
+{% endif %}
+{% if pack.metaKeywords is not empty %}
+    <meta name="keywords" content="{{ pack.metaKeywords }}">
+{% endif %}
+{% endblock meta_tags %}
+
+{% block breadcrumb %}
+    <li>
+        <a href="{{ url('store_category_purchasables_list', { slug: pack.principalCategory.slug, id: pack.principalCategory.id }) }}">{{ pack.principalCategory }}</a> <i class="fa fa-angle-right"></i>
+    </li>
+    <li>
+        <a href="{{ url('store_purchasable_pack_view', { 'slug': pack.slug, 'id': pack.id }) }}"><strong>{{ pack.name }}</strong></a>
+    </li>
+{% endblock breadcrumb %}
+
+{% block content %}
+    {% set validImage = pack|valid_image %}
+    {% set packName = pack|purchasable_name %}
+    {% set packPriceConverted = pack.price|print_convert_money() %}
+
+    <div class="product-view">
+       <h1 class="product-title">{{ pack.name }}</h1>
+       <div class="grid">
+           <div class="col-1-2">
+            {% block purchasable_pack_image %}
+               <a href="{{ validImage ? validImage|resize({
+                   'width': 1024,
+                   'height': 1024,
+                   'type': 5
+               }) : '//placehold.it/1024x1024' }}" alt="{{ packName }}" class="product-thumbnail">
+                {% if pack.inOffer %}<span class="product-badge">{{ 'template.store_template_bundle.product.view_item.offer'|trans }}</span> {% endif %}
+                   <img src="{{ validImage ? validImage|resize({
+                       'width': 772,
+                       'height': 604,
+                       'type': 5
+                   }) : '//placehold.it/772x604' }}" alt="{{ packName }}"/>
+               </a>
+            {% endblock %}
+           </div>
+           <div class="col-1-2">
+               {% block purchasable_pack_info %}
+                   {% block purchasable_pack_info_add_basket %}
+                       <div class= "product-to-basket-group">
+                            {% for purchasable in pack.purchasables %}
+                                <div class="product-to-basket">
+                                    {% set purchasableValidImage = purchasable|valid_image %}
+                                    {% set purchasableName = purchasable|purchasable_name %}
+
+                                    <img hspace="10" src="{{ purchasableValidImage ? purchasableValidImage|resize({
+                                        'width': 300,
+                                        'height': 100,
+                                        'type': 5
+                                    }) : '//placehold.it/300x100' }}" alt="{{ purchasableName }}" />
+
+                                    <h5 class="product-title">{{ purchasableName }}</h5>
+                                </div>
+
+                            {% endfor %}
+                            </div>
+
+                       <div class= "product-to-basket">
+                           <h5 class="product-title desktop">{{ pack.name }}</h5>
+                           <p class="product-actions">
+                               {% if pack.inOffer %}
+                                   <span class="product-pricing product-pricing-before">{{ packPriceConverted }}</span>
+                                   <span class="product-pricing product-pricing-now">{{ pack.reducedPrice|print_convert_money() }}</span>
+                               {% else %}
+                                   <span class="product-pricing">{{ packPriceConverted }}</span>
+                               {% endif %}
+                               {% if not useStock or pack.stock > 0 %}
+                               <a title="{{ 'template.store_template_bundle.product.view_item.add_to_cart'|trans }}"
+                                  class="fa fa-shopping-cart button button-secondary"
+                                  data-test="add-pack-{{ pack.id }}-to-cart"
+                                  href="{{ url('store_cart_add_purchasable', { id: pack.id }) }}"> {{ 'template.store_template_bundle.product.view_item.add_to_cart'|trans }}</a>
+                               {% else %}
+                               <a title="{{ 'template.store_template_bundle.product.view_item.no_stock'|trans }}"
+                                  class="fa fa-times button"
+                                  href="#"> {{ 'template.store_template_bundle.product.view_item.no_stock'|trans }}</a>
+                               {% endif %}
+                           </p>
+                       </div>
+                   {% endblock %}
+
+                   {% block purchasable_pack_info_details %}
+                       <p>{{ pack.description }}</p>
+                   {% endblock %}
+               {% endblock %}
+           </div>
+       </div>
+    </div>
+    <div class="grid">
+        <div class="col-1-1">
+            {{ elcodi_hook("store.purchasable_pack_view_bottom", {
+                'pack': pack,
+            }) }}
+        </div>
+    </div>
+{% endblock content %}

@@ -38,7 +38,7 @@ class RuleData extends AbstractFixture
         $ruleLowCost = $ruleFactory
             ->create()
             ->setName('Importe inferior a 300€')
-            ->setExpression('cart.getProductAmount().isLessThan(money(300))');
+            ->setExpression('cart.getPurchasableAmount().isLessThan(money(300))');
         $manager->persist($ruleLowCost);
 
         $ruleFewItems = $ruleFactory

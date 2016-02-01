@@ -78,7 +78,7 @@ class CategoryTransformer implements SitemapTransformerInterface
 
         return $this
             ->router
-            ->generate('store_category_products_list', [
+            ->generate('store_category_purchasables_list', [
                 'id' => $element->getId(),
                 'slug' => $element->getSlug(),
                 '_locale' => $language,

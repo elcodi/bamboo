@@ -122,7 +122,7 @@ class RuleController extends AbstractAdminController
      * @return array Result
      *
      * @Route(
-     *      path = "s/list/component/{page}/{limit}/{orderByField}/{orderByDirection}",
+     *      path = "s/component/{page}/{limit}/{orderByField}/{orderByDirection}",
      *      name = "admin_rule_list_component",
      *      requirements = {
      *          "page" = "\d*",

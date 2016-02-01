@@ -5,8 +5,7 @@ store_address_list: /my-addresses
 store_address_new: '/my-address/new/{source}'
 store_blog_post_view: '/blog/{id}/{slug}'
 store_blog_view: '/blog/{page}'
-store_cart_add_product: '/cart/product/{id}/add'
-store_cart_add_product_variant: '/cart/product/variant/{id}/add'
+store_cart_add_purchasable: '/cart/product/{id}/add'
 store_cart_coupon_form_type_coupon_apply: /cart/coupons
 store_cart_empty: /cart/empty
 store_cart_nav: /cart/nav
@@ -14,7 +13,7 @@ store_cart_update: /cart/update
 store_cart_view: /cart
 store_cartline_remove: '/cart/line/{id}/remove'
 store_categories_nav: /categories/nav
-store_category_products_list: '/category/{slug}/{id}'
+store_category_purchasables_list: '/category/{slug}/{id}'
 store_checkout_address: /cart/address
 store_checkout_address_save: /cart/address/save
 store_checkout_payment: /cart/payment

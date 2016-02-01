@@ -53,7 +53,7 @@ class CustomerOrderComponentController extends AbstractAdminController
      * @return array Result
      *
      * @Route(
-     *      path = "s/list/component/{customerId}/{page}/{limit}/{orderByField}/{orderByDirection}",
+     *      path = "s/component/{customerId}/{page}/{limit}/{orderByField}/{orderByDirection}",
      *      name = "admin_customer_order_list_component",
      *      requirements = {
      *          "page" = "\d*",

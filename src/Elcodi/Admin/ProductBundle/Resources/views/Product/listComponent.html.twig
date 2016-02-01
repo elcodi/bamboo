@@ -55,8 +55,9 @@
         </a>
 
         {% set path = url('store_product_view', { id: entity.id, slug: entity.slug }) %}
+        {% set relativePath = path('store_product_view', { id: entity.id, slug: entity.slug }) %}
         <p class="fz-s">
-            <a target="_blank" href="{{ path }}">/{{ entity.slug }}</a>
+            <a target="_blank" href="{{ path }}">{{ relativePath }}</a>
         </p>
 
         {% if entity.enabled %}

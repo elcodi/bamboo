@@ -57,7 +57,7 @@
 
         "guzzlehttp/guzzle": "^5.2",
         "ornicar/gravatar-bundle" : "1.1.3",
-        "knplabs/knp-gaufrette-bundle": "^0.1.7",
+        "knplabs/knp-gaufrette-bundle": "^0.3.0",
         "incenteev/composer-parameter-handler": "^2.0",
         "hwi/oauth-bundle": "^0.4.0",
         "snc/redis-bundle": "^1.1.9",
@@ -70,8 +70,8 @@
         "mmoreram/http-headers-bundle": "1.0.0",
         "mmoreram/symfony-bundle-dependencies": "^1.1.1",
 
-        "elcodi/elcodi": "^1.0.13",
-        "paymentsuite/paymentsuite": "^2.0.2"
+        "elcodi/elcodi": "^2.0.2",
+        "paymentsuite/paymentsuite": "^2.0.3"
     },
     "replace": {
         "elcodi-templates/template": "self.version",
@@ -97,10 +97,10 @@
         "behat/mink-browserkit-driver": "^1.2",
         "behat/mink-selenium2-driver": "^1.2",
         "behat/mink": "^1.6",
-        "phpunit/phpunit": "4.5.0",
+        "phpunit/phpunit": "4.8.19",
 
         "mmoreram/php-formatter": "1.1.0",
-        "mmoreram/translation-server": "^1.0",
+        "mmoreram/translation-server": "^1.0.1",
         "fabpot/php-cs-fixer": "1.4.2",
         "visithor/visithor-bundle": "^0.2.0"
     },
@@ -109,11 +109,11 @@
     },
     "scripts": {
         "check-style": [
-            "bin/php-cs-fixer fix --config-file=.php_cs",
-            "bin/php-formatter f:u:s src",
-            "bin/php-formatter f:u:s app",
-            "bin/php-formatter f:h:f src",
-            "bin/php-formatter f:h:f app"
+            "bin/php-cs-fixer fix --config-file=.php_cs || true",
+            "bin/php-formatter f:u:s src || true",
+            "bin/php-formatter f:u:s app || true",
+            "bin/php-formatter f:h:f src || true",
+            "bin/php-formatter f:h:f app || true"
         ],
         "compile": [
             "app/console -n doctrine:migrations:status",

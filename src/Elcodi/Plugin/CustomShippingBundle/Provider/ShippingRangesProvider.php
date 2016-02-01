@@ -162,7 +162,7 @@ class ShippingRangesProvider
         CartInterface $cart,
         ShippingRangeInterface $shippingRange
     ) {
-        $cartPrice = $cart->getProductAmount();
+        $cartPrice = $cart->getPurchasableAmount();
         $cartPriceCurrency = $cartPrice->getCurrency();
         $shippingRangeFromPrice = $shippingRange->getFromPrice();
         $shippingRangeToPrice = $shippingRange->getToPrice();

@@ -3,6 +3,6 @@ elcodi_plugin:
         description: 'Integración da tenda con Twitter'
         field:
             twitter_account:
-                placeholder: 'p.ex. xoanalonso'
                 label: 'Conta de Twitter'
+                placeholder: 'p.ex. xoanalonso'
         name: Twitter

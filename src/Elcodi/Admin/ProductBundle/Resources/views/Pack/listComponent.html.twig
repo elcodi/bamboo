@@ -1,0 +1,128 @@
+{% extends 'AdminCoreBundle::Common/listComponent.html.twig' %}
+
+
+{% set elcodi_context = {
+    entity_type: 'purchasable_pack'
+} %}
+
+
+{% block title 'admin.purchasable_pack.list'|trans %}
+
+
+{% block no_items
+    lists.no_items(
+        'admin.purchasable_pack.single'|trans,
+        'admin.purchasable_pack.plural'|trans,
+        url('admin_purchasable_pack_new')
+    )
+%}
+
+
+{% block table_head %}
+
+
+    {% set stockClass = 'ta-r' %}
+    {% if not store.useStock %}
+        {% set stockClass = 'd-n ta-r' %}
+    {% endif %}
+
+    {% include '@AdminCore/Tables/head.html.twig' with {
+        rows: [
+            { name: 'admin.purchasable_pack.field.image.title'|trans, width: 10 },
+            { name: 'admin.purchasable_pack.field.name_details.title'|trans },
+            { name: 'admin.purchasable_pack.field.main_category.title'|trans, width: 15 },
+            { name: 'admin.purchasable_pack.field.price.title'|trans, width: 10, class: 'ta-r' },
+            { name: 'admin.purchasable_pack.field.stock.title'|trans, class: stockClass }
+        ],
+        class: 'purchasable-pack',
+    } %}
+
+{% endblock table_head %}
+
+
+{% block table_body_row %}
+
+    <td data-test="purchasable-pack-{{ entity.id }}">
+        {% if entity.images|length > 0 %}
+            <a href="{{ url('admin_purchasable_pack_edit', { id: entity.id }) }}" class="thumbnail">
+                <img src="{{ entity.getSortedImages.first|resize({ height: 100, width: 100, type: 5 }) }}" />
+            </a>
+        {% endif %}
+    </td>
+    <td>
+        <a href="{{ url('admin_purchasable_pack_edit', { id: entity.id }) }}">
+            <strong>{{ entity.name }}</strong>
+        </a>
+
+        {% set path = url('store_purchasable_pack_view', { id: entity.id, slug: entity.slug }) %}
+        {% set relativePath = path('store_purchasable_pack_view', { id: entity.id, slug: entity.slug }) %}
+        <p class="fz-s">
+            <a target="_blank" href="{{ path }}">{{ relativePath }}</a>
+        </p>
+
+        {% if entity.enabled %}
+            <span class="label-ok fz-xs">{{ 'admin.purchasable_pack.field.enabled.options.active'|trans }}</span>
+        {% else %}
+            <span class="label fz-xs">{{ 'admin.purchasable_pack.field.enabled.options.inactive'|trans }}</span>
+        {% endif %}
+
+        {% if entity.showInHome %}
+            <span class="label-info fz-xs">
+                {{'admin.purchasable_pack.tag.in_home'|trans}}
+            </span>
+        {% endif %}
+
+        {% if entity.hasVariants %}
+            <span class="label bg-secondary fz-xs c-background">
+                {{'admin.purchasable_pack.tag.has_variants'|trans}}
+            </span>
+        {% endif %}
+
+        {% if entity.principalCategory is null %}
+            <span class="label label-ko fz-xs">
+                <i class="icon-warning mr-s"></i>
+                {{'admin.purchasable_pack.tag.no_category'|trans}}
+            </span>
+        {% endif %}
+
+        {% if entity.manufacturer is null %}
+            <span class="label label-ko fz-xs">
+                <i class="icon-warning mr-s"></i>
+                {{'admin.purchasable_pack.tag.no_manufacturer'|trans}}
+            </span>
+        {% endif %}
+    </td>
+    <td>
+        {% if entity.principalCategory %}
+            <a href="{{ url('admin_category_edit', { id: entity.principalCategory.id }) }}">
+                {{ entity.principalCategory.name }}
+            </a>
+        {% endif %}
+    </td>
+    <td class="ta-r">
+        {{ entity.price|print_money }}
+    </td>
+    <td class="ta-r {% if not store.useStock %}d-n{% endif %}">
+        {% if entity.stock >= 5 %}
+            {% set stockColor = 'c-ok' %}
+        {% elseif entity.stock > 0 and entity.stock < 10 %}
+            {% set stockColor = 'c-warning' %}
+        {% else %}
+            {% set stockColor = 'c-ko' %}
+        {% endif %}
+        <span class="{{ stockColor }}"> {{ entity.stock }}</span>
+    </td>
+    {% include '@AdminCore/Tables/actions.html.twig' with {
+        entity: entity,
+        class: 'purchasable_pack',
+    } %}
+
+{% endblock table_body_row %}
+
+
+{% block table_paginator_links %}
+
+    {% set url = 'admin_purchasable_pack_list' %}
+    {{ parent() }}
+
+{% endblock table_paginator_links %}

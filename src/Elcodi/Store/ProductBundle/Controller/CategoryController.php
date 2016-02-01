@@ -24,9 +24,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 use Elcodi\Component\Product\Entity\Interfaces\CategoryInterface;
-use Elcodi\Component\Product\Entity\Interfaces\ProductInterface;
+use Elcodi\Component\Product\Entity\Interfaces\PurchasableInterface;
 use Elcodi\Component\Product\Repository\CategoryRepository;
-use Elcodi\Component\Product\Repository\ProductRepository;
+use Elcodi\Component\Product\Repository\PurchasableRepository;
 use Elcodi\Store\CoreBundle\Controller\Traits\TemplateRenderTrait;
 
 /**
@@ -73,7 +73,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * Render all category products
+     * Render all category purchasables
      *
      * @param CategoryInterface $category Category
      *
@@ -81,7 +81,7 @@ class CategoryController extends Controller
      *
      * @Route(
      *      path = "category/{slug}/{id}",
-     *      name = "store_category_products_list",
+     *      name = "store_category_purchasables_list",
      *      requirements = {
      *          "slug" = "[a-zA-Z0-9-]+",
      *          "id" = "\d+"
@@ -105,32 +105,30 @@ class CategoryController extends Controller
          * return a Redirection 301 to the right url
          */
         if ($slug !== $category->getSlug()) {
-            return $this->redirectToRoute('store_category_products_list', [
+            return $this->redirectToRoute('store_category_purchasables_list', [
                 'id'   => $category->getId(),
                 'slug' => $category->getSlug(),
             ], 301);
         }
 
         /**
-         * @var CategoryRepository Category Repository
-         * @var ProductRepository Product Repository
+         * @var CategoryRepository $categoryRepository
+         * @var PurchasableRepository $purchasableRepository
          */
         $categoryRepository = $this->get('elcodi.repository.category');
-        $productRepository = $this->get('elcodi.repository.product');
+        $purchasableRepository = $this->get('elcodi.repository.purchasable');
 
         $categories = array_merge(
             [$category],
-            $categoryRepository
-                ->getChildrenCategories($category)
-                ->toArray()
+            $categoryRepository->getChildrenCategories($category)
         );
 
-        $products = $productRepository->getAllFromCategories($categories);
+        $purchasables = $purchasableRepository->getAllFromCategories($categories);
 
         return $this->renderTemplate(
             'Pages:category-view.html.twig',
             [
-                'products' => $products,
+                'purchasables' => $purchasables,
                 'category' => $category,
             ]
         );
@@ -150,17 +148,15 @@ class CategoryController extends Controller
 
         /**
          * @var CategoryInterface $category
+         * @var PurchasableInterface $purchasable
          */
-        if ($masterRoute === 'store_product_view') {
-            $productId = $request->get('id');
-            $productRepository = $this->get('elcodi.repository.product');
+        if ($masterRoute === 'store_purchasable_view') {
+            $purchasableId = $request->get('id');
+            $productRepository = $this->get('elcodi.repository.purchasable');
 
-            /**
-             * @var ProductInterface $product
-             */
-            $product = $productRepository->find($productId);
-            $category = $product->getPrincipalCategory();
-        } elseif ($masterRoute === 'store_category_products_list') {
+            $purchasable = $productRepository->find($purchasableId);
+            $category = $purchasable->getPrincipalCategory();
+        } elseif ($masterRoute === 'store_category_purchasables_list') {
             $categoryId = $request->get('id');
             $categoryRepository = $this->get('elcodi.repository.category');
             $category = $categoryRepository->find($categoryId);
