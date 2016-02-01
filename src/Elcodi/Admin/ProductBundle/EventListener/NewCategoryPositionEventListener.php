@@ -33,7 +33,7 @@ class NewCategoryPositionEventListener
      */
     public function preFlush(PreFlushEventArgs $args)
     {
-        $entityManager       = $args->getEntityManager();
+        $entityManager = $args->getEntityManager();
         $scheduledInsertions = $entityManager->getUnitOfWork()->getScheduledEntityInsertions();
 
         foreach ($scheduledInsertions as $entity) {

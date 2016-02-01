@@ -1,0 +1,18 @@
+<div class="product-list">
+{% for purchasable in purchasables %}
+    {% if "product" == purchasable.purchasableType %}
+        {% include '@StoreTemplate/Modules/_product-item.html.twig' with {
+            'product' : purchasable
+        } %}
+    {% elseif "purchasable_pack" == purchasable.purchasableType %}
+        {% include '@StoreTemplate/Modules/_product-pack-item.html.twig' with {
+            'pack' : purchasable
+        } %}
+    {% endif %}
+{% else %}
+    <div class="product-empty">
+        <i class="fa fa-frown-o fa-3x"></i>
+        <h2 class="product-title">{{ "template.store_template_bundle.product.list.no_products_in_category"|trans}}</h2>
+    </div>
+{% endfor %}
+</div>

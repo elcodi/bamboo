@@ -9,4 +9,4 @@ services:
             - "@elcodi.repository.order"
             - "@elcodi.wrapper.cart"
             - "@elcodi.converter.currency"
-            - "@elcodi.resolver.purchasable_name"
+            - "@elcodi.name_resolver.purchasable"

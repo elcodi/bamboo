@@ -1,10 +1,5 @@
 services:
 
-    elcodi_store.provider.product_collection:
-        class: Elcodi\Store\ProductBundle\Services\ProductCollectionProvider
-        arguments:
-            - "@elcodi.repository.product"
-
     elcodi_store.store_category_tree:
         class: Elcodi\Store\ProductBundle\Services\StoreCategoryTree
         arguments:

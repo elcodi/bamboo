@@ -36,7 +36,7 @@ class CurrencyComponentController extends AbstractAdminController
      * @return array Result
      *
      * @Route(
-     *      path = "currencies/list/component",
+     *      path = "currencies/component",
      *      name = "admin_currency_list_component",
      *      methods = {"GET"}
      * )

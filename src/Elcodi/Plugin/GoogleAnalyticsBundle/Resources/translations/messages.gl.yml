@@ -1,8 +1,8 @@
 elcodi_plugin:
     google_analytics:
-        name: 'Google Analytics'
         description: 'Integración de Google Analytics coa tenda'
         field:
             analytics_tracker_id:
-                placeholder: 'p.ex. 123456789'
                 label: 'Google Analytics tracker ID'
+                placeholder: 'p.ex. 123456789'
+        name: 'Google Analytics'

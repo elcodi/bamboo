@@ -1,0 +1,396 @@
+{% extends 'AdminCoreBundle::Common/formComponent.html.twig' %}
+
+
+{% set elcodi_context = {
+    entity_type: 'purchasable_pack',
+} %}
+
+
+{% form_theme form 'AdminCoreBundle::Forms/fields.html.twig' %}
+
+
+{% block content %}
+
+    {% set formAction =
+        pack.id
+            ? url('admin_purchasable_pack_update', { id: pack.id })
+            : url('admin_purchasable_pack_save')
+     %}
+
+
+    {{ form_start(form, { action: formAction }) }}
+        <fieldset>
+            {{ elcodi_hook("admin.pack_top", {
+                'pack': pack
+            }) }}
+            <div class="grid">
+                <div class="col-1-3">
+                    <div class="box-none">
+                        <h3 class="fw-n">{{ 'admin.purchasable_pack.section.basic.title'|trans }}</h3>
+                        <p>{{ 'admin.purchasable_pack.section.basic.description'|trans }}</p>
+                        {% if elcodi_languages|length > 1 %}
+                            <p><i class="icon-star"></i> = {{ 'ui.language.master_language'|trans }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-2-3">
+                    <div {% if elcodi_languages|length > 1 %}data-fc-modules="tabs" class="tabs-box loading" {% endif %}>
+                        {% for language in elcodi_languages %}
+                        <section id="tab-{{ language }}" data-fc-name="{% if loop.first %}{{ '<i class="icon-star"></i>'|e }} {% endif %}{{ language|capitalize }}">
+                            <div class="box">
+                                <ol>
+                                    <li>
+                                        {{
+                                            form_row(form.name["#{language}_name"], {
+                                                label: 'admin.purchasable_pack.field.name.title',
+                                                attr: {
+                                                    placeholder: 'admin.purchasable_pack.field.name.placeholder',
+                                                }
+                                            })
+                                        }}
+                                        <div class="pt-m">
+                                            <p class="ta-r mb-n"><a data-fc-modules="toggle" href="#slug-{{ language }}" class="fz-default"><i class="icon-plus-circle"></i> {{ 'admin.product.field.slug.customize'|trans }}</a></p>
+                                            <div id="slug-{{ language }}" class="hidden mt-m">
+                                            {{
+                                                form_row(form.slug["#{language}_slug"], {
+                                                    label: false,
+                                                    attr: {
+                                                        placeholder: 'admin.purchasable_pack.field.slug.placeholder',
+                                                        'data-fc-modules': 'slug',
+                                                        'data-fc-parent': form.name["#{language}_name"].vars.id,
+                                                        'pattern' : '^[a-z0-9-]+$'
+                                                    }
+                                                })
+                                            }}
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        {{
+                                            form_row(form.description["#{language}_description"], {
+                                                label: 'admin.purchasable_pack.field.description.title',
+                                                attr: {
+                                                    placeholder: 'admin.purchasable_pack.field.description.placeholder',
+                                                    'data-fc-modules': 'wysiwyg',
+                                                    'data-fc-fullscreen': 'false',
+                                                    'data-fc-text-html': 'admin.UI.show_code'|trans,
+                                                    'data-fc-text-visual': 'admin.UI.show_visual'|trans,
+                                                    'data-fc-text-help': 'ui.editor.help'|trans,
+                                                }
+                                            })
+                                        }}
+                                    </li>
+                                </ol>
+                            </div>
+                        </section>
+                        {% endfor %}
+                        </div>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="col-1-3">
+                    <div class="box-none">
+                        <h3 class="fw-n">{{ 'admin.purchasable_pack.section.catalog.title'|trans }}</h3>
+                        <p>{{ 'admin.purchasable_pack.section.catalog.description'|trans }}</p>
+                    </div>
+                </div>
+                <div class="col-2-3">
+                    <div class="box">
+                        <ol class="grid">
+                            <li class="col-1-2 pb-n">
+                                <div class="pr-l">
+                                    {{
+                                    form_row(form.purchasables, {
+                                        label: 'admin.purchasable_pack.field.purchasables.title',
+                                        attr: {
+                                            style: "height: 200px"
+                                        }
+                                    })
+                                    }}
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="col-1-3">
+                    <div class="box-none">
+                        <h3 class="fw-n">{{ 'admin.purchasable_pack.section.pricing.title'|trans }}</h3>
+                        <p>{{ 'admin.purchasable_pack.section.pricing.description'|trans }}</p>
+                    </div>
+                </div>
+                <div class="col-2-3">
+                    <div class="box pb-n">
+                        <ol class="grid">
+                            <li class="col-1-2">
+                                {{
+                                    form_row(form.price, {
+                                        label: 'admin.purchasable_pack.field.price.title',
+                                    })
+                                }}
+                            </li>
+                            <li class="col-1-2">
+                                {{
+                                    form_row(form.reducedPrice, {
+                                        label: 'admin.purchasable_pack.field.reduced_price.title',
+                                    })
+                                }}
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="grid{% if not useStock %} d-n{% endif %}">
+                <div class="col-1-3">
+                    <div class="box-none">
+                        <h3 class="fw-n">{{ 'admin.purchasable_pack.section.stock.title'|trans }}</h3>
+                        <p>{{ 'admin.purchasable_pack.section.stock.description'|trans }}</p>
+                    </div>
+                </div>
+                <div class="col-2-3">
+                    <div class="box pb-n">
+                        <ol>
+                            <li class="col-1-2">
+                                <div class="pr-l">
+                                    {{
+                                        form_row(form.stockType, {
+                                            label: 'admin.purchasable_pack.field.stock_type.title'
+                                        })
+                                    }}
+                                </div>
+                            </li>
+                            <li class="col-1-2">
+                                {{
+                                    form_row(form.stock, {
+                                        label: 'admin.purchasable_pack.field.stock.title'
+                                    })
+                                }}
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            {% include '@AdminMedia/Module/_images-form-field.html.twig' with {
+                images: pack.getSortedImages,
+                redirect_path: pack.id
+                    ? path('admin_purchasable_pack_edit', { id: pack.id })
+                    : path('admin_purchasable_pack_new')
+            } %}
+            <div class="grid">
+                <div class="col-1-3">
+                    <div class="box-none">
+                        <h3 class="fw-n">{{ 'admin.purchasable_pack.section.categorization.title'|trans }}</h3>
+                        <p>{{ 'admin.purchasable_pack.section.categorization.description'|trans }}</p>
+                    </div>
+                </div>
+                <div class="col-2-3">
+                    <div class="box">
+                        <ol class="grid">
+                            <li class="col-1-2 pb-n">
+                                <div class="pr-l">
+                                    {{
+                                    form_row(form.principalCategory, {
+                                        label: 'admin.purchasable_pack.field.main_category.title',
+                                        label_help: 'admin.purchasable_pack.field.main_category.placeholder'|trans,
+                                    })
+                                    }}
+                                    <p class="pt-s fz-default mb-n ta-r">
+                                        <a href="{{ url('admin_category_new') }}" data-fc-modules="window-content">
+                                            <i class="icon-plus"></i>
+                                            {{ 'admin.category.new'|trans }}
+                                        </a>
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="col-1-2 pb-n">
+                                {{
+                                form_row(form.manufacturer, {
+                                    label: 'admin.purchasable_pack.field.manufacturer.title',
+                                    label_help: 'admin.purchasable_pack.field.manufacturer.placeholder'|trans,
+                                })
+                                }}
+                                <p class="pt-s fz-default mb-n ta-r">
+                                    <a href="{{ url('admin_manufacturer_new') }}" data-fc-modules="window-content">
+                                        <i class="icon-plus"></i>
+                                        {{ 'admin.manufacturer.new'|trans }}
+                                    </a>
+                                </p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ph-n pt-m mb-n">
+                <div class="box-background pv-s mb-n">
+                    <a data-fc-modules="toggle" href="#dimensions-edit"><i class="icon-plus-circle"></i> {{ 'admin.purchasable_pack.section.dimensions.title'|trans }}  {% if not product.hasVariants() %}/ {{ 'admin.product.section.sku.title'|trans }}{% endif %}</a>
+                </div>
+                <div id="dimensions-edit" class="hidden">
+                    <div class="grid pt-s">
+                        <div class="col-1-3">
+                            <div class="box-none">
+                                <h3 class="fw-n">{{ 'admin.purchasable_pack.section.dimensions.title'|trans }}</h3>
+                                <p>{{ 'admin.purchasable_pack.section.dimensions.description'|trans }}</p>
+                            </div>
+                        </div>
+                        <div class="col-2-3">
+                            <div class="box pb-n">
+                                <ol class="grid">
+                                    <li class="col-1-3">
+                                        <div class="pr-l">
+                                            {{
+                                            form_row(form.width, {
+                                                label: 'admin.purchasable_pack.field.width.title',
+                                            })
+                                        }}
+                                        </div>
+                                    </li>
+                                    <li class="col-1-3">
+                                        <div class="pr-l">
+                                        {{
+                                            form_row(form.height, {
+                                                label: 'admin.purchasable_pack.field.height.title',
+                                            })
+                                        }}
+                                        </div>
+                                    </li>
+                                    <li class="col-1-3">
+                                        <div class="pr-l">
+                                        {{
+                                            form_row(form.depth, {
+                                                label: 'admin.purchasable_pack.field.depth.title',
+                                            })
+                                        }}
+                                        </div>
+                                    </li>
+                                </ol>
+                                <ol>
+                                    <li class="col-1-3">
+                                        {{
+                                        form_row(form.weight, {
+                                            label: 'admin.purchasable_pack.field.weight.title',
+                                        })
+                                        }}
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid">
+                        <div class="col-1-3">
+                            <div class="box-none">
+                                <h3 class="fw-n">{{ 'admin.purchasable_pack.section.sku.title'|trans }}</h3>
+                                <p>{{ 'admin.purchasable_pack.section.sku.description'|trans }}</p>
+                            </div>
+                        </div>
+                        <div class="col-2-3">
+                            <div class="box">
+                                {{
+                                form_row(form.sku, {
+                                    label: 'admin.purchasable_pack.field.sku.title',
+                                })
+                                }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ph-n pt-m mb-l">
+                <div class="box-background pv-s mb-n">
+                    <a data-fc-modules="toggle" href="#metadata-info"><i class="icon-plus-circle"></i> {{ 'admin.metadata.customize'|trans }}</a>
+                </div>
+                <div id="metadata-info" class="grid pt-s hidden">
+                    <div class="col-1-3">
+                        <div class="box-none">
+                            <h3 class="fw-n">{{ 'admin.metadata.section.metadata.title'|trans }}</h3>
+                            <p>{{ 'admin.metadata.section.metadata.description'|trans }}</p>
+                            {% if elcodi_languages|length > 1 %}
+                                <p><i class="icon-star"></i> = {{ 'ui.language.master_language'|trans }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-2-3">
+                        <div {% if elcodi_languages|length > 1 %}data-fc-modules="tabs" class="tabs-box loading"{% endif %}>
+                            {% for language in elcodi_languages %}
+                                <section id="metadata-{{ language }}" data-fc-name="{% if loop.first %}{{ '<i class="icon-star"></i>'|e }} {% endif %}{{ language|capitalize }}">
+                                    <div class="box">
+                                        <ol>
+                                            <li>
+                                                {{
+                                                    form_row(form.metaTitle["#{language}_metaTitle"], {
+                                                        label: 'admin.metadata.field.metatitle.title',
+                                                        attr: {
+                                                            placeholder: 'admin.purchasable_pack.field.metatitle.placeholder',
+                                                        },
+                                                    })
+                                                }}
+                                            </li>
+                                            <li>
+                                                {{
+                                                    form_row(form.metaDescription["#{language}_metaDescription"], {
+                                                        label: 'admin.metadata.field.metadescription.title',
+                                                        attr: {
+                                                            placeholder: 'admin.purchasable_pack.field.metadescription.placeholder',
+                                                        },
+                                                    })
+                                                }}
+                                            </li>
+                                            <li>
+                                                {{
+                                                    form_row(form.metaKeywords["#{language}_metaKeywords"], {
+                                                        label: 'admin.metadata.field.metakeywords.title',
+                                                        attr: {
+                                                            placeholder: 'admin.purchasable_pack.field.metakeywords.placeholder',
+                                                        },
+                                                    })
+                                                }}
+                                            </li>
+                                        </ol>
+                                    </div>
+                                </section>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="col-1-3">
+                    <div class="box-none mb-n pb-m">
+                        <h3 class="fw-n">{{ 'admin.purchasable_pack.section.visibility.title'|trans }}</h3>
+                        <p>{{ 'admin.purchasable_pack.section.visibility.description'|trans }}</p>
+                    </div>
+                </div>
+                <div class="col-2-3">
+                    <div class="box mb-n pb-n">
+                        <ol class="grid pt-m">
+                            <li class="col-1-1">
+                                {{
+                                    form_row(form.showInHome, {
+                                        label: 'admin.purchasable_pack.field.in_home.title'
+                                    })
+                                }}
+                                {{
+                                    form_row(form.enabled, {
+                                        label: 'admin.purchasable_pack.field.enabled.title',
+                                    })
+                                }}
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <div class="grid fixed-bottom animated fade-in-up">
+            <div class="col-1-3">
+                &nbsp;
+            </div>
+            <div class="col-2-3">
+                <button id="submit-save" type="submit" class="button-primary button-fat pv-s mr-l">{{ 'ui.forms.save'|trans }}</button>
+                <a href="{{ path('admin_purchasable_pack_list') }}">{{ 'ui.forms.cancel'|trans }}</a>
+            </div>
+        </div>
+    {{ form_end(form) }}
+
+{% endblock content %}

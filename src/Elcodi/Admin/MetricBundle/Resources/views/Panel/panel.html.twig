@@ -8,7 +8,7 @@
                     {{ metric_accumulation(store.tracker, 'order_total', todayIntervalContainer.elements)|print_money_from_value }}
                 </span>
                 <span class='dashboard-tabs-orders'>
-                    {{ metric_beacon_total(store.tracker, 'order_nb', todayIntervalContainer.elements) }} {{ order|trans }}
+                    {{ metric_beacon_total(store.tracker, 'order_nb', todayIntervalContainer.elements) }} {{ "admin.dashboard.chart.orders"|trans }}
                 </span>
                 {% if type == 1 %}
                     {% set intervalContainer = todayIntervalContainer %}
@@ -24,7 +24,7 @@
                     {{ metric_accumulation(store.tracker, 'order_total', yesterdayIntervalContainer.elements)|print_money_from_value }}
                 </span>
                 <span class='dashboard-tabs-orders'>
-                    {{ metric_beacon_total(store.tracker, 'order_nb', yesterdayIntervalContainer.elements) }} {{ order|trans }}
+                    {{ metric_beacon_total(store.tracker, 'order_nb', yesterdayIntervalContainer.elements) }} {{ "admin.dashboard.chart.orders"|trans }}
                 </span>
                 {% if type == 2 %}
                     {% set intervalContainer = yesterdayIntervalContainer %}
@@ -40,7 +40,7 @@
                     {{ metric_accumulation(store.tracker, 'order_total', lastWeekIntervalContainer.elements)|print_money_from_value }}
                 </span>
                 <span class='dashboard-tabs-orders'>
-                    {{ metric_beacon_total(store.tracker, 'order_nb', lastWeekIntervalContainer.elements) }} {{ order|trans }}
+                    {{ metric_beacon_total(store.tracker, 'order_nb', lastWeekIntervalContainer.elements) }} {{ "admin.dashboard.chart.orders"|trans }}
                 </span>
                 {% if type == 3 %}
                     {% set intervalContainer = lastWeekIntervalContainer %}
@@ -56,7 +56,7 @@
                     {{ metric_accumulation(store.tracker, 'order_total', lastMonthIntervalContainer.elements)|print_money_from_value }}
                 </span>
                 <span class='dashboard-tabs-orders'>
-                    {{ metric_beacon_total(store.tracker, 'order_nb', lastMonthIntervalContainer.elements) }} {{ order|trans }}
+                    {{ metric_beacon_total(store.tracker, 'order_nb', lastMonthIntervalContainer.elements) }} {{ "admin.dashboard.chart.orders"|trans }}
                 </span>
                 {% if type == 4 %}
                     {% set intervalContainer = lastMonthIntervalContainer %}
@@ -72,7 +72,7 @@
                     {{ metric_accumulation(store.tracker, 'order_total', lastQuarterIntervalContainer.elements)|print_money_from_value }}
                 </span>
                 <span class='dashboard-tabs-orders'>
-                    {{ metric_beacon_total(store.tracker, 'order_nb', lastQuarterIntervalContainer.elements) }} {{ order|trans }}
+                    {{ metric_beacon_total(store.tracker, 'order_nb', lastQuarterIntervalContainer.elements) }} {{ "admin.dashboard.chart.orders"|trans }}
                 </span>
                 {% if type == 5 %}
                     {% set intervalContainer = lastQuarterIntervalContainer %}

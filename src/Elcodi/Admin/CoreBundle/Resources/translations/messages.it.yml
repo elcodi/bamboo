@@ -66,16 +66,16 @@ admin:
         saved: 'Salva modifiche'
         section:
             contact:
-                description: "Contatto dell'amministratore."
+                description: 'Contatto dell''amministratore.'
                 title: 'Dettagli del contatto'
             login:
-                description: "Ogni utente deve avere un'email univoca."
+                description: 'Ogni utente deve avere un''email univoca.'
                 title: 'Dettagli del login'
             password:
-                description: "Cambia la password dell'amministratore."
-                title: 'Password'
+                description: 'Cambia la password dell''amministratore.'
+                title: Password
             status:
-                description: "Puoi abilitare o disabilitare l'amministratore."
+                description: 'Puoi abilitare o disabilitare l''amministratore.'
                 title: 'Status utente'
         single: Amministratore
     attribute:
