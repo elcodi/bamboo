@@ -180,8 +180,8 @@ class ElcodiInstallCommand extends AbstractElcodiCommand
 
         $command =
             'doctrine:fixtures:load ' .
-            '--fixtures=' . $rootDir . '/../src/Elcodi/Plugin/ ' .
-            '--fixtures=' . $rootDir . '/../src/Elcodi/Fixtures ' .
+            '--fixtures="' . str_replace('\\','/', realpath($rootDir . '/../src/Elcodi/Plugin/')) . '" ' .
+            '--fixtures="' . str_replace('\\','/', realpath($rootDir . '/../src/Elcodi/Fixtures')) . '" ' .
             '--env=test ' .
             '--no-interaction ';
 
