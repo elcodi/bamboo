@@ -186,6 +186,11 @@ class StoreController extends AbstractAdminController
             ->get('elcodi.object_manager.store')
             ->flush($store);
 
+        // Issue #695: we must flush the whole entity manager otherwise the store address will not be saved
+        $this
+            ->get('elcodi.object_manager.store')
+            ->flush();
+
         $this->addFlash(
             'success',
             'admin.store.saved'
