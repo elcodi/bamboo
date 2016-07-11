@@ -11,6 +11,9 @@ FrontendCore.define('upload-single', [ oGlobalSettings.sPathJs + '../components/
 
 		},
 		updateSelect : function( oContainer, nId , nodeName ) {
+			var formType = oContainer.getAttribute('formType');
+			if (!formType)
+				formType = 'elcodi_admin_product_form_type_manufacturer';
 
 			if (nodeName === 'SELECT') {
 				$('option', oContainer ).filter(function() {
@@ -24,29 +27,32 @@ FrontendCore.define('upload-single', [ oGlobalSettings.sPathJs + '../components/
 				});
 
 				if (nId !== undefined ) {
-					$('input[id=elcodi_admin_product_form_type_manufacturer_'+ nId +']', oContainer).click();
+					$('input[id=' + formType + '_'+ nId +']', oContainer).click();
 
 				}
 			}
 
 		},
 		addImageToGallery : function( oContainer, nId) {
+			var formType = oContainer.getAttribute('formType');
+			if (!formType)
+				formType = 'elcodi_admin_product_form_type_manufacturer';
 
 			var self = this,
 				oOption;
 
 			if (oContainer.nodeName === 'SELECT') {
 				oOption = document.createElement('option');
-				oOption.id = 'elcodi_admin_product_form_type_manufacturer_' + nId;
+				oOption.id = formType + '_' + nId;
 				oOption.value = nId;
 				oOption.innerHTML = nId;
 
-			} else if ($('#elcodi_admin_product_form_type_manufacturer_images_' + nId , oContainer).length === 0) {
+			} else if ($('#elcodi_admin_product_form_type_' + formType + '_images_' + nId , oContainer).length === 0) {
 
 				oOption = document.createElement('input');
 				oOption.type = 'checkbox';
-				oOption.name = 'elcodi_admin_product_form_type_manufacturer[images][]';
-				oOption.id = 'elcodi_admin_product_form_type_manufacturer_' + nId;
+				oOption.name = formType + '[images][]';
+				oOption.id = formType + '_' + nId;
 
 			}
 

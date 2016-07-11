@@ -1,0 +1,14 @@
+common:
+    order:
+        states:
+            cancelled: Annullato
+            delivered: Consegnato
+            'in delivery': 'In consegna'
+            initial: 'Nuovo ordine'
+            paid: Pagato
+            preparing: In preparazione
+            processed: Processato
+            refunded: Rimborsato
+            returned: Restituito
+            title: Storico
+            unpaid: Non pagato

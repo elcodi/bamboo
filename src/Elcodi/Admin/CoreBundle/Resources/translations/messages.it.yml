@@ -2,366 +2,503 @@ admin:
     UI:
         show_code: 'Mostra il codice HTML'
         show_visual: 'Nascondi il codice HTML'
+
     address:
         edit:
             billing_address: 'Indirizzo di fatturazione per il tuo negozio'
-            description: 'The address that should appear on the bills from your store. If you own a company that should be its fiscal address. Otherwise will surely be your physical address.'
+            description: 'L''indirizzo che apparirà nelle fatture del tuo negozio. Dovrebbe essere il domicilio fiscale della tua società oppure il tuo domicilio personale.'
+
         field:
             address:
-                placeholder: 'e.g. Awesonme Street, 42'
+                placeholder: 'es. Via Mantova, 42'
                 title: Indirizzo
+
             address_more:
-                placeholder: 'e.g. Doe Enterprises'
+                placeholder: 'es. Acme S.r.L.'
                 title: 'Indirizzo aggiuntivo (opzionale)'
+
             cif:
                 title: 'CIF / NIF'
+
             city:
                 title: Città
+
             comments:
                 placeholder: 'e.g. è una casa'
                 title: Commenti
+
             country:
                 title: Stato
+
             email:
                 placeholder: 'e.g. john.doe@mail.com'
                 title: Email
+
             isCompany:
                 title: 'Possiedi una compagnia?'
+
                 value:
                     company: Compagnia
                     individual: Individuale
+
             mobile:
                 placeholder: 'e.g. 555 555 555'
                 title: Cellulare
+
             phone:
                 placeholder: 'e.g. 935 555 555'
                 title: Telefono
+
             postalcode:
                 placeholder: 'e.g. 08080'
                 title: 'Codice postale'
+
             province:
                 title: Provincia
+
             recipient_name:
                 placeholder: 'e.g. John'
                 title: 'Nome / Compagnia'
+
             recipient_surname:
                 placeholder: 'e.g. Doe'
                 title: 'Cognome (opzionale se è una compagnia)'
+
             save: 'Salva indirizzo'
+
             state:
                 title: Regione
+        
+        incomplete: 'Indirizzo non completo'
+
         plural: Indirizzi
         saved: 'Indirizzo salvato'
+
         select:
             placeholder: Seleziona
+
         single: Indirizzo
+
     admin_user:
         edit: 'Modifica "%name%"'
+
         error:
             cant_disable_yourself: 'Non puoi disabilitare il tuo account'
             cant_remove_yourself: 'Non puoi eliminare il tuo account'
+
         list: 'Lista degli amministratori'
         new: 'Crea un nuovo amministratore'
         plural: Amministratore
         saved: 'Salva modifiche'
+
         section:
             contact:
                 description: 'Contatto dell''amministratore.'
                 title: 'Dettagli del contatto'
+
             login:
                 description: 'Ogni utente deve avere un''email univoca.'
                 title: 'Dettagli del login'
+
             password:
                 description: 'Cambia la password dell''amministratore.'
                 title: Password
+
             status:
                 description: 'Puoi abilitare o disabilitare l''amministratore.'
-                title: 'Status utente'
+                title: 'Stato utente'
+
         single: Amministratore
+
     attribute:
         edit: 'Modifica "%name%"'
+
         field:
             enabled:
-                title: Status
+                title: Abilitato
+
             name:
                 placeholder: 'e.g. Colore'
                 title: Nome
                 values: Valori
+
         list: 'Lista degli attributi'
         new: 'Nuovo attributo'
-        plural: Attribute
+        plural: Attributi
         saved: 'Attributo salvato'
+
         section:
             basic:
-                description: 'Define the name of the attribute and the values (separated by comma).'
+                description: 'Definisci il nome dell''attributo e i valori (separati da virgola).'
                 title: 'Dettagli base'
+
             visibility:
-                description: 'Set this attribute as visible or hidden.'
+                description: 'Imposta questo attributo come visibile o nascosto.'
                 title: Visibilità
+
         single: Attributo
+
     blog:
         plural: Blogs
         single: Blog
+
     blog_post:
         edit: 'Modifica "%name%"'
+
         field:
             content:
-                placeholder: 'e.g. This awesome blog post is exactly what you are lookin for.'
+                placeholder: 'e.g. Questo fantastico blog post è esattamente ciò che stai cercando.'
                 title: Contenuto
+
             enabled:
                 title: Abilitato
+
             link:
                 title: Link
+
             metadescription:
                 placeholder: 'e.g. Il mio eccezionale blog post è esattamente quello che stai cercando.'
+
             metakeywords:
                 placeholder: 'e.g. blog,post,awesome'
+
             metatitle:
                 placeholder: 'e.g. Il mio eccezionale Blog Post'
+
             path:
                 customize: 'Personalizza slug'
                 placeholder: 'e.g. my/awesome/blog-post'
                 title: Path
+
             publication_date:
                 title: 'Data di pubblicazione'
+
             title:
                 placeholder: 'e.g. Il mio eccezionale Blog Post'
                 title: Titolo
+
         in_store: 'Visualizza nel negozio'
         list: 'Lista dei blog post'
         new: 'Crea blog post'
         plural: 'Blog posts'
         saved: 'Post salvato'
+
         section:
             basic:
-                description: 'Provide a very specific title for your blog post that explains and help sell your blog post and description that provides all the information required for your consumers.'
+                description: 'Fornisci un titolo specifico per il tuo blog post che spieghi , aiuti a vendere e fornisca tutte le informazioni necessarie ai tuoi clienti.'
                 title: 'Dettagli base'
+
             visibility:
-                description: 'Set this blog post as visible or hidden.'
+                description: 'Imposta questo blog post come visibile o nascosto.'
                 title: Visibilità
+
         show_metrics: 'Mostra le metriche'
         single: 'Blog post'
+
     carrier:
         action:
-            add_shipping_range: 'Add range'
+            add_shipping_range: 'Aggiungi intervallo'
+
         edit: 'Modifica "%name%"'
+
         error:
-            no_active_carrier: 'Warning! You have no active carrier'
+            no_active_carrier: 'Attenzione! Nessun vettore attivo'
+
         field:
             description:
-                placeholder: 'e.g. Best option for local shipping'
+                placeholder: 'e.g. Migliore scelta per spedizioni locali'
                 title: Descrizione
+
             name:
                 placeholder: 'e.g. AwesomeCarrier'
                 title: Nome
+
             status:
-                title: Enabled
+                title: Abilitato
+
             taxes:
-                format: '%value%% Tax'
+                format: '%value%% Tassa'
                 title: Tasse
+
         info:
-            shipping_rates_before_saving: 'You will be able to add shipping rates after save the carrier'
-        list: 'Carrier list'
-        new: 'New Carrier'
-        plural: Carriers
-        saved: 'Changes saved'
+            shipping_rates_before_saving: 'Potrai aggiungere le tariffe di spedizione dopo aver salvato il vettore'
+
+        list: 'Lista vettori'
+        new: 'Nuovo Vettore'
+        plural: Vettori
+        saved: 'Modifiche Salvate'
+
         section:
             basic:
-                description: 'Provide the name of the carrier and an internal description if needed.'
-                title: 'Basic Details'
+                description: 'Fornisci il nome del vettore ed una descrizione ad uso interno.'
+                title: 'Dettagli base'
+
             shipping_rates:
-                description: 'Add the shipping rates.'
-                title: 'Shipping Rates'
+                description: 'Aggiungi le tariffe di spedizione.'
+                title: 'Tariffe di spedizione'
+
             taxes:
-                description: 'The taxes that will be applied for this carrier.'
-                title: 'Carrier taxes'
+                description: 'Le tasse che saranno applicate a questo vettore.'
+                title: 'Tasse del vettore'
+
             visibility:
-                description: 'Set this carrier as enabled or disabled.'
-                title: Visibility
-        single: Carrier
+                description: 'Abilita o disabilita questo vettore.'
+                title: Visibilità
+
+        single: Vettore
+
     catalog:
         plural: Cataloghi
         single: Catalogo
+
     categorization:
         plural: Categorizzazioni
         single: Categorizzazione
+
     category:
         edit: 'Modifica "%name%"'
+
         field:
             contains:
                 title: '%count% prodotti'
+
             enabled:
                 options:
-                    active: Active
-                    inactive: Inactive
-                title: Enabled
+                    active: Attivo
+                    inactive: Inattivo
+
+                title: Abilitato
+
             metadescription:
-                placeholder: 'e.g. This awesome category is exactly what you are lookin for.'
+                placeholder: 'e.g. Questa fantastica categoria è esattamente ciò che stai cercando.'
+
             metakeywords:
                 placeholder: 'e.g. category,awesome'
+
             metatitle:
-                placeholder: 'e.g. My Awesome Category'
+                placeholder: 'e.g. La mia fantastica categoria'
+
             name:
-                placeholder: 'e.g. My Awesome Category'
+                placeholder: 'e.g. La mia fantastica categoria'
                 title: 'Nome della categoria'
+
             parent:
-                title: Parent
+                title: Genitore
+
             root:
                 title: 'Categoria base'
+
             slug:
                 customize: 'Personalizza slug'
                 placeholder: 'e.g. my/awesome/category'
                 title: Slug
+
         in_store: 'Visualizza nel negozio'
         list: 'Lista delle categorie'
         new: 'Nuova categoria'
         plural: Categorie
         saved: 'Categoria salvata'
+
         section:
             basic:
-                description: 'Provide a very specific name as short as you can that helps your consumers to find the products of this category.'
-                title: 'Basic Details'
+                description: 'Fornisci un nome il più corto possibile che aiuti i tuoi clienti a trovare i prodotti di questa categoria.'
+                title: 'Dettagli di base'
+
             categorization:
-                description: 'Set your category as root if doesn''t have any parent or it''s going to be parent of others.'
+                description: 'Imposta la categoria come root se non ha nessun genitore o se sarà genitore di altre categorie.'
                 title: Categorizzazione
+
             edit:
                 description:
-                    - 'Drag & Drop the categories to order or nest one inside others. (2 Level max).'
-                    - 'Click a category to edit.'
-                    - 'Click the trash to delete a category.'
-                title: 'Order & Edit'
+                    0: 'Fai Drag & Drop delle categorie per ordinarle o generare gerarchie (massimo 2 livelli).'
+                    1: 'Fai Click su una categoria per editarla.'
+                    2: 'Fai click su una categoria per eliminarla.'
+
+                title: 'Ordina e Modifica'
+
             visibility:
-                description: 'Set this category as visible or hidden.'
+                description: 'Imposta questa categoria come visibile o invisibile.'
                 title: Visibilità
+
         single: Categoria
+
     communication:
         plural: Comunicazioni
         single: Comunicazione
+
     coupon:
         edit: 'Modifica "%code%"'
+
         field:
             code:
                 placeholder: 'e.g. MYCODE'
                 title: Codice
+
             count:
                 title: 'Limite dell''utilizzo'
+
             datetime:
                 title: 'Data & Ora'
+
             description:
-                placeholder: 'e.g. 10% Codice discount'
+                placeholder: 'e.g. 10% Codice sconto'
                 title: Descrizione
+
             discount:
                 title: '% Importo'
+
             enabled:
-                title: Status
+                title: Stato
+
             enforcement:
                 options:
                     automatic: 'Applicazione automatica'
                     manual: 'Applicazione manuale'
+
                 title: Modalità
+
             minimum_purchase:
                 title: 'Acquisto minimo'
+
             price:
                 title: Importo
+
             priority:
                 title: Priorità
+
             rule:
                 placeholder: 'Nessuna regola'
                 title: Regola
+
             stackable:
-                title: 'This coupon can be applied when other coupons are present'
+                title: 'Questo coupon può essere applicato assieme ad altri coupon'
+
             status:
-                title: Status
+                title: Stato
+
             type:
                 options:
                     fixed: 'Importo fisso'
                     percent: 'Importo percentuale'
+
                 title: Tipo
+
             used:
                 title: Utilizzato
+
             valid_from:
                 title: Da
+
             valid_to:
                 title: A
+
         list: 'Lista dei coupon'
         new: 'Nuovo coupon'
         plural: Coupons
         saved: 'Coupon salvato'
+
         section:
             basic:
                 description:
-                    - 'Set the code name (what users should type in the cart to activate the coupon)'
-                    - 'Set also the description to identify the coupon, the type and the mode to be applied.'
+                    0: 'Imposta il codice (quello che l''utente deve digitare nel carrello per attivare il coupon)'
+                    1: 'Imposta anche la descrizione per identificare il coupon, il tipo e le modalità di applicazione.'
+
                 title: 'Dati base'
+
             fixed_amount:
-                description: 'Set the fixed amount to discount directly in the cart.'
+                description: 'Imposta l''importo fisso di sconto da applicare al carrello.'
                 title: 'Importo fisso'
+
             percent_amount:
-                description: 'Set the percentage amount to discount directly in the cart.'
+                description: 'Imposta la percentuale di sconto da applicare al carrello.'
                 title: 'Importo percentuale'
+
             rules:
-                description: 'Select the rule the coupon will use and a minimum purchase necessary to apply the coupon (optional).'
+                description: 'Seleziona la regola che il coupon utilizzerà e la spesa minima necessaria per poter applicare il coupon (opzionale).'
                 title: Regole
+
             validity:
-                description: 'Set the time validity of the coupon and the status.'
-                title: Validity
+                description: 'Imposta la validità temporale del coupon e il suo stato.'
+                title: Validità
+
         single: Coupon
+
     currency:
         error:
             disable_master_currency: 'Non puoi disabilitare la valuta principale'
             setting_disabled_master_currency: 'Non puoi impostare una valuta disabilitata come principale'
+
         field:
             iso: ISO
             master: 'Valuta principale'
             name: Nome
             status: Abilitato
             symbol: Simbolo
+
         list: 'Lista delle valute'
         plural: Valute
+
         saved:
             disabled: 'Questa valuta è stata dabilitata'
             enabled: 'Questa valuta è stata abilitata'
             master: 'Valuta principale salvata'
+
         single: Valuta
+
     customer:
         edit: 'Modifica "%name%"'
+
         error:
             password_change: 'Errore nel cambio password'
+
         field:
             guest:
                 title: Visitatore
+
             identity_document:
                 placeholder: 'e.g. 12345678A'
                 title: Identità
+
             language:
                 title: 'Lingua preferita'
+
             newsletter:
                 title: Newsletter
+
             order_count:
                 title: '# Ordini'
+
             phone:
                 placeholder: 'e.g. 555 55 55 55'
                 title: Telefono
+
             username:
                 placeholder: 'e.g. john_doe'
                 title: Username
+
         info:
             password_changed: 'Password modificata con successo'
+
         list: 'Lista clienti'
         new: 'Crea un nuovo cliente'
         plural: Clienti
         saved: 'Salva modifiche'
+
         section:
             contact:
-                description: 'The contact information for this user.'
+                description: 'Le informazioni di contatto per questo utente.'
                 title: 'Dettagli del contatto'
+
             login:
-                description: 'Each user should have a unique e-mail and unique username.'
+                description: 'Ogni utente dovrebbe avere un indirizzo e-mail unico e uno username unico.'
                 title: 'Dettagli del login'
+
             status:
-                description: 'Set the user status and preferences.'
-                title: 'Status & Preferenze'
+                description: 'Imposta lo stato e le preferenze dell''utente.'
+                title: 'Stato & Preferenze'
+
         single: Cliente
+
     dashboard:
         chart:
             cart_conversion:
@@ -370,62 +507,79 @@ admin:
                 ordered: Ordinato
                 payment: Pagamento
                 title: 'Conversione del carrello'
+
             devices:
                 desktop: Desktop
                 mobile: Mobile
                 title: Dispositivi
+            orders: Ordini
             sales:
                 sales: Vendite
                 title: Vendite
+
             traffic_source:
                 direct: Diretto
-                referrals: Referenti
+                referrals: Referrals
                 search_engine: 'Motori di ricerca'
                 title: 'Fonti di traffico'
+
             visitors:
-                title: Visitori
+                title: Visitatori
                 total: Totale
                 unique: Unici
+
         chart_range:
             last30days: 'Ultimi 30 giorni'
             last7days: 'Ultimi 7 giorni'
             last90days: 'Ultimi 90 giorni'
             today: Oggi
             yesterday: Ieri
+
         plural: Dashboards
         single: Dashboard
         title: Dashboard
         view_store: 'Visualizza il mio negozio'
+
     identity:
         field:
             leitmotiv:
                 placeholder: 'e.g: Prodotti eccezionali per persone eccezionali'
-                title: 'Motivo conduttore'
+                title: 'Motto del sito'
+
             name:
                 placeholder: 'e.g: Il mio eccezionale negozio'
                 title: 'Nome del negozio'
+
         less: Meno
         more: Più
+
         section:
             backgroundImage:
-                description: 'Add here an image as big as possible (square or vertical format) and it will become the spectacular background image of your online store. If you add a wallpaper image it is better to not use header image.'
+                description: 'Aggiungi qui un immagine quanto più grande possibile (in formato quadrato o verticale) e diventerà una spettacolare immagine di sfondo del tuo negozio online. Se aggiungi un immagine di sfondo è meglio non utilizzare un''immagine di testata.'
                 title: 'Immagine di sfondo'
+
             headerImage:
-                description: 'Add a background image for the header of your store.'
-                title: 'Immagine per l''header'
+                description: 'Aggiungi un immagine di sfondo per la testata del tuo negozio.'
+                title: 'Immagine per la testata'
+
             info:
-                description: 'Fornisci un nome per il tuo negozio e un motivo conduttore (opzionale).'
+                description: 'Fornisci un nome per il tuo negozio e un motto (opzionale).'
                 title: 'Informazioni base'
+
             logo:
-                description: 'Here you can add an image with your logo. Please use the maximum quality posible.'
+                description: 'Qui puoi aggiungere un''immagine col tuo logo. Cerca di utilizzare un''immagine con la più alta qualità possibile.'
                 title: Logo
+
             mobileLogo:
-                description: 'This image will be show to the clients using a mobile to navigate your store. Is optional, but if you want to improve the mobile experience, you can.'
+                description: 'Questa immagine sarà mostrata ai clienti che si connettono al tuo negozio con un dispositivo mobile. È opzionale, ma se vuoi migliorare l''esperienza mobile dei tuoi utenti, utilizza questa funzione.'
                 title: 'Logo per il mobile'
+
             secondaryLogo:
-                description: 'If you want to customize the logo of the footer (optional) you can.'
+                description: 'Se vuoi customizzare il logo del footer (opzionale), puoi.'
                 title: 'Logo per il footer'
+
         singular: 'Corporate image'
+
     image:
         info:
             deleted: 'Immagine eliminata'
@@ -435,134 +589,182 @@ admin:
             upload: 'Carica immagini'
             upload_logo: 'Carica Logo'
             upload_single: 'Carica immagine'
+
         plural: Immagini
         single: Immagine
+
     language:
         error:
             disable_master_language: 'Non puoi disabilitare la lingua principale'
             setting_disabled_master_language: 'Non puoi impostare una lingua disabilitata come principale'
+
         field:
             iso: ISO
             master: 'Lingua principale'
             status: Abilitata
+
         list: 'Lista delle lingue'
         plural: Lingue
+
         saved:
             disabled: 'Questa lingua è stata disabilitata'
             enabled: 'Questa lingua è stata abilitata'
             master: 'Lingua principale salvata'
+
         single: Lingua
+
     login:
         action:
             login: Login
             logout: Logout
             remember: 'Hai dimenticato la tua password?'
+
         field:
             email:
                 placeholder: 'Inserisci il tuo indirizzo email'
+
             password:
                 placeholder: 'Inserisci la password'
+
         title: 'Login necessario'
+
     mailing:
         edit: 'Modifica "%title%"'
+
         field:
             content:
-                placeholder: 'e.g. This awesome mailing is exactly what you are lookin for.'
+                placeholder: 'e.g. Questa fantastica mailing è esattamente ciò che stavi cercando.'
                 title: Contenuto
+
             title:
-                placeholder: 'e.g. My Awesome Mailing'
+                placeholder: 'e.g. La mia fantastica Mailing'
                 title: Titolo
+
         list: 'Mailing list'
-        new: 'Create new mailing'
+        new: 'Crea un nuova mailing'
         plural: Mailings
-        saved: 'Mailing saved'
+        saved: 'Mailing salvata'
+
         section:
             basic:
-                description: 'Provide a descriptive title for your mailing and the content to deliver.'
+                description: 'Fornisci un titolo descrittivo per la mailing e il contenuto da inviare.'
                 title: Descrizione
+
         single: Mailing
+
     manufacturer:
         edit: 'Modifica "%name%"'
+
         field:
             description:
-                placeholder: 'e.g. This awesome manufacturer is exactly what you are lookin for.'
+                placeholder: 'e.g. Questo fantastico produttore è proprio quello che stavi cercando.'
                 title: Descrizione
+
             enabled:
                 options:
                     active: Attivo
                     inactive: Disattivo
+
                 title: Abilitato
+
             image:
                 title: Immagine
+
             metadescription:
-                placeholder: 'e.g. This awesome manufacturer is exactly what you are lookin for.'
+                placeholder: 'e.g. Questo fantastico produttore è proprio quello che stavi cercando.'
+
             metakeywords:
                 placeholder: 'e.g. manufacturer,awesome'
+
             metatitle:
                 placeholder: 'e.g. Il mio eccezionale produttore'
+
             name:
                 placeholder: 'e.g. Il mio eccezionale produttore'
                 title: 'Nome del produttore'
+
             name_slug:
                 title: 'Nome & slug'
+
             product_count:
                 title: Prodotto
+
             slug:
                 customize: 'Personalizza slug'
                 placeholder: 'e.g. my/awesome/manufacturer'
                 title: Slug
+
         list: 'Lista dei produttori'
         new: 'Nuovo produttore'
         plural: Produttori
         saved: 'Produttore salvato'
+
         section:
             basic:
-                description: 'Provide a very specific name as short as you can that helps your consumers to find the products of this manufacturer. Also you can add a description that will be shown in the manufacturer page in your store.'
+                description: 'Fornisci un nome quanto più corto possibile che aiuti i tuoi clienti a trovare i prodotti di questo produttore. Puoi anche aggiungere una descrizione che sarà visualizzata nella pagina del produttore nel tuo negozio.'
                 title: 'Dettagli base'
+
             logo:
-                description: 'Upload a logo image of the Manufacturer as bigger as possible. If it doesn''t contain additional texts the better.'
-                title: 'Manufacturer''s Logo'
+                description: 'Carica un logo del produttore quanto più grande possibile. Se non contiene testi aggiuntivi rispetto al nome, meglio.'
+                title: 'Logo del produttore'
+
             visibility:
-                description: 'Set this manufacturer as visible or hidden.'
-                title: Visibility
+                description: 'Imposta questo produttore come visibile o nascosto.'
+                title: Visibilità
+
         single: Produttore
+
     media:
         list: 'Lista dei media'
         plural: Media
         single: Media
+
     menu:
         design: 'Personalizza lo Store'
+        custom_shipping: 'Personalizza le spedizioni'
     metadata:
-        customize: 'Customize Metadata'
+        customize: 'Personalizza i Metadati'
+
         disclaimer:
-            - 'This area for advanced users.'
-            - 'Leave this fields in blank to obtain automatically the metadata of your page.'
+            0: 'Quest''area è per gli utenti avanzati.'
+            1: 'Lascia questi campi vuoti per ottenere automaticamente i metadati per la tua pagina.'
+
         field:
             metadescription:
                 title: MetaDescription
+
             metakeywords:
                 title: MetaKeywords
+
             metatitle:
                 title: MetaTitle
+
         section:
             metadata:
-                description: 'Description and keywords in meta tags are commonly used to describe the Web page''s content. Most search engines use these data when adding pages to their search index.'
+                description: 'Le descrizioni e le parole chiave nei tag meta sono utilizzate per descrivere il contenuto della pagina web. I motori di ricerca usano questi dati quando aggiungono pagine ai loro indici.'
                 title: Metadata
+
     metrics:
         action:
             show: 'Mostra le metriche'
+
         info:
             no_data: 'Nessun dato'
             visitors: Visitatori
+
         plural: Metriche
         single: Metrica
+
         type:
             line:
                 total: Totale
                 unique: Unici
-    name: Admin
+
+    name: Amministrazione
+
     order:
         all: 'Tutti gli ordini'
+
         details:
             discount: 'Buono sconto'
             item: Articolo
@@ -571,17 +773,20 @@ admin:
             subtotal: Sottototale
             title: Dettagli
             units: Unità
+
         edit: 'Modifica #%id%'
+
         field:
             billing_address: 'Indirizzo di fatturazione'
             both_addresses: 'Indirizzo di consegna & fatturazione'
-            carrier: Carrier
+            carrier: Vettore
             customer: Cliente
             date: Data
             delivery_address: 'Indirizzo di consegna'
             id: 'Ordine #%id%'
-            status: Status
+            status: Stato
             total: Totale
+
         from_user: 'Ordini di %name%'
         list: 'Lista degli ordini'
         new: 'Nuovo ordine'
@@ -589,400 +794,683 @@ admin:
         plural: Ordini
         single: Ordine
         to_user: 'Vai al cliente'
+
         transition:
             cancel: Cancellato
             delivered: Consegnato
             'order ready': 'Ordine pronto'
-            'picked up by carrier': 'Picked by carrier'
-            'picked up on store': 'Picked on store'
+            'picked up by carrier': 'Ritirato dal vettore'
+            'picked up on store': 'Ritirato dal negozio'
             refund: Rimborso
-            return: Ritorno
+            return: Reso
+            pay: Paga
+
     page:
         edit: 'Modifica "%name%"'
+
         error:
-            cant_modify_permanent: 'This page is permanent and can''t be modified'
+            cant_modify_permanent: 'Questa pagina è permanente e non può essere modificata.'
+
         field:
             content:
-                placeholder: 'e.g. This awesome page is exactly what you are lookin for.'
+                placeholder: 'e.g. Questa fantastica pagina è esattamente ciò che stavi cercando.'
                 title: Contenuto
+
             enabled:
                 title: Abilitato
+
             link:
                 title: Link
+
             metadescription:
-                placeholder: 'e.g. This awesome page is exactly what you are lookin for.'
+                placeholder: 'e.g. Questa fantastica pagina è esattamente ciò che stavi cercando.'
+
             metakeywords:
                 placeholder: 'e.g. page,awesome'
+
             metatitle:
                 placeholder: 'e.g. La mia pagina eccezionale'
+
             path:
                 customize: 'Personalizza path'
                 placeholder: 'e.g. my/awesome/page'
                 title: Path
+
             title:
                 placeholder: 'e.g. La mia pagina eccezionale'
                 title: Titolo
+
         in_store: 'Visualizza nel negozio'
         list: 'Lista delle pagine'
         new: 'Nuova pagina'
         plural: Pagine
         saved: 'Modifiche salvate'
+
         section:
             basic:
-                description: 'Provide a very specific title for your page that explains and help sell your page and description that provides all the information required for your consumers.'
+                description: 'Fornisci un titolo specifico alla tua pagina, che spieghi, aiuti a vendere e fornisca tutte le informazioni richieste dai tuoi clienti.'
                 title: 'Dettagli base'
+
             visibility:
-                description: 'Set this page as visible or hidden, and make it visible in your home.'
+                description: 'Imposta questa pagina come visibile o nascosta, e la rende visibile in homepage.'
                 title: Visibilità
+
         single: Pagina
+
     plugin:
         app_store: 'App store'
+
         field:
-            visibility: 'Enable:'
+            visibility: 'Abilita:'
+
         plural: Apps
-        saved: 'Plugin status saved'
+        saved: 'Stato del Plugin salvato'
+
         section:
-            settings: Settings
+            settings: Impostazioni
+
         single: App
+
     product:
         edit: 'Modifica "%name%"'
+
         error:
-            no_category: 'Warning! This product has no associated category'
-            no_manufacturer: 'Warning! This product has no associated manufacturer'
-            price_negative: 'Warning! The price can not be negative'
+            no_category: 'Attenzione! Questo prodotto non ha una categoria associata'
+            no_manufacturer: 'Attenzione! Questo prodotto non ha un produttore associato'
+            price_negative: 'Attenzione! Il prezzo non può essere negativo'
+
         field:
             depth:
                 title: 'Profondità (in cm)'
+
             description:
-                placeholder: 'e.g. This awesome product is exactly what you are lookin for.'
+                placeholder: 'e.g. Questo fantastico prodotto è proprio ciò che stavi cercando'
                 title: Descrizione
+
             enabled:
                 options:
                     active: Attivo
                     inactive: Disattivo
+
                 title: Visibilità
+
             height:
                 title: 'Altezza (in cm)'
+
             image:
                 title: Immagine
+
             in_home:
                 title: 'Mostra in homepage'
+
             main_category:
                 placeholder: 'e.g. Computers, handbags...'
                 title: Categoria
+
             manufacturer:
                 placeholder: 'e.g. Apple, Disney...'
                 title: Produttore
+
             metadescription:
-                placeholder: 'e.g. This awesome product is exactly what you are lookin for.'
+                placeholder: 'e.g. Questo fantastico prodotto è proprio ciò che stavi cercando.'
+
             metakeywords:
                 placeholder: 'e.g. product,awesome'
+
             metatitle:
                 placeholder: 'e.g. Il mio eccezionale prodotto'
+
             name:
                 placeholder: 'e.g. Il mio eccezionale prodotto'
                 title: Titolo
+
             name_details:
                 title: 'Nome & Dettagli'
+
             price:
                 title: Prezzo
+
             reduced_price:
-                title: 'Prezzo ridotto'
+                title: 'Prezzo in offerta'
+
             sku:
-                placeholder: 'ej. SAU102'
+                placeholder: 'es. SAU102'
                 title: SKU
+
             slug:
                 customize: 'Personalizza slug'
                 placeholder: 'e.g. my/awesome/product'
                 title: Slug
+
             stock:
-                title: Stock
+                title: Giacenza
+
             weight:
                 title: 'Peso (in g)'
+
             width:
                 title: 'Larghezza (in cm)'
+
         in_store: Visualizza
+
         info:
-            variants_before_saving: 'You will be able to add variants after saving the product'
+            variants_before_saving: 'Potrai aggiungere varianti dopo aver salvato il prodotto'
+
         list: 'Lista dei prodotti'
         new: 'Nuovo prodotto'
         note: Note
         plural: Prodotti
         saved: 'Prodotto salvato'
+
         section:
             basic:
-                description: 'Provide a very specific title for your product that explains and help sell your product and description that provides all the information required for your consumers.'
+                description: 'Fornisci un titolo specifico per il tuo prodotto che spieghi, aiuti a vendere e fornisca tutte le informazioni richieste dai tuo clienti.'
                 title: 'Dettagli base'
+
             categorization:
-                description: 'The product must be clasified under one category and one manufacturer. They will be visible in your store and must help your customers to navigate in your store.'
+                description: 'Il prodotto deve essere classificato sotto una categoria e un produttore. Saranno visibili nel negozio e aiuteranno i tuoi clienti a navigarlo.'
                 title: Categorizzazione
+
             dimensions:
-                description: 'Set the dimensions and weight for your product. This information will be useful to calculate shipping costs.'
+                description: 'Imposta le dimensioni e il peso di questo prodotto. Questa informazione sarà utile per calcolare i costi di spedizione.'
                 title: Dimensioni
+
             pricing:
-                description: 'Set the price for your product, without including taxes nor shipping. Also you can set an offer price.'
-                title: Prezzatura
+                description: 'Imposta il prezzo del prodotto, escluse le tasse e la spedizione. Puoi anche impostare un prezzo in offerta.'
+                title: Prezzi
+
             sku:
-                description: 'SKU is an identifier that allows to identify the products. Each SKU it''s related to just one product.'
+                description: 'SKU è l''identificativo del prodotto. Ogni SKU è relativo ad un solo prodotto.'
                 title: SKU
+
             stock:
-                description: 'Configure the stock for your product. Each order will reduce this number.'
-                title: Stock
+                description: 'Configura la giacenza del prodotto. Ogni ordine ricevuto diminuirà la giacenza di 1.'
+                title: Giacenza
+
             variants:
-                description: 'Variants are diferent versions of this product (color, size... ). Variants can have different prices or other attributes.'
+                description: 'Le varianti sono diverse versioni del prodotto (colore, taglia...). Le varianti possono avere un prezzo o attributi diversi.'
                 title: Varianti
+
             visibility:
-                description: 'Set this product as visible or hidden, and make it visible in your home.'
+                description: 'Imposta questo prodotto come visibile o nascosto, e lo rende visibile in homepage.'
                 title: Visibilità
+
         show_metrics: 'Mostra metriche'
         single: Prodotto
+
         tag:
             has_variants: 'Ha delle varianti'
             in_home: Home
             no_category: 'Nessuna categoria'
-            no_manufacturer: 'Nessun fabbricante'
+            no_manufacturer: 'Nessun produttore'
+
     profile:
         plural: Profili
         single: Profilo
+
+    purchasable_pack:
+        edit: 'Modifica "%name%"'
+
+        error:
+            no_category: 'Attenzione! Questo pacchetto non ha una categoria associata'
+            no_manufacturer: 'Attenzione! Questo pacchetto non ha il produttore associato'
+            price_negative: 'Attenzione! Il prezzo non può essere negativo'
+
+        field:
+            depth:
+                title: 'Profondità (in cm)'
+
+            description:
+                placeholder: 'e.g. Questo fantastico pacchetto è esattamente ciò che stavi aspettando.'
+                title: Descrizione
+
+            enabled:
+                options:
+                    active: Attivo
+                    inactive: Disattivato
+
+                title: Visibilità
+
+            height:
+                title: 'Altezza (in cm)'
+
+            image:
+                title: Immagine
+
+            in_home:
+                title: 'Mostra in home'
+
+            main_category:
+                placeholder: 'e.g. Computer, borse...'
+                title: Categoria
+
+            manufacturer:
+                placeholder: 'e.g. Apple, Disney...'
+                title: Produttore
+
+            metadescription:
+                placeholder: 'e.g. Questo fantastico pacchetto è esattamente ciò che stavi aspettando.'
+
+            metakeywords:
+                placeholder: 'e.g. pack,awesome'
+
+            metatitle:
+                placeholder: 'e.g. Il mio fantastico pacchetto'
+
+            name:
+                placeholder: 'e.g. My Awesome Pack'
+                title: Titolo
+
+            name_details:
+                title: 'Nome e dettagli'
+
+            price:
+                title: Prezzo
+
+            purchasables:
+                title: 'Elementi del pacchetto'
+
+            reduced_price:
+                title: 'Prezzo in offerta'
+
+            sku:
+                placeholder: 'ej. SAU102'
+                title: SKU
+
+            slug:
+                customize: 'Personalizza  slug'
+                placeholder: 'e.g. my/awesome/pack'
+                title: Slug
+
+            stock:
+                title: Giacenza
+
+            stock_type:
+                inherit_stock: Eredita
+                specific_stock: Specifica
+                title: 'Tipo di giacenza'
+
+            weight:
+                title: 'Peso (in g)'
+
+            width:
+                title: 'Larghezza (in cm)'
+
+        in_store: Visualizza
+        list: 'Lista pacchetti'
+        new: 'Nuovo pacchetto'
+        note: Note
+        plural: Pacchetti
+        saved: 'Pacchetto salvato'
+
+        section:
+            basic:
+                description: 'Fornisci un titolo specifico per il tuo pacchetto che spieghi, aiuti la vendita e fornisca le informazioni necessarie ai tuoi clienti.'
+                title: 'Dettagli base'
+
+            catalog:
+                description: 'Definisci gli elementi che devono essere inclusi nel pacchetto'
+                title: Catalogo
+
+            categorization:
+                description: 'Il pacchetto deve essere classificato sotto una categoria e un produttore. Saranno visibili nel tuo negozio e aiuteranno i tuoi clienti a navigarlo'
+                title: Categorizzazione
+
+            dimensions:
+                description: 'Imposta le dimensioni e il peso del tuo pacchetto. Questa informazione sarà utilizzata per calcolare i costi di spedizione.'
+                title: Dimensioni
+
+            pricing:
+                description: 'Imposta il prezzo del pacchetto, senza includere le tasse nè la spedizione. Puoi anche impostare un prezzo in offerta.'
+                title: Prezzo
+
+            sku:
+                description: 'SKU è un identificatore del pacchetto. Ogni SKU è associata ad un solo pacchetto.'
+                title: SKU
+
+            stock:
+                description: 'Configura la giacenza del tuo pacchetto. Se imposti la giacenza come "eredita", allora tutte le giacenze degli elementi di questo pacchetto verranno dimunite. Altrimenti devi definire una giacenza specifica per il pacchetto e sarà diminuita questa.'
+                title: Giacenza
+
+            visibility:
+                description: 'Imposta questo pacchetto come visibile o nascosto, e lo rende visibile nella homepage.'
+                title: Visibilità
+
+        show_metrics: 'Visualizza metriche'
+        single: Pacchetto
+
+        tag:
+            in_home: Home
+            no_category: 'Nessuna categoria'
+            no_manufacturer: 'Nessun produttore'
+
     recover_user:
         action:
             email_sent:
-                description: 'Please, check your email and follow the instruction to recover your password.'
+                description: 'Controlla la tua email e segui le istruzioni per recuperare la password.'
                 title: 'Email inviata'
+
         field:
             email:
                 placeholder: 'Inserisci il tuo indirizzo mail'
+
             password:
                 placeholder: 'Nuova password'
+
             repeat_password:
                 placeholder: 'Ripeti la password'
+
         title: 'Nuova password'
+
     remember_user:
-        description: 'Don''t worry, we''ll send you an email to reset your password.'
+        description: 'Non preoccuparti, ti manderemo una email per resettare la tua password.'
         title: 'Dimenticata la password?'
+
     settings:
         field:
-            currency: 'Currency configuration'
+            currency: 'Configurazione valute'
+
             product_stock:
-                description: 'Enable this option to activate stock control'
-                title: Stock
-            store_email: 'Store e-mail'
-            store_enabled: 'Store enabled'
-            store_leitmotiv: 'Store Leitmotiv'
-            store_name: 'Store Name'
+                description: 'Abilita questa opzione per attivare la gestione delle giacenze'
+                title: Giacenza
+
+            store_email: 'Email del negozio'
+            store_enabled: 'Negozio abilitato'
+            store_leitmotiv: 'Motto del negozio'
+            store_name: 'Nome del negozio'
             store_phone: 'Store Phone'
-            store_under_construction: 'Store under construction'
-        plural: Settings
-        saved: 'Settings saved'
+            store_under_construction: 'Negozio in costruzione'
+
+        plural: Impostazioni
+        saved: 'Impostazioni salvate'
+
         section:
             address:
-                title: 'Address & Contact'
+                title: 'Indirizzo e contatto'
+
             corporate:
-                title: 'Corporate image'
+                title: 'Immagine azienda'
+
             payment:
-                title: 'Payment methods'
+                title: 'Metodi di pagamento'
+
             products:
-                description: 'Set the product data.'
-                title: 'Products Setup'
+                description: 'Imposta i dati del prodotto.'
+                title: 'Configura prodotto'
+
             profile:
-                title: 'Corporate Image'
+                title: 'Immagine aziendale'
+
             store:
-                title: General
-        single: Setting
+                title: Generali
+
+        single: Impostazioni
+
     shipping_payment:
         plural: 'Pagamenti & Spedizioni'
         single: 'Pagamento & Spedizione'
+
     shipping_range:
-        edit: 'Edit Range "%name%"'
+        edit: 'Modifica intervallo "%name%"'
+
         field:
             fromPrice:
-                title: 'From price'
+                title: 'Da prezzo'
+
             fromWeight:
-                title: 'From weight'
+                title: 'Da peso'
+
             name:
-                placeholder: 'e.g. Delivery in 3-5 days'
-                title: 'Shipping range name'
+                placeholder: 'e.g. Consegna in 3-5 giorni'
+                title: 'Nome dell''intervallo di spedizione'
+
             price:
-                title: Price
+                title: Prezzo
+
             toPrice:
-                title: 'To price'
+                title: 'A prezzo'
+
             toWeight:
-                title: 'To weight'
+                title: 'A peso'
+
             to_zone:
-                title: 'To Zone'
+                title: 'A Zona'
+
             type:
                 options:
-                    price: 'Based on order price'
-                    weight: 'Based on order weight'
-                title: 'Prices will be calculated…'
+                    price: 'Basato sul totale dell''ordine'
+                    weight: 'Basato sul peso dell''ordine'
+
+                title: 'I prezzi saranno calcolati'
+
             value:
-                price_format: 'From %from% to %to%'
-                title: Value
-                weight_format: 'From %from% g to %to% g'
-        list: 'Shipping Range list'
-        new: 'Create New Range'
-        plural: 'Shipping ranges'
-        saved: 'Changes saved'
+                price_format: 'Da %from% a %to%'
+                title: Valore
+                weight_format: 'Da %from% g a %to% g'
+
+        list: 'Lista intervalli di spedizione'
+        new: 'Crea nuovo intervallo'
+        plural: 'Intervalli di spedizione'
+        saved: 'Modifiche salvate'
+
         section:
             basic:
-                description: 'Provide the name of the shipping range and in what zone it will be available.'
-                title: 'Basic Details'
+                description: 'Fornisci il nome dell''intervallo di spedizione e in quale zona sarà disponibile.'
+                title: 'Dettagli di base'
+
             pricing:
-                description: 'Set the price for this shipping range and define if it''s going to be calculated based on order price or order weight.'
-                title: Pricing
+                description: 'Imposta il prezzo di questo intervallo di spedizione e definisci se il calcolo sarà basato sul prezzo dell''ordine o sul peso.'
+                title: Prezzo
+
             visibility:
-                description: 'Set this shipping range as enabled or disabled.'
-                title: Visibility
-        single: 'Shipping range'
+                description: 'Imposta questo intervallo di spedizione come abilitato o disabilitato.'
+                title: Visibilità
+
+        single: 'Intervallo di spedizione'
+
     store:
         field:
             enabled:
                 title: 'Negozio Abilitato'
+
             routingStrategy:
                 custom: 'Nessun prefisso per la lingua, solo URL tradotti'
                 prefix: 'Tutti gli URL hanno un prefisso per la lingua'
                 prefix_except_default: 'Tutti gli URL hanno un prefisso per la lingua tranne la lingua di default'
                 title: 'URL nel formato multilingua'
+
             useStock:
-                title: 'Attiva il controllo degli stock'
+                title: 'Attiva il controllo delle giacenze'
+
         saved: 'Impostazioni salvate.'
+
         section:
             advanced:
                 description: 'Impostazioni avanzate per il tuo negozio.'
                 title: Avanzate
+
             status:
                 description: 'Controlla se lo store è aperto o chiuso.'
                 title: Stato
+
             stock:
-                description: 'Attivando questa opzione sarai in grado di impostare lo stock nei tuoi prodotti.'
-                title: Stock
+                description: 'Attivando questa opzione sarai in grado di impostare le giacenze nei tuoi prodotti.'
+                title: Giacenza
+
         settings: Impostazioni
+
     template:
         action:
             preview: Preview
+
         label:
-            status: 'Enable:'
-        plural: Themes
-        single: Theme
+            status: 'Abilita:'
+
+        plural: Temi
+        single: Tema
+
     user:
         field:
             birthday:
                 title: 'Data di nascita'
+
             email:
                 placeholder: 'e.g. john.doe@mail.com'
                 title: Email
+
             enabled:
                 options:
                     active: Attivo
                     inactive: Disattivo
-                title: Status
+
+                title: Stato
+
             firstname:
                 placeholder: 'e.g. John'
                 title: Nome
+
             fullname:
                 title: 'Nome completo'
+
             gender:
                 options:
                     female: Femminile
                     male: Maschile
+
                 title: Sesso
+
             lastname:
                 placeholder: 'e.g. Doe'
                 title: Cognome
+
             new_password:
                 first:
                     title: 'Nuova Password'
+
                 second:
                     title: 'Ripeti Password'
+
             password:
                 title: Password
+
             username:
                 title: Username
+
     variant:
         edit: 'Modifica variante "%name%"'
+
         field:
             enabled:
                 options:
                     active: Attivo
                     inactive: Disattivo
-                title: Status
+
+                title: Stato
+
             name:
-                title: 'Nome del variante'
+                title: 'Nome della variante'
+
             options:
                 title: 'Seleziona uno o più prodotti:'
+
             price:
                 title: Prezzo
+
             reduced_price:
-                title: 'Prezzo ridotto'
+                title: 'Prezzo in offerta'
+
             stock:
-                title: Stock
+                title: Giacenza
+
         list: 'Lista delle varianti'
-        new: 'Nuovo variante'
+        new: 'Nuova variante'
         plural: Varianti
-        saved: 'Variante salvato'
+        saved: 'Variante salvata'
+
         section:
             attributes:
-                description: 'Set the principal attributes of this variant.'
+                description: 'Imposta i principali attributi della variante.'
                 title: Attributi
+
             pricing:
-                description: 'Set the price for your variant, without including taxes or shipping. Also you can set an offer price.'
-                title: Prezzatura
+                description: 'Imposta il prezzo della variante, escluse tasse o spedizione. Puoi anche impostare un prezzo in offerta.'
+                title: Prezzi
+
             visibility:
-                description: 'Set this variant as visible or hidden.'
+                description: 'Imposta la variante come visibile o nascosta.'
                 title: Visibilità
+
         single: Variante
+
 plugin:
     paymill:
         register:
-            call_to_action: 'Create a Paymill account NOW!'
-            title: 'Don''t you have a Paymill account?'
+            call_to_action: 'Crea un account Paymill adesso!'
+            title: 'Non hai un account Paymill?'
+
         settings:
-            private_key: 'Paymill payment private key'
-            public_key: 'Paymill payment public key'
-        title: 'Paymill Account Setup'
+            private_key: 'Chiave privata Paymill'
+            public_key: 'Chiave pubblica Paymill'
+
+        title: 'Configurazione account Paymill'
+
     paypal:
         register:
-            call_to_action: 'Create a PayPal account'
-            title: 'Don''t you have a PayPal account?'
+            call_to_action: 'Crea un account Paypal'
+            title: 'Non hai un account Paypal?'
+
         settings:
-            recipient_email: 'Payment Paypal recipient email'
-        title: 'Paypal Account Setup'
+            recipient_email: 'Email account Paypal'
+
+        title: 'Impostazione account Paypal'
+
 plugin_type:
     app: Apps
     payment: 'Metodi di pagamento'
     shipping: 'Metodi di spedizione'
     social: Social
+
 ui:
     address:
-        address: Address
-        city: City
-        comment: Comment
-        full_name: 'Full name'
-        phone: Phone
-        zipcode: Zipcode
+        address: Indirizzo
+        city: Città
+        comment: Commento
+        full_name: 'Nome completo'
+        phone: Telefono
+        zipcode: CAP
+
     confirm:
-        delete: 'Are you sure you want to delete it?'
+        delete: 'Sei sicuro di volerlo eliminare?'
+
     date:
-        today_at: 'Today at %time%'
-        yesterday_at: 'Yesterday at %time%'
+        today_at: 'Oggi alle %time%'
+        yesterday_at: 'Ieri alle %time%'
+
     delete:
-        success: 'Correctly deleted'
+        success: 'Eliminazione riuscita'
+
     editor:
-        help: 'Select some text to get some format options'
+        help: 'Scegli del testo per ottenere le opzioni di formattazione'
+
     forms:
-        cancel: Cancel
-        delete: Delete
-        save: Save
+        cancel: Annulla
+        delete: Elimina
+        save: Salva
+
     label:
-        disabled: Disabled
-        enabled: Enabled
+        disabled: Disabilitato
+        enabled: Abilitato
+
     language:
-        master_language: 'Master Language (Mandatory)'
+        master_language: 'Lingua principale (Obbligatorio)'
+
     list:
-        create_first: 'Create my first %item%.'
-        no_items: 'There are no %items%.'
+        create_first: 'Crea il mio primo %item%.'
+        no_items: 'Non ci sono %items%.'
+
     paginator:
-        elements: 'Showing %first% to %last% from %total% entries.'
+        elements: 'Visualizzo gli elementi da %first% a %last% di %total%.'
+
     tags:
         placeholder:
-            comma_separated: 'Add tags separated by comma.'
+            comma_separated: 'Aggiungi i tag separati da virgola.'
