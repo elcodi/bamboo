@@ -304,7 +304,7 @@ class VariantController extends AbstractAdminController
              * We want to collect Attributes from Varints other
              * than the one we want to delete
              */
-            if ($iteratedVariant == $variant) {
+            if ($iteratedVariant === $variant) {
                 /*
                  * Do not add attributes from Variant to be deleted
                  */
