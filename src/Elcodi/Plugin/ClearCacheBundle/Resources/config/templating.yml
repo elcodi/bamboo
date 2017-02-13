@@ -1,0 +1,12 @@
+services:
+
+    #
+    # Twig renderer
+    #
+    elcodi_plugin.clearcache.renderer:
+        class: Elcodi\Plugin\ClearCacheBundle\Templating\TwigRenderer
+        calls:
+            - [setTemplating, [@twig]]
+            - [setPlugin, [@elcodi_plugin.clearcache]]
+        tags:
+            - { name: kernel.event_listener, event: admin.footer_script, method: renderJavascript }

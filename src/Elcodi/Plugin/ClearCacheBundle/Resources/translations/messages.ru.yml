@@ -1,0 +1,9 @@
+plugin_type:
+    utility: 'Утилиты'
+elcodi_plugin:
+    clear_cache:
+        description: 'Удаляет весь кэш Elcodi'
+        field:
+        name: 'Удаление кэша'
+        button: 'Очистить'
+        cleared: 'Кэш удален!'
