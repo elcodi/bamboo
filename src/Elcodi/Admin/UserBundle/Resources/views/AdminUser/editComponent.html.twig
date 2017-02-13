@@ -10,7 +10,6 @@
 
 
 {% block content %}
-
     {% set formAction =
         adminUser.id
             ? url('admin_admin_user_update', { id: adminUser.id })
@@ -52,14 +51,8 @@
             </div>
             <div class="col-2-3">
                 <div class="box">
+                    {{ form_errors(form.new_password) }}
                     <ol>
-                        <li>
-                            {{
-                                form_row(form.password, {
-                                    label: 'admin.user.field.password.title'
-                                })
-                            }}
-                        </li>
                         <li>
                             {{
                                 form_row(form.new_password.first, {

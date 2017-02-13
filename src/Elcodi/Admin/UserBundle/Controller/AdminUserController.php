@@ -45,10 +45,10 @@ class AdminUserController extends AbstractAdminController
      * This action is just a wrapper, so should never get any data,
      * as this is component responsibility
      *
-     * @param integer $page             Page
-     * @param integer $limit            Limit of items per page
-     * @param string  $orderByField     Field to order by
-     * @param string  $orderByDirection Direction to order by
+     * @param integer $page Page
+     * @param integer $limit Limit of items per page
+     * @param string $orderByField Field to order by
+     * @param string $orderByDirection Direction to order by
      *
      * @return array Result
      *
@@ -74,11 +74,12 @@ class AdminUserController extends AbstractAdminController
         $limit,
         $orderByField,
         $orderByDirection
-    ) {
+    )
+    {
         return [
-            'page'             => $page,
-            'limit'            => $limit,
-            'orderByField'     => $orderByField,
+            'page' => $page,
+            'limit' => $limit,
+            'orderByField' => $orderByField,
             'orderByDirection' => $orderByDirection,
         ];
     }
@@ -86,10 +87,10 @@ class AdminUserController extends AbstractAdminController
     /**
      * Edit and Saves admin user
      *
-     * @param FormInterface      $form      Form
+     * @param FormInterface $form Form
      * @param AdminUserInterface $adminUser Admin User
-     * @param boolean            $isValid   Is valid
-     *
+     * @param Request $request
+     * @param boolean $isValid Is valid
      * @return RedirectResponse Redirect response
      *
      * @Route(
@@ -146,42 +147,49 @@ class AdminUserController extends AbstractAdminController
     public function editAction(
         FormInterface $form,
         AdminUserInterface $adminUser,
+        Request $request,
         $isValid
-    ) {
-        if ($isValid) {
-            // change user password
-            if ($form->get('password')->getData()) {
-                $newPassword = $form
-                    ->get('new_password')
-                    ->get('first')
-                    ->getData();
+    )
+    {
+        if ($request->getMethod() == 'POST') {
+            if ($isValid) {
+                // change user password
+                if (!empty($form->get('new_password')->get('first')->getData())) {
+                    $newPassword = $form
+                        ->get('new_password')
+                        ->get('first')
+                        ->getData();
+                    $adminUser->setPassword($newPassword);
+                    $this->flush($adminUser);
 
-                $adminUser->setPassword($newPassword);
+                    $this->addFlash(
+                        'success',
+                        $this
+                            ->get('translator')
+                            ->trans('admin.admin_user.saved')
+                    );
+                }
+                return $this->redirectToRoute('admin_homepage');
+            } else {
+                $this->addFlash(
+                    'error',
+                    $this
+                        ->get('translator')
+                        ->trans('admin.admin_user.error.wrong_new_password')
+                );
             }
-
-            $this->flush($adminUser);
-
-            $this->addFlash(
-                'success',
-                $this
-                    ->get('translator')
-                    ->trans('admin.admin_user.saved')
-            );
-
-            return $this->redirectToRoute('admin_homepage');
         }
-
         return [
             'adminUser' => $adminUser,
-            'form'      => $form->createView(),
+            'form' => $form->createView(),
         ];
     }
 
     /**
      * Enable entity
      *
-     * @param Request          $request Request
-     * @param EnabledInterface $entity  Entity to enable
+     * @param Request $request Request
+     * @param EnabledInterface $entity Entity to enable
      *
      * @return array Result
      *
@@ -198,10 +206,12 @@ class AdminUserController extends AbstractAdminController
      *      }
      * )
      */
-    public function enableAction(
+    public
+    function enableAction(
         Request $request,
         EnabledInterface $entity
-    ) {
+    )
+    {
         return parent::enableAction(
             $request,
             $entity
@@ -211,8 +221,8 @@ class AdminUserController extends AbstractAdminController
     /**
      * Disable entity
      *
-     * @param Request          $request Request
-     * @param EnabledInterface $entity  Entity to disable
+     * @param Request $request Request
+     * @param EnabledInterface $entity Entity to disable
      *
      * @return array Result
      *
@@ -229,10 +239,12 @@ class AdminUserController extends AbstractAdminController
      *      }
      * )
      */
-    public function disableAction(
+    public
+    function disableAction(
         Request $request,
         EnabledInterface $entity
-    ) {
+    )
+    {
         if ($this->isSameUser($entity)) {
             $this->denyWithMessage(
                 'admin.admin_user.error.cant_disable_yourself'
@@ -248,9 +260,9 @@ class AdminUserController extends AbstractAdminController
     /**
      * Delete entity
      *
-     * @param Request $request      Request
-     * @param mixed   $entity       Entity to delete
-     * @param string  $redirectPath Redirect path
+     * @param Request $request Request
+     * @param mixed $entity Entity to delete
+     * @param string $redirectPath Redirect path
      *
      * @return RedirectResponse Redirect response
      *
@@ -267,11 +279,13 @@ class AdminUserController extends AbstractAdminController
      *      }
      * )
      */
-    public function deleteAction(
+    public
+    function deleteAction(
         Request $request,
         $entity,
         $redirectPath = null
-    ) {
+    )
+    {
         if ($this->isSameUser($entity)) {
             $this->denyWithMessage(
                 'admin.admin_user.error.cant_delete_yourself'
@@ -292,7 +306,8 @@ class AdminUserController extends AbstractAdminController
      *
      * @return bool
      */
-    protected function isSameUser(AdminUserInterface $entity)
+    protected
+    function isSameUser(AdminUserInterface $entity)
     {
         /**
          * @var AdminUserInterface $user
@@ -307,7 +322,8 @@ class AdminUserController extends AbstractAdminController
      *
      * @param $string String to be translated
      */
-    protected function denyWithMessage($string)
+    protected
+    function denyWithMessage($string)
     {
         $message = $this
             ->get('translator')
