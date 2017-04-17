@@ -1,0 +1,14 @@
+common:
+    order:
+        states:
+            unpaid: 'ordaindu gabeko'
+            returned: bueltatu
+            paid: ordaindutako
+            delivered: entregatu
+            preparing: prestatzen
+            processed: prozesatu
+            refunded: 'dirua itzuliko'
+            'in delivery': entrega
+            initial: 'ordena berria'
+            title: Historia
+            cancelled: 'Bertan behera'

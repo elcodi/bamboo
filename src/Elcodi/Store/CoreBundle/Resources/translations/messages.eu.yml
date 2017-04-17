@@ -1,0 +1,98 @@
+store:
+    login:
+        wrong_combination: 'Oker -posta eta pasahitza dirudi.'
+        form:
+            fields:
+                email:
+                    label: E-posta
+                send:
+                    label: 'Posta elektronikoz bidali'
+                password:
+                    label: pasahitza
+    user:
+        form:
+            fields:
+                password:
+                    label: pasahitza
+                firstname:
+                    label: Izena
+                lastname:
+                    label: Abizena
+                email:
+                    label: E-posta
+                repeat_password:
+                    label: 'Errepikatu pasahitza'
+                send:
+                    label: Save
+        profile:
+            save:
+                message_ok: 'diseinatzen dira'
+    address:
+        form:
+            fields:
+                send:
+                    label: 'Save helbidea'
+                name:
+                    label: 'helbidea name'
+                state:
+                    label: Estatuko
+                comments:
+                    label: Komentarioak
+                phone:
+                    label: telefono
+                country:
+                    label: Herriko
+                recipientSurname:
+                    label: 'Hartzailearen abizenak'
+                recipientName:
+                    label: 'hartzailearen izena'
+                province:
+                    label: Probintzia
+                address:
+                    label: helbidea
+                city:
+                    label: Herriaren
+                addressMore:
+                    label: 'Jorratuko gehiago ( aukerakoa )'
+                postalcode:
+                    label: 'Posta kodea'
+                mobile:
+                    label: Mugikorra
+        delivery: entrega
+        save:
+            response_ok: 'helbidea salbatu'
+        delete:
+            response_ok: 'Jorratuko dira zuzen kendu'
+        billing: fakturazio
+        select_address_type: 'Aukeratu a % 1 helbidea'
+    error:
+        store_is_disabled: 'Une denda hau desgaituta dago'
+        store_is_under_construction: 'Denda hau eraikitzen ari da'
+        page_not_found: 'Beraz , zuk nahi munduko hartzen gure plan sekretu deskubritu duzu .'
+        store_unavailable_title: 'Gordetzeko eskuraezina'
+        page_not_found_title: 'Orria ezin da aurkitu'
+    recovery:
+        form:
+            fields:
+                password:
+                    label: pasahitza
+                repeat_password:
+                    label: 'Errepikatu pasahitza'
+                email:
+                    label: email
+                send:
+                    label: 'Posta elektronikoz bidali'
+                remember:
+                    label: gogoratu
+    pagination:
+        current: Oraingo
+    coupon:
+        applied:
+            message_ok: 'Coupon aplikatu behar bezala'
+            message_ko: 'Ezin izan kupoi aplikatu'
+        form:
+            fields:
+                code:
+                    label: 'Coupon Code'
+                apply:
+                    label: 'aplikatu kupoi'

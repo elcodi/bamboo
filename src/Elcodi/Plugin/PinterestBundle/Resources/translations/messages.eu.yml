@@ -1,0 +1,7 @@
+elcodi_plugin:
+    pinterest:
+        name: Pinterest
+        description: 'Zure denda Pinterest integrazioa'
+        field:
+            asynchronous:
+                label: 'Erabilera Pinterest asinkronikoki'

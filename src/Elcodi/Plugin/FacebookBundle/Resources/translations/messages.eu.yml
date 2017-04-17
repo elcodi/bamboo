@@ -1,0 +1,8 @@
+elcodi_plugin:
+    facebook:
+        field:
+            facebook_account:
+                placeholder: 'adibidez jondoe'
+                label: 'Facebook kontua'
+        name: Facebook
+        description: 'Facebook integrazioa zure denda'

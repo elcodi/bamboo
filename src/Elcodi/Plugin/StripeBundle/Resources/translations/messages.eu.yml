@@ -1,0 +1,9 @@
+elcodi_plugin:
+    stripe:
+        description: '< p > banda -en bidez zure erabiltzaile Kreditu -txartel batekin ordaindu . <br/> Gaitzeko Stripe kontu bat sortu behar duzu eta kopiatu hemen zure gako pribatuak eta publikoak . < / p > < p > Ez bat duzu Stripe kontua ? < / p > <a href=''https://dashboard.stripe.com/register'' class=''button'' target=''_blank''> Sortu kontu bat </a>'
+        field:
+            public_key:
+                label: 'gako publiko'
+            private_key:
+                label: 'gako pribatua'
+        name: Stripe

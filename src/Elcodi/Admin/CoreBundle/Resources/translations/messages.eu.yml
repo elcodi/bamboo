@@ -1,0 +1,980 @@
+admin:
+    metadata:
+        disclaimer:
+            1: 'Utzi eremuak hau hutsik automatikoki lortzeko zure orrian metadatuak .'
+            2: 'Erabiltzaile aurreratuentzako Eremu hori .'
+        field:
+            metakeywords:
+                title: MetaKeywords
+            metatitle:
+                title: MetaTitle
+            metadescription:
+                title: MetaDescription
+        section:
+            metadata:
+                title: metadata
+                description: 'Deskribapena eta keywords meta tags normalean Web orria edukiak deskribatzeko erabiltzen dira . Bilaketa-motorretan gehien datu horiek erabili denean bere bilaketa indizeak orrialdeek gehituz .'
+        customize: 'Pertsonalizatu Metadata'
+    product:
+        info:
+            variants_before_saving: 'Gai aldaera gehitzeko produktua gorde ondoren izango duzu'
+        show_metrics: 'Erakutsi metrics'
+        saved: 'Produktuen salbatu'
+        section:
+            categorization:
+                title: Kategorizazioa
+                description: 'Produktua da kategoria bat eta ekoizle bakar pean clasified behar . Zure dendan ikusgai izango dira eta zure bezeroei zure dendan nabigatzeko lagundu behar.'
+            visibility:
+                title: ikusgarritasuna
+                description: 'Ezarri produktu honek ikusgai edo ezkutatuta , eta ikusgai zure etxean izan dadin .'
+            basic:
+                description: 'Ematen izenburua oso zehatz bat zure produktu hori azaltzen du eta lagundu zure produktu eta deskribapen hori zure kontsumitzaileei beharrezko informazio guztia ematen saltzeko .'
+                title: 'oinarrizko datuak'
+            variants:
+                description: 'Aldaera desberdinak produktu hau ( kolorea, tamaina ... ) bertsioak dira . Aldaera prezio desberdinetan edo beste edozein eginkizun izan ditzake .'
+                title: aldaera
+            pricing:
+                title: prezioei
+                description: 'Ezarritako prezioa zure produktua , zergen ezta itsas kontuan hartu gabe . Era berean, eskaintza prezio ezar dezakezu.'
+            sku:
+                title: SKU
+                description: 'SKU duten produktuak identifikatzea ahalbidetzen identifikatzailea da . SKU bakoitzak bere produktu bakar bat lotuta .'
+            stock:
+                title: Badago
+                description: 'Konfiguratu salda zure produktua da. Eskaera bakoitzeko zenbakia hori murriztea izango da .'
+            dimensions:
+                title: Neurriak
+                description: 'Ezarri neurriak eta pisua zure produktua da. Informazio hau baliagarria bidalketa gastuak kalkulatzeko izango da.'
+        in_store: Ikusi
+        field:
+            manufacturer:
+                title: fabrikatzailea
+                placeholder: 'adibidez Apple , Disney ...'
+            in_home:
+                title: 'Erakutsi etxean'
+            main_category:
+                placeholder: 'adibidez Ordenagailuak , poltsak ...'
+                title: Kategoria
+            metatitle:
+                placeholder: 'adibidez Nire Awesome Produktuen'
+            stock:
+                title: Badago
+            enabled:
+                options:
+                    active: Aktiboak
+                    inactive: Ez-aktiboak
+                title: ikusgarritasuna
+            image:
+                title: image
+            slug:
+                placeholder: 'adibidez Nire / awesome / produktua'
+                customize: 'Pertsonalizatu slug'
+                title: Slug
+            metakeywords:
+                placeholder: 'adibidez Produktu , awesome'
+            metadescription:
+                placeholder: 'adibidez Awesome Produktu hau zehatz-mehatz , zer bilatzen Lookin dira .'
+            description:
+                title: Deskribapena
+                placeholder: 'adibidez Awesome Produktu hau zehatz-mehatz , zer bilatzen Lookin dira .'
+            price:
+                title: Prezioa
+            reduced_price:
+                title: 'Prezio txiki'
+            depth:
+                title: 'Sakonera ( cm-tan)'
+            height:
+                title: 'Altuera ( cm-tan)'
+            sku:
+                title: SKU
+                placeholder: 'ej . SAU102'
+            name:
+                title: Izenburua
+                placeholder: 'adibidez Nire Awesome Produktuen'
+            width:
+                title: 'Zabalera ( cm-tan)'
+            name_details:
+                title: 'Izena & xehetasunak'
+            weight:
+                title: 'Pisua ( g )'
+        tag:
+            has_variants: 'aldaera ditu'
+            no_category: 'ez dago sailkapen'
+            no_manufacturer: 'ez fabrikatzailea'
+            in_home: Hasiera
+        edit: 'Editatu " % name % "'
+        single: Produktuen
+        error:
+            no_category: 'Kontuz! Produktu hau lotutako kategorian no'
+            no_manufacturer: 'Kontuz! Produktu hau lotutako fabrikatzaileak ez du'
+            price_negative: 'Kontuz! Prezioa ezin da negatiboa'
+        plural: Produktuak
+        list: 'Produktuen zerrenda'
+        new: 'Produktu berria'
+        note: Oharrak
+    settings:
+        field:
+            store_email: 'Denda e- mail'
+            product_stock:
+                title: Badago
+                description: 'Aukera hau gaitzen stock kontrola aktibatu'
+            store_leitmotiv: 'Denda leitmotiv'
+            store_under_construction: 'Eraikitzen ari diren denda'
+            store_name: 'Denda izena'
+            store_phone: 'Denda telefonoa'
+            store_enabled: 'Denda gaituta'
+            currency: 'moneta konfigurazioa'
+        section:
+            products:
+                description: 'Ezarri produktuaren datuak.'
+                title: 'Produktuak Setup'
+            profile:
+                title: 'Irudi korporatiboa'
+            payment:
+                title: 'Ordainketa metodoak'
+            store:
+                title: General
+            address:
+                title: 'Helbidea eta harremanetarako'
+            corporate:
+                title: 'irudi korporatiboa'
+        single: Entorno
+        saved: Albuma
+        plural: Ezarpenak
+    manufacturer:
+        field:
+            name:
+                title: 'fabrikatzailearen izena'
+                placeholder: 'adibidez Nire Awesome Fabrikantea'
+            metakeywords:
+                placeholder: 'adibidez fabrikatzaileak , awesome'
+            enabled:
+                options:
+                    inactive: Ez-aktiboak
+                    active: Aktiboak
+                title: Gaituta
+            slug:
+                placeholder: 'adibidez Nire / awesome / fabrikatzailea'
+                customize: 'Pertsonalizatu slug'
+                title: Slug
+            name_slug:
+                title: 'Izena & slug'
+            metatitle:
+                placeholder: 'adibidez Nire Awesome Fabrikantea'
+            image:
+                title: image
+            metadescription:
+                placeholder: 'adibidez Awesome fabrikatzaileak Hau da, hain zuzen , zer bilatzen Lookin dira .'
+            product_count:
+                title: Produktuak
+            description:
+                title: Deskribapena
+                placeholder: 'adibidez Awesome fabrikatzaileak Hau da, hain zuzen , zer bilatzen Lookin dira .'
+        section:
+            visibility:
+                description: 'Ezarri fabrikatzaileak honek ikusgai edo ezkutuan bezala .'
+                title: ikusgarritasuna
+            basic:
+                title: 'oinarrizko datuak'
+                description: 'Izen oso zehatz bat labur gisa eskaintzen duten ditzakezu fabrikatzaileak honen produktuak aurkituko laguntzen baitu zure kontsumitzaileei . Era berean , hori izango da fabrikatzaileak orrialdean erakutsiko dira zure dendan deskribapena gehitu ahal duzu .'
+            logo:
+                title: 'Fabrikatzailearen logotipoa'
+                description: 'Igo Fabrikantea irudia logo bat ahalik eta handiagoa zen. Ez bada testuak gehigarri dauka hobeto .'
+        single: fabrikatzailea
+        edit: 'Editatu " % name % "'
+        list: 'fabrikatzailearen zerrenda'
+        saved: 'fabrikatzailearen salbatu'
+        new: 'Fabrikantea berria'
+        plural: fabrikatzaile
+    login:
+        field:
+            password:
+                placeholder: 'Sartu pasahitza'
+            email:
+                placeholder: 'Sartu zure posta'
+        action:
+            login: 'izena eman eman'
+            logout: 'Saioa amaitu'
+            remember: 'Ez pasahitza ahaztu dituzu ?'
+        title: 'Sartu sarbidea beharrezkoa'
+    coupon:
+        field:
+            priority:
+                title: Lehentasuna
+            code:
+                title: kode
+                placeholder: 'adibidez MYCODE'
+            count:
+                title: 'erabileraren muga'
+            datetime:
+                title: 'Data eta ordua'
+            type:
+                title: Mota
+                options:
+                    percent: 'ehuneko zenbatekoa'
+                    fixed: 'Zenbateko finkoa'
+            description:
+                placeholder: 'adibidez 10% Deskontua kodea'
+                title: Deskribapena
+            valid_from:
+                title: aurrera
+            enforcement:
+                options:
+                    manual: 'Manual aplikazio'
+                    automatic: 'aplikazio automatikoa'
+                title: Mode
+            discount:
+                title: '% Zenbatekoa'
+            used:
+                title: Erabiltzen
+            price:
+                title: Zenbateko
+            rule:
+                placeholder: 'ez dago arau'
+                title: Araua
+            enabled:
+                title: Egoera
+            minimum_purchase:
+                title: 'gutxieneko erosketa'
+            status:
+                title: Egoera
+            valid_to:
+                title: to
+            stackable:
+                title: 'Kupoi hau aplikatu ahal izango da, beste kupoiak agertu dira'
+        section:
+            percent_amount:
+                title: 'ehuneko zenbatekoa'
+                description: 'Ezarri portzentajea zenbatekoa zuzenean deskontua saskia.'
+            rules:
+                title: arauak
+                description: 'Aukeratu Arau kupoi erabiliko du eta gutxieneko erosketa bat beharrezkoa kupoi aplikatzeko ( aukerakoa ) .'
+            validity:
+                description: 'Ezarri denbora kupoi eta egoera sinatu.'
+                title: Baliozkotasuna
+            fixed_amount:
+                title: 'Zenbateko finkoa'
+                description: 'Ezarri kopuru finko zuzenean deskontua saskia.'
+            basic:
+                description:
+                    1: 'Ezarri halaber deskribapen kupoi identifikatzea, mota eta modua aplikatu behar .'
+                    2: 'Ezarri kodea izenarekin ( zer erabiltzaile idatzi behar saskia kupoi aktibatzeko)'
+                title: 'oinarrizko datuak'
+        single: Coupon
+        edit: 'Editatu " % kode % "'
+        saved: 'Coupon salbatu'
+        list: 'Coupon zerrenda'
+        new: 'kupoi berria'
+        plural: kupoiak
+    identity:
+        field:
+            leitmotiv:
+                placeholder: 'adibidez, : awesome lagunentzako Awesome produktuak'
+                title: leitmotiv
+            name:
+                placeholder: 'adibidez, Ene Awesome denda'
+                title: 'Denda izen'
+        section:
+            backgroundImage:
+                title: 'Wallpaper irudia'
+                description: 'Gehitu hemen irudi gisa Posible (formatua karratua edo bertikala ) bezain handia eta hondo zure online denda irudi ikusgarriak bilakatuko da . Wallpaper irudi bat gehituz gero , hobe da ez erabiltzea goiburua irudia .'
+            mobileLogo:
+                title: 'Mugikorren logotipoa'
+                description: 'Irudi honek bezeroei ikuskizuna izango da mugikorra erabiliz zure denda nabigatzeko . Aukerakoa da , baina esperientzia mugikorrak hobetu nahi baduzu , ahal duzu.'
+            logo:
+                title: Logo
+                description: 'Hemen irudi bat gehitu dezakezu zure logotipoa. Mesedez, erabili gehienezko kalitatea posible .'
+            info:
+                title: 'oinarrizko informazioa'
+                description: 'Zure denda izenean eta leitmotiv bat ( aukerakoa ) ematen .'
+            headerImage:
+                description: 'Gehitu atzealde bat zure denda goiburua da.'
+                title: 'Goiburuko irudia'
+            secondaryLogo:
+                description: 'Oinean ( aukerakoa ) logoarekin pertsonalizatu nahi baduzu , egin dezakezu.'
+                title: 'Footer logotipoa'
+        more: gehiago
+        less: gutxiago
+        singular: 'irudi korporatiboa'
+    page:
+        error:
+            cant_modify_permanent: 'Orri hau iraunkorra da eta ezin da aldatu'
+        field:
+            metatitle:
+                placeholder: 'adibidez Nire Awesome Page'
+            path:
+                customize: 'Pertsonalizatu bidea'
+                title: Path
+                placeholder: 'adibidez Nire / awesome / orria'
+            title:
+                placeholder: 'adibidez Nire Awesome Page'
+                title: Izenburua
+            metakeywords:
+                placeholder: 'adibidez orrialdea, awesome'
+            content:
+                placeholder: 'adibidez Awesome Orrialde hau da, hain zuzen , zer bilatzen Lookin dira .'
+                title: Edukia
+            enabled:
+                title: Gaituta
+            link:
+                title: Link
+            metadescription:
+                placeholder: 'adibidez Awesome Orrialde hau da, hain zuzen , zer bilatzen Lookin dira .'
+        section:
+            visibility:
+                title: ikusgarritasuna
+                description: 'Ezarri orri honetan ikusgai edo ezkutuan , eta ikusgai zure etxean izan dadin .'
+            basic:
+                description: 'Ematen izenburua oso zehatz bat zure orria dagoela azaldu du , eta lagundu saldu zure orria eta deskribapen hori zure kontsumitzaileei beharrezko informazio guztia ematen .'
+                title: 'oinarrizko datuak'
+        new: 'Page berria'
+        in_store: 'Dendan View'
+        plural: artikuluak
+        saved: 'aldaketak gordeta'
+        single: page
+        edit: 'Editatu " % name % "'
+        list: 'page zerrenda'
+    metrics:
+        single: Metric
+        info:
+            no_data: 'Daturik gabe'
+            visitors: Bisitariak
+        plural: metrics
+        action:
+            show: 'Erakutsi Metrics'
+        type:
+            line:
+                unique: Bakarra
+                total: Guztira
+    order:
+        field:
+            delivery_address: 'Etxez etxeko helbide'
+            total: Guztira
+            billing_address: 'fakturazio helbidea'
+            customer: Bezeroaren
+            date: data
+            status: Egoera
+            carrier: Carrier
+            both_addresses: 'Erak eta fakturazioa helbidea'
+            id: '% Ordena # % id'
+        from_user: '% name % -ren aginduak'
+        details:
+            price: Prezioa
+            item: Item
+            subtotal: SUBTOTAL
+            title: Xehetasunak
+            units: Unitateak
+            discount: 'Deskontu kupoia'
+            shipping: Bidalketa
+        notes: Oharrak
+        list: 'Ordena zerrenda'
+        transition:
+            refund: Itzultzeak
+            'order ready': 'aginduko prest'
+            return: Return
+            cancel: Utzi
+            delivered: entregatu
+            'picked up by carrier': 'Operadoreak jaso'
+            'picked up on store': 'Denda bildu'
+        new: 'ordena berria'
+        edit: 'Aldatu% # % id'
+        to_user: 'Bezeroaren Joan'
+        plural: Eskariak
+        all: 'Eskari guztiak'
+        single: Ordena
+    address:
+        field:
+            recipient_name:
+                placeholder: 'adibidez John'
+                title: 'Izena / Enpresaren'
+            address:
+                title: helbidea
+                placeholder: 'adibidez Awesonme Street , 42'
+            isCompany:
+                title: 'Ez enpresa baten jabe al zara ?'
+                value:
+                    company: Enpresa
+                    individual: Bakoitzaren
+            state:
+                title: Estatuko
+            province:
+                title: Probintzia
+            country:
+                title: Herriko
+            postalcode:
+                placeholder: 'adibidez 08080'
+                title: 'Posta kodea'
+            recipient_surname:
+                placeholder: 'adibidez Doe'
+                title: 'Abizenak ( enpresak Aukerako bada )'
+            mobile:
+                title: Mugikorra
+                placeholder: 'adibidez 555 555 555'
+            cif:
+                title: 'IFK / IFZ'
+            email:
+                placeholder: 'adibidez john.doe@mail.com'
+                title: E-posta
+            comments:
+                title: Komentarioak
+                placeholder: 'adibidez Etxe bat It'
+            address_more:
+                placeholder: 'adibidez Doe Enpresak'
+                title: 'Jorratuko gehiago ( aukerakoa )'
+            save: 'Save helbidea'
+            phone:
+                placeholder: 'adibidez 935 555 555'
+                title: telefono
+            city:
+                title: Herriaren
+        single: helbidea
+        edit:
+            description: 'Hori behar zure denda fakturak ager helbidea . Hori bere zerga helbidea izan behar duen enpresa baten jabea bazara . Bestela ziur zure helbide fisiko izan .'
+            billing_address: 'Billing zure denda helbide'
+        select:
+            placeholder: 'Aukeratu bat'
+        plural: Helbideak
+        saved: 'helbidea salbatu'
+    dashboard:
+        chart:
+            devices:
+                title: Devices
+                mobile: Mugikorra
+                desktop: Desktop
+            traffic_source:
+                search_engine: Bilaketa-motorrak
+                direct: Zuzeneko
+                title: 'Trafiko Iturria'
+                referrals: Gomendioak
+            visitors:
+                unique: Bakarra
+                total: Guztira
+                title: Bisitariak
+            cart_conversion:
+                title: 'Saskia bihurtze'
+                cart_view: 'Saskia ikuspegia'
+                ordered: Eskatutako
+                billing_shipping: 'Billing / Ontziak'
+                payment: Ordainketa
+            sales:
+                sales: salmentak
+                title: salmentak
+        title: arbela
+        chart_range:
+            last7days: 'Azken 7 egun'
+            today: Gaur
+            last90days: 'Azken 90 egun'
+            last30days: 'Azken 30 egun'
+            yesterday: atzo
+        plural: dashboards
+        view_store: 'Ikusi nire denda'
+        single: arbela
+    blog_post:
+        field:
+            metakeywords:
+                placeholder: 'adibidez blog , post , awesome'
+            enabled:
+                title: Gaituta
+            link:
+                title: Link
+            title:
+                placeholder: 'adibidez Nire Awesome Blog Post'
+                title: Izenburua
+            path:
+                title: Path
+                customize: 'Pertsonalizatu slug'
+                placeholder: 'adibidez Nire / awesome / blog - post'
+            publication_date:
+                title: 'Argitalpen data'
+            content:
+                placeholder: 'adibidez Awesome blog post hau da, hain zuzen , zer bilatzen Lookin dira .'
+                title: Edukia
+            metatitle:
+                placeholder: 'adibidez Nire Awesome Blog Post'
+            metadescription:
+                placeholder: 'adibidez Awesome blog post hau da, hain zuzen , zer bilatzen Lookin dira .'
+        plural: 'Blog mezu'
+        list: 'Blog post zerrenda'
+        in_store: 'Dendan View'
+        saved: 'Post salbatu'
+        new: 'Sortu blog post'
+        section:
+            visibility:
+                title: ikusgarritasuna
+                description: 'Ezarri blog post honetan ikusgai edo ezkutuan bezala .'
+            basic:
+                description: 'Ematen izenburua oso zehatz bat zure blog post dela azaldu du , eta lagundu saldu zure blog post eta deskribapen hori zure kontsumitzaileei beharrezko informazio guztia ematen .'
+                title: 'oinarrizko datuak'
+        edit: 'Editatu " % name % "'
+        show_metrics: 'Erakutsi metrics'
+        single: 'Blog post'
+    user:
+        field:
+            fullname:
+                title: 'Izen osoa'
+            gender:
+                options:
+                    female: Emakumea
+                    male: gizonezkoa
+                title: Genero
+            username:
+                title: 'Erabiltzaile izena'
+            birthday:
+                title: Birthday
+            lastname:
+                title: Abizena
+                placeholder: 'adibidez Doe'
+            enabled:
+                title: Egoera
+                options:
+                    active: Aktiboak
+                    inactive: Ez-aktiboak
+            firstname:
+                placeholder: 'adibidez John'
+                title: Izena
+            email:
+                title: E-posta
+                placeholder: 'adibidez john.doe@mail.com'
+            password:
+                title: pasahitza
+    carrier:
+        field:
+            taxes:
+                format: '% value %% Zerga'
+                title: zergak
+            description:
+                title: Deskribapena
+                placeholder: 'adibidez Aukerarik onena tokiko bidalketa'
+            status:
+                title: Gaituta
+            name:
+                title: izena
+                placeholder: 'adibidez AwesomeCarrier'
+        new: 'Carrier berria'
+        section:
+            basic:
+                title: 'oinarrizko datuak'
+                description: 'Ematen konpainiaren izena eta barneko deskribapen bat behar izanez gero.'
+            visibility:
+                title: ikusgarritasuna
+                description: 'Ezarri garraiolari hau gaitzen edo ezindu gisa .'
+            taxes:
+                title: 'Carrier zergak'
+                description: 'Duten garraiolari horretarako aplikatuko dira zergak du .'
+            shipping_rates:
+                title: 'Bidalketa Tarifak'
+                description: 'Gehitu bidalketa tasak .'
+        info:
+            shipping_rates_before_saving: 'Gai bidalketa tasak gehitzeko ondoren garraiolari salbatzeko izango duzu'
+        single: Carrier
+        saved: 'aldaketak gordeta'
+        list: 'Carrier zerrenda'
+        error:
+            no_active_carrier: 'Kontuz! No garraiolari aktibo daukazu'
+        action:
+            add_shipping_range: 'Gehitu sorta'
+        edit: 'Editatu " % name % "'
+        plural: Garraiatzeko
+    customer:
+        section:
+            contact:
+                description: 'Harremanetarako Erabiltzaile honi dagozkion datuak .'
+                title: 'Harremanetarako xehetasunak'
+            status:
+                title: 'Status & Hobespenak'
+                description: 'Ezarri erabiltzaileak egoera eta lehentasunak .'
+            login:
+                title: 'Saioaren xehetasunak'
+                description: 'Erabiltzaile bakoitzak berezia e- mail eta erabiltzaile izen berezia izan behar dute .'
+        list: 'Bezeroaren zerrenda'
+        plural: Bezeroak
+        field:
+            language:
+                title: 'Lehenetsitako hizkuntza'
+            username:
+                placeholder: 'adibidez john_doe'
+                title: 'Erabiltzaile izena'
+            order_count:
+                title: '# Eskariak'
+            identity_document:
+                placeholder: 'adibidez 12345678A'
+                title: Identitatea
+            guest:
+                title: Bisitari
+            newsletter:
+                title: Buletina
+            phone:
+                title: telefono
+                placeholder: 'adibidez 555 55 55 55'
+        error:
+            password_change: 'Akatsa pasahitza aldatzeko'
+        saved: 'aldaketak gordeta'
+        single: Bezeroaren
+        edit: 'Editatu " % name % "'
+        info:
+            password_changed: 'Pasahitza ongi aldatu'
+        new: 'Sortu Bezeroaren berria'
+    category:
+        field:
+            metakeywords:
+                placeholder: 'adibidez Kategoria , awesome'
+            name:
+                title: 'Kategoria izen'
+                placeholder: 'adibidez Nire Awesome Kategoria'
+            slug:
+                title: Slug
+                placeholder: 'adibidez Nire / awesome / Kategoria'
+                customize: 'Pertsonalizatu slug'
+            root:
+                title: 'Erro Kategoria'
+            enabled:
+                title: Gaituta
+                options:
+                    inactive: Ez-aktiboak
+                    active: Aktiboak
+            parent:
+                title: Guraso
+            contains:
+                title: '% count% produktuak barruan'
+            metatitle:
+                placeholder: 'adibidez Nire Awesome Kategoria'
+            metadescription:
+                placeholder: 'adibidez Awesome Kategoria honek zehazki da, zer bilatzen Lookin dira .'
+        saved: 'Kategoria gordetako'
+        new: 'Kategoria berria'
+        section:
+            basic:
+                title: 'oinarrizko datuak'
+                description: 'Izen oso zehatz bat labur gisa eskaintzen duten ditzakezu Kategoria honetako produktuak aurkituko laguntzen baitu zure kontsumitzaileei .'
+            edit:
+                description:
+                    1: 'Egin klik kategoria bat editatzeko.'
+                    2: 'Irekitzen kategorietako eskatzeko edo besteen barruan habiara . ( 2 Maila max ) .'
+                    3: 'Egin klik zakarrontzi Kategoria bat ezabatzeko.'
+                title: 'Ordena & Edit'
+            visibility:
+                description: 'Ezarri kategoria honetan ikusgai edo ezkutuan bezala .'
+                title: ikusgarritasuna
+            categorization:
+                description: 'Ezarri zure kategorian root bezala bada , ez du inolako guraso izan edo nik besteen gurasoa izango da.'
+                title: Kategorizazioa
+        in_store: 'Dendan View'
+        edit: 'Editatu " % name % "'
+        list: 'Kategoria zerrenda'
+        plural: Kategoriak
+        single: Kategoria
+    profile:
+        single: ikusi
+        plural: profilak
+    currency:
+        field:
+            symbol: sinboloa
+            master: 'Master moneta'
+            name: izena
+            status: Gaituta
+            iso: ISO
+        saved:
+            enabled: 'Moneta hau gaitu da'
+            disabled: 'Currancy hau desgaitu da'
+            master: 'Moneta nagusia salbatu'
+        plural: Txanponak
+        error:
+            disable_master_currency: 'Ezin duzu desgaitzeko zure maisu moneta'
+            setting_disabled_master_currency: 'Ezin duzu moneta ezindu maisu gisa ezarri'
+        single: moneta
+        list: 'moneta zerrenda'
+    variant:
+        section:
+            pricing:
+                title: prezioei
+                description: 'Ezarritako prezioa zure aldaera , zergen edo bidalketa barne gabe . Era berean, eskaintza prezio ezar dezakezu.'
+            visibility:
+                description: 'Ezarri aldaera honek ikusgai edo ezkutuan bezala .'
+                title: ikusgarritasuna
+            attributes:
+                title: atributuak
+                description: 'Ezarri aldaera honen ezaugarri nagusia.'
+        plural: aldaera
+        field:
+            name:
+                title: 'Aldaera name'
+            stock:
+                title: Badago
+            enabled:
+                options:
+                    inactive: Ez-aktiboak
+                    active: Aktiboak
+                title: Egoera
+            options:
+                title: 'Aukeratu atributu bat edo gehiago :'
+            reduced_price:
+                title: 'Prezio txiki'
+            price:
+                title: Prezioa
+        edit: 'Editatu aldaera " % name % "'
+        saved: 'Aldaera salbatu'
+        new: 'Aldaera berria'
+        list: 'Aldaera zerrenda'
+        single: Aldaera
+    recover_user:
+        action:
+            email_sent:
+                title: 'e-posta bidali'
+                description: 'Mesedez , egiaztatu zure e-posta eta agindua pasahitza berreskuratzeko argibideak.'
+        field:
+            password:
+                placeholder: 'Pasahitza berria'
+            email:
+                placeholder: 'Sartu zure posta'
+            repeat_password:
+                placeholder: 'Errepikatu pasahitza'
+        title: 'Pasahitza berria'
+    shipping_range:
+        section:
+            basic:
+                title: 'oinarrizko datuak'
+                description: 'Bidalketa sorta baten izena ematen eta zer zona eskuragarri izango da.'
+            pricing:
+                description: 'Ezarri bidalketa sorta honen prezioa eta definitzeko nik oinarritutako ordena prezioa edo ordena pisua kalkulatu nahi izanez gero.'
+                title: prezioei
+            visibility:
+                description: 'Ezarri bidalketa sorta hau gaituta edo desgaituta bezala .'
+                title: ikusgarritasuna
+        field:
+            type:
+                title: 'Prezioak kalkulatuko da ...'
+                options:
+                    price: 'Oinarritutako ordena prezioan'
+                    weight: 'Oinarritutako ordena pisua'
+            fromPrice:
+                title: prezioa
+            price:
+                title: Prezioa
+            name:
+                placeholder: 'adibidez 3-5 egun libratzeko'
+                title: 'Bidalketa sorta name'
+            to_zone:
+                title: Zonak
+            fromWeight:
+                title: 'pisu aurrera'
+            toPrice:
+                title: prezioa
+            value:
+                price_format: '% Izatetik% izatetik% % to'
+                weight_format: '% G % to % g -tik % aurrera'
+                title: balio
+            toWeight:
+                title: pisua
+        list: 'Bidalketa barrutia zerrenda'
+        new: 'Sortu berria barrutia'
+        plural: 'Bidalketa areak'
+        saved: 'aldaketak gordeta'
+        single: 'Bidalketa sorta'
+        edit: 'Editatu barrutia " % name % "'
+    admin_user:
+        error:
+            cant_remove_yourself: 'Ezin duzu zure kontura ezabatu'
+            cant_disable_yourself: 'Ezin duzu zure kontura ezgaitu'
+        new: 'Sortu Erabiltzaileen berria'
+        edit: 'Editatu " % name % "'
+        section:
+            contact:
+                title: 'Harremanetarako xehetasunak'
+                description: 'Harremanetan ipini honi dagozkion datuak .'
+            login:
+                title: 'Saioaren xehetasunak'
+                description: 'Erabiltzaile bakoitzak e- mail berezia izan behar dute .'
+            status:
+                title: 'Erabiltzaile status'
+                description: 'Administratzaileak aktibo edo ez aktibo gisa ezar dezakezu .'
+        list: 'Administrator zerrenda'
+        single: Administrator
+        plural: Administrarien
+        saved: 'aldaketak gordeta'
+    mailing:
+        field:
+            content:
+                title: Edukia
+                placeholder: 'adibidez Awesome posta Hau da, hain zuzen , zer bilatzen Lookin dira .'
+            title:
+                title: Izenburua
+                placeholder: 'adibidez Nire Awesome Mailing'
+        single: posta
+        edit: 'Editatu " % title % "'
+        section:
+            basic:
+                title: 'oinarrizko eduki'
+                description: 'Izenburu zure posta eta edukia emateko eskaintzea .'
+        saved: 'posta salbatu'
+        list: 'posta zerrenda'
+        new: 'Sortu posta berria'
+        plural: korreo
+    language:
+        saved:
+            master: 'Hizkuntza nagusia salbatu'
+            disabled: 'Hizkuntza hau desgaitu da'
+            enabled: 'Hizkuntza hau gaitu da'
+        plural: Hizkuntzak
+        single: hizkuntza
+        field:
+            iso: ISO
+            master: 'Master hizkuntza'
+            status: Gaituta
+        error:
+            setting_disabled_master_language: 'Ezin duzu hizkuntza ezindu maisu gisa ezarri'
+            disable_master_language: 'Ezin duzu zure master hizkuntza ezgaitu'
+        list: 'hizkuntza zerrenda'
+    store:
+        section:
+            status:
+                title: Egoera
+                description: 'Kontrolak denda ireki edo itxi bada .'
+            advanced:
+                description: 'Zure denda ezarpen aurreratuak .'
+                title: aurreratua
+            stock:
+                description: 'Aukera hau aktibatzen baduzu aukera izango duzu konfigurazioa salda zure produktuak .'
+                title: Badago
+        field:
+            routingStrategy:
+                prefix: 'URL guztiek dute hizkuntza aurrizki bat'
+                title: 'Multilenguaje URLak formatuan'
+                prefix_except_default: 'URL guztiek dute hizkuntza aurrizki bat berezko hizkuntza izan ezik'
+                custom: 'Ez prefix hizkuntzetan , bakarrik itzulitako URL bila'
+            enabled:
+                title: 'Denda Gaituta'
+            useStock:
+                title: 'Aktibatu stock Control'
+        settings: Ezarpenak
+        saved: 'Ezarpenak gordeta.'
+    image:
+        info:
+            format: 'Formatu JPG , PNG edo GIF . Max 20MB .'
+            principal: 'Lehen irudia irudi nagusiena izango da.'
+            upload_single: 'Igo irudia'
+            upload_logo: 'Ez, eskerrik logotipoa'
+            upload: 'Igo irudiak'
+            reorder: 'Arrastatu eta askatu irudiak ordena daitezke .'
+            deleted: 'Irudi ezabatu du'
+        plural: Irudiak
+        single: image
+    plugin:
+        plural: apps
+        section:
+            settings: Ezarpenak
+        field:
+            visibility: 'Gaitu :'
+        app_store: 'App store'
+        single: aplikazioa
+        saved: 'Plugin status salbatu'
+    media:
+        single: Media
+        list: 'Media zerrenda'
+        plural: Media
+    attribute:
+        section:
+            visibility:
+                title: ikusgarritasuna
+                description: 'Ezarri atributu hau ikusgai edo ezkutuan bezala .'
+            basic:
+                description: 'Atributuaren izena eta balioak ( komaz banatuta) zehaztu.'
+                title: 'oinarrizko datuak'
+        field:
+            name:
+                placeholder: 'adibidez kolorea'
+                values: Baloreak
+                title: izena
+            enabled:
+                title: Egoera
+        single: Atributua
+        edit: 'Editatu " % name % "'
+        saved: 'Atributua salbatu'
+        list: 'Atributua zerrenda'
+        plural: atributuak
+        new: 'atributu berria'
+    categorization:
+        single: Kategorizazioa
+        plural: categorizations
+    blog:
+        single: Blog
+        plural: blogak
+    catalog:
+        plural: Katalogoak
+        single: Katalogoa
+    remember_user:
+        title: 'Zure pasahitza ahaztu duzu?'
+        description: 'Ez kezkatu , bidaliko dizugu posta elektroniko bat zure pasahitza berrezartzeko.'
+    template:
+        single: Gaia
+        plural: Gaiak
+        label:
+            status: 'Gaitu :'
+        action:
+            preview: Aurreikusi
+    menu:
+        design: 'Pertsonalizatu denda'
+    communication:
+        single: Komunikazioa
+        plural: Komunikazioak
+    UI:
+        show_code: 'Erakutsi HTML kodea'
+        show_visual: 'Ezkutatu HTML kodea'
+    name: admin
+    shipping_payment:
+        plural: 'Ordainketak eta Shipping'
+        single: 'Ordainketa eta Shipping'
+ui:
+    address:
+        address: helbidea
+        full_name: 'Izen osoa'
+        city: Herriaren
+        zipcode: 'Posta Kodea'
+        phone: telefono
+        comment: Iruzkina
+    forms:
+        cancel: Utzi
+        save: Save
+        delete: ezabatu
+    confirm:
+        delete: 'Ziur zaude ezabatu nahi duzula ?'
+    date:
+        today_at: '% % Une Gaur'
+        yesterday_at: '% % Une atzo'
+    language:
+        master_language: 'Master Hizkuntza (Nahitaezkoa )'
+    delete:
+        success: 'behar bezala ezabatu da'
+    list:
+        create_first: 'Sortu nire lehen % % elementua .'
+        no_items: 'Ez dago % elementuak % .'
+    paginator:
+        elements: 'Azken% % lehen % erakutsiz % to % total% sarrerak from.'
+    tags:
+        placeholder:
+            comma_separated: 'Gehitu komaz bereizita etiketa .'
+    label:
+        enabled: Gaituta
+        disabled: Ezinduen
+    editor:
+        help: 'Aukeratu formatuan aukera batzuk lortzeko testu batzuk'
+plugin:
+    paymill:
+        register:
+            call_to_action: 'Sortu Paymill kontu bat orain !'
+            title: 'Ez Paymill kontu bat behar duzu?'
+        settings:
+            private_key: 'Paymill ordainketa gako pribatua'
+            public_key: 'Paymill ordainketa gako publiko'
+        title: 'Paymill kontuaren konfigurazioa'
+    paypal:
+        settings:
+            recipient_email: 'Ordainketa Paypal hartzaile email'
+        register:
+            call_to_action: 'PayPal kontu bat sortu'
+            title: 'Ez PayPal kontu bat behar duzu?'
+        title: 'Paypal kontuaren konfigurazioa'
+plugin_type:
+    social: Gizarte
+    shipping: 'Bidalketa metodoak'
+    payment: 'Ordainketa metodoak'
+    app: apps

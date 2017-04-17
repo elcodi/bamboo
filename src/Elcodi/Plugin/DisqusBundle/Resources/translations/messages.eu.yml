@@ -1,0 +1,12 @@
+elcodi_plugin:
+    disqus:
+        name: Disqus
+        description: 'Disqus zure denda integrazioa'
+        field:
+            disqus_enabled_product:
+                label: 'Gaitu Jaurlaritza Produktu orrietan'
+            disqus_identifier:
+                label: Identifikatzaile
+                placeholder: 'adibidez 123456789'
+            disqus_enabled_blog_post:
+                label: 'Gaitu Jaurlaritza blog mezu'
